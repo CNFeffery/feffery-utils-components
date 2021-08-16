@@ -1,4 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 export(''FefferyCaptcha)
+export(''FefferyNprogress)
+export(FefferyContextMenu)
 export(FefferyUtilsComponents)

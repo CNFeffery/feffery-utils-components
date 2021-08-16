@@ -1,6 +1,6 @@
 {
   "name": "feffery_utils_components",
-  "version": "0.0.1a1",
+  "version": "0.0.2",
   "description": "Utility augments components of Dash!",
   "repository": {
     "type": "git",
@@ -24,8 +24,10 @@
   "author": "CNFeffery <fefferypzy@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@tanem/react-nprogress": "^3.0.77",
     "ramda": "^0.26.1",
-    "react-captcha-code": "^1.0.7"
+    "react-captcha-code": "^1.0.7",
+    "react-contexify": "^5.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",

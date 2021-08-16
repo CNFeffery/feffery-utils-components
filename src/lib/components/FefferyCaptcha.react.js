@@ -10,12 +10,15 @@ const FefferyCaptcha = (props) => {
         className,
         style,
         charNum,
+        height,
+        width,
+        bgColor,
+        fontSize,
         setProps
     } = props;
 
     // 返回定制化的前端部件
     const handleChange = useCallback((captcha) => {
-        console.log('captcha:', captcha);
         setProps({ captcha: captcha })
     }, []);
 
@@ -27,6 +30,10 @@ const FefferyCaptcha = (props) => {
             style={style}
             ref={captchaRef}
             charNum={charNum}
+            height={height}
+            width={width}
+            bgColor={bgColor}
+            fontSize={fontSize}
             onChange={handleChange} />
     );
 }
@@ -42,11 +49,23 @@ FefferyCaptcha.propTypes = {
     // 自定义css字典
     style: PropTypes.object,
 
-    // 对应当前的验证码原文
+    // 对应当前的验证码字符串
     captcha: PropTypes.string,
 
     // 设置验证码字符数量
     charNum: PropTypes.number,
+
+    // 设置验证码的像素高度，默认为40
+    height: PropTypes.number,
+
+    // 设置验证码的像素宽度，默认为100
+    width: PropTypes.number,
+
+    // 设置验证码图片背景色，默认为'#DFF0D8'
+    bgColor: PropTypes.string,
+
+    // 设置验证码字体像素大小，默认为25
+    fontSize: PropTypes.number,
 
     loading_state: PropTypes.shape({
         /**
