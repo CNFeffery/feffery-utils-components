@@ -3,5 +3,3 @@
 export(''FefferyCaptcha)
 export(''FefferyNprogress)
 export(''FefferyWaterMark)
-export(FefferyContextMenu)
-export(FefferyUtilsComponents)
