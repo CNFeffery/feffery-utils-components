@@ -30,7 +30,8 @@
     "less-loader": "^5.0.0",
     "ramda": "^0.26.1",
     "react-captcha-code": "^1.0.7",
-    "react-contexify": "^5.0.0"
+    "react-contexify": "^5.0.0",
+    "react-syntax-highlighter": "^15.4.4"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",

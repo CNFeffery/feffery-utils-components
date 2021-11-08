@@ -1,9 +1,9 @@
 from .FefferyCaptcha import FefferyCaptcha
-from .FefferyNprogress import FefferyNprogress
+from .FefferySyntaxHighlighter import FefferySyntaxHighlighter
 from .FefferyWaterMark import FefferyWaterMark
 
 __all__ = [
     "FefferyCaptcha",
-    "FefferyNprogress",
+    "FefferySyntaxHighlighter",
     "FefferyWaterMark"
 ]

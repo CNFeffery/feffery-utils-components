@@ -1,10 +1,10 @@
 /* eslint-disable import/prefer-default-export */
 import FefferyCaptcha from "./components/FefferyCaptcha.react";
-import FefferyNprogress from "./components/FefferyNprogress.react";
 import FefferyWaterMark from "./components/FefferyWaterMark.react";
+import FefferySyntaxHighlighter from "./components/FefferySyntaxHighlighter.react";
 
 export {
     FefferyCaptcha,
-    FefferyNprogress,
-    FefferyWaterMark
+    FefferyWaterMark,
+    FefferySyntaxHighlighter
 };

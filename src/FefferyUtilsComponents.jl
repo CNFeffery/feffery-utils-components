@@ -6,7 +6,7 @@ const resources_path = realpath(joinpath( @__DIR__, "..", "deps"))
 const version = "0.0.3"
 
 include("jl/''_fefferycaptcha.jl")
-include("jl/''_fefferynprogress.jl")
+include("jl/''_fefferysyntaxhighlighter.jl")
 include("jl/''_fefferywatermark.jl")
 
 function __init__()
