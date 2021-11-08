@@ -1,6 +1,6 @@
 Package: fefferyUtilsComponents
 Title: Utility augments components of Dash!
-Version: 0.0.3
+Version: 0.0.4
 Description: Utility augments components of Dash!
 Depends: R (>= 3.0.2)
 Imports: 
