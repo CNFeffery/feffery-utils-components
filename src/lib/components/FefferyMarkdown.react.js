@@ -24,7 +24,7 @@ const FefferyMarkdown = (props) => {
     } = props;
 
     return (
-        <div className='markdown-body'>
+        <div className='markdown-body' style={{ marginBottom: '10px' }}>
             <ReactMarkdown id={id}
                 skipHtml={skipHtml}
                 linkTarget={linkTarget}
