@@ -6,6 +6,7 @@ const resources_path = realpath(joinpath( @__DIR__, "..", "deps"))
 const version = "0.0.4"
 
 include("jl/''_fefferycaptcha.jl")
+include("jl/''_fefferymarkdown.jl")
 include("jl/''_fefferysyntaxhighlighter.jl")
 include("jl/''_fefferywatermark.jl")
 

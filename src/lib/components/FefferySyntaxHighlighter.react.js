@@ -19,6 +19,8 @@ import {
     twilight
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
+import './styles.css'
+
 // 定义代码语法高亮组件FefferySyntaxHighlighter，api参数参考https://github.com/react-syntax-highlighter/react-syntax-highlighter
 const FefferySyntaxHighlighter = (props) => {
     // 取得必要属性或参数

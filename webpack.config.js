@@ -59,6 +59,10 @@ module.exports = (env, argv) => {
         module: {
             rules: [
                 {
+                    test: /\.(woff2|woff|ttf|svg|eot)$/,//fonts目录下四个文件后缀名
+                    use: ["url-loader"],
+                },
+                {
                     test: /\.jsx?$/,
                     exclude: /node_modules/,
                     use: {
@@ -84,7 +88,7 @@ module.exports = (env, argv) => {
                             }
                         },
                     ],
-                },
+                }
             ],
         },
         optimization: {
