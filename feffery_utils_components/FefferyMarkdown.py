@@ -11,6 +11,8 @@ Keyword arguments:
 
 - id (string; optional)
 
+- codeStyle (string; default 'coy-without-shadows')
+
 - linkTarget (string; default '_blank')
 
 - loading_state (dict; optional)
@@ -30,12 +32,12 @@ Keyword arguments:
 
 - skipHtml (boolean; optional)"""
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, markdownStr=Component.UNDEFINED, skipHtml=Component.UNDEFINED, linkTarget=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'linkTarget', 'loading_state', 'markdownStr', 'skipHtml']
+    def __init__(self, id=Component.UNDEFINED, markdownStr=Component.UNDEFINED, codeStyle=Component.UNDEFINED, skipHtml=Component.UNDEFINED, linkTarget=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'codeStyle', 'linkTarget', 'loading_state', 'markdownStr', 'skipHtml']
         self._type = 'FefferyMarkdown'
         self._namespace = 'feffery_utils_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'linkTarget', 'loading_state', 'markdownStr', 'skipHtml']
+        self.available_properties = ['id', 'codeStyle', 'linkTarget', 'loading_state', 'markdownStr', 'skipHtml']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
