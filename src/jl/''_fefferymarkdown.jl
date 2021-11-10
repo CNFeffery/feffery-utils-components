@@ -17,10 +17,10 @@ Those elements have the following types:
   - `prop_name` (String; optional): Holds which property is loading
   - `component_name` (String; optional): Holds the name of the component that is loading
 - `markdownStr` (String; optional)
-- `skipHtml` (Bool; optional)
+- `renderHtml` (Bool; optional)
 """
 function ''_fefferymarkdown(; kwargs...)
-        available_props = Symbol[:id, :codeStyle, :linkTarget, :loading_state, :markdownStr, :skipHtml]
+        available_props = Symbol[:id, :codeStyle, :linkTarget, :loading_state, :markdownStr, :renderHtml]
         wild_props = Symbol[]
         return Component("''_fefferymarkdown", "FefferyMarkdown", "feffery_utils_components", available_props, wild_props; kwargs...)
 end

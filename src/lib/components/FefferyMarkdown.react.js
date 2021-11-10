@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
+import rehypeRaw from 'rehype-raw'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { AiOutlineCheck, AiOutlineCopy } from "react-icons/ai";
 import {
     a11yDark,
     atomDark,
@@ -33,7 +36,7 @@ const FefferyMarkdown = (props) => {
         id,
         markdownStr,
         codeStyle,
-        skipHtml,
+        renderHtml,
         linkTarget,
         setProps
     } = props;
@@ -57,22 +60,48 @@ const FefferyMarkdown = (props) => {
     return (
         <div className='markdown-body' style={{ marginBottom: '10px' }}>
             <ReactMarkdown id={id}
-                skipHtml={skipHtml}
                 linkTarget={linkTarget}
                 remarkPlugins={[remarkGfm, remarkMath]}
-                rehypePlugins={[rehypeKatex]}
+                rehypePlugins={renderHtml ? [rehypeRaw, rehypeKatex] : [rehypeKatex]}
                 components={{
                     code: ({ node, inline, className, children, ...props }) => {
+                        const [isCopied, setIsCopied] = useState(false);
                         const match = /language-(\w+)/.exec(className || '')
                         return !inline && match ? (
-                            <SyntaxHighlighter
-                                children={String(children).replace(/\n$/, '')}
-                                style={str2style.get(codeStyle)}
-                                showLineNumbers={true}
-                                language={match[1]}
-                                PreTag="div"
-                                {...props}
-                            />
+                            <div style={{ position: 'relative' }}>
+                                <CopyToClipboard
+                                    onCopy={() => {
+                                        setIsCopied(true);
+                                        setTimeout(() => setIsCopied(false), 1500);
+                                    }}
+                                    style={
+                                        {
+                                            position: 'absolute',
+                                            right: '5px',
+                                            top: '5px',
+                                            padding: '6px',
+                                            margin: 0,
+                                            background: 'transparent',
+                                            border: 'none transparent',
+                                            cursor: 'pointer',
+                                            zIndex: 999
+                                        }
+                                    }
+                                    text={String(children).replace(/\n$/, '')}
+                                >
+                                    <button type="button" aria-label="Copy to Clipboard Button">
+                                        {isCopied ? <AiOutlineCheck style={{ color: 'rgb(91, 199, 38)', fontSize: '18px' }} />
+                                            : <AiOutlineCopy style={{ color: 'rgb(24, 144, 255)', fontSize: '18px' }} />}
+                                    </button>
+                                </CopyToClipboard>
+                                <SyntaxHighlighter
+                                    children={String(children).replace(/\n$/, '')}
+                                    style={str2style.get(codeStyle)}
+                                    showLineNumbers={true}
+                                    language={match[1]}
+                                    PreTag="div"
+                                    {...props} />
+                            </div>
                         ) : (
                             <code className={className} {...props}>
                                 {children}
@@ -97,8 +126,8 @@ FefferyMarkdown.propTypes = {
     // 设置代码风格，默认为'coy-without-shadows'
     codeStyle: PropTypes.string,
 
-    // 设置是否忽略markdown中html源码的渲染，默认为false
-    skipHtml: PropTypes.bool,
+    // 设置是否渲染markdown中的html源码，默认为false
+    renderHtml: PropTypes.bool,
 
     // 设置markdown中链接的跳转方式，默认为'_blank'
     linkTarget: PropTypes.string,

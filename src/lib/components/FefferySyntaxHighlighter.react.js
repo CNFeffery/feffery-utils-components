@@ -57,7 +57,7 @@ const FefferySyntaxHighlighter = (props) => {
             <CopyToClipboard
                 onCopy={() => {
                     setIsCopied(true);
-                    setTimeout(() => setIsCopied(false), 3000);
+                    setTimeout(() => setIsCopied(false), 1500);
                 }}
                 style={
                     {
