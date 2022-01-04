@@ -1,7 +1,7 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 export(''FefferyCaptcha)
-export(''FefferyMarkdown)
+export(''FefferyPasteImage)
 export(''FefferySyntaxHighlighter)
 export(''FefferyWaterMark)
-export(FefferyFefferySyntaxHighlighter)
+export(FefferyMarkdown)

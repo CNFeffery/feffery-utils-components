@@ -1,6 +1,6 @@
 {
   "name": "feffery_utils_components",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Utility augments components of Dash!",
   "repository": {
     "type": "git",
@@ -25,9 +25,8 @@
   "license": "MIT",
   "dependencies": {
     "@ant-design/pro-layout": "^6.24.0",
-    "@tanem/react-nprogress": "^3.0.77",
+    "@charliewilco/gluejar": "^1.0.0",
     "github-markdown-css": "^5.0.0",
-    "katex": "^0.15.1",
     "less": "^3.13.1",
     "less-loader": "^5.0.0",
     "ramda": "^0.26.1",
@@ -35,13 +34,7 @@
     "react-contexify": "^5.0.0",
     "react-copy-to-clipboard": "^5.0.4",
     "react-icons": "^4.3.1",
-    "react-markdown": "^7.1.0",
-    "react-syntax-highlighter": "^15.4.4",
-    "rehype-highlight": "^5.0.0",
-    "rehype-katex": "^6.0.1",
-    "rehype-raw": "^6.1.0",
-    "remark-gfm": "^3.0.1",
-    "remark-math": "^5.1.0"
+    "react-syntax-highlighter": "^15.4.4"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
