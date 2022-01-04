@@ -64,7 +64,7 @@ const FefferySyntaxHighlighter = (props) => {
                         position: 'absolute',
                         right: '2px',
                         top: '2px',
-                        padding: '6px',
+                        padding: 0,
                         margin: 0,
                         background: 'transparent',
                         border: 'none transparent',
