@@ -15,3 +15,7 @@
 package-lock.json
 
 /.vscode
+
+/.Rbuildignore
+
+/.babelrc
