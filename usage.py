@@ -1,19 +1,23 @@
 import feffery_utils_components as fuc
 import dash
 from dash.dependencies import Input, Output
-import dash_html_components as html
+from dash import html
 
 app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
         fuc.FefferyPasteImage(
+            id='test',
             style={
                 'height': '500px',
                 'width': '800px',
                 'marginBottom': '100px'
             }
         ),
+        html.Div(id='test-output'),
+
+
         fuc.FefferyCaptcha(id='captcha-demo',
                            charNum=10,
                            width=300,
@@ -80,6 +84,21 @@ def test(captcha):
     time.sleep(3)
 
     return captcha
+
+
+@app.callback(
+    Output('test-output', 'children'),
+    Input('test', 'currentPastedImages')
+)
+def test_(currentPastedImages):
+
+    if currentPastedImages:
+        return [
+            html.Img(
+                src=currentPastedImage
+            )
+            for currentPastedImage in currentPastedImages
+        ]
 
 
 if __name__ == '__main__':

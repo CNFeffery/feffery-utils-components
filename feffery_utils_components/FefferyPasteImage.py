@@ -13,11 +13,15 @@ Keyword arguments:
     The content of the tab - will only be displayed if this tab is
     selected.
 
-- id (string; optional)
+- id (string; required)
 
 - className (string; default 'feffery-paste-image-container')
 
-- currentPastedImages (list of strings; optional)
+- currentPastedImages (list of boolean | number | string | dict | lists; optional)
+
+- deletedIdx (list of numbers; optional)
+
+- imageHeight (number; default 200)
 
 - loading_state (dict; optional)
 
@@ -34,18 +38,18 @@ Keyword arguments:
 
 - style (dict; optional)"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, currentPastedImages=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'currentPastedImages', 'loading_state', 'style']
+    def __init__(self, children=None, id=Component.REQUIRED, className=Component.UNDEFINED, style=Component.UNDEFINED, currentPastedImages=Component.UNDEFINED, deletedIdx=Component.UNDEFINED, imageHeight=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'className', 'currentPastedImages', 'deletedIdx', 'imageHeight', 'loading_state', 'style']
         self._type = 'FefferyPasteImage'
         self._namespace = 'feffery_utils_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'currentPastedImages', 'loading_state', 'style']
+        self.available_properties = ['children', 'id', 'className', 'currentPastedImages', 'deletedIdx', 'imageHeight', 'loading_state', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
         _locals.update(kwargs)  # For wildcard attrs
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
-        for k in []:
+        for k in ['id']:
             if k not in args:
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')

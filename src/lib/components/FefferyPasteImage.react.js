@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Card, Button } from 'antd';
 import { Gluejar } from '@charliewilco/gluejar'
@@ -6,7 +6,7 @@ import { DeleteOutlined } from '@ant-design/icons';
 import './styles.css'
 import 'antd/dist/antd.css';
 
-function urlToBase64(url) {
+const urlToBase64 = (url) => {
     return new Promise((resolve, reject) => {
         let image = new Image();
         image.onload = function () {
@@ -30,71 +30,89 @@ function urlToBase64(url) {
     )
 }
 
-
 // 定义图片粘贴组件FefferyPasteImage，api参数参考https://github.com/charliewilco/react-gluejar
-export default class FefferyPasteImage extends Component {
-    render() {
-        // 取得必要属性或参数
-        let {
-            id,
-            className,
-            style,
-            currentPastedImages,
-            setProps
-        } = this.props;
+const FefferyPasteImage = (props) => {
+    // 取得必要属性或参数
+    let {
+        id,
+        className,
+        style,
+        currentPastedImages,
+        deletedIdx,
+        imageHeight,
+        setProps
+    } = props;
 
-        console.log({ currentPastedImages })
+    const handlePaste = useCallback(async (files) => {
+        let results = []
+        for (let i = 0; i < files.images.length; i++) {
+            if (deletedIdx.indexOf(i) === -1) {
+                let result = await urlToBase64(files.images[i])
+                results.push(result)
+            }
+        }
+        setProps({
+            currentPastedImages: results
+        })
+    }, []);
 
-        return (
-            <div id={id}
-                className={className}
-                style={style}>
-                <Gluejar
-                    key={1}
-                    onPaste={
-                        (files) => {
-                            console.log({ files })
-                        }
-                    }
-                    onError={err => console.error(err)}>
-                    {({ images }) => {
-                        if (images.length > 0) {
-                            setProps({
-                                currentPastedImages: images
-                            })
+    const handleDelete = useCallback((idx) => {
+        if (!deletedIdx) {
+            deletedIdx = [idx]
+        } else if (deletedIdx.indexOf(idx) === -1) {
+            deletedIdx.push(idx)
+        }
+        setProps({
+            currentPastedImages: currentPastedImages.filter((value, idx) => deletedIdx.indexOf(idx) === -1),
+            deletedIdx: deletedIdx
+        })
+    }, []);
 
-                            return (
-                                <Card style={{ height: '100%' }}>
-                                    {
-                                        images.map((image, idx) => {
-                                            return (
-                                                <Card.Grid
-                                                    style={{ width: '25%', paddnig: 0, cursor: 'pointer' }}
-                                                >
-                                                    <Button shape="circle" icon={<DeleteOutlined />}
-                                                        style={{ float: 'right', 'marginBottom': 5 }} />
-                                                    <img src={image} key={image} alt={`Pasted: ${image}`} style={{ width: '100%', borderTop: '1px solid #f0f0f0' }} />
-                                                </Card.Grid>
-                                            );
-                                        }
-                                        )
+    return (
+        <div id={id}
+            className={className}
+            style={style}>
+            <Gluejar
+                key={1}
+                onPaste={handlePaste}
+                container={document.getElementById(id)}
+                onError={err => console.error(err)}>
+                {({ images }) => {
+                    if (images.length > 0) {
+                        console.log('渲染！')
+                        return (
+                            <Card style={{ height: '100%', border: 'none' }}>
+                                {
+                                    images.map((image, idx) => {
+                                        return deletedIdx.indexOf(idx) === -1 ? (
+                                            <Card.Grid
+                                                style={{ width: '25%', height: imageHeight, padding: 5, cursor: 'pointer', position: 'relative' }}
+                                            >
+                                                <Button shape="circle" size={"small"} icon={<DeleteOutlined />}
+                                                    style={{ position: 'absolute', 'right': 10, top: 10 }}
+                                                    onClick={() => handleDelete(idx)} />
+                                                <img src={image} key={image} alt={`Pasted: ${image}`}
+                                                    style={{ borderTop: '1px solid #f0f0f0', height: '100%', width: '100%', objectFit: 'contain' }} />
+                                            </Card.Grid>
+                                        ) : null
                                     }
-                                </Card>
-                            );
-                        }
-                        return null;
+                                    )
+                                }
+                            </Card>
+                        );
                     }
-                    }
-                </Gluejar>
-            </div >
-        );
-    }
+                    return null;
+                }
+                }
+            </Gluejar>
+        </div >
+    );
 }
 
 // 定义参数或属性
 FefferyPasteImage.propTypes = {
     // 部件id
-    id: PropTypes.string,
+    id: PropTypes.string.isRequired,
 
     /**
      * The content of the tab - will only be displayed if this tab is selected
@@ -108,7 +126,13 @@ FefferyPasteImage.propTypes = {
     style: PropTypes.object,
 
     // 存储当前保存的所有图片的base64字符串
-    currentPastedImages: PropTypes.arrayOf(PropTypes.string),
+    currentPastedImages: PropTypes.arrayOf(PropTypes.any),
+
+    // 记录生命周期内第几次接受新图片粘贴，进而辅助删除图片操作
+    deletedIdx: PropTypes.arrayOf(PropTypes.number),
+
+    // 设置每张图片块的像素高度，默认为200
+    imageHeight: PropTypes.number,
 
     loading_state: PropTypes.shape({
         /**
@@ -135,5 +159,10 @@ FefferyPasteImage.propTypes = {
 // 设置默认参数
 FefferyPasteImage.defaultProps = {
     className: 'feffery-paste-image-container',
-    currentPastedImages: []
+    imageHeight: 200,
+    currentPastedImages: [],
+    deletedIdx: []
 }
+
+
+export default FefferyPasteImage;
