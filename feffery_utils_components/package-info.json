@@ -64,6 +64,15 @@
     "webpack-cli": "3.3.6",
     "webpack-serve": "3.1.0"
   },
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-react-jsx"
+    ]
+  },
   "engines": {
     "node": ">=8.11.0",
     "npm": ">=6.1.0"
