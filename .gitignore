@@ -1,21 +1,31 @@
 /node_modules
 
+/.idea
+
+/build
+
 /deps
 
-/.build_cache
+/dist
+
+/feffery_utils_components.egg-info
 
 /inst
 
 /man
 
+/.git
+
+/_*
+
 /R
-
-/tests
-
-package-lock.json
 
 /.vscode
 
-/.Rbuildignore
+__pycache__
 
-/.babelrc
+index.html
+
+feffery_utils_components.min.js.map
+
+package-lock.json
