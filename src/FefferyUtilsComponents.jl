@@ -8,6 +8,7 @@ const version = "0.0.5"
 include("jl/''_fefferycaptcha.jl")
 include("jl/''_fefferypasteimage.jl")
 include("jl/''_fefferysyntaxhighlighter.jl")
+include("jl/''_fefferytopprogress.jl")
 include("jl/''_fefferywatermark.jl")
 
 function __init__()

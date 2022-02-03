@@ -6,36 +6,37 @@ from dash import html
 app = dash.Dash(__name__)
 
 app.layout = html.Div(
-    [
-        fuc.FefferyPasteImage(
-            id='test',
-            style={
-                'height': '500px',
-                'width': '800px',
-                'marginBottom': '100px'
-            }
-        ),
-        html.Div(id='test-output'),
+    fuc.FefferyTopProgress(
+        [
+            fuc.FefferyPasteImage(
+                id='test',
+                style={
+                    'height': '500px',
+                    'width': '800px',
+                    'marginBottom': '100px'
+                }
+            ),
+            html.Div(id='test-output'),
 
 
-        fuc.FefferyCaptcha(id='captcha-demo',
-                           charNum=10,
-                           width=300,
-                           height=100,
-                           fontSize=60),
-        html.Div(
-            html.Em(id='output-demo')
-        ),
+            fuc.FefferyCaptcha(id='captcha-demo',
+                               charNum=10,
+                               width=300,
+                               height=100,
+                               fontSize=60),
+            html.Div(
+                html.Em(id='output-demo')
+            ),
 
-        fuc.FefferyWaterMark(
-            content='fuc FefferyWaterMark',
-            fontSize=26
-        ),
+            fuc.FefferyWaterMark(
+                content='fuc FefferyWaterMark',
+                fontSize=26
+            ),
 
-        fuc.FefferySyntaxHighlighter(
-            showLineNumbers=True,
-            showInlineLineNumbers=True,
-            codeString='''html.Div(
+            fuc.FefferySyntaxHighlighter(
+                showLineNumbers=True,
+                showInlineLineNumbers=True,
+                codeString='''html.Div(
     [
         fac.AntdBackTop(
             containerId='back-top-container-demo',
@@ -62,10 +63,15 @@ app.layout = html.Div(
     }
 )
 ''',
-            language='python',
-            codeStyle='coy-without-shadows'
-        )
-    ],
+                language='python',
+                codeStyle='coy-without-shadows'
+            )
+        ],
+        # listenPropsMode='exclude',
+        # excludeProps=['output-demo.children'],
+        debug=True,
+        showSpinner=False
+    ),
     style={
         'padding': '100px'
     }
@@ -74,14 +80,13 @@ app.layout = html.Div(
 
 @app.callback(
     Output('output-demo', 'children'),
-    Input('captcha-demo', 'captcha'),
-    prevent_initial_call=True
+    Input('captcha-demo', 'captcha')
 )
 def test(captcha):
 
     import time
 
-    time.sleep(3)
+    # time.sleep(3)
 
     return captcha
 

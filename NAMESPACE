@@ -3,4 +3,5 @@
 export(''FefferyCaptcha)
 export(''FefferyPasteImage)
 export(''FefferySyntaxHighlighter)
+export(''FefferyTopProgress)
 export(''FefferyWaterMark)
