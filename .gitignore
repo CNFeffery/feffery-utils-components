@@ -12,6 +12,8 @@
 
 /inst
 
+/.build_cache
+
 /man
 
 /.git
