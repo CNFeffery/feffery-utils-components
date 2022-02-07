@@ -1,13 +1,52 @@
 import feffery_utils_components as fuc
 import dash
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 from dash import html
 
 app = dash.Dash(__name__)
 
+
 app.layout = html.Div(
     fuc.FefferyTopProgress(
         [
+            fuc.FefferyShortcutPanel(
+                id='shortcut-panel-demo',
+                locale='cn',
+                placeholder='搜索热键功能...',
+                theme='dark',
+                data=[
+                    {
+                        'id': "主页",
+                        'title': "打开主页",
+                        'hotkey': "ctrl+h",
+                        'section': '分组1',
+                        'handler': '() => window.open("http://www.baidu.com")'
+                    },
+                    {
+                        'id': '主题',
+                        'title': '切换主题',
+                        'hotkey': 'ctrl+t',
+                        'section': '分组1'
+                    },
+                    {
+                        'id': '指令1',
+                        'title': '指令1',
+                        'children': ['指令1-2', '指令1-1'],
+                        'section': '分组2'
+                    },
+                    {
+                        'id': '指令1-1',
+                        'title': '指令1-1',
+                        'parent': '指令1'
+                    },
+                    {
+                        'id': '指令1-2',
+                        'title': '指令1-2',
+                        'parent': '指令1'
+                    }
+                ]
+            ),
+
             fuc.FefferyPasteImage(
                 id='test',
                 style={
@@ -105,6 +144,16 @@ def test_(currentPastedImages):
             for currentPastedImage in currentPastedImages
         ]
 
+
+@app.callback(
+    Output('shortcut-panel-demo', 'theme'),
+    Input('shortcut-panel-demo', 'triggeredHotkey'),
+    State('shortcut-panel-demo', 'theme')
+)
+def shotycut_panel_demo(triggeredHotkey, theme):
+    print(triggeredHotkey, theme)
+
+    return 'dark' if theme == 'light' else 'light'
 
 if __name__ == '__main__':
     app.run_server(debug=True)

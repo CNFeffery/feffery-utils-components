@@ -2,6 +2,8 @@
 
 export(''FefferyCaptcha)
 export(''FefferyPasteImage)
+export(''FefferyShortcutPanel)
 export(''FefferySyntaxHighlighter)
 export(''FefferyTopProgress)
 export(''FefferyWaterMark)
+export(FefferyKeyboardShortcut)
