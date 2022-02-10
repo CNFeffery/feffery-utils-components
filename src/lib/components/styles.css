@@ -51,3 +51,44 @@
 .ninja-examplekey.backspace {
     opacity: 0.7;
 }
+
+html {
+    overflow: auto !important;
+}
+
+.feffery-split-vertical {
+    border: 1px solid rgb(217, 217, 217);
+    transition: all .3s;
+}
+
+.feffery-split-vertical:hover {
+    border: 1px solid rgb(64, 169, 255);
+}
+
+.feffery-split-horizontal {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgb(217, 217, 217);
+    transition: all .3s;
+}
+
+.feffery-split-horizontal:hover {
+    border: 1px solid rgb(64, 169, 255);
+}
+
+.gutter {
+    background-color: #f5f5f5;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transition: all .3s;
+}
+
+.gutter.gutter-horizontal {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+    cursor: col-resize;
+}
+
+.gutter.gutter-vertical {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
+    cursor: row-resize;
+}

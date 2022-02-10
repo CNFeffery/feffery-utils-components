@@ -2,6 +2,7 @@ import feffery_utils_components as fuc
 import dash
 from dash.dependencies import Input, Output, State
 from dash import html
+import uuid
 
 app = dash.Dash(__name__)
 
@@ -9,9 +10,88 @@ app = dash.Dash(__name__)
 app.layout = html.Div(
     fuc.FefferyTopProgress(
         [
+            fuc.FefferySplit(
+                [
+                    fuc.FefferySplitPane(
+                        fuc.FefferySplit(
+                            [
+                                fuc.FefferySplitPane('a'),
+                                fuc.FefferySplitPane('b'),
+                                fuc.FefferySplitPane('c'),
+                            ],
+                            # defaultSizes=[20, 40, 40],
+                            minSize=20,
+                            gutterSize=4,
+                            # dragInterval=1,
+                            # direction='vertical',
+                            style={
+                                'height': '100%'
+                            }
+                        ),
+                        style={
+                            'height': '100%'
+                        }
+                    ),
+                    fuc.FefferySplitPane('b'),
+                    fuc.FefferySplitPane('c'),
+                ],
+                # defaultSizes=[20, 40, 40],
+                minSize=20,
+                gutterSize=4,
+                # dragInterval=1,
+                direction='vertical',
+                style={
+                    'height': '400px'
+                }
+            ),
+
+            fuc.FefferyGuide(
+                steps=[
+                    {
+                        'selector': '#step1',
+                        'title': '第1步',
+                        'content': '这是第1步balabalabalabala'
+                    },
+                    {
+                        'selector': '#step2',
+                        'placement': 'left-bottom',
+                        'title': '第2步',
+                        'content': '这是第2步balabalabalabala'
+                    },
+                    {
+                        'selector': '#step3',
+                        'title': '第3步',
+                        'content': '这是第3步balabalabalabala'
+                    },
+                    {
+                        'selector': '#test',
+                        'title': '第4步',
+                        'content': '这是第4步balabalabalabala'
+                    },
+                    {
+                        'selector': '#syntax-highlighter-demo',
+                        'title': '第5步',
+                        'content': '这是第5步balabalabalabala'
+                    }
+                ],
+                localKey=str(uuid.uuid4()),
+                # hotspot=True,
+                showPreviousBtn=True,
+                closable=True,
+                step=-1
+            ),
+
+            html.H2('节点1', id='step1', style={'marginBottom': '200px'}),
+
+            html.H2('节点2', id='step2', style={
+                'float': 'right', 'marginBottom': '200px'}),
+            html.Hr(),
+
+            html.H2('节点3', id='step3', style={'marginBottom': '200px'}),
+
             fuc.FefferyShortcutPanel(
                 id='shortcut-panel-demo',
-                locale='cn',
+                locale='zh',
                 placeholder='搜索热键功能...',
                 theme='dark',
                 data=[
@@ -57,7 +137,6 @@ app.layout = html.Div(
             ),
             html.Div(id='test-output'),
 
-
             fuc.FefferyCaptcha(id='captcha-demo',
                                charNum=10,
                                width=300,
@@ -73,6 +152,7 @@ app.layout = html.Div(
             ),
 
             fuc.FefferySyntaxHighlighter(
+                id='syntax-highlighter-demo',
                 showLineNumbers=True,
                 showInlineLineNumbers=True,
                 codeString='''html.Div(
@@ -154,6 +234,7 @@ def shotycut_panel_demo(triggeredHotkey, theme):
     print(triggeredHotkey, theme)
 
     return 'dark' if theme == 'light' else 'light'
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)

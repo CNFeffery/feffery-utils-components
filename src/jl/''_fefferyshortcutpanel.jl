@@ -9,7 +9,6 @@ A FefferyShortcutPanel component.
 
 Keyword arguments:
 - `id` (optional)
-- `className` (optional)
 - `data` (optional)
 - `disableHotkeys` (optional)
 - `loading_state` (optional)
@@ -23,7 +22,7 @@ to Dash, to make them available for callbacks.
 - `triggeredHotkey` (optional)
 """
 function ''_fefferyshortcutpanel(; kwargs...)
-        available_props = Symbol[:id, :className, :data, :disableHotkeys, :loading_state, :locale, :openHotkey, :placeholder, :style, :theme, :triggeredHotkey]
+        available_props = Symbol[:id, :data, :disableHotkeys, :loading_state, :locale, :openHotkey, :placeholder, :style, :theme, :triggeredHotkey]
         wild_props = Symbol[]
         return Component("''_fefferyshortcutpanel", "FefferyShortcutPanel", "feffery_utils_components", available_props, wild_props; kwargs...)
 end

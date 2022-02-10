@@ -5,6 +5,9 @@ import FefferySyntaxHighlighter from "./components/FefferySyntaxHighlighter.reac
 import FefferyPasteImage from "./components/FefferyPasteImage.react";
 import FefferyTopProgress from "./components/FefferyTopProgress.react"
 import FefferyShortcutPanel from "./components/FefferyShortcutPanel.react"
+import FefferyGuide from "./components/FefferyGuide.react"
+import FefferySplit from "./components/split/FefferySplit.react";
+import FefferySplitPane from "./components/split/FefferySplitPane.react"
 
 
 export {
@@ -13,5 +16,8 @@ export {
     FefferySyntaxHighlighter,
     FefferyPasteImage,
     FefferyTopProgress,
-    FefferyShortcutPanel
+    FefferyShortcutPanel,
+    FefferyGuide,
+    FefferySplit,
+    FefferySplitPane
 };

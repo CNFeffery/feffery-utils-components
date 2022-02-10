@@ -1,9 +1,12 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 export(''FefferyCaptcha)
+export(''FefferyGuide)
 export(''FefferyPasteImage)
 export(''FefferyShortcutPanel)
 export(''FefferySyntaxHighlighter)
 export(''FefferyTopProgress)
 export(''FefferyWaterMark)
+export(''FefferySplit)
+export(''FefferySplitPane)
 export(FefferyKeyboardShortcut)

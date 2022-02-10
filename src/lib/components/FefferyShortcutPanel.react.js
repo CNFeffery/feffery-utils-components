@@ -39,7 +39,7 @@ const footerHtmlEn = <div class="modal-footer" slot="footer">
 </div>
 
 
-const footerHtmlCn = <div className="modal-footer" slot="footer">
+const footerHtmlZh = <div className="modal-footer" slot="footer">
     <span className="help">
         <span className="ninja-examplekey esc">enter</span>
         选择
@@ -86,7 +86,6 @@ const FefferyShortcutPanel = (props) => {
         placeholder,
         disableHotkeys,
         openHotkey,
-        hotKeysJoinedView,
         theme,
         locale,
         setProps,
@@ -182,7 +181,7 @@ const FefferyShortcutPanel = (props) => {
             openHotkey={openHotkey}
             hotKeysJoinedView={true}
             hideBreadcrumbs={true} >
-            {locale === 'en' ? footerHtmlEn : footerHtmlCn}
+            {locale === 'en' ? footerHtmlEn : footerHtmlZh}
         </ ninja-keys>
     );
 }
@@ -192,14 +191,11 @@ FefferyShortcutPanel.propTypes = {
     // 部件id
     id: PropTypes.string,
 
-    // css类名
-    className: PropTypes.string,
-
     // 自定义css字典
     style: PropTypes.object,
 
-    // 设置语言，可选的有'en'、'cn'
-    locale: PropTypes.oneOf(['en', 'cn']),
+    // 设置语言，可选的有'en'、'zh'
+    locale: PropTypes.oneOf(['en', 'zh']),
 
     // 用于定义热键节点的数据结构
     data: PropTypes.arrayOf(
@@ -274,7 +270,7 @@ FefferyShortcutPanel.propTypes = {
 
 // 设置默认参数
 FefferyShortcutPanel.defaultProps = {
-    locale: 'cn',
+    locale: 'zh',
     theme: 'light'
 }
 
