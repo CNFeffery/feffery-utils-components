@@ -37,6 +37,8 @@ module.exports = (env, argv) => {
 
     const devtool = overrides.devtool || 'source-map';
 
+    // const devtool = 'cheap-module-eval-source-map';
+
     const externals = ('externals' in overrides) ? overrides.externals : ({
         react: 'React',
         'react-dom': 'ReactDOM',

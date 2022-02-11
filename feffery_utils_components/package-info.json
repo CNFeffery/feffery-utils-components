@@ -25,6 +25,7 @@
     "@ant-design/pro-layout": "^6.24.0",
     "@charliewilco/gluejar": "^1.0.0",
     "byte-guide": "^1.0.7",
+    "file-loader": "^6.2.0",
     "github-markdown-css": "^5.0.0",
     "less": "^3.13.1",
     "less-loader": "^5.0.0",

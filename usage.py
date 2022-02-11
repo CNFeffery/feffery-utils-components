@@ -10,6 +10,7 @@ app = dash.Dash(__name__)
 app.layout = html.Div(
     fuc.FefferyTopProgress(
         [
+
             fuc.FefferySplit(
                 [
                     fuc.FefferySplitPane(
