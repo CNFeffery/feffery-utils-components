@@ -35,7 +35,6 @@
     padding: 0.06em 0.25em;
     border-radius: var(--ninja-key-border-radius);
     color: var(--ninja-secondary-text-color);
-    /* width: 1em; */
     height: 1em;
     margin-right: 0.5em;
     font-size: 1.25em;
@@ -57,28 +56,28 @@ html {
 }
 
 .feffery-split-vertical {
-    border: 1px solid rgb(217, 217, 217);
+    border: none;
 }
 
 .feffery-split-horizontal {
     display: flex;
     flex-direction: row;
-    border: 1px solid rgb(217, 217, 217);
 }
 
 .gutter {
-    background-color: #f5f5f5;
+    background-color: #e3f2fd;
     background-repeat: no-repeat;
     background-position: 50%;
-    transition: all .3s;
+}
+
+.gutter:hover {
+    background-color: #42a5f5;
 }
 
 .gutter.gutter-horizontal {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
     cursor: col-resize;
 }
 
 .gutter.gutter-vertical {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
     cursor: row-resize;
 }

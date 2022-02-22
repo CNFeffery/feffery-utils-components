@@ -16,13 +16,22 @@ app.layout = html.Div(
                     fuc.FefferySplitPane(
                         fuc.FefferySplit(
                             [
-                                fuc.FefferySplitPane('a'),
+                                fuc.FefferySplitPane(
+                                    html.Div(
+                                        'a',
+                                        style={
+                                            'width': '100px',
+                                            'height': '100px',
+                                            'border': '1px solid red'
+                                        }
+                                    )
+                                ),
                                 fuc.FefferySplitPane('b'),
                                 fuc.FefferySplitPane('c'),
                             ],
                             # defaultSizes=[20, 40, 40],
                             minSize=20,
-                            gutterSize=4,
+                            gutterSize=3,
                             # dragInterval=1,
                             # direction='vertical',
                             style={
@@ -38,11 +47,12 @@ app.layout = html.Div(
                 ],
                 # defaultSizes=[20, 40, 40],
                 minSize=20,
-                gutterSize=4,
+                gutterSize=3,
                 # dragInterval=1,
                 direction='vertical',
                 style={
-                    'height': '400px'
+                    'height': '400px',
+                    # 'border': '1px dashed black'
                 }
             ),
 
@@ -79,7 +89,7 @@ app.layout = html.Div(
                 # hotspot=True,
                 showPreviousBtn=True,
                 closable=True,
-                step=-1
+                # step=-1
             ),
 
             html.H2('节点1', id='step1', style={'marginBottom': '200px'}),

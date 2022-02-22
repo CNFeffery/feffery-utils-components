@@ -3,6 +3,7 @@
 export(''FefferyCaptcha)
 export(''FefferyGuide)
 export(''FefferyPasteImage)
+export(''FefferyResizable)
 export(''FefferyShortcutPanel)
 export(''FefferySyntaxHighlighter)
 export(''FefferyTopProgress)
