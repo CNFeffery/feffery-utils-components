@@ -1,19 +1,23 @@
+import { Component } from 'react';
+
 
 // 定义js直接执行部件FefferyExecuteJs
-const FefferyExecuteJs = (props) => {
-    // 取得必要属性或参数
-    const {
-        jsString
-    } = props;
+export default class FefferyExecuteJs extends Component {
+    render() {
+        // 取得必要属性或参数
+        const {
+            jsString
+        } = this.props;
 
-    // 执行原生js程序
-    if (jsString) {
-        eval(jsString)
+        // 执行原生js程序
+        if (jsString) {
+            eval(jsString)
+        }
+
+        return <></>
     }
 
-    return
 }
-
 // 定义参数或属性
 FefferyExecuteJs.propTypes = {
     // 部件id
@@ -41,5 +45,3 @@ FefferyExecuteJs.propTypes = {
 // 设置默认参数
 FefferyExecuteJs.defaultProps = {
 }
-
-export default FefferyExecuteJs;

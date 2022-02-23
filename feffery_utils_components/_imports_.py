@@ -1,4 +1,5 @@
 from .FefferyCaptcha import FefferyCaptcha
+from .FefferyExecuteJs import FefferyExecuteJs
 from .FefferyGuide import FefferyGuide
 from .FefferyPasteImage import FefferyPasteImage
 from .FefferyShortcutPanel import FefferyShortcutPanel
@@ -10,6 +11,7 @@ from .FefferySplitPane import FefferySplitPane
 
 __all__ = [
     "FefferyCaptcha",
+    "FefferyExecuteJs",
     "FefferyGuide",
     "FefferyPasteImage",
     "FefferyShortcutPanel",
