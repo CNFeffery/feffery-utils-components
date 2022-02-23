@@ -1,7 +1,6 @@
 from .FefferyCaptcha import FefferyCaptcha
 from .FefferyGuide import FefferyGuide
 from .FefferyPasteImage import FefferyPasteImage
-from .FefferyResizable import FefferyResizable
 from .FefferyShortcutPanel import FefferyShortcutPanel
 from .FefferySyntaxHighlighter import FefferySyntaxHighlighter
 from .FefferyTopProgress import FefferyTopProgress
@@ -13,7 +12,6 @@ __all__ = [
     "FefferyCaptcha",
     "FefferyGuide",
     "FefferyPasteImage",
-    "FefferyResizable",
     "FefferyShortcutPanel",
     "FefferySyntaxHighlighter",
     "FefferyTopProgress",

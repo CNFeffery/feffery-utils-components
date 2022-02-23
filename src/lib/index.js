@@ -8,6 +8,7 @@ import FefferyShortcutPanel from "./components/FefferyShortcutPanel.react"
 import FefferyGuide from "./components/FefferyGuide.react"
 import FefferySplit from "./components/split/FefferySplit.react";
 import FefferySplitPane from "./components/split/FefferySplitPane.react"
+import FefferyExecuteJs from "./components/FefferyExecuteJs.react";
 
 
 export {
@@ -19,5 +20,6 @@ export {
     FefferyShortcutPanel,
     FefferyGuide,
     FefferySplit,
-    FefferySplitPane
+    FefferySplitPane,
+    FefferyExecuteJs
 };

@@ -8,7 +8,6 @@ const version = "0.0.8"
 include("jl/''_fefferycaptcha.jl")
 include("jl/''_fefferyguide.jl")
 include("jl/''_fefferypasteimage.jl")
-include("jl/''_fefferyresizable.jl")
 include("jl/''_fefferyshortcutpanel.jl")
 include("jl/''_fefferysyntaxhighlighter.jl")
 include("jl/''_fefferytopprogress.jl")
