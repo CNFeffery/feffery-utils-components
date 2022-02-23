@@ -1,6 +1,7 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 export(''FefferyCaptcha)
+export(''FefferyExecuteJs)
 export(''FefferyGuide)
 export(''FefferyPasteImage)
 export(''FefferyShortcutPanel)

@@ -11,6 +11,8 @@ app.layout = html.Div(
     fuc.FefferyTopProgress(
         [
 
+            fuc.FefferyExecuteJs(),
+
             fuc.FefferySplit(
                 [
                     fuc.FefferySplitPane(
