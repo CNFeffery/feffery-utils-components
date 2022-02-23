@@ -1,0 +1,1053 @@
+{
+  "src/lib/components/FefferyCaptcha.react.js": {
+    "description": "",
+    "displayName": "FefferyCaptcha",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "className": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "style": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "captcha": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "charNum": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "4",
+          "computed": false
+        }
+      },
+      "height": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "width": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "bgColor": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "fontSize": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "loading_state": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.shape({\r\n    /**\r\n     * Determines if the component is loading or not\r\n     */\r\n    is_loading: PropTypes.bool,\r\n    /**\r\n     * Holds which property is loading\r\n     */\r\n    prop_name: PropTypes.string,\r\n    /**\r\n     * Holds the name of the component that is loading\r\n     */\r\n    component_name: PropTypes.string\r\n})"
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/FefferyGuide.react.js": {
+    "description": "",
+    "displayName": "FefferyGuide",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "className": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "style": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "locale": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.oneOf(['zh', 'en'])"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'zh'",
+          "computed": false
+        }
+      },
+      "steps": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.arrayOf(\r\n    PropTypes.exact({\r\n        // \u5bf9\u5e94\u5f53\u524d\u6b65\u9aa4\u951a\u5b9a\u7684\u5143\u7d20\u5bf9\u5e94\u7684css\u9009\u62e9\u5668\r\n        selector: PropTypes.string,\r\n\r\n        // \u5f53selector\u53c2\u6570\u7f3a\u7701\u65f6\uff0c\u53ef\u7528targetPos\u53c2\u6570\u57fa\u4e8e\u7edd\u5bf9\u4f4d\u7f6e\u8fdb\u884c\u6b65\u9aa4\u951a\u5b9a\r\n        targetPos: PropTypes.exact({\r\n            // \u8bbe\u7f6e\u8ddd\u79bb\u9876\u90e8\u7684\u50cf\u7d20\u8ddd\u79bb\r\n            top: PropTypes.number,\r\n            // \u8bbe\u7f6e\u8ddd\u79bb\u5de6\u7aef\u7684\u50cf\u7d20\u8ddd\u79bb\r\n            left: PropTypes.number,\r\n            // \u8bbe\u7f6e\u951a\u5b9a\u8303\u56f4\u50cf\u7d20\u5bbd\u5ea6\r\n            width: PropTypes.number,\r\n            // \u8bbe\u7f6e\u951a\u5b9a\u8303\u56f4\u50cf\u7d20\u9ad8\u5ea6\r\n            height: PropTypes.number\r\n        }),\r\n\r\n        // \u8bbe\u7f6e\u5c55\u793a\u9762\u677f\u7684\u6807\u9898\u5185\u5bb9\r\n        title: PropTypes.string,\r\n\r\n        // \u8bbe\u7f6e\u5c55\u793a\u9762\u677f\u7684\u63cf\u8ff0\u5185\u5bb9\r\n        content: PropTypes.string,\r\n\r\n        // \u8bbe\u7f6e\u5c55\u793a\u9762\u677f\u76f8\u5bf9\u951a\u70b9\u7684\u65b9\u4f4d\uff0c\u53ef\u9009\u7684\u6709'bottom-left'\u3001'left-bottom'\u3001'bottom'\uff0c\u9ed8\u8ba4\u4e3a'bottom'\r\n        placement: PropTypes.oneOf([\r\n            'bottom-left', 'left-bottom', 'bottom'\r\n        ]),\r\n\r\n        // \u8bbe\u7f6e\u5c55\u793a\u9762\u677f\u7684\u50cf\u7d20\u504f\u79fb\u91cf\r\n        offset: PropTypes.exact({\r\n            // \u6c34\u5e73\u65b9\u5411\u504f\u79fb\u50cf\u7d20\u8ddd\u79bb\r\n            x: PropTypes.number,\r\n            // \u7ad6\u76f4\u65b9\u5411\u504f\u79fb\u50cf\u7d20\u8ddd\u79bb\r\n            y: PropTypes.number\r\n        })\r\n    })\r\n).isRequired"
+        },
+        "required": false,
+        "description": ""
+      },
+      "localKey": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string.isRequired"
+        },
+        "required": false,
+        "description": ""
+      },
+      "closable": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "modalClassName": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "maskClassName": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "mask": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "arrow": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "hotspot": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "stepText": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "nextText": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "prevText": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "showPreviousBtn": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "okText": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "step": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "loading_state": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.shape({\r\n    /**\r\n     * Determines if the component is loading or not\r\n     */\r\n    is_loading: PropTypes.bool,\r\n    /**\r\n     * Holds which property is loading\r\n     */\r\n    prop_name: PropTypes.string,\r\n    /**\r\n     * Holds the name of the component that is loading\r\n     */\r\n    component_name: PropTypes.string\r\n})"
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/FefferyPasteImage.react.js": {
+    "description": "",
+    "displayName": "FefferyPasteImage",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": ""
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The content of the tab - will only be displayed if this tab is selected"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'feffery-paste-image-container'",
+          "computed": false
+        }
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "currentPastedImages": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "any"
+          }
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "deletedIdx": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "number"
+          }
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "imageHeight": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "200",
+          "computed": false
+        }
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/FefferyShortcutPanel.react.js": {
+    "description": "",
+    "displayName": "FefferyShortcutPanel",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "style": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "locale": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.oneOf(['en', 'zh'])"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'zh'",
+          "computed": false
+        }
+      },
+      "data": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.arrayOf(\r\n    PropTypes.exact({\r\n        // \u7528\u4e8e\u5b9a\u4e49\u5f53\u524d\u70ed\u952e\u7684\u552f\u4e00id\uff0c\u4f1a\u5728\u9876\u7aef\u70ed\u952e\u9762\u5305\u5c51\u4e2d\u8fdb\u884c\u663e\u793a\r\n        id: PropTypes.string.isRequired,\r\n\r\n        // \u7528\u4e8e\u5b9a\u4e49\u5f53\u524d\u70ed\u952e\u7684\u6807\u9898\u4fe1\u606f\r\n        title: PropTypes.string.isRequired,\r\n\r\n        // \u7528\u4e8e\u5b9a\u4e49\u5f53\u524d\u70ed\u952e\u5bf9\u5e94\u7684\u5feb\u6377\u952e\u65b9\u5f0f\r\n        hotkey: PropTypes.string,\r\n\r\n        // \u7528\u4e8e\u4f20\u5165\u5b57\u7b26\u578b\u7684js\u51fd\u6570\u4f53\u6e90\u7801\uff0c\u4f5c\u4e3a\u5f53\u524d\u70ed\u952e\u88ab\u89e6\u53d1\u65f6\u7684\u884c\u4e3a\r\n        handler: PropTypes.oneOfType([\r\n            PropTypes.string,\r\n            PropTypes.func\r\n        ]),\r\n\r\n        // \u7528\u4e8e\u8bbe\u7f6e\u5f53\u524d\u70ed\u952e\u4e0a\u4e00\u5c42\u7ea7\u8282\u70b9\u7684id\u4fe1\u606f\r\n        parent: PropTypes.string,\r\n\r\n        // \u7528\u4e8e\u8bbe\u7f6e\u5f53\u524d\u70ed\u952e\u88ab\u641c\u7d22\u65f6\u5bf9\u5e94\u7684\u5173\u952e\u8bcd\r\n        keywords: PropTypes.string,\r\n\r\n        // \u7528\u4e8e\u8bbe\u7f6e\u5f53\u524d\u70ed\u952e\u8282\u70b9\u4e0b\u4e00\u5c42\u7ea7\u5bf9\u5e94\u7684\u8282\u70b9id\u4fe1\u606f\u6570\u7ec4\r\n        children: PropTypes.arrayOf(PropTypes.string),\r\n\r\n        // \u7528\u4e8e\u8bbe\u7f6e\u5206\u7ec4\u6807\u9898\u6587\u5b57\r\n        section: PropTypes.string\r\n    })\r\n)"
+        },
+        "required": false,
+        "description": ""
+      },
+      "triggeredHotkey": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.oneOfType([\r\n    PropTypes.string\r\n])"
+        },
+        "required": false,
+        "description": ""
+      },
+      "placeholder": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "disableHotkeys": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "openHotkey": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "theme": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.oneOf(['light', 'dark'])"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'light'",
+          "computed": false
+        }
+      },
+      "loading_state": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.shape({\r\n    /**\r\n     * Determines if the component is loading or not\r\n     */\r\n    is_loading: PropTypes.bool,\r\n    /**\r\n     * Holds which property is loading\r\n     */\r\n    prop_name: PropTypes.string,\r\n    /**\r\n     * Holds the name of the component that is loading\r\n     */\r\n    component_name: PropTypes.string\r\n})"
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/FefferySyntaxHighlighter.react.js": {
+    "description": "",
+    "displayName": "FefferySyntaxHighlighter",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "codeStyle": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'prism'",
+          "computed": false
+        }
+      },
+      "codeString": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": ""
+      },
+      "language": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": ""
+      },
+      "showLineNumbers": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "showInlineLineNumbers": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/FefferyTopProgress.react.js": {
+    "description": "",
+    "displayName": "FefferyTopProgress",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The content of the tab - will only be displayed if this tab is selected"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "spinning": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "minimum": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "easing": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "speed": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "showSpinner": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "debug": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "listenPropsMode": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'default'",
+              "computed": false
+            },
+            {
+              "value": "'exclude'",
+              "computed": false
+            },
+            {
+              "value": "'include'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'default'",
+          "computed": false
+        }
+      },
+      "excludeProps": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "includeProps": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "string"
+          }
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/FefferyWaterMark.react.js": {
+    "description": "",
+    "displayName": "FefferyWaterMark",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "The content of the tab - will only be displayed if this tab is selected"
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "content": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "rotate": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "zIndex": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "fontColor": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "fontSize": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "gapX": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "gapY": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/split/FefferySplit.react.js": {
+    "description": "",
+    "displayName": "FefferySplit",
+    "methods": [],
+    "props": {
+      "children": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.node"
+        },
+        "required": false,
+        "description": ""
+      },
+      "id": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "className": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "style": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "defaultSizes": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.arrayOf(PropTypes.number)"
+        },
+        "required": false,
+        "description": ""
+      },
+      "sizes": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.arrayOf(PropTypes.number)"
+        },
+        "required": false,
+        "description": ""
+      },
+      "minSize": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.oneOfType([\r\n    // \u7edf\u4e00\u8bbe\u7f6e\u6700\u5c0f\u5c3a\u5bf8\r\n    PropTypes.number,\r\n    // \u9010\u4e00\u8bbe\u7f6e\u6700\u5c0f\u5c3a\u5bf8\r\n    PropTypes.arrayOf(PropTypes.number)\r\n])"
+        },
+        "required": false,
+        "description": ""
+      },
+      "maxSize": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.oneOfType([\r\n    // \u7edf\u4e00\u8bbe\u7f6e\u6700\u5927\u5c3a\u5bf8\r\n    PropTypes.number,\r\n    // \u9010\u4e00\u8bbe\u7f6e\u6700\u5927\u5c3a\u5bf8\r\n    PropTypes.arrayOf(PropTypes.number)\r\n])"
+        },
+        "required": false,
+        "description": ""
+      },
+      "expandToMin": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.bool"
+        },
+        "required": false,
+        "description": ""
+      },
+      "gutterSize": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "dragInterval": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "direction": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.oneOf(['horizontal', 'vertical'])"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'horizontal'",
+          "computed": false
+        }
+      },
+      "cursor": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "loading_state": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.shape({\r\n    /**\r\n     * Determines if the component is loading or not\r\n     */\r\n    is_loading: PropTypes.bool,\r\n    /**\r\n     * Holds which property is loading\r\n     */\r\n    prop_name: PropTypes.string,\r\n    /**\r\n     * Holds the name of the component that is loading\r\n     */\r\n    component_name: PropTypes.string\r\n})"
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/split/FefferySplitPane.react.js": {
+    "description": "",
+    "displayName": "FefferySplitPane",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": ""
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  }
+}
