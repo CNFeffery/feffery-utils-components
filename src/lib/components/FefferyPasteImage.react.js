@@ -40,7 +40,8 @@ const FefferyPasteImage = (props) => {
         currentPastedImages,
         deletedIdx,
         imageHeight,
-        setProps
+        setProps,
+        loading_state
     } = props;
 
     const handlePaste = useCallback(async (files) => {
@@ -71,7 +72,10 @@ const FefferyPasteImage = (props) => {
     return (
         <div id={id}
             className={className}
-            style={style}>
+            style={style}
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }>
             <Gluejar
                 key={1}
                 onPaste={handlePaste}

@@ -14,7 +14,8 @@ const FefferyCaptcha = (props) => {
         width,
         bgColor,
         fontSize,
-        setProps
+        setProps,
+        loading_state
     } = props;
 
     // 返回定制化的前端部件
@@ -34,7 +35,10 @@ const FefferyCaptcha = (props) => {
             width={width}
             bgColor={bgColor}
             fontSize={fontSize}
-            onChange={handleChange} />
+            onChange={handleChange}
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            } />
     );
 }
 

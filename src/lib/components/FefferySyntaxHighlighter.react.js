@@ -16,7 +16,8 @@ import {
     okaidia,
     prism,
     solarizedlight,
-    twilight
+    twilight,
+    loading_state
 } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 import './styles.css'
@@ -53,7 +54,10 @@ const FefferySyntaxHighlighter = (props) => {
     const [isCopied, setIsCopied] = useState(false);
 
     return (
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative' }}
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            }>
             <CopyToClipboard
                 onCopy={() => {
                     setIsCopied(true);

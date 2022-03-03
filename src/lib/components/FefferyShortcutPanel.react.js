@@ -89,6 +89,7 @@ const FefferyShortcutPanel = (props) => {
         theme,
         locale,
         setProps,
+        loading_state
     } = props;
 
     data = data || [
@@ -180,7 +181,10 @@ const FefferyShortcutPanel = (props) => {
             disableHotkeys={disableHotkeys}
             openHotkey={openHotkey}
             hotKeysJoinedView={true}
-            hideBreadcrumbs={true} >
+            hideBreadcrumbs={true}
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            } >
             {locale === 'en' ? footerHtmlEn : footerHtmlZh}
         </ ninja-keys>
     );
