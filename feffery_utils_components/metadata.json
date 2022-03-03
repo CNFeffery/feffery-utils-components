@@ -1,4 +1,83 @@
 {
+  "src/lib/components/colorPickers/FefferyCircleColorPicker.react.js": {
+    "description": "",
+    "displayName": "FefferyCircleColorPicker",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "className": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "style": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "width": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "colors": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.arrayOf(PropTypes.string)"
+        },
+        "required": false,
+        "description": ""
+      },
+      "circleSize": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "circleSpacing": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "color": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "loading_state": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.shape({\r\n    /**\r\n     * Determines if the component is loading or not\r\n     */\r\n    is_loading: PropTypes.bool,\r\n    /**\r\n     * Holds which property is loading\r\n     */\r\n    prop_name: PropTypes.string,\r\n    /**\r\n     * Holds the name of the component that is loading\r\n     */\r\n    component_name: PropTypes.string\r\n})"
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
   "src/lib/components/FefferyCaptcha.react.js": {
     "description": "",
     "displayName": "FefferyCaptcha",
@@ -95,6 +174,57 @@
         },
         "required": false,
         "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/FefferyColorPicker.react.js": {
+    "description": "",
+    "displayName": "FefferyColorPicker",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "className": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "style": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "type": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.oneOf([\r\n    'sketch',\r\n    'chrome',\r\n    'block',\r\n    'github',\r\n    'hue',\r\n    'alpha',\r\n    'twitter',\r\n    'circle',\r\n    'slider',\r\n    'compact',\r\n    'swatches'\r\n])"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'sketch'",
+          "computed": false
+        }
+      },
+      "loading_state": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.shape({\r\n    /**\r\n     * Determines if the component is loading or not\r\n     */\r\n    is_loading: PropTypes.bool,\r\n    /**\r\n     * Holds which property is loading\r\n     */\r\n    prop_name: PropTypes.string,\r\n    /**\r\n     * Holds the name of the component that is loading\r\n     */\r\n    component_name: PropTypes.string\r\n})"
+        },
+        "required": false,
+        "description": ""
       }
     }
   },

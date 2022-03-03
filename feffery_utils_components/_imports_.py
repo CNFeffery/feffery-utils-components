@@ -1,4 +1,6 @@
+from .FefferyCircleColorPicker import FefferyCircleColorPicker
 from .FefferyCaptcha import FefferyCaptcha
+from .FefferyColorPicker import FefferyColorPicker
 from .FefferyExecuteJs import FefferyExecuteJs
 from .FefferyGuide import FefferyGuide
 from .FefferyPasteImage import FefferyPasteImage
@@ -10,7 +12,9 @@ from .FefferySplit import FefferySplit
 from .FefferySplitPane import FefferySplitPane
 
 __all__ = [
+    "FefferyCircleColorPicker",
     "FefferyCaptcha",
+    "FefferyColorPicker",
     "FefferyExecuteJs",
     "FefferyGuide",
     "FefferyPasteImage",

@@ -24,12 +24,12 @@ const FefferyTopProgress = (props) => {
         speed,
         showSpinner,
         spinning,
-        loading_state,
         listenPropsMode,
         excludeProps,
         includeProps,
         debug,
-        setProps
+        setProps,
+        loading_state
     } = props;
 
     // 配置NProgress参数信息

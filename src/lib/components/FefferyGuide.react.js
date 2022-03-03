@@ -25,6 +25,7 @@ const FefferyGuide = (props) => {
         okText,
         step,
         setProps,
+        loading_state
     } = props;
 
     // 返回向页面注入的快捷键监听
@@ -47,7 +48,10 @@ const FefferyGuide = (props) => {
             prevText={prevText}
             showPreviousBtn={showPreviousBtn}
             okText={okText}
-            step={step} />
+            step={step}
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            } />
     );
 }
 

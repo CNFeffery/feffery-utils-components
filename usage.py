@@ -11,6 +11,10 @@ app.layout = html.Div(
     fuc.FefferyTopProgress(
         [
 
+            fuc.FefferyCircleColorPicker(
+                color='red'
+            ),
+
             fuc.FefferyExecuteJs(),
 
             fuc.FefferySplit(
@@ -91,7 +95,7 @@ app.layout = html.Div(
                 # hotspot=True,
                 showPreviousBtn=True,
                 closable=True,
-                # step=-1
+                step=-1
             ),
 
             html.H2('节点1', id='step1', style={'marginBottom': '200px'}),

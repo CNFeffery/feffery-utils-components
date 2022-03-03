@@ -26,7 +26,8 @@ export default class FefferyWaterMark extends Component {
             fontSize,
             gapX,
             gapY,
-            setProps
+            setProps,
+            loading_state
         } = this.props;
 
         children = parseChildrenToArray(children)
@@ -41,7 +42,10 @@ export default class FefferyWaterMark extends Component {
                 fontColor={fontColor}
                 fontSize={fontSize}
                 gapX={gapX}
-                gapY={gapY}>
+                gapY={gapY}
+                data-dash-is-loading={
+                    (loading_state && loading_state.is_loading) || undefined
+                }>
                 {children}
             </WaterMark>
         );

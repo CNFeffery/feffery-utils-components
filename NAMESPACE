@@ -1,6 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+export(''FefferyCircleColorPicker)
 export(''FefferyCaptcha)
+export(''FefferyColorPicker)
 export(''FefferyExecuteJs)
 export(''FefferyGuide)
 export(''FefferyPasteImage)
