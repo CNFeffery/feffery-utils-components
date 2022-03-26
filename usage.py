@@ -11,6 +11,29 @@ app.layout = html.Div(
     fuc.FefferyTopProgress(
         [
 
+            html.Div(
+                style={
+                    'height': '2000px'
+                }
+            ),
+
+            html.Div(
+                html.Button(
+                    'scroll！',
+                    id='scroll-trigger'
+                )
+            ),
+
+            # 绑定滚动器
+            fuc.FefferyScroll(
+                id='scroll',
+                duration=3000,
+                smooth='easeInOutQuad',
+                scrollMode='target',
+                scrollTargetId='step3',
+                offset=-300
+            ),
+
             fuc.FefferyCircleColorPicker(
                 color='red'
             ),
@@ -251,6 +274,18 @@ def shotycut_panel_demo(triggeredHotkey, theme):
     print(triggeredHotkey, theme)
 
     return 'dark' if theme == 'light' else 'light'
+
+
+@app.callback(
+    Output('scroll', 'executeScroll'),
+    Input('scroll-trigger', 'n_clicks')
+)
+def scroll_test(n_clicks):
+
+    if n_clicks:
+        return True
+
+    return False
 
 
 if __name__ == '__main__':
