@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
+import './nprogress.css';
 
 
 const parseChildrenToArray = children => {
