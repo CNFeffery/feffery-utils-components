@@ -22,7 +22,8 @@
   "author": "CNFeffery <fefferypzy@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@ant-design/pro-layout": "^6.24.0",
+    "antd": "4.19.2",
+    "@ant-design/pro-layout": "6.34.7",
     "@charliewilco/gluejar": "^1.0.0",
     "byte-guide": "^1.0.7",
     "file-loader": "^6.2.0",
