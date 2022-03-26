@@ -7,10 +7,10 @@ const version = "0.0.10"
 
 include("jl/''_fefferycirclecolorpicker.jl")
 include("jl/''_fefferycaptcha.jl")
-include("jl/''_fefferycolorpicker.jl")
 include("jl/''_fefferyexecutejs.jl")
 include("jl/''_fefferyguide.jl")
 include("jl/''_fefferypasteimage.jl")
+include("jl/''_fefferyscroll.jl")
 include("jl/''_fefferyshortcutpanel.jl")
 include("jl/''_fefferysyntaxhighlighter.jl")
 include("jl/''_fefferytopprogress.jl")

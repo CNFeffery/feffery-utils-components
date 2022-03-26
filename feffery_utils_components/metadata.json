@@ -177,57 +177,6 @@
       }
     }
   },
-  "src/lib/components/FefferyColorPicker.react.js": {
-    "description": "",
-    "displayName": "FefferyColorPicker",
-    "methods": [],
-    "props": {
-      "id": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.string"
-        },
-        "required": false,
-        "description": ""
-      },
-      "className": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.string"
-        },
-        "required": false,
-        "description": ""
-      },
-      "style": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.object"
-        },
-        "required": false,
-        "description": ""
-      },
-      "type": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.oneOf([\r\n    'sketch',\r\n    'chrome',\r\n    'block',\r\n    'github',\r\n    'hue',\r\n    'alpha',\r\n    'twitter',\r\n    'circle',\r\n    'slider',\r\n    'compact',\r\n    'swatches'\r\n])"
-        },
-        "required": false,
-        "description": "",
-        "defaultValue": {
-          "value": "'sketch'",
-          "computed": false
-        }
-      },
-      "loading_state": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.shape({\r\n    /**\r\n     * Determines if the component is loading or not\r\n     */\r\n    is_loading: PropTypes.bool,\r\n    /**\r\n     * Holds which property is loading\r\n     */\r\n    prop_name: PropTypes.string,\r\n    /**\r\n     * Holds the name of the component that is loading\r\n     */\r\n    component_name: PropTypes.string\r\n})"
-        },
-        "required": false,
-        "description": ""
-      }
-    }
-  },
   "src/lib/components/FefferyExecuteJs.react.js": {
     "description": "",
     "displayName": "FefferyExecuteJs",
@@ -303,7 +252,7 @@
       "steps": {
         "type": {
           "name": "custom",
-          "raw": "PropTypes.arrayOf(\r\n    PropTypes.exact({\r\n        // \u5bf9\u5e94\u5f53\u524d\u6b65\u9aa4\u951a\u5b9a\u7684\u5143\u7d20\u5bf9\u5e94\u7684css\u9009\u62e9\u5668\r\n        selector: PropTypes.string,\r\n\r\n        // \u5f53selector\u53c2\u6570\u7f3a\u7701\u65f6\uff0c\u53ef\u7528targetPos\u53c2\u6570\u57fa\u4e8e\u7edd\u5bf9\u4f4d\u7f6e\u8fdb\u884c\u6b65\u9aa4\u951a\u5b9a\r\n        targetPos: PropTypes.exact({\r\n            // \u8bbe\u7f6e\u8ddd\u79bb\u9876\u90e8\u7684\u50cf\u7d20\u8ddd\u79bb\r\n            top: PropTypes.number,\r\n            // \u8bbe\u7f6e\u8ddd\u79bb\u5de6\u7aef\u7684\u50cf\u7d20\u8ddd\u79bb\r\n            left: PropTypes.number,\r\n            // \u8bbe\u7f6e\u951a\u5b9a\u8303\u56f4\u50cf\u7d20\u5bbd\u5ea6\r\n            width: PropTypes.number,\r\n            // \u8bbe\u7f6e\u951a\u5b9a\u8303\u56f4\u50cf\u7d20\u9ad8\u5ea6\r\n            height: PropTypes.number\r\n        }),\r\n\r\n        // \u8bbe\u7f6e\u5c55\u793a\u9762\u677f\u7684\u6807\u9898\u5185\u5bb9\r\n        title: PropTypes.string,\r\n\r\n        // \u8bbe\u7f6e\u5c55\u793a\u9762\u677f\u7684\u63cf\u8ff0\u5185\u5bb9\r\n        content: PropTypes.string,\r\n\r\n        // \u8bbe\u7f6e\u5c55\u793a\u9762\u677f\u76f8\u5bf9\u951a\u70b9\u7684\u65b9\u4f4d\uff0c\u53ef\u9009\u7684\u6709'bottom-left'\u3001'left-bottom'\u3001'bottom'\uff0c\u9ed8\u8ba4\u4e3a'bottom'\r\n        placement: PropTypes.oneOf([\r\n            'bottom-left', 'left-bottom', 'bottom'\r\n        ]),\r\n\r\n        // \u8bbe\u7f6e\u5c55\u793a\u9762\u677f\u7684\u50cf\u7d20\u504f\u79fb\u91cf\r\n        offset: PropTypes.exact({\r\n            // \u6c34\u5e73\u65b9\u5411\u504f\u79fb\u50cf\u7d20\u8ddd\u79bb\r\n            x: PropTypes.number,\r\n            // \u7ad6\u76f4\u65b9\u5411\u504f\u79fb\u50cf\u7d20\u8ddd\u79bb\r\n            y: PropTypes.number\r\n        })\r\n    })\r\n).isRequired"
+          "raw": "PropTypes.arrayOf(\r\n    PropTypes.exact({\r\n        // \u5bf9\u5e94\u5f53\u524d\u6b65\u9aa4\u951a\u5b9a\u7684\u5143\u7d20\u5bf9\u5e94\u7684css\u9009\u62e9\u5668\r\n        selector: PropTypes.string,\r\n\r\n        // \u5f53selector\u53c2\u6570\u7f3a\u7701\u65f6\uff0c\u53ef\u7528targetPos\u53c2\u6570\u57fa\u4e8e\u7edd\u5bf9\u4f4d\u7f6e\u8fdb\u884c\u6b65\u9aa4\u951a\u5b9a\r\n        targetPos: PropTypes.exact({\r\n            // \u8bbe\u7f6e\u8ddd\u79bb\u9876\u90e8\u7684\u50cf\u7d20\u8ddd\u79bb\r\n            top: PropTypes.number,\r\n            // \u8bbe\u7f6e\u8ddd\u79bb\u5de6\u7aef\u7684\u50cf\u7d20\u8ddd\u79bb\r\n            left: PropTypes.number,\r\n            // \u8bbe\u7f6e\u951a\u5b9a\u8303\u56f4\u50cf\u7d20\u5bbd\u5ea6\r\n            width: PropTypes.number,\r\n            // \u8bbe\u7f6e\u951a\u5b9a\u8303\u56f4\u50cf\u7d20\u9ad8\u5ea6\r\n            height: PropTypes.number\r\n        }),\r\n\r\n        // \u8bbe\u7f6e\u5c55\u793a\u9762\u677f\u7684\u6807\u9898\u5185\u5bb9\r\n        title: PropTypes.string,\r\n\r\n        // \u8bbe\u7f6e\u5c55\u793a\u9762\u677f\u7684\u63cf\u8ff0\u5185\u5bb9\r\n        content: PropTypes.string,\r\n\r\n        // \u8bbe\u7f6e\u5c55\u793a\u9762\u677f\u76f8\u5bf9\u951a\u70b9\u7684\u65b9\u4f4d\uff0c\u53ef\u9009\u7684\u6709'top', 'bottom', 'left', 'right', 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'left-top', 'left-bottom',\r\n        // 'right-top', 'right-bottom'\uff0c\u9ed8\u8ba4\u4e3a'bottom'\r\n        placement: PropTypes.oneOf([\r\n            'top', 'bottom', 'left', 'right', 'top-left', 'top-right',\r\n            'bottom-left', 'bottom-right', 'left-top', 'left-bottom',\r\n            'right-top', 'right-bottom'\r\n        ]),\r\n\r\n        // \u8bbe\u7f6e\u5c55\u793a\u9762\u677f\u7684\u50cf\u7d20\u504f\u79fb\u91cf\r\n        offset: PropTypes.exact({\r\n            // \u6c34\u5e73\u65b9\u5411\u504f\u79fb\u50cf\u7d20\u8ddd\u79bb\r\n            x: PropTypes.number,\r\n            // \u7ad6\u76f4\u65b9\u5411\u504f\u79fb\u50cf\u7d20\u8ddd\u79bb\r\n            y: PropTypes.number\r\n        })\r\n    })\r\n).isRequired"
         },
         "required": false,
         "description": ""
@@ -537,6 +486,125 @@
       "setProps": {
         "type": {
           "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/FefferyScroll.react.js": {
+    "description": "",
+    "displayName": "FefferyScroll",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "scrollMode": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.oneOf([\r\n    'to-top', 'to-bottom', 'top-offset', 'relative-offset', 'target'\r\n])"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'to-top'",
+          "computed": false
+        }
+      },
+      "executeScroll": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "scrollTopOffset": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "scrollRelativeOffset": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "scrollTargetId": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "duration": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "smooth": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.oneOf([\r\n    'linear',\r\n    'easeInQuad',\r\n    'easeOutQuad',\r\n    'easeInOutQuad',\r\n    'easeInCubic',\r\n    'easeOutCubic',\r\n    'easeInOutCubic',\r\n    'easeInQuart',\r\n    'easeOutQuart',\r\n    'easeInOutQuart',\r\n    'easeInQuint',\r\n    'easeOutQuint',\r\n    'easeInOutQuint'\r\n])"
+        },
+        "required": false,
+        "description": ""
+      },
+      "delay": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "containerId": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "offset": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "loading_state": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.shape({\r\n    /**\r\n     * Determines if the component is loading or not\r\n     */\r\n    is_loading: PropTypes.bool,\r\n    /**\r\n     * Holds which property is loading\r\n     */\r\n    prop_name: PropTypes.string,\r\n    /**\r\n     * Holds the name of the component that is loading\r\n     */\r\n    component_name: PropTypes.string\r\n})"
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.func"
         },
         "required": false,
         "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."

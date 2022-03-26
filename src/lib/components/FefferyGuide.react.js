@@ -93,9 +93,12 @@ FefferyGuide.propTypes = {
             // 设置展示面板的描述内容
             content: PropTypes.string,
 
-            // 设置展示面板相对锚点的方位，可选的有'bottom-left'、'left-bottom'、'bottom'，默认为'bottom'
+            // 设置展示面板相对锚点的方位，可选的有'top', 'bottom', 'left', 'right', 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'left-top', 'left-bottom',
+            // 'right-top', 'right-bottom'，默认为'bottom'
             placement: PropTypes.oneOf([
-                'bottom-left', 'left-bottom', 'bottom'
+                'top', 'bottom', 'left', 'right', 'top-left', 'top-right',
+                'bottom-left', 'bottom-right', 'left-top', 'left-bottom',
+                'right-top', 'right-bottom'
             ]),
 
             // 设置展示面板的像素偏移量
@@ -120,7 +123,7 @@ FefferyGuide.propTypes = {
     // 设置蒙版层的类名
     maskClassName: PropTypes.string,
 
-    // 设置是否展示蒙板层，默认为true
+    // 设置是否展示蒙板层，默认为true 
     mask: PropTypes.bool,
 
     // 设置展示面板是否添加箭头，默认为true
