@@ -51,10 +51,6 @@
     opacity: 0.7;
 }
 
-html {
-    overflow: auto !important;
-}
-
 .feffery-split-vertical {
     border: none;
 }
