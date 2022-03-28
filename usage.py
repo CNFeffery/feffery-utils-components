@@ -167,16 +167,6 @@ app.layout = html.Div(
                 ]
             ),
 
-            fuc.FefferyPasteImage(
-                id='test',
-                style={
-                    'height': '500px',
-                    'width': '800px',
-                    'marginBottom': '100px'
-                }
-            ),
-            html.Div(id='test-output'),
-
             fuc.FefferyCaptcha(id='captcha-demo',
                                charNum=10,
                                width=300,
@@ -184,11 +174,6 @@ app.layout = html.Div(
                                fontSize=60),
             html.Div(
                 html.Em(id='output-demo')
-            ),
-
-            fuc.FefferyWaterMark(
-                content='fuc FefferyWaterMark',
-                fontSize=26
             ),
 
             fuc.FefferySyntaxHighlighter(
@@ -248,22 +233,6 @@ def test(captcha):
     # time.sleep(3)
 
     return captcha
-
-
-@app.callback(
-    Output('test-output', 'children'),
-    Input('test', 'currentPastedImages')
-)
-def test_(currentPastedImages):
-
-    if currentPastedImages:
-        return [
-            html.Img(
-                src=currentPastedImage
-            )
-            for currentPastedImage in currentPastedImages
-        ]
-
 
 @app.callback(
     Output('shortcut-panel-demo', 'theme'),
