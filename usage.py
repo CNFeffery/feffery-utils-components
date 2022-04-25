@@ -7,9 +7,28 @@ import uuid
 app = dash.Dash(__name__)
 
 
+@app.callback(
+    Output('execute-js-demo-output', 'jsString'),
+    Input('execute-js-demo', 'n_clicks')
+)
+def execute_js_demo(n_clicks):
+
+    if n_clicks:
+        return f'console.log({n_clicks});window.open("https://www.baidu.com/")'
+
+
 app.layout = html.Div(
     fuc.FefferyTopProgress(
         [
+
+            html.Button(
+                '跳转',
+                id='execute-js-demo'
+            ),
+
+            fuc.FefferyExecuteJs(
+                id='execute-js-demo-output',
+            ),
 
             html.Div(
                 style={
@@ -233,6 +252,7 @@ def test(captcha):
     # time.sleep(3)
 
     return captcha
+
 
 @app.callback(
     Output('shortcut-panel-demo', 'theme'),
