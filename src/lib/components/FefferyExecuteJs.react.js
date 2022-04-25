@@ -1,23 +1,30 @@
-import { Component } from 'react';
+import { useEffect } from 'react';
 
 
 // 定义js直接执行部件FefferyExecuteJs
-export default class FefferyExecuteJs extends Component {
-    render() {
-        // 取得必要属性或参数
-        const {
-            jsString
-        } = this.props;
+const FefferyExecuteJs = (props) => {
+    // 取得必要属性或参数
+    const {
+        id,
+        jsString,
+        loading_state
+    } = props;
 
+    useEffect(() => {
         // 执行原生js程序
         if (jsString) {
             eval(jsString)
         }
+    }, [jsString])
 
-        return <></>
-    }
-
+    return <div
+        id={id}
+        data-dash-is-loading={
+            (loading_state && loading_state.is_loading) || undefined
+        } />;
 }
+
+
 // 定义参数或属性
 FefferyExecuteJs.propTypes = {
     // 部件id
@@ -45,3 +52,5 @@ FefferyExecuteJs.propTypes = {
 // 设置默认参数
 FefferyExecuteJs.defaultProps = {
 }
+
+export default FefferyExecuteJs;
