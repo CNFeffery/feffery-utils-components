@@ -21,6 +21,21 @@ app.layout = html.Div(
     fuc.FefferyTopProgress(
         [
 
+            fuc.FefferyScrollbars(
+                html.Div(
+                    '测试'*5000,
+                    style={
+                        'padding': '50px'
+                    }
+                ),
+                autoHide=True,
+                thumbSize=10,
+                style={
+                    'height': '500px',
+                    'border': '1px solid black'
+                }
+            ),
+
             html.Button(
                 '跳转',
                 id='execute-js-demo'
