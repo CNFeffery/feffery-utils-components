@@ -9,6 +9,7 @@ import FefferySplitPane from "./components/split/FefferySplitPane.react"
 import FefferyExecuteJs from "./components/FefferyExecuteJs.react";
 import FefferyCircleColorPicker from "./components/colorPickers/FefferyCircleColorPicker.react";
 import FefferyScroll from "./components/FefferyScroll.react";
+import FefferyScrollbars from "./components/FefferyScrollbars.react";
 
 
 export {
@@ -21,5 +22,6 @@ export {
     FefferySplitPane,
     FefferyExecuteJs,
     FefferyCircleColorPicker,
-    FefferyScroll
+    FefferyScroll,
+    FefferyScrollbars
 };
