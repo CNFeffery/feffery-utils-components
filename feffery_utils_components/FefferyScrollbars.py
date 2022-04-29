@@ -13,26 +13,30 @@ Keyword arguments:
 
 - id (optional)
 
-- autoHide (default False)
-
-- autoHideDuration (default 200)
-
-- autoHideTimeout (default 1000)
+- autoHide (default True)
 
 - className (optional)
 
+- classNames (optional)
+
+- forceVisible (default False)
+
 - loading_state (optional)
+
+- scrollbarMaxSize (optional)
+
+- scrollbarMinSize (default 25)
 
 - style (optional)
 
-- thumbSize (default 30)"""
+- timeout (default 1000)"""
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, thumbSize=Component.UNDEFINED, autoHide=Component.UNDEFINED, autoHideTimeout=Component.UNDEFINED, autoHideDuration=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'autoHide', 'autoHideDuration', 'autoHideTimeout', 'className', 'loading_state', 'style', 'thumbSize']
+    def __init__(self, children=None, id=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, autoHide=Component.UNDEFINED, classNames=Component.UNDEFINED, forceVisible=Component.UNDEFINED, timeout=Component.UNDEFINED, scrollbarMinSize=Component.UNDEFINED, scrollbarMaxSize=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'autoHide', 'className', 'classNames', 'forceVisible', 'loading_state', 'scrollbarMaxSize', 'scrollbarMinSize', 'style', 'timeout']
         self._type = 'FefferyScrollbars'
         self._namespace = 'feffery_utils_components'
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'autoHide', 'autoHideDuration', 'autoHideTimeout', 'className', 'loading_state', 'style', 'thumbSize']
+        self.available_properties = ['children', 'id', 'autoHide', 'className', 'classNames', 'forceVisible', 'loading_state', 'scrollbarMaxSize', 'scrollbarMinSize', 'style', 'timeout']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

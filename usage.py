@@ -28,8 +28,7 @@ app.layout = html.Div(
                         'padding': '50px'
                     }
                 ),
-                autoHide=True,
-                thumbSize=10,
+                scrollbarMaxSize=50,
                 style={
                     'height': '500px',
                     'border': '1px solid black'
