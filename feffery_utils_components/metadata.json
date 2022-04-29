@@ -539,18 +539,6 @@
         "required": false,
         "description": ""
       },
-      "thumbSize": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.number"
-        },
-        "required": false,
-        "description": "",
-        "defaultValue": {
-          "value": "30",
-          "computed": false
-        }
-      },
       "autoHide": {
         "type": {
           "name": "custom",
@@ -559,11 +547,31 @@
         "required": false,
         "description": "",
         "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "classNames": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.exact({\r\n    // \u5185\u5bb9\u533a\u57df\u5bb9\u5668\r\n    content: PropTypes.string,\r\n    // \u6b63\u5728\u6eda\u52a8\u7684\u5185\u5bb9\u5bb9\u5668\r\n    scrollContent: PropTypes.string,\r\n    // \u6eda\u52a8\u6761\r\n    scrollbar: PropTypes.string,\r\n    // \u6eda\u52a8\u6761\u6ed1\u5757\r\n    track: PropTypes.string\r\n})"
+        },
+        "required": false,
+        "description": ""
+      },
+      "forceVisible": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.oneOfType([\r\n    PropTypes.bool,\r\n    PropTypes.oneOf('x', 'y')\r\n])"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
           "value": "false",
           "computed": false
         }
       },
-      "autoHideTimeout": {
+      "timeout": {
         "type": {
           "name": "custom",
           "raw": "PropTypes.number"
@@ -575,7 +583,7 @@
           "computed": false
         }
       },
-      "autoHideDuration": {
+      "scrollbarMinSize": {
         "type": {
           "name": "custom",
           "raw": "PropTypes.number"
@@ -583,9 +591,17 @@
         "required": false,
         "description": "",
         "defaultValue": {
-          "value": "200",
+          "value": "25",
           "computed": false
         }
+      },
+      "scrollbarMaxSize": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": ""
       },
       "loading_state": {
         "type": {

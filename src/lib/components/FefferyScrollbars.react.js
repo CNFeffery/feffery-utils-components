@@ -1,4 +1,5 @@
-import { Scrollbars } from 'react-custom-scrollbars';
+import SimpleBarReact from "simplebar-react";
+import "simplebar/src/simplebar.css";
 
 // 定义自定义滚动条容器组件FefferyScrollbars
 const FefferyScrollbars = (props) => {
@@ -8,28 +9,30 @@ const FefferyScrollbars = (props) => {
         children,
         style,
         className,
-        thumbSize,
-        thumbMinSize,
         autoHide,
-        autoHideTimeout,
-        autoHideDuration,
+        classNames,
+        forceVisible,
+        timeout,
+        scrollbarMinSize,
+        scrollbarMaxSize,
         loading_state
     } = props;
 
-    return <Scrollbars
+    return <SimpleBarReact
         id={id}
         style={style}
         className={className}
-        thumbSize={thumbSize}
-        thumbMinSize={thumbMinSize}
         autoHide={autoHide}
-        autoHideTimeout={autoHideTimeout}
-        autoHideDuration={autoHideDuration}
+        classNames={classNames}
+        forceVisible={forceVisible}
+        timeout={timeout}
+        scrollbarMinSize={scrollbarMinSize}
+        scrollbarMaxSize={scrollbarMaxSize}
         data-dash-is-loading={
             (loading_state && loading_state.is_loading) || undefined
         } >
         {children}
-    </ Scrollbars>;
+    </ SimpleBarReact>;
 }
 
 
@@ -44,17 +47,35 @@ FefferyScrollbars.propTypes = {
 
     className: PropTypes.string,
 
-    // 设置滚动条像素高度，默认为30
-    thumbSize: PropTypes.number,
-
-    // 设置当鼠标移出滚动条区域时是否隐藏滚动条，默认为false
+    // 设置是否在无操作时自动隐藏滚动条，默认为true
     autoHide: PropTypes.bool,
 
-    // 设置鼠标移出 滚动条区域多少毫秒后隐藏滚动条，默认为1000
-    autoHideTimeout: PropTypes.number,
+    // 针对各组成部分单独设置自定义css类名
+    classNames: PropTypes.exact({
+        // 内容区域容器
+        content: PropTypes.string,
+        // 正在滚动的内容容器
+        scrollContent: PropTypes.string,
+        // 滚动条
+        scrollbar: PropTypes.string,
+        // 滚动条滑块
+        track: PropTypes.string
+    }),
 
-    // 设置滚动条显隐动画耗时毫秒数，默认为200
-    autoHideDuration: PropTypes.number,
+    // 设置滑块区域是否强制可见
+    forceVisible: PropTypes.oneOfType([
+        PropTypes.bool,
+        PropTypes.oneOf('x', 'y')
+    ]),
+
+    // 设置滑块自动隐藏的毫秒数，默认为1000
+    timeout: PropTypes.number,
+
+    // 设置滚动条最小像素长度，默认为25
+    scrollbarMinSize: PropTypes.number,
+
+    // 设置滚动条最大像素长度，默认为0，代表无限制
+    scrollbarMaxSize: PropTypes.number,
 
     loading_state: PropTypes.shape({
         /**
@@ -74,10 +95,10 @@ FefferyScrollbars.propTypes = {
 
 // 设置默认参数
 FefferyScrollbars.defaultProps = {
-    autoHide: false,
-    thumbSize: 30,
-    autoHideTimeout: 1000,
-    autoHideDuration: 200
+    autoHide: true,
+    timeout: 1000,
+    scrollbarMinSize: 25,
+    forceVisible: false
 }
 
 export default FefferyScrollbars;
