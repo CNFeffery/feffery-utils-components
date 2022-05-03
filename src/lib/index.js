@@ -11,6 +11,12 @@ import FefferyCircleColorPicker from "./components/colorPickers/FefferyCircleCol
 import FefferyScroll from "./components/FefferyScroll.react";
 import FefferyScrollbars from "./components/FefferyScrollbars.react";
 
+// 屏蔽所有warning信息
+window.console = (function () {
+    var c = {};
+    c.warn = function () { };
+    return c;
+})();
 
 export {
     FefferyCaptcha,
