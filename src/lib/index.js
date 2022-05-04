@@ -12,7 +12,7 @@ import FefferyScroll from "./components/FefferyScroll.react";
 import FefferyScrollbars from "./components/FefferyScrollbars.react";
 
 // 屏蔽所有warning信息
-window.console.warn = function () { };
+window.console.warn = () => { }
 
 export {
     FefferyCaptcha,
