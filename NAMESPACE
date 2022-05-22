@@ -3,6 +3,7 @@
 export(''FefferyCircleColorPicker)
 export(''FefferyCaptcha)
 export(''FefferyExecuteJs)
+export(''FefferyExtraSpinner)
 export(''FefferyGuide)
 export(''FefferyScroll)
 export(''FefferyScrollbars)

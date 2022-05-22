@@ -8,6 +8,7 @@ const version = "0.0.11"
 include("jl/''_fefferycirclecolorpicker.jl")
 include("jl/''_fefferycaptcha.jl")
 include("jl/''_fefferyexecutejs.jl")
+include("jl/''_fefferyextraspinner.jl")
 include("jl/''_fefferyguide.jl")
 include("jl/''_fefferyscroll.jl")
 include("jl/''_fefferyscrollbars.jl")

@@ -20,6 +20,31 @@ def execute_js_demo(n_clicks):
 app.layout = html.Div(
     fuc.FefferyTopProgress(
         [
+            html.Div(
+                [
+                    html.Div(
+                        [
+                            html.H5(_type),
+                            fuc.FefferyExtraSpinner(
+                                type=_type,
+                                style={
+                                    'marginBottom': '25px'
+                                }
+                            )
+                        ]
+                    )
+                    for _type in [
+                        "ball", "swap", "bars", "grid", "wave", "push", "firework",
+                        "stage", "ring", "heart", "guard", "rotate", "spiral", "pulse",
+                        "swish", "sequence", "impulse", "cube", "magic", "flag", "fill",
+                        "sphere", "domino", "goo", "comb", "pong", "rainbow", "hoop",
+                        "flapper", "jellyfish", "trace", "classic", "whisper", "metro"
+                    ]
+                ],
+                style={
+                    'marginBottom': '100px'
+                }
+            ),
 
             fuc.FefferyScrollbars(
                 html.Div(
