@@ -208,6 +208,113 @@
       }
     }
   },
+  "src/lib/components/FefferyExtraSpinner.react.js": {
+    "description": "",
+    "displayName": "FefferyExtraSpinner",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "style": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "className": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "type": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.oneOf([\r\n    \"ball\", \"swap\", \"bars\", \"grid\", \"wave\", \"push\", \"firework\",\r\n    \"stage\", \"ring\", \"heart\", \"guard\", \"rotate\", \"spiral\", \"pulse\",\r\n    \"swish\", \"sequence\", \"impulse\", \"cube\", \"magic\", \"flag\", \"fill\",\r\n    \"sphere\", \"domino\", \"goo\", \"comb\", \"pong\", \"rainbow\", \"hoop\",\r\n    \"flapper\", \"jellyfish\", \"trace\", \"classic\", \"whisper\", \"metro\"\r\n])"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'ball'",
+          "computed": false
+        }
+      },
+      "size": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "sizeUnit": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'px'",
+          "computed": false
+        }
+      },
+      "color": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'#1890ff'",
+          "computed": false
+        }
+      },
+      "frontColor": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'#def6ff'",
+          "computed": false
+        }
+      },
+      "backColor": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'#1890ff'",
+          "computed": false
+        }
+      },
+      "loading_state": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.shape({\r\n    /**\r\n     * Determines if the component is loading or not\r\n     */\r\n    is_loading: PropTypes.bool,\r\n    /**\r\n     * Holds which property is loading\r\n     */\r\n    prop_name: PropTypes.string,\r\n    /**\r\n     * Holds the name of the component that is loading\r\n     */\r\n    component_name: PropTypes.string\r\n})"
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
   "src/lib/components/FefferyGuide.react.js": {
     "description": "",
     "displayName": "FefferyGuide",
