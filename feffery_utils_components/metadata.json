@@ -669,7 +669,7 @@
       "forceVisible": {
         "type": {
           "name": "custom",
-          "raw": "PropTypes.oneOfType([\r\n    PropTypes.bool,\r\n    PropTypes.oneOf('x', 'y')\r\n])"
+          "raw": "PropTypes.oneOfType([\r\n    PropTypes.bool,\r\n    PropTypes.oneOf(['x', 'y'])\r\n])"
         },
         "required": false,
         "description": "",

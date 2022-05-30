@@ -65,7 +65,7 @@ FefferyScrollbars.propTypes = {
     // 设置滑块区域是否强制可见
     forceVisible: PropTypes.oneOfType([
         PropTypes.bool,
-        PropTypes.oneOf('x', 'y')
+        PropTypes.oneOf(['x', 'y'])
     ]),
 
     // 设置滑块自动隐藏的毫秒数，默认为1000
