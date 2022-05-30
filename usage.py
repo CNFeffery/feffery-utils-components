@@ -20,6 +20,52 @@ def execute_js_demo(n_clicks):
 app.layout = html.Div(
     fuc.FefferyTopProgress(
         [
+            fuc.FefferySplit(
+                [
+                    fuc.FefferySplitPane(
+                        fuc.FefferySplit(
+                            [
+                                fuc.FefferySplitPane(
+                                    html.Div(
+                                        'a',
+                                        style={
+                                            'width': '100px',
+                                            'height': '100px',
+                                            'border': '1px solid red'
+                                        }
+                                    )
+                                ),
+                                fuc.FefferySplitPane('b'),
+                                fuc.FefferySplitPane('c'),
+                            ],
+                            # defaultSizes=[20, 40, 40],
+                            minSize=20,
+                            gutterSize=10,
+                            # dragInterval=1,
+                            # direction='vertical',
+                            style={
+                                'height': '100%'
+                            }
+                        ),
+                        style={
+                            'height': '100%'
+                        }
+                    ),
+                    fuc.FefferySplitPane('b'),
+                    fuc.FefferySplitPane('c'),
+                ],
+                # defaultSizes=[20, 40, 40],
+                minSize=20,
+                gutterSize=3,
+                # dragInterval=1,
+                direction='vertical',
+                style={
+                    'height': '400px',
+                    # 'border': '1px dashed black'
+                }
+            ),
+
+
             html.Div(
                 [
                     html.Div(
@@ -97,51 +143,6 @@ app.layout = html.Div(
             ),
 
             fuc.FefferyExecuteJs(),
-
-            fuc.FefferySplit(
-                [
-                    fuc.FefferySplitPane(
-                        fuc.FefferySplit(
-                            [
-                                fuc.FefferySplitPane(
-                                    html.Div(
-                                        'a',
-                                        style={
-                                            'width': '100px',
-                                            'height': '100px',
-                                            'border': '1px solid red'
-                                        }
-                                    )
-                                ),
-                                fuc.FefferySplitPane('b'),
-                                fuc.FefferySplitPane('c'),
-                            ],
-                            # defaultSizes=[20, 40, 40],
-                            minSize=20,
-                            gutterSize=3,
-                            # dragInterval=1,
-                            # direction='vertical',
-                            style={
-                                'height': '100%'
-                            }
-                        ),
-                        style={
-                            'height': '100%'
-                        }
-                    ),
-                    fuc.FefferySplitPane('b'),
-                    fuc.FefferySplitPane('c'),
-                ],
-                # defaultSizes=[20, 40, 40],
-                minSize=20,
-                gutterSize=3,
-                # dragInterval=1,
-                direction='vertical',
-                style={
-                    'height': '400px',
-                    # 'border': '1px dashed black'
-                }
-            ),
 
             fuc.FefferyGuide(
                 steps=[
