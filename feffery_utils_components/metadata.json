@@ -1113,14 +1113,6 @@
         "required": false,
         "description": ""
       },
-      "defaultSizes": {
-        "type": {
-          "name": "custom",
-          "raw": "PropTypes.arrayOf(PropTypes.number)"
-        },
-        "required": false,
-        "description": ""
-      },
       "sizes": {
         "type": {
           "name": "custom",

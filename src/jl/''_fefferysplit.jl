@@ -15,7 +15,6 @@ Keyword arguments:
 - `id` (optional)
 - `className` (optional)
 - `cursor` (optional)
-- `defaultSizes` (optional)
 - `direction` (optional)
 - `dragInterval` (optional)
 - `expandToMin` (optional)
@@ -29,7 +28,7 @@ to Dash, to make them available for callbacks.
 - `style` (optional)
 """
 function ''_fefferysplit(; kwargs...)
-        available_props = Symbol[:children, :id, :className, :cursor, :defaultSizes, :direction, :dragInterval, :expandToMin, :gutterSize, :loading_state, :maxSize, :minSize, :sizes, :style]
+        available_props = Symbol[:children, :id, :className, :cursor, :direction, :dragInterval, :expandToMin, :gutterSize, :loading_state, :maxSize, :minSize, :sizes, :style]
         wild_props = Symbol[]
         return Component("''_fefferysplit", "FefferySplit", "feffery_utils_components", available_props, wild_props; kwargs...)
 end
