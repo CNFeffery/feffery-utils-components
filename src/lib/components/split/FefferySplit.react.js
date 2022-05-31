@@ -33,15 +33,6 @@ const resolveChildProps = child => {
 // 定义分割面板组件FefferySplit，api参数参考https://github.com/nathancahill/split/tree/master/packages/splitjs
 export default class FefferySplit extends Component {
 
-    constructor(props) {
-        super(props)
-        // 初始化value
-        if (props.defaultSizes) {
-            // 当defaultSizes不为空时，为sizes初始化defaultSizes对应的sizes值
-            props.setProps({ sizes: props.defaultSizes })
-        }
-    }
-
     render() {
         // 取得必要属性或参数
         let {
@@ -50,7 +41,6 @@ export default class FefferySplit extends Component {
             className,
             style,
             sizes,
-            defaultSizes,
             minSize,
             maxSize,
             expandToMin,
@@ -97,7 +87,7 @@ export default class FefferySplit extends Component {
             <Split id={id}
                 className={className ? `feffery-split-${direction}` + ' ' + className : `feffery-split-${direction}`}
                 style={style}
-                sizes={defaultSizes}
+                sizes={sizes}
                 minSize={minSize}
                 maxSize={maxSize}
                 expandToMin={expandToMin}
@@ -132,9 +122,6 @@ FefferySplit.propTypes = {
 
     // 自定义css字典
     style: PropTypes.object,
-
-    // 以数组的形式，分别为每个子元素盒子设置百分比尺寸
-    defaultSizes: PropTypes.arrayOf(PropTypes.number),
 
     // 记录当前最新的sizes变动情况，分别为每个子元素盒子设置百分比尺寸
     sizes: PropTypes.arrayOf(PropTypes.number),
