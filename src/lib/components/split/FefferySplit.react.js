@@ -54,33 +54,32 @@ export default class FefferySplit extends Component {
 
         children = parseChildrenToArray(children)
 
-        const splitPanes = children.map(
-            (child) => {
-                let childProps = resolveChildProps(child)
+        // const splitPanes = children.map(
+        //     (child) => {
+        //         let childProps = resolveChildProps(child)
 
-                const {
-                    id,
-                    className,
-                    style,
-                    loading_state,
-                    ...otherProps
-                } = childProps;
+        //         const {
+        //             id,
+        //             className,
+        //             style,
+        //             loading_state,
+        //             ...otherProps
+        //         } = childProps;
 
-                return (
-                    <div
-                        id={id}
-                        className={className}
-                        style={style}
-                        loading_state={loading_state}
-                        {...omit(
-                            ['setProps', 'persistence', 'persistence_type', 'persisted_props'],
-                            otherProps
-                        )}>
-                        {child}
-                    </div>
-                );
-            }
-        )
+        //         return (
+        //             <div
+        //                 id={id}
+        //                 className={className}
+        //                 style={style}
+        //                 loading_state={loading_state}
+        //                 {...omit(
+        //                     ['setProps', 'persistence', 'persistence_type', 'persisted_props'],
+        //                     otherProps
+        //                 )}>
+        //             </div>
+        //         );
+        //     }
+        // )
 
         // 返回向页面注入的快捷键监听
         return (
@@ -103,7 +102,7 @@ export default class FefferySplit extends Component {
                     (loading_state && loading_state.is_loading) || undefined
                 }
             >
-                {splitPanes}
+                {children}
             </Split>
         );
     }
