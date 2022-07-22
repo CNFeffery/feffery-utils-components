@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useResizeDetector } from 'react-resize-detector';
 
 // 定义进阶div容器组件FefferyDiv
@@ -13,7 +13,10 @@ const FefferyDiv = (props) => {
         loading_state
     } = props;
 
-    const { width, height, ref } = useResizeDetector();
+    const onResize = useCallback(() => {
+    }, []);
+
+    const { width, height, ref } = useResizeDetector({ onResize });
 
     useEffect(() => {
         // 监听div容器尺寸变化从而刷新_width，_height属性值
