@@ -2,6 +2,7 @@
 
 export(''FefferyCircleColorPicker)
 export(''FefferyCaptcha)
+export(''FefferyDiv)
 export(''FefferyExecuteJs)
 export(''FefferyExtraSpinner)
 export(''FefferyGuide)

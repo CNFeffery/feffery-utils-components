@@ -1,0 +1,32 @@
+# AUTO GENERATED FILE - DO NOT EDIT
+
+export ''_fefferydiv
+
+"""
+    ''_fefferydiv(;kwargs...)
+    ''_fefferydiv(children::Any;kwargs...)
+    ''_fefferydiv(children_maker::Function;kwargs...)
+
+
+A FefferyDiv component.
+
+Keyword arguments:
+- `children` (optional)
+- `id` (optional)
+- `_height` (optional)
+- `_width` (optional)
+- `className` (optional)
+- `loading_state` (optional)
+- `setProps` (optional): Dash-assigned callback that should be called to report property changes
+to Dash, to make them available for callbacks.
+- `style` (optional)
+"""
+function ''_fefferydiv(; kwargs...)
+        available_props = Symbol[:children, :id, :_height, :_width, :className, :loading_state, :style]
+        wild_props = Symbol[]
+        return Component("''_fefferydiv", "FefferyDiv", "feffery_utils_components", available_props, wild_props; kwargs...)
+end
+
+''_fefferydiv(children::Any; kwargs...) = ''_fefferydiv(;kwargs..., children = children)
+''_fefferydiv(children_maker::Function; kwargs...) = ''_fefferydiv(children_maker(); kwargs...)
+
