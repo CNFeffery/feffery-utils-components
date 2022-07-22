@@ -561,6 +561,105 @@
       }
     }
   },
+  "src/lib/components/FefferyLazyLoad.react.js": {
+    "description": "",
+    "displayName": "FefferyLazyLoad",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "children": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.node"
+        },
+        "required": false,
+        "description": ""
+      },
+      "style": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "className": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "height": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.oneOfType([\r\n    PropTypes.number,\r\n    PropTypes.string\r\n])"
+        },
+        "required": false,
+        "description": ""
+      },
+      "width": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.oneOfType([\r\n    PropTypes.number,\r\n    PropTypes.string\r\n])"
+        },
+        "required": false,
+        "description": ""
+      },
+      "offset": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "visible": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "throttle": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      },
+      "loading_state": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.shape({\r\n    /**\r\n     * Determines if the component is loading or not\r\n     */\r\n    is_loading: PropTypes.bool,\r\n    /**\r\n     * Holds which property is loading\r\n     */\r\n    prop_name: PropTypes.string,\r\n    /**\r\n     * Holds the name of the component that is loading\r\n     */\r\n    component_name: PropTypes.string\r\n})"
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
   "src/lib/components/FefferyScroll.react.js": {
     "description": "",
     "displayName": "FefferyScroll",

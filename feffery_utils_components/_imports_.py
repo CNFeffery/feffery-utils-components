@@ -4,6 +4,7 @@ from .FefferyDiv import FefferyDiv
 from .FefferyExecuteJs import FefferyExecuteJs
 from .FefferyExtraSpinner import FefferyExtraSpinner
 from .FefferyGuide import FefferyGuide
+from .FefferyLazyLoad import FefferyLazyLoad
 from .FefferyScroll import FefferyScroll
 from .FefferyScrollbars import FefferyScrollbars
 from .FefferyShortcutPanel import FefferyShortcutPanel
@@ -19,6 +20,7 @@ __all__ = [
     "FefferyExecuteJs",
     "FefferyExtraSpinner",
     "FefferyGuide",
+    "FefferyLazyLoad",
     "FefferyScroll",
     "FefferyScrollbars",
     "FefferyShortcutPanel",
