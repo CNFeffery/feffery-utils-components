@@ -11,6 +11,7 @@ import FefferyCircleColorPicker from "./components/colorPickers/FefferyCircleCol
 import FefferyScroll from "./components/FefferyScroll.react";
 import FefferyScrollbars from "./components/FefferyScrollbars.react";
 import FefferyExtraSpinner from "./components/FefferyExtraSpinner.react";
+import FefferyDiv from "./components/FefferyDiv.react";
 
 export {
     FefferyCaptcha,
@@ -24,5 +25,6 @@ export {
     FefferyCircleColorPicker,
     FefferyScroll,
     FefferyScrollbars,
-    FefferyExtraSpinner
+    FefferyExtraSpinner,
+    FefferyDiv
 };
