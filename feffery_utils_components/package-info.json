@@ -30,6 +30,7 @@
     "ninja-keys": "^1.1.12",
     "nprogress": "^0.2.0",
     "ramda": "^0.26.1",
+    "rc-virtual-list": "^3.4.8",
     "react-captcha-code": "^1.0.7",
     "react-color": "^2.19.3",
     "react-copy-to-clipboard": "^5.0.4",

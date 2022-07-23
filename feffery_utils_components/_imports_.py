@@ -10,6 +10,7 @@ from .FefferyScrollbars import FefferyScrollbars
 from .FefferyShortcutPanel import FefferyShortcutPanel
 from .FefferySyntaxHighlighter import FefferySyntaxHighlighter
 from .FefferyTopProgress import FefferyTopProgress
+from .FefferyVirtualList import FefferyVirtualList
 from .FefferySplit import FefferySplit
 from .FefferySplitPane import FefferySplitPane
 
@@ -26,6 +27,7 @@ __all__ = [
     "FefferyShortcutPanel",
     "FefferySyntaxHighlighter",
     "FefferyTopProgress",
+    "FefferyVirtualList",
     "FefferySplit",
     "FefferySplitPane"
 ]
