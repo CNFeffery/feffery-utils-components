@@ -20,6 +20,16 @@ def execute_js_demo(n_clicks):
 app.layout = html.Div(
     fuc.FefferyTopProgress(
         [
+            fuc.FefferyDiv(
+                enableListenContextMenu=True,
+                style={
+                    'width': '100px',
+                    'height': '100px',
+                    'background': 'grey'
+                }
+            ),
+
+
             fuc.FefferySplit(
                 [
                     fuc.FefferySplitPane(

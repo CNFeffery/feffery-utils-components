@@ -230,6 +230,74 @@
         "required": false,
         "description": ""
       },
+      "mouseEnterCounts": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "mouseLeaveCounts": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "nClicks": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "nDoubleClicks": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "enableListenContextMenu": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "contextMenuEvent": {
+        "type": {
+          "name": "custom",
+          "raw": "PropTypes.exact({\r\n    // \u5728\u9875\u9762\u4e2d\u7684x\u5750\u6807\r\n    pageX: PropTypes.number,\r\n    // \u5728\u9875\u9762\u4e2d\u7684y\u5750\u6807\r\n    pageY: PropTypes.number,\r\n    // \u70b9\u51fb\u4e8b\u4ef6\u5bf9\u5e94\u7684\u65f6\u95f4\u6233\r\n    timestamp: PropTypes.number\r\n})"
+        },
+        "required": false,
+        "description": ""
+      },
       "setProps": {
         "type": {
           "name": "custom",
@@ -1286,7 +1354,7 @@
       "height": {
         "type": {
           "name": "custom",
-          "raw": "PropTypes.number"
+          "raw": "PropTypes.number.isRequired"
         },
         "required": false,
         "description": ""
@@ -1294,7 +1362,7 @@
       "itemHeight": {
         "type": {
           "name": "custom",
-          "raw": "PropTypes.number"
+          "raw": "PropTypes.number.isRequired"
         },
         "required": false,
         "description": ""
