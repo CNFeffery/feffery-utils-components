@@ -17,6 +17,7 @@ include("jl/''_fefferyscrollbars.jl")
 include("jl/''_fefferyshortcutpanel.jl")
 include("jl/''_fefferysyntaxhighlighter.jl")
 include("jl/''_fefferytopprogress.jl")
+include("jl/''_fefferyvirtuallist.jl")
 include("jl/''_fefferysplit.jl")
 include("jl/''_fefferysplitpane.jl")
 

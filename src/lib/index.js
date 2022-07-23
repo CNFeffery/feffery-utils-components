@@ -13,6 +13,7 @@ import FefferyScrollbars from "./components/FefferyScrollbars.react";
 import FefferyExtraSpinner from "./components/FefferyExtraSpinner.react";
 import FefferyDiv from "./components/FefferyDiv.react";
 import FefferyLazyLoad from "./components/FefferyLazyLoad.react";
+import FefferyVirtualList from "./components/FefferyVirtualList.react";
 
 export {
     FefferyCaptcha,
@@ -28,5 +29,6 @@ export {
     FefferyScrollbars,
     FefferyExtraSpinner,
     FefferyDiv,
-    FefferyLazyLoad
+    FefferyLazyLoad,
+    FefferyVirtualList
 };

@@ -8,27 +8,37 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        fuc.FefferyLazyLoad(
-            html.Div(
+        fuc.FefferyVirtualList(
+            [
+                html.Div(f'测试列表{i}')
+                for i in range(50000)
+            ],
+            height=300,
+            itemHeight=25
+        ),
+        *[
+            fuc.FefferyLazyLoad(
+                html.Div(
+                    id={
+                        'type': 'container',
+                        'index': i
+                    },
+                    style={
+                        'height': '400px',
+                        'overflowWrap': 'break-word',
+                        'marginBottom': '20px',
+                        'border': '1px solid black'
+                    }
+                ),
                 id={
-                    'type': 'container',
+                    'type': 'lazy-load-container',
                     'index': i
                 },
-                style={
-                    'height': '400px',
-                    'overflowWrap': 'break-word',
-                    'marginBottom': '20px',
-                    'border': '1px solid black'
-                }
-            ),
-            id={
-                'type': 'lazy-load-container',
-                'index': i
-            },
-            height=400,
-            throttle=0
-        )
-        for i in range(20)
+                height=400,
+                throttle=0
+            )
+            for i in range(20)
+        ]
     ],
     style={
         'width': '800px',

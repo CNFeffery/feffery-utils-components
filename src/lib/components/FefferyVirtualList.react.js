@@ -1,44 +1,45 @@
 import React from 'react';
-import LazyLoad from 'react-lazy-load';
+import List from 'rc-virtual-list';
 
-// 定义懒加载容器组件FefferyLazyLoad
-const FefferyLazyLoad = (props) => {
+const parseChildrenToArray = children => {
+    if (children && !Array.isArray(children)) {
+        return [children];
+    }
+    return children;
+};
+
+// 定义虚拟滚动组件FefferyVirtualList
+const FefferyVirtualList = (props) => {
     // 取得必要属性或参数
-    const {
+    let {
         id,
         children,
         style,
         className,
         height,
-        width,
-        offset,
-        throttle,
+        itemHeight,
         setProps,
         loading_state
     } = props;
 
-    return (<LazyLoad
+    children = parseChildrenToArray(children);
+
+    return (<List
         id={id}
         style={style}
         className={className}
+        itemKey="virtual-list-id"
         height={height}
-        width={width}
-        throttle={throttle}
-        offset={offset}
-        onContentVisible={(e) => {
-            setProps({
-                visible: true
-            })
-        }}
+        itemHeight={itemHeight}
+        data={children.map((_, index) => index)}
+        children={(index) => children[index]}
         data-dash-is-loading={
             (loading_state && loading_state.is_loading) || undefined
-        } >
-        {children}
-    </ LazyLoad>);
+        } />);
 }
 
 // 定义参数或属性
-FefferyLazyLoad.propTypes = {
+FefferyVirtualList.propTypes = {
     // 部件id
     id: PropTypes.string,
 
@@ -48,27 +49,9 @@ FefferyLazyLoad.propTypes = {
 
     className: PropTypes.string,
 
-    // 设置默认高度
-    height: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.string
-    ]),
+    height: PropTypes.number,
 
-    // 设置默认为宽度
-    width: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.string
-    ]),
-
-    // 设置元素距离浏览器下边界若干像素距离时开始预加载
-    // 默认为0
-    offset: PropTypes.number,
-
-    // 监听容器是否已出现在用户视图中
-    visible: PropTypes.bool,
-
-    // 设置节流所需的延时加载时长（单位：毫秒），默认为250
-    throttle: PropTypes.number,
+    itemHeight: PropTypes.number,
 
     /**
      * Dash-assigned callback that should be called to report property changes
@@ -93,8 +76,7 @@ FefferyLazyLoad.propTypes = {
 };
 
 // 设置默认参数
-FefferyLazyLoad.defaultProps = {
-    visible: false
+FefferyVirtualList.defaultProps = {
 }
 
-export default React.memo(FefferyLazyLoad);
+export default React.memo(FefferyVirtualList);
