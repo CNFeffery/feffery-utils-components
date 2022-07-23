@@ -25,7 +25,7 @@ const FefferyLazyLoad = (props) => {
         width={width}
         throttle={throttle}
         offset={offset}
-        onContentVisible={(e) => {
+        onContentVisible={() => {
             setProps({
                 visible: true
             })

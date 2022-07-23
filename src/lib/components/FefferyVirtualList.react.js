@@ -49,9 +49,11 @@ FefferyVirtualList.propTypes = {
 
     className: PropTypes.string,
 
-    height: PropTypes.number,
+    // 虚拟化区域像素高度
+    height: PropTypes.number.isRequired,
 
-    itemHeight: PropTypes.number,
+    // 每个子元素区域的像素高度
+    itemHeight: PropTypes.number.isRequired,
 
     /**
      * Dash-assigned callback that should be called to report property changes

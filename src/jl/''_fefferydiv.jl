@@ -16,13 +16,19 @@ Keyword arguments:
 - `_height` (optional)
 - `_width` (optional)
 - `className` (optional)
+- `contextMenuEvent` (optional)
+- `enableListenContextMenu` (optional)
 - `loading_state` (optional)
+- `mouseEnterCounts` (optional)
+- `mouseLeaveCounts` (optional)
+- `nClicks` (optional)
+- `nDoubleClicks` (optional)
 - `setProps` (optional): Dash-assigned callback that should be called to report property changes
 to Dash, to make them available for callbacks.
 - `style` (optional)
 """
 function ''_fefferydiv(; kwargs...)
-        available_props = Symbol[:children, :id, :_height, :_width, :className, :loading_state, :style]
+        available_props = Symbol[:children, :id, :_height, :_width, :className, :contextMenuEvent, :enableListenContextMenu, :loading_state, :mouseEnterCounts, :mouseLeaveCounts, :nClicks, :nDoubleClicks, :style]
         wild_props = Symbol[]
         return Component("''_fefferydiv", "FefferyDiv", "feffery_utils_components", available_props, wild_props; kwargs...)
 end
