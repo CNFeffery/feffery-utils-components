@@ -14,6 +14,7 @@ import FefferyExtraSpinner from "./components/FefferyExtraSpinner.react";
 import FefferyDiv from "./components/FefferyDiv.react";
 import FefferyLazyLoad from "./components/FefferyLazyLoad.react";
 import FefferyVirtualList from "./components/FefferyVirtualList.react";
+import FefferyLocation from "./components/FefferyLocation.react";
 
 export {
     FefferyCaptcha,
@@ -30,5 +31,6 @@ export {
     FefferyExtraSpinner,
     FefferyDiv,
     FefferyLazyLoad,
-    FefferyVirtualList
+    FefferyVirtualList,
+    FefferyLocation
 };
