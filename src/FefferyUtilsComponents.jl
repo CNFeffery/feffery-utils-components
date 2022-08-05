@@ -7,7 +7,6 @@ const version = "0.0.15"
 
 include("jl/''_fefferycirclecolorpicker.jl")
 include("jl/''_fefferycaptcha.jl")
-include("jl/''_fefferydiv.jl")
 include("jl/''_fefferyexecutejs.jl")
 include("jl/''_fefferyextraspinner.jl")
 include("jl/''_fefferyguide.jl")
@@ -19,6 +18,8 @@ include("jl/''_fefferyshortcutpanel.jl")
 include("jl/''_fefferysyntaxhighlighter.jl")
 include("jl/''_fefferytopprogress.jl")
 include("jl/''_fefferyvirtuallist.jl")
+include("jl/''_fefferydiv.jl")
+include("jl/''_fefferyinviewport.jl")
 include("jl/''_fefferysplit.jl")
 include("jl/''_fefferysplitpane.jl")
 

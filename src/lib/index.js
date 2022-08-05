@@ -11,10 +11,11 @@ import FefferyCircleColorPicker from "./components/colorPickers/FefferyCircleCol
 import FefferyScroll from "./components/FefferyScroll.react";
 import FefferyScrollbars from "./components/FefferyScrollbars.react";
 import FefferyExtraSpinner from "./components/FefferyExtraSpinner.react";
-import FefferyDiv from "./components/FefferyDiv.react";
 import FefferyLazyLoad from "./components/FefferyLazyLoad.react";
 import FefferyVirtualList from "./components/FefferyVirtualList.react";
 import FefferyLocation from "./components/FefferyLocation.react";
+import FefferyDiv from "./components/listeners/FefferyDiv.react";
+import FefferyInViewport from "./components/listeners/FefferyInViewport.react";
 
 export {
     FefferyCaptcha,
@@ -32,5 +33,6 @@ export {
     FefferyDiv,
     FefferyLazyLoad,
     FefferyVirtualList,
-    FefferyLocation
+    FefferyLocation,
+    FefferyInViewport
 };

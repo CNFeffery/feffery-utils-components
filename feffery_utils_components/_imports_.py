@@ -1,6 +1,5 @@
 from .FefferyCircleColorPicker import FefferyCircleColorPicker
 from .FefferyCaptcha import FefferyCaptcha
-from .FefferyDiv import FefferyDiv
 from .FefferyExecuteJs import FefferyExecuteJs
 from .FefferyExtraSpinner import FefferyExtraSpinner
 from .FefferyGuide import FefferyGuide
@@ -12,13 +11,14 @@ from .FefferyShortcutPanel import FefferyShortcutPanel
 from .FefferySyntaxHighlighter import FefferySyntaxHighlighter
 from .FefferyTopProgress import FefferyTopProgress
 from .FefferyVirtualList import FefferyVirtualList
+from .FefferyDiv import FefferyDiv
+from .FefferyInViewport import FefferyInViewport
 from .FefferySplit import FefferySplit
 from .FefferySplitPane import FefferySplitPane
 
 __all__ = [
     "FefferyCircleColorPicker",
     "FefferyCaptcha",
-    "FefferyDiv",
     "FefferyExecuteJs",
     "FefferyExtraSpinner",
     "FefferyGuide",
@@ -30,6 +30,8 @@ __all__ = [
     "FefferySyntaxHighlighter",
     "FefferyTopProgress",
     "FefferyVirtualList",
+    "FefferyDiv",
+    "FefferyInViewport",
     "FefferySplit",
     "FefferySplitPane"
 ]
