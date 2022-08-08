@@ -1,4 +1,3 @@
-
 if True:
     import sys
     sys.path.append('../..')
@@ -20,7 +19,8 @@ app.layout = html.Div(
                     'border': '1px solid red'
                 }
             ),
-            id='in-viewport-demo'
+            id='in-viewport-demo',
+            threshold=0.5
         ),
 
         html.Span(

@@ -1,29 +1,49 @@
 import React, { useRef, useEffect } from 'react';
 import { useInViewport } from 'ahooks';
+import { isUndefined } from 'lodash';
 
-// 定义元素可见检查组件FefferyInViewport
+// 定义元素可见性检查组件FefferyInViewport
 const FefferyInViewport = (props) => {
 
-    const ref = useRef(null);
-
-    const [_inViewport] = useInViewport(ref);
-
-    useEffect(() => {
-        console.log(_inViewport)
-        setProps({
-            inViewport: _inViewport
-        })
-    }, [_inViewport])
-
-    // 取得必要属性或参数
-    let {
+    const {
         id,
+        inViewport,
+        threshold,
         children,
         style,
         className,
         setProps,
         loading_state
     } = props;
+
+    const ref = useRef(null);
+
+    const [_inViewport, ratio] = useInViewport(ref, {
+        threshold: threshold
+    });
+
+    useEffect(() => {
+
+        // 若设置了阈值
+        if (!isUndefined(threshold)) {
+            // 本身可见的元素，可见部分比例开始小于阈值时
+            if (inViewport && ratio < threshold) {
+                setProps({
+                    inViewport: false
+                })
+            }
+            // 本身不可见的元素，可见部分比例开始大于等于阈值时
+            else if (!inViewport && ratio >= threshold) {
+                setProps({
+                    inViewport: true
+                })
+            }
+        } else {
+            setProps({
+                inViewport: _inViewport
+            })
+        }
+    }, [_inViewport, ratio])
 
     return (<div
         id={id}
@@ -45,6 +65,9 @@ FefferyInViewport.propTypes = {
 
     // 监听当前元素是否出现在可视范围内
     inViewport: PropTypes.bool,
+
+    // 可选，用于设置触发元素可见性状态切换的比例阈值
+    threshold: PropTypes.number,
 
     /**
      * Dash-assigned callback that should be called to report property changes

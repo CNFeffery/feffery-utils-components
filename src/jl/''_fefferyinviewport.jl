@@ -17,9 +17,10 @@ Keyword arguments:
 - `loading_state` (optional)
 - `setProps` (optional): Dash-assigned callback that should be called to report property changes
 to Dash, to make them available for callbacks.
+- `threshold` (optional)
 """
 function ''_fefferyinviewport(; kwargs...)
-        available_props = Symbol[:children, :id, :inViewport, :loading_state]
+        available_props = Symbol[:children, :id, :inViewport, :loading_state, :threshold]
         wild_props = Symbol[]
         return Component("''_fefferyinviewport", "FefferyInViewport", "feffery_utils_components", available_props, wild_props; kwargs...)
 end
