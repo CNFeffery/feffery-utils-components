@@ -13,16 +13,20 @@ Keyword arguments:
 
 - jsString (optional)
 
-- loading_state (optional)"""
+- loading_state (optional)
+
+- setProps (optional):
+    Dash-assigned callback that should be called to report property
+    changes  to Dash, to make them available for callbacks."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyExecuteJs'
     @_explicitize_args
     def __init__(self, id=Component.UNDEFINED, jsString=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'jsString', 'loading_state']
+        self._prop_names = ['id', 'jsString', 'loading_state', 'setProps']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'jsString', 'loading_state']
+        self.available_properties = ['id', 'jsString', 'loading_state', 'setProps']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

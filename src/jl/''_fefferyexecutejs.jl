@@ -11,6 +11,8 @@ Keyword arguments:
 - `id` (optional)
 - `jsString` (optional)
 - `loading_state` (optional)
+- `setProps` (optional): Dash-assigned callback that should be called to report property changes
+to Dash, to make them available for callbacks.
 """
 function ''_fefferyexecutejs(; kwargs...)
         available_props = Symbol[:id, :jsString, :loading_state]
