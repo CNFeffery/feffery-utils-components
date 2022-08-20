@@ -22,6 +22,7 @@
   "author": "CNFeffery <fefferypzy@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@charliewilco/gluejar": "^1.0.0",
     "ahooks": "^3.7.0",
     "byte-guide": "^1.0.7",
