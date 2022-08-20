@@ -142,12 +142,12 @@ const FefferySyntaxHighlighter = (props) => {
                 </button>
             </CopyToClipboard>
             <SyntaxHighlighter
-                children={codeString}
                 style={currentCodeStyle}
                 showLineNumbers={showLineNumbers}
                 language={language}
-                PreTag="div"
-                {...props} />
+                PreTag="div" >
+                {codeString}
+            </SyntaxHighlighter>
         </div>
     );
 }

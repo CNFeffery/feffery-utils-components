@@ -244,11 +244,11 @@ app.layout = html.Div(
             html.Div(
                 html.Em(id='output-demo')
             ),
+            
 
             fuc.FefferySyntaxHighlighter(
                 id='syntax-highlighter-demo',
                 showLineNumbers=True,
-                showInlineLineNumbers=True,
                 codeString='''html.Div(
     [
         fac.AntdBackTop(
@@ -277,7 +277,7 @@ app.layout = html.Div(
 )
 ''',
                 language='python',
-                codeStyle='coy-without-shadows'
+                codeTheme='coy-without-shadows'
             )
         ],
         # listenPropsMode='exclude',
