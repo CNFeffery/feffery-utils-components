@@ -71,6 +71,8 @@ const FefferySyntaxHighlighter = (props) => {
     // 取得必要属性或参数
     let {
         id,
+        codeString,
+        language,
         codeTheme,
         codeBlockStyle,
         codeStyle,
@@ -128,7 +130,7 @@ const FefferySyntaxHighlighter = (props) => {
                         lineHeight: '16px',
                     }
                 }
-                text={String(children).replace(/\n$/, '')}
+                text={codeString}
             >
                 <button
                     type="button"
@@ -140,10 +142,10 @@ const FefferySyntaxHighlighter = (props) => {
                 </button>
             </CopyToClipboard>
             <SyntaxHighlighter
-                children={String(children).replace(/\n$/, '')}
+                children={codeString}
                 style={currentCodeStyle}
                 showLineNumbers={showLineNumbers}
-                language={match[1]}
+                language={language}
                 PreTag="div"
                 {...props} />
         </div>
@@ -154,6 +156,12 @@ const FefferySyntaxHighlighter = (props) => {
 FefferySyntaxHighlighter.propTypes = {
     // id
     id: PropTypes.string,
+
+    // 定义代码内容字符串
+    codeString: PropTypes.string.isRequired,
+
+    // 定义编程语言类型
+    language: PropTypes.string.isRequired,
 
     // 设置代码风格主题，默认为'gh-colors'
     codeTheme: PropTypes.oneOf([

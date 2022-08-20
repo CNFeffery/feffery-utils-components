@@ -13,9 +13,13 @@ Keyword arguments:
 
 - codeBlockStyle (dict; optional)
 
+- codeString (string; required)
+
 - codeStyle (dict; optional)
 
 - codeTheme (a value equal to: 'a11y-dark', 'atom-dark', 'coldark-cold', 'coldark-dark', 'coy', 'coy-without-shadows', 'darcula', 'dracula', 'nord', 'okaidia', 'prism', 'solarizedlight', 'twilight', 'duotone-sea', 'duotone-dark', 'duotone-light', 'duotone-space', 'gh-colors', 'gruvbox-dark', 'material-dark', 'night-owl', 'one-light', 'pojoaque', 'solarized-dark-atom', 'synthwave84', 'z-touch'; default 'gh-colors')
+
+- language (string; required)
 
 - loading_state (dict; optional)
 
@@ -36,16 +40,16 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferySyntaxHighlighter'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, codeTheme=Component.UNDEFINED, codeBlockStyle=Component.UNDEFINED, codeStyle=Component.UNDEFINED, showLineNumbers=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'codeBlockStyle', 'codeStyle', 'codeTheme', 'loading_state', 'showLineNumbers']
+    def __init__(self, id=Component.UNDEFINED, codeString=Component.REQUIRED, language=Component.REQUIRED, codeTheme=Component.UNDEFINED, codeBlockStyle=Component.UNDEFINED, codeStyle=Component.UNDEFINED, showLineNumbers=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'codeBlockStyle', 'codeString', 'codeStyle', 'codeTheme', 'language', 'loading_state', 'showLineNumbers']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'codeBlockStyle', 'codeStyle', 'codeTheme', 'loading_state', 'showLineNumbers']
+        self.available_properties = ['id', 'codeBlockStyle', 'codeString', 'codeStyle', 'codeTheme', 'language', 'loading_state', 'showLineNumbers']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
         _locals.update(kwargs)  # For wildcard attrs and excess named props
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
-        for k in []:
+        for k in ['codeString', 'language']:
             if k not in args:
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')
