@@ -7,7 +7,6 @@ import FefferyGuide from "./components/FefferyGuide.react"
 import FefferySplit from "./components/split/FefferySplit.react";
 import FefferySplitPane from "./components/split/FefferySplitPane.react"
 import FefferyExecuteJs from "./components/FefferyExecuteJs.react";
-import FefferyCircleColorPicker from "./components/colorPickers/FefferyCircleColorPicker.react";
 import FefferyScroll from "./components/FefferyScroll.react";
 import FefferyScrollbars from "./components/FefferyScrollbars.react";
 import FefferyExtraSpinner from "./components/FefferyExtraSpinner.react";
@@ -16,6 +15,18 @@ import FefferyVirtualList from "./components/FefferyVirtualList.react";
 import FefferyLocation from "./components/FefferyLocation.react";
 import FefferyDiv from "./components/listeners/FefferyDiv.react";
 import FefferyInViewport from "./components/listeners/FefferyInViewport.react";
+import FefferyHexColorPicker from "./components/colorPickers/FefferyHexColorPicker.react";
+import FefferyRgbColorPicker from "./components/colorPickers/FefferyRgbColorPicker.react";
+
+// 忽略部分console警告信息
+const backup = console.error;
+console.error = (msg) => {
+    const supressedWarnings = ['Warning:'];
+
+    if (!supressedWarnings.some(entry => msg.includes(entry))) {
+        backup.apply(console, arguments);
+    }
+};
 
 export {
     FefferyCaptcha,
@@ -26,7 +37,6 @@ export {
     FefferySplit,
     FefferySplitPane,
     FefferyExecuteJs,
-    FefferyCircleColorPicker,
     FefferyScroll,
     FefferyScrollbars,
     FefferyExtraSpinner,
@@ -34,5 +44,7 @@ export {
     FefferyLazyLoad,
     FefferyVirtualList,
     FefferyLocation,
-    FefferyInViewport
+    FefferyInViewport,
+    FefferyHexColorPicker,
+    FefferyRgbColorPicker
 };

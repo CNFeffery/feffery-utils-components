@@ -34,7 +34,7 @@
     "ramda": "^0.26.1",
     "rc-virtual-list": "^3.4.8",
     "react-captcha-code": "^1.0.7",
-    "react-color": "^2.19.3",
+    "react-colorful": "^5.6.1",
     "react-copy-to-clipboard": "^5.0.4",
     "react-icons": "^4.3.1",
     "react-lazy-load": "^3.1.14",

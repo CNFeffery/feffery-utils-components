@@ -1,6 +1,7 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-export(''FefferyCircleColorPicker)
+export(''FefferyHexColorPicker)
+export(''FefferyRgbColorPicker)
 export(''FefferyCaptcha)
 export(''FefferyExecuteJs)
 export(''FefferyExtraSpinner)
@@ -17,3 +18,6 @@ export(''FefferyDiv)
 export(''FefferyInViewport)
 export(''FefferySplit)
 export(''FefferySplitPane)
+export(FefferyCircleColorPicker)
+export(FefferyCompactColorPicker)
+export(FefferyHueColorPicker)

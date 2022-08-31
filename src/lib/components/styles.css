@@ -89,3 +89,9 @@
 .copy-to-clipboard-button:hover {
   opacity: 0.8;
 }
+
+/* compact色彩选择器 */
+/* .flexbox-fix > div {
+  display: flex;
+  align-items: center;
+} */

@@ -11,21 +11,21 @@ Keyword arguments:
 
 - id (optional)
 
-- circleSize (optional)
+- circleSize (default 28)
 
-- circleSpacing (optional)
+- circleSpacing (default 14)
 
 - className (optional)
 
 - color (optional)
 
-- colors (optional)
+- colors (default ["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#607d8b"])
 
 - loading_state (optional)
 
 - style (optional)
 
-- width (optional)"""
+- width (default '252px')"""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

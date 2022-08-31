@@ -5,7 +5,8 @@ using Dash
 const resources_path = realpath(joinpath( @__DIR__, "..", "deps"))
 const version = "0.0.16"
 
-include("jl/''_fefferycirclecolorpicker.jl")
+include("jl/''_fefferyhexcolorpicker.jl")
+include("jl/''_fefferyrgbcolorpicker.jl")
 include("jl/''_fefferycaptcha.jl")
 include("jl/''_fefferyexecutejs.jl")
 include("jl/''_fefferyextraspinner.jl")
