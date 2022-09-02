@@ -34,6 +34,7 @@ import {
     WhisperSpinner,
     MetroSpinner
 } from "react-spinners-kit";
+import PropTypes from 'prop-types';
 
 
 // 定义额外加载动画组件FefferyExtraSpinner，api参考https://github.com/dmitrymorozoff/react-spinners-kit

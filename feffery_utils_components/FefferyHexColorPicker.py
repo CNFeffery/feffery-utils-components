@@ -9,17 +9,28 @@ class FefferyHexColorPicker(Component):
 
 Keyword arguments:
 
-- id (optional)
+- id (string; optional)
 
-- className (optional)
+- className (string; optional)
 
-- color (default '#44cef6')
+- color (string; default '#44cef6')
 
-- loading_state (optional)
+- loading_state (dict; optional)
 
-- showAlpha (default False)
+    `loading_state` is a dict with keys:
 
-- style (optional)"""
+    - component_name (string; optional):
+        Holds the name of the component that is loading.
+
+    - is_loading (boolean; optional):
+        Determines if the component is loading or not.
+
+    - prop_name (string; optional):
+        Holds which property is loading.
+
+- showAlpha (boolean; default False)
+
+- style (dict; optional)"""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

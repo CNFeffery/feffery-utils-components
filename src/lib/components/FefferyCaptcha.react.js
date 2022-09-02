@@ -1,4 +1,5 @@
 import React, { useCallback, useRef } from 'react';
+import PropTypes from 'prop-types';
 import Captcha from 'react-captcha-code';
 
 // 定义验证码部件FefferyCaptcha，api参数参考https://github.com/WebEngineerLi/react-captcha

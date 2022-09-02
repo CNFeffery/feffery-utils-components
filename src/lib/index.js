@@ -17,6 +17,11 @@ import FefferyDiv from "./components/listeners/FefferyDiv.react";
 import FefferyInViewport from "./components/listeners/FefferyInViewport.react";
 import FefferyHexColorPicker from "./components/colorPickers/FefferyHexColorPicker.react";
 import FefferyRgbColorPicker from "./components/colorPickers/FefferyRgbColorPicker.react";
+import FefferyGithubColorPicker from "./components/colorPickers/FefferyGithubColorPicker.react";
+import FefferyTwitterColorPicker from "./components/colorPickers/FefferyTwitterColorPicker.react";
+import FefferyBlockColorPicker from "./components/colorPickers/FefferyBlockColorPicker.react";
+import FefferyCircleColorPicker from "./components/colorPickers/FefferyCircleColorPicker.react";
+import FefferyWheelColorPicker from "./components/colorPickers/FefferyWheelColorPicker.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -52,5 +57,10 @@ export {
     FefferyLocation,
     FefferyInViewport,
     FefferyHexColorPicker,
-    FefferyRgbColorPicker
+    FefferyRgbColorPicker,
+    FefferyGithubColorPicker,
+    FefferyTwitterColorPicker,
+    FefferyBlockColorPicker,
+    FefferyCircleColorPicker,
+    FefferyWheelColorPicker
 };

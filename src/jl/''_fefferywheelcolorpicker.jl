@@ -1,11 +1,11 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-export ''_fefferyrgbcolorpicker
+export ''_fefferywheelcolorpicker
 
 """
-    ''_fefferyrgbcolorpicker(;kwargs...)
+    ''_fefferywheelcolorpicker(;kwargs...)
 
-A FefferyRgbColorPicker component.
+A FefferyWheelColorPicker component.
 
 Keyword arguments:
 - `id` (String; optional)
@@ -16,12 +16,11 @@ Those elements have the following types:
   - `is_loading` (Bool; optional): Determines if the component is loading or not
   - `prop_name` (String; optional): Holds which property is loading
   - `component_name` (String; optional): Holds the name of the component that is loading
-- `showAlpha` (Bool; optional)
 - `style` (Dict; optional)
 """
-function ''_fefferyrgbcolorpicker(; kwargs...)
-        available_props = Symbol[:id, :className, :color, :loading_state, :showAlpha, :style]
+function ''_fefferywheelcolorpicker(; kwargs...)
+        available_props = Symbol[:id, :className, :color, :loading_state, :style]
         wild_props = Symbol[]
-        return Component("''_fefferyrgbcolorpicker", "FefferyRgbColorPicker", "feffery_utils_components", available_props, wild_props; kwargs...)
+        return Component("''_fefferywheelcolorpicker", "FefferyWheelColorPicker", "feffery_utils_components", available_props, wild_props; kwargs...)
 end
 

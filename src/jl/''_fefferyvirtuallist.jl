@@ -11,15 +11,17 @@ export ''_fefferyvirtuallist
 A FefferyVirtualList component.
 
 Keyword arguments:
-- `children` (optional)
-- `id` (optional)
-- `className` (optional)
-- `height` (optional)
-- `itemHeight` (optional)
-- `loading_state` (optional)
-- `setProps` (optional): Dash-assigned callback that should be called to report property changes
-to Dash, to make them available for callbacks.
-- `style` (optional)
+- `children` (a list of or a singular dash component, string or number; optional)
+- `id` (String; optional)
+- `className` (String; optional)
+- `height` (Real; required)
+- `itemHeight` (Real; required)
+- `loading_state` (optional): . loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
+Those elements have the following types:
+  - `is_loading` (Bool; optional): Determines if the component is loading or not
+  - `prop_name` (String; optional): Holds which property is loading
+  - `component_name` (String; optional): Holds the name of the component that is loading
+- `style` (Dict; optional)
 """
 function ''_fefferyvirtuallist(; kwargs...)
         available_props = Symbol[:children, :id, :className, :height, :itemHeight, :loading_state, :style]

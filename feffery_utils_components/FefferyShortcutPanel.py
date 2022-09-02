@@ -9,38 +9,63 @@ class FefferyShortcutPanel(Component):
 
 Keyword arguments:
 
-- id (optional)
+- id (string; optional)
 
-- data (optional)
+- data (list of dicts; optional)
 
-- disableHotkeys (optional)
+    `data` is a list of dicts with keys:
 
-- loading_state (optional)
+    - children (list of strings; optional)
 
-- locale (default 'zh')
+    - handler (string; optional)
 
-- openHotkey (optional)
+    - hotkey (string; optional)
 
-- placeholder (optional)
+    - id (string; required)
 
-- setProps (optional):
-    Dash-assigned callback that should be called to report property
-    changes  to Dash, to make them available for callbacks.
+    - keywords (string; optional)
 
-- style (optional)
+    - parent (string; optional)
 
-- theme (default 'light')
+    - section (string; optional)
 
-- triggeredHotkey (optional)"""
+    - title (string; required)
+
+- disableHotkeys (boolean; optional)
+
+- loading_state (dict; optional)
+
+    `loading_state` is a dict with keys:
+
+    - component_name (string; optional):
+        Holds the name of the component that is loading.
+
+    - is_loading (boolean; optional):
+        Determines if the component is loading or not.
+
+    - prop_name (string; optional):
+        Holds which property is loading.
+
+- locale (a value equal to: 'en', 'zh'; default 'zh')
+
+- openHotkey (string; optional)
+
+- placeholder (string; optional)
+
+- style (dict; optional)
+
+- theme (a value equal to: 'light', 'dark'; default 'light')
+
+- triggeredHotkey (string; optional)"""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyShortcutPanel'
     @_explicitize_args
     def __init__(self, id=Component.UNDEFINED, style=Component.UNDEFINED, locale=Component.UNDEFINED, data=Component.UNDEFINED, triggeredHotkey=Component.UNDEFINED, placeholder=Component.UNDEFINED, disableHotkeys=Component.UNDEFINED, openHotkey=Component.UNDEFINED, theme=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'data', 'disableHotkeys', 'loading_state', 'locale', 'openHotkey', 'placeholder', 'setProps', 'style', 'theme', 'triggeredHotkey']
+        self._prop_names = ['id', 'data', 'disableHotkeys', 'loading_state', 'locale', 'openHotkey', 'placeholder', 'style', 'theme', 'triggeredHotkey']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'data', 'disableHotkeys', 'loading_state', 'locale', 'openHotkey', 'placeholder', 'setProps', 'style', 'theme', 'triggeredHotkey']
+        self.available_properties = ['id', 'data', 'disableHotkeys', 'loading_state', 'locale', 'openHotkey', 'placeholder', 'style', 'theme', 'triggeredHotkey']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

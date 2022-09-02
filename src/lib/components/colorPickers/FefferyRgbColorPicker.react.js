@@ -1,5 +1,6 @@
 import { RgbStringColorPicker, RgbaStringColorPicker } from 'react-colorful';
 import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import '../styles.css';
 
 // 定义rgb色彩选择器FefferyRgbColorPicker，文档参考：https://github.com/omgovich/react-colorful

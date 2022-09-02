@@ -3,8 +3,8 @@
 from dash.development.base_component import Component, _explicitize_args
 
 
-class FefferyRgbColorPicker(Component):
-    """A FefferyRgbColorPicker component.
+class FefferyWheelColorPicker(Component):
+    """A FefferyWheelColorPicker component.
 
 
 Keyword arguments:
@@ -13,7 +13,7 @@ Keyword arguments:
 
 - className (string; optional)
 
-- color (string; default 'rgb(68, 206, 246)')
+- color (string; default '#fffc51')
 
 - loading_state (dict; optional)
 
@@ -28,18 +28,16 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- showAlpha (boolean; default False)
-
 - style (dict; optional)"""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
-    _type = 'FefferyRgbColorPicker'
+    _type = 'FefferyWheelColorPicker'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, color=Component.UNDEFINED, showAlpha=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'color', 'loading_state', 'showAlpha', 'style']
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, color=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'color', 'loading_state', 'style']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'color', 'loading_state', 'showAlpha', 'style']
+        self.available_properties = ['id', 'className', 'color', 'loading_state', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
@@ -49,4 +47,4 @@ Keyword arguments:
             if k not in args:
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')
-        super(FefferyRgbColorPicker, self).__init__(**args)
+        super(FefferyWheelColorPicker, self).__init__(**args)

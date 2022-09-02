@@ -11,22 +11,28 @@ export ''_fefferydiv
 A FefferyDiv component.
 
 Keyword arguments:
-- `children` (optional)
-- `id` (optional)
-- `_height` (optional)
-- `_width` (optional)
-- `className` (optional)
-- `contextMenuEvent` (optional)
-- `debounceWait` (optional)
-- `enableListenContextMenu` (optional)
-- `loading_state` (optional)
-- `mouseEnterCounts` (optional)
-- `mouseLeaveCounts` (optional)
-- `nClicks` (optional)
-- `nDoubleClicks` (optional)
-- `setProps` (optional): Dash-assigned callback that should be called to report property changes
-to Dash, to make them available for callbacks.
-- `style` (optional)
+- `children` (a list of or a singular dash component, string or number; optional)
+- `id` (String; optional)
+- `_height` (Real; optional)
+- `_width` (Real; optional)
+- `className` (String; optional)
+- `contextMenuEvent` (optional): . contextMenuEvent has the following type: lists containing elements 'pageX', 'pageY', 'timestamp'.
+Those elements have the following types:
+  - `pageX` (Real; optional)
+  - `pageY` (Real; optional)
+  - `timestamp` (Real; optional)
+- `debounceWait` (Real; optional)
+- `enableListenContextMenu` (Bool; optional)
+- `loading_state` (optional): . loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
+Those elements have the following types:
+  - `is_loading` (Bool; optional): Determines if the component is loading or not
+  - `prop_name` (String; optional): Holds which property is loading
+  - `component_name` (String; optional): Holds the name of the component that is loading
+- `mouseEnterCounts` (Real; optional)
+- `mouseLeaveCounts` (Real; optional)
+- `nClicks` (Real; optional)
+- `nDoubleClicks` (Real; optional)
+- `style` (Dict; optional)
 """
 function ''_fefferydiv(; kwargs...)
         available_props = Symbol[:children, :id, :_height, :_width, :className, :contextMenuEvent, :debounceWait, :enableListenContextMenu, :loading_state, :mouseEnterCounts, :mouseLeaveCounts, :nClicks, :nDoubleClicks, :style]

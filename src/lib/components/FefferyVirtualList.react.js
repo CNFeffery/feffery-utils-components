@@ -1,5 +1,6 @@
 import React from 'react';
 import List from 'rc-virtual-list';
+import PropTypes from 'prop-types';
 
 const parseChildrenToArray = children => {
     if (children && !Array.isArray(children)) {

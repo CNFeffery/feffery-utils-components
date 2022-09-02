@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import LazyLoad from 'react-lazy-load';
 
 // 定义懒加载容器组件FefferyLazyLoad

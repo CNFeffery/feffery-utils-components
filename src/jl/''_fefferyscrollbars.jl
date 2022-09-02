@@ -11,17 +11,26 @@ export ''_fefferyscrollbars
 A FefferyScrollbars component.
 
 Keyword arguments:
-- `children` (optional)
-- `id` (optional)
-- `autoHide` (optional)
-- `className` (optional)
-- `classNames` (optional)
-- `forceVisible` (optional)
-- `loading_state` (optional)
-- `scrollbarMaxSize` (optional)
-- `scrollbarMinSize` (optional)
-- `style` (optional)
-- `timeout` (optional)
+- `children` (a list of or a singular dash component, string or number; optional)
+- `id` (String; optional)
+- `autoHide` (Bool; optional)
+- `className` (String; optional)
+- `classNames` (optional): . classNames has the following type: lists containing elements 'content', 'scrollContent', 'scrollbar', 'track'.
+Those elements have the following types:
+  - `content` (String; optional)
+  - `scrollContent` (String; optional)
+  - `scrollbar` (String; optional)
+  - `track` (String; optional)
+- `forceVisible` (Bool | a value equal to: 'x', 'y'; optional)
+- `loading_state` (optional): . loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
+Those elements have the following types:
+  - `is_loading` (Bool; optional): Determines if the component is loading or not
+  - `prop_name` (String; optional): Holds which property is loading
+  - `component_name` (String; optional): Holds the name of the component that is loading
+- `scrollbarMaxSize` (Real; optional)
+- `scrollbarMinSize` (Real; optional)
+- `style` (Dict; optional)
+- `timeout` (Real; optional)
 """
 function ''_fefferyscrollbars(; kwargs...)
         available_props = Symbol[:children, :id, :autoHide, :className, :classNames, :forceVisible, :loading_state, :scrollbarMaxSize, :scrollbarMinSize, :style, :timeout]

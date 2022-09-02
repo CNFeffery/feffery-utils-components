@@ -9,46 +9,61 @@ class FefferyDiv(Component):
 
 Keyword arguments:
 
-- children (optional)
+- children (a list of or a singular dash component, string or number; optional)
 
-- id (optional)
+- id (string; optional)
 
-- _height (optional)
+- _height (number; optional)
 
-- _width (optional)
+- _width (number; optional)
 
-- className (optional)
+- className (string; optional)
 
-- contextMenuEvent (optional)
+- contextMenuEvent (dict; optional)
 
-- debounceWait (default 150)
+    `contextMenuEvent` is a dict with keys:
 
-- enableListenContextMenu (default False)
+    - pageX (number; optional)
 
-- loading_state (optional)
+    - pageY (number; optional)
 
-- mouseEnterCounts (default 0)
+    - timestamp (number; optional)
 
-- mouseLeaveCounts (default 0)
+- debounceWait (number; default 150)
 
-- nClicks (default 0)
+- enableListenContextMenu (boolean; default False)
 
-- nDoubleClicks (default 0)
+- loading_state (dict; optional)
 
-- setProps (optional):
-    Dash-assigned callback that should be called to report property
-    changes  to Dash, to make them available for callbacks.
+    `loading_state` is a dict with keys:
 
-- style (optional)"""
+    - component_name (string; optional):
+        Holds the name of the component that is loading.
+
+    - is_loading (boolean; optional):
+        Determines if the component is loading or not.
+
+    - prop_name (string; optional):
+        Holds which property is loading.
+
+- mouseEnterCounts (number; default 0)
+
+- mouseLeaveCounts (number; default 0)
+
+- nClicks (number; default 0)
+
+- nDoubleClicks (number; default 0)
+
+- style (dict; optional)"""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyDiv'
     @_explicitize_args
     def __init__(self, children=None, id=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, _width=Component.UNDEFINED, _height=Component.UNDEFINED, debounceWait=Component.UNDEFINED, mouseEnterCounts=Component.UNDEFINED, mouseLeaveCounts=Component.UNDEFINED, nClicks=Component.UNDEFINED, nDoubleClicks=Component.UNDEFINED, enableListenContextMenu=Component.UNDEFINED, contextMenuEvent=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', '_height', '_width', 'className', 'contextMenuEvent', 'debounceWait', 'enableListenContextMenu', 'loading_state', 'mouseEnterCounts', 'mouseLeaveCounts', 'nClicks', 'nDoubleClicks', 'setProps', 'style']
+        self._prop_names = ['children', 'id', '_height', '_width', 'className', 'contextMenuEvent', 'debounceWait', 'enableListenContextMenu', 'loading_state', 'mouseEnterCounts', 'mouseLeaveCounts', 'nClicks', 'nDoubleClicks', 'style']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', '_height', '_width', 'className', 'contextMenuEvent', 'debounceWait', 'enableListenContextMenu', 'loading_state', 'mouseEnterCounts', 'mouseLeaveCounts', 'nClicks', 'nDoubleClicks', 'setProps', 'style']
+        self.available_properties = ['children', 'id', '_height', '_width', 'className', 'contextMenuEvent', 'debounceWait', 'enableListenContextMenu', 'loading_state', 'mouseEnterCounts', 'mouseLeaveCounts', 'nClicks', 'nDoubleClicks', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

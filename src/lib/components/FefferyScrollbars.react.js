@@ -1,5 +1,6 @@
 import SimpleBarReact from "simplebar-react";
 import "simplebar/src/simplebar.css";
+import PropTypes from 'prop-types';
 
 // 定义自定义滚动条容器组件FefferyScrollbars
 const FefferyScrollbars = (props) => {

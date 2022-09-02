@@ -8,11 +8,13 @@ export ''_fefferyexecutejs
 A FefferyExecuteJs component.
 
 Keyword arguments:
-- `id` (optional)
-- `jsString` (optional)
-- `loading_state` (optional)
-- `setProps` (optional): Dash-assigned callback that should be called to report property changes
-to Dash, to make them available for callbacks.
+- `id` (String; optional)
+- `jsString` (String; optional)
+- `loading_state` (optional): . loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
+Those elements have the following types:
+  - `is_loading` (Bool; optional): Determines if the component is loading or not
+  - `prop_name` (String; optional): Holds which property is loading
+  - `component_name` (String; optional): Holds the name of the component that is loading
 """
 function ''_fefferyexecutejs(; kwargs...)
         available_props = Symbol[:id, :jsString, :loading_state]

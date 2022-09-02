@@ -1,4 +1,5 @@
 import { HexColorPicker, HexAlphaColorPicker } from 'react-colorful';
+import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import '../styles.css';
 

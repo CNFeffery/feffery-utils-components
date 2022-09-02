@@ -9,62 +9,99 @@ class FefferyGuide(Component):
 
 Keyword arguments:
 
-- id (optional)
+- id (string; optional)
 
-- arrow (optional)
+- arrow (boolean; optional)
 
-- className (optional)
+- className (string; optional)
 
-- closable (optional)
+- closable (boolean; optional)
 
-- hotspot (optional)
+- hotspot (boolean; optional)
 
-- loading_state (optional)
+- loading_state (dict; optional)
 
-- localKey (optional)
+    `loading_state` is a dict with keys:
 
-- locale (default 'zh')
+    - component_name (string; optional):
+        Holds the name of the component that is loading.
 
-- mask (optional)
+    - is_loading (boolean; optional):
+        Determines if the component is loading or not.
 
-- maskClassName (optional)
+    - prop_name (string; optional):
+        Holds which property is loading.
 
-- modalClassName (optional)
+- localKey (string; required)
 
-- nextText (optional)
+- locale (a value equal to: 'zh', 'en'; default 'zh')
 
-- okText (optional)
+- mask (boolean; optional)
 
-- prevText (optional)
+- maskClassName (string; optional)
 
-- setProps (optional):
-    Dash-assigned callback that should be called to report property
-    changes  to Dash, to make them available for callbacks.
+- modalClassName (string; optional)
 
-- showPreviousBtn (default True)
+- nextText (string; optional)
 
-- step (optional)
+- okText (string; optional)
 
-- stepText (optional)
+- prevText (string; optional)
 
-- steps (optional)
+- showPreviousBtn (boolean; default True)
 
-- style (optional)"""
+- step (number; optional)
+
+- stepText (string; optional)
+
+- steps (list of dicts; required)
+
+    `steps` is a list of dicts with keys:
+
+    - content (string; optional)
+
+    - offset (dict; optional)
+
+        `offset` is a dict with keys:
+
+        - x (number; optional)
+
+        - y (number; optional)
+
+    - placement (a value equal to: 'top', 'bottom', 'left', 'right', 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'left-top', 'left-bottom', 'right-top', 'right-bottom'; optional)
+
+    - selector (string; optional)
+
+    - targetPos (dict; optional)
+
+        `targetPos` is a dict with keys:
+
+        - height (number; optional)
+
+        - left (number; optional)
+
+        - top (number; optional)
+
+        - width (number; optional)
+
+    - title (string; optional)
+
+- style (dict; optional)"""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyGuide'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, locale=Component.UNDEFINED, steps=Component.UNDEFINED, localKey=Component.UNDEFINED, closable=Component.UNDEFINED, modalClassName=Component.UNDEFINED, maskClassName=Component.UNDEFINED, mask=Component.UNDEFINED, arrow=Component.UNDEFINED, hotspot=Component.UNDEFINED, stepText=Component.UNDEFINED, nextText=Component.UNDEFINED, prevText=Component.UNDEFINED, showPreviousBtn=Component.UNDEFINED, okText=Component.UNDEFINED, step=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'arrow', 'className', 'closable', 'hotspot', 'loading_state', 'localKey', 'locale', 'mask', 'maskClassName', 'modalClassName', 'nextText', 'okText', 'prevText', 'setProps', 'showPreviousBtn', 'step', 'stepText', 'steps', 'style']
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, locale=Component.UNDEFINED, steps=Component.REQUIRED, localKey=Component.REQUIRED, closable=Component.UNDEFINED, modalClassName=Component.UNDEFINED, maskClassName=Component.UNDEFINED, mask=Component.UNDEFINED, arrow=Component.UNDEFINED, hotspot=Component.UNDEFINED, stepText=Component.UNDEFINED, nextText=Component.UNDEFINED, prevText=Component.UNDEFINED, showPreviousBtn=Component.UNDEFINED, okText=Component.UNDEFINED, step=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'arrow', 'className', 'closable', 'hotspot', 'loading_state', 'localKey', 'locale', 'mask', 'maskClassName', 'modalClassName', 'nextText', 'okText', 'prevText', 'showPreviousBtn', 'step', 'stepText', 'steps', 'style']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'arrow', 'className', 'closable', 'hotspot', 'loading_state', 'localKey', 'locale', 'mask', 'maskClassName', 'modalClassName', 'nextText', 'okText', 'prevText', 'setProps', 'showPreviousBtn', 'step', 'stepText', 'steps', 'style']
+        self.available_properties = ['id', 'arrow', 'className', 'closable', 'hotspot', 'loading_state', 'localKey', 'locale', 'mask', 'maskClassName', 'modalClassName', 'nextText', 'okText', 'prevText', 'showPreviousBtn', 'step', 'stepText', 'steps', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
         _locals.update(kwargs)  # For wildcard attrs and excess named props
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
-        for k in []:
+        for k in ['localKey', 'steps']:
             if k not in args:
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')

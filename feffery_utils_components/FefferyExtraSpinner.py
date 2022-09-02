@@ -9,25 +9,36 @@ class FefferyExtraSpinner(Component):
 
 Keyword arguments:
 
-- id (optional)
+- id (string; optional)
 
-- backColor (default '#1890ff')
+- backColor (string; default '#1890ff')
 
-- className (optional)
+- className (string; optional)
 
-- color (default '#1890ff')
+- color (string; default '#1890ff')
 
-- frontColor (default '#def6ff')
+- frontColor (string; default '#def6ff')
 
-- loading_state (optional)
+- loading_state (dict; optional)
 
-- size (optional)
+    `loading_state` is a dict with keys:
 
-- sizeUnit (default 'px')
+    - component_name (string; optional):
+        Holds the name of the component that is loading.
 
-- style (optional)
+    - is_loading (boolean; optional):
+        Determines if the component is loading or not.
 
-- type (default 'ball')"""
+    - prop_name (string; optional):
+        Holds which property is loading.
+
+- size (number; optional)
+
+- sizeUnit (string; default 'px')
+
+- style (dict; optional)
+
+- type (a value equal to: "ball", "swap", "bars", "grid", "wave", "push", "firework", "stage", "ring", "heart", "guard", "rotate", "spiral", "pulse", "swish", "sequence", "impulse", "cube", "magic", "flag", "fill", "sphere", "domino", "goo", "comb", "pong", "rainbow", "hoop", "flapper", "jellyfish", "trace", "classic", "whisper", "metro"; default 'ball')"""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

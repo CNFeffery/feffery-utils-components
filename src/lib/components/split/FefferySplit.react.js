@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Split from 'react-split'
 import { isNil, omit } from 'ramda';
 import '../styles.css'

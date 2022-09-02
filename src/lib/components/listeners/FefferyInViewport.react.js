@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { useInViewport } from 'ahooks';
 import { isUndefined } from 'lodash';
+import PropTypes from 'prop-types';
 
 // 定义元素可见性检查组件FefferyInViewport
 const FefferyInViewport = (props) => {

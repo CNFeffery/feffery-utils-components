@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { useSize, useRequest } from 'ahooks';
 
 // 定义进阶div容器组件FefferyDiv

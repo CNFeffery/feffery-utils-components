@@ -9,27 +9,48 @@ class FefferyScrollbars(Component):
 
 Keyword arguments:
 
-- children (optional)
+- children (a list of or a singular dash component, string or number; optional)
 
-- id (optional)
+- id (string; optional)
 
-- autoHide (default True)
+- autoHide (boolean; default True)
 
-- className (optional)
+- className (string; optional)
 
-- classNames (optional)
+- classNames (dict; optional)
 
-- forceVisible (default False)
+    `classNames` is a dict with keys:
 
-- loading_state (optional)
+    - content (string; optional)
 
-- scrollbarMaxSize (optional)
+    - scrollContent (string; optional)
 
-- scrollbarMinSize (default 25)
+    - scrollbar (string; optional)
 
-- style (optional)
+    - track (string; optional)
 
-- timeout (default 1000)"""
+- forceVisible (boolean | a value equal to: 'x', 'y'; default False)
+
+- loading_state (dict; optional)
+
+    `loading_state` is a dict with keys:
+
+    - component_name (string; optional):
+        Holds the name of the component that is loading.
+
+    - is_loading (boolean; optional):
+        Determines if the component is loading or not.
+
+    - prop_name (string; optional):
+        Holds which property is loading.
+
+- scrollbarMaxSize (number; optional)
+
+- scrollbarMinSize (number; default 25)
+
+- style (dict; optional)
+
+- timeout (number; default 1000)"""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

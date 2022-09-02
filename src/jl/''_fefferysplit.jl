@@ -11,21 +11,23 @@ export ''_fefferysplit
 A FefferySplit component.
 
 Keyword arguments:
-- `children` (optional)
-- `id` (optional)
-- `className` (optional)
-- `cursor` (optional)
-- `direction` (optional)
-- `dragInterval` (optional)
-- `expandToMin` (optional)
-- `gutterSize` (optional)
-- `loading_state` (optional)
-- `maxSize` (optional)
-- `minSize` (optional)
-- `setProps` (optional): Dash-assigned callback that should be called to report property changes
-to Dash, to make them available for callbacks.
-- `sizes` (optional)
-- `style` (optional)
+- `children` (a list of or a singular dash component, string or number; optional)
+- `id` (String; optional)
+- `className` (String; optional)
+- `cursor` (String; optional)
+- `direction` (a value equal to: 'horizontal', 'vertical'; optional)
+- `dragInterval` (Real; optional)
+- `expandToMin` (Bool; optional)
+- `gutterSize` (Real; optional)
+- `loading_state` (optional): . loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
+Those elements have the following types:
+  - `is_loading` (Bool; optional): Determines if the component is loading or not
+  - `prop_name` (String; optional): Holds which property is loading
+  - `component_name` (String; optional): Holds the name of the component that is loading
+- `maxSize` (Real | Array of Reals; optional)
+- `minSize` (Real | Array of Reals; optional)
+- `sizes` (Array of Reals; optional)
+- `style` (Dict; optional)
 """
 function ''_fefferysplit(; kwargs...)
         available_props = Symbol[:children, :id, :className, :cursor, :direction, :dragInterval, :expandToMin, :gutterSize, :loading_state, :maxSize, :minSize, :sizes, :style]

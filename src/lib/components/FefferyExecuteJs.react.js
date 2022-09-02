@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 // 定义js直接执行部件FefferyExecuteJs
 const FefferyExecuteJs = (props) => {

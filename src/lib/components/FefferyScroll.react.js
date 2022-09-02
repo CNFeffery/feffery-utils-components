@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { animateScroll as scroll, scroller } from 'react-scroll'
 
 // 定义滚动操作组件FefferyScroll，api参数参考https://github.com/fisshy/react-scroll

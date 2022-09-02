@@ -1,5 +1,6 @@
 import React from 'react';
 import Guide from 'byte-guide'
+import PropTypes from 'prop-types';
 import './styles.css'
 
 // 定义引导部件FefferyGuide，api参数参考https://github.com/bytedance/guide/blob/main/README.zh-CN.md

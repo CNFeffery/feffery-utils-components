@@ -1,7 +1,7 @@
 {
   "name": "feffery_utils_components",
-  "version": "0.0.17",
-  "description": "Utility augments components of Dash!",
+  "version": "0.0.18",
+  "description": "Build more utility components for Plotly Dash.",
   "repository": {
     "type": "git",
     "url": "git://github.com/https://github.com/CNFeffery/feffery-utils-components.git"
@@ -23,6 +23,8 @@
   "license": "MIT",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@uiw/color-convert": "^1.1.0",
+    "@uiw/react-color-wheel": "^1.1.0",
     "ahooks": "^3.7.0",
     "byte-guide": "^1.0.7",
     "ninja-keys": "^1.1.12",
@@ -30,6 +32,7 @@
     "ramda": "^0.26.1",
     "rc-virtual-list": "^3.4.8",
     "react-captcha-code": "^1.0.7",
+    "react-color": "^2.19.3",
     "react-colorful": "^5.6.1",
     "react-copy-to-clipboard": "^5.0.4",
     "react-lazy-load": "^3.1.14",
@@ -51,13 +54,13 @@
     "babel-loader": "^8.0.6",
     "copyfiles": "^2.1.1",
     "css-loader": "^3.0.0",
-    "file-loader": "^6.2.0",
-    "less": "^3.13.1",
-    "less-loader": "^5.0.0",
     "eslint": "^6.0.1",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-react": "^7.14.2",
+    "file-loader": "^6.2.0",
+    "less": "^3.13.1",
+    "less-loader": "^5.0.0",
     "npm": "^6.1.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",

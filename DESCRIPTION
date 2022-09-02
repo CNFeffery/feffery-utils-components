@@ -1,7 +1,7 @@
 Package: fefferyUtilsComponents
-Title: Utility augments components of Dash!
-Version: 0.0.17
-Description: Utility augments components of Dash!
+Title: Build more utility components for Plotly Dash.
+Version: 0.0.18
+Description: Build more utility components for Plotly Dash.
 Depends: R (>= 3.0.2)
 Imports: 
 Suggests: 

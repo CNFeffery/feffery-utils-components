@@ -1,7 +1,12 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+export(''FefferyBlockColorPicker)
+export(''FefferyCircleColorPicker)
+export(''FefferyGithubColorPicker)
 export(''FefferyHexColorPicker)
 export(''FefferyRgbColorPicker)
+export(''FefferyTwitterColorPicker)
+export(''FefferyWheelColorPicker)
 export(''FefferyCaptcha)
 export(''FefferyExecuteJs)
 export(''FefferyExtraSpinner)
@@ -18,3 +23,4 @@ export(''FefferyDiv)
 export(''FefferyInViewport)
 export(''FefferySplit)
 export(''FefferySplitPane)
+export(FefferySliderColorPicker)
