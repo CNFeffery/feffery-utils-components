@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useSize } from 'ahooks';
+import { useSize, useRequest } from 'ahooks';
 
 // 定义进阶div容器组件FefferyDiv
 const FefferyDiv = (props) => {
@@ -14,6 +14,7 @@ const FefferyDiv = (props) => {
         nClicks,
         nDoubleClicks,
         enableListenContextMenu,
+        debounceWait,
         setProps,
         loading_state
     } = props;
@@ -21,12 +22,27 @@ const FefferyDiv = (props) => {
     const ref = useRef(null);
     const size = useSize(ref);
 
+    // 防抖更新容器尺寸
+    const { run: updateWidthHeight } = useRequest(
+        (e) => {
+            if (e) {
+                // 监听div容器尺寸变化从而刷新_width，_height属性值
+                setProps({
+                    _width: size.width,
+                    _height: size.height
+                })
+            }
+        },
+        {
+            debounceWait: debounceWait,
+            debounceLeading: true,
+            manual: true
+        }
+    )
+
+    // 当size变化时进行_width、_height的更新
     useEffect(() => {
-        // 监听div容器尺寸变化从而刷新_width，_height属性值
-        setProps({
-            _width: size.width,
-            _height: size.height
-        });
+        updateWidthHeight(size)
     }, [size]);
 
     return <div
@@ -74,6 +90,9 @@ FefferyDiv.propTypes = {
 
     // 监听容器像素高度变化
     _height: PropTypes.number,
+
+    // 设置针对尺寸变化事件的防抖等待时间（单位：毫秒），默认为150
+    debounceWait: PropTypes.number,
 
     // 监听鼠标移入事件次数，初始化为0
     mouseEnterCounts: PropTypes.number,
@@ -129,7 +148,8 @@ FefferyDiv.defaultProps = {
     mouseLeaveCounts: 0,
     nClicks: 0,
     nDoubleClicks: 0,
-    enableListenContextMenu: false
+    enableListenContextMenu: false,
+    debounceWait: 150
 }
 
 export default FefferyDiv;
