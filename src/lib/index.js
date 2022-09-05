@@ -23,21 +23,21 @@ import FefferyBlockColorPicker from "./components/colorPickers/FefferyBlockColor
 import FefferyCircleColorPicker from "./components/colorPickers/FefferyCircleColorPicker.react";
 import FefferyWheelColorPicker from "./components/colorPickers/FefferyWheelColorPicker.react";
 
-/* 
-忽略部分设计React中规范的console警告信息
-目前已知无关警告信息：
-1. 数组推导形成的组件，每个子组件需要唯一的key
-*/
-const backup = console.error;
-console.error = (msg) => {
-    const supressedWarnings = [
-        'Each child in a list should have a unique'
-    ];
+// /* 
+// 忽略部分设计React中规范的console警告信息
+// 目前已知无关警告信息：
+// 1. 数组推导形成的组件，每个子组件需要唯一的key
+// */
+// const backup = console.error;
+// console.error = (msg) => {
+//     const supressedWarnings = [
+//         'Each child in a list should have a unique'
+//     ];
 
-    if (!supressedWarnings.some(entry => msg.includes(entry))) {
-        backup.apply(console, arguments);
-    }
-};
+//     if (!supressedWarnings.some(entry => msg.includes(entry))) {
+//         backup.apply(console, arguments);
+//     }
+// };
 
 export {
     FefferyCaptcha,
