@@ -22,22 +22,34 @@ import FefferyTwitterColorPicker from "./components/colorPickers/FefferyTwitterC
 import FefferyBlockColorPicker from "./components/colorPickers/FefferyBlockColorPicker.react";
 import FefferyCircleColorPicker from "./components/colorPickers/FefferyCircleColorPicker.react";
 import FefferyWheelColorPicker from "./components/colorPickers/FefferyWheelColorPicker.react";
+import FefferyHighlightWords from "./components/FefferyHighlightWords.react";
 
-// /* 
-// 忽略部分设计React中规范的console警告信息
-// 目前已知无关警告信息：
-// 1. 数组推导形成的组件，每个子组件需要唯一的key
-// */
-// const backup = console.error;
-// console.error = (msg) => {
-//     const supressedWarnings = [
-//         'Each child in a list should have a unique'
-//     ];
+/* 
+忽略部分设计React中规范的console警告信息
+目前已知无关警告信息：
+1. 数组推导形成的组件，每个子组件需要唯一的key
+*/
+try {
+    consoleErrorBackup
+} catch (e) {
+    const consoleErrorBackup = console.error;
+    console.error = (msg) => {
+        const supressedWarnings = [
+            'Each child in a list should have a unique',
+            'React does not recognize the'
+        ];
 
-//     if (!supressedWarnings.some(entry => msg.includes(entry))) {
-//         backup.apply(console, arguments);
-//     }
-// };
+        if (!supressedWarnings.some(entry => {
+
+            if (msg.includes) {
+                return msg.includes(entry)
+            }
+            return false
+        })) {
+            consoleErrorBackup.apply(console, arguments);
+        }
+    };
+}
 
 export {
     FefferyCaptcha,
@@ -62,5 +74,6 @@ export {
     FefferyTwitterColorPicker,
     FefferyBlockColorPicker,
     FefferyCircleColorPicker,
-    FefferyWheelColorPicker
+    FefferyWheelColorPicker,
+    FefferyHighlightWords
 };

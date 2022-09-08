@@ -90,8 +90,8 @@
   opacity: 0.8;
 }
 
-/* compact色彩选择器 */
-/* .flexbox-fix > div {
-  display: flex;
-  align-items: center;
-} */
+/* for FefferyHighlightWords */
+.feffery-highlight-words-highlight {
+  background-color: #ffd54f;
+  font-weight: "normal";
+}
