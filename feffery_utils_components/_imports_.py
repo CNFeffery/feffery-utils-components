@@ -22,6 +22,7 @@ from .FefferyTopProgress import FefferyTopProgress
 from .FefferyVirtualList import FefferyVirtualList
 from .FefferyDiv import FefferyDiv
 from .FefferyDocumentVisibility import FefferyDocumentVisibility
+from .FefferyGeolocation import FefferyGeolocation
 from .FefferyInViewport import FefferyInViewport
 from .FefferyResponsive import FefferyResponsive
 from .FefferySplit import FefferySplit
@@ -52,6 +53,7 @@ __all__ = [
     "FefferyVirtualList",
     "FefferyDiv",
     "FefferyDocumentVisibility",
+    "FefferyGeolocation",
     "FefferyInViewport",
     "FefferyResponsive",
     "FefferySplit",
