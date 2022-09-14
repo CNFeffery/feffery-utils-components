@@ -2,7 +2,6 @@
   background: var(--ninja-footer-background);
   padding: 0.5em 1em;
   display: flex;
-  /* font-size: 0.75em; */
   border-top: var(--ninja-separate-border);
   color: var(--ninja-secondary-text-color);
 }

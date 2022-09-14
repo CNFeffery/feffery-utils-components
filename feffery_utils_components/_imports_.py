@@ -19,6 +19,7 @@ from .FefferySyntaxHighlighter import FefferySyntaxHighlighter
 from .FefferyTopProgress import FefferyTopProgress
 from .FefferyVirtualList import FefferyVirtualList
 from .FefferyDiv import FefferyDiv
+from .FefferyDocumentVisibility import FefferyDocumentVisibility
 from .FefferyInViewport import FefferyInViewport
 from .FefferySplit import FefferySplit
 from .FefferySplitPane import FefferySplitPane
@@ -45,6 +46,7 @@ __all__ = [
     "FefferyTopProgress",
     "FefferyVirtualList",
     "FefferyDiv",
+    "FefferyDocumentVisibility",
     "FefferyInViewport",
     "FefferySplit",
     "FefferySplitPane"
