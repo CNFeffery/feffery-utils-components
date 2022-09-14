@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { useSize, useRequest } from 'ahooks';
+import { useSize, useRequest, useHover } from 'ahooks';
 
 // 定义进阶div容器组件FefferyDiv
 const FefferyDiv = (props) => {
@@ -22,6 +22,7 @@ const FefferyDiv = (props) => {
 
     const ref = useRef(null);
     const size = useSize(ref);
+    const _isHovering = useHover(ref);
 
     // 防抖更新容器尺寸
     const { run: updateWidthHeight } = useRequest(
@@ -45,6 +46,13 @@ const FefferyDiv = (props) => {
     useEffect(() => {
         updateWidthHeight(size)
     }, [size]);
+
+    // 当_isHovering变化时进isHovering状态的更新
+    useEffect(() => {
+        setProps({
+            isHovering: _isHovering
+        })
+    }, [_isHovering])
 
     return <div
         id={id}
@@ -120,6 +128,9 @@ FefferyDiv.propTypes = {
         // 点击事件对应的时间戳
         timestamp: PropTypes.number
     }),
+
+    // 监听当前元素是否被鼠标悬浮
+    isHovering: PropTypes.bool,
 
     /**
      * Dash-assigned callback that should be called to report property changes
