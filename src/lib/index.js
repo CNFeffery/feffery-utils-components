@@ -26,6 +26,7 @@ import FefferyHighlightWords from "./components/FefferyHighlightWords.react";
 import FefferyDocumentVisibility from "./components/listeners/FefferyDocumentVisibility.react";
 import FefferyExternalCss from "./components/dom/FefferyExternalCss.react";
 import FefferySetTitle from "./components/dom/FefferySetTitle.react";
+import FefferyResponsive from "./components/listeners/FefferyResponsive.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -76,5 +77,6 @@ export {
     FefferyHighlightWords,
     FefferyDocumentVisibility,
     FefferyExternalCss,
-    FefferySetTitle
+    FefferySetTitle,
+    FefferyResponsive
 };

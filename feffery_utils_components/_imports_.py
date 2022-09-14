@@ -23,6 +23,7 @@ from .FefferyVirtualList import FefferyVirtualList
 from .FefferyDiv import FefferyDiv
 from .FefferyDocumentVisibility import FefferyDocumentVisibility
 from .FefferyInViewport import FefferyInViewport
+from .FefferyResponsive import FefferyResponsive
 from .FefferySplit import FefferySplit
 from .FefferySplitPane import FefferySplitPane
 
@@ -52,6 +53,7 @@ __all__ = [
     "FefferyDiv",
     "FefferyDocumentVisibility",
     "FefferyInViewport",
+    "FefferyResponsive",
     "FefferySplit",
     "FefferySplitPane"
 ]

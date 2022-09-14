@@ -30,6 +30,7 @@ include("jl/''_fefferyvirtuallist.jl")
 include("jl/''_fefferydiv.jl")
 include("jl/''_fefferydocumentvisibility.jl")
 include("jl/''_fefferyinviewport.jl")
+include("jl/''_fefferyresponsive.jl")
 include("jl/''_fefferysplit.jl")
 include("jl/''_fefferysplitpane.jl")
 
