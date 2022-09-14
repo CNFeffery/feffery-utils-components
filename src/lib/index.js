@@ -24,6 +24,8 @@ import FefferyCircleColorPicker from "./components/colorPickers/FefferyCircleCol
 import FefferyWheelColorPicker from "./components/colorPickers/FefferyWheelColorPicker.react";
 import FefferyHighlightWords from "./components/FefferyHighlightWords.react";
 import FefferyDocumentVisibility from "./components/listeners/FefferyDocumentVisibility.react";
+import FefferyExternalCss from "./components/dom/FefferyExternalCss.react";
+import FefferySetTitle from "./components/dom/FefferySetTitle.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -72,5 +74,7 @@ export {
     FefferyCircleColorPicker,
     FefferyWheelColorPicker,
     FefferyHighlightWords,
-    FefferyDocumentVisibility
+    FefferyDocumentVisibility,
+    FefferyExternalCss,
+    FefferySetTitle
 };
