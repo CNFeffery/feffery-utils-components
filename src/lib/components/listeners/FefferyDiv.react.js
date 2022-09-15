@@ -37,7 +37,6 @@ const FefferyDiv = (props) => {
         },
         {
             debounceWait: debounceWait,
-            debounceLeading: true,
             manual: true
         }
     )
