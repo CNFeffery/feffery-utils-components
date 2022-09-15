@@ -12,9 +12,11 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
+        '请按i键',
+
         fuc.FefferyKeyPress(
             id='key-press-demo',
-            keys='ctrl'
+            keys='i'
         ),
 
         html.Div(
@@ -27,22 +29,15 @@ app.layout = html.Div(
     }
 )
 
-s = 'I love liz.'
 
-
-@app.callback(
+app.clientside_callback(
+    '''(pressedTimes, children) => {
+        return `${children}❤️`
+    }''',
     Output('output', 'children'),
     Input('key-press-demo', 'pressedTimes'),
     State('output', 'children'),
     prevent_initial_call=True
 )
-def demo(pressedTimes, children):
-
-    if children != s:
-        return s[:(len(children) + 1)]
-
-    return dash.no_update
-
-
 if __name__ == '__main__':
     app.run(debug=True)
