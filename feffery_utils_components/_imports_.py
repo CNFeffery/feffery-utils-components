@@ -26,6 +26,7 @@ from .FefferyGeolocation import FefferyGeolocation
 from .FefferyIdle import FefferyIdle
 from .FefferyInViewport import FefferyInViewport
 from .FefferyResponsive import FefferyResponsive
+from .FefferyWindowSize import FefferyWindowSize
 from .FefferySplit import FefferySplit
 from .FefferySplitPane import FefferySplitPane
 
@@ -58,6 +59,7 @@ __all__ = [
     "FefferyIdle",
     "FefferyInViewport",
     "FefferyResponsive",
+    "FefferyWindowSize",
     "FefferySplit",
     "FefferySplitPane"
 ]

@@ -33,6 +33,7 @@ include("jl/''_fefferygeolocation.jl")
 include("jl/''_fefferyidle.jl")
 include("jl/''_fefferyinviewport.jl")
 include("jl/''_fefferyresponsive.jl")
+include("jl/''_fefferywindowsize.jl")
 include("jl/''_fefferysplit.jl")
 include("jl/''_fefferysplitpane.jl")
 

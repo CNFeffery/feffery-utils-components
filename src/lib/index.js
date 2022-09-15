@@ -29,6 +29,7 @@ import FefferySetTitle from "./components/dom/FefferySetTitle.react";
 import FefferyResponsive from "./components/listeners/FefferyResponsive.react";
 import FefferyGeolocation from "./components/listeners/FefferyGeolocation.react";
 import FefferyIdle from "./components/listeners/FefferyIdle.react";
+import FefferyWindowSize from "./components/listeners/FefferyWindowSize.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -82,5 +83,6 @@ export {
     FefferySetTitle,
     FefferyResponsive,
     FefferyGeolocation,
-    FefferyIdle
+    FefferyIdle,
+    FefferyWindowSize
 };
