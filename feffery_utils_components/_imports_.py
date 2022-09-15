@@ -25,6 +25,7 @@ from .FefferyDocumentVisibility import FefferyDocumentVisibility
 from .FefferyGeolocation import FefferyGeolocation
 from .FefferyIdle import FefferyIdle
 from .FefferyInViewport import FefferyInViewport
+from .FefferyKeyPress import FefferyKeyPress
 from .FefferyResponsive import FefferyResponsive
 from .FefferyWindowSize import FefferyWindowSize
 from .FefferySplit import FefferySplit
@@ -58,6 +59,7 @@ __all__ = [
     "FefferyGeolocation",
     "FefferyIdle",
     "FefferyInViewport",
+    "FefferyKeyPress",
     "FefferyResponsive",
     "FefferyWindowSize",
     "FefferySplit",
