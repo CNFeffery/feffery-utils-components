@@ -19,6 +19,8 @@ Keyword arguments:
 
 - className (string; optional)
 
+- clickAwayCount (number; default 0)
+
 - contextMenuEvent (dict; optional)
 
     `contextMenuEvent` is a dict with keys:
@@ -48,9 +50,9 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- mouseEnterCounts (number; default 0)
+- mouseEnterCount (number; default 0)
 
-- mouseLeaveCounts (number; default 0)
+- mouseLeaveCount (number; default 0)
 
 - nClicks (number; default 0)
 
@@ -62,10 +64,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyDiv'
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, _width=Component.UNDEFINED, _height=Component.UNDEFINED, debounceWait=Component.UNDEFINED, mouseEnterCounts=Component.UNDEFINED, mouseLeaveCounts=Component.UNDEFINED, nClicks=Component.UNDEFINED, nDoubleClicks=Component.UNDEFINED, enableListenContextMenu=Component.UNDEFINED, contextMenuEvent=Component.UNDEFINED, isHovering=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', '_height', '_width', 'className', 'contextMenuEvent', 'debounceWait', 'enableListenContextMenu', 'isHovering', 'loading_state', 'mouseEnterCounts', 'mouseLeaveCounts', 'nClicks', 'nDoubleClicks', 'style']
+    def __init__(self, children=None, id=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, _width=Component.UNDEFINED, _height=Component.UNDEFINED, debounceWait=Component.UNDEFINED, mouseEnterCount=Component.UNDEFINED, mouseLeaveCount=Component.UNDEFINED, nClicks=Component.UNDEFINED, nDoubleClicks=Component.UNDEFINED, enableListenContextMenu=Component.UNDEFINED, contextMenuEvent=Component.UNDEFINED, isHovering=Component.UNDEFINED, clickAwayCount=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', '_height', '_width', 'className', 'clickAwayCount', 'contextMenuEvent', 'debounceWait', 'enableListenContextMenu', 'isHovering', 'loading_state', 'mouseEnterCount', 'mouseLeaveCount', 'nClicks', 'nDoubleClicks', 'style']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', '_height', '_width', 'className', 'contextMenuEvent', 'debounceWait', 'enableListenContextMenu', 'isHovering', 'loading_state', 'mouseEnterCounts', 'mouseLeaveCounts', 'nClicks', 'nDoubleClicks', 'style']
+        self.available_properties = ['children', 'id', '_height', '_width', 'className', 'clickAwayCount', 'contextMenuEvent', 'debounceWait', 'enableListenContextMenu', 'isHovering', 'loading_state', 'mouseEnterCount', 'mouseLeaveCount', 'nClicks', 'nDoubleClicks', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

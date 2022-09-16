@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { useSize, useRequest, useHover } from 'ahooks';
+import { useSize, useRequest, useHover, useClickAway } from 'ahooks';
 
 // 定义进阶div容器组件FefferyDiv
 const FefferyDiv = (props) => {
@@ -10,12 +10,13 @@ const FefferyDiv = (props) => {
         children,
         style,
         className,
-        mouseEnterCounts,
-        mouseLeaveCounts,
+        mouseEnterCount,
+        mouseLeaveCount,
         nClicks,
         nDoubleClicks,
         enableListenContextMenu,
         debounceWait,
+        clickAwayCount,
         setProps,
         loading_state
     } = props;
@@ -53,6 +54,11 @@ const FefferyDiv = (props) => {
         })
     }, [_isHovering])
 
+    // 监听元素外点击事件
+    useClickAway(() => {
+        setProps({ clickAwayCount: clickAwayCount + 1 })
+    }, ref);
+
     return <div
         id={id}
         style={style}
@@ -72,8 +78,8 @@ const FefferyDiv = (props) => {
                 })
             }
         }}
-        onMouseEnter={() => setProps({ mouseEnterCounts: mouseEnterCounts + 1 })}
-        onMouseLeave={() => setProps({ mouseLeaveCounts: mouseLeaveCounts + 1 })}
+        onMouseEnter={() => setProps({ mouseEnterCount: mouseEnterCount + 1 })}
+        onMouseLeave={() => setProps({ mouseLeaveCount: mouseLeaveCount + 1 })}
         data-dash-is-loading={
             (loading_state && loading_state.is_loading) || undefined
         } >
@@ -103,10 +109,10 @@ FefferyDiv.propTypes = {
     debounceWait: PropTypes.number,
 
     // 监听鼠标移入事件次数，初始化为0
-    mouseEnterCounts: PropTypes.number,
+    mouseEnterCount: PropTypes.number,
 
     // 监听鼠标移出事件次数，初始化为0
-    mouseLeaveCounts: PropTypes.number,
+    mouseLeaveCount: PropTypes.number,
 
     // 监听单击事件次数，初始化为0
     nClicks: PropTypes.number,
@@ -130,6 +136,9 @@ FefferyDiv.propTypes = {
 
     // 监听当前元素是否被鼠标悬浮
     isHovering: PropTypes.bool,
+
+    // 监听元素外点击事件发生次数，默认为0
+    clickAwayCount: PropTypes.number,
 
     /**
      * Dash-assigned callback that should be called to report property changes
@@ -155,12 +164,13 @@ FefferyDiv.propTypes = {
 
 // 设置默认参数
 FefferyDiv.defaultProps = {
-    mouseEnterCounts: 0,
-    mouseLeaveCounts: 0,
+    mouseEnterCount: 0,
+    mouseLeaveCount: 0,
     nClicks: 0,
     nDoubleClicks: 0,
     enableListenContextMenu: false,
-    debounceWait: 150
+    debounceWait: 150,
+    clickAwayCount: 0
 }
 
 export default FefferyDiv;
