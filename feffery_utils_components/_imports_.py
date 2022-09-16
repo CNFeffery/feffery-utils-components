@@ -18,6 +18,7 @@ from .FefferyScroll import FefferyScroll
 from .FefferyScrollbars import FefferyScrollbars
 from .FefferyShortcutPanel import FefferyShortcutPanel
 from .FefferySyntaxHighlighter import FefferySyntaxHighlighter
+from .FefferyTimeout import FefferyTimeout
 from .FefferyTopProgress import FefferyTopProgress
 from .FefferyVirtualList import FefferyVirtualList
 from .FefferyDiv import FefferyDiv
@@ -52,6 +53,7 @@ __all__ = [
     "FefferyScrollbars",
     "FefferyShortcutPanel",
     "FefferySyntaxHighlighter",
+    "FefferyTimeout",
     "FefferyTopProgress",
     "FefferyVirtualList",
     "FefferyDiv",

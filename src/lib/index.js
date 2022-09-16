@@ -31,6 +31,7 @@ import FefferyGeolocation from "./components/listeners/FefferyGeolocation.react"
 import FefferyIdle from "./components/listeners/FefferyIdle.react";
 import FefferyWindowSize from "./components/listeners/FefferyWindowSize.react";
 import FefferyKeyPress from "./components/listeners/FefferyKeyPress.react";
+import FefferyTimeout from "./components/FefferyTimeout.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -86,5 +87,6 @@ export {
     FefferyGeolocation,
     FefferyIdle,
     FefferyWindowSize,
-    FefferyKeyPress
+    FefferyKeyPress,
+    FefferyTimeout
 };
