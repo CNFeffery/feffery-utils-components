@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Captcha from 'react-captcha-code';
 
@@ -15,6 +15,7 @@ const FefferyCaptcha = (props) => {
         width,
         bgColor,
         fontSize,
+        refresh,
         setProps,
         loading_state
     } = props;
@@ -23,6 +24,14 @@ const FefferyCaptcha = (props) => {
     const handleChange = useCallback((captcha) => {
         setProps({ captcha: captcha })
     }, []);
+
+    // 当refresh变化为true时强制刷新验证码
+    useEffect(() => {
+        if (refresh && captchaRef.current) {
+            captchaRef.current.refresh()
+            setProps({ refresh: false })
+        }
+    }, [refresh])
 
     const captchaRef = useRef(< HTMLCanvasElement />);
 
@@ -72,6 +81,9 @@ FefferyCaptcha.propTypes = {
     // 设置验证码字体像素大小，默认为25
     fontSize: PropTypes.number,
 
+    // 用于手动刷新验证码，当传入true时会强制刷新验证码，再自动重置为false
+    refresh: PropTypes.bool,
+
     loading_state: PropTypes.shape({
         /**
          * Determines if the component is loading or not
@@ -99,4 +111,4 @@ FefferyCaptcha.defaultProps = {
     charNum: 4
 }
 
-export default FefferyCaptcha;
+export default React.memo(FefferyCaptcha);

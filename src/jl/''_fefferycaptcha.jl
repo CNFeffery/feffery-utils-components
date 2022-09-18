@@ -20,11 +20,12 @@ Those elements have the following types:
   - `is_loading` (Bool; optional): Determines if the component is loading or not
   - `prop_name` (String; optional): Holds which property is loading
   - `component_name` (String; optional): Holds the name of the component that is loading
+- `refresh` (Bool; optional)
 - `style` (Dict; optional)
 - `width` (Real; optional)
 """
 function ''_fefferycaptcha(; kwargs...)
-        available_props = Symbol[:id, :bgColor, :captcha, :charNum, :className, :fontSize, :height, :loading_state, :style, :width]
+        available_props = Symbol[:id, :bgColor, :captcha, :charNum, :className, :fontSize, :height, :loading_state, :refresh, :style, :width]
         wild_props = Symbol[]
         return Component("''_fefferycaptcha", "FefferyCaptcha", "feffery_utils_components", available_props, wild_props; kwargs...)
 end

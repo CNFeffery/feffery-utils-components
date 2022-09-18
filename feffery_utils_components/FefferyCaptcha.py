@@ -36,6 +36,8 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
+- refresh (boolean; optional)
+
 - style (dict; optional)
 
 - width (number; optional)"""
@@ -44,10 +46,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyCaptcha'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, captcha=Component.UNDEFINED, charNum=Component.UNDEFINED, height=Component.UNDEFINED, width=Component.UNDEFINED, bgColor=Component.UNDEFINED, fontSize=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'bgColor', 'captcha', 'charNum', 'className', 'fontSize', 'height', 'loading_state', 'style', 'width']
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, captcha=Component.UNDEFINED, charNum=Component.UNDEFINED, height=Component.UNDEFINED, width=Component.UNDEFINED, bgColor=Component.UNDEFINED, fontSize=Component.UNDEFINED, refresh=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'bgColor', 'captcha', 'charNum', 'className', 'fontSize', 'height', 'loading_state', 'refresh', 'style', 'width']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'bgColor', 'captcha', 'charNum', 'className', 'fontSize', 'height', 'loading_state', 'style', 'width']
+        self.available_properties = ['id', 'bgColor', 'captcha', 'charNum', 'className', 'fontSize', 'height', 'loading_state', 'refresh', 'style', 'width']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
