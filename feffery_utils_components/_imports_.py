@@ -8,6 +8,7 @@ from .FefferyWheelColorPicker import FefferyWheelColorPicker
 from .FefferyExternalCss import FefferyExternalCss
 from .FefferySetTitle import FefferySetTitle
 from .FefferyCaptcha import FefferyCaptcha
+from .FefferyCountDown import FefferyCountDown
 from .FefferyExecuteJs import FefferyExecuteJs
 from .FefferyExtraSpinner import FefferyExtraSpinner
 from .FefferyGuide import FefferyGuide
@@ -43,6 +44,7 @@ __all__ = [
     "FefferyExternalCss",
     "FefferySetTitle",
     "FefferyCaptcha",
+    "FefferyCountDown",
     "FefferyExecuteJs",
     "FefferyExtraSpinner",
     "FefferyGuide",

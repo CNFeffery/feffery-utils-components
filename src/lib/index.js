@@ -32,6 +32,7 @@ import FefferyIdle from "./components/listeners/FefferyIdle.react";
 import FefferyWindowSize from "./components/listeners/FefferyWindowSize.react";
 import FefferyKeyPress from "./components/listeners/FefferyKeyPress.react";
 import FefferyTimeout from "./components/FefferyTimeout.react";
+import FefferyCountDown from "./components/FefferyCountDown.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -88,5 +89,6 @@ export {
     FefferyIdle,
     FefferyWindowSize,
     FefferyKeyPress,
-    FefferyTimeout
+    FefferyTimeout,
+    FefferyCountDown
 };
