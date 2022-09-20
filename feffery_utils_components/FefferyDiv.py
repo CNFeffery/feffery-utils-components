@@ -17,7 +17,7 @@ Keyword arguments:
 
 - _width (number; optional)
 
-- className (string; optional)
+- className (string | dict; optional)
 
 - clickAwayCount (number; default 0)
 

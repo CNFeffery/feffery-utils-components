@@ -1,6 +1,6 @@
 {
   "name": "feffery_utils_components",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "Build more utility components for Plotly Dash.",
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
     "@uiw/react-color-wheel": "^1.1.0",
     "ahooks": "^3.7.0",
     "byte-guide": "^1.0.7",
+    "lodash": "^4.17.21",
     "ninja-keys": "^1.1.12",
     "nprogress": "^0.2.0",
     "ramda": "^0.26.1",

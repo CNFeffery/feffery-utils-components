@@ -14,10 +14,14 @@ app.layout = html.Div(
     [
         fuc.FefferyDiv(
             id='div-demo',
+            className={
+                '&:hover': {
+                    'background': 'lightgrey',
+                }
+            },
             style={
                 'width': '200px',
                 'height': '100px',
-                'background': 'lightgrey',
                 'border': '1ox dashed black'
             }
         )

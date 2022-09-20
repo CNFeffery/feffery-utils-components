@@ -1,4 +1,6 @@
 import React, { useEffect, useRef } from 'react';
+import { useCss } from 'react-use';
+import { isString } from 'lodash';
 import PropTypes from 'prop-types';
 import { useSize, useRequest, useHover, useClickAway } from 'ahooks';
 
@@ -62,7 +64,11 @@ const FefferyDiv = (props) => {
     return <div
         id={id}
         style={style}
-        className={className}
+        className={
+            isString(className) ?
+                className :
+                useCss(className)
+        }
         ref={ref}
         onClick={() => setProps({ nClicks: nClicks + 1 })}
         onDoubleClick={() => setProps({ nDoubleClicks: nDoubleClicks + 1 })}
@@ -97,7 +103,10 @@ FefferyDiv.propTypes = {
 
     style: PropTypes.object,
 
-    className: PropTypes.string,
+    className: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ]),
 
     // 监听容器像素宽度变化
     _width: PropTypes.number,

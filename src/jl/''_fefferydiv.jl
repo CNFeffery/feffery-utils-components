@@ -15,7 +15,7 @@ Keyword arguments:
 - `id` (String; optional)
 - `_height` (Real; optional)
 - `_width` (Real; optional)
-- `className` (String; optional)
+- `className` (String | Dict; optional)
 - `clickAwayCount` (Real; optional)
 - `contextMenuEvent` (optional): . contextMenuEvent has the following type: lists containing elements 'pageX', 'pageY', 'timestamp'.
 Those elements have the following types:
