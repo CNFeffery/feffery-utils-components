@@ -6,6 +6,7 @@ from .FefferyRgbColorPicker import FefferyRgbColorPicker
 from .FefferyTwitterColorPicker import FefferyTwitterColorPicker
 from .FefferyWheelColorPicker import FefferyWheelColorPicker
 from .FefferyExternalCss import FefferyExternalCss
+from .FefferyExternalJs import FefferyExternalJs
 from .FefferySetTitle import FefferySetTitle
 from .FefferyCaptcha import FefferyCaptcha
 from .FefferyCountDown import FefferyCountDown
@@ -42,6 +43,7 @@ __all__ = [
     "FefferyTwitterColorPicker",
     "FefferyWheelColorPicker",
     "FefferyExternalCss",
+    "FefferyExternalJs",
     "FefferySetTitle",
     "FefferyCaptcha",
     "FefferyCountDown",

@@ -25,6 +25,7 @@ import FefferyWheelColorPicker from "./components/colorPickers/FefferyWheelColor
 import FefferyHighlightWords from "./components/FefferyHighlightWords.react";
 import FefferyDocumentVisibility from "./components/listeners/FefferyDocumentVisibility.react";
 import FefferyExternalCss from "./components/dom/FefferyExternalCss.react";
+import FefferyExternalJs from "./components/dom/FefferyExternalJs.react";
 import FefferySetTitle from "./components/dom/FefferySetTitle.react";
 import FefferyResponsive from "./components/listeners/FefferyResponsive.react";
 import FefferyGeolocation from "./components/listeners/FefferyGeolocation.react";
@@ -83,6 +84,7 @@ export {
     FefferyHighlightWords,
     FefferyDocumentVisibility,
     FefferyExternalCss,
+    FefferyExternalJs,
     FefferySetTitle,
     FefferyResponsive,
     FefferyGeolocation,

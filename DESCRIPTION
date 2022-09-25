@@ -1,6 +1,6 @@
 Package: fefferyUtilsComponents
 Title: Build more utility components for Plotly Dash.
-Version: 0.0.23
+Version: 0.0.24
 Description: Build more utility components for Plotly Dash.
 Depends: R (>= 3.0.2)
 Imports: 
