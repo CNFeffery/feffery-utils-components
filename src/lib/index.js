@@ -34,6 +34,8 @@ import FefferyWindowSize from "./components/listeners/FefferyWindowSize.react";
 import FefferyKeyPress from "./components/listeners/FefferyKeyPress.react";
 import FefferyTimeout from "./components/FefferyTimeout.react";
 import FefferyCountDown from "./components/FefferyCountDown.react";
+import FefferySortableItem from "./components/sortable/FefferySortableItem.react";
+import FefferySortableContainer from "./components/sortable/FefferySortableContainer.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -92,5 +94,7 @@ export {
     FefferyWindowSize,
     FefferyKeyPress,
     FefferyTimeout,
-    FefferyCountDown
+    FefferyCountDown,
+    FefferySortableItem,
+    FefferySortableContainer
 };

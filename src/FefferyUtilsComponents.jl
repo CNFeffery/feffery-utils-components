@@ -38,6 +38,8 @@ include("jl/''_fefferyinviewport.jl")
 include("jl/''_fefferykeypress.jl")
 include("jl/''_fefferyresponsive.jl")
 include("jl/''_fefferywindowsize.jl")
+include("jl/''_fefferysortablecontainer.jl")
+include("jl/''_fefferysortableitem.jl")
 include("jl/''_fefferysplit.jl")
 include("jl/''_fefferysplitpane.jl")
 

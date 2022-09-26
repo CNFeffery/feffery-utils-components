@@ -31,6 +31,8 @@ from .FefferyInViewport import FefferyInViewport
 from .FefferyKeyPress import FefferyKeyPress
 from .FefferyResponsive import FefferyResponsive
 from .FefferyWindowSize import FefferyWindowSize
+from .FefferySortableContainer import FefferySortableContainer
+from .FefferySortableItem import FefferySortableItem
 from .FefferySplit import FefferySplit
 from .FefferySplitPane import FefferySplitPane
 
@@ -68,6 +70,8 @@ __all__ = [
     "FefferyKeyPress",
     "FefferyResponsive",
     "FefferyWindowSize",
+    "FefferySortableContainer",
+    "FefferySortableItem",
     "FefferySplit",
     "FefferySplitPane"
 ]

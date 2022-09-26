@@ -94,3 +94,7 @@
   background-color: #ffd54f;
   font-weight: "normal";
 }
+
+.sortable-helper {
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
+}
