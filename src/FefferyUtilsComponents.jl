@@ -3,7 +3,7 @@ module FefferyUtilsComponents
 using Dash
 
 const resources_path = realpath(joinpath( @__DIR__, "..", "deps"))
-const version = "0.0.24"
+const version = "0.0.25"
 
 include("jl/''_fefferyblockcolorpicker.jl")
 include("jl/''_fefferycirclecolorpicker.jl")
@@ -14,6 +14,7 @@ include("jl/''_fefferytwittercolorpicker.jl")
 include("jl/''_fefferywheelcolorpicker.jl")
 include("jl/''_fefferyexternalcss.jl")
 include("jl/''_fefferyexternaljs.jl")
+include("jl/''_fefferyrawhtml.jl")
 include("jl/''_fefferysettitle.jl")
 include("jl/''_fefferycaptcha.jl")
 include("jl/''_fefferycountdown.jl")
@@ -52,14 +53,14 @@ function __init__()
             [
                 DashBase.Resource(
     relative_package_path = "feffery_utils_components.min.js",
-    external_url = "https://unpkg.com/feffery_utils_components@0.0.24/feffery_utils_components/feffery_utils_components.min.js",
+    external_url = "https://unpkg.com/feffery_utils_components@0.0.25/feffery_utils_components/feffery_utils_components.min.js",
     dynamic = nothing,
     async = nothing,
     type = :js
 ),
 DashBase.Resource(
     relative_package_path = "feffery_utils_components.min.js.map",
-    external_url = "https://unpkg.com/feffery_utils_components@0.0.24/feffery_utils_components/feffery_utils_components.min.js.map",
+    external_url = "https://unpkg.com/feffery_utils_components@0.0.25/feffery_utils_components/feffery_utils_components.min.js.map",
     dynamic = true,
     async = nothing,
     type = :js

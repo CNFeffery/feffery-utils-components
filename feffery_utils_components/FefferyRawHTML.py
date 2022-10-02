@@ -3,17 +3,15 @@
 from dash.development.base_component import Component, _explicitize_args
 
 
-class FefferyWheelColorPicker(Component):
-    """A FefferyWheelColorPicker component.
+class FefferyRawHTML(Component):
+    """A FefferyRawHTML component.
 
 
 Keyword arguments:
 
 - id (string; optional)
 
-- className (string; optional)
-
-- color (string; default '#fffc51')
+- htmlString (string; optional)
 
 - loading_state (dict; optional)
 
@@ -26,22 +24,20 @@ Keyword arguments:
         Determines if the component is loading or not.
 
     - prop_name (string; optional):
-        Holds which property is loading.
-
-- style (dict; optional)"""
+        Holds which property is loading."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
-    _type = 'FefferyWheelColorPicker'
+    _type = 'FefferyRawHTML'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, color=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'color', 'loading_state', 'style']
+    def __init__(self, id=Component.UNDEFINED, htmlString=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'htmlString', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'color', 'loading_state', 'style']
+        self.available_properties = ['id', 'htmlString', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
         _locals.update(kwargs)  # For wildcard attrs and excess named props
         args = {k: _locals[k] for k in _explicit_args}
 
-        super(FefferyWheelColorPicker, self).__init__(**args)
+        super(FefferyRawHTML, self).__init__(**args)

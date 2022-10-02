@@ -47,8 +47,10 @@ Keyword arguments:
         _locals = locals()
         _locals.update(kwargs)  # For wildcard attrs and excess named props
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
+
         for k in ['height', 'itemHeight']:
             if k not in args:
                 raise TypeError(
                     'Required argument `' + k + '` was not specified.')
+
         super(FefferyVirtualList, self).__init__(children=children, **args)
