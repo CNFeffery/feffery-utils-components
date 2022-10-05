@@ -1,6 +1,6 @@
 {
   "name": "feffery_utils_components",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "description": "Build more utility components for Plotly Dash.",
   "repository": {
     "type": "git",
@@ -46,6 +46,7 @@
     "react-spinners-kit": "^1.9.1",
     "react-split": "^2.0.14",
     "react-syntax-highlighter": "^15.4.4",
+    "react-toastify": "9.0.3",
     "react-use": "^17.4.0",
     "simplebar-react": "^2.3.7"
   },

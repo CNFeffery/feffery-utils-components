@@ -37,6 +37,7 @@ import FefferyCountDown from "./components/FefferyCountDown.react";
 import FefferySortableItem from "./components/sortable/FefferySortableItem.react";
 import FefferySortableContainer from "./components/sortable/FefferySortableContainer.react";
 import FefferyRawHTML from "./components/dom/FefferyRawHTML.react";
+import FefferyFancyNotification from "./components/FefferyFancyNotification";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -98,5 +99,6 @@ export {
     FefferyCountDown,
     FefferySortableItem,
     FefferySortableContainer,
-    FefferyRawHTML
+    FefferyRawHTML,
+    FefferyFancyNotification
 };
