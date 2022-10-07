@@ -18,6 +18,7 @@ from .FefferyGuide import FefferyGuide
 from .FefferyHighlightWords import FefferyHighlightWords
 from .FefferyLazyLoad import FefferyLazyLoad
 from .FefferyLocation import FefferyLocation
+from .FefferyQRCode import FefferyQRCode
 from .FefferyScroll import FefferyScroll
 from .FefferyScrollbars import FefferyScrollbars
 from .FefferyShortcutPanel import FefferyShortcutPanel
@@ -59,6 +60,7 @@ __all__ = [
     "FefferyHighlightWords",
     "FefferyLazyLoad",
     "FefferyLocation",
+    "FefferyQRCode",
     "FefferyScroll",
     "FefferyScrollbars",
     "FefferyShortcutPanel",

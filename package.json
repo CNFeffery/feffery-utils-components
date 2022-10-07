@@ -1,6 +1,6 @@
 {
   "name": "feffery_utils_components",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "Build more utility components for Plotly Dash.",
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
     "lodash": "^4.17.21",
     "ninja-keys": "^1.1.12",
     "nprogress": "^0.2.0",
+    "qrcode.react": "^3.1.0",
     "ramda": "^0.26.1",
     "rc-virtual-list": "^3.4.8",
     "react-captcha-code": "^1.0.7",
