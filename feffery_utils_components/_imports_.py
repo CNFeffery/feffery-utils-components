@@ -13,6 +13,7 @@ from .FefferyCaptcha import FefferyCaptcha
 from .FefferyCountDown import FefferyCountDown
 from .FefferyExecuteJs import FefferyExecuteJs
 from .FefferyExtraSpinner import FefferyExtraSpinner
+from .FefferyFancyMessage import FefferyFancyMessage
 from .FefferyFancyNotification import FefferyFancyNotification
 from .FefferyGuide import FefferyGuide
 from .FefferyHighlightWords import FefferyHighlightWords
@@ -55,6 +56,7 @@ __all__ = [
     "FefferyCountDown",
     "FefferyExecuteJs",
     "FefferyExtraSpinner",
+    "FefferyFancyMessage",
     "FefferyFancyNotification",
     "FefferyGuide",
     "FefferyHighlightWords",

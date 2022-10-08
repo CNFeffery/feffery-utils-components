@@ -39,6 +39,7 @@ import FefferySortableContainer from "./components/sortable/FefferySortableConta
 import FefferyRawHTML from "./components/dom/FefferyRawHTML.react";
 import FefferyFancyNotification from "./components/FefferyFancyNotification";
 import FefferyQRCode from "./components/FefferyQrcode.react";
+import FefferyFancyMessage from "./components/FefferyFancyMessage";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -102,5 +103,6 @@ export {
     FefferySortableContainer,
     FefferyRawHTML,
     FefferyFancyNotification,
-    FefferyQRCode
+    FefferyQRCode,
+    FefferyFancyMessage
 };
