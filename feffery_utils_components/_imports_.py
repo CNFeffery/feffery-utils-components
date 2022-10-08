@@ -27,7 +27,6 @@ from .FefferySyntaxHighlighter import FefferySyntaxHighlighter
 from .FefferyTimeout import FefferyTimeout
 from .FefferyTopProgress import FefferyTopProgress
 from .FefferyVirtualList import FefferyVirtualList
-from .FefferyDiv import FefferyDiv
 from .FefferyDocumentVisibility import FefferyDocumentVisibility
 from .FefferyGeolocation import FefferyGeolocation
 from .FefferyIdle import FefferyIdle
@@ -70,7 +69,6 @@ __all__ = [
     "FefferyTimeout",
     "FefferyTopProgress",
     "FefferyVirtualList",
-    "FefferyDiv",
     "FefferyDocumentVisibility",
     "FefferyGeolocation",
     "FefferyIdle",

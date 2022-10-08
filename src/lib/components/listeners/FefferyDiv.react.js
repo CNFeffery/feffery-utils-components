@@ -4,11 +4,13 @@ import { isString } from 'lodash';
 import PropTypes from 'prop-types';
 import { useSize, useRequest, useHover, useClickAway } from 'ahooks';
 
+
 // 定义进阶div容器组件FefferyDiv
 const FefferyDiv = (props) => {
     // 取得必要属性或参数
     const {
         id,
+        key,
         children,
         style,
         className,
@@ -19,6 +21,9 @@ const FefferyDiv = (props) => {
         enableListenContextMenu,
         debounceWait,
         clickAwayCount,
+        appendChild,
+        insertChild,
+        deleteChildIndex,
         setProps,
         loading_state
     } = props;
@@ -26,6 +31,36 @@ const FefferyDiv = (props) => {
     const ref = useRef(null);
     const size = useSize(ref);
     const _isHovering = useHover(ref);
+
+    // 快捷children数组增删操作
+    useEffect(() => {
+        if (children && appendChild) {
+            setProps({
+                children: children.concat(appendChild),
+                appendChild: undefined // 重置
+            })
+        }
+    }, [appendChild])
+
+    useEffect(() => {
+        if (children && insertChild && insertChild?.index && insertChild?.element) {
+            setProps({
+                children: children.slice(0, insertChild.index)
+                    .concat([insertChild.element])
+                    .concat(children.slice(insertChild.index)),
+                insertChild: undefined // 重置
+            })
+        }
+    }, [insertChild])
+
+    useEffect(() => {
+        if (children && deleteChildIndex) {
+            setProps({
+                children: children.filter((_, i) => i !== deleteChildIndex),
+                deleteChildIndex: undefined // 重置
+            })
+        }
+    }, [deleteChildIndex])
 
     // 防抖更新容器尺寸
     const { run: updateWidthHeight } = useRequest(
@@ -63,11 +98,12 @@ const FefferyDiv = (props) => {
 
     return <div
         id={id}
+        key={key}
         style={style}
         className={
             isString(className) ?
                 className :
-                useCss(className)
+                (className ? useCss(className) : undefined)
         }
         ref={ref}
         onClick={() => setProps({ nClicks: nClicks + 1 })}
@@ -99,7 +135,24 @@ FefferyDiv.propTypes = {
     // 部件id
     id: PropTypes.string,
 
+    key: PropTypes.string,
+
     children: PropTypes.node,
+
+    // 快捷children数组增删参数，在有效值传入促使组件更新后会自动重置为undefined
+    // 用于快捷向children数组末尾追加新元素
+    appendChild: PropTypes.node,
+
+    // 用于快捷在原children数组第index个位置插入新元素
+    insertChild: PropTypes.exact({
+        // 要插入的位序
+        index: PropTypes.number,
+        // 要插入的元素
+        element: PropTypes.node
+    }),
+
+    // 用于快捷删除原children第index个位置的元素
+    deleteChildIndex: PropTypes.number,
 
     style: PropTypes.object,
 
