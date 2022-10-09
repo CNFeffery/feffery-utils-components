@@ -23,6 +23,7 @@ const FefferyDiv = (props) => {
         clickAwayCount,
         appendChild,
         insertChild,
+        replaceChild,
         deleteChildIndex,
         setProps,
         loading_state
@@ -52,6 +53,16 @@ const FefferyDiv = (props) => {
             })
         }
     }, [insertChild])
+
+    useEffect(() => {
+        if (children && replaceChild && replaceChild?.index && replaceChild?.element) {
+            children[replaceChild.index] = replaceChild.element
+            setProps({
+                children: children,
+                replaceChild: undefined // 重置
+            })
+        }
+    }, [replaceChild])
 
     useEffect(() => {
         if (children && deleteChildIndex) {
@@ -148,6 +159,14 @@ FefferyDiv.propTypes = {
         // 要插入的位序
         index: PropTypes.number,
         // 要插入的元素
+        element: PropTypes.node
+    }),
+
+    // 用于快捷对children数组第index个位置的元素进行替换
+    replaceChild: PropTypes.exact({
+        // 要替换元素的位序
+        index: PropTypes.number,
+        // 要替换的新元素
         element: PropTypes.node
     }),
 
