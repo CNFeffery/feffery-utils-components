@@ -40,6 +40,7 @@ import FefferyRawHTML from "./components/dom/FefferyRawHTML.react";
 import FefferyFancyNotification from "./components/FefferyFancyNotification";
 import FefferyQRCode from "./components/FefferyQrcode.react";
 import FefferyFancyMessage from "./components/FefferyFancyMessage";
+import FefferyStyle from "./components/FefferyStyle.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -104,5 +105,6 @@ export {
     FefferyRawHTML,
     FefferyFancyNotification,
     FefferyQRCode,
-    FefferyFancyMessage
+    FefferyFancyMessage,
+    FefferyStyle
 };

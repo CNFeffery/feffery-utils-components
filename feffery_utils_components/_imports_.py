@@ -23,6 +23,7 @@ from .FefferyQRCode import FefferyQRCode
 from .FefferyScroll import FefferyScroll
 from .FefferyScrollbars import FefferyScrollbars
 from .FefferyShortcutPanel import FefferyShortcutPanel
+from .FefferyStyle import FefferyStyle
 from .FefferySyntaxHighlighter import FefferySyntaxHighlighter
 from .FefferyTimeout import FefferyTimeout
 from .FefferyTopProgress import FefferyTopProgress
@@ -65,6 +66,7 @@ __all__ = [
     "FefferyScroll",
     "FefferyScrollbars",
     "FefferyShortcutPanel",
+    "FefferyStyle",
     "FefferySyntaxHighlighter",
     "FefferyTimeout",
     "FefferyTopProgress",

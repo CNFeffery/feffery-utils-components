@@ -6,27 +6,19 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        fuc.FefferySyntaxHighlighter(
-            showLineNumbers=True,
-            language='python',
-            codeString="""
-fac.AntdDivider(
-    '默认linkTarget="_blank"',
-    innerTextOrientation='left'
-),
-fmc.FefferyMarkdown(
-    markdownStr='''[fac官网](http://fac.feffery.tech/)'''
-),
+        html.Div(
+            className='demo-div'
+        ),
 
-fac.AntdDivider(
-    'linkTarget="_self"',
-    innerTextOrientation='left'
-),
-fmc.FefferyMarkdown(
-    linkTarget='_self',
-    markdownStr='''[fac官网](http://fac.feffery.tech/)'''
-)
-"""
+        fuc.FefferyStyle(
+            rawStyle='''
+.demo-div {
+    width: 200px;
+    height: 200px;
+    background: green;
+    border: 5px dashed red;
+}
+'''
         )
     ]
 )
