@@ -11,6 +11,7 @@ from .FefferyRawHTML import FefferyRawHTML
 from .FefferySetTitle import FefferySetTitle
 from .FefferyCaptcha import FefferyCaptcha
 from .FefferyCountDown import FefferyCountDown
+from .FefferyCssVar import FefferyCssVar
 from .FefferyDiv import FefferyDiv
 from .FefferyExecuteJs import FefferyExecuteJs
 from .FefferyExtraSpinner import FefferyExtraSpinner
@@ -56,6 +57,7 @@ __all__ = [
     "FefferySetTitle",
     "FefferyCaptcha",
     "FefferyCountDown",
+    "FefferyCssVar",
     "FefferyDiv",
     "FefferyExecuteJs",
     "FefferyExtraSpinner",

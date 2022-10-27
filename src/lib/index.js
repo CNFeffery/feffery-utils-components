@@ -42,6 +42,7 @@ import FefferyFancyMessage from "./components/FefferyFancyMessage";
 import FefferyStyle from "./components/FefferyStyle.react";
 import FefferyDiv from "./components/FefferyDiv.react";
 import FefferyReload from "./components/FefferyReload.react";
+import FefferyCssVar from "./components/FefferyCssVar.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -108,5 +109,6 @@ export {
     FefferyFancyMessage,
     FefferyStyle,
     FefferyDiv,
-    FefferyReload
+    FefferyReload,
+    FefferyCssVar
 };
