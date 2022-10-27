@@ -23,6 +23,7 @@ FefferyStyle.propTypes = {
     // 部件id
     id: PropTypes.string,
 
+    // 设置要添加到文档中的原生css字符
     rawStyle: PropTypes.string,
 
     /**

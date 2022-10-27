@@ -50,7 +50,8 @@
     "react-syntax-highlighter": "^15.4.4",
     "react-toastify": "9.0.3",
     "react-use": "^17.4.0",
-    "simplebar-react": "^2.3.7"
+    "simplebar-react": "^2.3.7",
+    "use-eye-dropper": "^1.4.3"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
