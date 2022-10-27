@@ -3,11 +3,12 @@ import { useCss } from 'react-use';
 import { isString } from 'lodash';
 import PropTypes from 'prop-types';
 import { useSize, useRequest, useHover, useClickAway } from 'ahooks';
+import './styles.css'
 
 // 定义进阶div容器组件FefferyDiv
 const FefferyDiv = (props) => {
     // 取得必要属性或参数
-    const {
+    let {
         id,
         key,
         children,
@@ -24,6 +25,7 @@ const FefferyDiv = (props) => {
         insertChild,
         replaceChild,
         deleteChildIndex,
+        shadow,
         setProps,
         loading_state
     } = props;
@@ -105,6 +107,13 @@ const FefferyDiv = (props) => {
     useClickAway(() => {
         setProps({ clickAwayCount: clickAwayCount + 1 })
     }, ref);
+
+    // 根据shadow参数预处理className
+    if (shadow === 'hover-shadow') {
+        className = className ? `${className} feffery-div-hover-shadow` : 'feffery-div-hover-shadow'
+    } else if (shadow === 'always-shadow') {
+        className = className ? `${className} feffery-div-always-shadow` : 'feffery-div-always-shadow'
+    }
 
     return <div
         id={id}
@@ -219,6 +228,10 @@ FefferyDiv.propTypes = {
     // 监听元素外点击事件发生次数，默认为0
     clickAwayCount: PropTypes.number,
 
+    // 设置当前容器的快捷阴影效果，可选的有'no-shadow'、'hover-shadow'、'always-shadow'
+    // 默认为'no-shadow'
+    shadow: PropTypes.oneOf(['no-shadow', 'hover-shadow', 'always-shadow']),
+
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
@@ -249,7 +262,8 @@ FefferyDiv.defaultProps = {
     nDoubleClicks: 0,
     enableListenContextMenu: false,
     debounceWait: 150,
-    clickAwayCount: 0
+    clickAwayCount: 0,
+    shadow: 'no-shadow'
 }
 
 export default React.memo(FefferyDiv);

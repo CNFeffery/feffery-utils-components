@@ -7,41 +7,26 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        html.Button(
-            '开启色彩拾取',
-            id='enable-eye-dropper'
-        ),
         fuc.FefferyDiv(
-            fuc.FefferyEyeDropper(
-                id='eye-dropper'
-            )
+            shadow='hover-shadow',
+            style={
+                'width': '400px',
+                'height': '200px',
+                'marginBottom': '20px'
+                # 'border': '1px solid grey'
+            }
         ),
 
-        html.Div(
-            className='demo-div'
-        ),
-
-        fuc.FefferyStyle(
-            rawStyle='''
-.demo-div {
-    width: 200px;
-    height: 200px;
-    background: green;
-    border: 5px dashed red;
-}
-'''
+        fuc.FefferyDiv(
+            shadow='always-shadow',
+            style={
+                'width': '400px',
+                'height': '200px',
+                # 'border': '1px solid grey'
+            }
         )
     ]
 )
-
-
-app.clientside_callback(
-    '''(n_clicks) => true''',
-    Output('eye-dropper', 'enable'),
-    Input('enable-eye-dropper', 'n_clicks'),
-    prevent_initial_call=True
-)
-
 
 if __name__ == '__main__':
     app.run(debug=True)

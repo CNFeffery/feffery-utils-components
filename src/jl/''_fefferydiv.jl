@@ -45,10 +45,11 @@ Those elements have the following types:
 Those elements have the following types:
   - `index` (Real; optional)
   - `element` (a list of or a singular dash component, string or number; optional)
+- `shadow` (a value equal to: 'no-shadow', 'hover-shadow', 'always-shadow'; optional)
 - `style` (Dict; optional)
 """
 function ''_fefferydiv(; kwargs...)
-        available_props = Symbol[:children, :id, :_height, :_width, :appendChild, :className, :clickAwayCount, :contextMenuEvent, :debounceWait, :deleteChildIndex, :enableListenContextMenu, :insertChild, :isHovering, :key, :loading_state, :mouseEnterCount, :mouseLeaveCount, :nClicks, :nDoubleClicks, :replaceChild, :style]
+        available_props = Symbol[:children, :id, :_height, :_width, :appendChild, :className, :clickAwayCount, :contextMenuEvent, :debounceWait, :deleteChildIndex, :enableListenContextMenu, :insertChild, :isHovering, :key, :loading_state, :mouseEnterCount, :mouseLeaveCount, :nClicks, :nDoubleClicks, :replaceChild, :shadow, :style]
         wild_props = Symbol[]
         return Component("''_fefferydiv", "FefferyDiv", "feffery_utils_components", available_props, wild_props; kwargs...)
 end
