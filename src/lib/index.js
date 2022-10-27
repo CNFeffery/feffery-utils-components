@@ -13,7 +13,6 @@ import FefferyExtraSpinner from "./components/FefferyExtraSpinner.react";
 import FefferyLazyLoad from "./components/FefferyLazyLoad.react";
 import FefferyVirtualList from "./components/FefferyVirtualList.react";
 import FefferyLocation from "./components/FefferyLocation.react";
-import FefferyDiv from "./components/listeners/FefferyDiv.react";
 import FefferyInViewport from "./components/listeners/FefferyInViewport.react";
 import FefferyHexColorPicker from "./components/colorPickers/FefferyHexColorPicker.react";
 import FefferyRgbColorPicker from "./components/colorPickers/FefferyRgbColorPicker.react";
@@ -41,6 +40,8 @@ import FefferyFancyNotification from "./components/FefferyFancyNotification";
 import FefferyQRCode from "./components/FefferyQrcode.react";
 import FefferyFancyMessage from "./components/FefferyFancyMessage";
 import FefferyStyle from "./components/FefferyStyle.react";
+import FefferyDiv from "./components/FefferyDiv.react";
+import FefferyReload from "./components/FefferyReload.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -76,7 +77,6 @@ export {
     FefferyScroll,
     FefferyScrollbars,
     FefferyExtraSpinner,
-    FefferyDiv,
     FefferyLazyLoad,
     FefferyVirtualList,
     FefferyLocation,
@@ -106,5 +106,7 @@ export {
     FefferyFancyNotification,
     FefferyQRCode,
     FefferyFancyMessage,
-    FefferyStyle
+    FefferyStyle,
+    FefferyDiv,
+    FefferyReload
 };

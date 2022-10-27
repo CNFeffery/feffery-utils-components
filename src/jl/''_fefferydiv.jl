@@ -15,6 +15,7 @@ Keyword arguments:
 - `id` (String; optional)
 - `_height` (Real; optional)
 - `_width` (Real; optional)
+- `appendChild` (a list of or a singular dash component, string or number; optional)
 - `className` (String | Dict; optional)
 - `clickAwayCount` (Real; optional)
 - `contextMenuEvent` (optional): . contextMenuEvent has the following type: lists containing elements 'pageX', 'pageY', 'timestamp'.
@@ -23,8 +24,14 @@ Those elements have the following types:
   - `pageY` (Real; optional)
   - `timestamp` (Real; optional)
 - `debounceWait` (Real; optional)
+- `deleteChildIndex` (Real; optional)
 - `enableListenContextMenu` (Bool; optional)
+- `insertChild` (optional): . insertChild has the following type: lists containing elements 'index', 'element'.
+Those elements have the following types:
+  - `index` (Real; optional)
+  - `element` (a list of or a singular dash component, string or number; optional)
 - `isHovering` (Bool; optional)
+- `key` (String; optional)
 - `loading_state` (optional): . loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
 Those elements have the following types:
   - `is_loading` (Bool; optional): Determines if the component is loading or not
@@ -34,10 +41,14 @@ Those elements have the following types:
 - `mouseLeaveCount` (Real; optional)
 - `nClicks` (Real; optional)
 - `nDoubleClicks` (Real; optional)
+- `replaceChild` (optional): . replaceChild has the following type: lists containing elements 'index', 'element'.
+Those elements have the following types:
+  - `index` (Real; optional)
+  - `element` (a list of or a singular dash component, string or number; optional)
 - `style` (Dict; optional)
 """
 function ''_fefferydiv(; kwargs...)
-        available_props = Symbol[:children, :id, :_height, :_width, :className, :clickAwayCount, :contextMenuEvent, :debounceWait, :enableListenContextMenu, :isHovering, :loading_state, :mouseEnterCount, :mouseLeaveCount, :nClicks, :nDoubleClicks, :style]
+        available_props = Symbol[:children, :id, :_height, :_width, :appendChild, :className, :clickAwayCount, :contextMenuEvent, :debounceWait, :deleteChildIndex, :enableListenContextMenu, :insertChild, :isHovering, :key, :loading_state, :mouseEnterCount, :mouseLeaveCount, :nClicks, :nDoubleClicks, :replaceChild, :style]
         wild_props = Symbol[]
         return Component("''_fefferydiv", "FefferyDiv", "feffery_utils_components", available_props, wild_props; kwargs...)
 end

@@ -6,6 +6,8 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
+        fuc.FefferyDiv(),
+
         html.Div(
             className='demo-div'
         ),

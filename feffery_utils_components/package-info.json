@@ -1,6 +1,6 @@
 {
   "name": "feffery_utils_components",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "description": "Build more utility components for Plotly Dash.",
   "repository": {
     "type": "git",
@@ -55,6 +55,7 @@
   "devDependencies": {
     "@babel/core": "^7.5.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.5.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.18.9",
     "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "@plotly/dash-component-plugins": "^1.2.3",

@@ -4,7 +4,6 @@ import { isString } from 'lodash';
 import PropTypes from 'prop-types';
 import { useSize, useRequest, useHover, useClickAway } from 'ahooks';
 
-
 // 定义进阶div容器组件FefferyDiv
 const FefferyDiv = (props) => {
     // 取得必要属性或参数
@@ -38,24 +37,24 @@ const FefferyDiv = (props) => {
         if (children && appendChild) {
             setProps({
                 children: children.concat(appendChild),
-                appendChild: undefined // 重置
+                appendChild: null // 重置
             })
         }
     }, [appendChild])
 
     useEffect(() => {
-        if (children && insertChild && insertChild?.index && insertChild?.element) {
+        if (children && insertChild && insertChild.index && insertChild.element) {
             setProps({
                 children: children.slice(0, insertChild.index)
                     .concat([insertChild.element])
                     .concat(children.slice(insertChild.index)),
-                insertChild: undefined // 重置
+                insertChild: null // 重置
             })
         }
     }, [insertChild])
 
     useEffect(() => {
-        if (children && replaceChild && replaceChild?.index && replaceChild?.element) {
+        if (children && replaceChild && replaceChild.index && replaceChild.element) {
             children[replaceChild.index] = replaceChild.element
             setProps({
                 children: children,
@@ -139,7 +138,6 @@ const FefferyDiv = (props) => {
         {children}
     </ div>;
 }
-
 
 // 定义参数或属性
 FefferyDiv.propTypes = {
@@ -254,4 +252,4 @@ FefferyDiv.defaultProps = {
     clickAwayCount: 0
 }
 
-export default FefferyDiv;
+export default React.memo(FefferyDiv);

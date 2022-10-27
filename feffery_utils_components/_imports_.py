@@ -11,6 +11,7 @@ from .FefferyRawHTML import FefferyRawHTML
 from .FefferySetTitle import FefferySetTitle
 from .FefferyCaptcha import FefferyCaptcha
 from .FefferyCountDown import FefferyCountDown
+from .FefferyDiv import FefferyDiv
 from .FefferyExecuteJs import FefferyExecuteJs
 from .FefferyExtraSpinner import FefferyExtraSpinner
 from .FefferyFancyMessage import FefferyFancyMessage
@@ -20,6 +21,7 @@ from .FefferyHighlightWords import FefferyHighlightWords
 from .FefferyLazyLoad import FefferyLazyLoad
 from .FefferyLocation import FefferyLocation
 from .FefferyQRCode import FefferyQRCode
+from .FefferyReload import FefferyReload
 from .FefferyScroll import FefferyScroll
 from .FefferyScrollbars import FefferyScrollbars
 from .FefferyShortcutPanel import FefferyShortcutPanel
@@ -54,6 +56,7 @@ __all__ = [
     "FefferySetTitle",
     "FefferyCaptcha",
     "FefferyCountDown",
+    "FefferyDiv",
     "FefferyExecuteJs",
     "FefferyExtraSpinner",
     "FefferyFancyMessage",
@@ -63,6 +66,7 @@ __all__ = [
     "FefferyLazyLoad",
     "FefferyLocation",
     "FefferyQRCode",
+    "FefferyReload",
     "FefferyScroll",
     "FefferyScrollbars",
     "FefferyShortcutPanel",
