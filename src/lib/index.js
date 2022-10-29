@@ -23,9 +23,9 @@ import FefferyCircleColorPicker from "./components/colorPickers/FefferyCircleCol
 import FefferyWheelColorPicker from "./components/colorPickers/FefferyWheelColorPicker.react";
 import FefferyHighlightWords from "./components/FefferyHighlightWords.react";
 import FefferyDocumentVisibility from "./components/listeners/FefferyDocumentVisibility.react";
-import FefferyExternalCss from "./components/dom/FefferyExternalCss.react";
-import FefferyExternalJs from "./components/dom/FefferyExternalJs.react";
-import FefferySetTitle from "./components/dom/FefferySetTitle.react";
+import FefferyExternalCss from "./components/FefferyExternalCss.react";
+import FefferyExternalJs from "./components/FefferyExternalJs.react";
+import FefferySetTitle from "./components/FefferySetTitle.react";
 import FefferyResponsive from "./components/listeners/FefferyResponsive.react";
 import FefferyGeolocation from "./components/listeners/FefferyGeolocation.react";
 import FefferyIdle from "./components/listeners/FefferyIdle.react";
@@ -35,7 +35,7 @@ import FefferyTimeout from "./components/FefferyTimeout.react";
 import FefferyCountDown from "./components/FefferyCountDown.react";
 import FefferySortableItem from "./components/sortable/FefferySortableItem.react";
 import FefferySortableContainer from "./components/sortable/FefferySortableContainer.react";
-import FefferyRawHTML from "./components/dom/FefferyRawHTML.react";
+import FefferyRawHTML from "./components/FefferyRawHTML.react";
 import FefferyFancyNotification from "./components/FefferyFancyNotification";
 import FefferyQRCode from "./components/FefferyQrcode.react";
 import FefferyFancyMessage from "./components/FefferyFancyMessage";
@@ -44,6 +44,8 @@ import FefferyDiv from "./components/FefferyDiv.react";
 import FefferyReload from "./components/FefferyReload.react";
 import FefferyCssVar from "./components/FefferyCssVar.react";
 import FefferyEyeDropper from "./components/FefferyEyeDropper.react";
+import FefferySticky from "./components/FefferySticky.react";
+import FefferyLazyLoadImage from "./components/FefferyLazyLoadImage.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -112,5 +114,7 @@ export {
     FefferyDiv,
     FefferyReload,
     FefferyCssVar,
-    FefferyEyeDropper
+    FefferyEyeDropper,
+    FefferySticky,
+    FefferyLazyLoadImage
 };
