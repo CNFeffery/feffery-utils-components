@@ -25,6 +25,7 @@ Those elements have the following types:
   - `timestamp` (Real; optional)
 - `debounceWait` (Real; optional)
 - `deleteChildIndex` (Real; optional)
+- `enableClickAway` (Bool; optional)
 - `enableListenContextMenu` (Bool; optional)
 - `insertChild` (optional): . insertChild has the following type: lists containing elements 'index', 'element'.
 Those elements have the following types:
@@ -49,7 +50,7 @@ Those elements have the following types:
 - `style` (Dict; optional)
 """
 function ''_fefferydiv(; kwargs...)
-        available_props = Symbol[:children, :id, :_height, :_width, :appendChild, :className, :clickAwayCount, :contextMenuEvent, :debounceWait, :deleteChildIndex, :enableListenContextMenu, :insertChild, :isHovering, :key, :loading_state, :mouseEnterCount, :mouseLeaveCount, :nClicks, :nDoubleClicks, :replaceChild, :shadow, :style]
+        available_props = Symbol[:children, :id, :_height, :_width, :appendChild, :className, :clickAwayCount, :contextMenuEvent, :debounceWait, :deleteChildIndex, :enableClickAway, :enableListenContextMenu, :insertChild, :isHovering, :key, :loading_state, :mouseEnterCount, :mouseLeaveCount, :nClicks, :nDoubleClicks, :replaceChild, :shadow, :style]
         wild_props = Symbol[]
         return Component("''_fefferydiv", "FefferyDiv", "feffery_utils_components", available_props, wild_props; kwargs...)
 end

@@ -26,6 +26,7 @@ const FefferyDiv = (props) => {
         replaceChild,
         deleteChildIndex,
         shadow,
+        enableClickAway,
         setProps,
         loading_state
     } = props;
@@ -104,9 +105,11 @@ const FefferyDiv = (props) => {
     }, [_isHovering])
 
     // 监听元素外点击事件
-    useClickAway(() => {
-        setProps({ clickAwayCount: clickAwayCount + 1 })
-    }, ref);
+    if (enableClickAway) {
+        useClickAway(() => {
+            setProps({ clickAwayCount: clickAwayCount + 1 })
+        }, ref);
+    }
 
     // 根据shadow参数预处理className
     if (shadow === 'hover-shadow') {
@@ -232,6 +235,10 @@ FefferyDiv.propTypes = {
     // 默认为'no-shadow'
     shadow: PropTypes.oneOf(['no-shadow', 'hover-shadow', 'always-shadow']),
 
+    // 设置是否启用元素外点击事件监听，当页面中有大量FefferyDiv元素时，建议不要开启此特性，会导致明显的性能问题
+    // 默认为false
+    enableClickAway: PropTypes.bool,
+
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
@@ -263,7 +270,8 @@ FefferyDiv.defaultProps = {
     enableListenContextMenu: false,
     debounceWait: 150,
     clickAwayCount: 0,
-    shadow: 'no-shadow'
+    shadow: 'no-shadow',
+    enableClickAway: false
 }
 
 export default React.memo(FefferyDiv);
