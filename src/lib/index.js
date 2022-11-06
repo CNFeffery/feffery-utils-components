@@ -12,7 +12,6 @@ import FefferyScrollbars from "./components/FefferyScrollbars.react";
 import FefferyExtraSpinner from "./components/FefferyExtraSpinner.react";
 import FefferyLazyLoad from "./components/FefferyLazyLoad.react";
 import FefferyVirtualList from "./components/FefferyVirtualList.react";
-import FefferyLocation from "./components/FefferyLocation.react";
 import FefferyInViewport from "./components/listeners/FefferyInViewport.react";
 import FefferyHexColorPicker from "./components/colorPickers/FefferyHexColorPicker.react";
 import FefferyRgbColorPicker from "./components/colorPickers/FefferyRgbColorPicker.react";
@@ -43,7 +42,7 @@ import FefferyStyle from "./components/FefferyStyle.react";
 import FefferyDiv from "./components/FefferyDiv.react";
 import FefferyReload from "./components/FefferyReload.react";
 import FefferyCssVar from "./components/FefferyCssVar.react";
-import FefferyEyeDropper from "./components/FefferyEyeDropper.react";
+import FefferyEyeDropper from "./components/colorPickers/FefferyEyeDropper.react";
 import FefferySticky from "./components/FefferySticky.react";
 import FefferyLazyLoadImage from "./components/FefferyLazyLoadImage.react";
 
@@ -83,7 +82,6 @@ export {
     FefferyExtraSpinner,
     FefferyLazyLoad,
     FefferyVirtualList,
-    FefferyLocation,
     FefferyInViewport,
     FefferyHexColorPicker,
     FefferyRgbColorPicker,

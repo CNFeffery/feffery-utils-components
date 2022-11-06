@@ -1,5 +1,6 @@
 from .FefferyBlockColorPicker import FefferyBlockColorPicker
 from .FefferyCircleColorPicker import FefferyCircleColorPicker
+from .FefferyEyeDropper import FefferyEyeDropper
 from .FefferyGithubColorPicker import FefferyGithubColorPicker
 from .FefferyHexColorPicker import FefferyHexColorPicker
 from .FefferyRgbColorPicker import FefferyRgbColorPicker
@@ -13,14 +14,12 @@ from .FefferyExecuteJs import FefferyExecuteJs
 from .FefferyExternalCss import FefferyExternalCss
 from .FefferyExternalJs import FefferyExternalJs
 from .FefferyExtraSpinner import FefferyExtraSpinner
-from .FefferyEyeDropper import FefferyEyeDropper
 from .FefferyFancyMessage import FefferyFancyMessage
 from .FefferyFancyNotification import FefferyFancyNotification
 from .FefferyGuide import FefferyGuide
 from .FefferyHighlightWords import FefferyHighlightWords
 from .FefferyLazyLoad import FefferyLazyLoad
 from .FefferyLazyLoadImage import FefferyLazyLoadImage
-from .FefferyLocation import FefferyLocation
 from .FefferyQRCode import FefferyQRCode
 from .FefferyRawHTML import FefferyRawHTML
 from .FefferyReload import FefferyReload
@@ -49,6 +48,7 @@ from .FefferySplitPane import FefferySplitPane
 __all__ = [
     "FefferyBlockColorPicker",
     "FefferyCircleColorPicker",
+    "FefferyEyeDropper",
     "FefferyGithubColorPicker",
     "FefferyHexColorPicker",
     "FefferyRgbColorPicker",
@@ -62,14 +62,12 @@ __all__ = [
     "FefferyExternalCss",
     "FefferyExternalJs",
     "FefferyExtraSpinner",
-    "FefferyEyeDropper",
     "FefferyFancyMessage",
     "FefferyFancyNotification",
     "FefferyGuide",
     "FefferyHighlightWords",
     "FefferyLazyLoad",
     "FefferyLazyLoadImage",
-    "FefferyLocation",
     "FefferyQRCode",
     "FefferyRawHTML",
     "FefferyReload",
