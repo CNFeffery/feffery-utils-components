@@ -120,7 +120,7 @@ FefferyTopProgress.propTypes = {
     // 设置是否处于加载中状态
     spinning: PropTypes.bool,
 
-    // 设置顶端进度条的初始进度值，默认为0.08，取值在0到1之间
+    // 设置顶端进度条的初始进度值，默认为0.33，取值在0到1之间
     minimum: PropTypes.number,
 
     // 用于设置同名css动画效果，默认为'ease'
