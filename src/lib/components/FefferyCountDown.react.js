@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useCountDown } from 'ahooks';
 import PropTypes from 'prop-types';
 
-// 定义倒计时执行组件FefferyCountDown
+// 定义倒计时组件FefferyCountDown
 const FefferyCountDown = (props) => {
 
     const {
@@ -26,7 +26,7 @@ const FefferyCountDown = (props) => {
         interval: interval * 1000,
         onEnd: () => {
             setProps({
-                delay: undefined,
+                delay: null,
                 countdown: 0
             })
         }

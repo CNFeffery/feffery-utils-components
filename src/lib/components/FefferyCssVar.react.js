@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-// 定义css变量快捷操作组件FefferyCssVar
+// 定义Css变量更新组件FefferyCssVar
 const FefferyCssVar = (props) => {
     // 取得必要属性或参数
     const {
@@ -14,10 +14,9 @@ const FefferyCssVar = (props) => {
     useEffect(() => {
         // 更新css变量
         if (cssVars) {
-            let docStyle = document.documentElement.style;
-            for (let key in Object.keys(cssVars)) {
+            for (let key of Object.keys(cssVars)) {
                 // 更新当前迭代到的css变量
-                docStyle.setProperty(key, cssVars[key])
+                document.documentElement.style.setProperty(key, cssVars[key])
             }
         }
     }, [cssVars])
