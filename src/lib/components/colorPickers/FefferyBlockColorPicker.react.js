@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { BlockPicker } from 'react-color';
 import PropTypes from 'prop-types';
 import '../styles.css';
@@ -17,11 +18,20 @@ const FefferyBlockColorPicker = (props) => {
         loading_state
     } = props;
 
+    useEffect(() => {
+        if (colors && !color) {
+            // 默认缺省选中色为colors中第0个色彩
+            setProps({
+                color: colors[0]
+            })
+        }
+    }, [])
+
     return (
         <BlockPicker id={id}
             className={className}
             style={style}
-            color={color || colors[0]} // 默认缺省选中色为colors中第0个色彩
+            color={color}
             colors={colors}
             width={width}
             triangle={triangle}
@@ -43,7 +53,7 @@ FefferyBlockColorPicker.propTypes = {
     // 自定义css字典
     style: PropTypes.object,
 
-    // 设置组件整体宽度，默认为'276px'
+    // 设置组件整体宽度，默认为'170px'
     width: PropTypes.string,
 
     // 对应当前选中的16进制色彩字符串
@@ -78,4 +88,4 @@ FefferyBlockColorPicker.defaultProps = {
     colors: ['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555', '#dce775', '#ff8a65', '#ba68c8']
 }
 
-export default FefferyBlockColorPicker;
+export default React.memo(FefferyBlockColorPicker);
