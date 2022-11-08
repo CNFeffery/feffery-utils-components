@@ -19,10 +19,9 @@ Those elements have the following types:
   - `component_name` (String; optional): Holds the name of the component that is loading
 - `style` (Dict; optional)
 - `triangle` (a value equal to: 'hide', 'top-left', 'top-right'; optional)
-- `width` (String; optional)
 """
 function ''_fefferygithubcolorpicker(; kwargs...)
-        available_props = Symbol[:id, :className, :color, :colors, :loading_state, :style, :triangle, :width]
+        available_props = Symbol[:id, :className, :color, :colors, :loading_state, :style, :triangle]
         wild_props = Symbol[]
         return Component("''_fefferygithubcolorpicker", "FefferyGithubColorPicker", "feffery_utils_components", available_props, wild_props; kwargs...)
 end

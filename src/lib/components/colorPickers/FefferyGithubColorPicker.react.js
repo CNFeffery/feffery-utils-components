@@ -10,7 +10,6 @@ const FefferyGithubColorPicker = (props) => {
         id,
         className,
         style,
-        width,
         color,
         colors,
         triangle,
@@ -34,7 +33,6 @@ const FefferyGithubColorPicker = (props) => {
             style={style}
             color={color}
             colors={colors}
-            width={width}
             triangle={triangle}
             onChangeComplete={(c, e) => setProps({ color: c.hex })}
             data-dash-is-loading={
@@ -53,9 +51,6 @@ FefferyGithubColorPicker.propTypes = {
 
     // 自定义css字典
     style: PropTypes.object,
-
-    // 设置组件整体宽度，默认为'200px'
-    width: PropTypes.string,
 
     // 对应当前选中的16进制色彩字符串
     color: PropTypes.string,
@@ -85,7 +80,6 @@ FefferyGithubColorPicker.propTypes = {
 // 设置默认参数
 FefferyGithubColorPicker.defaultProps = {
     triangle: 'top-left',
-    width: '200px',
     colors: ['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB', '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB']
 }
 

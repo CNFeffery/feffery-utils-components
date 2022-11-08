@@ -32,18 +32,16 @@ Keyword arguments:
 
 - style (dict; optional)
 
-- triangle (a value equal to: 'hide', 'top-left', 'top-right'; default 'top-left')
-
-- width (string; default '200px')"""
+- triangle (a value equal to: 'hide', 'top-left', 'top-right'; default 'top-left')"""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyGithubColorPicker'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, width=Component.UNDEFINED, color=Component.UNDEFINED, colors=Component.UNDEFINED, triangle=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'color', 'colors', 'loading_state', 'style', 'triangle', 'width']
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, color=Component.UNDEFINED, colors=Component.UNDEFINED, triangle=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'color', 'colors', 'loading_state', 'style', 'triangle']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'color', 'colors', 'loading_state', 'style', 'triangle', 'width']
+        self.available_properties = ['id', 'className', 'color', 'colors', 'loading_state', 'style', 'triangle']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
