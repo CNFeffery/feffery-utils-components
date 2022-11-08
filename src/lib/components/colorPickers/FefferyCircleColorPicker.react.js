@@ -25,7 +25,7 @@ const FefferyCircleColorPicker = (props) => {
             width={width}
             circleSize={circleSize}
             circleSpacing={circleSpacing}
-            color={color}
+            color={color || colors[0]} // 默认缺省选中色为colors中第0个色彩
             colors={colors}
             onChangeComplete={(c, e) => setProps({ color: c.hex })}
             data-dash-is-loading={

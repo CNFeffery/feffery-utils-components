@@ -21,7 +21,7 @@ const FefferyGithubColorPicker = (props) => {
         <GithubPicker id={id}
             className={className}
             style={style}
-            color={color}
+            color={color || colors[0]} // 默认缺省选中色为colors中第0个色彩
             colors={colors}
             width={width}
             triangle={triangle}
