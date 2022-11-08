@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { GithubPicker } from 'react-color';
 import PropTypes from 'prop-types';
 import '../styles.css';
@@ -17,11 +18,21 @@ const FefferyGithubColorPicker = (props) => {
         loading_state
     } = props;
 
+
+    useEffect(() => {
+        if (colors && !color) {
+            // 默认缺省选中色为colors中第0个色彩
+            setProps({
+                color: colors[0]
+            })
+        }
+    }, [])
+
     return (
         <GithubPicker id={id}
             className={className}
             style={style}
-            color={color || colors[0]} // 默认缺省选中色为colors中第0个色彩
+            color={color}
             colors={colors}
             width={width}
             triangle={triangle}
@@ -78,4 +89,4 @@ FefferyGithubColorPicker.defaultProps = {
     colors: ['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB', '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB']
 }
 
-export default FefferyGithubColorPicker;
+export default React.memo(FefferyGithubColorPicker);
