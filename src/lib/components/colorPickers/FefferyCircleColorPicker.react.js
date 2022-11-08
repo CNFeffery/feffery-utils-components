@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { CirclePicker } from 'react-color';
 import PropTypes from 'prop-types';
 import '../styles.css';
@@ -18,6 +19,15 @@ const FefferyCircleColorPicker = (props) => {
         loading_state
     } = props;
 
+    useEffect(() => {
+        if (colors && !color) {
+            // 默认缺省选中色为colors中第0个色彩
+            setProps({
+                color: colors[0]
+            })
+        }
+    }, [])
+
     return (
         <CirclePicker id={id}
             className={className}
@@ -25,7 +35,7 @@ const FefferyCircleColorPicker = (props) => {
             width={width}
             circleSize={circleSize}
             circleSpacing={circleSpacing}
-            color={color || colors[0]} // 默认缺省选中色为colors中第0个色彩
+            color={color}
             colors={colors}
             onChangeComplete={(c, e) => setProps({ color: c.hex })}
             data-dash-is-loading={
@@ -84,4 +94,4 @@ FefferyCircleColorPicker.defaultProps = {
     colors: ["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#607d8b"]
 }
 
-export default FefferyCircleColorPicker;
+export default React.memo(FefferyCircleColorPicker);
