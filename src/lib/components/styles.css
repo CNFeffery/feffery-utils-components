@@ -111,3 +111,7 @@
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.3s ease-in-out;
 }
+
+.github-picker {
+  box-sizing: content-box;
+}
