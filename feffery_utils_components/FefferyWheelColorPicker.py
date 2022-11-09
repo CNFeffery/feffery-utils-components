@@ -13,7 +13,7 @@ Keyword arguments:
 
 - className (string; optional)
 
-- color (string; default '#fffc51')
+- color (string; optional)
 
 - loading_state (dict; optional)
 

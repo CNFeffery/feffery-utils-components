@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import Wheel from '@uiw/react-color-wheel';
 import { hsvaToHex, hexToHsva } from '@uiw/color-convert'
 import PropTypes from 'prop-types';
@@ -15,12 +16,22 @@ const FefferyWheelColorPicker = (props) => {
         loading_state
     } = props;
 
+    useEffect(() => {
+        if (!color) {
+            setProps({
+                color: '#fffc51'
+            })
+        }
+    }, [])
+
     return (
         <Wheel id={id}
             className={className}
             style={style}
-            color={color ? hexToHsva(color) : hexToHsva('#fffc51')}
-            onChange={(c) => setProps({ color: hsvaToHex(c.hsva) })}
+            color={color}
+            onChange={(c) => {
+                setProps({ color: c.hex })
+            }}
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             } />
@@ -59,7 +70,6 @@ FefferyWheelColorPicker.propTypes = {
 
 // 设置默认参数
 FefferyWheelColorPicker.defaultProps = {
-    color: '#fffc51'
 }
 
-export default FefferyWheelColorPicker;
+export default React.memo(FefferyWheelColorPicker);
