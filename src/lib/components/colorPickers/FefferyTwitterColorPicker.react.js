@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { TwitterPicker } from 'react-color';
 import PropTypes from 'prop-types';
 import '../styles.css';
@@ -16,6 +17,15 @@ const FefferyTwitterColorPicker = (props) => {
         setProps,
         loading_state
     } = props;
+
+    useEffect(() => {
+        if (colors && !color) {
+            // 默认缺省选中色为colors中第0个色彩
+            setProps({
+                color: colors[0]
+            })
+        }
+    }, [])
 
     return (
         <TwitterPicker id={id}
@@ -78,4 +88,4 @@ FefferyTwitterColorPicker.defaultProps = {
     colors: ['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3', '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF']
 }
 
-export default FefferyTwitterColorPicker;
+export default React.memo(FefferyTwitterColorPicker);
