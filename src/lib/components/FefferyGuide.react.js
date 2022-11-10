@@ -1,6 +1,7 @@
 import React from 'react';
 import Guide from 'byte-guide'
 import PropTypes from 'prop-types';
+import { isString } from 'lodash';
 import './styles.css'
 
 // 定义引导部件FefferyGuide，api参数参考https://github.com/bytedance/guide/blob/main/README.zh-CN.md
@@ -42,7 +43,7 @@ const FefferyGuide = (props) => {
             mask={mask}
             arrow={arrow}
             hotspot={hotspot}
-            stepText={typeof stepText === typeof ''
+            stepText={isString(stepText)
                 ? eval(stepText) : stepText}
             nextText={nextText}
             prevText={prevText}
@@ -90,10 +91,10 @@ FefferyGuide.propTypes = {
             }),
 
             // 设置展示面板的标题内容
-            title: PropTypes.string,
+            title: PropTypes.node,
 
             // 设置展示面板的描述内容
-            content: PropTypes.string,
+            content: PropTypes.node,
 
             // 设置展示面板相对锚点的方位，可选的有'top', 'bottom', 'left', 'right', 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'left-top', 'left-bottom',
             // 'right-top', 'right-bottom'，默认为'bottom'
@@ -119,19 +120,19 @@ FefferyGuide.propTypes = {
     // 设置是否允许跳过引导，默认为true
     closable: PropTypes.bool,
 
-    // 设置展示面板的类名
+    // 设置弹窗的css类
     modalClassName: PropTypes.string,
 
-    // 设置蒙版层的类名
+    // 设置蒙版层css类
     maskClassName: PropTypes.string,
 
-    // 设置是否展示蒙板层，默认为true 
+    // 设置是否展示蒙版层，默认为true 
     mask: PropTypes.bool,
 
     // 设置展示面板是否添加箭头，默认为true
     arrow: PropTypes.bool,
 
-    // 设置展示面板是否展示热点，默认为false
+    // 设置展示面板是否展示热点标识，默认为false
     hotspot: PropTypes.bool,
 
     // 自定义步骤信息展示内容的回调函数，默认为"(stepIndex, stepCount) => { return '第${stepIndex}步，共${stepCount}步'; }"
@@ -177,7 +178,8 @@ FefferyGuide.propTypes = {
 // 设置默认参数
 FefferyGuide.defaultProps = {
     locale: 'zh',
-    showPreviousBtn: true
+    showPreviousBtn: true,
+    mask: true
 }
 
 export default FefferyGuide;

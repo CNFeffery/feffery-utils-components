@@ -38,8 +38,8 @@ Those elements have the following types:
   - `left` (Real; optional)
   - `width` (Real; optional)
   - `height` (Real; optional)
-  - `title` (String; optional)
-  - `content` (String; optional)
+  - `title` (a list of or a singular dash component, string or number; optional)
+  - `content` (a list of or a singular dash component, string or number; optional)
   - `placement` (a value equal to: 'top', 'bottom', 'left', 'right', 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'left-top', 'left-bottom', 'right-top', 'right-bottom'; optional)
   - `offset` (optional): . offset has the following type: lists containing elements 'x', 'y'.
 Those elements have the following types:

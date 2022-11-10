@@ -36,7 +36,7 @@ Keyword arguments:
 
 - locale (a value equal to: 'zh', 'en'; default 'zh')
 
-- mask (boolean; optional)
+- mask (boolean; default True)
 
 - maskClassName (string; optional)
 
@@ -58,7 +58,7 @@ Keyword arguments:
 
     `steps` is a list of dicts with keys:
 
-    - content (string; optional)
+    - content (a list of or a singular dash component, string or number; optional)
 
     - offset (dict; optional)
 
@@ -84,10 +84,10 @@ Keyword arguments:
 
         - width (number; optional)
 
-    - title (string; optional)
+    - title (a list of or a singular dash component, string or number; optional)
 
 - style (dict; optional)"""
-    _children_props = []
+    _children_props = ['steps[].title', 'steps[].content']
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyGuide'
