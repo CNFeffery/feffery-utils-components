@@ -39,8 +39,6 @@ app.layout = html.Div(
 )
 def wheel_color_picker_demo(color, old_style):
 
-    print(color)
-
     return [
         {
             **old_style,

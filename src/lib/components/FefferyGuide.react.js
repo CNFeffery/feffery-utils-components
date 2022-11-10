@@ -29,7 +29,6 @@ const FefferyGuide = (props) => {
         loading_state
     } = props;
 
-    // 返回向页面注入的快捷键监听
     return (
         <Guide id={id}
             className={className}
@@ -50,6 +49,10 @@ const FefferyGuide = (props) => {
             showPreviousBtn={showPreviousBtn}
             okText={okText}
             step={step}
+            onClose={() => {
+                // 修复引导结束后页面整体无法滚动的问题
+                document.documentElement.style.overflow = 'auto'
+            }}
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             } />
@@ -58,16 +61,14 @@ const FefferyGuide = (props) => {
 
 // 定义参数或属性
 FefferyGuide.propTypes = {
-    // 部件id
+
     id: PropTypes.string,
 
-    // css类名
     className: PropTypes.string,
 
-    // 自定义css字典
     style: PropTypes.object,
 
-    // 设置语言，可选的有'en'、'zh'
+    // 设置语言，可选的有'en'、'zh'，默认为'zh'
     locale: PropTypes.oneOf(['zh', 'en']),
 
     // 必填，用于构造每一步锚定的页面元素
