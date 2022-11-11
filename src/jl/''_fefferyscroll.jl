@@ -23,7 +23,7 @@ Those elements have the following types:
 - `scrollRelativeOffset` (Real; optional)
 - `scrollTargetId` (String; optional)
 - `scrollTopOffset` (Real; optional)
-- `smooth` (a value equal to: 'linear', 'easeInQuad', 'easeOutQuad', 'easeInOutQuad', 'easeInCubic', 'easeOutCubic', 'easeInOutCubic', 'easeInQuart', 'easeOutQuart', 'easeInOutQuart', 'easeInQuint', 'easeOutQuint', 'easeInOutQuint'; optional)
+- `smooth` (Bool | a value equal to: 'linear', 'easeInQuad', 'easeOutQuad', 'easeInOutQuad', 'easeInCubic', 'easeOutCubic', 'easeInOutCubic', 'easeInQuart', 'easeOutQuart', 'easeInOutQuart', 'easeInQuint', 'easeOutQuint', 'easeInOutQuint'; optional)
 """
 function ''_fefferyscroll(; kwargs...)
         available_props = Symbol[:id, :containerId, :delay, :duration, :executeScroll, :loading_state, :offset, :scrollMode, :scrollRelativeOffset, :scrollTargetId, :scrollTopOffset, :smooth]

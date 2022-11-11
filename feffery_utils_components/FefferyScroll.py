@@ -13,9 +13,9 @@ Keyword arguments:
 
 - containerId (string; optional)
 
-- delay (number; optional)
+- delay (number; default 0)
 
-- duration (number; optional)
+- duration (number; default 500)
 
 - executeScroll (boolean; default False)
 
@@ -42,7 +42,7 @@ Keyword arguments:
 
 - scrollTopOffset (number; optional)
 
-- smooth (a value equal to: 'linear', 'easeInQuad', 'easeOutQuad', 'easeInOutQuad', 'easeInCubic', 'easeOutCubic', 'easeInOutCubic', 'easeInQuart', 'easeOutQuart', 'easeInOutQuart', 'easeInQuint', 'easeOutQuint', 'easeInOutQuint'; optional)"""
+- smooth (boolean | a value equal to: 'linear', 'easeInQuad', 'easeOutQuad', 'easeInOutQuad', 'easeInCubic', 'easeOutCubic', 'easeInOutCubic', 'easeInQuart', 'easeOutQuart', 'easeInOutQuart', 'easeInQuint', 'easeOutQuint', 'easeInOutQuint'; default True)"""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
