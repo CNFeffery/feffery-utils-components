@@ -61,16 +61,16 @@ const FefferyDiv = (props) => {
             children[replaceChild.index] = replaceChild.element
             setProps({
                 children: children,
-                replaceChild: undefined // 重置
+                replaceChild: null // 重置
             })
         }
     }, [replaceChild])
 
     useEffect(() => {
-        if (children && deleteChildIndex) {
+        if (children && (deleteChildIndex || deleteChildIndex === 0)) {
             setProps({
                 children: children.filter((_, i) => i !== deleteChildIndex),
-                deleteChildIndex: undefined // 重置
+                deleteChildIndex: null // 重置
             })
         }
     }, [deleteChildIndex])
@@ -228,16 +228,16 @@ FefferyDiv.propTypes = {
     // 监听当前元素是否被鼠标悬浮
     isHovering: PropTypes.bool,
 
+    // 设置是否启用元素外点击事件监听，当页面中有大量FefferyDiv元素时，建议不要开启此特性，会导致明显的性能问题
+    // 默认为false
+    enableClickAway: PropTypes.bool,
+
     // 监听元素外点击事件发生次数，默认为0
     clickAwayCount: PropTypes.number,
 
     // 设置当前容器的快捷阴影效果，可选的有'no-shadow'、'hover-shadow'、'always-shadow'
     // 默认为'no-shadow'
     shadow: PropTypes.oneOf(['no-shadow', 'hover-shadow', 'always-shadow']),
-
-    // 设置是否启用元素外点击事件监听，当页面中有大量FefferyDiv元素时，建议不要开启此特性，会导致明显的性能问题
-    // 默认为false
-    enableClickAway: PropTypes.bool,
 
     /**
      * Dash-assigned callback that should be called to report property changes
