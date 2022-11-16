@@ -137,6 +137,10 @@ const FefferyDiv = (props) => {
                     contextMenuEvent: {
                         pageX: e.pageX,
                         pageY: e.pageY,
+                        clientX: e.clientX,
+                        clientY: e.clientY,
+                        screenX: e.screenX,
+                        screenY: e.screenY,
                         timestamp: Date.now()
                     }
                 })
