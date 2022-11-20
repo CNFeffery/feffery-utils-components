@@ -44,6 +44,7 @@ from .FefferySortableContainer import FefferySortableContainer
 from .FefferySortableItem import FefferySortableItem
 from .FefferySplit import FefferySplit
 from .FefferySplitPane import FefferySplitPane
+from .FefferySessionStorage import FefferySessionStorage
 
 __all__ = [
     "FefferyBlockColorPicker",
@@ -91,5 +92,6 @@ __all__ = [
     "FefferySortableContainer",
     "FefferySortableItem",
     "FefferySplit",
-    "FefferySplitPane"
+    "FefferySplitPane",
+    "FefferySessionStorage"
 ]

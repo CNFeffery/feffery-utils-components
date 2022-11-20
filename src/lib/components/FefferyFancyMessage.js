@@ -84,7 +84,6 @@ FefferyFancyMessage.propTypes = {
 
     children: PropTypes.node,
 
-    // 部件id
     id: PropTypes.string,
 
     key: PropTypes.string,

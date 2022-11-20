@@ -45,6 +45,7 @@ import FefferyCssVar from "./components/FefferyCssVar.react";
 import FefferyEyeDropper from "./components/colorPickers/FefferyEyeDropper.react";
 import FefferySticky from "./components/FefferySticky.react";
 import FefferyLazyLoadImage from "./components/FefferyLazyLoadImage.react";
+import FefferySessionStorage from "./components/store/FefferySessionStorage";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -67,6 +68,16 @@ try {
         }
     };
 }
+
+// 自定义sessionStorage事件监听
+const originalSetItem = sessionStorage.setItem;
+sessionStorage.setItem = function (key, newValue) {
+    originalSetItem.apply(this, [key, newValue]);
+    const setItemEvent = new Event("sessionStorageSetItem");
+    setItemEvent['triggerKey'] = key
+    setItemEvent[key] = newValue;
+    window.dispatchEvent(setItemEvent);
+};
 
 export {
     FefferyCaptcha,
@@ -114,5 +125,6 @@ export {
     FefferyCssVar,
     FefferyEyeDropper,
     FefferySticky,
-    FefferyLazyLoadImage
+    FefferyLazyLoadImage,
+    FefferySessionStorage
 };
