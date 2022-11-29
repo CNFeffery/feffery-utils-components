@@ -14,6 +14,7 @@ Keyword arguments:
 - `children` (a list of or a singular dash component, string or number; optional): The content of the tab - will only be displayed if this tab is selected
 - `id` (String; optional)
 - `className` (String; optional)
+- `color` (String; optional)
 - `debug` (Bool; optional)
 - `easing` (String; optional)
 - `excludeProps` (Array of Strings; optional)
@@ -29,9 +30,10 @@ Those elements have the following types:
 - `speed` (Real; optional)
 - `spinning` (Bool; optional)
 - `style` (Dict; optional)
+- `zIndex` (Real; optional)
 """
 function ''_fefferytopprogress(; kwargs...)
-        available_props = Symbol[:children, :id, :className, :debug, :easing, :excludeProps, :includeProps, :listenPropsMode, :loading_state, :minimum, :showSpinner, :speed, :spinning, :style]
+        available_props = Symbol[:children, :id, :className, :color, :debug, :easing, :excludeProps, :includeProps, :listenPropsMode, :loading_state, :minimum, :showSpinner, :speed, :spinning, :style, :zIndex]
         wild_props = Symbol[]
         return Component("''_fefferytopprogress", "FefferyTopProgress", "feffery_utils_components", available_props, wild_props; kwargs...)
 end

@@ -17,6 +17,8 @@ Keyword arguments:
 
 - className (string; optional)
 
+- color (string; default '#29d')
+
 - debug (boolean; default False)
 
 - easing (string; optional)
@@ -48,16 +50,18 @@ Keyword arguments:
 
 - spinning (boolean; default False)
 
-- style (dict; optional)"""
+- style (dict; optional)
+
+- zIndex (number; default 99999)"""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyTopProgress'
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, spinning=Component.UNDEFINED, minimum=Component.UNDEFINED, easing=Component.UNDEFINED, speed=Component.UNDEFINED, showSpinner=Component.UNDEFINED, debug=Component.UNDEFINED, listenPropsMode=Component.UNDEFINED, excludeProps=Component.UNDEFINED, includeProps=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'debug', 'easing', 'excludeProps', 'includeProps', 'listenPropsMode', 'loading_state', 'minimum', 'showSpinner', 'speed', 'spinning', 'style']
+    def __init__(self, children=None, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, spinning=Component.UNDEFINED, minimum=Component.UNDEFINED, easing=Component.UNDEFINED, speed=Component.UNDEFINED, showSpinner=Component.UNDEFINED, debug=Component.UNDEFINED, listenPropsMode=Component.UNDEFINED, excludeProps=Component.UNDEFINED, includeProps=Component.UNDEFINED, color=Component.UNDEFINED, zIndex=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'className', 'color', 'debug', 'easing', 'excludeProps', 'includeProps', 'listenPropsMode', 'loading_state', 'minimum', 'showSpinner', 'speed', 'spinning', 'style', 'zIndex']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'debug', 'easing', 'excludeProps', 'includeProps', 'listenPropsMode', 'loading_state', 'minimum', 'showSpinner', 'speed', 'spinning', 'style']
+        self.available_properties = ['children', 'id', 'className', 'color', 'debug', 'easing', 'excludeProps', 'includeProps', 'listenPropsMode', 'loading_state', 'minimum', 'showSpinner', 'speed', 'spinning', 'style', 'zIndex']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
