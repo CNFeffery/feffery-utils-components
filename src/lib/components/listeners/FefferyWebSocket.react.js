@@ -21,7 +21,7 @@ const FefferyWebSocket = (props) => {
         loading_state
     } = props;
 
-    const { _readyState, sendMessage, _latestMessage, disconnect, connect } = useWebSocket(
+    const { readyState: _readyState, sendMessage, latestMessage: _latestMessage, disconnect, connect } = useWebSocket(
         socketUrl
     );
 
