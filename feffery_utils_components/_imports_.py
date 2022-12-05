@@ -39,6 +39,7 @@ from .FefferyIdle import FefferyIdle
 from .FefferyInViewport import FefferyInViewport
 from .FefferyKeyPress import FefferyKeyPress
 from .FefferyResponsive import FefferyResponsive
+from .FefferyWebSocket import FefferyWebSocket
 from .FefferyWindowSize import FefferyWindowSize
 from .FefferySortableContainer import FefferySortableContainer
 from .FefferySortableItem import FefferySortableItem
@@ -88,6 +89,7 @@ __all__ = [
     "FefferyInViewport",
     "FefferyKeyPress",
     "FefferyResponsive",
+    "FefferyWebSocket",
     "FefferyWindowSize",
     "FefferySortableContainer",
     "FefferySortableItem",

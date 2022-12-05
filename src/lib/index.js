@@ -46,6 +46,7 @@ import FefferyEyeDropper from "./components/colorPickers/FefferyEyeDropper.react
 import FefferySticky from "./components/FefferySticky.react";
 import FefferyLazyLoadImage from "./components/FefferyLazyLoadImage.react";
 import FefferySessionStorage from "./components/store/FefferySessionStorage";
+import FefferyWebSocket from "./components/listeners/FefferyWebSocket.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -126,5 +127,6 @@ export {
     FefferyEyeDropper,
     FefferySticky,
     FefferyLazyLoadImage,
-    FefferySessionStorage
+    FefferySessionStorage,
+    FefferyWebSocket
 };
