@@ -15,6 +15,7 @@ const FefferyWebSocket = (props) => {
     const {
         id,
         socketUrl,
+        operation,
         message,
         setProps,
         loading_state
