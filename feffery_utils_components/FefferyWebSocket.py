@@ -30,6 +30,10 @@ Keyword arguments:
 
 - operation (a value equal to: 'connect', 'disconnect', 'send'; optional)
 
+- reconnectInterval (number; optional)
+
+- reconnectLimit (number; optional)
+
 - socketUrl (string; required)
 
 - state (a value equal to: 'connecting', 'open', 'closing', 'closed'; optional)"""
@@ -38,10 +42,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyWebSocket'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, socketUrl=Component.REQUIRED, operation=Component.UNDEFINED, message=Component.UNDEFINED, latestMessage=Component.UNDEFINED, state=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'latestMessage', 'loading_state', 'message', 'operation', 'socketUrl', 'state']
+    def __init__(self, id=Component.UNDEFINED, socketUrl=Component.REQUIRED, reconnectLimit=Component.UNDEFINED, reconnectInterval=Component.UNDEFINED, operation=Component.UNDEFINED, message=Component.UNDEFINED, latestMessage=Component.UNDEFINED, state=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'latestMessage', 'loading_state', 'message', 'operation', 'reconnectInterval', 'reconnectLimit', 'socketUrl', 'state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'latestMessage', 'loading_state', 'message', 'operation', 'socketUrl', 'state']
+        self.available_properties = ['id', 'latestMessage', 'loading_state', 'message', 'operation', 'reconnectInterval', 'reconnectLimit', 'socketUrl', 'state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

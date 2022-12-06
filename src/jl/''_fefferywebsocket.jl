@@ -17,11 +17,13 @@ Those elements have the following types:
   - `component_name` (String; optional): Holds the name of the component that is loading
 - `message` (String; optional)
 - `operation` (a value equal to: 'connect', 'disconnect', 'send'; optional)
+- `reconnectInterval` (Real; optional)
+- `reconnectLimit` (Real; optional)
 - `socketUrl` (String; required)
 - `state` (a value equal to: 'connecting', 'open', 'closing', 'closed'; optional)
 """
 function ''_fefferywebsocket(; kwargs...)
-        available_props = Symbol[:id, :latestMessage, :loading_state, :message, :operation, :socketUrl, :state]
+        available_props = Symbol[:id, :latestMessage, :loading_state, :message, :operation, :reconnectInterval, :reconnectLimit, :socketUrl, :state]
         wild_props = Symbol[]
         return Component("''_fefferywebsocket", "FefferyWebSocket", "feffery_utils_components", available_props, wild_props; kwargs...)
 end

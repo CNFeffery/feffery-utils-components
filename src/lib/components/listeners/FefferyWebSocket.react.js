@@ -15,6 +15,8 @@ const FefferyWebSocket = (props) => {
     const {
         id,
         socketUrl,
+        reconnectLimit,
+        reconnectInterval,
         operation,
         message,
         setProps,
@@ -22,14 +24,20 @@ const FefferyWebSocket = (props) => {
     } = props;
 
     const { readyState: _readyState, sendMessage, latestMessage: _latestMessage, disconnect, connect } = useWebSocket(
-        socketUrl
+        socketUrl,
+        {
+            reconnectLimit,
+            reconnectInterval
+        }
     );
 
     // 监听服务器发送来的最新信息
     useEffect(() => {
-        setProps({
-            latestMessage: _latestMessage
-        })
+        if (_latestMessage) {
+            setProps({
+                latestMessage: _latestMessage.data
+            })
+        }
     }, [_latestMessage])
 
     // 监听当前WebSocket连接的状态
@@ -71,6 +79,12 @@ FefferyWebSocket.propTypes = {
 
     // 设置要建立连接的WebSocket服务url
     socketUrl: PropTypes.string.isRequired,
+
+    // 设置连接重试次数，默认为3
+    reconnectLimit: PropTypes.number,
+
+    // 设置连接重试间隔，默认为3000，单位：毫秒
+    reconnectInterval: PropTypes.number,
 
     // 用于执行连接/断开连接/发送信息操作，可选项有'connect'、'disconnect'、'send'
     // 每次新操作执行后，operation参数都会被重置为null
