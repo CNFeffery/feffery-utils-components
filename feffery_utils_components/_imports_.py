@@ -26,6 +26,7 @@ from .FefferyReload import FefferyReload
 from .FefferyScroll import FefferyScroll
 from .FefferyScrollbars import FefferyScrollbars
 from .FefferySetTitle import FefferySetTitle
+from .FefferyShadowDom import FefferyShadowDom
 from .FefferyShortcutPanel import FefferyShortcutPanel
 from .FefferySticky import FefferySticky
 from .FefferyStyle import FefferyStyle
@@ -33,13 +34,13 @@ from .FefferySyntaxHighlighter import FefferySyntaxHighlighter
 from .FefferyTimeout import FefferyTimeout
 from .FefferyTopProgress import FefferyTopProgress
 from .FefferyVirtualList import FefferyVirtualList
+from .FefferyWebSocket import FefferyWebSocket
 from .FefferyDocumentVisibility import FefferyDocumentVisibility
 from .FefferyGeolocation import FefferyGeolocation
 from .FefferyIdle import FefferyIdle
 from .FefferyInViewport import FefferyInViewport
 from .FefferyKeyPress import FefferyKeyPress
 from .FefferyResponsive import FefferyResponsive
-from .FefferyWebSocket import FefferyWebSocket
 from .FefferyWindowSize import FefferyWindowSize
 from .FefferySortableContainer import FefferySortableContainer
 from .FefferySortableItem import FefferySortableItem
@@ -76,6 +77,7 @@ __all__ = [
     "FefferyScroll",
     "FefferyScrollbars",
     "FefferySetTitle",
+    "FefferyShadowDom",
     "FefferyShortcutPanel",
     "FefferySticky",
     "FefferyStyle",
@@ -83,13 +85,13 @@ __all__ = [
     "FefferyTimeout",
     "FefferyTopProgress",
     "FefferyVirtualList",
+    "FefferyWebSocket",
     "FefferyDocumentVisibility",
     "FefferyGeolocation",
     "FefferyIdle",
     "FefferyInViewport",
     "FefferyKeyPress",
     "FefferyResponsive",
-    "FefferyWebSocket",
     "FefferyWindowSize",
     "FefferySortableContainer",
     "FefferySortableItem",
