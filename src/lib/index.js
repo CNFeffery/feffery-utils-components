@@ -48,6 +48,8 @@ import FefferyLazyLoadImage from "./components/FefferyLazyLoadImage.react";
 import FefferySessionStorage from "./components/store/FefferySessionStorage";
 import FefferyWebSocket from "./components/FefferyWebSocket.react";
 import FefferyShadowDom from "./components/FefferyShadowDom.react";
+import FefferyGrid from "./components/draggable/FefferyGrid.react";
+import FefferyGridItem from "./components/draggable/FefferyGridItem.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -130,5 +132,7 @@ export {
     FefferyLazyLoadImage,
     FefferySessionStorage,
     FefferyWebSocket,
-    FefferyShadowDom
+    FefferyShadowDom,
+    FefferyGrid,
+    FefferyGridItem
 };

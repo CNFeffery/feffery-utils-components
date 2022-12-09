@@ -687,6 +687,666 @@
       }
     }
   },
+  "src/lib/components/draggable/FefferyGrid.react.js": {
+    "description": "",
+    "displayName": "FefferyGrid",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": ""
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "autoSize": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "compactType": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'vertical'",
+              "computed": false
+            },
+            {
+              "value": "'horizontal'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "margin": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "arrayOf",
+              "value": {
+                "name": "number"
+              }
+            },
+            {
+              "name": "objectOf",
+              "value": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "number"
+                }
+              }
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[10, 10]",
+          "computed": false
+        }
+      },
+      "containerPadding": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "arrayOf",
+              "value": {
+                "name": "number"
+              }
+            },
+            {
+              "name": "objectOf",
+              "value": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "number"
+                }
+              }
+            }
+          ]
+        },
+        "required": false,
+        "description": ""
+      },
+      "rowHeight": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "150",
+          "computed": false
+        }
+      },
+      "isDraggable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "isResizable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "isBounded": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "allowOverlap": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "preventCollision": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "isDroppable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "resizeHandles": {
+        "type": {
+          "name": "arrayOf",
+          "value": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "'s'",
+                "computed": false
+              },
+              {
+                "value": "'w'",
+                "computed": false
+              },
+              {
+                "value": "'e'",
+                "computed": false
+              },
+              {
+                "value": "'n'",
+                "computed": false
+              },
+              {
+                "value": "'sw'",
+                "computed": false
+              },
+              {
+                "value": "'nw'",
+                "computed": false
+              },
+              {
+                "value": "'se'",
+                "computed": false
+              },
+              {
+                "value": "'ne'",
+                "computed": false
+              }
+            ]
+          }
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "['se']",
+          "computed": false
+        }
+      },
+      "breakpoints": {
+        "type": {
+          "name": "objectOf",
+          "value": {
+            "name": "number"
+          }
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }",
+          "computed": false
+        }
+      },
+      "cols": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "objectOf",
+              "value": {
+                "name": "number"
+              }
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "12",
+          "computed": false
+        }
+      },
+      "layouts": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "objectOf",
+              "value": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "exact",
+                  "value": {
+                    "i": {
+                      "name": "string",
+                      "required": false
+                    },
+                    "x": {
+                      "name": "number",
+                      "required": false
+                    },
+                    "y": {
+                      "name": "number",
+                      "required": false
+                    },
+                    "w": {
+                      "name": "number",
+                      "required": false
+                    },
+                    "h": {
+                      "name": "number",
+                      "required": false
+                    },
+                    "minW": {
+                      "name": "number",
+                      "required": false
+                    },
+                    "maxW": {
+                      "name": "number",
+                      "required": false
+                    },
+                    "minH": {
+                      "name": "number",
+                      "required": false
+                    },
+                    "maxH": {
+                      "name": "number",
+                      "required": false
+                    },
+                    "static": {
+                      "name": "bool",
+                      "required": false
+                    },
+                    "isDraggable": {
+                      "name": "bool",
+                      "required": false
+                    },
+                    "isResizable": {
+                      "name": "bool",
+                      "required": false
+                    },
+                    "resizeHandles": {
+                      "name": "arrayOf",
+                      "value": {
+                        "name": "enum",
+                        "value": [
+                          {
+                            "value": "'s'",
+                            "computed": false
+                          },
+                          {
+                            "value": "'w'",
+                            "computed": false
+                          },
+                          {
+                            "value": "'e'",
+                            "computed": false
+                          },
+                          {
+                            "value": "'n'",
+                            "computed": false
+                          },
+                          {
+                            "value": "'sw'",
+                            "computed": false
+                          },
+                          {
+                            "value": "'nw'",
+                            "computed": false
+                          },
+                          {
+                            "value": "'se'",
+                            "computed": false
+                          },
+                          {
+                            "value": "'ne'",
+                            "computed": false
+                          }
+                        ]
+                      },
+                      "required": false
+                    },
+                    "isBounded": {
+                      "name": "bool",
+                      "required": false
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "arrayOf",
+              "value": {
+                "name": "exact",
+                "value": {
+                  "i": {
+                    "name": "string",
+                    "required": false
+                  },
+                  "x": {
+                    "name": "number",
+                    "required": false
+                  },
+                  "y": {
+                    "name": "number",
+                    "required": false
+                  },
+                  "w": {
+                    "name": "number",
+                    "required": false
+                  },
+                  "h": {
+                    "name": "number",
+                    "required": false
+                  },
+                  "minW": {
+                    "name": "number",
+                    "required": false
+                  },
+                  "maxW": {
+                    "name": "number",
+                    "required": false
+                  },
+                  "minH": {
+                    "name": "number",
+                    "required": false
+                  },
+                  "maxH": {
+                    "name": "number",
+                    "required": false
+                  },
+                  "static": {
+                    "name": "bool",
+                    "required": false
+                  },
+                  "isDraggable": {
+                    "name": "bool",
+                    "required": false
+                  },
+                  "isResizable": {
+                    "name": "bool",
+                    "required": false
+                  },
+                  "resizeHandles": {
+                    "name": "arrayOf",
+                    "value": {
+                      "name": "enum",
+                      "value": [
+                        {
+                          "value": "'s'",
+                          "computed": false
+                        },
+                        {
+                          "value": "'w'",
+                          "computed": false
+                        },
+                        {
+                          "value": "'e'",
+                          "computed": false
+                        },
+                        {
+                          "value": "'n'",
+                          "computed": false
+                        },
+                        {
+                          "value": "'sw'",
+                          "computed": false
+                        },
+                        {
+                          "value": "'nw'",
+                          "computed": false
+                        },
+                        {
+                          "value": "'se'",
+                          "computed": false
+                        },
+                        {
+                          "value": "'ne'",
+                          "computed": false
+                        }
+                      ]
+                    },
+                    "required": false
+                  },
+                  "isBounded": {
+                    "name": "bool",
+                    "required": false
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "required": false,
+        "description": ""
+      },
+      "placeholderBackground": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'#000000'",
+          "computed": false
+        }
+      },
+      "placeholderOpacity": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0.2",
+          "computed": false
+        }
+      },
+      "placeholderBorder": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'none'",
+          "computed": false
+        }
+      },
+      "placeholderBorderRadius": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'0px'",
+          "computed": false
+        }
+      },
+      "draggableHandle": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/draggable/FefferyGridItem.react.js": {
+    "description": "",
+    "displayName": "FefferyGridItem",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": ""
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
   "src/lib/components/FefferyCaptcha.react.js": {
     "description": "",
     "displayName": "FefferyCaptcha",
