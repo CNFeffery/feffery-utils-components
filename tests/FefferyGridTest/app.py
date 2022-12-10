@@ -21,8 +21,7 @@ app.layout = html.Div(
                         'height': '100%',
                         'display': 'flex',
                         'justifyContent': 'center',
-                        'alignItems': 'center',
-                        'background': '#dff9fb'
+                        'alignItems': 'center'
                     }
                 )
                 for i in range(10)
@@ -40,6 +39,7 @@ app.layout = html.Div(
             cols=5,
             rowHeight=75,
             placeholderBorderRadius='5px',
+            margin=[25, 25],
             style={
                 'border': '1px dashed black'
             }

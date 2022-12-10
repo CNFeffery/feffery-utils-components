@@ -115,3 +115,59 @@
 .github-picker {
   box-sizing: content-box;
 }
+
+/* 可拖拽网格项样式美化 */
+.feffery-grid-item-container {
+  position: relative;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, .12);
+  border-radius: 5px;
+  padding: 6px 4px;
+  background: #fff;
+}
+
+.feffery-grid-item-container>div {
+  height: 100%;
+  overflow: auto;
+  padding: 25px 5px 5px 5px;
+}
+
+.feffery-grid-item-container>div::-webkit-scrollbar-thumb {
+  background-color: #bfbfbf;
+  outline: none;
+  border-radius: 6px;
+}
+
+.feffery-grid-item-container>div::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* firefox */
+.feffery-grid-item-container>div {
+  scrollbar-width: thin;
+}
+
+.feffery-grid-item-dragger {
+  cursor: all-scroll;
+  touch-action: none;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  appearance: none;
+  background-color: transparent;
+  -webkit-tap-highlight-color: transparent;
+  position: absolute;
+  top: 5px;
+  right: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  transition: background 0.15s ease;
+  z-index: 2;
+}
+
+.feffery-grid-item-dragger:hover {
+  background: #f2f2f2;
+  transition: background 0.15s ease;
+}

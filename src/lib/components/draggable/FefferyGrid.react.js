@@ -2,8 +2,8 @@ import React from 'react';
 import { Responsive, WidthProvider } from "react-grid-layout";
 import PropTypes from 'prop-types';
 import { omit } from 'ramda';
-import { isNumber, isEmpty } from 'lodash';
-import { resolveChildProps } from '../utils';
+import { isNumber, isEmpty, cloneDeep } from 'lodash';
+import { parseChildrenToArray, resolveChildProps } from '../utils';
 import { FefferyStyle } from '../..';
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
@@ -18,6 +18,7 @@ const FefferyGrid = (props) => {
         key,
         style,
         className,
+        height,
         autoSize,
         compactType,
         margin,
@@ -27,9 +28,6 @@ const FefferyGrid = (props) => {
         isResizable,
         isBounded,
         allowOverlap,
-        preventCollision,
-        isDroppable,
-        resizeHandles,
         breakpoints,
         cols,
         layouts,
@@ -37,35 +35,29 @@ const FefferyGrid = (props) => {
         placeholderOpacity,
         placeholderBorder,
         placeholderBorderRadius,
-        draggableHandle,
         setProps,
         loading_state
     } = props;
+
+    children = parseChildrenToArray(children)
 
     const gridItems = children.map(
         (child) => {
             let childProps = resolveChildProps(child)
 
-            const {
-                id,
-                className,
-                style,
-                key,
-                loading_state,
-                ...otherProps
-            } = childProps;
-
             return (
                 <div
-                    id={id}
-                    className={className}
-                    style={style}
-                    key={key}
-                    loading_state={loading_state}
+                    className={'feffery-grid-item-container'}
                     {...omit(
-                        ['setProps', 'persistence', 'persistence_type', 'persisted_props'],
-                        otherProps
+                        ['setProps', 'persistence', 'persistence_type', 'persisted_props', 'id', 'className', 'style'],
+                        childProps
                     )}>
+                    <button className={"feffery-grid-item-dragger"}>
+                        <svg viewBox={"0 0 20 20"} style={{ width: 16, fill: '#919eab' }}>
+                            <path d={"M7 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 2zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 14zm6-8a2 2 0 1 0-.001-4.001A2 2 0 0 0 13 6zm0 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 14z"}>
+                            </path>
+                        </svg>
+                    </button>
                     {child}
                 </div>
             );
@@ -101,7 +93,7 @@ const FefferyGrid = (props) => {
 .react-grid-item {
   transition: all 200ms ease;
   transition-property: left, top;
-  cursor: grab;
+  /* cursor: grab; */
 }
 .react-grid-item img {
   pointer-events: none;
@@ -116,10 +108,11 @@ const FefferyGrid = (props) => {
 }
 
 .react-grid-item.react-draggable-dragging {
-  transition: none;
+  transition: box-shadow 0.3s ease;
   z-index: 3;
   will-change: transform;
-  cursor: grabbing;
+  /* cursor: grabbing; */
+  box-shadow: 0px 12px 32px 4px rgba(0, 0, 0, .04), 0px 8px 20px rgba(0, 0, 0, .08);
 }
 
 .react-grid-item.dropping {
@@ -220,6 +213,7 @@ const FefferyGrid = (props) => {
                 key={key}
                 style={style}
                 className={className}
+                height={height}
                 autoSize={autoSize}
                 compactType={compactType}
                 margin={margin}
@@ -229,13 +223,11 @@ const FefferyGrid = (props) => {
                 isResizable={isResizable}
                 isBounded={isBounded}
                 allowOverlap={allowOverlap}
-                preventCollision={preventCollision}
-                isDroppable={isDroppable}
-                resizeHandles={resizeHandles}
                 breakpoints={breakpoints}
                 cols={isEmpty(_cols) ? cols : _cols}
                 layouts={isEmpty(_layouts) ? layouts : _layouts}
-                draggableHandle={draggableHandle && `.${draggableHandle}`}
+                draggableHandle={'.feffery-grid-item-dragger'}
+                onLayoutChange={(e) => e && setProps({ layouts: cloneDeep(e) })}
                 setProps={setProps}
                 useCSSTransforms={true}
                 data-dash-is-loading={
@@ -260,6 +252,9 @@ FefferyGrid.propTypes = {
     style: PropTypes.object,
 
     className: PropTypes.string,
+
+    // 设置网格容器固定像素高度
+    height: PropTypes.number,
 
     // 设置当前网格容器是否自使用内部元素而调整高度，默认为true
     autoSize: PropTypes.bool,
@@ -302,21 +297,6 @@ FefferyGrid.propTypes = {
     // 设置是否允许相互压盖，默认为false
     allowOverlap: PropTypes.bool,
 
-    // ?
-    preventCollision: PropTypes.bool,
-
-    // ?
-    isDroppable: PropTypes.bool,
-
-    // 统一设置所有网格项的尺寸调整控件的渲染方位，可选的有
-    // 's', 'w', 'e', 'n', 'sw', 'nw', 'se', 'ne'
-    // 默认为['se']
-    resizeHandles: PropTypes.arrayOf(
-        PropTypes.oneOf([
-            's', 'w', 'e', 'n', 'sw', 'nw', 'se', 'ne'
-        ])
-    ),
-
     // 用于自定义断点及其对应的像素值映射对象
     // 默认为{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}
     breakpoints: PropTypes.objectOf(PropTypes.number),
@@ -358,14 +338,9 @@ FefferyGrid.propTypes = {
                     isDraggable: PropTypes.bool,
                     // 设置当前网格项是否允许被调整尺寸，默认为true
                     isResizable: PropTypes.bool,
-                    // 设置当前网格项尺寸调整控件的展示方位，默认为['se']
-                    resizeHandles: PropTypes.arrayOf(
-                        PropTypes.oneOf([
-                            's', 'w', 'e', 'n', 'sw', 'nw', 'se', 'ne'
-                        ])
-                    ),
                     // 设置是否为当前网格项施加边界约束，默认为false
-                    isBounded: PropTypes.bool
+                    isBounded: PropTypes.bool,
+                    moved: PropTypes.any
                 })
             )
         ),
@@ -396,14 +371,9 @@ FefferyGrid.propTypes = {
                 isDraggable: PropTypes.bool,
                 // 设置当前网格项是否允许被调整尺寸，默认为true
                 isResizable: PropTypes.bool,
-                // 设置当前网格项尺寸调整控件的展示方位，默认为['se']
-                resizeHandles: PropTypes.arrayOf(
-                    PropTypes.oneOf([
-                        's', 'w', 'e', 'n', 'sw', 'nw', 'se', 'ne'
-                    ])
-                ),
                 // 设置是否为当前网格项施加边界约束，默认为false
-                isBounded: PropTypes.bool
+                isBounded: PropTypes.bool,
+                moved: PropTypes.any
             })
         )
     ]),
@@ -420,9 +390,6 @@ FefferyGrid.propTypes = {
 
     // 自定义拖拽预览占位的border-radius属性，默认为'0px'
     placeholderBorderRadius: PropTypes.string,
-
-    // 用于自定义网格项中可进行拖拽触发的元素css类名
-    draggableHandle: PropTypes.string,
 
     loading_state: PropTypes.shape({
         /**
@@ -443,7 +410,7 @@ FefferyGrid.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
+    setProps: PropTypes.func
 };
 
 // 设置默认参数
@@ -457,16 +424,12 @@ FefferyGrid.defaultProps = {
     isResizable: true,
     isBounded: false,
     allowOverlap: false,
-    preventCollision: false,
-    isDroppable: false,
-    resizeHandles: ['se'],
-    placeholderBackground: '#000000',
+    placeholderBackground: '#3b3a39',
     placeholderOpacity: 0.2,
     placeholderBorder: 'none',
     placeholderBorderRadius: '0px',
-    draggableHandle: null,
     breakpoints: { lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 },
-    compactType: null
+    compactType: 'vertical'
 }
 
 export default React.memo(FefferyGrid);

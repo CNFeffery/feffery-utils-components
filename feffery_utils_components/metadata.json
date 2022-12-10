@@ -727,6 +727,13 @@
         "required": false,
         "description": ""
       },
+      "height": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": ""
+      },
       "autoSize": {
         "type": {
           "name": "bool"
@@ -755,7 +762,7 @@
         "required": false,
         "description": "",
         "defaultValue": {
-          "value": "null",
+          "value": "'vertical'",
           "computed": false
         }
       },
@@ -866,76 +873,6 @@
           "computed": false
         }
       },
-      "preventCollision": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "isDroppable": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": "",
-        "defaultValue": {
-          "value": "false",
-          "computed": false
-        }
-      },
-      "resizeHandles": {
-        "type": {
-          "name": "arrayOf",
-          "value": {
-            "name": "enum",
-            "value": [
-              {
-                "value": "'s'",
-                "computed": false
-              },
-              {
-                "value": "'w'",
-                "computed": false
-              },
-              {
-                "value": "'e'",
-                "computed": false
-              },
-              {
-                "value": "'n'",
-                "computed": false
-              },
-              {
-                "value": "'sw'",
-                "computed": false
-              },
-              {
-                "value": "'nw'",
-                "computed": false
-              },
-              {
-                "value": "'se'",
-                "computed": false
-              },
-              {
-                "value": "'ne'",
-                "computed": false
-              }
-            ]
-          }
-        },
-        "required": false,
-        "description": "",
-        "defaultValue": {
-          "value": "['se']",
-          "computed": false
-        }
-      },
       "breakpoints": {
         "type": {
           "name": "objectOf",
@@ -1031,49 +968,12 @@
                       "name": "bool",
                       "required": false
                     },
-                    "resizeHandles": {
-                      "name": "arrayOf",
-                      "value": {
-                        "name": "enum",
-                        "value": [
-                          {
-                            "value": "'s'",
-                            "computed": false
-                          },
-                          {
-                            "value": "'w'",
-                            "computed": false
-                          },
-                          {
-                            "value": "'e'",
-                            "computed": false
-                          },
-                          {
-                            "value": "'n'",
-                            "computed": false
-                          },
-                          {
-                            "value": "'sw'",
-                            "computed": false
-                          },
-                          {
-                            "value": "'nw'",
-                            "computed": false
-                          },
-                          {
-                            "value": "'se'",
-                            "computed": false
-                          },
-                          {
-                            "value": "'ne'",
-                            "computed": false
-                          }
-                        ]
-                      },
-                      "required": false
-                    },
                     "isBounded": {
                       "name": "bool",
+                      "required": false
+                    },
+                    "moved": {
+                      "name": "any",
                       "required": false
                     }
                   }
@@ -1133,49 +1033,12 @@
                     "name": "bool",
                     "required": false
                   },
-                  "resizeHandles": {
-                    "name": "arrayOf",
-                    "value": {
-                      "name": "enum",
-                      "value": [
-                        {
-                          "value": "'s'",
-                          "computed": false
-                        },
-                        {
-                          "value": "'w'",
-                          "computed": false
-                        },
-                        {
-                          "value": "'e'",
-                          "computed": false
-                        },
-                        {
-                          "value": "'n'",
-                          "computed": false
-                        },
-                        {
-                          "value": "'sw'",
-                          "computed": false
-                        },
-                        {
-                          "value": "'nw'",
-                          "computed": false
-                        },
-                        {
-                          "value": "'se'",
-                          "computed": false
-                        },
-                        {
-                          "value": "'ne'",
-                          "computed": false
-                        }
-                      ]
-                    },
-                    "required": false
-                  },
                   "isBounded": {
                     "name": "bool",
+                    "required": false
+                  },
+                  "moved": {
+                    "name": "any",
                     "required": false
                   }
                 }
@@ -1193,7 +1056,7 @@
         "required": false,
         "description": "",
         "defaultValue": {
-          "value": "'#000000'",
+          "value": "'#3b3a39'",
           "computed": false
         }
       },
@@ -1227,17 +1090,6 @@
         "description": "",
         "defaultValue": {
           "value": "'0px'",
-          "computed": false
-        }
-      },
-      "draggableHandle": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "",
-        "defaultValue": {
-          "value": "null",
           "computed": false
         }
       },

@@ -20,13 +20,12 @@ Keyword arguments:
 - `cols` (Dict with Strings as keys and values of type Real | Real; optional)
 - `compactType` (a value equal to: 'vertical', 'horizontal'; optional)
 - `containerPadding` (Array of Reals | Dict with Strings as keys and values of type Array of Reals; optional)
-- `draggableHandle` (String; optional)
+- `height` (Real; optional)
 - `isBounded` (Bool; optional)
 - `isDraggable` (Bool; optional)
-- `isDroppable` (Bool; optional)
 - `isResizable` (Bool; optional)
 - `key` (String; optional)
-- `layouts` (optional): . layouts has the following type: Dict with Strings as keys and values of type Array of lists containing elements 'i', 'x', 'y', 'w', 'h', 'minW', 'maxW', 'minH', 'maxH', 'static', 'isDraggable', 'isResizable', 'resizeHandles', 'isBounded'.
+- `layouts` (optional): . layouts has the following type: Dict with Strings as keys and values of type Array of lists containing elements 'i', 'x', 'y', 'w', 'h', 'minW', 'maxW', 'minH', 'maxH', 'static', 'isDraggable', 'isResizable', 'isBounded', 'moved'.
 Those elements have the following types:
   - `i` (String; optional)
   - `x` (Real; optional)
@@ -40,8 +39,8 @@ Those elements have the following types:
   - `static` (Bool; optional)
   - `isDraggable` (Bool; optional)
   - `isResizable` (Bool; optional)
-  - `resizeHandles` (Array of a value equal to: 's', 'w', 'e', 'n', 'sw', 'nw', 'se', 'ne's; optional)
-  - `isBounded` (Bool; optional)s | Array of lists containing elements 'i', 'x', 'y', 'w', 'h', 'minW', 'maxW', 'minH', 'maxH', 'static', 'isDraggable', 'isResizable', 'resizeHandles', 'isBounded'.
+  - `isBounded` (Bool; optional)
+  - `moved` (Bool | Real | String | Dict | Array; optional)s | Array of lists containing elements 'i', 'x', 'y', 'w', 'h', 'minW', 'maxW', 'minH', 'maxH', 'static', 'isDraggable', 'isResizable', 'isBounded', 'moved'.
 Those elements have the following types:
   - `i` (String; optional)
   - `x` (Real; optional)
@@ -55,8 +54,8 @@ Those elements have the following types:
   - `static` (Bool; optional)
   - `isDraggable` (Bool; optional)
   - `isResizable` (Bool; optional)
-  - `resizeHandles` (Array of a value equal to: 's', 'w', 'e', 'n', 'sw', 'nw', 'se', 'ne's; optional)
-  - `isBounded` (Bool; optional)s
+  - `isBounded` (Bool; optional)
+  - `moved` (Bool | Real | String | Dict | Array; optional)s
 - `loading_state` (optional): . loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
 Those elements have the following types:
   - `is_loading` (Bool; optional): Determines if the component is loading or not
@@ -67,13 +66,11 @@ Those elements have the following types:
 - `placeholderBorder` (String; optional)
 - `placeholderBorderRadius` (String; optional)
 - `placeholderOpacity` (Real; optional)
-- `preventCollision` (Bool; optional)
-- `resizeHandles` (Array of a value equal to: 's', 'w', 'e', 'n', 'sw', 'nw', 'se', 'ne's; optional)
 - `rowHeight` (Real; optional)
 - `style` (Dict; optional)
 """
 function ''_fefferygrid(; kwargs...)
-        available_props = Symbol[:children, :id, :allowOverlap, :autoSize, :breakpoints, :className, :cols, :compactType, :containerPadding, :draggableHandle, :isBounded, :isDraggable, :isDroppable, :isResizable, :key, :layouts, :loading_state, :margin, :placeholderBackground, :placeholderBorder, :placeholderBorderRadius, :placeholderOpacity, :preventCollision, :resizeHandles, :rowHeight, :style]
+        available_props = Symbol[:children, :id, :allowOverlap, :autoSize, :breakpoints, :className, :cols, :compactType, :containerPadding, :height, :isBounded, :isDraggable, :isResizable, :key, :layouts, :loading_state, :margin, :placeholderBackground, :placeholderBorder, :placeholderBorderRadius, :placeholderOpacity, :rowHeight, :style]
         wild_props = Symbol[]
         return Component("''_fefferygrid", "FefferyGrid", "feffery_utils_components", available_props, wild_props; kwargs...)
 end

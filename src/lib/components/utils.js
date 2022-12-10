@@ -15,7 +15,7 @@ const resolveChildProps = child => {
         // meaning that if it's not set on child.props, the actual
         // props we want are lying a bit deeper - which means they
         // are coming from Dash
-        isNil(child.props.disabled) &&
+        isNil(child.props?.disabled) &&
         child.props._dashprivate_layout &&
         child.props._dashprivate_layout.props
     ) {

@@ -23,17 +23,15 @@ Keyword arguments:
 
 - cols (dict with strings as keys and values of type number | number; default 12)
 
-- compactType (a value equal to: 'vertical', 'horizontal'; optional)
+- compactType (a value equal to: 'vertical', 'horizontal'; default 'vertical')
 
 - containerPadding (list of numbers | dict with strings as keys and values of type list of numbers; optional)
 
-- draggableHandle (string; optional)
+- height (number; optional)
 
 - isBounded (boolean; default False)
 
 - isDraggable (boolean; default True)
-
-- isDroppable (boolean; default False)
 
 - isResizable (boolean; default True)
 
@@ -62,7 +60,7 @@ Keyword arguments:
 
     - minW (number; optional)
 
-    - resizeHandles (list of a value equal to: 's', 'w', 'e', 'n', 'sw', 'nw', 'se', 'ne's; optional)
+    - moved (boolean | number | string | dict | list; optional)
 
     - static (boolean; optional)
 
@@ -90,7 +88,7 @@ Keyword arguments:
 
     - minW (number; optional)
 
-    - resizeHandles (list of a value equal to: 's', 'w', 'e', 'n', 'sw', 'nw', 'se', 'ne's; optional)
+    - moved (boolean | number | string | dict | list; optional)
 
     - static (boolean; optional)
 
@@ -115,17 +113,13 @@ Keyword arguments:
 
 - margin (list of numbers | dict with strings as keys and values of type list of numbers; default [10, 10])
 
-- placeholderBackground (string; default '#000000')
+- placeholderBackground (string; default '#3b3a39')
 
 - placeholderBorder (string; default 'none')
 
 - placeholderBorderRadius (string; default '0px')
 
 - placeholderOpacity (number; default 0.2)
-
-- preventCollision (boolean; default False)
-
-- resizeHandles (list of a value equal to: 's', 'w', 'e', 'n', 'sw', 'nw', 'se', 'ne's; default ['se'])
 
 - rowHeight (number; default 150)
 
@@ -135,10 +129,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyGrid'
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, autoSize=Component.UNDEFINED, compactType=Component.UNDEFINED, margin=Component.UNDEFINED, containerPadding=Component.UNDEFINED, rowHeight=Component.UNDEFINED, isDraggable=Component.UNDEFINED, isResizable=Component.UNDEFINED, isBounded=Component.UNDEFINED, allowOverlap=Component.UNDEFINED, preventCollision=Component.UNDEFINED, isDroppable=Component.UNDEFINED, resizeHandles=Component.UNDEFINED, breakpoints=Component.UNDEFINED, cols=Component.UNDEFINED, layouts=Component.UNDEFINED, placeholderBackground=Component.UNDEFINED, placeholderOpacity=Component.UNDEFINED, placeholderBorder=Component.UNDEFINED, placeholderBorderRadius=Component.UNDEFINED, draggableHandle=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'allowOverlap', 'autoSize', 'breakpoints', 'className', 'cols', 'compactType', 'containerPadding', 'draggableHandle', 'isBounded', 'isDraggable', 'isDroppable', 'isResizable', 'key', 'layouts', 'loading_state', 'margin', 'placeholderBackground', 'placeholderBorder', 'placeholderBorderRadius', 'placeholderOpacity', 'preventCollision', 'resizeHandles', 'rowHeight', 'style']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, height=Component.UNDEFINED, autoSize=Component.UNDEFINED, compactType=Component.UNDEFINED, margin=Component.UNDEFINED, containerPadding=Component.UNDEFINED, rowHeight=Component.UNDEFINED, isDraggable=Component.UNDEFINED, isResizable=Component.UNDEFINED, isBounded=Component.UNDEFINED, allowOverlap=Component.UNDEFINED, breakpoints=Component.UNDEFINED, cols=Component.UNDEFINED, layouts=Component.UNDEFINED, placeholderBackground=Component.UNDEFINED, placeholderOpacity=Component.UNDEFINED, placeholderBorder=Component.UNDEFINED, placeholderBorderRadius=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'allowOverlap', 'autoSize', 'breakpoints', 'className', 'cols', 'compactType', 'containerPadding', 'height', 'isBounded', 'isDraggable', 'isResizable', 'key', 'layouts', 'loading_state', 'margin', 'placeholderBackground', 'placeholderBorder', 'placeholderBorderRadius', 'placeholderOpacity', 'rowHeight', 'style']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'allowOverlap', 'autoSize', 'breakpoints', 'className', 'cols', 'compactType', 'containerPadding', 'draggableHandle', 'isBounded', 'isDraggable', 'isDroppable', 'isResizable', 'key', 'layouts', 'loading_state', 'margin', 'placeholderBackground', 'placeholderBorder', 'placeholderBorderRadius', 'placeholderOpacity', 'preventCollision', 'resizeHandles', 'rowHeight', 'style']
+        self.available_properties = ['children', 'id', 'allowOverlap', 'autoSize', 'breakpoints', 'className', 'cols', 'compactType', 'containerPadding', 'height', 'isBounded', 'isDraggable', 'isResizable', 'key', 'layouts', 'loading_state', 'margin', 'placeholderBackground', 'placeholderBorder', 'placeholderBorderRadius', 'placeholderOpacity', 'rowHeight', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
