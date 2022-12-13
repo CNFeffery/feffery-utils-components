@@ -55,7 +55,7 @@ FefferyLazyLoad.propTypes = {
         PropTypes.string
     ]),
 
-    // 设置默认为宽度
+    // 设置默认宽度
     width: PropTypes.oneOfType([
         PropTypes.number,
         PropTypes.string

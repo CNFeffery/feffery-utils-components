@@ -25,6 +25,8 @@ const FefferyVirtualList = (props) => {
 
     children = parseChildrenToArray(children);
 
+    children = children || [];
+
     return (<List
         id={id}
         style={style}

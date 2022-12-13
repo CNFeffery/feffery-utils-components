@@ -379,10 +379,10 @@ FefferyGrid.propTypes = {
     ]),
 
     // 自定义样式相关快捷样式参数
-    // 自定义拖拽预览占位的background属性，默认为'#99a3ab'
+    // 自定义拖拽预览占位的background属性，默认为'#3b3a39'
     placeholderBackground: PropTypes.string,
 
-    // 自定义拖拽预览占位的opacity属性，默认为1
+    // 自定义拖拽预览占位的opacity属性，默认为0.2
     placeholderOpacity: PropTypes.number,
 
     // 自定义拖拽预览占位的border属性，默认为'none'
