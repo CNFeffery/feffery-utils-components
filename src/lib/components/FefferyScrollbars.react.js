@@ -63,7 +63,7 @@ FefferyScrollbars.propTypes = {
         track: PropTypes.string
     }),
 
-    // 设置滑块区域是否强制可见
+    // 设置滑块区域是否强制可见，默认为false
     forceVisible: PropTypes.oneOfType([
         PropTypes.bool,
         PropTypes.oneOf(['x', 'y'])
@@ -75,7 +75,7 @@ FefferyScrollbars.propTypes = {
     // 设置滚动条最小像素长度，默认为25
     scrollbarMinSize: PropTypes.number,
 
-    // 设置滚动条最大像素长度，默认为0，代表无限制
+    // 设置滚动条最大像素长度，默认无限制
     scrollbarMaxSize: PropTypes.number,
 
     loading_state: PropTypes.shape({

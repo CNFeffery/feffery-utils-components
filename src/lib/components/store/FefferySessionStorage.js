@@ -30,7 +30,7 @@ const FefferySessionStorage = (props) => {
         );
 
         return () => {
-            window.removeEventListener("sessionStorageSetItem", updateData);
+            window.removeEventListener("sessionStorageSetItem", syncStorage);
         };
     }, []);
 

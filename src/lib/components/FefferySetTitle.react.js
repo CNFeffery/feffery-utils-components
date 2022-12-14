@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useTitle } from 'ahooks';
 import PropTypes from 'prop-types';
 
