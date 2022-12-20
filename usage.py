@@ -20,7 +20,7 @@ app.layout = html.Div(
                 'border': '1px solid #e1dfdd',
                 'borderRadius': '6px'
             },
-            shadow='always-shadow'
+            shadow='hover-shadow'
         )
     ],
     style={

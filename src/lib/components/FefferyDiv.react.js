@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useCss } from 'react-use';
+import useCss from '../hooks/useCss'
 import { isString } from 'lodash';
 import PropTypes from 'prop-types';
 import { useSize, useRequest, useHover, useClickAway } from 'ahooks';
@@ -112,10 +112,12 @@ const FefferyDiv = (props) => {
     }
 
     // 根据shadow参数预处理className
-    if (shadow === 'hover-shadow') {
-        className = className ? `${className} feffery-div-hover-shadow` : 'feffery-div-hover-shadow'
-    } else if (shadow === 'always-shadow') {
-        className = className ? `${className} feffery-div-always-shadow` : 'feffery-div-always-shadow'
+    if (isString(className) || !className) {
+        if (shadow === 'hover-shadow') {
+            className = className ? `${className} feffery-div-hover-shadow` : 'feffery-div-hover-shadow'
+        } else if (shadow === 'always-shadow') {
+            className = className ? `${className} feffery-div-always-shadow` : 'feffery-div-always-shadow'
+        }
     }
 
     return <div

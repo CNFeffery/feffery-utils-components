@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import { sortableContainer, sortableElement } from 'react-sortable-hoc';
 import PropTypes from 'prop-types';
 import { arrayMoveImmutable } from 'array-move';
-import { useCss } from 'react-use';
-import { isString } from 'lodash';
 
 const SortableContainer = sortableContainer((props) => {
     return <div {...props} />;
@@ -42,7 +40,7 @@ const FefferySortableContainer = (props) => {
         id={id}
         style={style}
         className={className}
-        helperClass={isString(helperClassName) ? helperClassName : useCss(helperClassName)}
+        helperClass={helperClassName}
         onSortEnd={onSortEnd}
         data-dash-is-loading={
             (loading_state && loading_state.is_loading) || undefined
