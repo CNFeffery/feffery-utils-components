@@ -58,4 +58,4 @@ FefferyDocumentVisibility.propTypes = {
 FefferyDocumentVisibility.defaultProps = {
 }
 
-export default React.memo(FefferyDocumentVisibility);
+export default FefferyDocumentVisibility;

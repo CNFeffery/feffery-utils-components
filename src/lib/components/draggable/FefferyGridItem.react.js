@@ -67,4 +67,4 @@ FefferyGridItem.propTypes = {
 FefferyGridItem.defaultProps = {
 }
 
-export default React.memo(FefferyGridItem);
+export default FefferyGridItem;

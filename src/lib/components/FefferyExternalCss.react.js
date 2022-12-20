@@ -72,4 +72,4 @@ FefferyExternalCss.defaultProps = {
     cssUrl: ''
 }
 
-export default React.memo(FefferyExternalCss);
+export default FefferyExternalCss;

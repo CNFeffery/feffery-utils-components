@@ -69,4 +69,4 @@ FefferyShadowDom.propTypes = {
 FefferyShadowDom.defaultProps = {
 }
 
-export default React.memo(FefferyShadowDom);
+export default FefferyShadowDom;

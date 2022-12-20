@@ -53,4 +53,4 @@ FefferyRawHTML.propTypes = {
 FefferyRawHTML.defaultProps = {
 }
 
-export default React.memo(FefferyRawHTML);
+export default FefferyRawHTML;

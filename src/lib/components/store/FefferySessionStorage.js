@@ -84,4 +84,4 @@ FefferySessionStorage.propTypes = {
 FefferySessionStorage.defaultProps = {
 }
 
-export default React.memo(FefferySessionStorage);
+export default FefferySessionStorage;

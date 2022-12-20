@@ -96,4 +96,4 @@ FefferyInViewport.propTypes = {
 FefferyInViewport.defaultProps = {
 }
 
-export default React.memo(FefferyInViewport);
+export default FefferyInViewport;

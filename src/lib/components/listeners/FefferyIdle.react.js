@@ -64,4 +64,4 @@ FefferyIdle.defaultProps = {
     waitDuration: 3000
 }
 
-export default React.memo(FefferyIdle);
+export default FefferyIdle;

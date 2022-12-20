@@ -89,4 +89,4 @@ FefferyCountDown.defaultProps = {
     interval: 1
 }
 
-export default React.memo(FefferyCountDown);
+export default FefferyCountDown;

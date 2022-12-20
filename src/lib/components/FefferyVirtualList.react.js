@@ -84,4 +84,4 @@ FefferyVirtualList.propTypes = {
 FefferyVirtualList.defaultProps = {
 }
 
-export default React.memo(FefferyVirtualList);
+export default FefferyVirtualList;

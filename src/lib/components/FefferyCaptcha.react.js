@@ -111,4 +111,4 @@ FefferyCaptcha.defaultProps = {
     charNum: 4
 }
 
-export default React.memo(FefferyCaptcha);
+export default FefferyCaptcha;

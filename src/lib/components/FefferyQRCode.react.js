@@ -129,4 +129,4 @@ FefferyQRCode.defaultProps = {
     includeMargin: false
 }
 
-export default React.memo(FefferyQRCode);
+export default FefferyQRCode;

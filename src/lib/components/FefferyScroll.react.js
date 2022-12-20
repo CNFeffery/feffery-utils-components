@@ -174,4 +174,4 @@ FefferyScroll.defaultProps = {
     smooth: true
 }
 
-export default React.memo(FefferyScroll);
+export default FefferyScroll;

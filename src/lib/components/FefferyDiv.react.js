@@ -278,4 +278,4 @@ FefferyDiv.defaultProps = {
     enableClickAway: false
 }
 
-export default React.memo(FefferyDiv);
+export default FefferyDiv;

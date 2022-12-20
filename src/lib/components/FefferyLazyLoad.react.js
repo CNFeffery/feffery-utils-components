@@ -98,4 +98,4 @@ FefferyLazyLoad.defaultProps = {
     visible: false
 }
 
-export default React.memo(FefferyLazyLoad);
+export default FefferyLazyLoad;

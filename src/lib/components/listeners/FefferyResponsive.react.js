@@ -58,4 +58,4 @@ FefferyResponsive.propTypes = {
 FefferyResponsive.defaultProps = {
 }
 
-export default React.memo(FefferyResponsive);
+export default FefferyResponsive;

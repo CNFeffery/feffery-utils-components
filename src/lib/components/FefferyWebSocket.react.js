@@ -125,4 +125,4 @@ FefferyWebSocket.propTypes = {
 FefferyWebSocket.defaultProps = {
 }
 
-export default React.memo(FefferyWebSocket);
+export default FefferyWebSocket;

@@ -72,4 +72,4 @@ FefferyExternalJs.defaultProps = {
     jsUrl: ''
 }
 
-export default React.memo(FefferyExternalJs);
+export default FefferyExternalJs;

@@ -157,4 +157,4 @@ FefferyFancyMessage.defaultProps = {
     type: 'blank'
 }
 
-export default React.memo(FefferyFancyMessage);
+export default FefferyFancyMessage;

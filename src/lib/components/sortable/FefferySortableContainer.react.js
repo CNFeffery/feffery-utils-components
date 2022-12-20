@@ -97,4 +97,4 @@ FefferySortableContainer.defaultProps = {
     helperClassName: 'sortable-helper'
 }
 
-export default React.memo(FefferySortableContainer);
+export default FefferySortableContainer;

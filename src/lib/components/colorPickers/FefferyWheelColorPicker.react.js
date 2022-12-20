@@ -72,4 +72,4 @@ FefferyWheelColorPicker.propTypes = {
 FefferyWheelColorPicker.defaultProps = {
 }
 
-export default React.memo(FefferyWheelColorPicker);
+export default FefferyWheelColorPicker;

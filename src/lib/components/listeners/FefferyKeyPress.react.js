@@ -66,4 +66,4 @@ FefferyKeyPress.defaultProps = {
     pressedTimes: 0
 }
 
-export default React.memo(FefferyKeyPress);
+export default FefferyKeyPress;

@@ -432,4 +432,4 @@ FefferyGrid.defaultProps = {
     compactType: 'vertical'
 }
 
-export default React.memo(FefferyGrid);
+export default FefferyGrid;

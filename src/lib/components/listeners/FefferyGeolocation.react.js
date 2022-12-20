@@ -58,4 +58,4 @@ FefferyGeolocation.propTypes = {
 FefferyGeolocation.defaultProps = {
 }
 
-export default React.memo(FefferyGeolocation);
+export default FefferyGeolocation;

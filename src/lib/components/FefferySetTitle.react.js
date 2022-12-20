@@ -57,4 +57,4 @@ FefferySetTitle.propTypes = {
 FefferySetTitle.defaultProps = {
 }
 
-export default React.memo(FefferySetTitle);
+export default FefferySetTitle;

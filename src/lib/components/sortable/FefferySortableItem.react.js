@@ -58,4 +58,4 @@ FefferySortableItem.propTypes = {
 FefferySortableItem.defaultProps = {
 }
 
-export default React.memo(FefferySortableItem);
+export default FefferySortableItem;

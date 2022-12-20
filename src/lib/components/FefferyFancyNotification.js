@@ -188,4 +188,4 @@ FefferyFancyNotification.defaultProps = {
     closable: true
 }
 
-export default React.memo(FefferyFancyNotification);
+export default FefferyFancyNotification;

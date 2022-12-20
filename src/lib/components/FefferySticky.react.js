@@ -90,4 +90,4 @@ FefferySticky.defaultProps = {
     enabled: true
 }
 
-export default React.memo(FefferySticky);
+export default FefferySticky;

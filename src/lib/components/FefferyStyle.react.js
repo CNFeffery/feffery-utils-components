@@ -11,7 +11,7 @@ const FefferyStyle = (props) => {
     } = props;
 
     return (<style
-        jsx
+        jsx="true"
         id={id}
         data-dash-is-loading={
             (loading_state && loading_state.is_loading) || undefined
@@ -52,4 +52,4 @@ FefferyStyle.propTypes = {
 FefferyStyle.defaultProps = {
 }
 
-export default React.memo(FefferyStyle);
+export default FefferyStyle;

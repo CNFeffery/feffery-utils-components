@@ -64,4 +64,4 @@ FefferyWindowSize.propTypes = {
 FefferyWindowSize.defaultProps = {
 }
 
-export default React.memo(FefferyWindowSize);
+export default FefferyWindowSize;

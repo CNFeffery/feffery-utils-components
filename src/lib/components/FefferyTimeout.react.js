@@ -65,4 +65,4 @@ FefferyTimeout.defaultProps = {
     timeoutCount: 0
 }
 
-export default React.memo(FefferyTimeout);
+export default FefferyTimeout;

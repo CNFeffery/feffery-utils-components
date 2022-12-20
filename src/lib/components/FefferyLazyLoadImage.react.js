@@ -89,4 +89,4 @@ FefferyLazyLoadImage.defaultProps = {
     threshold: 100
 }
 
-export default React.memo(FefferyLazyLoadImage);
+export default FefferyLazyLoadImage;
