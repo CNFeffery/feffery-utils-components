@@ -50,6 +50,7 @@ import FefferyWebSocket from "./components/FefferyWebSocket.react";
 import FefferyShadowDom from "./components/FefferyShadowDom.react";
 import FefferyGrid from "./components/draggable/FefferyGrid.react";
 import FefferyGridItem from "./components/draggable/FefferyGridItem.react";
+import FefferyFancyButton from "./components/FefferyFancyButton.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -134,5 +135,6 @@ export {
     FefferyWebSocket,
     FefferyShadowDom,
     FefferyGrid,
-    FefferyGridItem
+    FefferyGridItem,
+    FefferyFancyButton
 };

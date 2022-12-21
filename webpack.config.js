@@ -1,6 +1,7 @@
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const WebpackDashDynamicImport = require('@plotly/webpack-dash-dynamic-import');
 const packagejson = require('./package.json');
 
@@ -36,8 +37,6 @@ module.exports = (env, argv) => {
     const entry = overrides.entry || { main: './src/lib/index.js' };
 
     const devtool = overrides.devtool || 'source-map';
-
-    // const devtool = 'cheap-module-eval-source-map';
 
     const externals = ('externals' in overrides) ? overrides.externals : ({
         react: 'React',
@@ -90,6 +89,17 @@ module.exports = (env, argv) => {
                             }
                         },
                     ],
+                },
+                {
+                    test: /\.s[ac]ss$/i,
+                    use: [
+                        // 将 JS 字符串生成为 style 节点
+                        'style-loader',
+                        // 将 CSS 转化成 CommonJS 模块
+                        'css-loader',
+                        // 将 Sass 编译成 CSS
+                        'sass-loader',
+                    ],
                 }
             ],
         },
@@ -102,6 +112,14 @@ module.exports = (env, argv) => {
                     terserOptions: {
                         warnings: false,
                         ie8: false
+                    }
+                }),
+                new UglifyJsPlugin({
+                    uglifyOptions: {
+                        output: {
+                            comments: false, // 移除注释
+                        },
+                        warnings: false // 移除警告
                     }
                 })
             ],

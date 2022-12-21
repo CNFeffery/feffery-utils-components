@@ -16,6 +16,7 @@ from .FefferyExecuteJs import FefferyExecuteJs
 from .FefferyExternalCss import FefferyExternalCss
 from .FefferyExternalJs import FefferyExternalJs
 from .FefferyExtraSpinner import FefferyExtraSpinner
+from .FefferyFancyButton import FefferyFancyButton
 from .FefferyFancyMessage import FefferyFancyMessage
 from .FefferyFancyNotification import FefferyFancyNotification
 from .FefferyGuide import FefferyGuide
@@ -69,6 +70,7 @@ __all__ = [
     "FefferyExternalCss",
     "FefferyExternalJs",
     "FefferyExtraSpinner",
+    "FefferyFancyButton",
     "FefferyFancyMessage",
     "FefferyFancyNotification",
     "FefferyGuide",
