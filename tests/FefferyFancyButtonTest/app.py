@@ -15,6 +15,16 @@ app.layout = html.Div(
         fuc.FefferyFancyButton(
             '按钮测试',
             id='fancy-button-demo',
+            type='primary',
+            ripple=True
+        ),
+        fuc.FefferyFancyButton(
+            '按钮测试',
+            type='secondary',
+            ripple=True
+        ),
+        fuc.FefferyFancyButton(
+            '按钮测试',
             type='danger',
             ripple=True
         ),
@@ -33,6 +43,7 @@ app.layout = html.Div(
 def demo(nClicks):
 
     return nClicks
+
 
 if __name__ == '__main__':
     app.run(debug=True)

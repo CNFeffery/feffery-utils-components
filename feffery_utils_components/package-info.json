@@ -22,7 +22,7 @@
   "author": "CNFeffery <fefferypzy@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@ant-design/icons": "^4.7.0",
+    "@ant-design/icons": "^4.8.0",
     "@uiw/color-convert": "^1.1.0",
     "@uiw/react-color-wheel": "^1.1.0",
     "ahooks": "^3.7.0",
@@ -93,6 +93,7 @@
     "terser-webpack-plugin": "^2.3.0",
     "url-loader": "^4.1.1",
     "webpack": "4.36.1",
+    "webpack-bundle-analyzer": "^4.7.0",
     "webpack-cli": "3.3.6",
     "webpack-serve": "3.1.0"
   },

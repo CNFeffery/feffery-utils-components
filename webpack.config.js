@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const WebpackDashDynamicImport = require('@plotly/webpack-dash-dynamic-import');
 const packagejson = require('./package.json');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const dashLibraryName = packagejson.name.replace(/-/g, '_');
 
@@ -69,6 +70,11 @@ module.exports = (env, argv) => {
                     use: {
                         loader: 'babel-loader',
                     },
+                },
+                {
+                    test: /\.mjs$/,
+                    include: /node_modules/,
+                    type: "javascript/auto"
                 },
                 {
                     test: /\.(css|less)$/,
@@ -143,6 +149,7 @@ module.exports = (env, argv) => {
             }
         },
         plugins: [
+            // new BundleAnalyzerPlugin(),
             new WebpackDashDynamicImport(),
             new webpack.SourceMapDevToolPlugin({
                 filename: '[file].map',

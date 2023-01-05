@@ -3242,6 +3242,432 @@
       }
     }
   },
+  "src/lib/components/FefferyJsonViewer.react.js": {
+    "description": "",
+    "displayName": "FefferyJsonViewer",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "className": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "string"
+            },
+            {
+              "name": "object"
+            }
+          ]
+        },
+        "required": false,
+        "description": ""
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "data": {
+        "type": {
+          "name": "object"
+        },
+        "required": true,
+        "description": ""
+      },
+      "theme": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'apathy'",
+              "computed": false
+            },
+            {
+              "value": "'apathy:inverted'",
+              "computed": false
+            },
+            {
+              "value": "'ashes'",
+              "computed": false
+            },
+            {
+              "value": "'bespin'",
+              "computed": false
+            },
+            {
+              "value": "'brewer'",
+              "computed": false
+            },
+            {
+              "value": "'bright:inverted'",
+              "computed": false
+            },
+            {
+              "value": "'bright'",
+              "computed": false
+            },
+            {
+              "value": "'chalk'",
+              "computed": false
+            },
+            {
+              "value": "'codeschool'",
+              "computed": false
+            },
+            {
+              "value": "'colors'",
+              "computed": false
+            },
+            {
+              "value": "'eighties'",
+              "computed": false
+            },
+            {
+              "value": "'embers'",
+              "computed": false
+            },
+            {
+              "value": "'flat'",
+              "computed": false
+            },
+            {
+              "value": "'google'",
+              "computed": false
+            },
+            {
+              "value": "'grayscale'",
+              "computed": false
+            },
+            {
+              "value": "'grayscale:inverted'",
+              "computed": false
+            },
+            {
+              "value": "'greenscreen'",
+              "computed": false
+            },
+            {
+              "value": "'harmonic'",
+              "computed": false
+            },
+            {
+              "value": "'hopscotch'",
+              "computed": false
+            },
+            {
+              "value": "'isotope'",
+              "computed": false
+            },
+            {
+              "value": "'marrakesh'",
+              "computed": false
+            },
+            {
+              "value": "'mocha'",
+              "computed": false
+            },
+            {
+              "value": "'monokai'",
+              "computed": false
+            },
+            {
+              "value": "'ocean'",
+              "computed": false
+            },
+            {
+              "value": "'paraiso'",
+              "computed": false
+            },
+            {
+              "value": "'pop'",
+              "computed": false
+            },
+            {
+              "value": "'railscasts'",
+              "computed": false
+            },
+            {
+              "value": "'rjv-default'",
+              "computed": false
+            },
+            {
+              "value": "'shapeshifter'",
+              "computed": false
+            },
+            {
+              "value": "'shapeshifter:inverted'",
+              "computed": false
+            },
+            {
+              "value": "'solarized'",
+              "computed": false
+            },
+            {
+              "value": "'summerfruit'",
+              "computed": false
+            },
+            {
+              "value": "'summerfruit:inverted'",
+              "computed": false
+            },
+            {
+              "value": "'threezerotwofour'",
+              "computed": false
+            },
+            {
+              "value": "'tomorrow'",
+              "computed": false
+            },
+            {
+              "value": "'tube'",
+              "computed": false
+            },
+            {
+              "value": "'twilight'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'summerfruit:inverted'",
+          "computed": false
+        }
+      },
+      "indent": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "4",
+          "computed": false
+        }
+      },
+      "iconStyle": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'circle'",
+              "computed": false
+            },
+            {
+              "value": "'triangle'",
+              "computed": false
+            },
+            {
+              "value": "'square'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'circle'",
+          "computed": false
+        }
+      },
+      "collapsed": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "bool"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "collapseStringsAfterLength": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "bool"
+            },
+            {
+              "name": "number"
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "groupArraysAfterLength": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "100",
+          "computed": false
+        }
+      },
+      "enableClipboard": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "displayObjectSize": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "displayDataTypes": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "editable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "addible": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "deletable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "sortKeys": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "quotesOnKeys": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "displayArrayKey": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
   "src/lib/components/FefferyLazyLoad.react.js": {
     "description": "",
     "displayName": "FefferyLazyLoad",

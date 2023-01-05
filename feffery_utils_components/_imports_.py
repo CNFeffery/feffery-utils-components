@@ -21,6 +21,7 @@ from .FefferyFancyMessage import FefferyFancyMessage
 from .FefferyFancyNotification import FefferyFancyNotification
 from .FefferyGuide import FefferyGuide
 from .FefferyHighlightWords import FefferyHighlightWords
+from .FefferyJsonViewer import FefferyJsonViewer
 from .FefferyLazyLoad import FefferyLazyLoad
 from .FefferyLazyLoadImage import FefferyLazyLoadImage
 from .FefferyQRCode import FefferyQRCode
@@ -75,6 +76,7 @@ __all__ = [
     "FefferyFancyNotification",
     "FefferyGuide",
     "FefferyHighlightWords",
+    "FefferyJsonViewer",
     "FefferyLazyLoad",
     "FefferyLazyLoadImage",
     "FefferyQRCode",

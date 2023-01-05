@@ -171,3 +171,7 @@
   background: #f2f2f2;
   transition: background 0.15s ease;
 }
+
+.react-json-view svg {
+  vertical-align: middle !important;
+}
