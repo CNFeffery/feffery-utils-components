@@ -180,3 +180,7 @@
 ninja-keys::part(actions-list) {
   scrollbar-width: thin;
 }
+
+ninja-keys {
+  --ninja-z-index: 99999;
+}
