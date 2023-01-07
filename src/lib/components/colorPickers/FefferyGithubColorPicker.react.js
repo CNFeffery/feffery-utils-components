@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { GithubPicker } from 'react-color';
+import GithubPicker from 'react-color/es/Github';
 import PropTypes from 'prop-types';
 import '../styles.css';
 

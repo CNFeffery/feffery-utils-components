@@ -4687,13 +4687,6 @@
         "required": false,
         "description": ""
       },
-      "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": ""
-      },
       "locale": {
         "type": {
           "name": "enum",
@@ -4767,17 +4760,22 @@
             }
           }
         },
-        "required": false,
+        "required": true,
         "description": ""
       },
       "triggeredHotkey": {
         "type": {
-          "name": "union",
-          "value": [
-            {
-              "name": "string"
+          "name": "exact",
+          "value": {
+            "id": {
+              "name": "string",
+              "required": false
+            },
+            "timestamp": {
+              "name": "number",
+              "required": false
             }
-          ]
+          }
         },
         "required": false,
         "description": ""
@@ -4789,19 +4787,16 @@
         "required": false,
         "description": ""
       },
-      "disableHotkeys": {
-        "type": {
-          "name": "bool"
-        },
-        "required": false,
-        "description": ""
-      },
       "openHotkey": {
         "type": {
           "name": "string"
         },
         "required": false,
-        "description": ""
+        "description": "",
+        "defaultValue": {
+          "value": "'cmd+k,ctrl+k'",
+          "computed": false
+        }
       },
       "theme": {
         "type": {
@@ -4821,6 +4816,28 @@
         "description": "",
         "defaultValue": {
           "value": "'light'",
+          "computed": false
+        }
+      },
+      "open": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "close": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "false",
           "computed": false
         }
       },

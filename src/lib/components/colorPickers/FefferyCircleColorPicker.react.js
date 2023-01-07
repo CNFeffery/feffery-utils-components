@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { CirclePicker } from 'react-color';
+import CirclePicker from 'react-color/es/Circle';
 import PropTypes from 'prop-types';
 import '../styles.css';
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { TwitterPicker } from 'react-color';
+import TwitterPicker from 'react-color/es/Twitter';
 import PropTypes from 'prop-types';
 import '../styles.css';
 

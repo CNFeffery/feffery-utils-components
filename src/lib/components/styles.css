@@ -175,3 +175,8 @@
 .react-json-view svg {
   vertical-align: middle !important;
 }
+
+/* firefox */
+ninja-keys::part(actions-list) {
+  scrollbar-width: thin;
+}

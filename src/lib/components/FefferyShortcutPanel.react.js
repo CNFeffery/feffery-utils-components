@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { isString } from 'lodash';
 import "ninja-keys";
-import './styles.css'
 
 const footerHtmlEn = <div class="modal-footer" slot="footer">
     <span class="help">
@@ -76,76 +76,45 @@ const footerHtmlZh = <div className="modal-footer" slot="footer">
     </span>
 </div>
 
+const locale2footer = new Map([
+    ['en', footerHtmlEn],
+    ['zh', footerHtmlZh]
+])
+
+const locale2placeholder = new Map([
+    ['en', 'Type a command or search...'],
+    ['zh', '输入指令或进行搜索...']
+])
 
 // 定义快捷方式面板部件FefferyShortcutPanel，api参数参考https://github.com/ssleptsov/ninja-keys
 const FefferyShortcutPanel = (props) => {
     // 取得必要属性或参数
     let {
         id,
-        style,
         data,
         placeholder,
-        disableHotkeys,
         openHotkey,
         theme,
         locale,
+        open,
+        close,
         setProps,
         loading_state
     } = props;
 
-    data = data || [
-        {
-            id: "Home",
-            title: "Open Home",
-            hotkey: "cmd+h",
-            handler: () => {
-                console.log("navigation to home");
-            }
-        },
-        {
-            id: "Open Projects",
-            title: "Open Projects",
-            hotkey: "cmd+p",
-            handler: () => {
-                console.log("navigation to projects");
-            }
-        },
-        {
-            id: "Theme",
-            title: "Change theme...",
-            children: [
-                'Light Theme', 'Dark Theme'
-            ]
-        },
-        {
-            id: "Light Theme",
-            title: "Change theme to Light",
-            parent: 'Theme',
-            handler: () => {
-                console.log("theme light");
-            }
-        },
-        {
-            id: "Dark Theme",
-            title: "Change theme to Dark",
-            parent: 'Theme',
-            keywords: "lol",
-            handler: () => {
-                console.log("theme dark");
-            }
-        }
-    ]
-
     // 填充handler缺省时的默认逻辑
     data = data.map(
         item => {
-            return typeof item.handler === typeof '' || item.hasOwnProperty('children') ?
+            return isString(item.handler) || item.hasOwnProperty('children') ?
                 item : {
                     ...item,
                     ...{
                         handler: () => {
                             setProps({
-                                triggeredHotkey: item.id + ' ' + Date.parse(new Date()).toString()
+                                triggeredHotkey: {
+                                    id: item.id,
+                                    timestamp: Date.parse(new Date())
+                                }
                             })
                         }
                     }
@@ -156,7 +125,7 @@ const FefferyShortcutPanel = (props) => {
     const ninjaKeys = useRef(null);
     const [hotkeys, setHotkeys] = useState(
         data.map(
-            item => typeof item.handler === typeof '' ?
+            item => isString(item.handler) ?
                 {
                     ...item,
                     ...{
@@ -172,21 +141,40 @@ const FefferyShortcutPanel = (props) => {
         }
     }, []);
 
+    // 自主控制指令面板打开/关闭
+    useEffect(() => {
+        if (ninjaKeys.current && open) {
+            ninjaKeys.current.open()
+            // 重置
+            setProps({
+                open: false
+            })
+        }
+    }, [open])
+
+    useEffect(() => {
+        if (ninjaKeys.current && close) {
+            ninjaKeys.current.close()
+            // 重置
+            setProps({
+                close: false
+            })
+        }
+    }, [close])
+
     // 返回向页面注入的快捷键监听
     return (
         <ninja-keys id={id}
-            class={theme || 'light'}
-            style={style}
+            class={theme}
             ref={ninjaKeys}
-            placeholder={placeholder}
-            disableHotkeys={disableHotkeys}
+            placeholder={placeholder || locale2placeholder.get(locale)}
             openHotkey={openHotkey}
             hotKeysJoinedView={true}
             hideBreadcrumbs={true}
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             } >
-            {locale === 'en' ? footerHtmlEn : footerHtmlZh}
+            {locale2footer.get(locale)}
         </ ninja-keys>
     );
 }
@@ -196,13 +184,53 @@ FefferyShortcutPanel.propTypes = {
     // 部件id
     id: PropTypes.string,
 
-    // 自定义css字典
-    style: PropTypes.object,
-
-    // 设置语言，可选的有'en'、'zh'
+    // 设置语言，可选的有'en'、'zh'，默认为'zh'
     locale: PropTypes.oneOf(['en', 'zh']),
 
     // 用于定义热键节点的数据结构
+    // 例：
+    // [
+    //     {
+    //         id: "Home",
+    //         title: "Open Home",
+    //         hotkey: "cmd+h",
+    //         handler: () => {
+    //             console.log("navigation to home");
+    //         }
+    //     },
+    //     {
+    //         id: "Open Projects",
+    //         title: "Open Projects",
+    //         hotkey: "cmd+p",
+    //         handler: () => {
+    //             console.log("navigation to projects");
+    //         }
+    //     },
+    //     {
+    //         id: "Theme",
+    //         title: "Change theme...",
+    //         children: [
+    //             'Light Theme', 'Dark Theme'
+    //         ]
+    //     },
+    //     {
+    //         id: "Light Theme",
+    //         title: "Change theme to Light",
+    //         parent: 'Theme',
+    //         handler: () => {
+    //             console.log("theme light");
+    //         }
+    //     },
+    //     {
+    //         id: "Dark Theme",
+    //         title: "Change theme to Dark",
+    //         parent: 'Theme',
+    //         keywords: "lol",
+    //         handler: () => {
+    //             console.log("theme dark");
+    //         }
+    //     }
+    // ]
     data: PropTypes.arrayOf(
         PropTypes.exact({
             // 用于定义当前热键的唯一id，会在顶端热键面包屑中进行显示
@@ -232,24 +260,30 @@ FefferyShortcutPanel.propTypes = {
             // 用于设置分组标题文字
             section: PropTypes.string
         })
-    ),
+    ).isRequired,
 
-    // 监听记录最近一次被触发的热键id以及对应触发时间的秒级时间戳信息
-    triggeredHotkey: PropTypes.oneOfType([
-        PropTypes.string
-    ]),
+    // 监听记录最近一次被触发的热键id以及对应触发时间的时间戳信息
+    triggeredHotkey: PropTypes.exact({
+        // 触发指令菜单项id
+        id: PropTypes.string,
+        // 触发时间戳信息
+        timestamp: PropTypes.number
+    }),
 
-    // 定义输入框提示内容
+    // 定义输入框提示内容，默认会根据locale赋以不同的缺省值
     placeholder: PropTypes.string,
-
-    // 设置是否禁用热键，默认为false
-    disableHotkeys: PropTypes.bool,
 
     // 设置唤出指令面板的快捷键组合，默认为'cmd+k,ctrl+k'
     openHotkey: PropTypes.string,
 
-    // 设置主题，可选的有'light'、'dark'
+    // 设置主题，可选的有'light'、'dark'，默认为'light'
     theme: PropTypes.oneOf(['light', 'dark']),
+
+    // 传入true时手动展开指令面板，默认为false
+    open: PropTypes.bool,
+
+    // 传入true时手动关闭指令面板，默认为false
+    close: PropTypes.bool,
 
     loading_state: PropTypes.shape({
         /**
@@ -276,7 +310,10 @@ FefferyShortcutPanel.propTypes = {
 // 设置默认参数
 FefferyShortcutPanel.defaultProps = {
     locale: 'zh',
-    theme: 'light'
+    theme: 'light',
+    openHotkey: 'cmd+k,ctrl+k',
+    open: false,
+    close: false
 }
 
 export default FefferyShortcutPanel;

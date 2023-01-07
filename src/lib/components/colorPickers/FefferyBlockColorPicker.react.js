@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BlockPicker } from 'react-color';
+import BlockPicker from 'react-color/es/Block';
 import PropTypes from 'prop-types';
 import '../styles.css';
 
