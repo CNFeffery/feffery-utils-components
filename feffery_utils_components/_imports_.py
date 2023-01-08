@@ -19,8 +19,10 @@ from .FefferyExtraSpinner import FefferyExtraSpinner
 from .FefferyFancyButton import FefferyFancyButton
 from .FefferyFancyMessage import FefferyFancyMessage
 from .FefferyFancyNotification import FefferyFancyNotification
+from .FefferyFullscreen import FefferyFullscreen
 from .FefferyGuide import FefferyGuide
 from .FefferyHighlightWords import FefferyHighlightWords
+from .FefferyImagePaste import FefferyImagePaste
 from .FefferyJsonViewer import FefferyJsonViewer
 from .FefferyLazyLoad import FefferyLazyLoad
 from .FefferyLazyLoadImage import FefferyLazyLoadImage
@@ -74,8 +76,10 @@ __all__ = [
     "FefferyFancyButton",
     "FefferyFancyMessage",
     "FefferyFancyNotification",
+    "FefferyFullscreen",
     "FefferyGuide",
     "FefferyHighlightWords",
+    "FefferyImagePaste",
     "FefferyJsonViewer",
     "FefferyLazyLoad",
     "FefferyLazyLoadImage",

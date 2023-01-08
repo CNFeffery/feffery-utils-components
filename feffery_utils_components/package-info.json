@@ -1,6 +1,6 @@
 {
   "name": "feffery_utils_components",
-  "version": "0.1.14",
+  "version": "0.1.16",
   "description": "Build more utility components for Plotly Dash.",
   "repository": {
     "type": "git",
