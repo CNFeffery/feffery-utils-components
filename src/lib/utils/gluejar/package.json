@@ -1,0 +1,53 @@
+{
+  "name": "@charliewilco/gluejar",
+  "version": "1.0.0",
+  "description": "Paste images from your clipboard",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": "charliewilco/react-gluejar",
+  "author": "Charles ⚡ <charlespeters42@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^16.4.7",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.1.0",
+    "parcel": "^1.9.7",
+    "prettier": "^1.14.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "serve": "^9.4.0",
+    "typescript": "^3.0.1"
+  },
+  "peerDependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "prepublish": "yarn build",
+    "example": "parcel example/index.html",
+    "build": "rm -rf dist && tsc",
+    "now-start": "serve -s dist",
+    "now-build": "parcel build ./example/index.html"
+  },
+  "lint-staged": {
+    "*.{tsx,ts,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "printWidth": 95,
+    "singleQuote": true,
+    "semi": false,
+    "bracketSpacing": true,
+    "jsxBracketSameLine": true
+  },
+  "now": {
+    "alias": "react-gluejar.now.sh",
+    "files": [
+      "src",
+      "example"
+    ]
+  }
+}

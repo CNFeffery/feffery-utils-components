@@ -52,6 +52,7 @@ import FefferyGrid from "./components/draggable/FefferyGrid.react";
 import FefferyGridItem from "./components/draggable/FefferyGridItem.react";
 import FefferyFancyButton from "./components/FefferyFancyButton.react";
 import FefferyJsonViewer from "./components/FefferyJsonViewer.react";
+import FefferyImagePaste from "./components/FefferyImagePaste.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -138,5 +139,6 @@ export {
     FefferyGrid,
     FefferyGridItem,
     FefferyFancyButton,
-    FefferyJsonViewer
+    FefferyJsonViewer,
+    FefferyImagePaste
 };
