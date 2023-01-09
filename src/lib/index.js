@@ -54,6 +54,7 @@ import FefferyFancyButton from "./components/FefferyFancyButton.react";
 import FefferyJsonViewer from "./components/FefferyJsonViewer.react";
 import FefferyImagePaste from "./components/FefferyImagePaste.react";
 import FefferyFullscreen from "./components/FefferyFullscreen.react";
+import FefferyDeviceDetect from "./components/listeners/FefferyDeviceDetect.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -142,5 +143,6 @@ export {
     FefferyFancyButton,
     FefferyJsonViewer,
     FefferyImagePaste,
-    FefferyFullscreen
+    FefferyFullscreen,
+    FefferyDeviceDetect
 };

@@ -87,7 +87,7 @@ FefferyJsonViewer.propTypes = {
     key: PropTypes.string,
 
     // 设置要展示的json数据
-    data: PropTypes.object.isRequired,
+    data: PropTypes.object,
 
     // 设置风格主题，可选的有'apathy'、'apathy:inverted'、'ashes'
     // 'bespin'、'brewer'、'bright:inverted'、'bright'、'chalk'

@@ -9,24 +9,28 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        fuc.FefferyStyle(
-            rawStyle='''
-'''
+        fuc.FefferyDeviceDetect(
+            id='device-detect'
         ),
-        fuc.FefferyDiv(
-            style={
-                'width': '300px',
-                'height': '200px',
-                'border': '1px solid #e1dfdd',
-                'borderRadius': '6px'
-            },
-            shadow='hover-shadow'
+        fuc.FefferyJsonViewer(
+            id='json-viewer'
         )
     ],
     style={
         'padding': '50px'
     }
 )
+
+
+@app.callback(
+    Output('json-viewer', 'data'),
+    Input('device-detect', 'deviceInfo'),
+    prevent_initial_call=True
+)
+def demo(deviceInfo):
+
+    return deviceInfo
+
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -13,7 +13,7 @@ Keyword arguments:
 - `className` (String | Dict; optional)
 - `collapseStringsAfterLength` (Bool | Real; optional)
 - `collapsed` (Bool | Real; optional)
-- `data` (Dict; required)
+- `data` (Dict; optional)
 - `deletable` (Bool; optional)
 - `displayArrayKey` (Bool; optional)
 - `displayDataTypes` (Bool; optional)
