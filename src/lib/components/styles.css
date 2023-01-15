@@ -100,7 +100,7 @@
 }
 
 .feffery-div-always-shadow {
-  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 24px rgba(81, 87, 103, 0.16);
 }
 
 .feffery-div-hover-shadow {
@@ -108,8 +108,31 @@
 }
 
 .feffery-div-hover-shadow:hover {
-  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 24px rgba(81, 87, 103, 0.16);
   transition: box-shadow 0.3s ease-in-out;
+}
+
+.feffery-div-scrollbar-simple::-webkit-scrollbar {
+  width: 6px;
+}
+
+.feffery-div-scrollbar-simple::-webkit-scrollbar-thumb {
+  background-color: #e4e6eb;
+  outline: none;
+  border-radius: 2px;
+}
+
+.feffery-div-scrollbar-simple::-webkit-scrollbar-track {
+  box-shadow: none;
+  border-radius: 2px;
+}
+
+.feffery-div-scrollbar-hidden::-webkit-scrollbar {
+  width: 0;
+}
+
+.feffery-div-scrollbar-hidden {
+  scrollbar-width: none;
 }
 
 .github-picker {

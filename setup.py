@@ -12,12 +12,17 @@ setup(
     name=package_name,
     version=package["version"],
     author=package['author'],
+    author_email=package['email'],
     packages=[package_name],
     include_package_data=True,
     license=package['license'],
     description=package.get('description', package_name),
-    install_requires=[],
-    classifiers = [
+    install_requires=[
+        'dash>=2.6.2'
+    ],
+    classifiers=[
         'Framework :: Dash',
-    ],    
+    ],
+    homepage='https://github.com/CNFeffery/feffery-utils-components',
+    url='https://github.com/CNFeffery/feffery-utils-components'
 )

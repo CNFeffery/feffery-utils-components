@@ -25,7 +25,6 @@ const FefferyMotion = (props) => {
         exit,
         whileHover,
         whileTap,
-        whileFocus,
         transition,
         whileInView,
         viewport,
@@ -53,7 +52,6 @@ const FefferyMotion = (props) => {
             exit={exit}
             whileHover={whileHover}
             whileTap={whileTap}
-            whileFocus={whileFocus}
             transition={transition}
             whileInView={whileInView}
             viewport={viewport}
@@ -117,13 +115,6 @@ FefferyMotion.propTypes = {
         PropTypes.string
     ]),
 
-    // 设置当前元素聚焦时的目标样式
-    whileFocus: PropTypes.oneOfType([
-        PropTypes.object,
-        // 传递单个样式组的别名
-        PropTypes.string
-    ]),
-
     // 配置过渡动画
     // 默认为：
     // {
@@ -155,7 +146,8 @@ FefferyMotion.propTypes = {
         // 设置过渡动画时长，单位：秒
         duration: PropTypes.number,
 
-        // 设置过渡动画函数，可选的有'linear'、'easeIn'、'easeOut'、
+        // transition.type='tween'时，用于设置过渡动画函数
+        // 可选的有'linear'、'easeIn'、'easeOut'、
         // 'easeInOut'、'circIn'、'circOut'、'circInOut'、'backIn'、
         // 'backOut'、'backInOut'、'anticipate'
         ease: PropTypes.oneOf([
@@ -164,29 +156,9 @@ FefferyMotion.propTypes = {
             'backOut', 'backInOut', 'anticipate'
         ]),
 
-        // 针对分段过渡动画设置每段的时长比例，数组中每个元素值应在0~1之间
+        // 针对分段过渡动画设置每段的时长比例
         // 以duration为1单位
-        times: PropTypes.arrayOf(PropTypes.number),
-
-        // 当transition.type='spring'时，用于为弹簧算法
-        // 设置反弹程度，取值应在0~1之间
-        bounce: PropTypes.number,
-
-        // 当transition.type='spring'时，用于为弹簧算法
-        // 设置反作用力强度，当设置为0时将会无限震荡，默认为10
-        damping: PropTypes.number,
-
-        // 当transition.type='spring'时，用于为弹簧算法
-        // 设置运动物体的质量，更高的数值将导致更沉闷的运动，默认为1
-        mass: PropTypes.number,
-
-        // 当transition.type='spring'时，用于为弹簧算法
-        // 设置弹簧的刚度，数值越高，运动越突然，默认为100
-        stiffness: PropTypes.number,
-
-        // 当transition.type='spring'时，用于为弹簧算法
-        // 设置弹簧的初速度
-        velocity: PropTypes.number
+        times: PropTypes.arrayOf(PropTypes.number)
     }),
 
     // 设置当前组件进入视口后的目标样式

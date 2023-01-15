@@ -9,27 +9,111 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        fuc.FefferyDeviceDetect(
-            id='device-detect'
+        fuc.FefferyDiv(
+            '测试'*1000,
+            style={
+                'width': '200px',
+                'maxHeight': '100px',
+                'border': '1px solid #edebe9',
+                'marginBottom': '25px',
+                'borderRadius': '6px',
+                'padding': '10px',
+                'overflowY': 'auto'
+            },
+            shadow='always-shadow',
+            scrollbar='simple'
         ),
-        fuc.FefferyJsonViewer(
-            id='json-viewer'
-        )
+
+        fuc.FefferyDiv(
+            '测试'*1000,
+            style={
+                'width': '200px',
+                'maxHeight': '100px',
+                'border': '1px solid #edebe9',
+                'marginBottom': '25px',
+                'borderRadius': '6px',
+                'padding': '10px',
+                'overflowY': 'auto'
+            },
+            shadow='hover-shadow',
+            scrollbar='simple'
+        ),
+
+        fuc.FefferyDiv(
+            '测试'*1000,
+            style={
+                'width': '200px',
+                'maxHeight': '100px',
+                'border': '1px solid #edebe9',
+                'marginBottom': '25px',
+                'borderRadius': '6px',
+                'padding': '10px',
+                'overflowY': 'auto'
+            },
+            shadow='always-shadow',
+            scrollbar='hidden'
+        ),
+
+        html.Hr(),
+
+        fuc.FefferyDiv(
+            '测试'*1000,
+            className={
+                'background': 'white'
+            },
+            style={
+                'width': '200px',
+                'maxHeight': '100px',
+                'border': '1px solid #edebe9',
+                'marginBottom': '25px',
+                'borderRadius': '6px',
+                'padding': '10px',
+                'overflowY': 'auto'
+            },
+            shadow='always-shadow',
+            scrollbar='simple'
+        ),
+
+        fuc.FefferyDiv(
+            '测试'*1000,
+            className={
+                'background': 'white'
+            },
+            style={
+                'width': '200px',
+                'maxHeight': '100px',
+                'border': '1px solid #edebe9',
+                'marginBottom': '25px',
+                'borderRadius': '6px',
+                'padding': '10px',
+                'overflowY': 'auto'
+            },
+            shadow='hover-shadow',
+            scrollbar='simple'
+        ),
+
+        fuc.FefferyDiv(
+            '测试'*1000,
+            className={
+                'background': 'white'
+            },
+            style={
+                'width': '200px',
+                'maxHeight': '100px',
+                'border': '1px solid #edebe9',
+                'marginBottom': '25px',
+                'borderRadius': '6px',
+                'padding': '10px',
+                'overflowY': 'auto'
+            },
+            shadow='always-shadow',
+            scrollbar='hidden'
+        ),
     ],
     style={
         'padding': '50px'
     }
 )
-
-
-@app.callback(
-    Output('json-viewer', 'data'),
-    Input('device-detect', 'deviceInfo'),
-    prevent_initial_call=True
-)
-def demo(deviceInfo):
-
-    return deviceInfo
 
 
 if __name__ == '__main__':

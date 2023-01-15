@@ -23,7 +23,7 @@ Those elements have the following types:
   - `prop_name` (String; optional): Holds which property is loading
   - `component_name` (String; optional): Holds the name of the component that is loading
 - `style` (Dict; optional)
-- `transition` (optional): . transition has the following type: lists containing elements 'delay', 'repeat', 'repeatType', 'repeatDelay', 'type', 'duration', 'ease', 'times', 'bounce', 'damping', 'mass', 'stiffness', 'velocity'.
+- `transition` (optional): . transition has the following type: lists containing elements 'delay', 'repeat', 'repeatType', 'repeatDelay', 'type', 'duration', 'ease', 'times'.
 Those elements have the following types:
   - `delay` (Real; optional)
   - `repeat` (Real | a value equal to: 'infinity'; optional)
@@ -33,24 +33,18 @@ Those elements have the following types:
   - `duration` (Real; optional)
   - `ease` (a value equal to: 'linear', 'easeIn', 'easeOut', 'easeInOut', 'circIn', 'circOut', 'circInOut', 'backIn', 'backOut', 'backInOut', 'anticipate'; optional)
   - `times` (Array of Reals; optional)
-  - `bounce` (Real; optional)
-  - `damping` (Real; optional)
-  - `mass` (Real; optional)
-  - `stiffness` (Real; optional)
-  - `velocity` (Real; optional)
 - `variants` (Dict; optional)
 - `viewport` (optional): . viewport has the following type: lists containing elements 'once', 'margin', 'amount'.
 Those elements have the following types:
   - `once` (Bool; optional)
   - `margin` (String; optional)
   - `amount` (a value equal to: 'some', 'all'; optional)
-- `whileFocus` (Dict | String; optional)
 - `whileHover` (Dict | String; optional)
 - `whileInView` (Dict | String; optional)
 - `whileTap` (Dict | String; optional)
 """
 function ''_fefferymotion(; kwargs...)
-        available_props = Symbol[:children, :id, :animate, :className, :exit, :initial, :loading_state, :style, :transition, :variants, :viewport, :whileFocus, :whileHover, :whileInView, :whileTap]
+        available_props = Symbol[:children, :id, :animate, :className, :exit, :initial, :loading_state, :style, :transition, :variants, :viewport, :whileHover, :whileInView, :whileTap]
         wild_props = Symbol[]
         return Component("''_fefferymotion", "FefferyMotion", "feffery_utils_components", available_props, wild_props; kwargs...)
 end

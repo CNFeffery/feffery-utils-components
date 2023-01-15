@@ -1,9 +1,62 @@
 import React, { useEffect, useRef } from 'react';
 import useCss from '../hooks/useCss'
-import { isString } from 'lodash';
+import { isString, omit } from 'lodash';
 import PropTypes from 'prop-types';
 import { useSize, useRequest, useHover, useClickAway } from 'ahooks';
 import './styles.css'
+
+// 定义兼容虚拟className的阴影效果、滚动条样式字典
+const shadowVirtualClassName = new Map(
+    [
+        [
+            'hover-shadow',
+            {
+                transition: 'box-shadow 0.3s ease-in-out',
+                '&:hover': {
+                    boxShadow: '0 8px 24px rgba(81, 87, 103, 0.16)',
+                    transition: 'box-shadow 0.3s ease-in-out'
+                }
+            }
+        ],
+        [
+            'always-shadow',
+            {
+                boxShadow: '0 8px 24px rgba(81, 87, 103, 0.16)'
+            }
+        ]
+    ]
+)
+
+const scrollbarVirtualClassName = new Map(
+    [
+        [
+            'simple',
+            {
+                '&::-webkit-scrollbar': {
+                    width: '6px'
+                },
+                '&::-webkit-scrollbar-thumb': {
+                    backgroundColor: '#e4e6eb',
+                    outline: 'none',
+                    borderRadius: '2px'
+                },
+                '&::-webkit-scrollbar-track': {
+                    boxShadow: 'none',
+                    borderRadius: '2px'
+                }
+            }
+        ],
+        [
+            'hidden',
+            {
+                '&::-webkit-scrollbar': {
+                    width: 0
+                },
+                scrollbarWidth: 'none'
+            }
+        ]
+    ]
+)
 
 // 定义进阶div容器组件FefferyDiv
 const FefferyDiv = (props) => {
@@ -26,6 +79,7 @@ const FefferyDiv = (props) => {
         replaceChild,
         deleteChildIndex,
         shadow,
+        scrollbar,
         enableClickAway,
         setProps,
         loading_state
@@ -111,12 +165,51 @@ const FefferyDiv = (props) => {
         }, ref);
     }
 
-    // 根据shadow参数预处理className
+    // 若className为字符串或为空
     if (isString(className) || !className) {
+        // 根据shadow参数预处理className
         if (shadow === 'hover-shadow') {
             className = className ? `${className} feffery-div-hover-shadow` : 'feffery-div-hover-shadow'
         } else if (shadow === 'always-shadow') {
             className = className ? `${className} feffery-div-always-shadow` : 'feffery-div-always-shadow'
+        }
+
+        // 根据scrollbar参数预处理className
+        if (scrollbar === 'simple') {
+            className = className ? `${className} feffery-div-scrollbar-simple` : 'feffery-div-scrollbar-simple'
+        } else if (scrollbar === 'hidden') {
+            className = className ? `${className} feffery-div-scrollbar-hidden` : 'feffery-div-scrollbar-hidden'
+        }
+    } else {
+        // 否则则为对象型，进行虚拟化className改造
+        // 根据shadow参数预处理className
+        if (shadow === 'hover-shadow') {
+            className = {
+                ...shadowVirtualClassName.get('hover-shadow'),
+                ...className,
+                '&:hover': {
+                    ...shadowVirtualClassName.get('hover-shadow')['&:hover'],
+                    ...className['&:hover']
+                }
+            }
+        } else if (shadow === 'always-shadow') {
+            className = {
+                ...shadowVirtualClassName.get('always-shadow'),
+                ...className
+            }
+        }
+
+        // 根据scrollbar参数预处理className
+        if (scrollbar === 'simple') {
+            className = {
+                ...scrollbarVirtualClassName.get('simple'),
+                ...className
+            }
+        } else if (scrollbar === 'hidden') {
+            className = {
+                ...scrollbarVirtualClassName.get('hidden'),
+                ...className
+            }
         }
     }
 
@@ -245,6 +338,9 @@ FefferyDiv.propTypes = {
     // 默认为'no-shadow'
     shadow: PropTypes.oneOf(['no-shadow', 'hover-shadow', 'always-shadow']),
 
+    // 设置当前容器的快捷滚动条美化效果，可选的有'default'、'simple'、'hidden'
+    scrollbar: PropTypes.oneOf(['default', 'simple', 'hidden']),
+
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
@@ -277,6 +373,7 @@ FefferyDiv.defaultProps = {
     debounceWait: 150,
     clickAwayCount: 0,
     shadow: 'no-shadow',
+    scrollbar: 'default',
     enableClickAway: false
 }
 

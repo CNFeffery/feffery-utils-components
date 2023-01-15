@@ -19,7 +19,7 @@ Keyword arguments:
 
 - collapsed (boolean | number; default False)
 
-- data (dict; required)
+- data (dict; optional)
 
 - deletable (boolean; default False)
 
@@ -66,7 +66,7 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyJsonViewer'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, key=Component.UNDEFINED, data=Component.REQUIRED, theme=Component.UNDEFINED, indent=Component.UNDEFINED, iconStyle=Component.UNDEFINED, collapsed=Component.UNDEFINED, collapseStringsAfterLength=Component.UNDEFINED, groupArraysAfterLength=Component.UNDEFINED, enableClipboard=Component.UNDEFINED, displayObjectSize=Component.UNDEFINED, displayDataTypes=Component.UNDEFINED, editable=Component.UNDEFINED, addible=Component.UNDEFINED, deletable=Component.UNDEFINED, sortKeys=Component.UNDEFINED, quotesOnKeys=Component.UNDEFINED, displayArrayKey=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, key=Component.UNDEFINED, data=Component.UNDEFINED, theme=Component.UNDEFINED, indent=Component.UNDEFINED, iconStyle=Component.UNDEFINED, collapsed=Component.UNDEFINED, collapseStringsAfterLength=Component.UNDEFINED, groupArraysAfterLength=Component.UNDEFINED, enableClipboard=Component.UNDEFINED, displayObjectSize=Component.UNDEFINED, displayDataTypes=Component.UNDEFINED, editable=Component.UNDEFINED, addible=Component.UNDEFINED, deletable=Component.UNDEFINED, sortKeys=Component.UNDEFINED, quotesOnKeys=Component.UNDEFINED, displayArrayKey=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'addible', 'className', 'collapseStringsAfterLength', 'collapsed', 'data', 'deletable', 'displayArrayKey', 'displayDataTypes', 'displayObjectSize', 'editable', 'enableClipboard', 'groupArraysAfterLength', 'iconStyle', 'indent', 'key', 'loading_state', 'quotesOnKeys', 'sortKeys', 'style', 'theme']
         self._valid_wildcard_attributes =            []
         self.available_properties = ['id', 'addible', 'className', 'collapseStringsAfterLength', 'collapsed', 'data', 'deletable', 'displayArrayKey', 'displayDataTypes', 'displayObjectSize', 'editable', 'enableClipboard', 'groupArraysAfterLength', 'iconStyle', 'indent', 'key', 'loading_state', 'quotesOnKeys', 'sortKeys', 'style', 'theme']
@@ -75,10 +75,5 @@ Keyword arguments:
         _locals = locals()
         _locals.update(kwargs)  # For wildcard attrs and excess named props
         args = {k: _locals[k] for k in _explicit_args}
-
-        for k in ['data']:
-            if k not in args:
-                raise TypeError(
-                    'Required argument `' + k + '` was not specified.')
 
         super(FefferyJsonViewer, self).__init__(**args)

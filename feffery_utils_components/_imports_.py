@@ -1,3 +1,4 @@
+from .FefferyMotion import FefferyMotion
 from .FefferyBlockColorPicker import FefferyBlockColorPicker
 from .FefferyCircleColorPicker import FefferyCircleColorPicker
 from .FefferyEyeDropper import FefferyEyeDropper
@@ -41,6 +42,7 @@ from .FefferyTimeout import FefferyTimeout
 from .FefferyTopProgress import FefferyTopProgress
 from .FefferyVirtualList import FefferyVirtualList
 from .FefferyWebSocket import FefferyWebSocket
+from .FefferyDeviceDetect import FefferyDeviceDetect
 from .FefferyDocumentVisibility import FefferyDocumentVisibility
 from .FefferyGeolocation import FefferyGeolocation
 from .FefferyIdle import FefferyIdle
@@ -55,6 +57,7 @@ from .FefferySplitPane import FefferySplitPane
 from .FefferySessionStorage import FefferySessionStorage
 
 __all__ = [
+    "FefferyMotion",
     "FefferyBlockColorPicker",
     "FefferyCircleColorPicker",
     "FefferyEyeDropper",
@@ -98,6 +101,7 @@ __all__ = [
     "FefferyTopProgress",
     "FefferyVirtualList",
     "FefferyWebSocket",
+    "FefferyDeviceDetect",
     "FefferyDocumentVisibility",
     "FefferyGeolocation",
     "FefferyIdle",

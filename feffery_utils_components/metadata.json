@@ -1,4 +1,329 @@
 {
+  "src/lib/components/animations/FefferyMotion.react.js": {
+    "description": "",
+    "displayName": "FefferyMotion",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "children": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": ""
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "initial": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "object"
+            },
+            {
+              "name": "bool"
+            },
+            {
+              "name": "string"
+            }
+          ]
+        },
+        "required": false,
+        "description": ""
+      },
+      "animate": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "object"
+            },
+            {
+              "name": "string"
+            }
+          ]
+        },
+        "required": false,
+        "description": ""
+      },
+      "exit": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "object"
+            },
+            {
+              "name": "string"
+            }
+          ]
+        },
+        "required": false,
+        "description": ""
+      },
+      "whileHover": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "object"
+            },
+            {
+              "name": "string"
+            }
+          ]
+        },
+        "required": false,
+        "description": ""
+      },
+      "whileTap": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "object"
+            },
+            {
+              "name": "string"
+            }
+          ]
+        },
+        "required": false,
+        "description": ""
+      },
+      "transition": {
+        "type": {
+          "name": "exact",
+          "value": {
+            "delay": {
+              "name": "number",
+              "required": false
+            },
+            "repeat": {
+              "name": "union",
+              "value": [
+                {
+                  "name": "number"
+                },
+                {
+                  "name": "enum",
+                  "value": [
+                    {
+                      "value": "'infinity'",
+                      "computed": false
+                    }
+                  ]
+                }
+              ],
+              "required": false
+            },
+            "repeatType": {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "'loop'",
+                  "computed": false
+                },
+                {
+                  "value": "'reverse'",
+                  "computed": false
+                },
+                {
+                  "value": "'mirror'",
+                  "computed": false
+                }
+              ],
+              "required": false
+            },
+            "repeatDelay": {
+              "name": "number",
+              "required": false
+            },
+            "type": {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "'spring'",
+                  "computed": false
+                },
+                {
+                  "value": "'tween'",
+                  "computed": false
+                }
+              ],
+              "required": false
+            },
+            "duration": {
+              "name": "number",
+              "required": false
+            },
+            "ease": {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "'linear'",
+                  "computed": false
+                },
+                {
+                  "value": "'easeIn'",
+                  "computed": false
+                },
+                {
+                  "value": "'easeOut'",
+                  "computed": false
+                },
+                {
+                  "value": "'easeInOut'",
+                  "computed": false
+                },
+                {
+                  "value": "'circIn'",
+                  "computed": false
+                },
+                {
+                  "value": "'circOut'",
+                  "computed": false
+                },
+                {
+                  "value": "'circInOut'",
+                  "computed": false
+                },
+                {
+                  "value": "'backIn'",
+                  "computed": false
+                },
+                {
+                  "value": "'backOut'",
+                  "computed": false
+                },
+                {
+                  "value": "'backInOut'",
+                  "computed": false
+                },
+                {
+                  "value": "'anticipate'",
+                  "computed": false
+                }
+              ],
+              "required": false
+            },
+            "times": {
+              "name": "arrayOf",
+              "value": {
+                "name": "number"
+              },
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": ""
+      },
+      "whileInView": {
+        "type": {
+          "name": "union",
+          "value": [
+            {
+              "name": "object"
+            },
+            {
+              "name": "string"
+            }
+          ]
+        },
+        "required": false,
+        "description": ""
+      },
+      "viewport": {
+        "type": {
+          "name": "exact",
+          "value": {
+            "once": {
+              "name": "bool",
+              "required": false
+            },
+            "margin": {
+              "name": "string",
+              "required": false
+            },
+            "amount": {
+              "name": "enum",
+              "value": [
+                {
+                  "value": "'some'",
+                  "computed": false
+                },
+                {
+                  "value": "'all'",
+                  "computed": false
+                }
+              ],
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": ""
+      },
+      "variants": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
   "src/lib/components/colorPickers/FefferyBlockColorPicker.react.js": {
     "description": "",
     "displayName": "FefferyBlockColorPicker",
@@ -1681,6 +2006,31 @@
         "description": "",
         "defaultValue": {
           "value": "'no-shadow'",
+          "computed": false
+        }
+      },
+      "scrollbar": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'default'",
+              "computed": false
+            },
+            {
+              "value": "'simple'",
+              "computed": false
+            },
+            {
+              "value": "'hidden'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'default'",
           "computed": false
         }
       },
@@ -3430,7 +3780,7 @@
         "type": {
           "name": "object"
         },
-        "required": true,
+        "required": false,
         "description": ""
       },
       "theme": {
@@ -5835,6 +6185,120 @@
         },
         "required": false,
         "description": ""
+      }
+    }
+  },
+  "src/lib/components/listeners/FefferyDeviceDetect.react.js": {
+    "description": "",
+    "displayName": "FefferyDeviceDetect",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "deviceInfo": {
+        "type": {
+          "name": "exact",
+          "value": {
+            "isMobile": {
+              "name": "bool",
+              "required": false
+            },
+            "isAndroid": {
+              "name": "bool",
+              "required": false
+            },
+            "isIOS": {
+              "name": "bool",
+              "required": false
+            },
+            "isChrome": {
+              "name": "bool",
+              "required": false
+            },
+            "isFirefox": {
+              "name": "bool",
+              "required": false
+            },
+            "isSafari": {
+              "name": "bool",
+              "required": false
+            },
+            "isIE": {
+              "name": "bool",
+              "required": false
+            },
+            "isEdge": {
+              "name": "bool",
+              "required": false
+            },
+            "osVersion": {
+              "name": "string",
+              "required": false
+            },
+            "osName": {
+              "name": "string",
+              "required": false
+            },
+            "browserVersion": {
+              "name": "string",
+              "required": false
+            },
+            "fullBrowserVersion": {
+              "name": "string",
+              "required": false
+            },
+            "browserName": {
+              "name": "string",
+              "required": false
+            },
+            "ua": {
+              "name": "string",
+              "required": false
+            },
+            "deviceType": {
+              "name": "string",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": ""
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
       }
     }
   },
