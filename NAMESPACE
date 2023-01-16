@@ -1,5 +1,6 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+export(''FefferyAutoAnimate)
 export(''FefferyMotion)
 export(''FefferyBlockColorPicker)
 export(''FefferyCircleColorPicker)

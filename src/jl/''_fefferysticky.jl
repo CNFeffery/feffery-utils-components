@@ -21,7 +21,7 @@ Those elements have the following types:
   - `prop_name` (String; optional): Holds which property is loading
   - `component_name` (String; optional): Holds the name of the component that is loading
 - `top` (Real | String; optional)
-- `zIndex` (Real | String; optional)
+- `zIndex` (Real; optional)
 """
 function ''_fefferysticky(; kwargs...)
         available_props = Symbol[:children, :id, :bottomBoundary, :enabled, :loading_state, :top, :zIndex]

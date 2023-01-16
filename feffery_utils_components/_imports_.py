@@ -1,3 +1,4 @@
+from .FefferyAutoAnimate import FefferyAutoAnimate
 from .FefferyMotion import FefferyMotion
 from .FefferyBlockColorPicker import FefferyBlockColorPicker
 from .FefferyCircleColorPicker import FefferyCircleColorPicker
@@ -57,6 +58,7 @@ from .FefferySplitPane import FefferySplitPane
 from .FefferySessionStorage import FefferySessionStorage
 
 __all__ = [
+    "FefferyAutoAnimate",
     "FefferyMotion",
     "FefferyBlockColorPicker",
     "FefferyCircleColorPicker",

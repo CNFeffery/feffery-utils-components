@@ -2,7 +2,7 @@ import Sticky from 'react-stickynode';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// 定义粘性布局组件FefferySticky
+// 定义粘性布局组件FefferySticky，api参数参考：https://github.com/yahoo/react-stickynode
 const FefferySticky = (props) => {
     // 取得必要属性或参数
     const {
@@ -42,6 +42,7 @@ FefferySticky.propTypes = {
 
     // 用于设置触发粘性布局效果对应的顶部距离阈值
     // 当传入字符型时，字符应为css选择器规则，则此时的顶部距离阈值
+    // 默认为0
     // 为选择器对应目标元素的高度
     top: PropTypes.oneOfType([
         PropTypes.number,
@@ -58,10 +59,7 @@ FefferySticky.propTypes = {
     ]),
 
     // 设置粘性布局元素的z-index属性
-    zIndex: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.string
-    ]),
+    zIndex: PropTypes.number,
 
     loading_state: PropTypes.shape({
         /**
@@ -87,7 +85,8 @@ FefferySticky.propTypes = {
 
 // 设置默认参数
 FefferySticky.defaultProps = {
-    enabled: true
+    enabled: true,
+    top: 0
 }
 
 export default FefferySticky;

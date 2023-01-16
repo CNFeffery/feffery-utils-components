@@ -56,6 +56,7 @@ import FefferyImagePaste from "./components/FefferyImagePaste.react";
 import FefferyFullscreen from "./components/FefferyFullscreen.react";
 import FefferyDeviceDetect from "./components/listeners/FefferyDeviceDetect.react";
 import FefferyMotion from "./components/animations/FefferyMotion.react";
+import FefferyAutoAnimate from "./components/animations/FefferyAutoAnimate.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -146,5 +147,6 @@ export {
     FefferyImagePaste,
     FefferyFullscreen,
     FefferyDeviceDetect,
-    FefferyMotion
+    FefferyMotion,
+    FefferyAutoAnimate
 };
