@@ -1,6 +1,5 @@
 /* eslint-disable import/prefer-default-export */
 import FefferyCaptcha from "./components/FefferyCaptcha.react";
-import FefferySyntaxHighlighter from "./components/FefferySyntaxHighlighter.react";
 import FefferyTopProgress from "./components/FefferyTopProgress.react"
 import FefferyShortcutPanel from "./components/FefferyShortcutPanel.react"
 import FefferyGuide from "./components/FefferyGuide.react"
@@ -92,7 +91,6 @@ sessionStorage.setItem = function (key, newValue) {
 
 export {
     FefferyCaptcha,
-    FefferySyntaxHighlighter,
     FefferyTopProgress,
     FefferyShortcutPanel,
     FefferyGuide,
