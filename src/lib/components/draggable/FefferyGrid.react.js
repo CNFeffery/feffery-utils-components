@@ -39,6 +39,8 @@ const FefferyGrid = (props) => {
         loading_state
     } = props;
 
+    console.log({ layouts })
+
     children = parseChildrenToArray(children)
 
     const gridItems = children.map(
@@ -375,7 +377,8 @@ FefferyGrid.propTypes = {
                 isBounded: PropTypes.bool,
                 moved: PropTypes.any
             })
-        )
+        ),
+        PropTypes.any
     ]),
 
     // 自定义样式相关快捷样式参数

@@ -55,7 +55,7 @@ Those elements have the following types:
   - `isDraggable` (Bool; optional)
   - `isResizable` (Bool; optional)
   - `isBounded` (Bool; optional)
-  - `moved` (Bool | Real | String | Dict | Array; optional)s
+  - `moved` (Bool | Real | String | Dict | Array; optional)s | Bool | Real | String | Dict | Array
 - `loading_state` (optional): . loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
 Those elements have the following types:
   - `is_loading` (Bool; optional): Determines if the component is loading or not
