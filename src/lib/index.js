@@ -43,7 +43,6 @@ import FefferyReload from "./components/FefferyReload.react";
 import FefferyCssVar from "./components/FefferyCssVar.react";
 import FefferyEyeDropper from "./components/colorPickers/FefferyEyeDropper.react";
 import FefferySticky from "./components/FefferySticky.react";
-import FefferyLazyLoadImage from "./components/FefferyLazyLoadImage.react";
 import FefferySessionStorage from "./components/store/FefferySessionStorage";
 import FefferyWebSocket from "./components/FefferyWebSocket.react";
 import FefferyShadowDom from "./components/FefferyShadowDom.react";
@@ -134,7 +133,6 @@ export {
     FefferyCssVar,
     FefferyEyeDropper,
     FefferySticky,
-    FefferyLazyLoadImage,
     FefferySessionStorage,
     FefferyWebSocket,
     FefferyShadowDom,
