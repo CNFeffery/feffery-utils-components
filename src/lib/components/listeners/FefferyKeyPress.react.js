@@ -7,16 +7,17 @@ const FefferyKeyPress = (props) => {
     const {
         id,
         keys,
-        pressedTimes,
+        pressedCounts,
         setProps,
         loading_state
     } = props;
 
     useKeyPress(
         keys,
-        () => {
+        (e) => {
+            e.preventDefault() // 阻止浏览器默认行为
             setProps({
-                pressedTimes: pressedTimes + 1
+                pressedCounts: pressedCounts + 1
             })
         }
     );
@@ -37,7 +38,7 @@ FefferyKeyPress.propTypes = {
     keys: PropTypes.string.isRequired,
 
     // 记录设置的按键或按键组合事件已被触发的次数，默认为0
-    pressedTimes: PropTypes.number,
+    pressedCounts: PropTypes.number,
 
     /**
      * Dash-assigned callback that should be called to report property changes
@@ -63,7 +64,7 @@ FefferyKeyPress.propTypes = {
 
 // 设置默认参数
 FefferyKeyPress.defaultProps = {
-    pressedTimes: 0
+    pressedCounts: 0
 }
 
 export default FefferyKeyPress;

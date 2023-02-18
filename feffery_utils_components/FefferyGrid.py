@@ -96,7 +96,7 @@ Keyword arguments:
 
     - x (number; optional)
 
-    - y (number; optional)
+    - y (number; optional) | boolean | number | string | dict | list
 
 - loading_state (dict; optional)
 

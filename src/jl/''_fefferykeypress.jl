@@ -15,10 +15,10 @@ Those elements have the following types:
   - `is_loading` (Bool; optional): Determines if the component is loading or not
   - `prop_name` (String; optional): Holds which property is loading
   - `component_name` (String; optional): Holds the name of the component that is loading
-- `pressedTimes` (Real; optional)
+- `pressedCounts` (Real; optional)
 """
 function ''_fefferykeypress(; kwargs...)
-        available_props = Symbol[:id, :keys, :loading_state, :pressedTimes]
+        available_props = Symbol[:id, :keys, :loading_state, :pressedCounts]
         wild_props = Symbol[]
         return Component("''_fefferykeypress", "FefferyKeyPress", "feffery_utils_components", available_props, wild_props; kwargs...)
 end

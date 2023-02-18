@@ -1,6 +1,6 @@
 {
   "name": "feffery_utils_components",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "description": "Build more utility components for Plotly Dash.",
   "repository": {
     "type": "git",
@@ -50,7 +50,6 @@
     "react-highlight-words": "^0.18.0",
     "react-hot-toast": "^2.4.0",
     "react-lazy-load": "^3.1.14",
-    "react-lazy-load-image-component": "^1.5.5",
     "react-resize-detector": "^7.1.2",
     "react-scroll": "^1.8.6",
     "react-shadow": "^19.0.3",

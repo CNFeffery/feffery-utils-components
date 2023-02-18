@@ -26,16 +26,16 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- pressedTimes (number; default 0)"""
+- pressedCounts (number; default 0)"""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyKeyPress'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, keys=Component.REQUIRED, pressedTimes=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'keys', 'loading_state', 'pressedTimes']
+    def __init__(self, id=Component.UNDEFINED, keys=Component.REQUIRED, pressedCounts=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'keys', 'loading_state', 'pressedCounts']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'keys', 'loading_state', 'pressedTimes']
+        self.available_properties = ['id', 'keys', 'loading_state', 'pressedCounts']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
