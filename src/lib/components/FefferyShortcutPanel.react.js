@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { isString } from 'lodash';
 import "ninja-keys";
@@ -123,23 +123,30 @@ const FefferyShortcutPanel = (props) => {
     )
 
     const ninjaKeys = useRef(null);
-    const [hotkeys, setHotkeys] = useState(
-        data.map(
-            item => isString(item.handler) ?
-                {
-                    ...item,
-                    ...{
-                        handler: eval(item.handler)
-                    }
-                } : item
-        )
-    );
 
     useEffect(() => {
         if (ninjaKeys.current) {
-            ninjaKeys.current.data = hotkeys;
+            ninjaKeys.current.addEventListener("change", (event) => {
+                setProps({
+                    searchValue: event.detail.search
+                })
+            });
         }
     }, []);
+
+    useEffect(() => {
+        if (ninjaKeys.current) {
+            ninjaKeys.current.data = data.map(
+                item => isString(item.handler) ?
+                    {
+                        ...item,
+                        ...{
+                            handler: eval(item.handler)
+                        }
+                    } : item
+            );
+        }
+    }, [data]);
 
     // 自主控制指令面板打开/关闭
     useEffect(() => {
@@ -284,6 +291,9 @@ FefferyShortcutPanel.propTypes = {
 
     // 传入true时手动关闭指令面板，默认为false
     close: PropTypes.bool,
+
+    // 用于监听用户当前已输入搜索内容
+    searchValue: PropTypes.string,
 
     loading_state: PropTypes.shape({
         /**

@@ -29,6 +29,7 @@ Those elements have the following types:
 - `open` (Bool; optional)
 - `openHotkey` (String; optional)
 - `placeholder` (String; optional)
+- `searchValue` (String; optional)
 - `theme` (a value equal to: 'light', 'dark'; optional)
 - `triggeredHotkey` (optional): . triggeredHotkey has the following type: lists containing elements 'id', 'timestamp'.
 Those elements have the following types:
@@ -36,7 +37,7 @@ Those elements have the following types:
   - `timestamp` (Real; optional)
 """
 function ''_fefferyshortcutpanel(; kwargs...)
-        available_props = Symbol[:id, :close, :data, :loading_state, :locale, :open, :openHotkey, :placeholder, :theme, :triggeredHotkey]
+        available_props = Symbol[:id, :close, :data, :loading_state, :locale, :open, :openHotkey, :placeholder, :searchValue, :theme, :triggeredHotkey]
         wild_props = Symbol[]
         return Component("''_fefferyshortcutpanel", "FefferyShortcutPanel", "feffery_utils_components", available_props, wild_props; kwargs...)
 end
