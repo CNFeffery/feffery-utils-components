@@ -15,22 +15,20 @@ Keyword arguments:
 - `id` (String; optional)
 - `_height` (Real; optional)
 - `_width` (Real; optional)
-- `appendChild` (a list of or a singular dash component, string or number; optional)
 - `className` (String | Dict; optional)
 - `clickAwayCount` (Real; optional)
-- `contextMenuEvent` (optional): . contextMenuEvent has the following type: lists containing elements 'pageX', 'pageY', 'timestamp'.
+- `contextMenuEvent` (optional): . contextMenuEvent has the following type: lists containing elements 'pageX', 'pageY', 'clientX', 'clientY', 'screenX', 'screenY', 'timestamp'.
 Those elements have the following types:
   - `pageX` (Real; optional)
   - `pageY` (Real; optional)
+  - `clientX` (Real; optional)
+  - `clientY` (Real; optional)
+  - `screenX` (Real; optional)
+  - `screenY` (Real; optional)
   - `timestamp` (Real; optional)
 - `debounceWait` (Real; optional)
-- `deleteChildIndex` (Real; optional)
 - `enableClickAway` (Bool; optional)
 - `enableListenContextMenu` (Bool; optional)
-- `insertChild` (optional): . insertChild has the following type: lists containing elements 'index', 'element'.
-Those elements have the following types:
-  - `index` (Real; optional)
-  - `element` (a list of or a singular dash component, string or number; optional)
 - `isHovering` (Bool; optional)
 - `key` (String; optional)
 - `loading_state` (optional): . loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
@@ -42,16 +40,12 @@ Those elements have the following types:
 - `mouseLeaveCount` (Real; optional)
 - `nClicks` (Real; optional)
 - `nDoubleClicks` (Real; optional)
-- `replaceChild` (optional): . replaceChild has the following type: lists containing elements 'index', 'element'.
-Those elements have the following types:
-  - `index` (Real; optional)
-  - `element` (a list of or a singular dash component, string or number; optional)
 - `scrollbar` (a value equal to: 'default', 'simple', 'hidden'; optional)
 - `shadow` (a value equal to: 'no-shadow', 'hover-shadow', 'always-shadow'; optional)
 - `style` (Dict; optional)
 """
 function ''_fefferydiv(; kwargs...)
-        available_props = Symbol[:children, :id, :_height, :_width, :appendChild, :className, :clickAwayCount, :contextMenuEvent, :debounceWait, :deleteChildIndex, :enableClickAway, :enableListenContextMenu, :insertChild, :isHovering, :key, :loading_state, :mouseEnterCount, :mouseLeaveCount, :nClicks, :nDoubleClicks, :replaceChild, :scrollbar, :shadow, :style]
+        available_props = Symbol[:children, :id, :_height, :_width, :className, :clickAwayCount, :contextMenuEvent, :debounceWait, :enableClickAway, :enableListenContextMenu, :isHovering, :key, :loading_state, :mouseEnterCount, :mouseLeaveCount, :nClicks, :nDoubleClicks, :scrollbar, :shadow, :style]
         wild_props = Symbol[]
         return Component("''_fefferydiv", "FefferyDiv", "feffery_utils_components", available_props, wild_props; kwargs...)
 end

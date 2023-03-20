@@ -74,10 +74,6 @@ const FefferyDiv = (props) => {
         enableListenContextMenu,
         debounceWait,
         clickAwayCount,
-        appendChild,
-        insertChild,
-        replaceChild,
-        deleteChildIndex,
         shadow,
         scrollbar,
         enableClickAway,
@@ -88,46 +84,6 @@ const FefferyDiv = (props) => {
     const ref = useRef(null);
     const size = useSize(ref);
     const _isHovering = useHover(ref);
-
-    // 快捷children数组增删操作
-    useEffect(() => {
-        if (children && appendChild) {
-            setProps({
-                children: children.concat(appendChild),
-                appendChild: null // 重置
-            })
-        }
-    }, [appendChild])
-
-    useEffect(() => {
-        if (children && insertChild && insertChild.index && insertChild.element) {
-            setProps({
-                children: children.slice(0, insertChild.index)
-                    .concat([insertChild.element])
-                    .concat(children.slice(insertChild.index)),
-                insertChild: null // 重置
-            })
-        }
-    }, [insertChild])
-
-    useEffect(() => {
-        if (children && replaceChild && replaceChild.index && replaceChild.element) {
-            children[replaceChild.index] = replaceChild.element
-            setProps({
-                children: children,
-                replaceChild: null // 重置
-            })
-        }
-    }, [replaceChild])
-
-    useEffect(() => {
-        if (children && (deleteChildIndex || deleteChildIndex === 0)) {
-            setProps({
-                children: children.filter((_, i) => i !== deleteChildIndex),
-                deleteChildIndex: null // 重置
-            })
-        }
-    }, [deleteChildIndex])
 
     // 防抖更新容器尺寸
     const { run: updateWidthHeight } = useRequest(
@@ -259,29 +215,6 @@ FefferyDiv.propTypes = {
 
     children: PropTypes.node,
 
-    // 快捷children数组增删参数，在有效值传入促使组件更新后会自动重置为undefined
-    // 用于快捷向children数组末尾追加新元素
-    appendChild: PropTypes.node,
-
-    // 用于快捷在原children数组第index个位置插入新元素
-    insertChild: PropTypes.exact({
-        // 要插入的位序
-        index: PropTypes.number,
-        // 要插入的元素
-        element: PropTypes.node
-    }),
-
-    // 用于快捷对children数组第index个位置的元素进行替换
-    replaceChild: PropTypes.exact({
-        // 要替换元素的位序
-        index: PropTypes.number,
-        // 要替换的新元素
-        element: PropTypes.node
-    }),
-
-    // 用于快捷删除原children第index个位置的元素
-    deleteChildIndex: PropTypes.number,
-
     style: PropTypes.object,
 
     className: PropTypes.oneOfType([
@@ -320,6 +253,10 @@ FefferyDiv.propTypes = {
         pageX: PropTypes.number,
         // 在页面中的y坐标
         pageY: PropTypes.number,
+        clientX: PropTypes.number,
+        clientY: PropTypes.number,
+        screenX: PropTypes.number,
+        screenY: PropTypes.number,
         // 点击事件对应的时间戳
         timestamp: PropTypes.number
     }),
