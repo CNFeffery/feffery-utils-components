@@ -55,6 +55,7 @@ import FefferyFullscreen from "./components/FefferyFullscreen.react";
 import FefferyDeviceDetect from "./components/listeners/FefferyDeviceDetect.react";
 import FefferyMotion from "./components/animations/FefferyMotion.react";
 import FefferyAutoAnimate from "./components/animations/FefferyAutoAnimate.react";
+import FefferyCountUp from "./components/FefferyCountUp.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -144,5 +145,6 @@ export {
     FefferyFullscreen,
     FefferyDeviceDetect,
     FefferyMotion,
-    FefferyAutoAnimate
+    FefferyAutoAnimate,
+    FefferyCountUp
 };

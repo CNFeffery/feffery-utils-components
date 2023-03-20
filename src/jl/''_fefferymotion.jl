@@ -17,6 +17,7 @@ Keyword arguments:
 - `className` (String; optional)
 - `exit` (Dict | String; optional)
 - `initial` (Dict | Bool | String; optional)
+- `key` (String; optional)
 - `loading_state` (optional): . loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
 Those elements have the following types:
   - `is_loading` (Bool; optional): Determines if the component is loading or not
@@ -44,7 +45,7 @@ Those elements have the following types:
 - `whileTap` (Dict | String; optional)
 """
 function ''_fefferymotion(; kwargs...)
-        available_props = Symbol[:children, :id, :animate, :className, :exit, :initial, :loading_state, :style, :transition, :variants, :viewport, :whileHover, :whileInView, :whileTap]
+        available_props = Symbol[:children, :id, :animate, :className, :exit, :initial, :key, :loading_state, :style, :transition, :variants, :viewport, :whileHover, :whileInView, :whileTap]
         wild_props = Symbol[]
         return Component("''_fefferymotion", "FefferyMotion", "feffery_utils_components", available_props, wild_props; kwargs...)
 end

@@ -20,6 +20,7 @@ const FefferyMotion = (props) => {
         children,
         style,
         className,
+        key,
         initial,
         animate,
         exit,
@@ -47,6 +48,7 @@ const FefferyMotion = (props) => {
                     (className ? useCss(className) : undefined)
             }
             style={style}
+            key={key}
             initial={initial}
             animate={animate}
             exit={exit}
@@ -77,6 +79,8 @@ FefferyMotion.propTypes = {
 
     // css类名
     className: PropTypes.string,
+
+    key: PropTypes.string,
 
     // 设置当前组件初始化时的样式
     initial: PropTypes.oneOfType([
