@@ -120,6 +120,13 @@
         "required": false,
         "description": ""
       },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
       "initial": {
         "type": {
           "name": "union",
@@ -1797,6 +1804,156 @@
       }
     }
   },
+  "src/lib/components/FefferyCountUp.react.js": {
+    "description": "",
+    "displayName": "FefferyCountUp",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "key": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "end": {
+        "type": {
+          "name": "number"
+        },
+        "required": true,
+        "description": ""
+      },
+      "start": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "duration": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "2",
+          "computed": false
+        }
+      },
+      "decimals": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "enableScrollSpy": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "scrollSpyDelay": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "scrollSpyOnce": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "separator": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "','",
+          "computed": false
+        }
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
   "src/lib/components/FefferyCssVar.react.js": {
     "description": "",
     "displayName": "FefferyCssVar",
@@ -1871,54 +2028,6 @@
       "children": {
         "type": {
           "name": "node"
-        },
-        "required": false,
-        "description": ""
-      },
-      "appendChild": {
-        "type": {
-          "name": "node"
-        },
-        "required": false,
-        "description": ""
-      },
-      "insertChild": {
-        "type": {
-          "name": "exact",
-          "value": {
-            "index": {
-              "name": "number",
-              "required": false
-            },
-            "element": {
-              "name": "node",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": ""
-      },
-      "replaceChild": {
-        "type": {
-          "name": "exact",
-          "value": {
-            "index": {
-              "name": "number",
-              "required": false
-            },
-            "element": {
-              "name": "node",
-              "required": false
-            }
-          }
-        },
-        "required": false,
-        "description": ""
-      },
-      "deleteChildIndex": {
-        "type": {
-          "name": "number"
         },
         "required": false,
         "description": ""
@@ -2034,6 +2143,22 @@
               "required": false
             },
             "pageY": {
+              "name": "number",
+              "required": false
+            },
+            "clientX": {
+              "name": "number",
+              "required": false
+            },
+            "clientY": {
+              "name": "number",
+              "required": false
+            },
+            "screenX": {
+              "name": "number",
+              "required": false
+            },
+            "screenY": {
               "name": "number",
               "required": false
             },
@@ -5318,6 +5443,13 @@
           "computed": false
         }
       },
+      "searchValue": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
       "loading_state": {
         "type": {
           "name": "shape",
@@ -6353,6 +6485,58 @@
           "value": "0",
           "computed": false
         }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": ""
+      }
+    }
+  },
+  "src/lib/components/listeners/FefferyListenUnload.react.js": {
+    "description": "",
+    "displayName": "FefferyListenUnload",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "unloaded": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": ""
       },
       "setProps": {
         "type": {

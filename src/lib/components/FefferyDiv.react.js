@@ -249,13 +249,17 @@ FefferyDiv.propTypes = {
 
     // 监听右键事件
     contextMenuEvent: PropTypes.exact({
-        // 在页面中的x坐标
+        // 以页面整体左上角为原点，记录x坐标
         pageX: PropTypes.number,
-        // 在页面中的y坐标
+        // 以页面整体左上角为原点，记录y坐标
         pageY: PropTypes.number,
+        // 以浏览器窗口左上角为原点，记录x坐标
         clientX: PropTypes.number,
+        // 以浏览器窗口左上角为原点，记录y坐标
         clientY: PropTypes.number,
+        // 以屏幕左上角为原点，记录x坐标
         screenX: PropTypes.number,
+        // 以屏幕左上角为原点，记录y坐标
         screenY: PropTypes.number,
         // 点击事件对应的时间戳
         timestamp: PropTypes.number

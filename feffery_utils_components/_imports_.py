@@ -12,6 +12,7 @@ from .FefferyGrid import FefferyGrid
 from .FefferyGridItem import FefferyGridItem
 from .FefferyCaptcha import FefferyCaptcha
 from .FefferyCountDown import FefferyCountDown
+from .FefferyCountUp import FefferyCountUp
 from .FefferyCssVar import FefferyCssVar
 from .FefferyDiv import FefferyDiv
 from .FefferyExecuteJs import FefferyExecuteJs
@@ -47,6 +48,7 @@ from .FefferyGeolocation import FefferyGeolocation
 from .FefferyIdle import FefferyIdle
 from .FefferyInViewport import FefferyInViewport
 from .FefferyKeyPress import FefferyKeyPress
+from .FefferyListenUnload import FefferyListenUnload
 from .FefferyResponsive import FefferyResponsive
 from .FefferyWindowSize import FefferyWindowSize
 from .FefferySortableContainer import FefferySortableContainer
@@ -70,6 +72,7 @@ __all__ = [
     "FefferyGridItem",
     "FefferyCaptcha",
     "FefferyCountDown",
+    "FefferyCountUp",
     "FefferyCssVar",
     "FefferyDiv",
     "FefferyExecuteJs",
@@ -105,6 +108,7 @@ __all__ = [
     "FefferyIdle",
     "FefferyInViewport",
     "FefferyKeyPress",
+    "FefferyListenUnload",
     "FefferyResponsive",
     "FefferyWindowSize",
     "FefferySortableContainer",
