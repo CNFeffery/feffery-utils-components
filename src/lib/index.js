@@ -57,6 +57,7 @@ import FefferyMotion from "./components/animations/FefferyMotion.react";
 import FefferyAutoAnimate from "./components/animations/FefferyAutoAnimate.react";
 import FefferyCountUp from "./components/FefferyCountUp.react";
 import FefferyListenUnload from "./components/listeners/FefferyListenUnload.react";
+import FefferyListenScroll from "./components/listeners/FefferyListenScroll.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -148,5 +149,6 @@ export {
     FefferyMotion,
     FefferyAutoAnimate,
     FefferyCountUp,
-    FefferyListenUnload
+    FefferyListenUnload,
+    FefferyListenScroll
 };
