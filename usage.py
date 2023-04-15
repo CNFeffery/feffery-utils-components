@@ -11,9 +11,8 @@ app = dash.Dash(
 
 app.layout = html.Div(
     [
-        fuc.FefferyListenScroll(
-            id='listen-scroll-demo',
-            target='scroll-target-container'
+        fuc.FefferyMousePosition(
+            id='lmouse-position-demo'
         ),
         html.Pre(
             id='position',
@@ -21,25 +20,6 @@ app.layout = html.Div(
                 'position': 'fixed',
                 'top': 25,
                 'left': 25
-            }
-        ),
-
-        html.Div(
-            html.Div(
-                style={
-                    'width': 99999,
-                    'height': 99999
-                }
-            ),
-            id='scroll-target-container',
-            style={
-                'position': 'fixed',
-                'width': 500,
-                'height': 300,
-                'overflow': 'auto',
-                'top': '50%',
-                'left': '20%',
-                'border': '1px solid lighgrey'
             }
         )
     ],
@@ -53,12 +33,14 @@ app.layout = html.Div(
 
 @app.callback(
     Output('position', 'children'),
-    Input('listen-scroll-demo', 'position')
+    Input('lmouse-position-demo', 'position')
 )
 def demo(position):
 
     return json.dumps(
-        position
+        position,
+        indent=4,
+        ensure_ascii=False
     )
 
 
