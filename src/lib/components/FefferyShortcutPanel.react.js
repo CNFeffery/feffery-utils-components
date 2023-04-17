@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { isString } from 'lodash';
 import "ninja-keys";
+import FefferyStyle from './FefferyStyle.react';
 
 const footerHtmlEn = <div class="modal-footer" slot="footer">
     <span class="help">
@@ -98,6 +99,7 @@ const FefferyShortcutPanel = (props) => {
         locale,
         open,
         close,
+        panelStyles,
         setProps,
         loading_state
     } = props;
@@ -169,20 +171,60 @@ const FefferyShortcutPanel = (props) => {
         }
     }, [close])
 
+    panelStyles = {
+        ...{
+            width: '640px',
+            overflowBackground: 'rgba(255, 255, 255, 0.5)',
+            textColor: 'rgb(60, 65, 73)',
+            fontSize: '16px',
+            top: '20%',
+            accentColor: 'rgb(110, 94, 210)',
+            secondaryBackgroundColor: 'rgb(239, 241, 244)',
+            secondaryTextColor: 'rgb(107, 111, 118)',
+            selectedBackground: 'rgb(248, 249, 251)',
+            actionsHeight: '300px',
+            groupTextColor: 'rgb(144, 149, 157)',
+            zIndex: 1
+        },
+        ...panelStyles
+    }
+
     // 返回向页面注入的快捷键监听
     return (
-        <ninja-keys id={id}
-            class={theme}
-            ref={ninjaKeys}
-            placeholder={placeholder || locale2placeholder.get(locale)}
-            openHotkey={openHotkey}
-            hotKeysJoinedView={true}
-            hideBreadcrumbs={true}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } >
-            {locale2footer.get(locale)}
-        </ ninja-keys>
+        <>
+            <FefferyStyle
+                rawStyle={
+                    `
+ninja-keys {
+    --ninja-width: ${panelStyles.width};
+    --ninja-overflow-background: ${panelStyles.overflowBackground};
+    --ninja-text-color: ${panelStyles.textColor};
+    --ninja-font-size: ${panelStyles.fontSize};
+    --ninja-top: ${panelStyles.top};
+    --ninja-accent-color: ${panelStyles.accentColor};
+    --ninja-secondary-background-color: ${panelStyles.secondaryBackgroundColor};
+    --ninja-secondary-text-color: ${panelStyles.secondaryTextColor};
+    --ninja-selected-background: ${panelStyles.selectedBackground};
+    --ninja-actions-height: ${panelStyles.actionsHeight};
+    --ninja-group-text-color: ${panelStyles.groupTextColor};
+    --ninja-z-index: ${panelStyles.zIndex};
+}
+`
+                }
+            />
+            <ninja-keys id={id}
+                class={theme}
+                ref={ninjaKeys}
+                placeholder={placeholder || locale2placeholder.get(locale)}
+                openHotkey={openHotkey}
+                hotKeysJoinedView={true}
+                hideBreadcrumbs={true}
+                data-dash-is-loading={
+                    (loading_state && loading_state.is_loading) || undefined
+                } >
+                {locale2footer.get(locale)}
+            </ ninja-keys>
+        </>
     );
 }
 
@@ -291,6 +333,34 @@ FefferyShortcutPanel.propTypes = {
 
     // 传入true时手动关闭指令面板，默认为false
     close: PropTypes.bool,
+
+    // 用于配置指令面板相关样式参数
+    panelStyles: PropTypes.exact({
+        // 设置面板宽度，默认为'640px'
+        width: PropTypes.string,
+        // 设置面板选项滚动区背景色，默认为'rgba(255, 255, 255, 0.5)'
+        overflowBackground: PropTypes.string,
+        // 设置面板字体颜色，默认为'rgb(60, 65, 73)'
+        textColor: PropTypes.string,
+        // 设置面板字体大小，默认为'16px'
+        fontSize: PropTypes.string,
+        // 设置面板距离顶端距离，默认为'20%'
+        top: PropTypes.string,
+        // 设置面板主色，默认为'rgb(110, 94, 210)'
+        accentColor: PropTypes.string,
+        // 设置面板次要背景色，默认为'rgb(239, 241, 244)'
+        secondaryBackgroundColor: PropTypes.string,
+        // 设置面板次要文字颜色，默认为'rgb(107, 111, 118)'
+        secondaryTextColor: PropTypes.string,
+        // 设置面板选中项背景色，默认为'rgb(248, 249, 251)'
+        selectedBackground: PropTypes.string,
+        // 设置面板选项区高度，默认为'300px'
+        actionsHeight: PropTypes.string,
+        // 设置面板分组标签文字颜色，默认为'rgb(144, 149, 157)'
+        groupTextColor: PropTypes.string,
+        // 设置面板的z-index信息，默认为1
+        zIndex: PropTypes.number
+    }),
 
     // 用于监听用户当前已输入搜索内容
     searchValue: PropTypes.string,

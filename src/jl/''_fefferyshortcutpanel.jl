@@ -28,6 +28,20 @@ Those elements have the following types:
 - `locale` (a value equal to: 'en', 'zh'; optional)
 - `open` (Bool; optional)
 - `openHotkey` (String; optional)
+- `panelStyles` (optional): . panelStyles has the following type: lists containing elements 'width', 'overflowBackground', 'textColor', 'fontSize', 'top', 'accentColor', 'secondaryBackgroundColor', 'secondaryTextColor', 'selectedBackground', 'actionsHeight', 'groupTextColor', 'zIndex'.
+Those elements have the following types:
+  - `width` (String; optional)
+  - `overflowBackground` (String; optional)
+  - `textColor` (String; optional)
+  - `fontSize` (String; optional)
+  - `top` (String; optional)
+  - `accentColor` (String; optional)
+  - `secondaryBackgroundColor` (String; optional)
+  - `secondaryTextColor` (String; optional)
+  - `selectedBackground` (String; optional)
+  - `actionsHeight` (String; optional)
+  - `groupTextColor` (String; optional)
+  - `zIndex` (Real; optional)
 - `placeholder` (String; optional)
 - `searchValue` (String; optional)
 - `theme` (a value equal to: 'light', 'dark'; optional)
@@ -37,7 +51,7 @@ Those elements have the following types:
   - `timestamp` (Real; optional)
 """
 function ''_fefferyshortcutpanel(; kwargs...)
-        available_props = Symbol[:id, :close, :data, :loading_state, :locale, :open, :openHotkey, :placeholder, :searchValue, :theme, :triggeredHotkey]
+        available_props = Symbol[:id, :close, :data, :loading_state, :locale, :open, :openHotkey, :panelStyles, :placeholder, :searchValue, :theme, :triggeredHotkey]
         wild_props = Symbol[]
         return Component("''_fefferyshortcutpanel", "FefferyShortcutPanel", "feffery_utils_components", available_props, wild_props; kwargs...)
 end
