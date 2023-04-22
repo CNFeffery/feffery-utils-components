@@ -11,16 +11,16 @@ app = dash.Dash(
 
 app.layout = html.Div(
     [
-        fuc.FefferyMousePosition(
-            id='lmouse-position-demo'
-        ),
-        html.Pre(
-            id='position',
+        fuc.FefferyDiv(
+            id='input',
+            shadow='always-shadow',
             style={
-                'position': 'fixed',
-                'top': 25,
-                'left': 25
+                'width': 500,
+                'height': 300
             }
+        ),
+        html.Div(
+            id='output'
         )
     ],
     style={
@@ -31,17 +31,13 @@ app.layout = html.Div(
 )
 
 
-@app.callback(
-    Output('position', 'children'),
-    Input('lmouse-position-demo', 'position')
+app.clientside_callback(
+    '''( pasteCount, pasteText ) => `${pasteText} ${pasteCount}`''',
+    Output('output', 'children'),
+    Input('input', 'pasteCount'),
+    State('input', 'pasteText'),
+    prevent_initial_call=True
 )
-def demo(position):
-
-    return json.dumps(
-        position,
-        indent=4,
-        ensure_ascii=False
-    )
 
 
 if __name__ == '__main__':
