@@ -78,6 +78,7 @@ const FefferyDiv = (props) => {
         scrollbar,
         enableClickAway,
         pasteCount,
+        enableListenPaste,
         setProps,
         loading_state
     } = props;
@@ -200,14 +201,18 @@ const FefferyDiv = (props) => {
         }}
         onMouseEnter={() => setProps({ mouseEnterCount: mouseEnterCount + 1 })}
         onMouseLeave={() => setProps({ mouseLeaveCount: mouseLeaveCount + 1 })}
-        onPaste={(e) => {
-            if (_isHovering) {
-                setProps({
-                    pasteText: e.clipboardData.getData('text').toString(),
-                    pasteCount: pasteCount + 1
-                })
-            }
-        }}
+        onPaste={
+            enableListenPaste ?
+                (e) => {
+                    if (_isHovering) {
+                        setProps({
+                            pasteText: e.clipboardData.getData('text').toString(),
+                            pasteCount: pasteCount + 1
+                        })
+                    }
+                } :
+                undefined
+        }
         data-dash-is-loading={
             (loading_state && loading_state.is_loading) || undefined
         } >
@@ -277,6 +282,9 @@ FefferyDiv.propTypes = {
     // 监听当前元素是否被鼠标悬浮
     isHovering: PropTypes.bool,
 
+    // 设置是否为当前容器启用容器内文字内容粘贴监听，默认为false
+    enableListenPaste: PropTypes.bool,
+
     // 监听鼠标移入当前容器内时进行粘贴的文字内容
     pasteText: PropTypes.string,
 
@@ -331,6 +339,7 @@ FefferyDiv.defaultProps = {
     shadow: 'no-shadow',
     scrollbar: 'default',
     enableClickAway: false,
+    enableListenPaste: false,
     pasteCount: 0
 }
 
