@@ -207,9 +207,3 @@ ninja-keys::part(actions-list) {
 ninja-keys {
   --ninja-z-index: 99999;
 }
-
-div:focus {
-  outline: none;
-  caret-color: transparent;
-  cursor: default;
-}
