@@ -1,43 +1,41 @@
-import json
 import dash
 from dash import html
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output, State
 
-app = dash.Dash(
-    __name__,
-    suppress_callback_exceptions=True
-)
+app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
         fuc.FefferyDiv(
-            id='input',
+            id='paste-target-container',
             shadow='always-shadow',
             style={
                 'width': 500,
                 'height': 300
             }
         ),
-        html.Div(
-            id='output'
+        fuc.FefferyListenPaste(
+            id='listen-paste',
+            # enableListenPaste=True,
+            targetContainerId='paste-target-container'
         )
     ],
     style={
-        'padding': '50px 100px',
-        'height': 99999,
-        'width': 99999
+        'padding': '50px 100px'
     }
 )
 
 
-app.clientside_callback(
-    '''( pasteCount, pasteText ) => `${pasteText} ${pasteCount}`''',
-    Output('output', 'children'),
-    Input('input', 'pasteCount'),
-    State('input', 'pasteText'),
+@app.callback(
+    Output('paste-target-container', 'children'),
+    Input('listen-paste', 'pasteCount'),
+    State('listen-paste', 'pasteText'),
     prevent_initial_call=True
 )
+def demo(pasteCount, pasteText):
+
+    return f'pasteCount: {pasteCount}  pasteText: {pasteText}'
 
 
 if __name__ == '__main__':

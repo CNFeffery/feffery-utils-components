@@ -29,7 +29,6 @@ Those elements have the following types:
 - `debounceWait` (Real; optional)
 - `enableClickAway` (Bool; optional)
 - `enableListenContextMenu` (Bool; optional)
-- `enableListenPaste` (Bool; optional)
 - `isHovering` (Bool; optional)
 - `key` (String; optional)
 - `loading_state` (optional): . loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
@@ -41,14 +40,12 @@ Those elements have the following types:
 - `mouseLeaveCount` (Real; optional)
 - `nClicks` (Real; optional)
 - `nDoubleClicks` (Real; optional)
-- `pasteCount` (Real; optional)
-- `pasteText` (String; optional)
 - `scrollbar` (a value equal to: 'default', 'simple', 'hidden'; optional)
 - `shadow` (a value equal to: 'no-shadow', 'hover-shadow', 'always-shadow'; optional)
 - `style` (Dict; optional)
 """
 function ''_fefferydiv(; kwargs...)
-        available_props = Symbol[:children, :id, :_height, :_width, :className, :clickAwayCount, :contextMenuEvent, :debounceWait, :enableClickAway, :enableListenContextMenu, :enableListenPaste, :isHovering, :key, :loading_state, :mouseEnterCount, :mouseLeaveCount, :nClicks, :nDoubleClicks, :pasteCount, :pasteText, :scrollbar, :shadow, :style]
+        available_props = Symbol[:children, :id, :_height, :_width, :className, :clickAwayCount, :contextMenuEvent, :debounceWait, :enableClickAway, :enableListenContextMenu, :isHovering, :key, :loading_state, :mouseEnterCount, :mouseLeaveCount, :nClicks, :nDoubleClicks, :scrollbar, :shadow, :style]
         wild_props = Symbol[]
         return Component("''_fefferydiv", "FefferyDiv", "feffery_utils_components", available_props, wild_props; kwargs...)
 end

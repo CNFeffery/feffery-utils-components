@@ -59,6 +59,7 @@ import FefferyCountUp from "./components/FefferyCountUp.react";
 import FefferyListenUnload from "./components/listeners/FefferyListenUnload.react";
 import FefferyListenScroll from "./components/listeners/FefferyListenScroll.react";
 import FefferyMousePosition from "./components/listeners/FefferyMousePosition.react";
+import FefferyListenPaste from "./components/listeners/FefferyListenPaste.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -152,5 +153,6 @@ export {
     FefferyCountUp,
     FefferyListenUnload,
     FefferyListenScroll,
-    FefferyMousePosition
+    FefferyMousePosition,
+    FefferyListenPaste
 };

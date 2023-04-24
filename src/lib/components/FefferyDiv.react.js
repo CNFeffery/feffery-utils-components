@@ -77,8 +77,6 @@ const FefferyDiv = (props) => {
         shadow,
         scrollbar,
         enableClickAway,
-        pasteCount,
-        enableListenPaste,
         setProps,
         loading_state
     } = props;
@@ -201,18 +199,6 @@ const FefferyDiv = (props) => {
         }}
         onMouseEnter={() => setProps({ mouseEnterCount: mouseEnterCount + 1 })}
         onMouseLeave={() => setProps({ mouseLeaveCount: mouseLeaveCount + 1 })}
-        onPaste={
-            enableListenPaste ?
-                (e) => {
-                    if (_isHovering) {
-                        setProps({
-                            pasteText: e.clipboardData.getData('text').toString(),
-                            pasteCount: pasteCount + 1
-                        })
-                    }
-                } :
-                undefined
-        }
         data-dash-is-loading={
             (loading_state && loading_state.is_loading) || undefined
         } >
@@ -282,15 +268,6 @@ FefferyDiv.propTypes = {
     // 监听当前元素是否被鼠标悬浮
     isHovering: PropTypes.bool,
 
-    // 设置是否为当前容器启用容器内文字内容粘贴监听，默认为false
-    enableListenPaste: PropTypes.bool,
-
-    // 监听鼠标移入当前容器内时进行粘贴的文字内容
-    pasteText: PropTypes.string,
-
-    // 监听鼠标移入当前容器内时进行粘贴的行为累计次数，默认为0
-    pasteCount: PropTypes.number,
-
     // 设置是否启用元素外点击事件监听，当页面中有大量FefferyDiv元素时，建议不要开启此特性，会导致明显的性能问题
     // 默认为false
     enableClickAway: PropTypes.bool,
@@ -338,9 +315,7 @@ FefferyDiv.defaultProps = {
     clickAwayCount: 0,
     shadow: 'no-shadow',
     scrollbar: 'default',
-    enableClickAway: false,
-    enableListenPaste: false,
-    pasteCount: 0
+    enableClickAway: false
 }
 
 export default FefferyDiv;
