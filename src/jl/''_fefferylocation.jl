@@ -22,7 +22,7 @@ Those elements have the following types:
 - `port` (String; optional)
 - `protocol` (String; optional)
 - `search` (String; optional)
-- `trigger` (a value equal to: 'load', 'pushstate'; optional)
+- `trigger` (a value equal to: 'load', 'pushstate', 'popstate'; optional)
 """
 function ''_fefferylocation(; kwargs...)
         available_props = Symbol[:id, :hash, :host, :hostname, :href, :loading_state, :pathname, :port, :protocol, :search, :trigger]

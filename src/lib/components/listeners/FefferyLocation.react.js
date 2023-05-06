@@ -67,8 +67,8 @@ FefferyLocation.propTypes = {
     protocol: PropTypes.string,
 
     // 用于监听最近一次地址更新行为触发类型
-    // 'load'表示页面重载行为，'pushstate'表示动态更新行为
-    trigger: PropTypes.oneOf(['load', 'pushstate']),
+    // 'load'表示页面重载行为，'pushstate'表示动态更新行为，'popstate'表示返回上一步地址
+    trigger: PropTypes.oneOf(['load', 'pushstate', 'popstate']),
 
     /**
      * Dash-assigned callback that should be called to report property changes
