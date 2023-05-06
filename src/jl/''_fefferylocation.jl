@@ -8,18 +8,24 @@ export ''_fefferylocation
 A FefferyLocation component.
 
 Keyword arguments:
-- `id` (String; required): The ID of this component, used to identify dash components
-in callbacks. The ID needs to be unique across all of the
-components in an app.
-- `hash` (String; optional): hash in window.location - e.g., "#myhash"
-- `href` (String; optional): href in window.location - e.g., "/my/full/pathname?myargument=1#myhash"
-- `includePathnames` (Array of Strings; optional)
-- `pathname` (String; optional): pathname in window.location - e.g., "/my/full/pathname"
-- `refresh` (Bool; optional): Refresh the page when the location is updated?
-- `search` (String; optional): search in window.location - e.g., "?myargument=1"
+- `id` (String; optional)
+- `hash` (String; optional)
+- `host` (String; optional)
+- `hostname` (String; optional)
+- `href` (String; optional)
+- `loading_state` (optional): . loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
+Those elements have the following types:
+  - `is_loading` (Bool; optional): Determines if the component is loading or not
+  - `prop_name` (String; optional): Holds which property is loading
+  - `component_name` (String; optional): Holds the name of the component that is loading
+- `pathname` (String; optional)
+- `port` (String; optional)
+- `protocol` (String; optional)
+- `search` (String; optional)
+- `trigger` (a value equal to: 'load', 'pushstate'; optional)
 """
 function ''_fefferylocation(; kwargs...)
-        available_props = Symbol[:id, :hash, :href, :includePathnames, :pathname, :refresh, :search]
+        available_props = Symbol[:id, :hash, :host, :hostname, :href, :loading_state, :pathname, :port, :protocol, :search, :trigger]
         wild_props = Symbol[]
         return Component("''_fefferylocation", "FefferyLocation", "feffery_utils_components", available_props, wild_props; kwargs...)
 end

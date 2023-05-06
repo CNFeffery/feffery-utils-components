@@ -1,5 +1,6 @@
+import json
 import dash
-from dash import html
+from dash import html, dcc
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output, State
 
@@ -7,19 +8,31 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        fuc.FefferyDiv(
-            id='paste-target-container',
-            shadow='always-shadow',
+        fuc.FefferyLocation(id='location'),
+        html.Div(
+            [
+                dcc.Link(
+                    '/page1',
+                    href='/page1'
+                ),
+
+                dcc.Link(
+                    '/page1#tag1',
+                    href='/page1#tag1'
+                ),
+
+                dcc.Link(
+                    '/page1?a=1&b=2',
+                    href='/page1?a=1&b=2'
+                )
+            ],
             style={
-                'width': 500,
-                'height': 300
+                'display': 'flex',
+                'gap': 8
             }
         ),
-        fuc.FefferyListenPaste(
-            id='listen-paste',
-            # enableListenPaste=True,
-            targetContainerId='paste-target-container'
-        )
+
+        html.Pre(id='output')
     ],
     style={
         'padding': '50px 100px'
@@ -28,14 +41,42 @@ app.layout = html.Div(
 
 
 @app.callback(
-    Output('paste-target-container', 'children'),
-    Input('listen-paste', 'pasteCount'),
-    State('listen-paste', 'pasteText'),
-    prevent_initial_call=True
+    Output('output', 'children'),
+    [Input('location', 'href'),
+     Input('location', 'pathname'),
+     Input('location', 'search'),
+     Input('location', 'hash'),
+     Input('location', 'host'),
+     Input('location', 'hostname'),
+     Input('location', 'port'),
+     Input('location', 'protocol'),
+     Input('location', 'trigger')]
 )
-def demo(pasteCount, pasteText):
+def demo(href,
+         pathname,
+         search,
+         hash,
+         host,
+         hostname,
+         port,
+         protocol,
+         trigger):
 
-    return f'pasteCount: {pasteCount}  pasteText: {pasteText}'
+    return json.dumps(
+        dict(
+            href=href,
+            pathname=pathname,
+            search=search,
+            hash=hash,
+            host=host,
+            hostname=hostname,
+            port=port,
+            protocol=protocol,
+            trigger=trigger
+        ),
+        indent=4,
+        ensure_ascii=False
+    )
 
 
 if __name__ == '__main__':

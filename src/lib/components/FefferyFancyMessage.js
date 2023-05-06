@@ -64,7 +64,6 @@ const FefferyFancyMessage = (props) => {
                 visible: false
             })
         }
-
     }, [visible])
 
     return (<Toaster
