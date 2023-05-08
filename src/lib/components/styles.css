@@ -89,7 +89,7 @@
   opacity: 0.8;
 }
 
-/* for FefferyHighlightWords */
+/* FefferyHighlightWords高亮相关样式 */
 .feffery-highlight-words-highlight {
   background-color: #ffd54f;
   font-weight: "normal";
@@ -99,11 +99,20 @@
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
 }
 
+/* FefferyDiv阴影相关样式效果 */
 .feffery-div-always-shadow {
   box-shadow: 0 8px 24px rgba(81, 87, 103, 0.16);
 }
 
+.feffery-div-always-shadow-light {
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
+}
+
 .feffery-div-hover-shadow {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.feffery-div-hover-shadow-light {
   transition: box-shadow 0.3s ease-in-out;
 }
 
@@ -112,6 +121,12 @@
   transition: box-shadow 0.3s ease-in-out;
 }
 
+.feffery-div-hover-shadow-light:hover {
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* FefferyDiv滚动条相关样式 */
 .feffery-div-scrollbar-simple::-webkit-scrollbar {
   width: 6px;
 }

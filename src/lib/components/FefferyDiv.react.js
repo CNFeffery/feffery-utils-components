@@ -23,6 +23,22 @@ const shadowVirtualClassName = new Map(
             {
                 boxShadow: '0 8px 24px rgba(81, 87, 103, 0.16)'
             }
+        ],
+        [
+            'hover-shadow-light',
+            {
+                transition: 'box-shadow 0.3s ease-in-out',
+                '&:hover': {
+                    boxShadow: '0px 0px 12px rgba(0, 0, 0, 0.12)',
+                    transition: 'box-shadow 0.3s ease-in-out'
+                }
+            }
+        ],
+        [
+            'always-shadow-light',
+            {
+                boxShadow: '0px 0px 12px rgba(0, 0, 0, 0.12)'
+            }
         ]
     ]
 )
@@ -76,6 +92,13 @@ const FefferyDiv = (props) => {
         clickAwayCount,
         shadow,
         scrollbar,
+        textAlign,
+        justify,
+        align,
+        padding,
+        margin,
+        border,
+        borderRadius,
         enableClickAway,
         setProps,
         loading_state
@@ -128,6 +151,10 @@ const FefferyDiv = (props) => {
             className = className ? `${className} feffery-div-hover-shadow` : 'feffery-div-hover-shadow'
         } else if (shadow === 'always-shadow') {
             className = className ? `${className} feffery-div-always-shadow` : 'feffery-div-always-shadow'
+        } else if (shadow === 'hover-shadow-light') {
+            className = className ? `${className} feffery-div-hover-shadow-light` : 'feffery-div-hover-shadow-light'
+        } else if (shadow === 'always-shadow-light') {
+            className = className ? `${className} feffery-div-always-shadow-light` : 'feffery-div-always-shadow-light'
         }
 
         // 根据scrollbar参数预处理className
@@ -153,6 +180,20 @@ const FefferyDiv = (props) => {
                 ...shadowVirtualClassName.get('always-shadow'),
                 ...className
             }
+        } else if (shadow === 'hover-shadow-light') {
+            className = {
+                ...shadowVirtualClassName.get('hover-shadow-light'),
+                ...className,
+                '&:hover': {
+                    ...shadowVirtualClassName.get('hover-shadow-light')['&:hover'],
+                    ...className['&:hover']
+                }
+            }
+        } else if (shadow === 'always-shadow-light') {
+            className = {
+                ...shadowVirtualClassName.get('always-shadow-light'),
+                ...className
+            }
         }
 
         // 根据scrollbar参数预处理className
@@ -172,7 +213,19 @@ const FefferyDiv = (props) => {
     return <div
         id={id}
         key={key}
-        style={style}
+        style={
+            {
+                textAlign,
+                justifyContent: justify,
+                alignItems: align,
+                padding,
+                margin,
+                border,
+                borderRadius,
+                display: justify || align ? 'flex' : null,
+                ...style
+            }
+        }
         className={
             isString(className) ?
                 className :
@@ -277,10 +330,48 @@ FefferyDiv.propTypes = {
 
     // 设置当前容器的快捷阴影效果，可选的有'no-shadow'、'hover-shadow'、'always-shadow'
     // 默认为'no-shadow'
-    shadow: PropTypes.oneOf(['no-shadow', 'hover-shadow', 'always-shadow']),
+    shadow: PropTypes.oneOf([
+        'no-shadow',
+        'hover-shadow',
+        'always-shadow',
+        'hover-shadow-light',
+        'always-shadow-light'
+    ]),
 
     // 设置当前容器的快捷滚动条美化效果，可选的有'default'、'simple'、'hidden'
     scrollbar: PropTypes.oneOf(['default', 'simple', 'hidden']),
+
+    // text-align快捷设置
+    textAlign: PropTypes.oneOf(['left', 'center', 'right']),
+
+    // 针对flex布局的justify-content快捷设置
+    // 传入有效值后会自动开启flex布局
+    justify: PropTypes.string,
+
+    // 针对flex布局的align-items快捷设置
+    // 传入有效值后会自动开启flex布局
+    align: PropTypes.string,
+
+    // padding快捷设置
+    padding: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
+
+    // margin快捷设置
+    margin: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
+
+    // border快捷设置
+    border: PropTypes.string,
+
+    // border-radius快捷设置
+    borderRadius: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
 
     /**
      * Dash-assigned callback that should be called to report property changes

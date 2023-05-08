@@ -8,76 +8,30 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        fuc.FefferyLocation(id='location'),
-        html.Div(
-            [
-                dcc.Link(
-                    '/page1',
-                    href='/page1'
-                ),
-
-                dcc.Link(
-                    '/page1#tag1',
-                    href='/page1#tag1'
-                ),
-
-                dcc.Link(
-                    '/page1?a=1&b=2',
-                    href='/page1?a=1&b=2'
-                )
-            ],
+        fuc.FefferyDiv(
+            '测试',
+            justify='center',
+            align='center',
+            shadow='always-shadow',
+            borderRadius=6,
             style={
-                'display': 'flex',
-                'gap': 8
+                'height': 200,
+                'marginBottom': 50
             }
         ),
 
-        html.Pre(id='output')
+        fuc.FefferyDiv(
+            shadow='always-shadow-light',
+            borderRadius=6,
+            style={
+                'height': 200
+            }
+        )
     ],
     style={
         'padding': '50px 100px'
     }
 )
-
-
-@app.callback(
-    Output('output', 'children'),
-    [Input('location', 'href'),
-     Input('location', 'pathname'),
-     Input('location', 'search'),
-     Input('location', 'hash'),
-     Input('location', 'host'),
-     Input('location', 'hostname'),
-     Input('location', 'port'),
-     Input('location', 'protocol'),
-     Input('location', 'trigger')]
-)
-def demo(href,
-         pathname,
-         search,
-         hash,
-         host,
-         hostname,
-         port,
-         protocol,
-         trigger):
-
-    return json.dumps(
-        dict(
-            href=href,
-            pathname=pathname,
-            search=search,
-            hash=hash,
-            host=host,
-            hostname=hostname,
-            port=port,
-            protocol=protocol,
-            trigger=trigger
-        ),
-        indent=4,
-        ensure_ascii=False
-    )
-
 
 if __name__ == '__main__':
     app.run(debug=True)
