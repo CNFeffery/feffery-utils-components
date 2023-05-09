@@ -66,6 +66,7 @@ include("jl/''_fefferysortablecontainer.jl")
 include("jl/''_fefferysortableitem.jl")
 include("jl/''_fefferysplit.jl")
 include("jl/''_fefferysplitpane.jl")
+include("jl/''_fefferycookie.jl")
 include("jl/''_fefferysessionstorage.jl")
 
 function __init__()
