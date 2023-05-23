@@ -1,7 +1,6 @@
 import { Resizable } from 're-resizable';
 import PropTypes from 'prop-types';
 import { clone } from 'lodash';
-import '../styles.css'
 
 // 定义尺寸调整组件FefferyResizable
 const FefferyResizable = (props) => {
