@@ -3,7 +3,7 @@ module FefferyUtilsComponents
 using Dash
 
 const resources_path = realpath(joinpath( @__DIR__, "..", "deps"))
-const version = "0.1.28"
+const version = "0.1.29"
 
 include("jl/''_fefferyautoanimate.jl")
 include("jl/''_fefferymotion.jl")
@@ -62,6 +62,7 @@ include("jl/''_fefferylocation.jl")
 include("jl/''_fefferymouseposition.jl")
 include("jl/''_fefferyresponsive.jl")
 include("jl/''_fefferywindowsize.jl")
+include("jl/''_fefferyresizable.jl")
 include("jl/''_fefferysortablecontainer.jl")
 include("jl/''_fefferysortableitem.jl")
 include("jl/''_fefferysplit.jl")
@@ -78,14 +79,14 @@ function __init__()
             [
                 DashBase.Resource(
     relative_package_path = "feffery_utils_components.min.js",
-    external_url = "https://unpkg.com/feffery_utils_components@0.1.28/feffery_utils_components/feffery_utils_components.min.js",
+    external_url = "https://unpkg.com/feffery_utils_components@0.1.29/feffery_utils_components/feffery_utils_components.min.js",
     dynamic = nothing,
     async = nothing,
     type = :js
 ),
 DashBase.Resource(
     relative_package_path = "feffery_utils_components.min.js.map",
-    external_url = "https://unpkg.com/feffery_utils_components@0.1.28/feffery_utils_components/feffery_utils_components.min.js.map",
+    external_url = "https://unpkg.com/feffery_utils_components@0.1.29/feffery_utils_components/feffery_utils_components.min.js.map",
     dynamic = true,
     async = nothing,
     type = :js
