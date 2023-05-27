@@ -10,6 +10,20 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
+        fuc.FefferyStyle(
+            rawStyle='''
+.custom-right-resize-handle:hover, .custom-right-resize-handle:active {
+    background: #007fd4;
+    transition: 0.3s background;
+}
+
+.custom-right-resize-handle {
+    transition: 0.3s background;
+    width: 4px !important;
+    right: -2px !important;
+}
+'''
+        ),
         fuc.FefferyResizable(
             html.Div(
                 '测试',
@@ -23,7 +37,11 @@ app.layout = html.Div(
                 'height': '100%',
                 'width': 300
             },
-            minWidth=100
+            minWidth=200,
+            maxWidth=400,
+            handleClassNames={
+                'right': 'custom-right-resize-handle'
+            }
         )
     ],
     style={

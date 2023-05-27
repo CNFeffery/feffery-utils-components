@@ -19,6 +19,8 @@ const FefferyResizable = (props) => {
         direction,
         grid,
         bounds,
+        handleStyles,
+        handleClassNames,
         setProps,
         loading_state
     } = props;
@@ -58,19 +60,25 @@ const FefferyResizable = (props) => {
             bounds={bounds}
             enable={enable}
             handleStyles={{
+                ...handleStyles,
                 top: {
-                    cursor: "ns-resize"
+                    cursor: "ns-resize",
+                    ...handleStyles?.top
                 },
                 right: {
-                    cursor: "ew-resize"
+                    cursor: "ew-resize",
+                    ...handleStyles?.right
                 },
                 bottom: {
-                    cursor: "ns-resize"
+                    cursor: "ns-resize",
+                    ...handleStyles?.bottom
                 },
                 left: {
-                    cursor: "ew-resize"
+                    cursor: "ew-resize",
+                    ...handleStyles?.left
                 }
             }}
+            handleClasses={handleClassNames}
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             }
@@ -146,6 +154,30 @@ FefferyResizable.propTypes = {
     // 设置尺寸调整组件的外边界类型，可选的有'window'、'parent'
     // 默认为'window'
     bounds: PropTypes.oneOf(['window', 'parent']),
+
+    // 用于分别设置不同方向上拖拽控件部分的css样式
+    handleStyles: PropTypes.exact({
+        top: PropTypes.object,
+        right: PropTypes.object,
+        bottom: PropTypes.object,
+        left: PropTypes.object,
+        topRight: PropTypes.object,
+        bottomRight: PropTypes.object,
+        bottomLeft: PropTypes.object,
+        topLeft: PropTypes.object
+    }),
+
+    // 用于分别设置不同方向上拖拽控件部分的css类名
+    handleClassNames: PropTypes.exact({
+        top: PropTypes.string,
+        right: PropTypes.string,
+        bottom: PropTypes.string,
+        left: PropTypes.string,
+        topRight: PropTypes.string,
+        bottomRight: PropTypes.string,
+        bottomLeft: PropTypes.string,
+        topLeft: PropTypes.string
+    }),
 
     loading_state: PropTypes.shape({
         /**

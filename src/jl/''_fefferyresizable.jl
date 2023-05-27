@@ -21,6 +21,26 @@ Those elements have the following types:
   - `height` (Real | String; optional)
 - `direction` (Array of a value equal to: 'top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft's; optional)
 - `grid` (Array of Reals; optional)
+- `handleClassNames` (optional): . handleClassNames has the following type: lists containing elements 'top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft'.
+Those elements have the following types:
+  - `top` (String; optional)
+  - `right` (String; optional)
+  - `bottom` (String; optional)
+  - `left` (String; optional)
+  - `topRight` (String; optional)
+  - `bottomRight` (String; optional)
+  - `bottomLeft` (String; optional)
+  - `topLeft` (String; optional)
+- `handleStyles` (optional): . handleStyles has the following type: lists containing elements 'top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft'.
+Those elements have the following types:
+  - `top` (Dict; optional)
+  - `right` (Dict; optional)
+  - `bottom` (Dict; optional)
+  - `left` (Dict; optional)
+  - `topRight` (Dict; optional)
+  - `bottomRight` (Dict; optional)
+  - `bottomLeft` (Dict; optional)
+  - `topLeft` (Dict; optional)
 - `key` (String; optional)
 - `loading_state` (optional): . loading_state has the following type: lists containing elements 'is_loading', 'prop_name', 'component_name'.
 Those elements have the following types:
@@ -34,7 +54,7 @@ Those elements have the following types:
 - `style` (Dict; optional)
 """
 function ''_fefferyresizable(; kwargs...)
-        available_props = Symbol[:children, :id, :bounds, :className, :defaultSize, :direction, :grid, :key, :loading_state, :maxHeight, :maxWidth, :minHeight, :minWidth, :style]
+        available_props = Symbol[:children, :id, :bounds, :className, :defaultSize, :direction, :grid, :handleClassNames, :handleStyles, :key, :loading_state, :maxHeight, :maxWidth, :minHeight, :minWidth, :style]
         wild_props = Symbol[]
         return Component("''_fefferyresizable", "FefferyResizable", "feffery_utils_components", available_props, wild_props; kwargs...)
 end
