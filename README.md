@@ -1,5 +1,3 @@
-> 本项目处于早期活跃开发测试阶段
-
 <p align="center">
 	<img src="./fuc-logo.svg" height=200></img>
 </p>
