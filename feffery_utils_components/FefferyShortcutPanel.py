@@ -52,6 +52,34 @@ Keyword arguments:
 
 - openHotkey (string; default 'cmd+k,ctrl+k')
 
+- panelStyles (dict; optional)
+
+    `panelStyles` is a dict with keys:
+
+    - accentColor (string; optional)
+
+    - actionsHeight (string; optional)
+
+    - fontSize (string; optional)
+
+    - groupTextColor (string; optional)
+
+    - overflowBackground (string; optional)
+
+    - secondaryBackgroundColor (string; optional)
+
+    - secondaryTextColor (string; optional)
+
+    - selectedBackground (string; optional)
+
+    - textColor (string; optional)
+
+    - top (string; optional)
+
+    - width (string; optional)
+
+    - zIndex (number; optional)
+
 - placeholder (string; optional)
 
 - searchValue (string; optional)
@@ -70,10 +98,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyShortcutPanel'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, locale=Component.UNDEFINED, data=Component.REQUIRED, triggeredHotkey=Component.UNDEFINED, placeholder=Component.UNDEFINED, openHotkey=Component.UNDEFINED, theme=Component.UNDEFINED, open=Component.UNDEFINED, close=Component.UNDEFINED, searchValue=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'close', 'data', 'loading_state', 'locale', 'open', 'openHotkey', 'placeholder', 'searchValue', 'theme', 'triggeredHotkey']
+    def __init__(self, id=Component.UNDEFINED, locale=Component.UNDEFINED, data=Component.REQUIRED, triggeredHotkey=Component.UNDEFINED, placeholder=Component.UNDEFINED, openHotkey=Component.UNDEFINED, theme=Component.UNDEFINED, open=Component.UNDEFINED, close=Component.UNDEFINED, panelStyles=Component.UNDEFINED, searchValue=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'close', 'data', 'loading_state', 'locale', 'open', 'openHotkey', 'panelStyles', 'placeholder', 'searchValue', 'theme', 'triggeredHotkey']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'close', 'data', 'loading_state', 'locale', 'open', 'openHotkey', 'placeholder', 'searchValue', 'theme', 'triggeredHotkey']
+        self.available_properties = ['id', 'close', 'data', 'loading_state', 'locale', 'open', 'openHotkey', 'panelStyles', 'placeholder', 'searchValue', 'theme', 'triggeredHotkey']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

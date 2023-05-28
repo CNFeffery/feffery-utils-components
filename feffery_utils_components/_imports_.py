@@ -48,13 +48,19 @@ from .FefferyGeolocation import FefferyGeolocation
 from .FefferyIdle import FefferyIdle
 from .FefferyInViewport import FefferyInViewport
 from .FefferyKeyPress import FefferyKeyPress
+from .FefferyListenPaste import FefferyListenPaste
+from .FefferyListenScroll import FefferyListenScroll
 from .FefferyListenUnload import FefferyListenUnload
+from .FefferyLocation import FefferyLocation
+from .FefferyMousePosition import FefferyMousePosition
 from .FefferyResponsive import FefferyResponsive
 from .FefferyWindowSize import FefferyWindowSize
+from .FefferyResizable import FefferyResizable
 from .FefferySortableContainer import FefferySortableContainer
 from .FefferySortableItem import FefferySortableItem
 from .FefferySplit import FefferySplit
 from .FefferySplitPane import FefferySplitPane
+from .FefferyCookie import FefferyCookie
 from .FefferySessionStorage import FefferySessionStorage
 
 __all__ = [
@@ -108,12 +114,18 @@ __all__ = [
     "FefferyIdle",
     "FefferyInViewport",
     "FefferyKeyPress",
+    "FefferyListenPaste",
+    "FefferyListenScroll",
     "FefferyListenUnload",
+    "FefferyLocation",
+    "FefferyMousePosition",
     "FefferyResponsive",
     "FefferyWindowSize",
+    "FefferyResizable",
     "FefferySortableContainer",
     "FefferySortableItem",
     "FefferySplit",
     "FefferySplitPane",
+    "FefferyCookie",
     "FefferySessionStorage"
 ]

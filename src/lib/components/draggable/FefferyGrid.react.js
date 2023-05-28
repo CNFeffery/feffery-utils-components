@@ -39,8 +39,6 @@ const FefferyGrid = (props) => {
         loading_state
     } = props;
 
-    console.log({ layouts })
-
     children = parseChildrenToArray(children)
 
     const gridItems = children.map(
@@ -81,7 +79,6 @@ const FefferyGrid = (props) => {
             _layouts[key] = layouts
         }
     }
-
 
     return (
         <React.Fragment >
