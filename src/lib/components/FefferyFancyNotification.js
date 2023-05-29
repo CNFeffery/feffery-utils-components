@@ -40,12 +40,16 @@ const FefferyFancyNotification = (props) => {
                 toast(
                     children,
                     {
-                        type: type
+                        type: type,
+                        containerId: containerId
                     }
                 )
             } else {
                 toast(
                     children,
+                    {
+                        containerId: containerId
+                    }
                 )
             }
             setProps({
@@ -55,30 +59,33 @@ const FefferyFancyNotification = (props) => {
 
     }, [visible])
 
-    return (<ToastContainer
-        id={id}
-        key={key}
-        className={className}
-        style={style}
-        position={position}
-        autoClose={autoClose}
-        closeButton={closable}
-        hideProgressBar={hideProgressBar}
-        pauseOnHover={pauseOnHover}
-        closeOnClick={closeOnClick}
-        newestOnTop={newestOnTop}
-        toastClassName={toastClassName}
-        bodyClassName={bodyClassName}
-        progressClassName={progressClassName}
-        progressStyle={progressStyle}
-        draggable={draggable}
-        draggablePercent={draggablePercent}
-        containerId={containerId}
-        limit={limit}
-        theme={theme}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        } />);
+    return (
+        <ToastContainer
+            id={id}
+            key={key}
+            className={className}
+            style={style}
+            position={position}
+            autoClose={autoClose}
+            closeButton={closable}
+            hideProgressBar={hideProgressBar}
+            pauseOnHover={pauseOnHover}
+            closeOnClick={closeOnClick}
+            newestOnTop={newestOnTop}
+            toastClassName={toastClassName}
+            bodyClassName={bodyClassName}
+            progressClassName={progressClassName}
+            progressStyle={progressStyle}
+            draggable={draggable}
+            draggablePercent={draggablePercent}
+            containerId={containerId}
+            enableMultiContainer={true}
+            limit={limit}
+            theme={theme}
+            data-dash-is-loading={
+                (loading_state && loading_state.is_loading) || undefined
+            } />
+    );
 }
 
 // 定义参数或属性
