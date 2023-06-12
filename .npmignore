@@ -2,8 +2,6 @@
 /build
 /deps
 /dist
-/feffery_utils_components/*.js
-/feffery_utils_components/*.json
 /feffery_utils_components.egg-info
 /inst
 /man

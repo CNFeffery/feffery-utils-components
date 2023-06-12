@@ -1734,6 +1734,154 @@
       }
     }
   },
+  "src/lib/components/FefferyCompareSlider.react.js": {
+    "description": "",
+    "displayName": "FefferyCompareSlider",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "style": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "firstItem": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": ""
+      },
+      "secondItem": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": ""
+      },
+      "position": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "50",
+          "computed": false
+        }
+      },
+      "onlyHandleDraggable": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "boundsPadding": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "direction": {
+        "type": {
+          "name": "enum",
+          "value": [
+            {
+              "value": "'horizontal'",
+              "computed": false
+            },
+            {
+              "value": "'vertical'",
+              "computed": false
+            }
+          ]
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'horizontal'",
+          "computed": false
+        }
+      },
+      "buttonStyle": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "\u8bbe\u7f6e\u62d6\u62fd\u63a7\u4ef6\u6309\u94ae\u90e8\u5206\u7684css\u6837\u5f0f"
+      },
+      "lineStyle": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "\u8bbe\u7f6e\u62d6\u62fd\u63a7\u4ef6\u7ebf\u6761\u90e8\u5206\u7684css\u6837\u5f0f"
+      },
+      "rootStyle": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "\u8bbe\u7f6e\u62d6\u62fd\u63a7\u4ef6\u6839\u5143\u7d20\u90e8\u5206\u7684css\u6837\u5f0f"
+      },
+      "loading_state": {
+        "type": {
+          "name": "shape",
+          "value": {
+            "is_loading": {
+              "name": "bool",
+              "description": "Determines if the component is loading or not",
+              "required": false
+            },
+            "prop_name": {
+              "name": "string",
+              "description": "Holds which property is loading",
+              "required": false
+            },
+            "component_name": {
+              "name": "string",
+              "description": "Holds the name of the component that is loading",
+              "required": false
+            }
+          }
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
   "src/lib/components/FefferyCountDown.react.js": {
     "description": "",
     "displayName": "FefferyCountDown",

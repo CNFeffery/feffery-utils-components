@@ -11,6 +11,7 @@ from .FefferyWheelColorPicker import FefferyWheelColorPicker
 from .FefferyGrid import FefferyGrid
 from .FefferyGridItem import FefferyGridItem
 from .FefferyCaptcha import FefferyCaptcha
+from .FefferyCompareSlider import FefferyCompareSlider
 from .FefferyCountDown import FefferyCountDown
 from .FefferyCountUp import FefferyCountUp
 from .FefferyCssVar import FefferyCssVar
@@ -77,6 +78,7 @@ __all__ = [
     "FefferyGrid",
     "FefferyGridItem",
     "FefferyCaptcha",
+    "FefferyCompareSlider",
     "FefferyCountDown",
     "FefferyCountUp",
     "FefferyCssVar",
