@@ -22,7 +22,7 @@ Keyword arguments:
 
 - firstItem (a list of or a singular dash component, string or number; optional)
 
-- lineStyle (dict; optional):
+- linesStyle (dict; optional):
     设置拖拽控件线条部分的css样式.
 
 - loading_state (dict; optional)
@@ -53,10 +53,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyCompareSlider'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, firstItem=Component.UNDEFINED, secondItem=Component.UNDEFINED, position=Component.UNDEFINED, onlyHandleDraggable=Component.UNDEFINED, boundsPadding=Component.UNDEFINED, direction=Component.UNDEFINED, buttonStyle=Component.UNDEFINED, lineStyle=Component.UNDEFINED, rootStyle=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'boundsPadding', 'buttonStyle', 'className', 'direction', 'firstItem', 'lineStyle', 'loading_state', 'onlyHandleDraggable', 'position', 'rootStyle', 'secondItem', 'style']
+    def __init__(self, id=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, firstItem=Component.UNDEFINED, secondItem=Component.UNDEFINED, position=Component.UNDEFINED, onlyHandleDraggable=Component.UNDEFINED, boundsPadding=Component.UNDEFINED, direction=Component.UNDEFINED, buttonStyle=Component.UNDEFINED, linesStyle=Component.UNDEFINED, rootStyle=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'boundsPadding', 'buttonStyle', 'className', 'direction', 'firstItem', 'linesStyle', 'loading_state', 'onlyHandleDraggable', 'position', 'rootStyle', 'secondItem', 'style']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'boundsPadding', 'buttonStyle', 'className', 'direction', 'firstItem', 'lineStyle', 'loading_state', 'onlyHandleDraggable', 'position', 'rootStyle', 'secondItem', 'style']
+        self.available_properties = ['id', 'boundsPadding', 'buttonStyle', 'className', 'direction', 'firstItem', 'linesStyle', 'loading_state', 'onlyHandleDraggable', 'position', 'rootStyle', 'secondItem', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

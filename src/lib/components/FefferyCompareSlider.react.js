@@ -1,3 +1,4 @@
+import React from 'react';
 import { ReactCompareSlider, ReactCompareSliderHandle } from 'react-compare-slider';
 import PropTypes from 'prop-types';
 
@@ -15,7 +16,7 @@ const FefferyCompareSlider = (props) => {
         boundsPadding,
         direction,
         buttonStyle,
-        lineStyle,
+        linesStyle,
         rootStyle,
         setProps,
         loading_state
@@ -36,7 +37,7 @@ const FefferyCompareSlider = (props) => {
             handle={
                 <ReactCompareSliderHandle
                     buttonStyle={buttonStyle}
-                    lineStyle={lineStyle}
+                    linesStyle={linesStyle}
                     style={rootStyle}
                     portrait={direction === 'vertical'} />
             }
@@ -84,7 +85,7 @@ FefferyCompareSlider.propTypes = {
     /**
      * 设置拖拽控件线条部分的css样式
      */
-    lineStyle: PropTypes.object,
+    linesStyle: PropTypes.object,
 
     /**
      * 设置拖拽控件根元素部分的css样式
@@ -121,4 +122,4 @@ FefferyCompareSlider.defaultProps = {
     direction: 'horizontal',
 }
 
-export default FefferyCompareSlider;
+export default React.memo(FefferyCompareSlider);
