@@ -12,3 +12,5 @@
 /src/demo
 /src/jl
 /src/*.jl
+
+package-lock.json
