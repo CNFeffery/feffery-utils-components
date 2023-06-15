@@ -2,7 +2,6 @@ if True:
     import sys
     sys.path.append('../..')
     import dash
-    import json
     from dash import html
     import feffery_utils_components as fuc
     from dash.dependencies import Input, Output
@@ -17,7 +16,7 @@ app.layout = html.Div(
                     html.Div(
                         f'记录{i}',
                         style={
-                            'height': '60px',
+                            'height': '32px',
                             'borderBottom': '1px solid #efefef',
                             'display': 'flex',
                             'alignItems': 'center',

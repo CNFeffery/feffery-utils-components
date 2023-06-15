@@ -57,8 +57,7 @@ from .FefferyMousePosition import FefferyMousePosition
 from .FefferyResponsive import FefferyResponsive
 from .FefferyWindowSize import FefferyWindowSize
 from .FefferyResizable import FefferyResizable
-from .FefferySortableContainer import FefferySortableContainer
-from .FefferySortableItem import FefferySortableItem
+from .FefferySortableList import FefferySortableList
 from .FefferySplit import FefferySplit
 from .FefferySplitPane import FefferySplitPane
 from .FefferyCookie import FefferyCookie
@@ -124,8 +123,7 @@ __all__ = [
     "FefferyResponsive",
     "FefferyWindowSize",
     "FefferyResizable",
-    "FefferySortableContainer",
-    "FefferySortableItem",
+    "FefferySortableList",
     "FefferySplit",
     "FefferySplitPane",
     "FefferyCookie",

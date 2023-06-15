@@ -31,8 +31,6 @@ import FefferyWindowSize from "./components/listeners/FefferyWindowSize.react";
 import FefferyKeyPress from "./components/listeners/FefferyKeyPress.react";
 import FefferyTimeout from "./components/FefferyTimeout.react";
 import FefferyCountDown from "./components/FefferyCountDown.react";
-import FefferySortableItem from "./components/sortable/FefferySortableItem.react";
-import FefferySortableContainer from "./components/sortable/FefferySortableContainer.react";
 import FefferyRawHTML from "./components/FefferyRawHTML.react";
 import FefferyFancyNotification from "./components/FefferyFancyNotification";
 import FefferyQRCode from "./components/FefferyQrcode.react";
@@ -64,6 +62,7 @@ import FefferyLocation from "./components/listeners/FefferyLocation.react";
 import FefferyCookie from "./components/store/FefferyCookie.react";
 import FefferyResizable from "./components/resizable/FefferyResizable.react";
 import FefferyCompareSlider from "./components/FefferyCompareSlider.react";
+import FefferySortableList from "./components/sortable/FefferySortableList.react";
 
 /* 
 忽略部分设计React中规范的console警告信息
@@ -130,8 +129,6 @@ export {
     FefferyKeyPress,
     FefferyTimeout,
     FefferyCountDown,
-    FefferySortableItem,
-    FefferySortableContainer,
     FefferyRawHTML,
     FefferyFancyNotification,
     FefferyQRCode,
@@ -162,5 +159,6 @@ export {
     FefferyLocation,
     FefferyCookie,
     FefferyResizable,
-    FefferyCompareSlider
+    FefferyCompareSlider,
+    FefferySortableList
 };

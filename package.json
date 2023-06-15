@@ -24,6 +24,8 @@
   "license": "MIT",
   "dependencies": {
     "@ant-design/icons": "^4.8.0",
+    "@dnd-kit/core": "^6.0.8",
+    "@dnd-kit/sortable": "^7.0.2",
     "@formkit/auto-animate": "^1.0.0-beta.5",
     "@uiw/color-convert": "^1.1.0",
     "@uiw/react-color-wheel": "^1.1.0",
@@ -56,7 +58,6 @@
     "react-resize-detector": "^7.1.2",
     "react-scroll": "^1.8.6",
     "react-shadow": "^19.0.3",
-    "react-sortable-hoc": "^2.0.0",
     "react-spinners-kit": "^1.9.1",
     "react-split": "^2.0.14",
     "react-stickynode": "^4.1.0",
