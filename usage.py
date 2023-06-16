@@ -11,22 +11,35 @@ app.layout = html.Div(
             id='input',
             items=[
                 {
-                    'id': f'子项{i}',
+                    'key': f'子项{i}',
                     'content': html.Div(
                         f'子项{i}',
                         style={
-                            'padding': f'{10+i*5}px 6px'
+                            'padding': '10px 6px'
                         }
                     ),
                     'style': {
-                        'borderBottom': '1px solid lightgrey'
+                        'borderBottom': '1px solid lightgrey',
+                        'background': 'white',
+                        'padding': '0 5px'
+                    },
+                    'draggingStyle': {
+                        'boxShadow': '0px 0px 12px rgba(0, 0, 0, 0.12)',
+                        'borderBottom': '1px solid transparent'
                     }
                 }
                 for i in range(1, 6)
             ],
+            itemDraggingScale=1.025,
             handleStyle={
-                'color': '#919eab',
-                # 'cursor': 'move'
+                'color': '#adb5bd'
+            },
+            handleClassName={
+                '&:hover': {
+                    'background': '#f1f3f5'
+                },
+                'padding': '4px',
+                'borderRadius': '8px'
             },
             style={
                 'width': 300
@@ -45,9 +58,9 @@ app.layout = html.Div(
     Output('output', 'children'),
     Input('input', 'currentOrder')
 )
-def demo(_):
+def sortable_list_demo(currentOrder):
 
-    return str(_)
+    return str(currentOrder)
 
 
 if __name__ == '__main__':

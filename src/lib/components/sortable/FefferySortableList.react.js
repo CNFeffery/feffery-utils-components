@@ -14,9 +14,32 @@ import {
     verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { MenuOutlined } from "@ant-design/icons";
+import { HolderOutlined, MenuOutlined, DragOutlined } from "@ant-design/icons";
+import useCss from "../../hooks/useCss";
+import { isString } from 'lodash';
 
-const SortableItem = ({ id, style: containerStyle, children, handleStyle, handlePosition }) => {
+
+const type2icon = new Map([
+    ['holder', HolderOutlined],
+    ['menu', MenuOutlined],
+    ['drag', DragOutlined],
+])
+
+
+const SortableItem = ({
+    id,
+    style: containerStyle, // 重命名消除歧义
+    draggingStyle,
+    className,
+    draggingClassName,
+    children,
+    handleStyle,
+    handleClassName,
+    handlePosition,
+    handleType,
+    itemDraggingScale
+}) => {
+
     const {
         attributes,
         listeners,
@@ -31,29 +54,69 @@ const SortableItem = ({ id, style: containerStyle, children, handleStyle, handle
         transform: CSS.Transform.toString(
             transform && {
                 ...transform,
-                scaleY: 1
+                scaleY: 1,
+                ...(
+                    isDragging ?
+                        {
+                            scaleX: itemDraggingScale,
+                            scaleY: itemDraggingScale
+                        } :
+                        {}
+                )
             }
         ),
         transition,
         display: 'flex',
         alignItems: 'center',
-        ...containerStyle
+        ...containerStyle,
+        ...(
+            isDragging
+                ? {
+                    position: 'relative',
+                    zIndex: 999,
+                    ...draggingStyle
+                }
+                : {}
+        )
     };
 
     return (
         <div ref={setNodeRef}
             {...attributes}
-            style={style}>
+            style={style}
+            className={
+                isDragging ?
+                    (
+                        isString(className) ?
+                            className :
+                            (className ? useCss(className) : undefined)
+                    ) :
+                    (
+                        isString(draggingClassName) ?
+                            draggingClassName :
+                            (draggingClassName ? useCss(draggingClassName) : undefined)
+                    )
+            }>
             {handlePosition === 'end' ? <div style={{ flex: 'auto' }}>{children}</div> : null}
-            <MenuOutlined style={{
-                color: '#737373',
-                touchAction: "none",
-                cursor: isDragging ? 'grabbing' : 'grab',
-                flex: 'none',
-                ...handleStyle
-            }}
-                ref={setActivatorNodeRef}
-                {...listeners} />
+            {React.createElement(
+                type2icon.get(handleType),
+                {
+                    style: {
+                        color: '#737373',
+                        touchAction: "none",
+                        cursor: isDragging ? 'grabbing' : 'grab',
+                        flex: 'none',
+                        ...handleStyle
+                    },
+                    className: (
+                        isString(handleClassName) ?
+                            handleClassName :
+                            (handleClassName ? useCss(handleClassName) : undefined)
+                    ),
+                    ref: setActivatorNodeRef,
+                    ...listeners
+                }
+            )}
             {handlePosition === 'start' ? <div style={{ flex: 'auto' }}>{children}</div> : null}
         </div>
     );
@@ -67,15 +130,18 @@ const FefferySortableList = (props) => {
         style,
         handleStyle,
         className,
+        handleClassName,
         items,
+        itemDraggingScale,
         handlePosition,
+        handleType,
         setProps,
         loading_state
     } = props;
 
     useEffect(() => {
         setProps({
-            currentOrder: items.map(item => item.id)
+            currentOrder: items.map(item => item.key)
         })
     }, [items])
 
@@ -86,8 +152,8 @@ const FefferySortableList = (props) => {
     const onSortEnd = (e) => {
         let { active, over } = e;
         if (active?.id !== over?.id) {
-            let activeIndex = items.findIndex((item) => item.id === active?.id);
-            let overIndex = items.findIndex((item) => item.id === over?.id);
+            let activeIndex = items.findIndex((item) => item.key === active?.id);
+            let overIndex = items.findIndex((item) => item.key === over?.id);
             setProps({
                 items: arrayMove([...items], activeIndex, overIndex)
             })
@@ -100,23 +166,33 @@ const FefferySortableList = (props) => {
             collisionDetection={closestCenter}
             onDragEnd={onSortEnd}
         >
-            <SortableContext items={items} strategy={verticalListSortingStrategy}>
+            <SortableContext items={items.map(item => { return { ...item, id: item.key }; })} strategy={verticalListSortingStrategy}>
                 <ul id={id}
                     style={{
                         paddingLeft: 0,
                         ...style
                     }}
-                    className={className}
+                    className={
+                        isString(className) ?
+                            className :
+                            (className ? useCss(className) : undefined)
+                    }
                     data-dash-is-loading={
                         (loading_state && loading_state.is_loading) || undefined
                     }>
                     {items.map((item) => (
-                        <SortableItem id={item.id}
-                            key={item.id}
+                        <SortableItem id={item.key}
+                            key={item.key}
                             style={item.style}
+                            draggingStyle={item.draggingStyle}
+                            className={item.className}
+                            draggingClassName={item.draggingClassName}
                             children={item.content}
                             handleStyle={handleStyle}
-                            handlePosition={handlePosition} />
+                            handleClassName={handleClassName}
+                            handlePosition={handlePosition}
+                            handleType={handleType}
+                            itemDraggingScale={itemDraggingScale} />
                     ))}
                 </ul>
             </SortableContext>
@@ -135,8 +211,17 @@ FefferySortableList.propTypes = {
     // 拖拽手柄css样式
     handleStyle: PropTypes.object,
 
+    // 拖拽手柄css类
+    handleClassName: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ]),
+
     // 组件css类
-    className: PropTypes.string,
+    className: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ]),
 
     key: PropTypes.string,
 
@@ -144,18 +229,39 @@ FefferySortableList.propTypes = {
     items: PropTypes.arrayOf(
         PropTypes.exact({
             // 对应当前子元素的唯一标识
-            id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+            key: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
 
             // 当前子元素内容
             content: PropTypes.node,
 
             // 当前子元素容器css样式
-            style: PropTypes.object
+            style: PropTypes.object,
+
+            // 当前子元素容器css类
+            className: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.object
+            ]),
+
+            // 当前子元素处于拖拽中状态下的css样式
+            draggingStyle: PropTypes.object,
+
+            // 当前子元素处于拖拽中状态下的css类
+            draggingClassName: PropTypes.oneOfType([
+                PropTypes.string,
+                PropTypes.object
+            ])
         })
     ).isRequired,
 
-    // 设置拖拽手柄位置，默认为'start'
+    // 设置子项处于拖拽中状态下的缩放比例，默认为1即不缩放
+    itemDraggingScale: PropTypes.number,
+
+    // 设置拖拽手柄位置，默认为'end'
     handlePosition: PropTypes.oneOf(['start', 'end']),
+
+    // 设置内置的推拽手柄图标类型，默认为'holder'
+    handleType: PropTypes.oneOf(['holder', 'menu', 'drag']),
 
     // 监听当前items顺序对应的子项id数组
     currentOrder: PropTypes.arrayOf(
@@ -189,7 +295,9 @@ FefferySortableList.propTypes = {
 
 // 设置默认参数
 FefferySortableList.defaultProps = {
-    handlePosition: 'start'
+    itemDraggingScale: 1,
+    handlePosition: 'end',
+    handleType: 'holder'
 }
 
-export default FefferySortableList;
+export default React.memo(FefferySortableList);
