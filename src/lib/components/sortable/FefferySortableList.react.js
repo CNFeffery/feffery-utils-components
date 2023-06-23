@@ -12,6 +12,7 @@ import {
     SortableContext,
     useSortable,
     verticalListSortingStrategy,
+    horizontalListSortingStrategy
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { HolderOutlined, MenuOutlined, DragOutlined } from "@ant-design/icons";
@@ -132,6 +133,7 @@ const FefferySortableList = (props) => {
         className,
         handleClassName,
         items,
+        direction,
         itemDraggingScale,
         handlePosition,
         handleType,
@@ -166,7 +168,13 @@ const FefferySortableList = (props) => {
             collisionDetection={closestCenter}
             onDragEnd={onSortEnd}
         >
-            <SortableContext items={items.map(item => { return { ...item, id: item.key }; })} strategy={verticalListSortingStrategy}>
+            <SortableContext
+                items={items.map(item => { return { ...item, id: item.key }; })}
+                strategy={
+                    direction === 'horizontal' ?
+                        horizontalListSortingStrategy :
+                        verticalListSortingStrategy
+                }>
                 <ul id={id}
                     style={{
                         paddingLeft: 0,
@@ -254,6 +262,10 @@ FefferySortableList.propTypes = {
         })
     ).isRequired,
 
+    // 设置排序列表的方向，可选的有'vertical'和'horizontal'
+    // 默认：'vertical'
+    direction: PropTypes.oneOf(['vertical', 'horizontal']),
+
     // 设置子项处于拖拽中状态下的缩放比例，默认为1即不缩放
     itemDraggingScale: PropTypes.number,
 
@@ -295,6 +307,7 @@ FefferySortableList.propTypes = {
 
 // 设置默认参数
 FefferySortableList.defaultProps = {
+    direction: 'vertical',
     itemDraggingScale: 1,
     handlePosition: 'end',
     handleType: 'holder'

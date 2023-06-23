@@ -19,17 +19,19 @@ app.layout = html.Div(
                         }
                     ),
                     'style': {
-                        'borderBottom': '1px solid lightgrey',
+                        'border': '1px solid lightgrey',
                         'background': 'white',
-                        'padding': '0 5px'
+                        'padding': '0 5px',
+                        'width': 100
                     },
                     'draggingStyle': {
                         'boxShadow': '0px 0px 12px rgba(0, 0, 0, 0.12)',
-                        'borderBottom': '1px solid transparent'
+                        'border': '1px solid transparent'
                     }
                 }
                 for i in range(1, 6)
             ],
+            direction='horizontal',
             itemDraggingScale=1.025,
             handleStyle={
                 'color': '#adb5bd'
@@ -42,7 +44,9 @@ app.layout = html.Div(
                 'borderRadius': '8px'
             },
             style={
-                'width': 300
+                'display': 'grid',
+                'gridAutoFlow': 'column',
+                'width': 'fit-content'
             }
         ),
 

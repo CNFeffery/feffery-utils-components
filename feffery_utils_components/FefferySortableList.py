@@ -15,6 +15,8 @@ Keyword arguments:
 
 - currentOrder (list of number | strings; optional)
 
+- direction (a value equal to: 'vertical', 'horizontal'; default 'vertical')
+
 - handleClassName (string | dict; optional)
 
 - handlePosition (a value equal to: 'start', 'end'; default 'end')
@@ -62,10 +64,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferySortableList'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, style=Component.UNDEFINED, handleStyle=Component.UNDEFINED, handleClassName=Component.UNDEFINED, className=Component.UNDEFINED, key=Component.UNDEFINED, items=Component.REQUIRED, itemDraggingScale=Component.UNDEFINED, handlePosition=Component.UNDEFINED, handleType=Component.UNDEFINED, currentOrder=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'currentOrder', 'handleClassName', 'handlePosition', 'handleStyle', 'handleType', 'itemDraggingScale', 'items', 'key', 'loading_state', 'style']
+    def __init__(self, id=Component.UNDEFINED, style=Component.UNDEFINED, handleStyle=Component.UNDEFINED, handleClassName=Component.UNDEFINED, className=Component.UNDEFINED, key=Component.UNDEFINED, items=Component.REQUIRED, direction=Component.UNDEFINED, itemDraggingScale=Component.UNDEFINED, handlePosition=Component.UNDEFINED, handleType=Component.UNDEFINED, currentOrder=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'currentOrder', 'direction', 'handleClassName', 'handlePosition', 'handleStyle', 'handleType', 'itemDraggingScale', 'items', 'key', 'loading_state', 'style']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'currentOrder', 'handleClassName', 'handlePosition', 'handleStyle', 'handleType', 'itemDraggingScale', 'items', 'key', 'loading_state', 'style']
+        self.available_properties = ['id', 'className', 'currentOrder', 'direction', 'handleClassName', 'handlePosition', 'handleStyle', 'handleType', 'itemDraggingScale', 'items', 'key', 'loading_state', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
