@@ -63,38 +63,30 @@ import FefferyCookie from "./components/store/FefferyCookie.react";
 import FefferyResizable from "./components/resizable/FefferyResizable.react";
 import FefferyCompareSlider from "./components/FefferyCompareSlider.react";
 import FefferySortableList from "./components/sortable/FefferySortableList.react";
+import FefferyLocalStorage from "./components/store/FefferyLocalStorage";
 
-/* 
-忽略部分设计React中规范的console警告信息
-目前已知无关警告信息：
-1. 数组推导形成的组件，每个子组件需要唯一的key
-2. 在原生html元素中携带小驼峰命名法的props
-*/
-// try {
-//     consoleErrorBackup
-// } catch (e) {
-//     const consoleErrorBackup = console.error;
-//     console.error = (msg) => {
-//         const supressedWarnings = [
-//             'Each child in a list should have a unique',
-//             'React does not recognize the'
-//         ];
 
-//         if (!supressedWarnings.some(entry => msg.includes && msg.includes(entry))) {
-//             consoleErrorBackup(msg);
-//         }
-//     };
-// }
 
 // 自定义sessionStorage事件监听
-const originalSetItem = sessionStorage.setItem;
+const originalSessionSetItem = sessionStorage.setItem;
 sessionStorage.setItem = function (key, newValue) {
-    originalSetItem.apply(this, [key, newValue]);
+    originalSessionSetItem.apply(this, [key, newValue]);
     const setItemEvent = new Event("sessionStorageSetItem");
     setItemEvent['triggerKey'] = key
     setItemEvent[key] = newValue;
     window.dispatchEvent(setItemEvent);
 };
+
+// 自定义localStorage事件监听
+const originalLocalSetItem = localStorage.setItem;
+localStorage.setItem = function (key, newValue) {
+    originalLocalSetItem.apply(this, [key, newValue]);
+    const setItemEvent = new Event("localStorageSetItem");
+    setItemEvent['triggerKey'] = key
+    setItemEvent[key] = newValue;
+    window.dispatchEvent(setItemEvent);
+};
+
 
 export {
     FefferyCaptcha,
@@ -160,5 +152,6 @@ export {
     FefferyCookie,
     FefferyResizable,
     FefferyCompareSlider,
-    FefferySortableList
+    FefferySortableList,
+    FefferyLocalStorage
 };

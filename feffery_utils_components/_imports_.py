@@ -61,6 +61,7 @@ from .FefferySortableList import FefferySortableList
 from .FefferySplit import FefferySplit
 from .FefferySplitPane import FefferySplitPane
 from .FefferyCookie import FefferyCookie
+from .FefferyLocalStorage import FefferyLocalStorage
 from .FefferySessionStorage import FefferySessionStorage
 
 __all__ = [
@@ -127,5 +128,6 @@ __all__ = [
     "FefferySplit",
     "FefferySplitPane",
     "FefferyCookie",
+    "FefferyLocalStorage",
     "FefferySessionStorage"
 ]

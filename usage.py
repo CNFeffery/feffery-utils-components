@@ -1,56 +1,25 @@
 import dash
+import json
 from dash import html
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output
 
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, suppress_callback_exceptions=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferySortableList(
-            id='input',
-            items=[
-                {
-                    'key': f'子项{i}',
-                    'content': html.Div(
-                        f'子项{i}',
-                        style={
-                            'padding': '10px 6px'
-                        }
-                    ),
-                    'style': {
-                        'border': '1px solid lightgrey',
-                        'background': 'white',
-                        'padding': '0 5px',
-                        'width': 100
-                    },
-                    'draggingStyle': {
-                        'boxShadow': '0px 0px 12px rgba(0, 0, 0, 0.12)',
-                        'border': '1px solid transparent'
-                    }
-                }
-                for i in range(1, 6)
-            ],
-            direction='horizontal',
-            itemDraggingScale=1.025,
-            handleStyle={
-                'color': '#adb5bd'
-            },
-            handleClassName={
-                '&:hover': {
-                    'background': '#f1f3f5'
-                },
-                'padding': '4px',
-                'borderRadius': '8px'
-            },
-            style={
-                'display': 'grid',
-                'gridAutoFlow': 'column',
-                'width': 'fit-content'
-            }
+        html.Button(
+            '执行示例js代码',
+            id='local-storage-demo-input'
         ),
 
-        html.Pre(id='output')
+        fuc.FefferyExecuteJs(
+            id='local-storage-demo-trigger'
+        ),
+
+        fuc.FefferyLocalStorage(id='local-storage-demo'),
+
+        html.Pre(id='local-storage-demo-output')
     ],
     style={
         'padding': 50
@@ -59,12 +28,26 @@ app.layout = html.Div(
 
 
 @app.callback(
-    Output('output', 'children'),
-    Input('input', 'currentOrder')
+    Output('local-storage-demo-trigger', 'jsString'),
+    Input('local-storage-demo-input', 'n_clicks'),
+    prevent_initial_call=True
 )
-def sortable_list_demo(currentOrder):
+def trigger_local_storage_set(nClicks):
 
-    return str(currentOrder)
+    return '''localStorage.setItem('local-storage-demo', JSON.stringify({'点击次数': % s, '当前时间': new Date(Date.now())}))''' % str(nClicks)
+
+
+@app.callback(
+    Output('local-storage-demo-output', 'children'),
+    Input('local-storage-demo', 'data')
+)
+def local_storage_demo(data):
+
+    return json.dumps(
+        data,
+        ensure_ascii=False,
+        indent=4
+    )
 
 
 if __name__ == '__main__':
