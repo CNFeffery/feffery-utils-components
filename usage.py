@@ -10,16 +10,16 @@ app.layout = html.Div(
     [
         html.Button(
             '执行示例js代码',
-            id='local-storage-demo-input'
+            id='session-storage-demo-input'
         ),
 
         fuc.FefferyExecuteJs(
-            id='local-storage-demo-trigger'
+            id='session-storage-demo-trigger'
         ),
 
-        fuc.FefferyLocalStorage(id='local-storage-demo'),
+        fuc.FefferySessionStorage(id='session-storage-demo'),
 
-        html.Pre(id='local-storage-demo-output')
+        html.Pre(id='session-storage-demo-output')
     ],
     style={
         'padding': 50
@@ -28,20 +28,20 @@ app.layout = html.Div(
 
 
 @app.callback(
-    Output('local-storage-demo-trigger', 'jsString'),
-    Input('local-storage-demo-input', 'n_clicks'),
+    Output('session-storage-demo-trigger', 'jsString'),
+    Input('session-storage-demo-input', 'n_clicks'),
     prevent_initial_call=True
 )
-def trigger_local_storage_set(nClicks):
+def trigger_session_storage_set(nClicks):
 
-    return '''localStorage.setItem('local-storage-demo', JSON.stringify({'点击次数': % s, '当前时间': new Date(Date.now())}))''' % str(nClicks)
+    return '''sessionStorage.setItem('session-storage-demo', JSON.stringify({'点击次数': % s, '当前时间': new Date(Date.now())}))''' % str(nClicks)
 
 
 @app.callback(
-    Output('local-storage-demo-output', 'children'),
-    Input('local-storage-demo', 'data')
+    Output('session-storage-demo-output', 'children'),
+    Input('session-storage-demo', 'data')
 )
-def local_storage_demo(data):
+def session_storage_demo(data):
 
     return json.dumps(
         data,

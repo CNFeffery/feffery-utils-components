@@ -35,6 +35,15 @@ const FefferySessionStorage = (props) => {
     }, []);
 
     useEffect(() => {
+        const existsData = sessionStorage.getItem(id);
+        if (existsData) {
+            setProps({
+                data: JSON.parse(existsData)
+            });
+        }
+    }, [])
+
+    useEffect(() => {
         if (!isUndefined(data)) {
             sessionStorage.setItem(id, JSON.stringify(data))
         }
