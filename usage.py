@@ -17,7 +17,7 @@ app.layout = html.Div(
             id='session-storage-demo-trigger'
         ),
 
-        fuc.FefferySessionStorage(id='session-storage-demo'),
+        fuc.FefferySessionStorage(id='session-storage-demo', initialSync=True),
 
         html.Pre(id='session-storage-demo-output')
     ],

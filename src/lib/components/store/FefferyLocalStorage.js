@@ -8,6 +8,7 @@ const FefferyLocalStorage = (props) => {
     const {
         id,
         data,
+        initialSync,
         setProps,
         loading_state
     } = props;
@@ -35,11 +36,13 @@ const FefferyLocalStorage = (props) => {
     }, []);
 
     useEffect(() => {
-        const existsData = localStorage.getItem(id);
-        if (existsData) {
-            setProps({
-                data: JSON.parse(existsData)
-            });
+        if (initialSync) {
+            const existsData = localStorage.getItem(id);
+            if (existsData) {
+                setProps({
+                    data: JSON.parse(existsData)
+                });
+            }
         }
     }, [])
 
@@ -67,6 +70,10 @@ FefferyLocalStorage.propTypes = {
     // 设置或监听当前id对应的localStorage数据
     data: PropTypes.any,
 
+    // 设置初始化时是否从localStorage中尝试读取id对应的值并更新到data中
+    // 默认：false
+    initialSync: PropTypes.bool,
+
     loading_state: PropTypes.shape({
         /**
          * Determines if the component is loading or not
@@ -91,6 +98,7 @@ FefferyLocalStorage.propTypes = {
 
 // 设置默认参数
 FefferyLocalStorage.defaultProps = {
+    initialSync: false
 }
 
 export default FefferyLocalStorage;

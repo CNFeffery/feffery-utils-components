@@ -13,6 +13,8 @@ Keyword arguments:
 
 - data (boolean | number | string | dict | list; optional)
 
+- initialSync (boolean; default False)
+
 - loading_state (dict; optional)
 
     `loading_state` is a dict with keys:
@@ -30,10 +32,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyLocalStorage'
     @_explicitize_args
-    def __init__(self, id=Component.REQUIRED, data=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'data', 'loading_state']
+    def __init__(self, id=Component.REQUIRED, data=Component.UNDEFINED, initialSync=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'data', 'initialSync', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'data', 'loading_state']
+        self.available_properties = ['id', 'data', 'initialSync', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
