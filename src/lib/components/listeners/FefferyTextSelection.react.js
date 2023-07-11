@@ -1,43 +1,41 @@
-import { useEffect } from 'react';
-import { useMouse } from 'ahooks';
+import React, { useEffect } from 'react';
+import { useTextSelection } from 'ahooks';
 import PropTypes from 'prop-types';
 
-// 定义鼠标位置监听组件FefferyMousePosition
-const FefferyMousePosition = (props) => {
+// 定义文字选中监听组件FefferyTextSelection
+const FefferyTextSelection = (props) => {
 
-    let {
-        id,
-        setProps,
-        loading_state
+    const {
+        targetId,
+        setProps
     } = props;
 
-    const mouse = useMouse();
+    const selection = useTextSelection(document.getElementById(targetId));
 
     useEffect(() => {
-        if (mouse) {
+        if (selection?.text) {
             setProps({
-                position: {
-                    screenX: mouse.screenX,
-                    screenY: mouse.screenY,
-                    clientX: mouse.clientX,
-                    clientY: mouse.clientY,
-                    pageX: mouse.pageX,
-                    pageY: mouse.pageY
+                selectedTextInfo: {
+                    timestamp: Date.now(),
+                    ...selection
                 }
             })
         }
-    }, [mouse])
+    }, [selection])
 
     return <></>;
 }
 
 // 定义参数或属性
-FefferyMousePosition.propTypes = {
+FefferyTextSelection.propTypes = {
     // 部件id
     id: PropTypes.string,
 
-    // 用于记录当前鼠标位置相关信息
-    position: PropTypes.object,
+    // 设置目标监听容器的id
+    targetId: PropTypes.string,
+
+    // 用于监听最近一次目标容器内文本选中事件相关信息
+    selectedTextInfo: PropTypes.object,
 
     /**
      * Dash-assigned callback that should be called to report property changes
@@ -62,7 +60,7 @@ FefferyMousePosition.propTypes = {
 };
 
 // 设置默认参数
-FefferyMousePosition.defaultProps = {
+FefferyTextSelection.defaultProps = {
 }
 
-export default FefferyMousePosition;
+export default React.memo(FefferyTextSelection);

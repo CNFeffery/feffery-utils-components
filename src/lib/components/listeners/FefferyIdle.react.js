@@ -18,11 +18,7 @@ const FefferyIdle = (props) => {
         setProps({ isIdle: _isIdle })
     }, [_isIdle]);
 
-    return (<div
-        id={id}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        } />);
+    return <></>;
 }
 
 // 定义参数或属性

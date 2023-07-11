@@ -64,7 +64,7 @@ import FefferyResizable from "./components/resizable/FefferyResizable.react";
 import FefferyCompareSlider from "./components/FefferyCompareSlider.react";
 import FefferySortableList from "./components/sortable/FefferySortableList.react";
 import FefferyLocalStorage from "./components/store/FefferyLocalStorage";
-
+import FefferyTextSelection from "./components/listeners/FefferyTextSelection.react";
 
 
 // 自定义sessionStorage事件监听
@@ -153,5 +153,6 @@ export {
     FefferyResizable,
     FefferyCompareSlider,
     FefferySortableList,
-    FefferyLocalStorage
+    FefferyLocalStorage,
+    FefferyTextSelection
 };

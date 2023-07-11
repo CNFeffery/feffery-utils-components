@@ -55,6 +55,7 @@ from .FefferyListenUnload import FefferyListenUnload
 from .FefferyLocation import FefferyLocation
 from .FefferyMousePosition import FefferyMousePosition
 from .FefferyResponsive import FefferyResponsive
+from .FefferyTextSelection import FefferyTextSelection
 from .FefferyWindowSize import FefferyWindowSize
 from .FefferyResizable import FefferyResizable
 from .FefferySortableList import FefferySortableList
@@ -122,6 +123,7 @@ __all__ = [
     "FefferyLocation",
     "FefferyMousePosition",
     "FefferyResponsive",
+    "FefferyTextSelection",
     "FefferyWindowSize",
     "FefferyResizable",
     "FefferySortableList",
