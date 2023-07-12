@@ -7,10 +7,17 @@ const FefferyTextSelection = (props) => {
 
     const {
         targetId,
+        targetSelector,
+        targetType,
         setProps
     } = props;
 
-    const selection = useTextSelection(document.getElementById(targetId));
+    // 根据不同的定位目标规则类型进行目标容器的绑定
+    const selection = useTextSelection(
+        targetType === 'selector' ?
+            document.querySelector(targetSelector) :
+            document.getElementById(targetId)
+    );
 
     useEffect(() => {
         if (selection?.text) {
@@ -33,6 +40,13 @@ FefferyTextSelection.propTypes = {
 
     // 设置目标监听容器的id
     targetId: PropTypes.string,
+
+    // 设置目标监听容器对应的css选择器
+    targetSelector: PropTypes.string,
+
+    // 设置目标监听规则类型，可选的有'id'、'selector'
+    // 默认：'id'
+    targetType: PropTypes.oneOf(['id', 'selector']),
 
     // 用于监听最近一次目标容器内文本选中事件相关信息
     selectedTextInfo: PropTypes.object,
@@ -61,6 +75,7 @@ FefferyTextSelection.propTypes = {
 
 // 设置默认参数
 FefferyTextSelection.defaultProps = {
+    targetType: 'id'
 }
 
 export default React.memo(FefferyTextSelection);

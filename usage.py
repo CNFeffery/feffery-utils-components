@@ -8,8 +8,9 @@ app = dash.Dash(__name__, suppress_callback_exceptions=True)
 
 app.layout = html.Div(
     [
-        html.Pre(
-            '''
+        html.Div(
+            html.Pre(
+                '''
 君不见黄河之水天上来，奔流到海不复回。
 君不见高堂明镜悲白发，朝如青丝暮成雪。
 人生得意须尽欢，莫使金樽空对月。
@@ -23,11 +24,15 @@ app.layout = html.Div(
 主人何为言少钱，径须沽取对君酌。
 五花马、千金裘，呼儿将出换美酒，与尔同销万古愁。
 ''',
-            id='text-selection-target'
+                id='text-selection-target'
+            ),
+            id='text-selection-target-parent'
         ),
         fuc.FefferyTextSelection(
             id='text-selection-demo',
-            targetId='text-selection-target'
+            # targetId='text-selection-target',
+            targetType='selector',
+            targetSelector='#text-selection-target-parent'
         ),
         html.Pre(
             id='text-selection-demo-output'

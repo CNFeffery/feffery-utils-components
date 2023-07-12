@@ -26,16 +26,20 @@ Keyword arguments:
 
 - selectedTextInfo (dict; optional)
 
-- targetId (string; optional)"""
+- targetId (string; optional)
+
+- targetSelector (string; optional)
+
+- targetType (a value equal to: 'id', 'selector'; default 'id')"""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyTextSelection'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, targetId=Component.UNDEFINED, selectedTextInfo=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'loading_state', 'selectedTextInfo', 'targetId']
+    def __init__(self, id=Component.UNDEFINED, targetId=Component.UNDEFINED, targetSelector=Component.UNDEFINED, targetType=Component.UNDEFINED, selectedTextInfo=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'loading_state', 'selectedTextInfo', 'targetId', 'targetSelector', 'targetType']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'loading_state', 'selectedTextInfo', 'targetId']
+        self.available_properties = ['id', 'loading_state', 'selectedTextInfo', 'targetId', 'targetSelector', 'targetType']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
