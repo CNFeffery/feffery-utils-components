@@ -23,13 +23,7 @@ const FefferyExecuteJs = (props) => {
         }
     }, [jsString])
 
-    return (
-        <div
-            id={id}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
-    );
+    return <></>;
 }
 
 
