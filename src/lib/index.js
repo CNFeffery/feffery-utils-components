@@ -41,7 +41,7 @@ import FefferyReload from "./components/FefferyReload.react";
 import FefferyCssVar from "./components/FefferyCssVar.react";
 import FefferyEyeDropper from "./components/colorPickers/FefferyEyeDropper.react";
 import FefferySticky from "./components/FefferySticky.react";
-import FefferySessionStorage from "./components/store/FefferySessionStorage";
+import FefferySessionStorage from "./components/store/FefferySessionStorage.react";
 import FefferyWebSocket from "./components/FefferyWebSocket.react";
 import FefferyShadowDom from "./components/FefferyShadowDom.react";
 import FefferyGrid from "./components/draggable/FefferyGrid.react";
@@ -63,8 +63,9 @@ import FefferyCookie from "./components/store/FefferyCookie.react";
 import FefferyResizable from "./components/resizable/FefferyResizable.react";
 import FefferyCompareSlider from "./components/FefferyCompareSlider.react";
 import FefferySortableList from "./components/sortable/FefferySortableList.react";
-import FefferyLocalStorage from "./components/store/FefferyLocalStorage";
+import FefferyLocalStorage from "./components/store/FefferyLocalStorage.react";
 import FefferyTextSelection from "./components/listeners/FefferyTextSelection.react";
+import FefferyLocalLargeStorage from "./components/store/FefferyLocalLargeStorage.react";
 
 
 // 自定义sessionStorage事件监听
@@ -154,5 +155,6 @@ export {
     FefferyCompareSlider,
     FefferySortableList,
     FefferyLocalStorage,
-    FefferyTextSelection
+    FefferyTextSelection,
+    FefferyLocalLargeStorage
 };

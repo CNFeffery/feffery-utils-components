@@ -17,7 +17,9 @@ import {
 import { CSS } from "@dnd-kit/utilities";
 import { HolderOutlined, MenuOutlined, DragOutlined } from "@ant-design/icons";
 import useCss from "../../hooks/useCss";
-import { isString } from 'lodash';
+import { isString, isEqual } from 'lodash';
+
+// import { useWhyDidYouUpdate } from 'ahooks';
 
 
 const type2icon = new Map([
@@ -27,101 +29,127 @@ const type2icon = new Map([
 ])
 
 
-const SortableItem = ({
-    id,
-    style: containerStyle, // 重命名消除歧义
-    draggingStyle,
-    className,
-    draggingClassName,
-    children,
-    handleStyle,
-    handleClassName,
-    handlePosition,
-    handleType,
-    itemDraggingScale
-}) => {
+const SortableItem = React.memo(
+    ({
+        id,
+        style: containerStyle, // 重命名消除歧义
+        draggingStyle,
+        className,
+        draggingClassName,
+        children,
+        handleStyle,
+        handleClassName,
+        handlePosition,
+        handleType,
+        itemDraggingScale
+    }) => {
 
-    const {
-        attributes,
-        listeners,
-        setNodeRef,
-        transform,
-        transition,
-        setActivatorNodeRef,
-        isDragging
-    } = useSortable({ id: id });
+        // useWhyDidYouUpdate('level2', {
+        //     ...{
+        //         id,
+        //         style: containerStyle, // 重命名消除歧义
+        //         draggingStyle,
+        //         className,
+        //         draggingClassName,
+        //         children,
+        //         handleStyle,
+        //         handleClassName,
+        //         handlePosition,
+        //         handleType,
+        //         itemDraggingScale
+        //     }
+        // });
 
-    const style = {
-        transform: CSS.Transform.toString(
-            transform && {
-                ...transform,
-                scaleY: 1,
-                ...(
-                    isDragging ?
-                        {
-                            scaleX: itemDraggingScale,
-                            scaleY: itemDraggingScale
-                        } :
-                        {}
-                )
-            }
-        ),
-        transition,
-        display: 'flex',
-        alignItems: 'center',
-        ...containerStyle,
-        ...(
+        const {
+            attributes,
+            listeners,
+            setNodeRef,
+            transform,
+            transition,
+            setActivatorNodeRef,
             isDragging
-                ? {
-                    position: 'relative',
-                    zIndex: 999,
-                    ...draggingStyle
-                }
-                : {}
-        )
-    };
+        } = useSortable({ id: id });
 
-    return (
-        <div ref={setNodeRef}
-            {...attributes}
-            style={style}
-            className={
-                isDragging ?
-                    (
-                        isString(className) ?
-                            className :
-                            (className ? useCss(className) : undefined)
-                    ) :
-                    (
-                        isString(draggingClassName) ?
-                            draggingClassName :
-                            (draggingClassName ? useCss(draggingClassName) : undefined)
+        const style = {
+            transform: CSS.Transform.toString(
+                transform && {
+                    ...transform,
+                    scaleY: 1,
+                    ...(
+                        isDragging ?
+                            {
+                                scaleX: itemDraggingScale,
+                                scaleY: itemDraggingScale
+                            } :
+                            {}
                     )
-            }>
-            {handlePosition === 'end' ? <div style={{ flex: 'auto' }}>{children}</div> : null}
-            {React.createElement(
-                type2icon.get(handleType),
-                {
-                    style: {
-                        color: '#737373',
-                        touchAction: "none",
-                        cursor: isDragging ? 'grabbing' : 'grab',
-                        flex: 'none',
-                        ...handleStyle
-                    },
-                    className: (
-                        isString(handleClassName) ?
-                            handleClassName :
-                            (handleClassName ? useCss(handleClassName) : undefined)
-                    ),
-                    ref: setActivatorNodeRef,
-                    ...listeners
                 }
-            )}
-            {handlePosition === 'start' ? <div style={{ flex: 'auto' }}>{children}</div> : null}
-        </div>
-    );
-};
+            ),
+            transition,
+            display: 'flex',
+            alignItems: 'center',
+            ...containerStyle,
+            ...(
+                isDragging
+                    ? {
+                        position: 'relative',
+                        zIndex: 999,
+                        ...draggingStyle
+                    }
+                    : {}
+            )
+        };
+
+        return (
+            <div id={id}
+                ref={setNodeRef}
+                {...attributes}
+                style={style}
+                className={
+                    isDragging ?
+                        (
+                            isString(className) ?
+                                className :
+                                (className ? useCss(className) : undefined)
+                        ) :
+                        (
+                            isString(draggingClassName) ?
+                                draggingClassName :
+                                (draggingClassName ? useCss(draggingClassName) : undefined)
+                        )
+                }
+                children={
+                    <>
+                        {handlePosition === 'end' ? <div style={{ flex: 'auto' }}>{children}</div> : null}
+                        {React.createElement(
+                            type2icon.get(handleType),
+                            {
+                                style: {
+                                    color: '#737373',
+                                    touchAction: "none",
+                                    cursor: isDragging ? 'grabbing' : 'grab',
+                                    flex: 'none',
+                                    ...handleStyle
+                                },
+                                className: (
+                                    isString(handleClassName) ?
+                                        handleClassName :
+                                        (handleClassName ? useCss(handleClassName) : undefined)
+                                ),
+                                ref: setActivatorNodeRef,
+                                ...listeners
+                            }
+                        )}
+                        {handlePosition === 'start' ? <div style={{ flex: 'auto' }}>{children}</div> : null}
+                    </>
+                }
+            />
+        );
+    },
+    (prevProps, nextProps) => {
+        return isEqual(prevProps.children, nextProps.children);
+    }
+)
 
 // 定义排序列表组件FefferySortable
 const FefferySortableList = (props) => {
@@ -140,6 +168,8 @@ const FefferySortableList = (props) => {
         setProps,
         loading_state
     } = props;
+
+    // useWhyDidYouUpdate('level1', { ...props });
 
     useEffect(() => {
         setProps({
