@@ -1,4 +1,5 @@
 import dash
+import json
 from dash import html, dcc
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output
@@ -7,30 +8,30 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        fuc.FefferyLocalLargeStorage(
-            id='local-large-storage-test',
-            data='9'*10000000,
-            # initialSync=True
+        html.Button(
+            'press me',
+            id='long-press-target',
         ),
-
-        html.Div(
-            id='output-demo',
-            style={
-                'wordWrap': 'break-word'
-            }
-        )
+        fuc.FefferyLongPress(
+            id='long-press-demo',
+            targetId='long-press-target',
+            delay=3000
+        ),
+        html.Pre(id='long-press-output')
     ],
     style={
         'padding': 50
     }
 )
 
-
-app.clientside_callback(
-    '''(data) => JSON.stringify(data)''',
-    Output('output-demo', 'children'),
-    Input('local-large-storage-test', 'data')
+@app.callback(
+    Output('long-press-output', 'children'),
+    Input('long-press-demo', 'pressCounts')
 )
+def demo(pressCounts):
+
+    return str(dict(pressCounts=pressCounts))
+
 
 
 if __name__ == '__main__':

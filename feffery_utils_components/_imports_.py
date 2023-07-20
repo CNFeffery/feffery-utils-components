@@ -53,6 +53,7 @@ from .FefferyListenPaste import FefferyListenPaste
 from .FefferyListenScroll import FefferyListenScroll
 from .FefferyListenUnload import FefferyListenUnload
 from .FefferyLocation import FefferyLocation
+from .FefferyLongPress import FefferyLongPress
 from .FefferyMousePosition import FefferyMousePosition
 from .FefferyResponsive import FefferyResponsive
 from .FefferyTextSelection import FefferyTextSelection
@@ -122,6 +123,7 @@ __all__ = [
     "FefferyListenScroll",
     "FefferyListenUnload",
     "FefferyLocation",
+    "FefferyLongPress",
     "FefferyMousePosition",
     "FefferyResponsive",
     "FefferyTextSelection",
