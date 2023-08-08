@@ -1,7 +1,7 @@
 import dash
 import json
 from dash import html, dcc
-import feffery_utils_components as fuc
+import feffery_utils_components.alias as fuc
 from dash.dependencies import Input, Output
 
 app = dash.Dash(__name__)
@@ -12,10 +12,10 @@ app.layout = html.Div(
             'press me',
             id='long-press-target',
         ),
-        fuc.FefferyLongPress(
+        fuc.LongPress(
             id='long-press-demo',
             targetId='long-press-target',
-            delay=3000
+            # delay=3000
         ),
         html.Pre(id='long-press-output')
     ],
@@ -24,6 +24,7 @@ app.layout = html.Div(
     }
 )
 
+
 @app.callback(
     Output('long-press-output', 'children'),
     Input('long-press-demo', 'pressCounts')
@@ -31,7 +32,6 @@ app.layout = html.Div(
 def demo(pressCounts):
 
     return str(dict(pressCounts=pressCounts))
-
 
 
 if __name__ == '__main__':
