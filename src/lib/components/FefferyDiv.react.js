@@ -100,6 +100,7 @@ const FefferyDiv = (props) => {
         border,
         borderRadius,
         enableClickAway,
+        wheelEventStrategy,
         setProps,
         loading_state
     } = props;
@@ -107,6 +108,27 @@ const FefferyDiv = (props) => {
     const ref = useRef(null);
     const size = useSize(ref);
     const _isHovering = useHover(ref);
+
+    // 处理鼠标滚轮事件处理策略
+    useEffect(() => {
+        const handleWheel = (e) => {
+            if (wheelEventStrategy === 'internally-only') {
+                console.log('触发！')
+                // 拦截当前触发的滚轮事件
+                e.preventDefault();
+            }
+        };
+
+        if (ref.current) {
+            ref.current.addEventListener('wheel', handleWheel);
+        }
+
+        return () => {
+            if (ref.current) {
+                ref.current.removeEventListener('wheel', handleWheel);
+            }
+        };
+    }, []);
 
     // 防抖更新容器尺寸
     const { run: updateWidthHeight } = useRequest(
@@ -328,6 +350,11 @@ FefferyDiv.propTypes = {
     // 监听元素外点击事件发生次数，默认为0
     clickAwayCount: PropTypes.number,
 
+    // 设置当前div内部处理鼠标滑轮事件的策略
+    // 可选的有'default'、'internally-only'（不向外传递）
+    // 默认：'default'
+    wheelEventStrategy: PropTypes.oneOf(['default', 'internally-only']),
+
     // 设置当前容器的快捷阴影效果，可选的有'no-shadow'、'hover-shadow'、'always-shadow'
     // 默认为'no-shadow'
     shadow: PropTypes.oneOf([
@@ -406,7 +433,8 @@ FefferyDiv.defaultProps = {
     clickAwayCount: 0,
     shadow: 'no-shadow',
     scrollbar: 'default',
-    enableClickAway: false
+    enableClickAway: false,
+    wheelEventStrategy: 'default'
 }
 
 export default FefferyDiv;
