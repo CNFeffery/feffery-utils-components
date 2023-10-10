@@ -6,54 +6,43 @@ from dash.dependencies import Input, Output
 
 app = dash.Dash(__name__)
 
-app.layout = fuc.FefferyTopProgress(
-    html.Div(
-        [
-            html.Button(
-                '测试1',
-                id='button1'
-            ),
-            html.Button(
-                '测试2',
-                id='button2'
-            ),
-            html.Div(
-                id='demo-output'
-            )
-        ],
-        style={
-            'padding': 50
-        }
-    ),
-    listenPropsMode='include',
-    includeProps=['demo-output.children'],
-    debug=True
+app.layout = html.Div(
+    [
+        fuc.FefferyGrid(
+            [
+                fuc.FefferyGridItem(
+                    str(i),
+                    key=str(i),
+                    style={
+                        'height': '100%',
+                        'display': 'flex',
+                        'justifyContent': 'center',
+                        'alignItems': 'center'
+                    }
+                )
+                for i in range(10)
+            ],
+            layouts=[
+                dict(
+                    i=str(i),
+                    x=i,
+                    y=i+1,
+                    w=1,
+                    h=i+i % 2+1
+                )
+                for i in range(5)
+            ],
+            cols=5,
+            rowHeight=75,
+            placeholderBorderRadius='5px',
+            margin=[25, 25],
+            style={
+                'border': '1px dashed #e1dfdd'
+            },
+            debug=True
+        )
+    ]
 )
-
-
-@app.callback(
-    Output('demo-output', 'children', allow_duplicate=True),
-    Input('button1', 'n_clicks'),
-    prevent_initial_call=True
-)
-def demo1(n_clicks):
-
-    time.sleep(2)
-
-    return '测试1：%s' % n_clicks
-
-
-@app.callback(
-    Output('demo-output', 'children', allow_duplicate=True),
-    Input('button2', 'n_clicks'),
-    prevent_initial_call=True
-)
-def demo2(n_clicks):
-
-    time.sleep(2)
-
-    return '测试2：%s' % n_clicks
-
 
 if __name__ == '__main__':
     app.run(debug=True)

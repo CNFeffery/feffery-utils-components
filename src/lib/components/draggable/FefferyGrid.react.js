@@ -35,6 +35,7 @@ const FefferyGrid = (props) => {
         placeholderOpacity,
         placeholderBorder,
         placeholderBorderRadius,
+        debug,
         setProps,
         loading_state
     } = props;
@@ -226,7 +227,14 @@ const FefferyGrid = (props) => {
                 cols={isEmpty(_cols) ? cols : _cols}
                 layouts={isEmpty(_layouts) ? layouts : _layouts}
                 draggableHandle={'.feffery-grid-item-dragger'}
-                onLayoutChange={(e) => e && setProps({ layouts: cloneDeep(e) })}
+                onLayoutChange={(e) => {
+                    if (e) {
+                        if (debug) {
+                            console.log('layouts: ', e)
+                        }
+                        setProps({ layouts: cloneDeep(e) })
+                    }
+                }}
                 setProps={setProps}
                 useCSSTransforms={true}
                 data-dash-is-loading={
@@ -391,6 +399,10 @@ FefferyGrid.propTypes = {
     // 自定义拖拽预览占位的border-radius属性，默认为'0px'
     placeholderBorderRadius: PropTypes.string,
 
+    // 设置是否开启debug模式，开启后，每次布局参数更新，都会在浏览器开发者工具控制台进行打印
+    // 默认：false
+    debug: PropTypes.bool,
+
     loading_state: PropTypes.shape({
         /**
          * Determines if the component is loading or not
@@ -429,7 +441,8 @@ FefferyGrid.defaultProps = {
     placeholderBorder: 'none',
     placeholderBorderRadius: '0px',
     breakpoints: { lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 },
-    compactType: 'vertical'
+    compactType: 'vertical',
+    debug: false
 }
 
 export default FefferyGrid;
