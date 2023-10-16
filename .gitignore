@@ -5,6 +5,7 @@
 /feffery_utils_components/*.js
 /feffery_utils_components/*.json
 /feffery_utils_components.egg-info
+/feffery_utils_components/__pycache__
 /inst
 /man
 /node_modules
