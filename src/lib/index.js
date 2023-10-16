@@ -67,6 +67,7 @@ import FefferyLocalStorage from "./components/store/FefferyLocalStorage.react";
 import FefferyTextSelection from "./components/listeners/FefferyTextSelection.react";
 import FefferyLocalLargeStorage from "./components/store/FefferyLocalLargeStorage.react";
 import FefferyLongPress from "./components/listeners/FefferyLongPress.react";
+import FefferyDebounceProp from "./components/store/FefferyDebounceProp.react";
 
 
 // 自定义sessionStorage事件监听
@@ -158,5 +159,6 @@ export {
     FefferyLocalStorage,
     FefferyTextSelection,
     FefferyLocalLargeStorage,
-    FefferyLongPress
+    FefferyLongPress,
+    FefferyDebounceProp
 };

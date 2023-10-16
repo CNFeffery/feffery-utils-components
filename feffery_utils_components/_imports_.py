@@ -63,6 +63,7 @@ from .FefferySortableList import FefferySortableList
 from .FefferySplit import FefferySplit
 from .FefferySplitPane import FefferySplitPane
 from .FefferyCookie import FefferyCookie
+from .FefferyDebounceProp import FefferyDebounceProp
 from .FefferyLocalLargeStorage import FefferyLocalLargeStorage
 from .FefferyLocalStorage import FefferyLocalStorage
 from .FefferySessionStorage import FefferySessionStorage
@@ -133,6 +134,7 @@ __all__ = [
     "FefferySplit",
     "FefferySplitPane",
     "FefferyCookie",
+    "FefferyDebounceProp",
     "FefferyLocalLargeStorage",
     "FefferyLocalStorage",
     "FefferySessionStorage"
