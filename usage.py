@@ -10,7 +10,8 @@ app.layout = html.Div(
     [
         fuc.FefferyMusicPlayer(
             id='music-player',
-            customizeColor='#f63',
+            customizeThemeColor='#f63',
+            customizeLightThemeHoverColor='#119dff',
             audioLists=[
                 {
                     'name': 'Despacito',
