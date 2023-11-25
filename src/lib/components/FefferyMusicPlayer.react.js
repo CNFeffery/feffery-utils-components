@@ -139,8 +139,8 @@ const FefferyMusicPlayer = (props) => {
                 .react-jinke-music-player-main svg:active, .react-jinke-music-player-main svg:hover{
                     color: ${customizeColor};
                 }
-                /deep/ .react-jinke-music-player-main .music-player-panel .panel-content .rc-slider-handle, .react-jinke-music-player-main .music-player-panel .panel-content .rc-slider-track{
-                    background-color: ${customizeColor}!important;
+                .react-jinke-music-player-main .music-player-panel .panel-content .rc-slider-handle, .react-jinke-music-player-main .music-player-panel .panel-content .rc-slider-track{
+                    background-color: ${customizeColor};
                 }
                 .react-jinke-music-player-main .music-player-panel .panel-content .rc-slider-handle:active{
                     box-shadow:0 0 2px ${customizeColor};
