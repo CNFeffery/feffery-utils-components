@@ -9,6 +9,7 @@ const FefferyMusicPlayer = (props) => {
     const {
         id,
         className,
+        style,
         audioLists,
         theme,
         customizeThemeColor,
@@ -17,6 +18,7 @@ const FefferyMusicPlayer = (props) => {
         icon,
         defaultPosition,
         playModeShowTime,
+        bounds,
         preload,
         remember,
         glassBg,
@@ -51,6 +53,7 @@ const FefferyMusicPlayer = (props) => {
         showDestroy,
         quietUpdate,
         restartCurrentOnPrev,
+        customizeContainerId,
         setProps,
         loading_state
     } = props;
@@ -143,6 +146,7 @@ const FefferyMusicPlayer = (props) => {
     return (
         <ReactJkMusicPlayer
             id={id}
+            style={style}
             className={className}
             audioLists={audioLists.map(({ extraParams, ...audio }) => {
                 return {
@@ -155,6 +159,7 @@ const FefferyMusicPlayer = (props) => {
             icon={icon}
             defaultPosition={defaultPosition}
             playModeShowTime={playModeShowTime}
+            bounds={bounds}
             preload={preload}
             remember={remember}
             glassBg={glassBg}
@@ -182,6 +187,7 @@ const FefferyMusicPlayer = (props) => {
             defaultVolume={defaultVolume}
             loadAudioErrorPlayNext={loadAudioErrorPlayNext}
             responsive={responsive}
+            getContainer={customizeContainerId ? () => document.querySelector(`#${customizeContainerId}`) : document.body}
             autoHiddenCover={autoHiddenCover}
             clearPriorAudioLists={clearPriorAudioLists}
             autoPlayInitLoadPlayList={autoPlayInitLoadPlayList}
@@ -196,31 +202,29 @@ const FefferyMusicPlayer = (props) => {
     )
 }
 
-// 定义参数或属性
+// 定义参数或属性，API参数参考https://github.com/lijinke666/react-music-player#clipboard-api
 FefferyMusicPlayer.propTypes = {
-    // 部件id
+    // 音乐播放器id
     id: PropTypes.string,
 
-    // 设置容器的css类名
+    // 设置音乐播放器的css类名
     className: PropTypes.string,
+
+    // 设置音乐播放器的样式
+    style: PropTypes.object,
 
     // 设置音乐播放器文件列表信息
     audioLists: PropTypes.arrayOf(PropTypes.exact({
-        cover: PropTypes.string,
-        currentTime: PropTypes.number,
-        duration: PropTypes.number,
-        ended: PropTypes.bool,
-        musicSrc: PropTypes.string,
-        muted: PropTypes.bool,
         name: PropTypes.string,
-        networkState: PropTypes.number,
-        paused: PropTypes.bool,
-        played: PropTypes.bool,
-        readyState: PropTypes.number,
-        startDate: PropTypes.any,
-        volume: PropTypes.number,
+        musicSrc: PropTypes.string,
+        cover: PropTypes.string,
+        singer: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.node
+        ]),
+        duration: PropTypes.number,
         lyric: PropTypes.string,
-        extraParams: PropTypes.object,
+        extraParams: PropTypes.object
     })),
 
     // 设置音乐播放器主题的颜色，可选的有'light'、'dark'、'auto'，默认为'dark'
@@ -352,7 +356,7 @@ FefferyMusicPlayer.propTypes = {
         ]),
     }),
 
-    // 设置音乐播放器初始位置，默认为{top:0, left:0}
+    // 设置音乐播放器mini模式的初始位置，默认为{top:0, left:0}
     defaultPosition: PropTypes.exact({
         // 设置音乐播放器距离顶部的距离，默认为0
         top: PropTypes.number,
@@ -367,8 +371,19 @@ FefferyMusicPlayer.propTypes = {
         bottom: PropTypes.number
     }),
 
-    // 设置播放模式切换显示时间（毫秒），默认为600
+    // 设置播放模式切换时提示语的显示时间（毫秒），默认为600
     playModeShowTime: PropTypes.number,
+
+    // 拖拽边界
+    bounds: PropTypes.oneOfType([
+        PropTypes.oneOf(['body', 'parent']),
+        PropTypes.exact({
+            top: PropTypes.number,
+            left: PropTypes.number,
+            right: PropTypes.number,
+            bottom: PropTypes.number
+        })
+    ]),
 
     // 设置是否在页面加载后立即加载音频，默认为false
     preload: PropTypes.oneOfType([
@@ -376,110 +391,114 @@ FefferyMusicPlayer.propTypes = {
         PropTypes.oneOf(['auto'])
     ]),
 
-    // The next time you access the player, do you keep the last state，默认为false
+    // 下次访问播放器时，是否保留最后状态，默认为false
     remember: PropTypes.bool,
 
-    // Whether the player's background displays frosted glass effect，默认为false
+    // 设置背景是否显示磨砂玻璃效果，默认为false
     glassBg: PropTypes.bool,
 
-    // The Audio Can be deleted，默认为true
+    // 设置音频是否可以被删除，默认为true
     remove: PropTypes.bool,
 
-    // Default play index of the audio player，默认为0
+    // 播放器的默认播放索引，默认为0
     defaultPlayIndex: PropTypes.number,
 
-    // play index of the audio player，默认为0
+    // 播放器的播放索引，默认为0
     playIndex: PropTypes.number,
 
     // 音乐播放器选项的默认播放模式，可选的有'order'、'orderLoop'、'singleLoop'、'shufflePlay'，默认为order
     defaultPlayMode: PropTypes.oneOf(['order', 'orderLoop', 'singleLoop', 'shufflePlay']),
 
-    // audio theme switch checkedText，默认为mini
+    // 设置播放器主题模式，可选的有'mini'、'full'，默认为mini
     mode: PropTypes.oneOf(['mini', 'full']),
 
-    // The default audioPlay handle function will be played again after each pause, If you only want to trigger it once, you can set 'true'，默认为false
+    // 默认的audioPlay句柄功能会在每次暂停后再次播放，如果只想触发一次，可以设置'true'，默认为false
     once: PropTypes.bool,
 
-    // Whether the audio is played after loading is completed. mobile devices are invalid autoplay-policy-changes，默认为true
+    // 加载完成后是否播放音频。移动设备的自动播放策略更改无效，默认为true
     autoplay: PropTypes.bool,
 
-    // Whether you can switch between two modes, full => mini or mini => full，默认为true
+    // 是否可以在两种模式之间切换，full => mini 或 mini => full，默认为true
     toggleMode: PropTypes.bool,
 
-    // audio controller is can be drag of the "mini" mode，默认为true
+    // 播放器是否是可以拖拽的'mini'模式，默认为true
     drag: PropTypes.bool,
 
-    // Whether you can drag or click the progress bar to play in the new progress，默认为true
+    // 是否可以拖动或单击进度条以播放新进度，默认为true
     seeked: PropTypes.bool,
 
-    // audio cover is show of the "mini" mode，默认为true
+    // 音频封面是否示'mini'模式，默认为true
     showMiniModeCover: PropTypes.bool,
 
-    // audio progress circle bar is show of the "mini" mode，默认为false
+    // 音频进度圆条是否显示'mini'模式，默认为false
     showMiniProcessBar: PropTypes.bool,
 
-    // Displays the audio load progress bar，默认为true
+    // 是否显示音频加载进度条，默认为true
     showProgressLoadBar: PropTypes.bool,
 
-    // play button display of the audio player panel，默认为true
+    // 是否显示播放器面板的播放按钮，默认为true
     showPlay: PropTypes.bool,
 
-    // reload button display of the audio player panel，默认为true
+    // 是否显示播放器面板的重新加载按钮，默认为true
     showReload: PropTypes.bool,
 
-    // download button display of the audio player panel，默认为true
+    // 是否显示播放器面板的下载按钮，默认为true
     showDownload: PropTypes.bool,
 
-    // play mode toggle button display of the audio player panel，默认为true
+    // 是否显示播放器面板的播放模式切换按钮，默认为true
     showPlayMode: PropTypes.bool,
 
-    // theme toggle switch display of the audio player panel，默认为true
+    // 是否显示播放器面板的主题切换开关，默认为true
     showThemeSwitch: PropTypes.bool,
 
-    // audio lyric button display of the audio player panel，默认为false
+    // 是否显示播放器面板的音频歌词按钮，默认为false
     showLyric: PropTypes.bool,
 
     // https://web.dev/media-session/，默认为false
     showMediaSession: PropTypes.bool,
 
-    // audio lyric class name
+    // 音频歌词类名
     lyricClassName: PropTypes.string,
 
-    // Extensible custom content like <><button>button1</button> <button>button2</button></>
+    // 可扩展的自定义内容
     extendsContent: PropTypes.oneOfType([
         PropTypes.node,
         PropTypes.bool,
         PropTypes.string
     ]),
 
-    // default volume of the audio player , range 0-1，默认为1
+    // 音频播放器的默认音量，范围0-1，默认为1
     defaultVolume: PropTypes.number,
 
-    // Whether to try playing the next audio when the current audio playback fails，默认为true
+    // 当前音频播放失败时是否尝试播放下一个音频，默认为true
     loadAudioErrorPlayNext: PropTypes.bool,
 
-    // Whether to turn on the response mode, if set false, audio controller always show desktop ui，默认为true
+    // 是否开启响应模式，如果设置为false，音频控制器始终显示桌面ui，默认为true
     responsive: PropTypes.bool,
 
-    // Auto hide the cover photo if no cover photo is available，默认为false
+    // 如果没有可用的封面照片，是否自动隐藏封面照片，默认为false
     autoHiddenCover: PropTypes.bool,
 
-    // Replace a new playlist with the first loaded playlist and reset playIndex to 0，默认为false
+    // 是否将新播放列表替换为第一个加载的播放列表，并将 playIndex 重置为 0，默认为false
     clearPriorAudioLists: PropTypes.bool,
 
-    // Play your new play list right after your new play list is loaded turn false，默认为false
+    // 加载新播放列表后是否立即播放您的新播放列表，默认为false
     autoPlayInitLoadPlayList: PropTypes.bool,
 
-    // Play and pause audio through space bar （Desktop effective），默认为false
+    // 是否可以通过空格键播放和暂停音频（桌面有效），默认为false
     spaceBar: PropTypes.bool,
 
-    // Destroy player button display，默认为false
+    // 是否显示销毁按钮，默认为false
     showDestroy: PropTypes.bool,
 
+    // https://github.com/lijinke666/react-music-player#bulb-quiet-update
     quietUpdate: PropTypes.bool,
 
-    // Restarts the current track when trying to play previous song, if the current time of the song is more than 1 second，默认为false
+    // 尝试播放上一首歌曲时，如果歌曲的当前时间超过 1 秒，是否重新启动当前曲目，默认为false
     restartCurrentOnPrev: PropTypes.bool,
+
+    // 自定义挂载容器类名
+    customizeContainerId: PropTypes.string,
 
     loading_state: PropTypes.shape({
         /**
@@ -514,6 +533,7 @@ FefferyMusicPlayer.defaultProps = {
         left: 0
     },
     playModeShowTime: 600,
+    bounds: 'body',
     preload: false,
     remember: false,
     glassBg: false,

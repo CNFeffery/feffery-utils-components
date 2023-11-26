@@ -17,22 +17,26 @@ app.layout = html.Div(
                     'name': 'Despacito',
                     'cover': 'http://res.cloudinary.com/alick/image/upload/v1502689731/Despacito_uvolhp.jpg',
                     'musicSrc': 'http://res.cloudinary.com/alick/video/upload/v1502689683/Luis_Fonsi_-_Despacito_ft._Daddy_Yankee_uyvqw9.mp3',
-                    'extraParams': {
-                        'singer': 'Luis Fonsi'
-                    }
+                    'singer': 'Luis Fonsi'
                 },
                 {
                     'name': 'Dorost Nemisham',
                     'cover': 'https://res.cloudinary.com/ehsanahmadi/image/upload/v1573758778/Sirvan-Khosravi-Dorost-Nemisham_glicks.jpg',
                     'musicSrc': 'https://res.cloudinary.com/ehsanahmadi/video/upload/v1573550770/Sirvan-Khosravi-Dorost-Nemisham-128_kb8urq.mp3',
-                    'extraParams': {
-                        'singer': 'Sirvan Khosravi'
-                    }
+                    'singer': 'Sirvan Khosravi'
+                    
+                    
                 },
             ],
-            showLyric=True
-        )
+            showLyric=True,
+            customizeContainerId='app-container',
+            style={
+                'width': 300
+            }
+        ),
+        html.Div(id='app-container-output')
     ],
+    id='app-container',
     style={
         'padding': 50
     }
