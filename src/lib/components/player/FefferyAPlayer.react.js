@@ -120,7 +120,6 @@ const FefferyAPlayer = (props) => {
     };
 
     const onListRemove = (e) => {
-        console.log('onListRemove', ap.current.list.audios[e.index])
         setProps({ currentListRemoveAudioInfo: ap.current.list.audios[e.index] });
         setProps({ listRemoveClicks: listRemoveClicks + 1 })
     };
