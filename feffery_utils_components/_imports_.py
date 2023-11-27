@@ -29,7 +29,6 @@ from .FefferyHighlightWords import FefferyHighlightWords
 from .FefferyImagePaste import FefferyImagePaste
 from .FefferyJsonViewer import FefferyJsonViewer
 from .FefferyLazyLoad import FefferyLazyLoad
-from .FefferyMusicPlayer import FefferyMusicPlayer
 from .FefferyQRCode import FefferyQRCode
 from .FefferyRawHTML import FefferyRawHTML
 from .FefferyReload import FefferyReload
@@ -59,6 +58,8 @@ from .FefferyMousePosition import FefferyMousePosition
 from .FefferyResponsive import FefferyResponsive
 from .FefferyTextSelection import FefferyTextSelection
 from .FefferyWindowSize import FefferyWindowSize
+from .FefferyAPlayer import FefferyAPlayer
+from .FefferyMusicPlayer import FefferyMusicPlayer
 from .FefferyResizable import FefferyResizable
 from .FefferySortableList import FefferySortableList
 from .FefferySplit import FefferySplit
@@ -101,7 +102,6 @@ __all__ = [
     "FefferyImagePaste",
     "FefferyJsonViewer",
     "FefferyLazyLoad",
-    "FefferyMusicPlayer",
     "FefferyQRCode",
     "FefferyRawHTML",
     "FefferyReload",
@@ -131,6 +131,8 @@ __all__ = [
     "FefferyResponsive",
     "FefferyTextSelection",
     "FefferyWindowSize",
+    "FefferyAPlayer",
+    "FefferyMusicPlayer",
     "FefferyResizable",
     "FefferySortableList",
     "FefferySplit",
