@@ -44,6 +44,8 @@ const FefferyAPlayer = (props) => {
         playClicks,
         pauseClicks,
         seekClicks,
+        skipBackClicks,
+        skipForwardClicks,
         showLrcClicks,
         hideLrcClicks,
         showNoticeClicks,
@@ -161,6 +163,7 @@ const FefferyAPlayer = (props) => {
     useEffect(() => {
         if (skipBack) {
             ap.current.skipBack();
+            setProps({ skipBackClicks: skipBackClicks + 1 });
             setProps({ skipBack: false });
         }
     }, [skipBack])
@@ -168,6 +171,7 @@ const FefferyAPlayer = (props) => {
     useEffect(() => {
         if (skipForward) {
             ap.current.skipForward();
+            setProps({ skipForwardClicks: skipForwardClicks + 1 });
             setProps({ skipForward: false });
         }
     }, [skipForward])
