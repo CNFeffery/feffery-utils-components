@@ -7,13 +7,22 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        fuc.FefferyFancyButton(
-            '测试',
-            id='trigger'
+        fuc.FefferyDPlayer(
+            video={
+                'url': 'https://vjs.zencdn.net/v/oceans.mp4',
+                'type': 'auto'
+            },
+            screenshot=True,
+            style={
+                'marginBottom': '20px'
+            }
         ),
-        fuc.FefferyThrottleProp(
-            id='demo-throttle-prop',
-            throttleWait=1000
+        fuc.FefferyDPlayer(
+            video={
+                'url': 'https://d2zihajmogu5jn.cloudfront.net/sintel/master.m3u8',
+                'type': 'hls'
+            },
+            screenshot=True
         ),
         html.Pre(id='output')
     ],
@@ -21,23 +30,6 @@ app.layout = html.Div(
         'padding': 50
     }
 )
-
-app.clientside_callback(
-    '''(nClicks) => nClicks''',
-    Output('demo-throttle-prop', 'sourceProp'),
-    Input('trigger', 'nClicks'),
-    prevent_initial_call=True
-)
-
-
-@app.callback(
-    Output('output', 'children'),
-    Input('demo-throttle-prop', 'throttleProp'),
-    prevent_initial_call=True
-)
-def update_throttle_prop(throttleProp):
-
-    return f'throttleProp: {throttleProp}'
 
 
 if __name__ == '__main__':
