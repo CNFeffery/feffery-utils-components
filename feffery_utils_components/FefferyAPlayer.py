@@ -35,7 +35,7 @@ Keyword arguments:
 
     - isAdd (boolean; optional)
 
-- audio (list of dicts; default {    type: 'auto'})
+- audio (list of dicts; default [{    type: 'auto'}])
 
     `audio` is a list of dicts with keys:
 

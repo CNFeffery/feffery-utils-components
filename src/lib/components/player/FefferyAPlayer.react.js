@@ -1,7 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useMemo } from 'react';
 import ReactAplayer from 'react-aplayer';
+import Hls from 'hls.js';
 import { v4 as uuidv4 } from 'uuid';
-import { isString, set } from 'lodash';
+import { isString } from 'lodash';
 import useCss from '../../hooks/useCss';
 import PropTypes from 'prop-types';
 
@@ -246,6 +247,22 @@ const FefferyAPlayer = (props) => {
         }
     }, [destroy])
 
+    const customAudioType = {
+        'hls': function (audioElement, audio, player) {
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(audio.url);
+                hls.attachMedia(audioElement);
+            }
+            else if (audioElement.canPlayType('application/x-mpegURL') || audioElement.canPlayType('application/vnd.apple.mpegURL')) {
+                audioElement.src = audio.url;
+            }
+            else {
+                player.notice('Error: HLS is not supported.');
+            }
+        }
+    };
+
     return (
         <div id={containerId}>
             <ReactAplayer
@@ -266,6 +283,7 @@ const FefferyAPlayer = (props) => {
                 preload={preload}
                 volume={volume}
                 audio={audio}
+                customAudioType={customAudioType}
                 mutex={mutex}
                 lrcType={lrcType}
                 listFolded={listFolded}
@@ -554,9 +572,9 @@ FefferyAPlayer.defaultProps = {
     order: 'list',
     preload: 'auto',
     volume: 0.7,
-    audio: {
+    audio: [{
         type: 'auto'
-    },
+    }],
     mutex: true,
     lrcType: 0,
     listFolded: false,
