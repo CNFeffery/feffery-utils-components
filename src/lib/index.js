@@ -71,6 +71,7 @@ import FefferyDebounceProp from "./components/store/FefferyDebounceProp.react";
 import FefferyMusicPlayer from "./components/player/FefferyMusicPlayer.react"; // 待异步优化
 import FefferyAPlayer from "./components/player/FefferyAPlayer.react"; // 待异步优化
 import FefferyThrottleProp from "./components/store/FefferyThrottleProp.react";
+import FefferyTabMessenger from "./components/FefferyTabMessenger.react";
 
 
 // 自定义sessionStorage事件监听
@@ -166,5 +167,6 @@ export {
     FefferyDebounceProp,
     FefferyMusicPlayer,
     FefferyAPlayer,
-    FefferyThrottleProp
+    FefferyThrottleProp,
+    FefferyTabMessenger
 };

@@ -1,43 +1,85 @@
 import dash
-from dash import html
+import json
+from dash import html, dcc
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output, State
 
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, suppress_callback_exceptions=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyFancyButton(
-            '测试',
-            id='trigger'
-        ),
-        fuc.FefferyThrottleProp(
-            id='demo-throttle-prop',
-            throttleWait=1000
-        ),
-        html.Pre(id='output')
+        dcc.Location(id='url'),
+
+        # 根据url来生成不同角色的通信器
+        html.Div(id='tab-messager-role')
     ],
     style={
         'padding': 50
     }
 )
 
-app.clientside_callback(
-    '''(nClicks) => nClicks''',
-    Output('demo-throttle-prop', 'sourceProp'),
-    Input('trigger', 'nClicks'),
-    prevent_initial_call=True
+
+@app.callback(
+    Output('tab-messager-role', 'children'),
+    Input('url', 'pathname')
 )
+def generate_tab_messager(pathname):
+
+    if pathname == '/':
+        # 生成发信者
+        return [
+            fuc.FefferySetTitle(
+                title='发信者示例'
+            ),
+            html.Button(
+                '发消息',
+                id='send-message'
+            ),
+            fuc.FefferyTabMessenger(
+                id='demo-sender',
+                role='sender',
+                targetUrl='/receiver'
+            )
+        ]
+
+    elif pathname == '/receiver':
+        # 生成收信者
+        return [
+            fuc.FefferySetTitle(
+                title='收信者示例'
+            ),
+            fuc.FefferyTabMessenger(
+                id='demo-receiver',
+                role='receiver'
+            ),
+            html.Pre(id='recived-message')
+        ]
 
 
 @app.callback(
-    Output('output', 'children'),
-    Input('demo-throttle-prop', 'throttleProp'),
+    Output('demo-sender', 'toSendMessage'),
+    Input('send-message', 'n_clicks'),
     prevent_initial_call=True
 )
-def update_throttle_prop(throttleProp):
+def send_new_message(n_clicks):
 
-    return f'throttleProp: {throttleProp}'
+    return f'n_clicks: {n_clicks}'
+
+
+@app.callback(
+    Output('recived-message', 'children'),
+    Input('demo-receiver', 'recivedMessage'),
+    prevent_initial_call=True
+)
+def show_recived_message(recivedMessage):
+
+    return json.dumps(
+        dict(
+            recivedMessage=recivedMessage
+        ),
+        indent=4,
+        ensure_ascii=False
+    )
 
 
 if __name__ == '__main__':
