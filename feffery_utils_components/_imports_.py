@@ -69,6 +69,7 @@ from .FefferyDebounceProp import FefferyDebounceProp
 from .FefferyLocalLargeStorage import FefferyLocalLargeStorage
 from .FefferyLocalStorage import FefferyLocalStorage
 from .FefferySessionStorage import FefferySessionStorage
+from .FefferyThrottleProp import FefferyThrottleProp
 
 __all__ = [
     "FefferyAutoAnimate",
@@ -141,5 +142,6 @@ __all__ = [
     "FefferyDebounceProp",
     "FefferyLocalLargeStorage",
     "FefferyLocalStorage",
-    "FefferySessionStorage"
+    "FefferySessionStorage",
+    "FefferyThrottleProp"
 ]

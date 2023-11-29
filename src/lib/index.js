@@ -68,8 +68,9 @@ import FefferyTextSelection from "./components/listeners/FefferyTextSelection.re
 import FefferyLocalLargeStorage from "./components/store/FefferyLocalLargeStorage.react"; // 待异步优化
 import FefferyLongPress from "./components/listeners/FefferyLongPress.react";
 import FefferyDebounceProp from "./components/store/FefferyDebounceProp.react";
-import FefferyMusicPlayer from "./components/player/FefferyMusicPlayer.react";
-import FefferyAPlayer from "./components/player/FefferyAPlayer.react";
+import FefferyMusicPlayer from "./components/player/FefferyMusicPlayer.react"; // 待异步优化
+import FefferyAPlayer from "./components/player/FefferyAPlayer.react"; // 待异步优化
+import FefferyThrottleProp from "./components/store/FefferyThrottleProp.react";
 
 
 // 自定义sessionStorage事件监听
@@ -164,5 +165,6 @@ export {
     FefferyLongPress,
     FefferyDebounceProp,
     FefferyMusicPlayer,
-    FefferyAPlayer
+    FefferyAPlayer,
+    FefferyThrottleProp
 };
