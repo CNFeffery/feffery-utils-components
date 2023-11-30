@@ -480,10 +480,10 @@ FefferyAPlayer.propTypes = {
     // 监听参数，跳转到特定时间的次数
     seekClicks: PropTypes.number,
 
-    // 监听参数，切换到上一首音频的次数
+    // 监听参数，通过函数切换到上一首音频的次数
     skipBackClicks: PropTypes.number,
 
-    // 监听参数，切换到下一首音频的次数
+    // 监听参数，通过函数切换到下一首音频的次数
     skipForwardClicks: PropTypes.number,
 
     // 监听参数，显示歌词的次数
