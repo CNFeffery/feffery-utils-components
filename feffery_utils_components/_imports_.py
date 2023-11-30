@@ -39,6 +39,7 @@ from .FefferyShadowDom import FefferyShadowDom
 from .FefferyShortcutPanel import FefferyShortcutPanel
 from .FefferySticky import FefferySticky
 from .FefferyStyle import FefferyStyle
+from .FefferyTabMessenger import FefferyTabMessenger
 from .FefferyTimeout import FefferyTimeout
 from .FefferyTopProgress import FefferyTopProgress
 from .FefferyVirtualList import FefferyVirtualList
@@ -114,6 +115,7 @@ __all__ = [
     "FefferyShortcutPanel",
     "FefferySticky",
     "FefferyStyle",
+    "FefferyTabMessenger",
     "FefferyTimeout",
     "FefferyTopProgress",
     "FefferyVirtualList",

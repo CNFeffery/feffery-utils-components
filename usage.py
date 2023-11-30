@@ -1,35 +1,85 @@
 import dash
-from dash import html
+import json
+from dash import html, dcc
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output, State
 
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, suppress_callback_exceptions=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyDPlayer(
-            video={
-                'url': 'https://vjs.zencdn.net/v/oceans.mp4',
-                'type': 'auto'
-            },
-            screenshot=True,
-            style={
-                'marginBottom': '20px'
-            }
-        ),
-        fuc.FefferyDPlayer(
-            video={
-                'url': 'https://d2zihajmogu5jn.cloudfront.net/sintel/master.m3u8',
-                'type': 'hls'
-            },
-            screenshot=True
-        ),
-        html.Pre(id='output')
+        dcc.Location(id='url'),
+
+        # 根据url来生成不同角色的通信器
+        html.Div(id='tab-messager-role')
     ],
     style={
         'padding': 50
     }
 )
+
+
+@app.callback(
+    Output('tab-messager-role', 'children'),
+    Input('url', 'pathname')
+)
+def generate_tab_messager(pathname):
+
+    if pathname == '/':
+        # 生成发信者
+        return [
+            fuc.FefferySetTitle(
+                title='发信者示例'
+            ),
+            html.Button(
+                '发消息',
+                id='send-message'
+            ),
+            fuc.FefferyTabMessenger(
+                id='demo-sender',
+                role='sender',
+                targetUrl='/receiver'
+            )
+        ]
+
+    elif pathname == '/receiver':
+        # 生成收信者
+        return [
+            fuc.FefferySetTitle(
+                title='收信者示例'
+            ),
+            fuc.FefferyTabMessenger(
+                id='demo-receiver',
+                role='receiver'
+            ),
+            html.Pre(id='recived-message')
+        ]
+
+
+@app.callback(
+    Output('demo-sender', 'toSendMessage'),
+    Input('send-message', 'n_clicks'),
+    prevent_initial_call=True
+)
+def send_new_message(n_clicks):
+
+    return f'n_clicks: {n_clicks}'
+
+
+@app.callback(
+    Output('recived-message', 'children'),
+    Input('demo-receiver', 'recivedMessage'),
+    prevent_initial_call=True
+)
+def show_recived_message(recivedMessage):
+
+    return json.dumps(
+        dict(
+            recivedMessage=recivedMessage
+        ),
+        indent=4,
+        ensure_ascii=False
+    )
 
 
 if __name__ == '__main__':
