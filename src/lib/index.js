@@ -70,6 +70,7 @@ import FefferyLongPress from "./components/listeners/FefferyLongPress.react";
 import FefferyDebounceProp from "./components/store/FefferyDebounceProp.react";
 import FefferyMusicPlayer from "./components/player/FefferyMusicPlayer.react"; // 待异步优化
 import FefferyAPlayer from "./components/player/FefferyAPlayer.react"; // 待异步优化
+import FefferyDPlayer from "./components/player/FefferyDPlayer.react";
 import FefferyThrottleProp from "./components/store/FefferyThrottleProp.react";
 import FefferyTabMessenger from "./components/FefferyTabMessenger.react";
 
@@ -167,6 +168,7 @@ export {
     FefferyDebounceProp,
     FefferyMusicPlayer,
     FefferyAPlayer,
+    FefferyDPlayer,
     FefferyThrottleProp,
     FefferyTabMessenger
 };

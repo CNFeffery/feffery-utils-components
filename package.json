@@ -32,6 +32,8 @@
     "ahooks": "^3.7.0",
     "array-move": "^4.0.0",
     "byte-guide": "^1.0.7",
+    "dashjs": "^4.7.2",
+    "flv.js": "^1.6.2",
     "framer-motion": "^8.4.1",
     "hls.js": "^1.4.12",
     "interweave": "^13.0.0",
