@@ -547,3 +547,6 @@ FefferyMusicPlayer.defaultProps = {
 }
 
 export default FefferyMusicPlayer;
+
+export const propTypes = FefferyMusicPlayer.propTypes;
+export const defaultProps = FefferyMusicPlayer.defaultProps;
