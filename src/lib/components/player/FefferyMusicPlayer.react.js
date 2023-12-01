@@ -10,6 +10,7 @@ const FefferyMusicPlayer = (props) => {
         id,
         className,
         style,
+        key,
         audioLists,
         theme,
         customizeThemeColor,
@@ -148,6 +149,7 @@ const FefferyMusicPlayer = (props) => {
             id={id}
             style={style}
             className={className}
+            key={key}
             audioLists={audioLists.map(({ extraParams, ...audio }) => {
                 return {
                     ...audio,
@@ -212,6 +214,9 @@ FefferyMusicPlayer.propTypes = {
 
     // 设置音乐播放器的样式
     style: PropTypes.object,
+
+    // 设置播放器的key，强制刷新组件
+    key: PropTypes.string,
 
     // 设置音乐播放器文件列表信息
     audioLists: PropTypes.arrayOf(PropTypes.exact({

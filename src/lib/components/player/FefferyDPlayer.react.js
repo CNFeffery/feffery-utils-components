@@ -15,6 +15,7 @@ const FefferyDPlayer = (props) => {
         id,
         className,
         style,
+        key,
         live,
         autoplay,
         theme,
@@ -424,6 +425,7 @@ const FefferyDPlayer = (props) => {
                         (className ? useCss(className) : undefined)
                 }
                 style={style}
+                key={key}
                 options={options}
                 onPlay={onPlay}
                 onPause={onPause}
@@ -462,6 +464,9 @@ FefferyDPlayer.propTypes = {
 
     // 设置播放器的样式
     style: PropTypes.object,
+
+    // 设置播放器的key，强制刷新组件
+    key: PropTypes.string,
 
     // 是否开启开启直播模式，默认为false
     live: PropTypes.bool,

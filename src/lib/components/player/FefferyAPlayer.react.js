@@ -13,6 +13,7 @@ const FefferyAPlayer = (props) => {
         id,
         className,
         style,
+        key,
         fixed,
         mini,
         autoplay,
@@ -273,6 +274,7 @@ const FefferyAPlayer = (props) => {
                         (className ? useCss(className) : undefined)
                 }
                 style={style}
+                key={key}
                 container={document.getElementById(containerId)}
                 fixed={fixed}
                 mini={mini}
@@ -320,6 +322,9 @@ FefferyAPlayer.propTypes = {
 
     // 设置播放器的样式
     style: PropTypes.object,
+
+    // 设置播放器的key，强制刷新组件
+    key: PropTypes.string,
 
     // 是否开启吸底模式，默认为false
     fixed: PropTypes.bool,
