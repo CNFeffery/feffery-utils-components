@@ -1,7 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useMemo } from 'react';
 import ReactAplayer from 'react-aplayer';
+import Hls from 'hls.js';
 import { v4 as uuidv4 } from 'uuid';
-import { isString, set } from 'lodash';
+import { isString } from 'lodash';
 import useCss from '../../hooks/useCss';
 import PropTypes from 'prop-types';
 
@@ -44,6 +45,8 @@ const FefferyAPlayer = (props) => {
         playClicks,
         pauseClicks,
         seekClicks,
+        skipBackClicks,
+        skipForwardClicks,
         showLrcClicks,
         hideLrcClicks,
         showNoticeClicks,
@@ -161,6 +164,7 @@ const FefferyAPlayer = (props) => {
     useEffect(() => {
         if (skipBack) {
             ap.current.skipBack();
+            setProps({ skipBackClicks: skipBackClicks + 1 });
             setProps({ skipBack: false });
         }
     }, [skipBack])
@@ -168,6 +172,7 @@ const FefferyAPlayer = (props) => {
     useEffect(() => {
         if (skipForward) {
             ap.current.skipForward();
+            setProps({ skipForwardClicks: skipForwardClicks + 1 });
             setProps({ skipForward: false });
         }
     }, [skipForward])
@@ -242,6 +247,22 @@ const FefferyAPlayer = (props) => {
         }
     }, [destroy])
 
+    const customAudioType = {
+        'hls': function (audioElement, audio, player) {
+            if (Hls.isSupported()) {
+                const hls = new Hls();
+                hls.loadSource(audio.url);
+                hls.attachMedia(audioElement);
+            }
+            else if (audioElement.canPlayType('application/x-mpegURL') || audioElement.canPlayType('application/vnd.apple.mpegURL')) {
+                audioElement.src = audio.url;
+            }
+            else {
+                player.notice('Error: HLS is not supported.');
+            }
+        }
+    };
+
     return (
         <div id={containerId}>
             <ReactAplayer
@@ -262,6 +283,7 @@ const FefferyAPlayer = (props) => {
                 preload={preload}
                 volume={volume}
                 audio={audio}
+                customAudioType={customAudioType}
                 mutex={mutex}
                 lrcType={lrcType}
                 listFolded={listFolded}
@@ -458,10 +480,10 @@ FefferyAPlayer.propTypes = {
     // 监听参数，跳转到特定时间的次数
     seekClicks: PropTypes.number,
 
-    // 监听参数，切换到上一首音频的次数
+    // 监听参数，通过函数切换到上一首音频的次数
     skipBackClicks: PropTypes.number,
 
-    // 监听参数，切换到下一首音频的次数
+    // 监听参数，通过函数切换到下一首音频的次数
     skipForwardClicks: PropTypes.number,
 
     // 监听参数，显示歌词的次数
@@ -550,9 +572,9 @@ FefferyAPlayer.defaultProps = {
     order: 'list',
     preload: 'auto',
     volume: 0.7,
-    audio: {
+    audio: [{
         type: 'auto'
-    },
+    }],
     mutex: true,
     lrcType: 0,
     listFolded: false,
