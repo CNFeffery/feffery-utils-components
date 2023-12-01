@@ -15,6 +15,7 @@ const FefferyDPlayer = (props) => {
         id,
         className,
         style,
+        key,
         live,
         autoplay,
         theme,
@@ -127,7 +128,7 @@ const FefferyDPlayer = (props) => {
     };
 
     const onNoticeShow = (e) => {
-        setProps({ currentNoticeInfo: e });
+        setProps({ currentNoticeInfo: {text: e.innerText, opacity: parseFloat(e.style.opacity)} });
         setProps({ showNoticeClicks: showNoticeClicks + 1 })
     };
 
@@ -151,6 +152,7 @@ const FefferyDPlayer = (props) => {
                 url: dplayer.current.dp.video.currentSrc
             }
         })
+        setProps({ volume: dplayer.current.dp.video.volume })
     };
 
     const onScreenshot = () => {
@@ -423,6 +425,7 @@ const FefferyDPlayer = (props) => {
                         (className ? useCss(className) : undefined)
                 }
                 style={style}
+                key={key}
                 options={options}
                 onPlay={onPlay}
                 onPause={onPause}
@@ -461,6 +464,9 @@ FefferyDPlayer.propTypes = {
 
     // 设置播放器的样式
     style: PropTypes.object,
+
+    // 设置播放器的key，强制刷新组件
+    key: PropTypes.string,
 
     // 是否开启开启直播模式，默认为false
     live: PropTypes.bool,
