@@ -1,374 +1,115 @@
-import React, { useRef, useEffect, useMemo } from 'react';
-import ReactAplayer from 'react-aplayer';
-import Hls from 'hls.js';
-import { v4 as uuidv4 } from 'uuid';
-import { isString } from 'lodash';
-import useCss from '../../hooks/useCss';
+import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
 
-// 定义音乐播放组件FefferyAPlayer
+const LazyFefferyAPlayer = React.lazy(() => import(/* webpackChunkName: "aplayer" */ '../../fragments/player/FefferyAPlayer.react'));
+
 const FefferyAPlayer = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        className,
-        style,
-        key,
-        fixed,
-        mini,
-        autoplay,
-        theme,
-        loop,
-        order,
-        preload,
-        volume,
-        audio,
-        mutex,
-        lrcType,
-        listFolded,
-        listMaxHeight,
-        storageName,
-        play,
-        pause,
-        seek,
-        skipBack,
-        skipForward,
-        showLrc,
-        hideLrc,
-        notice,
-        showList,
-        hideList,
-        addList,
-        removeList,
-        switchList,
-        clearList,
-        destroy,
-        playClicks,
-        pauseClicks,
-        seekClicks,
-        skipBackClicks,
-        skipForwardClicks,
-        showLrcClicks,
-        hideLrcClicks,
-        showNoticeClicks,
-        hideNoticeClicks,
-        listShowClicks,
-        listHideClicks,
-        listAddClicks,
-        listRemoveClicks,
-        listSwitchClicks,
-        listClearClicks,
-        destroyClicks,
-        currentPlayAudioInfo,
-        currentPauseAudioInfo,
-        currentSeekAudioInfo,
-        currentNoticeInfo,
-        currentListAddAudioInfo,
-        currentListRemoveAudioInfo,
-        currentListSwitchAudioInfo,
-        setProps,
-        loading_state
-    } = props;
-
-    const containerId = uuidv4();
-
-    const ap = useRef(null);
-
-    const onInit = (aplayer) => {
-        ap.current = aplayer;
-    };
-
-    const onPlay = () => {
-        setProps({ currentPlayAudioInfo: ap.current.list.audios[ap.current.list.index] });
-        setProps({ playClicks: playClicks + 1 })
-    };
-
-    const onPause = () => {
-        setProps({ currentPauseAudioInfo: ap.current.list.audios[ap.current.list.index] });
-        setProps({ pauseClicks: pauseClicks + 1 })
-    };
-
-    const onSeeked = () => {
-        setProps({ currentSeekAudioInfo: ap.current.list.audios[ap.current.list.index] });
-        setProps({ seekClicks: seekClicks + 1 })
-    };
-
-    const onLrcshow = (e) => {
-        setProps({ showLrcClicks: showLrcClicks + 1 })
-    };
-
-    const onLrchide = (e) => {
-        setProps({ hideLrcClicks: hideLrcClicks + 1 })
-    };
-
-    const onNoticeshow = (e) => {
-        setProps({ currentNoticeInfo: e });
-        setProps({ showNoticeClicks: showNoticeClicks + 1 })
-    };
-
-    const onNoticehide = (e) => {
-        setProps({ hideNoticeClicks: hideNoticeClicks + 1 })
-    };
-
-    const onListshow = () => {
-        setProps({ listShowClicks: listShowClicks + 1 })
-    };
-
-    const onListHide = () => {
-        setProps({ listHideClicks: listHideClicks + 1 })
-    };
-
-    const onListAdd = (e) => {
-        setProps({ currentListAddAudioInfo: e });
-        setProps({ listAddClicks: listAddClicks + 1 })
-    };
-
-    const onListRemove = (e) => {
-        setProps({ currentListRemoveAudioInfo: ap.current.list.audios[e.index] });
-        setProps({ listRemoveClicks: listRemoveClicks + 1 })
-    };
-
-    const onListSwitch = (e) => {
-        setProps({ currentListSwitchAudioInfo: ap.current.list.audios[e.index] });
-        setProps({ listSwitchClicks: listSwitchClicks + 1 })
-    };
-
-    const onListClear = (e) => {
-        setProps({ listClearClicks: listClearClicks + 1 })
-    };
-
-    const onDestroy = (e) => {
-        setProps({ destroyClicks: destroyClicks + 1 })
-    };
-
-    useEffect(() => {
-        if (play) {
-            ap.current.play();
-            setProps({ play: false });
-        }
-    }, [play])
-
-    useEffect(() => {
-        if (pause) {
-            ap.current.pause();
-            setProps({ pause: false });
-        }
-    }, [pause])
-
-    useEffect(() => {
-        if (seek.isSeek && seek.time) {
-            ap.current.seek(seek.time);
-            setProps({ seek: { isSeek: false, time: undefined } });
-        }
-    }, [seek])
-
-    useEffect(() => {
-        if (skipBack) {
-            ap.current.skipBack();
-            setProps({ skipBackClicks: skipBackClicks + 1 });
-            setProps({ skipBack: false });
-        }
-    }, [skipBack])
-
-    useEffect(() => {
-        if (skipForward) {
-            ap.current.skipForward();
-            setProps({ skipForwardClicks: skipForwardClicks + 1 });
-            setProps({ skipForward: false });
-        }
-    }, [skipForward])
-
-    useEffect(() => {
-        if (showLrc && ap.current.list.audios[ap.current.list.index].lrc) {
-            ap.current.lrc.show();
-            setProps({ showLrc: false });
-        }
-    }, [showLrc])
-
-    useEffect(() => {
-        if (hideLrc && ap.current.list.audios[ap.current.list.index].lrc) {
-            ap.current.lrc.hide();
-            setProps({ hideLrc: false });
-        }
-    }, [hideLrc])
-
-    useEffect(() => {
-        if (notice.isShow && notice.text) {
-            ap.current.notice(notice.text, notice.time, notice.opacity);
-            setProps({ notice: { isShow: false, text: undefined, time: 2000, opacity: 0.8 } });
-        }
-    }, [notice])
-
-    useEffect(() => {
-        if (showList) {
-            ap.current.list.show();
-            setProps({ showList: false });
-        }
-    }, [showList])
-
-    useEffect(() => {
-        if (hideList) {
-            ap.current.list.hide();
-            setProps({ hideList: false });
-        }
-    }, [hideList])
-
-    useEffect(() => {
-        if (addList.isAdd && addList.audio) {
-            ap.current.list.add(addList.audio);
-            setProps({ addList: { isAdd: false, audio: undefined } });
-        }
-    }, [addList])
-
-    useEffect(() => {
-        if (removeList.isRemove && removeList.index) {
-            ap.current.list.remove(removeList.index);
-            setProps({ removeList: { isRemove: false, index: undefined } });
-        }
-    }, [removeList])
-
-    useEffect(() => {
-        if (switchList.isSwitch && switchList.index) {
-            ap.current.list.switch(switchList.index);
-            setProps({ switchList: { isSwitch: false, index: undefined } });
-        }
-    }, [switchList])
-
-    useEffect(() => {
-        if (clearList) {
-            ap.current.list.clear();
-            setProps({ clearList: false });
-        }
-    }, [clearList])
-
-    useEffect(() => {
-        if (destroy) {
-            ap.current.destroy();
-            setProps({ destroy: false });
-        }
-    }, [destroy])
-
-    const customAudioType = {
-        'hls': function (audioElement, audio, player) {
-            if (Hls.isSupported()) {
-                const hls = new Hls();
-                hls.loadSource(audio.url);
-                hls.attachMedia(audioElement);
-            }
-            else if (audioElement.canPlayType('application/x-mpegURL') || audioElement.canPlayType('application/vnd.apple.mpegURL')) {
-                audioElement.src = audio.url;
-            }
-            else {
-                player.notice('Error: HLS is not supported.');
-            }
-        }
-    };
-
     return (
-        <div id={containerId}>
-            <ReactAplayer
-                id={id}
-                className={
-                    isString(className) ?
-                        className :
-                        (className ? useCss(className) : undefined)
-                }
-                style={style}
-                key={key}
-                container={document.getElementById(containerId)}
-                fixed={fixed}
-                mini={mini}
-                autoplay={autoplay}
-                theme={theme}
-                loop={loop}
-                order={order}
-                preload={preload}
-                volume={volume}
-                audio={audio}
-                customAudioType={customAudioType}
-                mutex={mutex}
-                lrcType={lrcType}
-                listFolded={listFolded}
-                listMaxHeight={listMaxHeight}
-                storageName={storageName}
-                onInit={onInit}
-                onPlay={onPlay}
-                onPause={onPause}
-                onSeeked={onSeeked}
-                onLrcshow={onLrcshow}
-                onLrchide={onLrchide}
-                onNoticeshow={onNoticeshow}
-                onNoticehide={onNoticehide}
-                onListshow={onListshow}
-                onListhide={onListHide}
-                onListadd={onListAdd}
-                onListremove={onListRemove}
-                onListswitch={onListSwitch}
-                onListclear={onListClear}
-                onDestroy={onDestroy}
-                loading_state={loading_state}
-            />
-        </div>
-    )
+        <Suspense fallback={null}>
+            <LazyFefferyAPlayer {...props} />
+        </Suspense>
+    );
 }
 
 // 定义参数或属性，API参数参考https://github.com/MoePlayer/react-aplayer#props
 FefferyAPlayer.propTypes = {
-    // 播放器id
+    /**
+     * 播放器id 
+     */
     id: PropTypes.string,
 
-    // 设置播放器的css类名
+    /**
+     * 设置播放器的css类名 
+     */
     className: PropTypes.string,
 
-    // 设置播放器的样式
+    /**
+     * 设置播放器的样式
+     */
     style: PropTypes.object,
 
-    // 设置播放器的key，强制刷新组件
+    /**
+     * 设置播放器的key，强制刷新组件
+     */
     key: PropTypes.string,
 
-    // 是否开启吸底模式，默认为false
+    /**
+     * 是否开启吸底模式，默认为false
+     */
     fixed: PropTypes.bool,
 
-    // 是否开启迷你模式，默认为false
+    /**
+     * 是否开启迷你模式，默认为false
+     */
     mini: PropTypes.bool,
 
-    // 音频是否自动播放，默认为false
+    /**
+     * 音频是否自动播放，默认为false
+     */
     autoplay: PropTypes.bool,
 
-    // 设置主题色，默认为'#b7daff'
+    /**
+     * 设置主题色，默认为'#b7daff'
+     */
     theme: PropTypes.string,
 
-    // 设置音频循环播放, 可选值: 'all', 'one', 'none'，默认为'all'
+    /**
+     * 设置音频循环播放, 可选值: 'all', 'one', 'none'，默认为'all'
+     */
     loop: PropTypes.oneOf(['all', 'one', 'none']),
 
-    // 设置音频循环顺序, 可选值: 'list', 'random'，默认为'list'
+    /**
+     * 设置音频循环顺序, 可选值: 'list', 'random'，默认为'list'
+     */
     order: PropTypes.oneOf(['list', 'random']),
 
-    // 设置音频预加载，可选值: 'none', 'metadata', 'auto'，默认为'auto'
+    /**
+     * 设置音频预加载，可选值: 'none', 'metadata', 'auto'，默认为'auto'
+     */
     preload: PropTypes.oneOf(['none', 'metadata', 'auto']),
 
-    // 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
+    /**
+     * 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
+     */
     volume: PropTypes.number,
 
-    // 设置音频信息
+    /**
+     * 设置音频信息
+     */
     audio: PropTypes.arrayOf(PropTypes.exact({
-        // 设置音频名称
+        /**
+         * 设置音频名称
+         */
         name: PropTypes.string,
-        // 设置音频作者
+        /**
+         * 设置音频作者
+         */
         artist: PropTypes.string,
-        // 设置音频链接
+        /**
+         * 设置音频链接
+         */
         url: PropTypes.string,
-        // 设置音频封面
+        /**
+         * 设置音频封面
+         */
         cover: PropTypes.string,
-        // 设置音频lrc歌词
+        /**
+         * 设置音频lrc歌词
+         */
         lrc: PropTypes.string,
-        // 设置切换到此音频时的主题色，比上面的 theme 优先级高
+        /**
+         * 设置切换到此音频时的主题色，比上面的 theme 优先级高
+         */
         theme: PropTypes.string,
-        // 设置音频类型，可选的有'auto'、'hls'、'normal'，默认为'auto'
+        /**
+         * 设置音频类型，可选的有'auto'、'hls'、'normal'，默认为'auto'
+         */
         type: PropTypes.oneOf(['auto', 'hls', 'normal'])
     })),
 
-    // 是否互斥，阻止多个播放器同时播放，当前播放器播放时暂停其他播放器，默认为true
+    /**
+     * 是否互斥，阻止多个播放器同时播放，当前播放器播放时暂停其他播放器，默认为true
+     */
     mutex: PropTypes.bool,
 
     /**
@@ -383,166 +124,276 @@ FefferyAPlayer.propTypes = {
      */
     lrcType: PropTypes.oneOf([0, 1, 2, 3]),
 
-    // 列表是否默认折叠，默认为false
+    /**
+     * 列表是否默认折叠，默认为false
+     */
     listFolded: PropTypes.bool,
 
-    // 设置列表最大高度
+    /**
+     * 设置列表最大高度
+     */
     listMaxHeight: PropTypes.number,
 
-    // 存储播放器设置的 localStorage key，默认为'aplayer-setting'
+    /**
+     * 存储播放器设置的 localStorage key，默认为'aplayer-setting'
+     */
     storageName: PropTypes.string,
 
-    // 播放音频，每次设置为true后执行完相应操作后会自动置为false
+    /**
+     * 播放音频，每次设置为true后执行完相应操作后会自动置为false
+     */
     play: PropTypes.bool,
 
-    // 暂停音频，每次设置为true后执行完相应操作后会自动置为false
+    /**
+     * 暂停音频，每次设置为true后执行完相应操作后会自动置为false
+     */
     pause: PropTypes.bool,
 
-    // 跳转到特定时间，时间的单位为秒，每次isSeek设置为true后执行完相应操作后会自动置为false
+    /**
+     * 跳转到特定时间，时间的单位为秒，每次isSeek设置为true后执行完相应操作后会自动置为false
+     */
     seek: PropTypes.exact({
         isSeek: PropTypes.bool,
-        // 跳转到的时间
+        /**
+         * 跳转到的时间
+         */
         time: PropTypes.number,
     }),
 
-    // 切换到上一首音频，每次设置为true后执行完相应操作后会自动置为false
+    /**
+     * 切换到上一首音频，每次设置为true后执行完相应操作后会自动置为false
+     */
     skipBack: PropTypes.bool,
 
-    // 切换到下一首音频，每次设置为true后执行完相应操作后会自动置为false
+    /**
+     * 切换到下一首音频，每次设置为true后执行完相应操作后会自动置为false
+     */
     skipForward: PropTypes.bool,
 
-    // 显示歌词，每次设置为true后执行完相应操作后会自动置为false
+    /**
+     * 显示歌词，每次设置为true后执行完相应操作后会自动置为false
+     */
     showLrc: PropTypes.bool,
 
-    // 隐藏歌词，每次设置为true后执行完相应操作后会自动置为false
+    /**
+     * 隐藏歌词，每次设置为true后执行完相应操作后会自动置为false
+     */
     hideLrc: PropTypes.bool,
 
-    // 显示通知信息，每次isShow设置为true后执行完相应操作后会自动置为false
+    /**
+     * 显示通知信息，每次isShow设置为true后执行完相应操作后会自动置为false
+     */
     notice: PropTypes.exact({
         isShow: PropTypes.bool,
-        // 通知内容
+        /**
+         * 通知内容
+         */
         text: PropTypes.string,
-        // 通知持续时间，单位为毫秒，设置时间为 0 可以取消通知自动隐藏
+        /**
+         * 通知持续时间，单位为毫秒，设置时间为 0 可以取消通知自动隐藏
+         */
         time: PropTypes.number,
-        // 通知透明度
+        /**
+         * 通知透明度
+         */
         opacity: PropTypes.number,
     }),
 
-    // 显示播放列表，每次设置为true后执行完相应操作后会自动置为false
+    /**
+     * 显示播放列表，每次设置为true后执行完相应操作后会自动置为false
+     */
     showList: PropTypes.bool,
 
-    // 隐藏播放列表，每次设置为true后执行完相应操作后会自动置为false
+    /**
+     * 隐藏播放列表，每次设置为true后执行完相应操作后会自动置为false
+     */
     hideList: PropTypes.bool,
 
-    // 增加音频到播放列表，每次isAdd设置为true后执行完相应操作后会自动置为false
+    /**
+     * 增加音频到播放列表，每次isAdd设置为true后执行完相应操作后会自动置为false
+     */
     addList: PropTypes.exact({
         isAdd: PropTypes.bool,
-        // 音频信息
+        /**
+         * 音频信息
+         */
         audio: PropTypes.arrayOf(PropTypes.exact({
-            // 设置音频名称
+            /**
+             * 设置音频名称
+             */
             name: PropTypes.string,
-            // 设置音频作者
+            /**
+             * 设置音频作者
+             */
             artist: PropTypes.string,
-            // 设置音频链接
+            /**
+             * 设置音频链接
+             */
             url: PropTypes.string,
-            // 设置音频封面
+            /**
+             * 设置音频封面
+             */
             cover: PropTypes.string,
-            // 设置音频lrc歌词
+            /**
+             * 设置音频lrc歌词
+             */
             lrc: PropTypes.string,
-            // 设置切换到此音频时的主题色，比上面的 theme 优先级高
+            /**
+             * 设置切换到此音频时的主题色，比上面的 theme 优先级高
+             */
             theme: PropTypes.string,
-            // 设置音频类型，可选的有'auto'、'hls'、'normal'，默认为'auto'
+            /**
+             * 设置音频类型，可选的有'auto'、'hls'、'normal'，默认为'auto'
+             */
             type: PropTypes.oneOf(['auto', 'hls', 'normal'])
         })),
     }),
 
-    // 删除播放列表中的音频，每次isDelete设置为true后执行完相应操作后会自动置为false
+    /**
+     * 删除播放列表中的音频，每次isDelete设置为true后执行完相应操作后会自动置为false
+     */
     removeList: PropTypes.exact({
         isRemove: PropTypes.bool,
-        // 音频索引
+        /**
+         * 音频索引
+         */
         index: PropTypes.number,
     }),
 
-    // 切换播放列表，每次isSwitch设置为true后执行完相应操作后会自动置为false
+    /**
+     * 切换播放列表，每次isSwitch设置为true后执行完相应操作后会自动置为false
+     */
     switchList: PropTypes.exact({
         isSwitch: PropTypes.bool,
-        // 音频索引
+        /**
+         * 音频索引
+         */
         index: PropTypes.number,
     }),
 
-    // 清空播放列表，每次设置为true后执行完相应操作后会自动置为false
+    /**
+     * 清空播放列表，每次设置为true后执行完相应操作后会自动置为false
+     */
     clearList: PropTypes.bool,
 
-    // 销毁播放器，每次设置为true后执行完相应操作后会自动置为false
+    /**
+     * 销毁播放器，每次设置为true后执行完相应操作后会自动置为false
+     */
     destroy: PropTypes.bool,
 
-    // 监听参数，播放音频的次数
+    /**
+     * 监听参数，播放音频的次数
+     */
     playClicks: PropTypes.number,
 
-    // 监听参数，暂停音频的次数
+    /**
+     * 监听参数，暂停音频的次数
+     */
     pauseClicks: PropTypes.number,
 
-    // 监听参数，跳转到特定时间的次数
+    /**
+     * 监听参数，跳转到特定时间的次数
+     */
     seekClicks: PropTypes.number,
 
-    // 监听参数，通过函数切换到上一首音频的次数
+    /**
+     * 监听参数，通过函数切换到上一首音频的次数
+     */
     skipBackClicks: PropTypes.number,
 
-    // 监听参数，通过函数切换到下一首音频的次数
+    /**
+     * 监听参数，通过函数切换到下一首音频的次数
+     */
     skipForwardClicks: PropTypes.number,
 
-    // 监听参数，显示歌词的次数
+    /**
+     * 监听参数，显示歌词的次数
+     */
     showLrcClicks: PropTypes.number,
 
-    // 监听参数，隐藏歌词的次数
+    /**
+     * 监听参数，隐藏歌词的次数
+     */
     hideLrcClicks: PropTypes.number,
 
-    // 监听参数，显示通知的次数
+    /**
+     * 监听参数，显示通知的次数
+     */
     showNoticeClicks: PropTypes.number,
 
-    // 监听参数，隐藏通知的次数
+    /**
+     * 监听参数，隐藏通知的次数
+     */
     hideNoticeClicks: PropTypes.number,
 
-    // 监听参数，显示播放列表的次数
+    /**
+     * 监听参数，显示播放列表的次数
+     */
     listShowClicks: PropTypes.number,
 
-    // 监听参数，隐藏播放列表的次数
+    /**
+     * 监听参数，隐藏播放列表的次数
+     */
     listHideClicks: PropTypes.number,
 
-    // 监听参数，添加音频到播放列表的次数
+    /**
+     * 监听参数，添加音频到播放列表的次数
+     */
     listAddClicks: PropTypes.number,
 
-    // 监听参数，删除音频的次数
+    /**
+     * 监听参数，删除音频的次数
+     */
     listRemoveClicks: PropTypes.number,
 
-    // 监听参数，切换到播放列表里的其他音频的次数
+    /**
+     * 监听参数，切换到播放列表里的其他音频的次数
+     */
     listSwitchClicks: PropTypes.number,
 
-    // 监听参数，清空播放列表的次数
+    /**
+     * 监听参数，清空播放列表的次数
+     */
     listClearClicks: PropTypes.number,
 
-    // 监听参数，播放器销毁的次数
+    /**
+     * 监听参数，播放器销毁的次数
+     */
     destroyClicks: PropTypes.number,
 
-    // 监听参数，当前播放的音频信息
+    /**
+     * 监听参数，当前播放的音频信息
+     */
     currentPlayAudioInfo: PropTypes.object,
 
-    // 监听参数，当前暂停的音频信息
+    /**
+     * 监听参数，当前暂停的音频信息
+     */
     currentPauseAudioInfo: PropTypes.object,
 
-    // 监听参数，当前改动进度条的音频信息
+    /**
+     * 监听参数，当前改动进度条的音频信息
+     */
     currentSeekAudioInfo: PropTypes.object,
 
-    // 监听参数，当前显示的通知信息
+    /**
+     * 监听参数，当前显示的通知信息
+     */
     currentNoticeInfo: PropTypes.object,
 
-    // 监听参数，当前列表执行添加操作的音频信息
+    /**
+     * 监听参数，当前列表执行添加操作的音频信息
+     */
     currentListAddAudioInfo: PropTypes.object,
 
-    // 监听参数，当前列表执行移除操作的音频信息
+    /**
+     * 监听参数，当前列表执行移除操作的音频信息
+     */
     currentListRemoveAudioInfo: PropTypes.object,
 
-    // 监听参数，当前列表切换到的音频信息
+    /**
+     * 监听参数，当前列表切换到的音频信息
+     */
     currentListSwitchAudioInfo: PropTypes.object,
 
     loading_state: PropTypes.shape({
@@ -630,3 +481,6 @@ FefferyAPlayer.defaultProps = {
 }
 
 export default FefferyAPlayer;
+
+export const propTypes = FefferyAPlayer.propTypes;
+export const defaultProps = FefferyAPlayer.defaultProps;
