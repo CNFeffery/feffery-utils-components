@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
 
-const LazyFefferyCaptcha = React.lazy(() => import(/* webpackChunkName: "captcha" */ '../fragments/FefferyCaptcha.react'));
+const LazyFefferyCaptcha = React.lazy(() => import(/* webpackChunkName: "feffery_captcha" */ '../fragments/FefferyCaptcha.react'));
 
 const FefferyCaptcha = (props) => {
     return (
