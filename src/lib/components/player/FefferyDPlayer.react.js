@@ -128,7 +128,7 @@ const FefferyDPlayer = (props) => {
     };
 
     const onNoticeShow = (e) => {
-        setProps({ currentNoticeInfo: {text: e.innerText, opacity: parseFloat(e.style.opacity)} });
+        setProps({ currentNoticeInfo: { text: e.innerText, opacity: parseFloat(e.style.opacity) } });
         setProps({ showNoticeClicks: showNoticeClicks + 1 })
     };
 

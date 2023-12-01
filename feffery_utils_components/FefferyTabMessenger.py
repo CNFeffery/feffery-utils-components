@@ -37,6 +37,9 @@ Keyword arguments:
 - targetUrl (string; optional):
     当role为'sender'时，用于定义自动创建打开的目标标签页对应url.
 
+- targetWindowFeatures (string; optional):
+    当role为'sender'时，用于定义自动创建打开的目标标签页底层调用window.open()对应的额外的windowFeatures字符串.
+
 - toSendMessage (string; optional):
     当role为'sender'时，用于设置将要新发送的信息内容，每次成功发送后都会重置为空."""
     _children_props = []
@@ -44,10 +47,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyTabMessenger'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.REQUIRED, targetUrl=Component.UNDEFINED, toSendMessage=Component.UNDEFINED, recivedMessage=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'loading_state', 'recivedMessage', 'role', 'targetUrl', 'toSendMessage']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, role=Component.REQUIRED, targetUrl=Component.UNDEFINED, targetWindowFeatures=Component.UNDEFINED, toSendMessage=Component.UNDEFINED, recivedMessage=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'loading_state', 'recivedMessage', 'role', 'targetUrl', 'targetWindowFeatures', 'toSendMessage']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'loading_state', 'recivedMessage', 'role', 'targetUrl', 'toSendMessage']
+        self.available_properties = ['id', 'key', 'loading_state', 'recivedMessage', 'role', 'targetUrl', 'targetWindowFeatures', 'toSendMessage']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

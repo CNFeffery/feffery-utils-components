@@ -8,6 +8,7 @@ const FefferyTabMessenger = (props) => {
         role,
         targetUrl,
         toSendMessage,
+        targetWindowFeatures,
         setProps,
         loading_state
     } = props;
@@ -34,7 +35,7 @@ const FefferyTabMessenger = (props) => {
                 window.removeEventListener("message", listenMessage);
             };
         } else if (role === 'sender') {
-            let targetWindow = window.open(targetUrl, '_blank')
+            let targetWindow = window.open(targetUrl, '_blank', targetWindowFeatures)
             targetWindowRef.current = targetWindow;
             // 当前组件销毁后，关闭目标窗口
             return () => {
@@ -77,6 +78,11 @@ FefferyTabMessenger.propTypes = {
      * 当role为'sender'时，用于定义自动创建打开的目标标签页对应url
      */
     targetUrl: PropTypes.string,
+
+    /**
+     * 当role为'sender'时，用于定义自动创建打开的目标标签页底层调用window.open()对应的额外的windowFeatures字符串
+     */
+    targetWindowFeatures: PropTypes.string,
 
     /**
      * 当role为'sender'时，用于设置将要新发送的信息内容，每次成功发送后都会重置为空
