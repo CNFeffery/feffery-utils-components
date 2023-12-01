@@ -64,6 +64,11 @@ FefferyTabMessenger.propTypes = {
     id: PropTypes.string,
 
     /**
+     * 强制刷新组件状态用
+     */
+    key: PropTypes.string,
+
+    /**
      * 必填，声明当前组件所在标签页角色，可选的有'sender'和'receiver'
      */
     role: PropTypes.oneOf(['sender', 'receiver']).isRequired,
