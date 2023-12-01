@@ -127,7 +127,7 @@ const FefferyDPlayer = (props) => {
     };
 
     const onNoticeShow = (e) => {
-        setProps({ currentNoticeInfo: e });
+        setProps({ currentNoticeInfo: {text: e.innerText, opacity: parseFloat(e.style.opacity)} });
         setProps({ showNoticeClicks: showNoticeClicks + 1 })
     };
 
@@ -151,6 +151,7 @@ const FefferyDPlayer = (props) => {
                 url: dplayer.current.dp.video.currentSrc
             }
         })
+        setProps({ volume: dplayer.current.dp.video.volume })
     };
 
     const onScreenshot = () => {
