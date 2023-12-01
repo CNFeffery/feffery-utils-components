@@ -130,7 +130,7 @@ module.exports = (env, argv) => {
                 })
             ],
             splitChunks: {
-                name: true,
+                name: '[name].js',
                 cacheGroups: {
                     async: {
                         chunks: 'async',
@@ -138,12 +138,6 @@ module.exports = (env, argv) => {
                         name(module, chunks, cacheGroupKey) {
                             return `${cacheGroupKey}-${chunks[0].name}`;
                         }
-                    },
-                    shared: {
-                        chunks: 'all',
-                        minSize: 0,
-                        minChunks: 2,
-                        name: 'feffery_utils_components-shared'
                     }
                 }
             }

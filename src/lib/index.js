@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import FefferyCaptcha from "./components/FefferyCaptcha.react"; // 待异步优化
+import FefferyCaptcha from "./components/FefferyCaptcha.react";
 import FefferyTopProgress from "./components/FefferyTopProgress.react";
 import FefferyShortcutPanel from "./components/FefferyShortcutPanel.react"; // 待异步优化
 import FefferyGuide from "./components/FefferyGuide.react";
