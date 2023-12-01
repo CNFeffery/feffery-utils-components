@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
 
-const LazyFefferyMusicPlayer = React.lazy(() => import(/* webpackChunkName: "music_player" */ '../../fragments/player/FefferyMusicPlayer.react'));
+const LazyFefferyMusicPlayer = React.lazy(() => import(/* webpackChunkName: "feffery_music_player" */ '../../fragments/player/FefferyMusicPlayer.react'));
 
 const FefferyMusicPlayer = (props) => {
     return (
