@@ -3,6 +3,7 @@
 /deps
 /dist
 /feffery_utils_components/*.js
+/feffery_utils_components/*.txt
 /feffery_utils_components/*.json
 /feffery_utils_components.egg-info
 /feffery_utils_components/__pycache__
