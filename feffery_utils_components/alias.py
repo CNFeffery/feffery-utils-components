@@ -39,6 +39,7 @@ from .FefferyShadowDom import FefferyShadowDom as ShadowDom
 from .FefferyShortcutPanel import FefferyShortcutPanel as ShortcutPanel
 from .FefferySticky import FefferySticky as Sticky
 from .FefferyStyle import FefferyStyle as Style
+from .FefferyTabMessenger import FefferyTabMessenger as TabMessenger
 from .FefferyTimeout import FefferyTimeout as Timeout
 from .FefferyTopProgress import FefferyTopProgress as TopProgress
 from .FefferyVirtualList import FefferyVirtualList as VirtualList
@@ -58,14 +59,19 @@ from .FefferyMousePosition import FefferyMousePosition as MousePosition
 from .FefferyResponsive import FefferyResponsive as Responsive
 from .FefferyTextSelection import FefferyTextSelection as TextSelection
 from .FefferyWindowSize import FefferyWindowSize as WindowSize
+from .FefferyAPlayer import FefferyAPlayer as APlayer
+from .FefferyDPlayer import FefferyDPlayer as DPlayer
+from .FefferyMusicPlayer import FefferyMusicPlayer as MusicPlayer
 from .FefferyResizable import FefferyResizable as Resizable
 from .FefferySortableList import FefferySortableList as SortableList
 from .FefferySplit import FefferySplit as Split
 from .FefferySplitPane import FefferySplitPane as SplitPane
 from .FefferyCookie import FefferyCookie as Cookie
+from .FefferyDebounceProp import FefferyDebounceProp as DebounceProp
 from .FefferyLocalLargeStorage import FefferyLocalLargeStorage as LocalLargeStorage
 from .FefferyLocalStorage import FefferyLocalStorage as LocalStorage
 from .FefferySessionStorage import FefferySessionStorage as SessionStorage
+from .FefferyThrottleProp import FefferyThrottleProp as ThrottleProp
 
 __all__ = [
     "AutoAnimate",
@@ -109,6 +115,7 @@ __all__ = [
     "ShortcutPanel",
     "Sticky",
     "Style",
+    "TabMessenger",
     "Timeout",
     "TopProgress",
     "VirtualList",
@@ -128,12 +135,17 @@ __all__ = [
     "Responsive",
     "TextSelection",
     "WindowSize",
+    "APlayer",
+    "DPlayer",
+    "MusicPlayer",
     "Resizable",
     "SortableList",
     "Split",
     "SplitPane",
     "Cookie",
+    "DebounceProp",
     "LocalLargeStorage",
     "LocalStorage",
-    "SessionStorage"
+    "SessionStorage",
+    "ThrottleProp"
 ]

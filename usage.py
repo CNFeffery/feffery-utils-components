@@ -1,7 +1,7 @@
 import dash
 import json
 from dash import html, dcc
-import feffery_utils_components as fuc
+import feffery_utils_components.alias as fuc
 from dash.dependencies import Input, Output, State
 
 app = dash.Dash(__name__, suppress_callback_exceptions=True)
@@ -28,14 +28,14 @@ def generate_tab_messager(pathname):
     if pathname == '/':
         # 生成发信者
         return [
-            fuc.FefferySetTitle(
+            fuc.SetTitle(
                 title='发信者示例'
             ),
             html.Button(
                 '发消息',
                 id='send-message'
             ),
-            fuc.FefferyTabMessenger(
+            fuc.TabMessenger(
                 id='demo-sender',
                 role='sender',
                 targetUrl='/receiver',
@@ -46,10 +46,10 @@ def generate_tab_messager(pathname):
     elif pathname == '/receiver':
         # 生成收信者
         return [
-            fuc.FefferySetTitle(
+            fuc.SetTitle(
                 title='收信者示例'
             ),
-            fuc.FefferyTabMessenger(
+            fuc.TabMessenger(
                 id='demo-receiver',
                 role='receiver'
             ),
