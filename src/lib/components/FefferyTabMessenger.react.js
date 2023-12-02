@@ -18,6 +18,10 @@ const FefferyTabMessenger = (props) => {
     useEffect(() => {
         // 若当前组件角色为收信者
         if (role === 'receiver') {
+            const destorySelf = () => {
+                window.close();
+            }
+
             const listenMessage = (e) => {
                 if (e.source === window.opener) {
                     setProps({
@@ -26,12 +30,18 @@ const FefferyTabMessenger = (props) => {
                 }
             }
 
+            window.opener.addEventListener(
+                "beforeunload",
+                destorySelf
+            )
+
             window.addEventListener(
                 "message",
                 listenMessage
             );
 
             return () => {
+                window.opener.removeEventListener("beforeunload", destorySelf);
                 window.removeEventListener("message", listenMessage);
             };
         } else if (role === 'sender') {
@@ -39,7 +49,7 @@ const FefferyTabMessenger = (props) => {
             targetWindowRef.current = targetWindow;
             // 当前组件销毁后，关闭目标窗口
             return () => {
-                targetWindow.close();
+                targetWindowRef.current.close();
             };
         }
     }, []);

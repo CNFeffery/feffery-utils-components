@@ -1,138 +1,86 @@
 import dash
-from dash import html
+import json
+from dash import html, dcc
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output, State
 
-app = dash.Dash(__name__, compress=True)
+app = dash.Dash(__name__, suppress_callback_exceptions=True)
 
 app.layout = html.Div(
     [
-        html.Pre('普通模式'),
-        fuc.FefferyDPlayer(
-            video={
-                'url': 'https://vjs.zencdn.net/v/oceans.mp4',
-                'type': 'auto'
-            },
-            screenshot=True,
-            style={
-                'margin': '50px',
-                'width': '50%'
-            }
-        ),
-        html.Pre('MSE--hls模式'),
-        html.Div(
-            fuc.FefferyDPlayer(
-                id='player-2',
-                video={
-                    'url': 'https://d2zihajmogu5jn.cloudfront.net/sintel/master.m3u8',
-                    'type': 'hls'
-                },
-                screenshot=True,
-                danmaku={
-                    'isOpen': True,
-                    'id': '9E2E3368B56CDBB4',
-                    'api': 'https://api.prprpr.me/dplayer/',
-                    'token': 'tokendemo',
-                    'maximum': 1000,
-                    'addition': ['https://api.prprpr.me/dplayer/v3/bilibili?aid=4157142']
-                },
-                contextmenu=[
-                    {
-                        'text': '测试1',
-                        'extraInfo': {
-                            'key': '111',
-                            'param1': 'aaa',
-                            'param2': 'bbb',
-                            'param3': 'ccc'
-                        }
-                    },
-                    {
-                        'text': '测试2',
-                        'extraInfo': {
-                            'key': '222',
-                            'param1': 'aaa',
-                            'param2': 'bbb',
-                            'param3': 'ccc'
-                        }
-                    }
-                ],
-                highlight=[
-                    {
-                        'time': 200,
-                        'text': '这是第 200 秒'
-                    },
-                    {
-                        'time': 120,
-                        'text': '这是第 2 分钟'
-                    }
-                ],
-                style={
-                    'margin': '50px',
-                    'width': '50%'
-                }
-            ),
-            id='player-2-container'
-        ),
-        fuc.FefferyFancyButton(
-            type='primary',
-            id='operate-button',
-            children='操作',
-            style={
-               'marginLeft': '50px'
-            }
-        ),
-        html.Pre('MSE--flv模式'),
-        fuc.FefferyDPlayer(
-            video={
-                'url': 'https://flvplayer.js.org/assets/video/weathering-with-you.flv',
-                'type': 'flv'
-            },
-            screenshot=True,
-            style={
-                'margin': '50px',
-                'width': '50%'
-            }
-        ),
-        html.Pre('MSE--dash模式'),
-        fuc.FefferyDPlayer(
-            video={
-                'url': 'https://dash.akamaized.net/dash264/TestCasesIOP33/adapatationSetSwitching/5/manifest.mpd',
-                'type': 'dash'
-            },
-            screenshot=True,
-            style={
-                'margin': '50px',
-                'width': '50%'
-            }
-        ),
-        html.Pre(id='output')
+        dcc.Location(id='url'),
+
+        # 根据url来生成不同角色的通信器
+        html.Div(id='tab-messager-role')
     ],
     style={
         'padding': 50
     }
 )
 
+
 @app.callback(
-    Output('player-2', 'play'),
-    Input('operate-button', 'nClicks'),
-    prevent_initial_call=True
+    Output('tab-messager-role', 'children'),
+    Input('url', 'pathname')
 )
-def set_player_2(nClicks):
-    if nClicks:
-        return True
-    return dash.no_update
+def generate_tab_messager(pathname):
+
+    if pathname == '/':
+        # 生成发信者
+        return [
+            fuc.FefferySetTitle(
+                title='发信者示例'
+            ),
+            html.Button(
+                '发消息',
+                id='send-message'
+            ),
+            fuc.FefferyTabMessenger(
+                id='demo-sender',
+                role='sender',
+                targetUrl='/receiver',
+                targetWindowFeatures='left=0,top=0,width=800,height=500,menubar=no,toolbar=no,location=no,status=no,resizable=yes,scrollbars=no'
+            )
+        ]
+
+    elif pathname == '/receiver':
+        # 生成收信者
+        return [
+            fuc.FefferySetTitle(
+                title='收信者示例'
+            ),
+            fuc.FefferyTabMessenger(
+                id='demo-receiver',
+                role='receiver'
+            ),
+            html.Pre(id='recived-message')
+        ]
 
 
 @app.callback(
-    Output('output', 'children'),
-    Input('player-2-container', 'n_clicks'),
-    State('player-2-container', 'children'),
+    Output('demo-sender', 'toSendMessage'),
+    Input('send-message', 'n_clicks'),
     prevent_initial_call=True
 )
-def get_player_2(n_clicks, children):
-    if n_clicks:
-        return fuc.FefferyJsonViewer(data=children)
-    return dash.no_update
+def send_new_message(n_clicks):
+
+    return f'n_clicks: {n_clicks}'
+
+
+@app.callback(
+    Output('recived-message', 'children'),
+    Input('demo-receiver', 'recivedMessage'),
+    prevent_initial_call=True
+)
+def show_recived_message(recivedMessage):
+
+    return json.dumps(
+        dict(
+            recivedMessage=recivedMessage
+        ),
+        indent=4,
+        ensure_ascii=False
+    )
 
 
 if __name__ == '__main__':
