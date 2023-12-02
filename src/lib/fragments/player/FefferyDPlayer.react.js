@@ -337,11 +337,9 @@ const FefferyDPlayer = (props) => {
         // 获取所有右键菜单项
         let allMenuItems = Array.from(document.getElementById(containerId).querySelectorAll('.dplayer-menu-item'));
 
-        // 将dom文本包含'关于作者'和'DPlayer'的显示样式设置为 none
-        allMenuItems.forEach(item => {
-            if (item.innerText.includes('关于作者') || item.innerText.includes('DPlayer')) {
-                item.style.display = 'none';
-            }
+        // 将默认的右键菜单项dom文本包含'关于作者'和'DPlayer'的显示样式设置为 none
+        allMenuItems.slice(-2).forEach(item => {
+            item.style.display = 'none';
         })
     })
 
