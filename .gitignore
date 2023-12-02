@@ -14,5 +14,5 @@
 /src/demo
 /src/jl
 /src/*.jl
-
+/.vscode
 package-lock.json
