@@ -1,46 +1,139 @@
-import json
 import dash
 from dash import html
 import feffery_utils_components as fuc
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyMusicPlayer(
-            id='music-player',
-            customizeThemeColor='#f63',
-            customizeLightThemeHoverColor='#119dff',
-            audioLists=[
-                {
-                    'name': 'Despacito',
-                    'cover': 'http://res.cloudinary.com/alick/image/upload/v1502689731/Despacito_uvolhp.jpg',
-                    'musicSrc': 'http://res.cloudinary.com/alick/video/upload/v1502689683/Luis_Fonsi_-_Despacito_ft._Daddy_Yankee_uyvqw9.mp3',
-                    'singer': 'Luis Fonsi'
-                },
-                {
-                    'name': 'Dorost Nemisham',
-                    'cover': 'https://res.cloudinary.com/ehsanahmadi/image/upload/v1573758778/Sirvan-Khosravi-Dorost-Nemisham_glicks.jpg',
-                    'musicSrc': 'https://res.cloudinary.com/ehsanahmadi/video/upload/v1573550770/Sirvan-Khosravi-Dorost-Nemisham-128_kb8urq.mp3',
-                    'singer': 'Sirvan Khosravi'
-                    
-                    
-                },
-            ],
-            showLyric=True,
-            customizeContainerId='app-container',
+        html.Pre('普通模式'),
+        fuc.FefferyDPlayer(
+            video={
+                'url': 'https://vjs.zencdn.net/v/oceans.mp4',
+                'type': 'auto'
+            },
+            screenshot=True,
             style={
-                'width': 300
+                'margin': '50px',
+                'width': '50%'
             }
         ),
-        html.Div(id='app-container-output')
+        html.Pre('MSE--hls模式'),
+        html.Div(
+            fuc.FefferyDPlayer(
+                id='player-2',
+                video={
+                    'url': 'https://d2zihajmogu5jn.cloudfront.net/sintel/master.m3u8',
+                    'type': 'hls'
+                },
+                screenshot=True,
+                danmaku={
+                    'isOpen': True,
+                    'id': '9E2E3368B56CDBB4',
+                    'api': 'https://api.prprpr.me/dplayer/',
+                    'token': 'tokendemo',
+                    'maximum': 1000,
+                    'addition': ['https://api.prprpr.me/dplayer/v3/bilibili?aid=4157142']
+                },
+                contextmenu=[
+                    {
+                        'text': '测试1',
+                        'extraInfo': {
+                            'key': '111',
+                            'param1': 'aaa',
+                            'param2': 'bbb',
+                            'param3': 'ccc'
+                        }
+                    },
+                    {
+                        'text': '测试2',
+                        'extraInfo': {
+                            'key': '222',
+                            'param1': 'aaa',
+                            'param2': 'bbb',
+                            'param3': 'ccc'
+                        }
+                    }
+                ],
+                highlight=[
+                    {
+                        'time': 200,
+                        'text': '这是第 200 秒'
+                    },
+                    {
+                        'time': 120,
+                        'text': '这是第 2 分钟'
+                    }
+                ],
+                style={
+                    'margin': '50px',
+                    'width': '50%'
+                }
+            ),
+            id='player-2-container'
+        ),
+        fuc.FefferyFancyButton(
+            type='primary',
+            id='operate-button',
+            children='操作',
+            style={
+               'marginLeft': '50px'
+            }
+        ),
+        html.Pre('MSE--flv模式'),
+        fuc.FefferyDPlayer(
+            video={
+                'url': 'https://flvplayer.js.org/assets/video/weathering-with-you.flv',
+                'type': 'flv'
+            },
+            screenshot=True,
+            style={
+                'margin': '50px',
+                'width': '50%'
+            }
+        ),
+        html.Pre('MSE--dash模式'),
+        fuc.FefferyDPlayer(
+            video={
+                'url': 'https://dash.akamaized.net/dash264/TestCasesIOP33/adapatationSetSwitching/5/manifest.mpd',
+                'type': 'dash'
+            },
+            screenshot=True,
+            style={
+                'margin': '50px',
+                'width': '50%'
+            }
+        ),
+        html.Pre(id='output')
     ],
-    id='app-container',
     style={
         'padding': 50
     }
 )
+
+@app.callback(
+    Output('player-2', 'play'),
+    Input('operate-button', 'nClicks'),
+    prevent_initial_call=True
+)
+def set_player_2(nClicks):
+    if nClicks:
+        return True
+    return dash.no_update
+
+
+@app.callback(
+    Output('output', 'children'),
+    Input('player-2-container', 'n_clicks'),
+    State('player-2-container', 'children'),
+    prevent_initial_call=True
+)
+def get_player_2(n_clicks, children):
+    if n_clicks:
+        return fuc.FefferyJsonViewer(data=children)
+    return dash.no_update
+
 
 if __name__ == '__main__':
     app.run(debug=True)
