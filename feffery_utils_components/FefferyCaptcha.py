@@ -9,19 +9,26 @@ class FefferyCaptcha(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    部件id.
 
-- bgColor (string; optional)
+- bgColor (string; optional):
+    设置验证码图片背景色，默认为'#DFF0D8'.
 
-- captcha (string; optional)
+- captcha (string; optional):
+    对应当前的验证码字符串.
 
-- charNum (number; default 4)
+- charNum (number; default 4):
+    设置验证码字符数量.
 
-- className (string; optional)
+- className (string; optional):
+    css类名.
 
-- fontSize (number; optional)
+- fontSize (number; optional):
+    设置验证码字体像素大小，默认为25.
 
-- height (number; optional)
+- height (number; optional):
+    设置验证码的像素高度，默认为40.
 
 - loading_state (dict; optional)
 
@@ -36,11 +43,14 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- refresh (boolean; optional)
+- refresh (boolean; optional):
+    用于手动刷新验证码，当传入True时会强制刷新验证码，再自动重置为False.
 
-- style (dict; optional)
+- style (dict; optional):
+    自定义css字典.
 
-- width (number; optional)"""
+- width (number; optional):
+    设置验证码的像素宽度，默认为100."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
