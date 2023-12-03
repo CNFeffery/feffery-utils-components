@@ -1,17 +1,18 @@
 import dash
 import json
 from dash import html, dcc
-import feffery_utils_components.alias as fuc
+import feffery_utils_components as fuc
 from dash.dependencies import Input, Output, State
 
-app = dash.Dash(__name__, suppress_callback_exceptions=True)
+app = dash.Dash(__name__, suppress_callback_exceptions=True, compress=True)
 
 app.layout = html.Div(
     [
-        dcc.Location(id='url'),
-
-        # 根据url来生成不同角色的通信器
-        html.Div(id='tab-messager-role')
+        fuc.FefferyEmojiPicker(
+            id='feffery-emoji-picker',
+            locale='zh'
+        ),
+        html.Pre(id='output')
     ],
     style={
         'padding': 50
@@ -20,67 +21,17 @@ app.layout = html.Div(
 
 
 @app.callback(
-    Output('tab-messager-role', 'children'),
-    Input('url', 'pathname')
-)
-def generate_tab_messager(pathname):
-
-    if pathname == '/':
-        # 生成发信者
-        return [
-            fuc.SetTitle(
-                title='发信者示例'
-            ),
-            html.Button(
-                '发消息',
-                id='send-message'
-            ),
-            fuc.TabMessenger(
-                id='demo-sender',
-                role='sender',
-                targetUrl='/receiver',
-                targetWindowFeatures='left=0,top=0,width=800,height=500,menubar=no,toolbar=no,location=no,status=no,resizable=yes,scrollbars=no'
-            )
-        ]
-
-    elif pathname == '/receiver':
-        # 生成收信者
-        return [
-            fuc.SetTitle(
-                title='收信者示例'
-            ),
-            fuc.TabMessenger(
-                id='demo-receiver',
-                role='receiver'
-            ),
-            html.Pre(id='recived-message')
-        ]
-
-
-@app.callback(
-    Output('demo-sender', 'toSendMessage'),
-    Input('send-message', 'n_clicks'),
+    Output('output', 'children'),
+    [Input('feffery-emoji-picker', 'value'),
+    Input('feffery-emoji-picker', 'clickOutsideNums')],
     prevent_initial_call=True
 )
-def send_new_message(n_clicks):
-
-    return f'n_clicks: {n_clicks}'
-
-
-@app.callback(
-    Output('recived-message', 'children'),
-    Input('demo-receiver', 'recivedMessage'),
-    prevent_initial_call=True
-)
-def show_recived_message(recivedMessage):
-
-    return json.dumps(
-        dict(
-            recivedMessage=recivedMessage
-        ),
-        indent=4,
-        ensure_ascii=False
-    )
+def display_output(value, clickOutsideNums):
+    data = {
+        '选择的emoji信息': value,
+        '点击选择器之外区域的次数': clickOutsideNums
+    }
+    return json.dumps(data, ensure_ascii=False, indent=4)
 
 
 if __name__ == '__main__':
