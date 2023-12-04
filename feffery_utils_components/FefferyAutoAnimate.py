@@ -9,15 +9,20 @@ class FefferyAutoAnimate(Component):
 
 Keyword arguments:
 
-- children (a list of or a singular dash component, string or number; optional)
+- children (a list of or a singular dash component, string or number; optional):
+    要进行动画效果编排的目标元素.
 
-- id (string; optional)
+- id (string; optional):
+    部件id.
 
-- className (string; optional)
+- className (string; optional):
+    css类名.
 
-- duration (number; default 0.25)
+- duration (number; default 0.25):
+    配置动画时长，单位：秒  默认为0.25.
 
-- easing (string; default 'ease-in-out')
+- easing (string; default 'ease-in-out'):
+    设置过渡动画函数，同css中的easing-function，默认为'ease-in-out'.
 
 - loading_state (dict; optional)
 
@@ -32,7 +37,8 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- style (dict; optional)"""
+- style (dict; optional):
+    css样式."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
