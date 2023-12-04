@@ -28,7 +28,7 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- recivedMessage (string; optional):
+- recivedMessage (boolean | number | string | dict | list; optional):
     当role为'receiver'时，用于监听最近一次收到的信息内容.
 
 - role (a value equal to: 'sender', 'receiver'; required):
@@ -40,7 +40,7 @@ Keyword arguments:
 - targetWindowFeatures (string; optional):
     当role为'sender'时，用于定义自动创建打开的目标标签页底层调用window.open()对应的额外的windowFeatures字符串.
 
-- toSendMessage (string; optional):
+- toSendMessage (boolean | number | string | dict | list; optional):
     当role为'sender'时，用于设置将要新发送的信息内容，每次成功发送后都会重置为空."""
     _children_props = []
     _base_nodes = ['children']

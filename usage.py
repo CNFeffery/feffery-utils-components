@@ -1,120 +1,88 @@
 import dash
-import uuid
-import random
-from dash import html
+import json
+from dash import html, dcc
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output, State
 
-app = dash.Dash(__name__, suppress_callback_exceptions=True, compress=True)
+app = dash.Dash(__name__, suppress_callback_exceptions=True)
 
 app.layout = html.Div(
     [
+        dcc.Location(id='url'),
 
-        html.Div(
-            [
-                fuc.FefferyFancyButton(
-                    '加载子元素',
-                    id='auto-animate-demo-load-children'
-                ),
-                fuc.FefferyFancyButton(
-                    '追加子元素',
-                    id='auto-animate-demo-push-child'
-                ),
-                fuc.FefferyFancyButton(
-                    '随机打乱顺序',
-                    id='auto-animate-demo-random-order'
-                ),
-                fuc.FefferyFancyButton(
-                    '随机删除一项',
-                    id='auto-animate-demo-random-delete'
-                )
-            ]
-        ),
-
-        fuc.FefferyAutoAnimate(
-            id='auto-animate-demo-container'
-        )
+        # 根据url来生成不同角色的通信器
+        html.Div(id='tab-messager-role')
     ],
     style={
-        'padding': 10,
-        'display': 'flex',
-        'justify-content': 'center',
-        'align-items': 'center',
-        'flex-direction': 'column'
+        'padding': 50
     }
 )
 
 
 @app.callback(
-    Output('auto-animate-demo-container', 'children'),
-    [Input('auto-animate-demo-load-children', 'nClicks'),
-     Input('auto-animate-demo-push-child', 'nClicks'),
-     Input('auto-animate-demo-random-order', 'nClicks')],
-    Input('auto-animate-demo-random-delete', 'nClicks'),
-    State('auto-animate-demo-container', 'children'),
+    Output('tab-messager-role', 'children'),
+    Input('url', 'pathname')
+)
+def generate_tab_messager(pathname):
+
+    if pathname == '/':
+        # 生成发信者
+        return [
+            fuc.FefferySetTitle(
+                title='发信者示例'
+            ),
+            html.Button(
+                '发消息',
+                id='send-message'
+            ),
+            fuc.FefferyTabMessenger(
+                id='demo-sender',
+                role='sender',
+                targetUrl='/receiver',
+                targetWindowFeatures='left=0,top=0,width=800,height=500,menubar=no,toolbar=no,location=no,status=no,resizable=yes,scrollbars=no'
+            )
+        ]
+
+    elif pathname == '/receiver':
+        # 生成收信者
+        return [
+            fuc.FefferySetTitle(
+                title='收信者示例'
+            ),
+            fuc.FefferyTabMessenger(
+                id='demo-receiver',
+                role='receiver'
+            ),
+            html.Pre(id='recived-message')
+        ]
+
+
+@app.callback(
+    Output('demo-sender', 'toSendMessage'),
+    Input('send-message', 'n_clicks'),
     prevent_initial_call=True
 )
-def auto_animate_demo(load_children,
-                      push_chjild,
-                      random_order,
-                      random_delete,
-                      old_children):
+def send_new_message(n_clicks):
 
-    if dash.ctx.triggered_id == 'auto-animate-demo-load-children':
-        new_children = []
-        for i in range(3):
-            current_uuid = str(uuid.uuid4())
-            new_children.append(
-                fuc.FefferyDiv(
-                    current_uuid,
-                    id=current_uuid,
-                    style={
-                        'width': '460px',
-                        'height': '40px',
-                        'marginTop': '5px',
-                        'border': '1px solid #e1dfdd',
-                        'display': 'flex',
-                        'justifyContent': 'center',
-                        'alignItems': 'center',
-                        'cursor': 'pointer'
-                    },
-                    shadow='hover-shadow'
-                )
-            )
-        return new_children
+    return {
+        'n_clicks': n_clicks
+    }
 
-    elif dash.ctx.triggered_id == 'auto-animate-demo-push-child':
-        current_uuid = str(uuid.uuid4())
-        return [
-            *old_children,
-            fuc.FefferyDiv(
-                current_uuid,
-                id=current_uuid,
-                style={
-                    'width': '460px',
-                    'height': '40px',
-                    'marginTop': '5px',
-                    'border': '1px solid #e1dfdd',
-                    'display': 'flex',
-                    'justifyContent': 'center',
-                    'alignItems': 'center',
-                    'cursor': 'pointer'
-                },
-                shadow='hover-shadow'
-            )
-        ]
 
-    elif dash.ctx.triggered_id == 'auto-animate-demo-random-order':
-        random.shuffle(old_children)
-        return old_children
+@app.callback(
+    Output('recived-message', 'children'),
+    Input('demo-receiver', 'recivedMessage'),
+    prevent_initial_call=True
+)
+def show_recived_message(recivedMessage):
 
-    elif dash.ctx.triggered_id == 'auto-animate-demo-random-delete':
-        delete_idx = random.randint(0, len(old_children)-1)
-
-        return [
-            child for i, child in enumerate(old_children)
-            if i != delete_idx
-        ]
+    return json.dumps(
+        dict(
+            recivedMessage=recivedMessage
+        ),
+        indent=4,
+        ensure_ascii=False
+    )
 
 
 if __name__ == '__main__':

@@ -97,12 +97,12 @@ FefferyTabMessenger.propTypes = {
     /**
      * 当role为'sender'时，用于设置将要新发送的信息内容，每次成功发送后都会重置为空
      */
-    toSendMessage: PropTypes.string,
+    toSendMessage: PropTypes.any,
 
     /**
      * 当role为'receiver'时，用于监听最近一次收到的信息内容
      */
-    recivedMessage: PropTypes.string,
+    recivedMessage: PropTypes.any,
 
     loading_state: PropTypes.shape({
         /**
