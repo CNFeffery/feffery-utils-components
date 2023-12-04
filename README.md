@@ -37,3 +37,9 @@ app = dash.Dash(serve_locally=False)
 ## 4 在线文档
 
 <a href='http://fuc.feffery.tech/' target='_blank'>文档地址</a>
+
+## 5 贡献者
+
+<a href = "https://github.com/CNFeffery/feffery-utils-components/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=CNFeffery/feffery-utils-components"/>
+</a>
