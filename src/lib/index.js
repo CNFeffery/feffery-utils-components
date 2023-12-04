@@ -47,12 +47,12 @@ import FefferyShadowDom from "./components/FefferyShadowDom.react";
 import FefferyGrid from "./components/draggable/FefferyGrid.react"; // 待异步优化
 import FefferyGridItem from "./components/draggable/FefferyGridItem.react"; // 待异步优化
 import FefferyFancyButton from "./components/FefferyFancyButton.react"; // 待异步优化
-import FefferyJsonViewer from "./components/FefferyJsonViewer.react"; // 待异步优化
+import FefferyJsonViewer from "./components/FefferyJsonViewer.react";
 import FefferyImagePaste from "./components/FefferyImagePaste.react";
 import FefferyFullscreen from "./components/FefferyFullscreen.react";
 import FefferyDeviceDetect from "./components/listeners/FefferyDeviceDetect.react";
 import FefferyMotion from "./components/animations/FefferyMotion.react";
-import FefferyAutoAnimate from "./components/animations/FefferyAutoAnimate.react"; // 待异步优化
+import FefferyAutoAnimate from "./components/animations/FefferyAutoAnimate.react";
 import FefferyCountUp from "./components/FefferyCountUp.react";
 import FefferyListenUnload from "./components/listeners/FefferyListenUnload.react";
 import FefferyListenScroll from "./components/listeners/FefferyListenScroll.react";
