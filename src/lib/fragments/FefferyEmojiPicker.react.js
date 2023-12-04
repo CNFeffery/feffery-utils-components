@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect, useRef } from 'react';
+import React, { useMemo } from 'react';
 import data from '@emoji-mart/data';
 import Picker from '@emoji-mart/react';
 import en from '@emoji-mart/data/i18n/en.json';
@@ -84,8 +84,8 @@ const FefferyEmojiPicker = (props) => {
                 skin={skin}
                 skinTonePosition={skinTonePosition}
                 theme={theme}
-                onEmojiSelect={e => setProps({ value: e})}
-                onClickOutside={() => setProps({ clickOutsideNums: clickOutsideNums + 1})}
+                onEmojiSelect={e => setProps({ value: { ...e, timestamp: Date.parse(new Date()) } })}
+                onClickOutside={() => setProps({ clickOutsideNums: clickOutsideNums + 1 })}
                 loading_state={loading_state}
             />
         </div>
