@@ -1,64 +1,47 @@
-import { useAutoAnimate } from '@formkit/auto-animate/react'
-import useCss from '../../hooks/useCss'
-import { isString } from 'lodash';
+import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
 
-// 定义自动动画组件FefferyAutoAnimate，api参数参考：https://github.com/formkit/auto-animate
+const LazyFefferyAutoAnimate = React.lazy(() => import(/* webpackChunkName: "feffery_auto_animate" */ '../../fragments/animations/FefferyAutoAnimate.react'));
+
 const FefferyAutoAnimate = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        children,
-        style,
-        className,
-        duration,
-        easing,
-        setProps,
-        loading_state
-    } = props;
-
-    const [parent, enableAnimations] = useAutoAnimate({
-        duration: duration * 1000,
-        easing: easing
-    })
-
     return (
-        <div
-            id={id}
-            className={
-                isString(className) ?
-                    className :
-                    (className ? useCss(className) : undefined)
-            }
-            style={style}
-            ref={parent}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } >
-            {children}
-        </div>
+        <Suspense fallback={null}>
+            <LazyFefferyAutoAnimate {...props} />
+        </Suspense>
     );
 }
 
 // 定义参数或属性
 FefferyAutoAnimate.propTypes = {
-    // 部件id
+    /**
+     * 部件id
+     */
     id: PropTypes.string,
 
-    // 要进行动画效果编排的目标元素
+    /**
+     * 要进行动画效果编排的目标元素
+     */
     children: PropTypes.node,
 
-    // css样式
+    /**
+     * css样式
+     */
     style: PropTypes.object,
 
-    // css类名
+    /**
+     * css类名
+     */
     className: PropTypes.string,
 
-    // 配置动画时长，单位：秒
-    // 默认为0.25
+    /**
+     * 配置动画时长，单位：秒
+     * 默认为0.25
+     */
     duration: PropTypes.number,
 
-    // 设置过渡动画函数，同css中的easing-function，默认为'ease-in-out'
+    /**
+     * 设置过渡动画函数，同css中的easing-function，默认为'ease-in-out'
+     */
     easing: PropTypes.string,
 
     loading_state: PropTypes.shape({
@@ -90,3 +73,6 @@ FefferyAutoAnimate.defaultProps = {
 }
 
 export default FefferyAutoAnimate;
+
+export const propTypes = FefferyAutoAnimate.propTypes;
+export const defaultProps = FefferyAutoAnimate.defaultProps;
