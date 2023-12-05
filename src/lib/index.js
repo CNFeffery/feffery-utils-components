@@ -60,7 +60,7 @@ import FefferyMousePosition from "./components/listeners/FefferyMousePosition.re
 import FefferyListenPaste from "./components/listeners/FefferyListenPaste.react";
 import FefferyLocation from "./components/listeners/FefferyLocation.react";
 import FefferyCookie from "./components/store/FefferyCookie.react";
-import FefferyResizable from "./components/resizable/FefferyResizable.react"; // 待异步优化
+import FefferyResizable from "./components/resizable/FefferyResizable.react";
 import FefferyCompareSlider from "./components/FefferyCompareSlider.react";
 import FefferySortableList from "./components/sortable/FefferySortableList.react"; // 待异步优化
 import FefferyLocalStorage from "./components/store/FefferyLocalStorage.react";

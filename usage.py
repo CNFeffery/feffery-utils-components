@@ -8,17 +8,20 @@ app = dash.Dash(__name__, suppress_callback_exceptions=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyJsonViewer(
-            data={
-                'int示例': 999,
-                'float示例': 0.999,
-                'string示例': '我爱dash',
-                '数组示例': [0, 1, 2, 3],
-                '字典示例': {
-                    'a': 1,
-                    'b': 2,
-                    'c': 3
+        fuc.FefferyResizable(
+            html.Div(
+                '示例内容',
+                style={
+                    'display': 'flex',
+                    'height': '100%',
+                    'justifyContent': 'center',
+                    'alignItems': 'center',
+                    'background': '#dee2e6'
                 }
+            ),
+            defaultSize={
+                'width': 200,
+                'height': 200
             }
         )
     ],
