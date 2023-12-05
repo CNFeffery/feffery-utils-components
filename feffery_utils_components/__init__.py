@@ -28,7 +28,21 @@ _current_path = _os.path.dirname(_os.path.abspath(__file__))
 
 _this_module = _sys.modules[__name__]
 
-async_resources = ['feffery_captcha', 'feffery_aplayer', 'feffery_dplayer', 'feffery_music_player', 'feffery_emoji_picker', 'feffery_auto_animate', 'feffery_json_viewer', 'feffery_resizable', 'feffery_sortable_list', 'feffery_local_large_storage', 'feffery_fancy_button', 'feffery_extra_spinner']
+async_resources = [
+    'feffery_captcha',
+    'feffery_aplayer',
+    'feffery_dplayer',
+    'feffery_music_player',
+    'feffery_emoji_picker',
+    'feffery_auto_animate',
+    'feffery_json_viewer',
+    'feffery_resizable',
+    'feffery_sortable_list',
+    'feffery_local_large_storage',
+    'feffery_color_pickers',
+    'feffery_fancy_button', 
+    'feffery_extra_spinner'
+]
 
 _js_dist = []
 

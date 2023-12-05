@@ -1,43 +1,13 @@
-import React, { useEffect } from 'react';
-import GithubPicker from 'react-color/es/Github';
+import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
-import '../styles.css';
 
-// 定义Github风格色彩选择器FefferyGithubColorPicker，文档参考：https://casesandberg.github.io/react-color/
+const LazyFefferyGithubColorPicker = React.lazy(() => import(/* webpackChunkName: "feffery_color_pickers" */ '../../fragments/colorPickers/FefferyGithubColorPicker.react'));
+
 const FefferyGithubColorPicker = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        className,
-        style,
-        color,
-        colors,
-        triangle,
-        setProps,
-        loading_state
-    } = props;
-
-
-    useEffect(() => {
-        if (colors && !color) {
-            // 默认缺省选中色为colors中第0个色彩
-            setProps({
-                color: colors[0]
-            })
-        }
-    }, [])
-
     return (
-        <GithubPicker id={id}
-            className={className}
-            style={style}
-            color={color}
-            colors={colors}
-            triangle={triangle}
-            onChangeComplete={(c, e) => setProps({ color: c.hex })}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
+        <Suspense fallback={null}>
+            <LazyFefferyGithubColorPicker {...props} />
+        </Suspense>
     );
 }
 
@@ -84,3 +54,6 @@ FefferyGithubColorPicker.defaultProps = {
 }
 
 export default FefferyGithubColorPicker;
+
+export const propTypes = FefferyGithubColorPicker.propTypes;
+export const defaultProps = FefferyGithubColorPicker.defaultProps;

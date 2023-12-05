@@ -1,38 +1,49 @@
+
 import feffery_utils_components as fuc
 import dash
 from dash.dependencies import Input, Output, State
 from dash import html
 import uuid
 
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
-    html.Div(
-        [
-            html.Div(
-                [
-                    html.H5(_type),
-                    fuc.FefferyExtraSpinner(
-                        type=_type,
-                        style={
-                            'marginBottom': '25px'
-                        }
-                    )
-                ]
-            )
-            for _type in [
-                "ball", "swap", "bars", "grid", "wave", "push", "firework",
-                "stage", "ring", "heart", "guard", "rotate", "spiral", "pulse",
-                        "swish", "sequence", "impulse", "cube", "magic", "flag", "fill",
-                        "sphere", "domino", "goo", "comb", "pong", "rainbow", "hoop",
-                        "flapper", "jellyfish", "trace", "classic", "whisper", "metro"
-            ]
-        ],
-        style={
-            'marginBottom': '100px'
-        }
-    ),
+    [
+        fuc.FefferyBlockColorPicker(),
+        fuc.FefferyCircleColorPicker(),
+        html.Button(
+            '开启拾取',
+            id='enable-eye-dropper'
+        ),
+        fuc.FefferyEyeDropper(
+            id='eye-dropper-demo'
+        ),
+        fuc.FefferyGithubColorPicker(),
+        fuc.FefferyHexColorPicker(
+            id='hex-color-picker-demo',
+            showAlpha=True
+        ),
+        fuc.FefferyRgbColorPicker(
+            id='rgb-color-picker-demo',
+            showAlpha=True
+        ),
+        fuc.FefferyTwitterColorPicker(),
+        fuc.FefferyWheelColorPicker()
+    ],
+    style={
+        'padding': 50
+    }
 )
+
+
+@app.callback(
+    Output('eye-dropper-demo', 'enable'),
+    Input('enable-eye-dropper', 'n_clicks'),
+    prevent_initial_call=True
+)
+def enable_eye_dropper_demo(nClicks):
+
+    return True
 
 
 if __name__ == '__main__':

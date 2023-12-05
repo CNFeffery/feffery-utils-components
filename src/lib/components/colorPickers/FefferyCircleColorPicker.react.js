@@ -1,46 +1,13 @@
-import React, { useEffect } from 'react';
-import CirclePicker from 'react-color/es/Circle';
+import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
-import '../styles.css';
 
-// 定义Circle风格色彩选择器FefferyBlockColorPicker，文档参考：https://casesandberg.github.io/react-color/
+const LazyFefferyCircleColorPicker = React.lazy(() => import(/* webpackChunkName: "feffery_color_pickers" */ '../../fragments/colorPickers/FefferyCircleColorPicker.react'));
+
 const FefferyCircleColorPicker = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        className,
-        style,
-        width,
-        circleSize,
-        circleSpacing,
-        color,
-        colors,
-        setProps,
-        loading_state
-    } = props;
-
-    useEffect(() => {
-        if (colors && !color) {
-            // 默认缺省选中色为colors中第0个色彩
-            setProps({
-                color: colors[0]
-            })
-        }
-    }, [])
-
     return (
-        <CirclePicker id={id}
-            className={className}
-            style={style}
-            width={width}
-            circleSize={circleSize}
-            circleSpacing={circleSpacing}
-            color={color}
-            colors={colors}
-            onChangeComplete={(c, e) => setProps({ color: c.hex })}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
+        <Suspense fallback={null}>
+            <LazyFefferyCircleColorPicker {...props} />
+        </Suspense>
     );
 }
 
@@ -95,3 +62,6 @@ FefferyCircleColorPicker.defaultProps = {
 }
 
 export default FefferyCircleColorPicker;
+
+export const propTypes = FefferyCircleColorPicker.propTypes;
+export const defaultProps = FefferyCircleColorPicker.defaultProps;

@@ -74,7 +74,7 @@ import FefferyDPlayer from "./components/player/FefferyDPlayer.react";
 import FefferyThrottleProp from "./components/store/FefferyThrottleProp.react";
 import FefferyTabMessenger from "./components/FefferyTabMessenger.react";
 import FefferyEmojiPicker from "./components/FefferyEmojiPicker.react";
-
+import './components/styles.css';
 
 // 自定义sessionStorage事件监听
 const originalSessionSetItem = sessionStorage.setItem;

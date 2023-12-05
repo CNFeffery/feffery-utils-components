@@ -1,47 +1,13 @@
-import { HexColorPicker, HexAlphaColorPicker } from 'react-colorful';
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-import '../styles.css';
+import React, { Suspense } from 'react';
 
-// 定义16进制色彩选择器FefferyHexColorPicker，文档参考：https://github.com/omgovich/react-colorful
+const LazyFefferyHexColorPicker = React.lazy(() => import(/* webpackChunkName: "feffery_color_pickers" */ '../../fragments/colorPickers/FefferyHexColorPicker.react'));
+
 const FefferyHexColorPicker = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        className,
-        style,
-        color,
-        showAlpha,
-        setProps,
-        loading_state
-    } = props;
-
-    useEffect(() => {
-        setProps({ color: color })
-    }, [])
-
-    if (showAlpha) {
-        return (
-            <HexAlphaColorPicker id={id}
-                className={className}
-                style={style}
-                color={color}
-                onChange={(c) => setProps({ color: c })}
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                } />
-        );
-    }
-
     return (
-        <HexColorPicker id={id}
-            className={className}
-            style={style}
-            color={color}
-            onChange={(c) => setProps({ color: c })}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
+        <Suspense fallback={null}>
+            <LazyFefferyHexColorPicker {...props} />
+        </Suspense>
     );
 }
 
@@ -85,3 +51,6 @@ FefferyHexColorPicker.defaultProps = {
 }
 
 export default FefferyHexColorPicker;
+
+export const propTypes = FefferyHexColorPicker.propTypes;
+export const defaultProps = FefferyHexColorPicker.defaultProps;

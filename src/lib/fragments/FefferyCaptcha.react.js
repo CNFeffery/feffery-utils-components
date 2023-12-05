@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
 import Captcha from 'react-captcha-code';
 import { propTypes, defaultProps } from '../components/FefferyCaptcha.react';
 
