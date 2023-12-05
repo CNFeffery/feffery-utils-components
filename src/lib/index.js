@@ -12,13 +12,13 @@ import FefferyExtraSpinner from "./components/FefferyExtraSpinner.react";
 import FefferyLazyLoad from "./components/FefferyLazyLoad.react";
 import FefferyVirtualList from "./components/FefferyVirtualList.react";
 import FefferyInViewport from "./components/listeners/FefferyInViewport.react";
-import FefferyHexColorPicker from "./components/colorPickers/FefferyHexColorPicker.react"; // 待异步优化
-import FefferyRgbColorPicker from "./components/colorPickers/FefferyRgbColorPicker.react"; // 待异步优化
-import FefferyGithubColorPicker from "./components/colorPickers/FefferyGithubColorPicker.react"; // 待异步优化
-import FefferyTwitterColorPicker from "./components/colorPickers/FefferyTwitterColorPicker.react"; // 待异步优化
-import FefferyBlockColorPicker from "./components/colorPickers/FefferyBlockColorPicker.react"; // 待异步优化
-import FefferyCircleColorPicker from "./components/colorPickers/FefferyCircleColorPicker.react"; // 待异步优化
-import FefferyWheelColorPicker from "./components/colorPickers/FefferyWheelColorPicker.react"; // 待异步优化
+import FefferyHexColorPicker from "./components/colorPickers/FefferyHexColorPicker.react";
+import FefferyRgbColorPicker from "./components/colorPickers/FefferyRgbColorPicker.react";
+import FefferyGithubColorPicker from "./components/colorPickers/FefferyGithubColorPicker.react";
+import FefferyTwitterColorPicker from "./components/colorPickers/FefferyTwitterColorPicker.react";
+import FefferyBlockColorPicker from "./components/colorPickers/FefferyBlockColorPicker.react";
+import FefferyCircleColorPicker from "./components/colorPickers/FefferyCircleColorPicker.react";
+import FefferyWheelColorPicker from "./components/colorPickers/FefferyWheelColorPicker.react";
 import FefferyHighlightWords from "./components/FefferyHighlightWords.react";
 import FefferyDocumentVisibility from "./components/listeners/FefferyDocumentVisibility.react";
 import FefferyExternalCss from "./components/FefferyExternalCss.react";
