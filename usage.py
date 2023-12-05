@@ -1,33 +1,35 @@
 import dash
-import json
 from dash import html, dcc
 import feffery_utils_components as fuc
-from dash.dependencies import Input, Output, State
+from dash.dependencies import Input, Output
 
-app = dash.Dash(__name__, suppress_callback_exceptions=True)
+app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        fuc.FefferyResizable(
-            html.Div(
-                '示例内容',
-                style={
-                    'display': 'flex',
-                    'height': '100%',
-                    'justifyContent': 'center',
-                    'alignItems': 'center',
-                    'background': '#dee2e6'
-                }
-            ),
-            defaultSize={
-                'width': 200,
-                'height': 200
+        fuc.FefferyLocalLargeStorage(
+            id='local-large-storage-test',
+            data='9'*10000000,
+            # initialSync=True
+        ),
+
+        html.Div(
+            id='output-demo',
+            style={
+                'wordWrap': 'break-word'
             }
         )
     ],
     style={
         'padding': 50
     }
+)
+
+
+app.clientside_callback(
+    '''(data) => JSON.stringify(data)''',
+    Output('output-demo', 'children'),
+    Input('local-large-storage-test', 'data')
 )
 
 

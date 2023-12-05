@@ -9,39 +9,55 @@ class FefferySortableList(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    部件id.
 
-- className (string | dict; optional)
+- className (string | dict; optional):
+    组件css类.
 
-- currentOrder (list of number | strings; optional)
+- currentOrder (list of number | strings; optional):
+    监听当前items顺序对应的子项id数组.
 
-- direction (a value equal to: 'vertical', 'horizontal'; default 'vertical')
+- direction (a value equal to: 'vertical', 'horizontal'; default 'vertical'):
+    设置排序列表的方向，可选的有'vertical'和'horizontal'  默认：'vertical'.
 
-- handleClassName (string | dict; optional)
+- handleClassName (string | dict; optional):
+    拖拽手柄css类.
 
-- handlePosition (a value equal to: 'start', 'end'; default 'end')
+- handlePosition (a value equal to: 'start', 'end'; default 'end'):
+    设置拖拽手柄位置，默认为'end'.
 
-- handleStyle (dict; optional)
+- handleStyle (dict; optional):
+    拖拽手柄css样式.
 
-- handleType (a value equal to: 'holder', 'menu', 'drag'; default 'holder')
+- handleType (a value equal to: 'holder', 'menu', 'drag'; default 'holder'):
+    设置内置的推拽手柄图标类型，默认为'holder'.
 
-- itemDraggingScale (number; default 1)
+- itemDraggingScale (number; default 1):
+    设置子项处于拖拽中状态下的缩放比例，默认为1即不缩放.
 
-- items (list of dicts; required)
+- items (list of dicts; required):
+    必填参数，用于定义当前排序列表组件的各子元素.
 
     `items` is a list of dicts with keys:
 
-    - className (string | dict; optional)
+    - className (string | dict; optional):
+        当前子元素容器css类.
 
-    - content (a list of or a singular dash component, string or number; optional)
+    - content (a list of or a singular dash component, string or number; optional):
+        当前子元素内容.
 
-    - draggingClassName (string | dict; optional)
+    - draggingClassName (string | dict; optional):
+        当前子元素处于拖拽中状态下的css类.
 
-    - draggingStyle (dict; optional)
+    - draggingStyle (dict; optional):
+        当前子元素处于拖拽中状态下的css样式.
 
-    - key (number | string; required)
+    - key (number | string; required):
+        对应当前子元素的唯一标识.
 
-    - style (dict; optional)
+    - style (dict; optional):
+        当前子元素容器css样式.
 
 - key (string; optional)
 
@@ -58,7 +74,8 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- style (dict; optional)"""
+- style (dict; optional):
+    组件css样式."""
     _children_props = ['items[].content']
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
