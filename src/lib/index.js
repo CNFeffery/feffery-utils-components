@@ -8,7 +8,7 @@ import FefferySplitPane from "./components/split/FefferySplitPane.react";
 import FefferyExecuteJs from "./components/FefferyExecuteJs.react";
 import FefferyScroll from "./components/FefferyScroll.react";
 import FefferyScrollbars from "./components/FefferyScrollbars.react";
-import FefferyExtraSpinner from "./components/FefferyExtraSpinner.react"; // 待异步优化
+import FefferyExtraSpinner from "./components/FefferyExtraSpinner.react";
 import FefferyLazyLoad from "./components/FefferyLazyLoad.react";
 import FefferyVirtualList from "./components/FefferyVirtualList.react";
 import FefferyInViewport from "./components/listeners/FefferyInViewport.react";

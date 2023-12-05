@@ -1,34 +1,39 @@
-import dash
-from dash import html, dcc
 import feffery_utils_components as fuc
-from dash.dependencies import Input, Output
+import dash
+from dash.dependencies import Input, Output, State
+from dash import html
+import uuid
 
 app = dash.Dash(__name__)
 
 app.layout = html.Div(
-    [
-        fuc.FefferyFancyButton(
-            '按钮测试',
-            id='fancy-button-demo',
-            type='danger',
-            ripple=True
-        ),
-        html.Span(id='nClicks')
-    ],
-    style={
-        'height': '2000px'
-    }
+    html.Div(
+        [
+            html.Div(
+                [
+                    html.H5(_type),
+                    fuc.FefferyExtraSpinner(
+                        type=_type,
+                        style={
+                            'marginBottom': '25px'
+                        }
+                    )
+                ]
+            )
+            for _type in [
+                "ball", "swap", "bars", "grid", "wave", "push", "firework",
+                "stage", "ring", "heart", "guard", "rotate", "spiral", "pulse",
+                        "swish", "sequence", "impulse", "cube", "magic", "flag", "fill",
+                        "sphere", "domino", "goo", "comb", "pong", "rainbow", "hoop",
+                        "flapper", "jellyfish", "trace", "classic", "whisper", "metro"
+            ]
+        ],
+        style={
+            'marginBottom': '100px'
+        }
+    ),
 )
-
-
-@app.callback(
-    Output('nClicks', 'children'),
-    Input('fancy-button-demo', 'nClicks')
-)
-def demo(nClicks):
-
-    return nClicks
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run_server(debug=True)
