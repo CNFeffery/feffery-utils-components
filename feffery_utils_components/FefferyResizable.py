@@ -9,27 +9,39 @@ class FefferyResizable(Component):
 
 Keyword arguments:
 
-- children (a list of or a singular dash component, string or number; optional)
+- children (a list of or a singular dash component, string or number; optional):
+    设置内部嵌套的子元素.
 
-- id (string; optional)
+- id (string; optional):
+    部件id.
 
-- bounds (a value equal to: 'window', 'parent'; default 'window')
+- bounds (a value equal to: 'window', 'parent'; default 'window'):
+    设置尺寸调整组件的外边界类型，可选的有'window'、'parent'  默认为'window'.
 
-- className (string; optional)
+- className (string; optional):
+    设置css类名.
 
-- defaultSize (dict; optional)
+- defaultSize (dict; optional):
+    监听或设置尺寸调整组件初始化时的宽度、高度，可传入如300、'300px'、'50%'、'50vh'等形式.
 
     `defaultSize` is a dict with keys:
 
-    - height (number | string; optional)
+    - height (number | string; optional):
+        设置高度.
 
-    - width (number | string; optional)
+    - width (number | string; optional):
+        设置宽度.
 
-- direction (list of a value equal to: 'top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft's; default ['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft'])
+- direction (list of a value equal to: 'top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft's; default ['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft']):
+    设置允许进行尺寸调整的方向，多选，可选项有'top'、'right'、'bottom'、'left'、'topRight'、'bottomRight'、'bottomLeft'、'topLeft'
+    默认为['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight',
+    'bottomLeft', 'topLeft'].
 
-- grid (list of numbers; default [1, 1])
+- grid (list of numbers; default [1, 1]):
+    设置尺寸调整在水平和竖直方向上的最小调整像素步长，默认为[1, 1].
 
-- handleClassNames (dict; optional)
+- handleClassNames (dict; optional):
+    用于分别设置不同方向上拖拽控件部分的css类名.
 
     `handleClassNames` is a dict with keys:
 
@@ -49,7 +61,8 @@ Keyword arguments:
 
     - topRight (string; optional)
 
-- handleStyles (dict; optional)
+- handleStyles (dict; optional):
+    用于分别设置不同方向上拖拽控件部分的css样式.
 
     `handleStyles` is a dict with keys:
 
@@ -84,15 +97,20 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- maxHeight (number | string; optional)
+- maxHeight (number | string; optional):
+    设置尺寸调整组件的最大高度.
 
-- maxWidth (number | string; optional)
+- maxWidth (number | string; optional):
+    设置尺寸调整组件的最大宽度.
 
-- minHeight (number | string; default 10)
+- minHeight (number | string; default 10):
+    设置尺寸调整组件的最小高度，默认为10.
 
-- minWidth (number | string; default 10)
+- minWidth (number | string; default 10):
+    设置尺寸调整组件的最小宽度，默认为10.
 
-- style (dict; optional)"""
+- style (dict; optional):
+    设置css样式."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
