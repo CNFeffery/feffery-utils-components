@@ -40,6 +40,8 @@ async_resources = [
     'feffery_sortable_list',
     'feffery_local_large_storage',
     'feffery_color_pickers',
+    'feffery_fancy_button', 
+    'feffery_extra_spinner'
 ]
 
 _js_dist = []

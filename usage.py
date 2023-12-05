@@ -1,7 +1,9 @@
-import dash
-from dash import html
+
 import feffery_utils_components as fuc
-from dash.dependencies import Input, Output
+import dash
+from dash.dependencies import Input, Output, State
+from dash import html
+import uuid
 
 app = dash.Dash(__name__, compress=True)
 
@@ -45,4 +47,4 @@ def enable_eye_dropper_demo(nClicks):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run_server(debug=True)

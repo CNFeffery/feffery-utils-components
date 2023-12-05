@@ -9,23 +9,32 @@ class FefferyFancyButton(Component):
 
 Keyword arguments:
 
-- children (a list of or a singular dash component, string or number; optional)
+- children (a list of or a singular dash component, string or number; optional):
+    设置按钮内嵌元素内容.
 
-- id (string; optional)
+- id (string; optional):
+    部件id.
 
-- after (a list of or a singular dash component, string or number; optional)
+- after (a list of or a singular dash component, string or number; optional):
+    设置按钮后缀图标元素.
 
-- before (a list of or a singular dash component, string or number; optional)
+- before (a list of or a singular dash component, string or number; optional):
+    设置按钮前缀图标元素.
 
-- className (string | dict; optional)
+- className (string | dict; optional):
+    css类名.
 
-- debounceWait (number; default 0)
+- debounceWait (number; default 0):
+    用于配置value变化更新的防抖等待时长（单位：毫秒），默认为0.
 
-- disabled (boolean; optional)
+- disabled (boolean; optional):
+    设置是否禁用当前按钮，默认为False.
 
-- href (string; optional)
+- href (string; optional):
+    当按钮充当链接功能时，用于设置链接地址.
 
-- key (string; optional)
+- key (string; optional):
+    辅助刷新用唯一标识key值.
 
 - loading_state (dict; optional)
 
@@ -40,15 +49,20 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- nClicks (number; default 0)
+- nClicks (number; default 0):
+    记录按钮从渲染后开始被点击的次数，默认为0.
 
-- ripple (boolean; optional)
+- ripple (boolean; optional):
+    设置是否开启点击涟漪效果，默认为False.
 
-- style (dict; optional)
+- style (dict; optional):
+    自定义css字典.
 
-- target (string; default '_blank')
+- target (string; default '_blank'):
+    设置按钮的target属性，默认为'_blank'.
 
-- type (a value equal to: 'primary', 'secondary', 'danger'; optional)"""
+- type (a value equal to: 'primary', 'secondary', 'danger'; optional):
+    设置按钮类型，可选的有'primary'、'secondary'、'danger'  默认为'primary'."""
     _children_props = ['before', 'after']
     _base_nodes = ['before', 'after', 'children']
     _namespace = 'feffery_utils_components'

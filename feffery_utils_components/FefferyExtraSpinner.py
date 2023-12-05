@@ -9,15 +9,19 @@ class FefferyExtraSpinner(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    部件id.
 
-- backColor (string; default '#1890ff')
+- backColor (string; default '#1890ff'):
+    设置背景色.
 
 - className (string; optional)
 
-- color (string; default '#1890ff')
+- color (string; default '#1890ff'):
+    设置颜色.
 
-- frontColor (string; default '#def6ff')
+- frontColor (string; default '#def6ff'):
+    设置前景色.
 
 - loading_state (dict; optional)
 
@@ -32,13 +36,16 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- size (number; optional)
+- size (number; optional):
+    设置尺寸.
 
-- sizeUnit (string; default 'px')
+- sizeUnit (string; default 'px'):
+    设置尺寸值单位，默认为'px'.
 
 - style (dict; optional)
 
-- type (a value equal to: "ball", "swap", "bars", "grid", "wave", "push", "firework", "stage", "ring", "heart", "guard", "rotate", "spiral", "pulse", "swish", "sequence", "impulse", "cube", "magic", "flag", "fill", "sphere", "domino", "goo", "comb", "pong", "rainbow", "hoop", "flapper", "jellyfish", "trace", "classic", "whisper", "metro"; default 'ball')"""
+- type (a value equal to: "ball", "swap", "bars", "grid", "wave", "push", "firework", "stage", "ring", "heart", "guard", "rotate", "spiral", "pulse", "swish", "sequence", "impulse", "cube", "magic", "flag", "fill", "sphere", "domino", "goo", "comb", "pong", "rainbow", "hoop", "flapper", "jellyfish", "trace", "classic", "whisper", "metro"; default 'ball'):
+    加载动画类型."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
