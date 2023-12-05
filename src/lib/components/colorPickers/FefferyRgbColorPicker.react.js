@@ -1,47 +1,13 @@
-import { RgbStringColorPicker, RgbaStringColorPicker } from 'react-colorful';
-import { useEffect } from 'react';
+import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
-import '../styles.css';
 
-// 定义rgb色彩选择器FefferyRgbColorPicker，文档参考：https://github.com/omgovich/react-colorful
+const LazyFefferyRgbColorPicker = React.lazy(() => import(/* webpackChunkName: "feffery_color_pickers" */ '../../fragments/colorPickers/FefferyRgbColorPicker.react'));
+
 const FefferyRgbColorPicker = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        className,
-        style,
-        color,
-        showAlpha,
-        setProps,
-        loading_state
-    } = props;
-
-    useEffect(() => {
-        setProps({ color: color })
-    }, [])
-
-    if (showAlpha) {
-        return (
-            <RgbaStringColorPicker id={id}
-                className={className}
-                style={style}
-                color={color}
-                onChange={(c) => setProps({ color: c })}
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                } />
-        );
-    }
-
     return (
-        <RgbStringColorPicker id={id}
-            className={className}
-            style={style}
-            color={color}
-            onChange={(c) => setProps({ color: c })}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
+        <Suspense fallback={null}>
+            <LazyFefferyRgbColorPicker {...props} />
+        </Suspense>
     );
 }
 
@@ -85,3 +51,6 @@ FefferyRgbColorPicker.defaultProps = {
 }
 
 export default FefferyRgbColorPicker;
+
+export const propTypes = FefferyRgbColorPicker.propTypes;
+export const defaultProps = FefferyRgbColorPicker.defaultProps;

@@ -1,44 +1,13 @@
-import React, { useEffect } from 'react';
-import TwitterPicker from 'react-color/es/Twitter';
+import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
-import '../styles.css';
 
-// 定义Twitter风格色彩选择器FefferyGithubColorPicker，文档参考：https://casesandberg.github.io/react-color/
+const LazyFefferyTwitterColorPicker = React.lazy(() => import(/* webpackChunkName: "feffery_color_pickers" */ '../../fragments/colorPickers/FefferyTwitterColorPicker.react'));
+
 const FefferyTwitterColorPicker = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        className,
-        style,
-        width,
-        color,
-        colors,
-        triangle,
-        setProps,
-        loading_state
-    } = props;
-
-    useEffect(() => {
-        if (colors && !color) {
-            // 默认缺省选中色为colors中第0个色彩
-            setProps({
-                color: colors[0]
-            })
-        }
-    }, [])
-
     return (
-        <TwitterPicker id={id}
-            className={className}
-            style={style}
-            color={color}
-            colors={colors}
-            width={width}
-            triangle={triangle}
-            onChangeComplete={(c, e) => setProps({ color: c.hex })}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
+        <Suspense fallback={null}>
+            <LazyFefferyTwitterColorPicker {...props} />
+        </Suspense>
     );
 }
 
@@ -89,3 +58,6 @@ FefferyTwitterColorPicker.defaultProps = {
 }
 
 export default FefferyTwitterColorPicker;
+
+export const propTypes = FefferyTwitterColorPicker.propTypes;
+export const defaultProps = FefferyTwitterColorPicker.defaultProps;
