@@ -1,34 +1,70 @@
 import dash
-import json
-from dash import html, dcc
+from dash import html
 import feffery_utils_components as fuc
-from dash.dependencies import Input, Output, State
+from dash.dependencies import Input, Output
 
-app = dash.Dash(__name__, suppress_callback_exceptions=True)
+app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        fuc.FefferyResizable(
-            html.Div(
-                '示例内容',
-                style={
-                    'display': 'flex',
-                    'height': '100%',
-                    'justifyContent': 'center',
-                    'alignItems': 'center',
-                    'background': '#dee2e6'
+        fuc.FefferySortableList(
+            id='input',
+            items=[
+                {
+                    'key': f'子项{i}',
+                    'content': html.Div(
+                        f'子项{i}',
+                        style={
+                            'padding': '10px 6px'
+                        }
+                    ),
+                    'style': {
+                        'border': '1px solid lightgrey',
+                        'background': 'white',
+                        'padding': '0 5px',
+                        'width': 100
+                    },
+                    'draggingStyle': {
+                        'boxShadow': '0px 0px 12px rgba(0, 0, 0, 0.12)',
+                        'border': '1px solid transparent'
+                    }
                 }
-            ),
-            defaultSize={
-                'width': 200,
-                'height': 200
+                for i in range(1, 6)
+            ],
+            direction='horizontal',
+            itemDraggingScale=1.025,
+            handleStyle={
+                'color': '#adb5bd'
+            },
+            handleClassName={
+                '&:hover': {
+                    'background': '#f1f3f5'
+                },
+                'padding': '4px',
+                'borderRadius': '8px'
+            },
+            style={
+                'display': 'grid',
+                'gridAutoFlow': 'column',
+                'width': 'fit-content'
             }
-        )
+        ),
+
+        html.Pre(id='output')
     ],
     style={
         'padding': 50
     }
 )
+
+
+@app.callback(
+    Output('output', 'children'),
+    Input('input', 'currentOrder')
+)
+def sortable_list_demo(currentOrder):
+
+    return str(currentOrder)
 
 
 if __name__ == '__main__':
