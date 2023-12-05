@@ -7,30 +7,27 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        fuc.FefferyLocalLargeStorage(
-            id='local-large-storage-test',
-            data='9'*10000000,
-            # initialSync=True
+        fuc.FefferyFancyButton(
+            '按钮测试',
+            id='fancy-button-demo',
+            type='danger',
+            ripple=True
         ),
-
-        html.Div(
-            id='output-demo',
-            style={
-                'wordWrap': 'break-word'
-            }
-        )
+        html.Span(id='nClicks')
     ],
     style={
-        'padding': 50
+        'height': '2000px'
     }
 )
 
 
-app.clientside_callback(
-    '''(data) => JSON.stringify(data)''',
-    Output('output-demo', 'children'),
-    Input('local-large-storage-test', 'data')
+@app.callback(
+    Output('nClicks', 'children'),
+    Input('fancy-button-demo', 'nClicks')
 )
+def demo(nClicks):
+
+    return nClicks
 
 
 if __name__ == '__main__':

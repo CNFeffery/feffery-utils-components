@@ -46,7 +46,7 @@ import FefferyWebSocket from "./components/FefferyWebSocket.react";
 import FefferyShadowDom from "./components/FefferyShadowDom.react";
 import FefferyGrid from "./components/draggable/FefferyGrid.react"; // 待异步优化
 import FefferyGridItem from "./components/draggable/FefferyGridItem.react"; // 待异步优化
-import FefferyFancyButton from "./components/FefferyFancyButton.react"; // 待异步优化
+import FefferyFancyButton from "./components/FefferyFancyButton.react";
 import FefferyJsonViewer from "./components/FefferyJsonViewer.react";
 import FefferyImagePaste from "./components/FefferyImagePaste.react";
 import FefferyFullscreen from "./components/FefferyFullscreen.react";
