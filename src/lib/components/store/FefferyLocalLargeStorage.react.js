@@ -1,62 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
-import localforage from 'localforage';
-import { isUndefined } from 'lodash';
 
-// 定义客户端大容量存储器FefferyLocalLargeStorage
+const LazyFefferyLocalLargeStorage = React.lazy(() => import(/* webpackChunkName: "feffery_local_large_storage" */ '../../fragments/store/FefferyLocalLargeStorage.react'));
+
 const FefferyLocalLargeStorage = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        data,
-        initialSync,
-        setProps,
-        loading_state
-    } = props;
-
-    useEffect(() => {
-        (async () => {
-            if (initialSync) {
-                try {
-                    const existsData = await localforage.getItem(id);
-                    if (existsData) {
-                        setProps({
-                            data: JSON.parse(existsData)
-                        });
-                    }
-                } catch (err) {
-                    console.error(err);
-                }
-            }
-        })()
-    }, [])
-
-    useEffect(() => {
-        (async () => {
-            if (!isUndefined(data)) {
-                try {
-                    await localforage.setItem(id, JSON.stringify(data))
-                } catch (err) {
-                    console.error(err);
-                }
-            }
-        })()
-    }, [data])
-
-    return <></>;
+    return (
+        <Suspense fallback={null}>
+            <LazyFefferyLocalLargeStorage {...props} />
+        </Suspense>
+    );
 }
 
 
 // 定义参数或属性
 FefferyLocalLargeStorage.propTypes = {
-    // 用于定义当前存储器的唯一识别id
+    /**
+     * 用于定义当前存储器的唯一识别id
+     */
     id: PropTypes.string.isRequired,
 
-    // 定义当前存储器对应存储在浏览器本地的数据
+    /**
+     * 定义当前存储器对应存储在浏览器本地的数据
+     */
     data: PropTypes.any,
 
-    // 设置初始化时是否从浏览器本地存储中尝试读取id对应的值并更新到data中
-    // 默认：false
+    /**
+     * 设置初始化时是否从浏览器本地存储中尝试读取id对应的值并更新到data中
+     * 默认：false
+     */
     initialSync: PropTypes.bool,
 
     loading_state: PropTypes.shape({
@@ -87,3 +58,6 @@ FefferyLocalLargeStorage.defaultProps = {
 }
 
 export default React.memo(FefferyLocalLargeStorage);
+
+export const propTypes = FefferyLocalLargeStorage.propTypes;
+export const defaultProps = FefferyLocalLargeStorage.defaultProps;

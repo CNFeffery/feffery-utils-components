@@ -1,5 +1,5 @@
 import dash
-from dash import html
+from dash import html, dcc
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output
 
@@ -7,50 +7,18 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        fuc.FefferySortableList(
-            id='input',
-            items=[
-                {
-                    'key': f'子项{i}',
-                    'content': html.Div(
-                        f'子项{i}',
-                        style={
-                            'padding': '10px 6px'
-                        }
-                    ),
-                    'style': {
-                        'border': '1px solid lightgrey',
-                        'background': 'white',
-                        'padding': '0 5px',
-                        'width': 100
-                    },
-                    'draggingStyle': {
-                        'boxShadow': '0px 0px 12px rgba(0, 0, 0, 0.12)',
-                        'border': '1px solid transparent'
-                    }
-                }
-                for i in range(1, 6)
-            ],
-            direction='horizontal',
-            itemDraggingScale=1.025,
-            handleStyle={
-                'color': '#adb5bd'
-            },
-            handleClassName={
-                '&:hover': {
-                    'background': '#f1f3f5'
-                },
-                'padding': '4px',
-                'borderRadius': '8px'
-            },
-            style={
-                'display': 'grid',
-                'gridAutoFlow': 'column',
-                'width': 'fit-content'
-            }
+        fuc.FefferyLocalLargeStorage(
+            id='local-large-storage-test',
+            data='9'*10000000,
+            # initialSync=True
         ),
 
-        html.Pre(id='output')
+        html.Div(
+            id='output-demo',
+            style={
+                'wordWrap': 'break-word'
+            }
+        )
     ],
     style={
         'padding': 50
@@ -58,13 +26,11 @@ app.layout = html.Div(
 )
 
 
-@app.callback(
-    Output('output', 'children'),
-    Input('input', 'currentOrder')
+app.clientside_callback(
+    '''(data) => JSON.stringify(data)''',
+    Output('output-demo', 'children'),
+    Input('local-large-storage-test', 'data')
 )
-def sortable_list_demo(currentOrder):
-
-    return str(currentOrder)
 
 
 if __name__ == '__main__':

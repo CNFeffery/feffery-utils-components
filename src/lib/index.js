@@ -62,10 +62,10 @@ import FefferyLocation from "./components/listeners/FefferyLocation.react";
 import FefferyCookie from "./components/store/FefferyCookie.react";
 import FefferyResizable from "./components/resizable/FefferyResizable.react";
 import FefferyCompareSlider from "./components/FefferyCompareSlider.react";
-import FefferySortableList from "./components/sortable/FefferySortableList.react"; // 待异步优化
+import FefferySortableList from "./components/sortable/FefferySortableList.react";
 import FefferyLocalStorage from "./components/store/FefferyLocalStorage.react";
 import FefferyTextSelection from "./components/listeners/FefferyTextSelection.react";
-import FefferyLocalLargeStorage from "./components/store/FefferyLocalLargeStorage.react"; // 待异步优化
+import FefferyLocalLargeStorage from "./components/store/FefferyLocalLargeStorage.react";
 import FefferyLongPress from "./components/listeners/FefferyLongPress.react";
 import FefferyDebounceProp from "./components/store/FefferyDebounceProp.react";
 import FefferyMusicPlayer from "./components/player/FefferyMusicPlayer.react";

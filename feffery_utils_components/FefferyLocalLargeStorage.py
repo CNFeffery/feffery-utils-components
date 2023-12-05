@@ -9,11 +9,14 @@ class FefferyLocalLargeStorage(Component):
 
 Keyword arguments:
 
-- id (string; required)
+- id (string; required):
+    用于定义当前存储器的唯一识别id.
 
-- data (boolean | number | string | dict | list; optional)
+- data (boolean | number | string | dict | list; optional):
+    定义当前存储器对应存储在浏览器本地的数据.
 
-- initialSync (boolean; default False)
+- initialSync (boolean; default False):
+    设置初始化时是否从浏览器本地存储中尝试读取id对应的值并更新到data中  默认：False.
 
 - loading_state (dict; optional)
 
