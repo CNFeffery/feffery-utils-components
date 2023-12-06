@@ -9,96 +9,139 @@ class FefferyGrid(Component):
 
 Keyword arguments:
 
-- children (a list of or a singular dash component, string or number; optional)
+- children (a list of or a singular dash component, string or number; optional):
+    传入内部的各个FefferyGridItem元素.
 
-- id (string; optional)
+- id (string; optional):
+    部件id.
 
-- allowOverlap (boolean; default False)
+- allowOverlap (boolean; default False):
+    设置是否允许相互压盖，默认为False.
 
-- autoSize (boolean; default True)
+- autoSize (boolean; default True):
+    设置当前网格容器是否自使用内部元素而调整高度，默认为True.
 
-- breakpoints (dict with strings as keys and values of type number; default { lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 })
+- breakpoints (dict with strings as keys and values of type number; default { lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }):
+    用于自定义断点及其对应的像素值映射对象  默认为{lg: 1200, md: 996, sm: 768, xs: 480, xxs:
+    0}.
 
 - className (string; optional)
 
-- cols (dict with strings as keys and values of type number | number; default 12)
+- cols (dict with strings as keys and values of type number | number; default 12):
+    与breakpoints对应，用于设置不同断点下网格系统的列数  默认为{lg: 12, md: 10, sm: 6, xs: 4,
+    xxs: 2}.
 
-- compactType (a value equal to: 'vertical', 'horizontal'; default 'vertical')
+- compactType (a value equal to: 'vertical', 'horizontal'; default 'vertical'):
+    设置网格项的自动调整约束方向，默认无约束.
 
-- containerPadding (list of numbers | dict with strings as keys and values of type list of numbers; optional)
+- containerPadding (list of numbers | dict with strings as keys and values of type list of numbers; optional):
+    用于设置当前网格容器内部像素padding，格式：[x, y]  也可以传入以断点为键的字典从而实现响应式.
 
-- debug (boolean; default False)
+- debug (boolean; default False):
+    设置是否开启debug模式，开启后，每次布局参数更新，都会在浏览器开发者工具控制台进行打印  默认：False.
 
-- height (number; optional)
+- height (number; optional):
+    设置网格容器固定像素高度.
 
-- isBounded (boolean; default False)
+- isBounded (boolean; default False):
+    设置是否限制当前网格内部的拖拽行为仅限于内部，默认为False.
 
-- isDraggable (boolean; default True)
+- isDraggable (boolean; default True):
+    设置是否开启当前网格内部的拖拽行为，默认为True.
 
-- isResizable (boolean; default True)
+- isResizable (boolean; default True):
+    设置是否开启当前网格内部的尺寸调整行为，默认为True.
 
-- key (string; optional)
+- key (string; optional):
+    唯一标识符，强制刷新用.
 
-- layouts (dict; optional)
+- layouts (dict; optional):
+    用于定义不同断点下的各个网格项布局相关参数.
 
     `layouts` is a dict with strings as keys and values of type list
     of dicts with keys:
 
-    - h (number; optional)
+    - h (number; optional):
+        对应当前网格项的网格单位高度.
 
-    - i (string; optional)
+    - i (string; optional):
+        对应当前网格项的key值.
 
-    - isBounded (boolean; optional)
+    - isBounded (boolean; optional):
+        设置是否为当前网格项施加边界约束，默认为False.
 
-    - isDraggable (boolean; optional)
+    - isDraggable (boolean; optional):
+        设置当前网格项是否允许被拖拽，默认为True.
 
-    - isResizable (boolean; optional)
+    - isResizable (boolean; optional):
+        设置当前网格项是否允许被调整尺寸，默认为True.
 
-    - maxH (number; optional)
+    - maxH (number; optional):
+        对应当前网格项的最大网格单位高度，默认无限制.
 
-    - maxW (number; optional)
+    - maxW (number; optional):
+        对应当前网格项的最大网格单位宽度，默认无限制.
 
-    - minH (number; optional)
+    - minH (number; optional):
+        对应当前网格项的最小网格单位高度，默认为0.
 
-    - minW (number; optional)
-
-    - moved (boolean | number | string | dict | list; optional)
-
-    - static (boolean; optional)
-
-    - w (number; optional)
-
-    - x (number; optional)
-
-    - y (number; optional) | list of dicts with keys:
-
-    - h (number; optional)
-
-    - i (string; optional)
-
-    - isBounded (boolean; optional)
-
-    - isDraggable (boolean; optional)
-
-    - isResizable (boolean; optional)
-
-    - maxH (number; optional)
-
-    - maxW (number; optional)
-
-    - minH (number; optional)
-
-    - minW (number; optional)
+    - minW (number; optional):
+        对应当前网格项的最小网格单位宽度，默认为0.
 
     - moved (boolean | number | string | dict | list; optional)
 
-    - static (boolean; optional)
+    - static (boolean; optional):
+        设置当前网格项是否静态，默认为False.
 
-    - w (number; optional)
+    - w (number; optional):
+        对应当前网格项的网格单位宽度.
 
-    - x (number; optional)
+    - x (number; optional):
+        对应当前网格项的锚点x单位坐标.
 
-    - y (number; optional) | boolean | number | string | dict | list
+    - y (number; optional):
+        对应当前网格项的锚点y单位坐标. | list of dicts with keys:
+
+    - h (number; optional):
+        对应当前网格项的网格单位高度.
+
+    - i (string; optional):
+        对应当前网格项的key值.
+
+    - isBounded (boolean; optional):
+        设置是否为当前网格项施加边界约束，默认为False.
+
+    - isDraggable (boolean; optional):
+        设置当前网格项是否允许被拖拽，默认为True.
+
+    - isResizable (boolean; optional):
+        设置当前网格项是否允许被调整尺寸，默认为True.
+
+    - maxH (number; optional):
+        对应当前网格项的最大网格单位高度，默认无限制.
+
+    - maxW (number; optional):
+        对应当前网格项的最大网格单位宽度，默认无限制.
+
+    - minH (number; optional):
+        对应当前网格项的最小网格单位高度，默认为0.
+
+    - minW (number; optional):
+        对应当前网格项的最小网格单位宽度，默认为0.
+
+    - moved (boolean | number | string | dict | list; optional)
+
+    - static (boolean; optional):
+        设置当前网格项是否静态，默认为False.
+
+    - w (number; optional):
+        对应当前网格项的网格单位宽度.
+
+    - x (number; optional):
+        对应当前网格项的锚点x单位坐标.
+
+    - y (number; optional):
+        对应当前网格项的锚点y单位坐标. | boolean | number | string | dict | list
 
 - loading_state (dict; optional)
 
@@ -113,17 +156,23 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- margin (list of numbers | dict with strings as keys and values of type list of numbers; default [10, 10])
+- margin (list of numbers | dict with strings as keys and values of type list of numbers; default [10, 10]):
+    用于设置当前网格容器内子元素之间的像素margin，格式：[x, y]  也可以传入以断点为键的字典从而实现响应式.
 
-- placeholderBackground (string; default '#3b3a39')
+- placeholderBackground (string; default '#3b3a39'):
+    自定义样式相关快捷样式参数  自定义拖拽预览占位的background属性，默认为'#3b3a39'.
 
-- placeholderBorder (string; default 'none')
+- placeholderBorder (string; default 'none'):
+    自定义拖拽预览占位的border属性，默认为'none'.
 
-- placeholderBorderRadius (string; default '0px')
+- placeholderBorderRadius (string; default '0px'):
+    自定义拖拽预览占位的border-radius属性，默认为'0px'.
 
-- placeholderOpacity (number; default 0.2)
+- placeholderOpacity (number; default 0.2):
+    自定义拖拽预览占位的opacity属性，默认为0.2.
 
-- rowHeight (number; default 150)
+- rowHeight (number; default 150):
+    用于设置网格中每行的像素高度，默认为150.
 
 - style (dict; optional)"""
     _children_props = []
