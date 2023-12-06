@@ -10,36 +10,41 @@ app = dash.Dash(__name__, compress=True)
 app.layout = html.Div(
     [
 
-        html.Div(
+
+        fuc.FefferyGrid(
             [
-                html.Span('提示：按下快捷组合键'),
-                html.Span('ctrl+s'),
-                html.Span('唤出本示例中的快捷指令面板，在搜索框中输入内容进行远程选项搜索')
-            ]
-        ),
-        fuc.FefferyShortcutPanel(
-            id='shortcut-panel-demo',
-            openHotkey='cmd+s,ctrl+s',
-            data=[]
+                fuc.FefferyGridItem(
+                    str(i),
+                    key=str(i),
+                    style={
+                        'height': '100%',
+                        'display': 'flex',
+                        'justifyContent': 'center',
+                        'alignItems': 'center'
+                    }
+                )
+                for i in range(10)
+            ],
+            layouts=[
+                dict(
+                    i=str(i),
+                    x=i,
+                    y=i+1,
+                    w=1,
+                    h=i+i % 2+1
+                )
+                for i in range(5)
+            ],
+            cols=5,
+            rowHeight=75,
+            placeholderBorderRadius='5px',
+            margin=[25, 25],
+            style={
+                'border': '1px dashed #e1dfdd'
+            }
         )
     ]
 )
-
-
-@app.callback(
-    Output('shortcut-panel-demo', 'data'),
-    Input('shortcut-panel-demo', 'searchValue'),
-    prevent_initial_call=True
-)
-def shortcut_panel_demo(searchValue):
-
-    return [
-        {
-            'id': f'{searchValue}搜索结果{i}',
-            'title': f'{searchValue}搜索结果{i}',
-        }
-        for i in range(1, random.randint(3, 6))
-    ]
 
 
 if __name__ == '__main__':
