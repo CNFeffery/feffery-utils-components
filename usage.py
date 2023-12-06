@@ -3,47 +3,43 @@ import feffery_utils_components as fuc
 import dash
 from dash.dependencies import Input, Output, State
 from dash import html
-import uuid
+import random
 
 app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyBlockColorPicker(),
-        fuc.FefferyCircleColorPicker(),
-        html.Button(
-            '开启拾取',
-            id='enable-eye-dropper'
+
+        html.Div(
+            [
+                html.Span('提示：按下快捷组合键'),
+                html.Span('ctrl+s'),
+                html.Span('唤出本示例中的快捷指令面板，在搜索框中输入内容进行远程选项搜索')
+            ]
         ),
-        fuc.FefferyEyeDropper(
-            id='eye-dropper-demo'
-        ),
-        fuc.FefferyGithubColorPicker(),
-        fuc.FefferyHexColorPicker(
-            id='hex-color-picker-demo',
-            showAlpha=True
-        ),
-        fuc.FefferyRgbColorPicker(
-            id='rgb-color-picker-demo',
-            showAlpha=True
-        ),
-        fuc.FefferyTwitterColorPicker(),
-        fuc.FefferyWheelColorPicker()
-    ],
-    style={
-        'padding': 50
-    }
+        fuc.FefferyShortcutPanel(
+            id='shortcut-panel-demo',
+            openHotkey='cmd+s,ctrl+s',
+            data=[]
+        )
+    ]
 )
 
 
 @app.callback(
-    Output('eye-dropper-demo', 'enable'),
-    Input('enable-eye-dropper', 'n_clicks'),
+    Output('shortcut-panel-demo', 'data'),
+    Input('shortcut-panel-demo', 'searchValue'),
     prevent_initial_call=True
 )
-def enable_eye_dropper_demo(nClicks):
+def shortcut_panel_demo(searchValue):
 
-    return True
+    return [
+        {
+            'id': f'{searchValue}搜索结果{i}',
+            'title': f'{searchValue}搜索结果{i}',
+        }
+        for i in range(1, random.randint(3, 6))
+    ]
 
 
 if __name__ == '__main__':
