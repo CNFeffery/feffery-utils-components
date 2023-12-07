@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import FefferyCaptcha from "./components/FefferyCaptcha.react";
 import FefferyTopProgress from "./components/FefferyTopProgress.react";
-import FefferyShortcutPanel from "./components/FefferyShortcutPanel.react"; // 待异步优化
+import FefferyShortcutPanel from "./components/FefferyShortcutPanel.react";
 import FefferyGuide from "./components/FefferyGuide.react";
 import FefferySplit from "./components/split/FefferySplit.react";
 import FefferySplitPane from "./components/split/FefferySplitPane.react";
@@ -44,8 +44,8 @@ import FefferySticky from "./components/FefferySticky.react";
 import FefferySessionStorage from "./components/store/FefferySessionStorage.react";
 import FefferyWebSocket from "./components/FefferyWebSocket.react";
 import FefferyShadowDom from "./components/FefferyShadowDom.react";
-import FefferyGrid from "./components/draggable/FefferyGrid.react"; // 待异步优化
-import FefferyGridItem from "./components/draggable/FefferyGridItem.react"; // 待异步优化
+import FefferyGrid from "./components/draggable/FefferyGrid.react";
+import FefferyGridItem from "./components/draggable/FefferyGridItem.react";
 import FefferyFancyButton from "./components/FefferyFancyButton.react";
 import FefferyJsonViewer from "./components/FefferyJsonViewer.react";
 import FefferyImagePaste from "./components/FefferyImagePaste.react";

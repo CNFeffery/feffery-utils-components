@@ -1,44 +1,41 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
 
-// 定义可拖拽网格项组件FefferyGridItem
-const FefferyGridItem = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        children,
-        style,
-        className,
-        key,
-        setProps,
-        loading_state
-    } = props;
+const LazyFefferyGridItem = React.lazy(() => import(/* webpackChunkName: "feffery_grid" */ '../../fragments/draggable/FefferyGridItem.react'));
 
+const FefferyGridItem = (props) => {
     return (
-        <div
-            id={id}
-            key={key}
-            style={style}
-            className={className}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } >{children}</div>
+        <Suspense fallback={null}>
+            <LazyFefferyGridItem {...props} />
+        </Suspense>
     );
 }
 
 // 定义参数或属性
 FefferyGridItem.propTypes = {
-    // 部件id
+    /**
+     * 部件id
+     */
     id: PropTypes.string,
 
-    // 设置要嵌套的子元素
+    /**
+     * 设置要嵌套的子元素
+     */
     children: PropTypes.node,
 
+    /**
+     * css样式
+     */
     style: PropTypes.object,
 
+    /**
+     * css类名
+     */
     className: PropTypes.string,
 
-    // 用于为当前可拖拽网格项设置唯一的标识key值
+    /**
+     * 用于为当前可拖拽网格项设置唯一的标识key值
+     */
     key: PropTypes.string,
 
     loading_state: PropTypes.shape({
@@ -68,3 +65,6 @@ FefferyGridItem.defaultProps = {
 }
 
 export default FefferyGridItem;
+
+export const propTypes = FefferyGridItem.propTypes;
+export const defaultProps = FefferyGridItem.defaultProps;

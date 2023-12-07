@@ -9,13 +9,17 @@ class FefferyGridItem(Component):
 
 Keyword arguments:
 
-- children (a list of or a singular dash component, string or number; optional)
+- children (a list of or a singular dash component, string or number; optional):
+    设置要嵌套的子元素.
 
-- id (string; optional)
+- id (string; optional):
+    部件id.
 
-- className (string; optional)
+- className (string; optional):
+    css类名.
 
-- key (string; optional)
+- key (string; optional):
+    用于为当前可拖拽网格项设置唯一的标识key值.
 
 - loading_state (dict; optional)
 
@@ -30,7 +34,8 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- style (dict; optional)"""
+- style (dict; optional):
+    css样式."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
