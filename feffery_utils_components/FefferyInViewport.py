@@ -9,11 +9,14 @@ class FefferyInViewport(Component):
 
 Keyword arguments:
 
-- children (a list of or a singular dash component, string or number; optional)
+- children (a list of or a singular dash component, string or number; optional):
+    需要进行可见性监听的目标元素.
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- inViewport (boolean; optional)
+- inViewport (boolean; optional):
+    监听当前元素是否出现在可视范围内.
 
 - loading_state (dict; optional)
 
@@ -28,7 +31,8 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- threshold (number; optional)"""
+- threshold (number; optional):
+    用于设置触发元素可见性状态切换的比例阈值."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

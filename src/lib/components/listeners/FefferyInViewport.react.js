@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 // 定义元素可见性检查组件FefferyInViewport
 const FefferyInViewport = (props) => {
-
     const {
         id,
         inViewport,
@@ -59,15 +58,24 @@ const FefferyInViewport = (props) => {
 
 // 定义参数或属性
 FefferyInViewport.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
+    /**
+     * 需要进行可见性监听的目标元素
+     */
     children: PropTypes.node,
 
-    // 监听当前元素是否出现在可视范围内
+    /**
+     * 监听当前元素是否出现在可视范围内
+     */
     inViewport: PropTypes.bool,
 
-    // 可选，用于设置触发元素可见性状态切换的比例阈值
+    /**
+     * 用于设置触发元素可见性状态切换的比例阈值
+     */
     threshold: PropTypes.number,
 
     /**
