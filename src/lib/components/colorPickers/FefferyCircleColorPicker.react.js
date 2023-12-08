@@ -13,28 +13,48 @@ const FefferyCircleColorPicker = (props) => {
 
 // 定义参数或属性
 FefferyCircleColorPicker.propTypes = {
-    // 部件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // css类名
-    className: PropTypes.string,
-
-    // 自定义css字典
+    /**
+     * css样式
+     */
     style: PropTypes.object,
 
-    // 设置组件整体宽度，默认为'252px'
+    /**
+     * css类名
+     */
+    className: PropTypes.string,
+
+    /**
+     * 设置组件整体宽度
+     * 默认：'252px'
+     */
     width: PropTypes.string,
 
-    // 设置圆圈的像素尺寸，默认为28
+    /**
+     * 设置圆圈的像素尺寸
+     * 默认：28
+     */
     circleSize: PropTypes.number,
 
-    // 设置圆圈之间的像素间隔大小，默认为14
+    /**
+     * 设置圆圈之间的像素间隔大小
+     * 默认：14
+     */
     circleSpacing: PropTypes.number,
 
-    // 对应当前选中的16进制色彩字符串
+    /**
+     * 设置或监听当前选中色彩对应16进制颜色值
+     */
     color: PropTypes.string,
 
-    // 设置可选的16进制色彩值数组，默认为["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#607d8b"]
+    /**
+     * 设置可选色彩对应16进制颜色值数组
+     * 默认：["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#607d8b"]
+     */
     colors: PropTypes.arrayOf(PropTypes.string),
 
     loading_state: PropTypes.shape({
