@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 const FefferyDocumentVisibility = (props) => {
 
     const {
-        id,
         setProps,
         loading_state
     } = props;
@@ -22,16 +21,14 @@ const FefferyDocumentVisibility = (props) => {
 
 // 定义参数或属性
 FefferyDocumentVisibility.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
     /**
-     * Dash-assigned callback that should be called to report property changes
-     * to Dash, to make them available for callbacks.
+     * 监听页面是否可见
      */
-    setProps: PropTypes.func,
-
-    // 监听页面是否可见
     documentVisibility: PropTypes.oneOf(['visible', 'hidden']),
 
     loading_state: PropTypes.shape({
@@ -47,7 +44,13 @@ FefferyDocumentVisibility.propTypes = {
          * Holds the name of the component that is loading
          */
         component_name: PropTypes.string
-    })
+    }),
+
+    /**
+     * Dash-assigned callback that should be called to report property changes
+     * to Dash, to make them available for callbacks.
+     */
+    setProps: PropTypes.func,
 };
 
 // 设置默认参数

@@ -9,9 +9,11 @@ class FefferyDocumentVisibility(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- documentVisibility (a value equal to: 'visible', 'hidden'; optional)
+- documentVisibility (a value equal to: 'visible', 'hidden'; optional):
+    监听页面是否可见.
 
 - loading_state (dict; optional)
 
