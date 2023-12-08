@@ -13,19 +13,31 @@ const FefferyRgbColorPicker = (props) => {
 
 // 定义参数或属性
 FefferyRgbColorPicker.propTypes = {
-    // 部件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // css类名
-    className: PropTypes.string,
-
-    // 自定义css字典
+    /**
+     * css样式
+     */
     style: PropTypes.object,
 
-    // 对应当前选中的rgb[a]色彩字符串，默认为'rgb(68, 206, 246)'
+    /**
+     * css类名
+     */
+    className: PropTypes.string,
+
+    /**
+     * 对应当前选中的rgb[a]色彩值字符串
+     * 默认：'rgb(68, 206, 246)'
+     */
     color: PropTypes.string,
 
-    // 设置是否显示透明度选择控件，默认为false
+    /**
+     * 设置是否显示透明度选择控件
+     * 默认：false
+     */
     showAlpha: PropTypes.bool,
 
     loading_state: PropTypes.shape({

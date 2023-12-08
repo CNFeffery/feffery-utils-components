@@ -7,9 +7,9 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyHexColorPicker(
+        fuc.FefferyRgbColorPicker(
             showAlpha=True
-        ),
+        )
     ],
     style={
         'padding': 25

@@ -9,11 +9,14 @@ class FefferyRgbColorPicker(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- className (string; optional)
+- className (string; optional):
+    css类名.
 
-- color (string; default 'rgb(68, 206, 246)')
+- color (string; default 'rgb(68, 206, 246)'):
+    对应当前选中的rgb[a]色彩值字符串  默认：'rgb(68, 206, 246)'.
 
 - loading_state (dict; optional)
 
@@ -28,15 +31,17 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- showAlpha (boolean; default False)
+- showAlpha (boolean; default False):
+    设置是否显示透明度选择控件  默认：False.
 
-- style (dict; optional)"""
+- style (dict; optional):
+    css样式."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyRgbColorPicker'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, color=Component.UNDEFINED, showAlpha=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+    def __init__(self, id=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, showAlpha=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'className', 'color', 'loading_state', 'showAlpha', 'style']
         self._valid_wildcard_attributes =            []
         self.available_properties = ['id', 'className', 'color', 'loading_state', 'showAlpha', 'style']
