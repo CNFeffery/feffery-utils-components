@@ -13,16 +13,24 @@ const FefferyWheelColorPicker = (props) => {
 
 // 定义参数或属性
 FefferyWheelColorPicker.propTypes = {
-    // 部件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // css类名
-    className: PropTypes.string,
-
-    // 自定义css字典
+    /**
+     * css样式
+     */
     style: PropTypes.object,
 
-    // 对应当前选中的16进制色彩字符串
+    /**
+     * css类名
+     */
+    className: PropTypes.string,
+
+    /**
+     * 设置或监听当前选中色彩对应16进制颜色值
+     */
     color: PropTypes.string,
 
     loading_state: PropTypes.shape({
