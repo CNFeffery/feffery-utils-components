@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 
 // 定义闲置状态监听组件FefferyIdle
 const FefferyIdle = (props) => {
-
     const {
-        id,
         waitDuration,
         setProps,
         loading_state
@@ -23,14 +21,20 @@ const FefferyIdle = (props) => {
 
 // 定义参数或属性
 FefferyIdle.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 监听当前应用是否处于闲置状态
+    /**
+     * 监听当前应用是否处于闲置状态
+     */
     isIdle: PropTypes.bool,
 
-    // 设置经过多长时间（单位：毫秒）没有操作后视作闲置状态
-    // 默认为3000
+    /**
+     * 设置经过多长时间（单位：毫秒）没有操作后视作闲置状态
+     * 默认：3000
+     */
     waitDuration: PropTypes.number,
 
     /**

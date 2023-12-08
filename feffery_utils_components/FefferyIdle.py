@@ -9,9 +9,11 @@ class FefferyIdle(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- isIdle (boolean; optional)
+- isIdle (boolean; optional):
+    监听当前应用是否处于闲置状态.
 
 - loading_state (dict; optional)
 
@@ -26,7 +28,8 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- waitDuration (number; default 3000)"""
+- waitDuration (number; default 3000):
+    设置经过多长时间（单位：毫秒）没有操作后视作闲置状态  默认：3000."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
