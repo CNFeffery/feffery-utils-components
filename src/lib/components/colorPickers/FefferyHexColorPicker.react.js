@@ -13,19 +13,31 @@ const FefferyHexColorPicker = (props) => {
 
 // 定义参数或属性
 FefferyHexColorPicker.propTypes = {
-    // 部件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // css类名
-    className: PropTypes.string,
-
-    // 自定义css字典
+    /**
+     * css样式
+     */
     style: PropTypes.object,
 
-    // 对应当前选中的16进制色彩字符串，默认为'#36a0f8'
+    /**
+     * css类名
+     */
+    className: PropTypes.string,
+
+    /**
+     * 设置或监听当前选中色彩对应16进制颜色值
+     * 默认：'#36a0f8'
+     */
     color: PropTypes.string,
 
-    // 设置是否显示透明度选择控件，默认为false
+    /**
+     * 设置是否显示透明度选择控件
+     * 默认：false
+     */
     showAlpha: PropTypes.bool,
 
     loading_state: PropTypes.shape({
