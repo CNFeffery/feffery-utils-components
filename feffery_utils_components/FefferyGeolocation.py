@@ -9,9 +9,11 @@ class FefferyGeolocation(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- geoLocationInfo (dict; optional)
+- geoLocationInfo (dict; optional):
+    监听当前用户地理位置相关信息.
 
 - loading_state (dict; optional)
 

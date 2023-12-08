@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 const FefferyGeolocation = (props) => {
 
     const {
-        id,
         setProps,
         loading_state
     } = props;
@@ -22,10 +21,14 @@ const FefferyGeolocation = (props) => {
 
 // 定义参数或属性
 FefferyGeolocation.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 监听当前用户地理位置相关信息
+    /**
+     * 监听当前用户地理位置相关信息
+     */
     geoLocationInfo: PropTypes.object,
 
     /**
