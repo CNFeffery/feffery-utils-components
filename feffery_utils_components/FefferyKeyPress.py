@@ -9,9 +9,11 @@ class FefferyKeyPress(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- keys (string; required)
+- keys (string; required):
+    必填，用于设置要监听的按键组合.
 
 - loading_state (dict; optional)
 
@@ -26,7 +28,8 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- pressedCounts (number; default 0)"""
+- pressedCounts (number; default 0):
+    记录设置的按键或按键组合事件已被触发的次数  默认：0."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

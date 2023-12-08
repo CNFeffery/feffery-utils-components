@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 
 // 定义按键事件监听组件FefferyKeyPress
 const FefferyKeyPress = (props) => {
-
     const {
-        id,
         keys,
         pressedCounts,
         setProps,
@@ -27,13 +25,20 @@ const FefferyKeyPress = (props) => {
 
 // 定义参数或属性
 FefferyKeyPress.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 用于设置要监听的按键组合，必填
+    /**
+     * 必填，用于设置要监听的按键组合
+     */
     keys: PropTypes.string.isRequired,
 
-    // 记录设置的按键或按键组合事件已被触发的次数，默认为0
+    /**
+     * 记录设置的按键或按键组合事件已被触发的次数
+     * 默认：0
+     */
     pressedCounts: PropTypes.number,
 
     /**
