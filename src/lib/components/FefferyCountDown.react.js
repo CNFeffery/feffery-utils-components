@@ -45,17 +45,25 @@ const FefferyCountDown = (props) => {
 
 // 定义参数或属性
 FefferyCountDown.propTypes = {
-    // 部件id
+    /**
+     * 部件id
+     */
     id: PropTypes.string,
 
-    // 用于设置距离下一次超时事件触发的倒计时间隔（单位：秒）
-    // 每次有效的delay对应超时事件结束后都会被重置为undefined
+    /**
+     * 用于设置距离下一次超时事件触发的倒计时间隔（单位：秒）
+     * 每次有效的delay对应超时事件结束后都会被重置为undefined
+     */
     delay: PropTypes.number,
 
-    // 设置倒计时时间间隔（单位：秒），默认为1
+    /**
+     * 设置倒计时时间间隔（单位：秒），默认为1
+     */
     interval: PropTypes.number,
 
-    // 监听当前剩余时间秒数，默认为0
+    /**
+     * 监听当前剩余时间秒数，默认为0
+     */
     countdown: PropTypes.number,
 
     /**

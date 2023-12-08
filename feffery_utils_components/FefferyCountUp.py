@@ -9,19 +9,26 @@ class FefferyCountUp(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    部件id.
 
-- className (string; optional)
+- className (string; optional):
+    css类名.
 
-- decimals (number; default 0)
+- decimals (number; default 0):
+    设置小数精度，默认为0.
 
-- duration (number; default 2)
+- duration (number; default 2):
+    设置数字递增动画耗时，单位：秒，默认为2  对此参数的更新会重新触发递增动画.
 
-- enableScrollSpy (boolean; default True)
+- enableScrollSpy (boolean; default True):
+    设置是否在当前元素进入视口后才开始执行递增动画，默认为True.
 
-- end (number; required)
+- end (number; required):
+    设置数字递增目标，必填  对此参数的更新会重新触发递增动画.
 
-- key (string; optional)
+- key (string; optional):
+    强制刷新用.
 
 - loading_state (dict; optional)
 
@@ -36,15 +43,20 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- scrollSpyDelay (number; default 0)
+- scrollSpyDelay (number; default 0):
+    当enableScrollSpy为True时，设置当前元素进入视口后延时多久开始执行递增动画，单位：毫秒，默认为0.
 
-- scrollSpyOnce (boolean; default True)
+- scrollSpyOnce (boolean; default True):
+    设置是否仅进行一次视口出现后启用动画行为，默认为True.
 
-- separator (string; default ',')
+- separator (string; default ','):
+    设置自定义千分符，默认为','.
 
-- start (number; default 0)
+- start (number; default 0):
+    设置数字递增起点，默认为0  对此参数的更新会重新触发递增动画.
 
-- style (dict; optional)"""
+- style (dict; optional):
+    自定义css字典."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
