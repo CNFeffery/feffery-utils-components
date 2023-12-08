@@ -7,9 +7,7 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyRgbColorPicker(
-            showAlpha=True
-        )
+        fuc.FefferyTwitterColorPicker()
     ],
     style={
         'padding': 25

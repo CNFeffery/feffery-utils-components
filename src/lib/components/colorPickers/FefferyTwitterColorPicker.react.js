@@ -13,25 +13,42 @@ const FefferyTwitterColorPicker = (props) => {
 
 // 定义参数或属性
 FefferyTwitterColorPicker.propTypes = {
-    // 部件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // css类名
-    className: PropTypes.string,
-
-    // 自定义css字典
+    /**
+     * css样式
+     */
     style: PropTypes.object,
 
-    // 设置组件整体宽度，默认为'276px'
+    /**
+     * css类名
+     */
+    className: PropTypes.string,
+
+    /**
+     * 设置组件整体宽度
+     * 默认：'276px'
+     */
     width: PropTypes.string,
 
-    // 对应当前选中的16进制色彩字符串
+    /**
+     * 设置或监听当前选中色彩对应16进制颜色值
+     */
     color: PropTypes.string,
 
-    // 设置可选的16进制色彩值数组，默认为['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3', '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF']
+    /**
+     * 设置可选色彩对应16进制颜色值数组
+     * 默认：['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3', '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF']
+     */
     colors: PropTypes.arrayOf(PropTypes.string),
 
-    // 设置顶部箭头的方位，可选的有'hide'、'top-left'、'top-right'，默认为'top-left'
+    /**
+     * 设置顶部箭头的方位，可选的有'hide'、'top-left'、'top-right'
+     * 默认：'top-left'
+     */
     triangle: PropTypes.oneOf(['hide', 'top-left', 'top-right']),
 
     loading_state: PropTypes.shape({
