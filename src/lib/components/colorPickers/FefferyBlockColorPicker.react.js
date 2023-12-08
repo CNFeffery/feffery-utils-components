@@ -13,25 +13,42 @@ const FefferyBlockColorPicker = (props) => {
 
 // 定义参数或属性
 FefferyBlockColorPicker.propTypes = {
-    // 部件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // css类名
-    className: PropTypes.string,
-
-    // 自定义css字典
+    /**
+     * css样式
+     */
     style: PropTypes.object,
 
-    // 设置组件整体宽度，默认为'170px'
+    /**
+     * css类名
+     */
+    className: PropTypes.string,
+
+    /**
+     * 设置组件整体宽度
+     * 默认：'170px'
+     */
     width: PropTypes.string,
 
-    // 对应当前选中的16进制色彩字符串
+    /**
+     * 设置或监听当前选中色彩对应16进制颜色值
+     */
     color: PropTypes.string,
 
-    // 设置可选的16进制色彩值数组，默认为['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555', '#dce775', '#ff8a65', '#ba68c8']
+    /**
+     * 设置可选色彩对应16进制颜色值数组
+     * 默认：['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555', '#dce775', '#ff8a65', '#ba68c8']
+     */
     colors: PropTypes.arrayOf(PropTypes.string),
 
-    // 设置顶部箭头的方位，可选的有'hide'、'top'，默认为'top'
+    /**
+     * 设置顶部箭头方位，可选的有'hide'、'top'
+     * 默认：'top'
+     */
     triangle: PropTypes.oneOf(['hide', 'top']),
 
     loading_state: PropTypes.shape({

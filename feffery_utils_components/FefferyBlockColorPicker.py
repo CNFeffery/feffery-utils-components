@@ -9,13 +9,18 @@ class FefferyBlockColorPicker(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- className (string; optional)
+- className (string; optional):
+    css类名.
 
-- color (string; optional)
+- color (string; optional):
+    设置或监听当前选中色彩对应16进制颜色值.
 
-- colors (list of strings; default ['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555', '#dce775', '#ff8a65', '#ba68c8'])
+- colors (list of strings; default ['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555', '#dce775', '#ff8a65', '#ba68c8']):
+    设置可选色彩对应16进制颜色值数组  默认：['#D9E3F0', '#F47373', '#697689', '#37D67A',
+    '#2CCCE4', '#555555', '#dce775', '#ff8a65', '#ba68c8'].
 
 - loading_state (dict; optional)
 
@@ -30,17 +35,20 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- style (dict; optional)
+- style (dict; optional):
+    css样式.
 
-- triangle (a value equal to: 'hide', 'top'; default 'top')
+- triangle (a value equal to: 'hide', 'top'; default 'top'):
+    设置顶部箭头方位，可选的有'hide'、'top'  默认：'top'.
 
-- width (string; default '170px')"""
+- width (string; default '170px'):
+    设置组件整体宽度  默认：'170px'."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyBlockColorPicker'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, width=Component.UNDEFINED, color=Component.UNDEFINED, colors=Component.UNDEFINED, triangle=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+    def __init__(self, id=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, width=Component.UNDEFINED, color=Component.UNDEFINED, colors=Component.UNDEFINED, triangle=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'className', 'color', 'colors', 'loading_state', 'style', 'triangle', 'width']
         self._valid_wildcard_attributes =            []
         self.available_properties = ['id', 'className', 'color', 'colors', 'loading_state', 'style', 'triangle', 'width']
