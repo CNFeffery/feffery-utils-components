@@ -9,9 +9,11 @@ class FefferyDeviceDetect(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- deviceInfo (dict; optional)
+- deviceInfo (dict; optional):
+    监听当前访问设备的全部信息.
 
     `deviceInfo` is a dict with keys:
 

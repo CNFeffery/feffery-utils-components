@@ -22,7 +22,6 @@ import PropTypes from 'prop-types';
 const FefferyDeviceDetect = (props) => {
     // 取得必要属性或参数
     const {
-        id,
         setProps,
         loading_state
     } = props;
@@ -55,10 +54,14 @@ const FefferyDeviceDetect = (props) => {
 
 // 定义参数或属性
 FefferyDeviceDetect.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 监听当前访问设备的全部信息
+    /**
+     * 监听当前访问设备的全部信息
+     */
     deviceInfo: PropTypes.exact({
         // 检测是否为手机、平板等移动设备
         isMobile: PropTypes.bool,
