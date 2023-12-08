@@ -9,13 +9,17 @@ class FefferyCountDown(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    部件id.
 
-- countdown (number; optional)
+- countdown (number; optional):
+    监听当前剩余时间秒数，默认为0.
 
-- delay (number; optional)
+- delay (number; optional):
+    用于设置距离下一次超时事件触发的倒计时间隔（单位：秒）  每次有效的delay对应超时事件结束后都会被重置为undefined.
 
-- interval (number; default 1)
+- interval (number; default 1):
+    设置倒计时时间间隔（单位：秒），默认为1.
 
 - loading_state (dict; optional)
 

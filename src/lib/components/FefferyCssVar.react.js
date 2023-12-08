@@ -27,10 +27,14 @@ const FefferyCssVar = (props) => {
 
 // 定义参数或属性
 FefferyCssVar.propTypes = {
-    // 部件id
+    /**
+     * 部件id
+     */
     id: PropTypes.string,
 
-    // 定义要更新的css变量键值对信息
+    /**
+     * 定义要更新的css变量键值对信息
+     */
     cssVars: PropTypes.object,
 
     loading_state: PropTypes.shape({

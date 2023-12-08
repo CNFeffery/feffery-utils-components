@@ -44,40 +44,67 @@ const FefferyCountUp = (props) => {
 
 // 定义参数或属性
 FefferyCountUp.propTypes = {
-    // 部件id
+    /**
+     * 部件id
+     */
     id: PropTypes.string,
 
+    /**
+     * css类名
+     */
     className: PropTypes.string,
 
+    /**
+     * 自定义css字典
+     */
     style: PropTypes.object,
 
+    /**
+     * 强制刷新用
+     */
     key: PropTypes.string,
 
-    // 设置数字递增目标，必填
-    // 对此参数的更新会重新触发递增动画
+    /**
+     * 设置数字递增目标，必填
+     * 对此参数的更新会重新触发递增动画
+     */
     end: PropTypes.number.isRequired,
 
-    // 设置数字递增起点，默认为0
-    // 对此参数的更新会重新触发递增动画
+    /**
+     * 设置数字递增起点，默认为0
+     * 对此参数的更新会重新触发递增动画
+     */
     start: PropTypes.number,
 
-    // 设置数字递增动画耗时，单位：秒，默认为2
-    // 对此参数的更新会重新触发递增动画
+    /**
+     * 设置数字递增动画耗时，单位：秒，默认为2
+     * 对此参数的更新会重新触发递增动画
+     */
     duration: PropTypes.number,
 
-    // 设置小数精度，默认为0
+    /**
+     * 设置小数精度，默认为0
+     */
     decimals: PropTypes.number,
 
-    // 设置是否在当前元素进入视口后才开始执行递增动画，默认为true
+    /**
+     * 设置是否在当前元素进入视口后才开始执行递增动画，默认为true
+     */
     enableScrollSpy: PropTypes.bool,
 
-    // 当enableScrollSpy为true时，设置当前元素进入视口后延时多久开始执行递增动画，单位：毫秒，默认为0
+    /**
+     * 当enableScrollSpy为true时，设置当前元素进入视口后延时多久开始执行递增动画，单位：毫秒，默认为0
+     */
     scrollSpyDelay: PropTypes.number,
 
-    // 设置是否仅进行一次视口出现后启用动画行为，默认为true
+    /**
+     * 设置是否仅进行一次视口出现后启用动画行为，默认为true
+     */
     scrollSpyOnce: PropTypes.bool,
 
-    // 设置自定义千分符，默认为','
+    /**
+     * 设置自定义千分符，默认为','
+     */
     separator: PropTypes.string,
 
     loading_state: PropTypes.shape({
