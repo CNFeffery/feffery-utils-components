@@ -9,9 +9,11 @@ class FefferyListenPaste(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- enableListenPaste (boolean; default False)
+- enableListenPaste (boolean; default False):
+    用于设置是否为当前组件启用粘贴事件监听  默认：False.
 
 - loading_state (dict; optional)
 
@@ -26,11 +28,14 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- pasteCount (number; default 0)
+- pasteCount (number; default 0):
+    监听累计监听到的粘贴事件发生次数  默认：0.
 
-- pasteText (string; optional)
+- pasteText (string; optional):
+    监听最近一次文本粘贴事件对应的粘贴内容.
 
-- targetContainerId (string; optional)"""
+- targetContainerId (string; optional):
+    用于设置要监听绑定的目标容器id，设置此参数后，粘贴事件监听仅在目标容器被鼠标悬停时生效."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

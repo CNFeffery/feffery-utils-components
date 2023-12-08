@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 
 // 定义全局粘贴监听组件FefferyListenPaste
 const FefferyListenPaste = (props) => {
-
     let {
-        id,
         pasteCount,
         enableListenPaste,
         targetContainerId,
@@ -46,19 +44,31 @@ const FefferyListenPaste = (props) => {
 
 // 定义参数或属性
 FefferyListenPaste.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 监听最近一次文本粘贴事件对应的粘贴内容
+    /**
+     * 监听最近一次文本粘贴事件对应的粘贴内容
+     */
     pasteText: PropTypes.string,
 
-    // 监听累计监听到的粘贴事件发生次数，默认为0
+    /**
+     * 监听累计监听到的粘贴事件发生次数
+     * 默认：0
+     */
     pasteCount: PropTypes.number,
 
-    // 用于设置是否为当前组件启用粘贴事件监听，默认为false
+    /**
+     * 用于设置是否为当前组件启用粘贴事件监听
+     * 默认：false
+     */
     enableListenPaste: PropTypes.bool,
 
-    // 用于设置要监听绑定的目标容器id，设置此参数后，粘贴事件监听仅在目标容器被鼠标悬停时生效
+    /**
+     * 用于设置要监听绑定的目标容器id，设置此参数后，粘贴事件监听仅在目标容器被鼠标悬停时生效
+     */
     targetContainerId: PropTypes.string,
 
     /**

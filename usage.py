@@ -8,7 +8,7 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyKeyPress()
+        fuc.FefferyListenPaste()
     ],
     style={
         'padding': 25
