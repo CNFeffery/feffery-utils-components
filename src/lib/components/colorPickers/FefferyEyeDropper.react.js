@@ -13,13 +13,20 @@ const FefferyEyeDropper = (props) => {
 
 // 定义参数或属性
 FefferyEyeDropper.propTypes = {
-    // 部件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 设置是否启用色彩拾取模式，默认为false
+    /**
+     * 设置是否启用色彩拾取模式，每次取色完成后都会被重置为false
+     * 默认：false
+     */
     enable: PropTypes.bool,
 
-    // 用于监听最近一次取色完成后得到的16进制色彩值
+    /**
+     * 用于监听最近一次取色完成后对应的16进制色彩值
+     */
     color: PropTypes.string,
 
     loading_state: PropTypes.shape({

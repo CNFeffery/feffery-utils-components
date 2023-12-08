@@ -9,11 +9,14 @@ class FefferyEyeDropper(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- color (string; optional)
+- color (string; optional):
+    用于监听最近一次取色完成后对应的16进制色彩值.
 
-- enable (boolean; default False)
+- enable (boolean; default False):
+    设置是否启用色彩拾取模式，每次取色完成后都会被重置为False  默认：False.
 
 - loading_state (dict; optional)
 
