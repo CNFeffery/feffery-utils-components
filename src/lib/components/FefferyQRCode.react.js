@@ -57,7 +57,7 @@ const FefferyQRCode = (props) => {
 
 // 定义参数或属性
 FefferyQRCode.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 设置二维码所表达的信息值

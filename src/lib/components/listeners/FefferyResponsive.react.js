@@ -22,7 +22,7 @@ const FefferyResponsive = (props) => {
 
 // 定义参数或属性
 FefferyResponsive.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 监听当前页面尺寸下对应各断点的满足情况

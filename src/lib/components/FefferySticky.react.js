@@ -32,7 +32,7 @@ const FefferySticky = (props) => {
 
 // 定义参数或属性
 FefferySticky.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     children: PropTypes.node,

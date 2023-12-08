@@ -32,7 +32,7 @@ const FefferyShadowDom = (props) => {
 
 // 定义参数或属性
 FefferyShadowDom.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     key: PropTypes.string,

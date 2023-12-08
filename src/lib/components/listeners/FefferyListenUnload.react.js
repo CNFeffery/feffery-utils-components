@@ -29,7 +29,7 @@ const FefferyListenUnload = (props) => {
 
 // 定义参数或属性
 FefferyListenUnload.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 每次页面关闭时会触发更新为true

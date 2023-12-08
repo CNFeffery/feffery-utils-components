@@ -46,7 +46,7 @@ const FefferyCookie = (props) => {
 
 // 定义参数或属性
 FefferyCookie.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 设置要绑定的cookie键名，必填

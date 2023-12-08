@@ -14,7 +14,7 @@ const FefferySortableList = (props) => {
 // 定义参数或属性
 FefferySortableList.propTypes = {
     /**
-     * 部件id
+     * 组件id
      */
     id: PropTypes.string,
 

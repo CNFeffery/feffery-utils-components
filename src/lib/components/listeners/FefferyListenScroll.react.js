@@ -27,7 +27,7 @@ const FefferyListenScroll = (props) => {
 
 // 定义参数或属性
 FefferyListenScroll.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 设置滚动条监听目标元素id，默认为整个页面

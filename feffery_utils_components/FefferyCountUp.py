@@ -10,7 +10,7 @@ class FefferyCountUp(Component):
 Keyword arguments:
 
 - id (string; optional):
-    部件id.
+    组件id.
 
 - className (string; optional):
     css类名.

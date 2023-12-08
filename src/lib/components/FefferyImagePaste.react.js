@@ -70,7 +70,7 @@ const FefferyImagePaste = (props) => {
 
 // 定义参数或属性
 FefferyImagePaste.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 辅助刷新用唯一标识key值

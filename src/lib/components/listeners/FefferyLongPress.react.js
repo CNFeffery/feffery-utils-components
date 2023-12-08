@@ -31,7 +31,7 @@ const FefferyLongPress = (props) => {
 
 // 定义参数或属性
 FefferyLongPress.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 设置当前长按监听组件的监听目标元素id

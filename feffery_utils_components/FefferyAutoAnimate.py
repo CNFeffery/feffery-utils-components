@@ -13,7 +13,7 @@ Keyword arguments:
     要进行动画效果编排的目标元素.
 
 - id (string; optional):
-    部件id.
+    组件id.
 
 - className (string; optional):
     css类名.

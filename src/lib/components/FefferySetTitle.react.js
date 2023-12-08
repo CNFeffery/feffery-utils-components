@@ -21,7 +21,7 @@ const FefferySetTitle = (props) => {
 
 // 定义参数或属性
 FefferySetTitle.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 用于设置要更新的title信息

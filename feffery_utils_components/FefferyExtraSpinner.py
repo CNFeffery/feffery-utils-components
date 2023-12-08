@@ -10,7 +10,7 @@ class FefferyExtraSpinner(Component):
 Keyword arguments:
 
 - id (string; optional):
-    部件id.
+    组件id.
 
 - backColor (string; default '#1890ff'):
     设置背景色.

@@ -84,7 +84,7 @@ const FefferyScroll = (props) => {
 
 // 定义参数或属性
 FefferyScroll.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 设置页面滚动模式，可选的有'top'、'bottom'、'top-offset'、'relative-offset'、'target'

@@ -13,7 +13,7 @@ Keyword arguments:
     设置要嵌套的子元素.
 
 - id (string; optional):
-    部件id.
+    组件id.
 
 - className (string; optional):
     css类名.

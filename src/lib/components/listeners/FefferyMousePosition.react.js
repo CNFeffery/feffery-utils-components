@@ -33,7 +33,7 @@ const FefferyMousePosition = (props) => {
 
 // 定义参数或属性
 FefferyMousePosition.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 用于记录当前鼠标位置相关信息

@@ -13,7 +13,7 @@ Keyword arguments:
     设置内部嵌套的子元素.
 
 - id (string; optional):
-    部件id.
+    组件id.
 
 - bounds (a value equal to: 'window', 'parent'; default 'window'):
     设置尺寸调整组件的外边界类型，可选的有'window'、'parent'  默认为'window'.

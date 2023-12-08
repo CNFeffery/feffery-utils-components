@@ -10,7 +10,7 @@ class FefferyCaptcha(Component):
 Keyword arguments:
 
 - id (string; optional):
-    部件id.
+    组件id.
 
 - bgColor (string; optional):
     设置验证码图片背景色，默认为'#DFF0D8'.

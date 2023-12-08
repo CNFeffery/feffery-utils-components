@@ -27,7 +27,7 @@ const FefferyKeyPress = (props) => {
 
 // 定义参数或属性
 FefferyKeyPress.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 用于设置要监听的按键组合，必填

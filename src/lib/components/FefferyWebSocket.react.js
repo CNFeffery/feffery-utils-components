@@ -70,7 +70,7 @@ const FefferyWebSocket = (props) => {
 
 // 定义参数或属性
 FefferyWebSocket.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 设置要建立连接的WebSocket服务url

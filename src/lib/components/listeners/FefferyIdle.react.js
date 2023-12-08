@@ -23,7 +23,7 @@ const FefferyIdle = (props) => {
 
 // 定义参数或属性
 FefferyIdle.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 监听当前应用是否处于闲置状态

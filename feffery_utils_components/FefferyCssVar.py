@@ -10,7 +10,7 @@ class FefferyCssVar(Component):
 Keyword arguments:
 
 - id (string; optional):
-    部件id.
+    组件id.
 
 - cssVars (dict; optional):
     定义要更新的css变量键值对信息.

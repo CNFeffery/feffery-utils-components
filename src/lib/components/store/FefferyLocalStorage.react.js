@@ -58,7 +58,7 @@ const FefferyLocalStorage = (props) => {
 
 // 定义参数或属性
 FefferyLocalStorage.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string.isRequired,
 
     // 设置或监听当前id对应的localStorage数据

@@ -10,7 +10,7 @@ class FefferySortableList(Component):
 Keyword arguments:
 
 - id (string; optional):
-    部件id.
+    组件id.
 
 - className (string | dict; optional):
     组件css类.

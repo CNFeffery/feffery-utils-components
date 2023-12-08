@@ -87,7 +87,7 @@ FefferySplit.propTypes = {
 
     children: PropTypes.node,
 
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // css类名

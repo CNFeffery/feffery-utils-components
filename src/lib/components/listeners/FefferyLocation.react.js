@@ -35,7 +35,7 @@ const FefferyLocation = (props) => {
 
 // 定义参数或属性
 FefferyLocation.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 用于监听最新的href信息

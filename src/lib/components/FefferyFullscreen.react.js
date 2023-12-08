@@ -47,7 +47,7 @@ const FefferyFullscreen = (props) => {
 
 // 定义参数或属性
 FefferyFullscreen.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 设置要全屏化的目标元素id，必填

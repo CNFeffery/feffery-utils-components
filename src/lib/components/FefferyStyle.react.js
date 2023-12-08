@@ -20,7 +20,7 @@ const FefferyStyle = (props) => {
 
 // 定义参数或属性
 FefferyStyle.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 设置要添加到文档中的原生css字符

@@ -10,7 +10,7 @@ class FefferyCountDown(Component):
 Keyword arguments:
 
 - id (string; optional):
-    部件id.
+    组件id.
 
 - countdown (number; optional):
     监听当前剩余时间秒数，默认为0.

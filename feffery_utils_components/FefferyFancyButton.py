@@ -13,7 +13,7 @@ Keyword arguments:
     设置按钮内嵌元素内容.
 
 - id (string; optional):
-    部件id.
+    组件id.
 
 - after (a list of or a singular dash component, string or number; optional):
     设置按钮后缀图标元素.

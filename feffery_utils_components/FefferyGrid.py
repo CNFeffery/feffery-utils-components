@@ -13,7 +13,7 @@ Keyword arguments:
     传入内部的各个FefferyGridItem元素.
 
 - id (string; optional):
-    部件id.
+    组件id.
 
 - allowOverlap (boolean; default False):
     设置是否允许相互压盖，默认为False.

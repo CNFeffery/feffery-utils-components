@@ -58,7 +58,7 @@ const FefferySessionStorage = (props) => {
 
 // 定义参数或属性
 FefferySessionStorage.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string.isRequired,
 
     // 设置或监听当前id对应的sessionStorage数据

@@ -10,7 +10,7 @@ class FefferyShortcutPanel(Component):
 Keyword arguments:
 
 - id (string; optional):
-    部件id.
+    组件id.
 
 - close (boolean; default False):
     传入True时手动关闭指令面板，默认为False.

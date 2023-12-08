@@ -25,7 +25,7 @@ const FefferyWindowSize = (props) => {
 
 // 定义参数或属性
 FefferyWindowSize.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 监听当前浏览器窗口像素宽度

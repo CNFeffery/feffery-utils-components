@@ -10,7 +10,7 @@ class FefferyEmojiPicker(Component):
 Keyword arguments:
 
 - id (string; optional):
-    部件id.
+    组件id.
 
 - autoFocus (boolean; default False):
     设置选择器是否自动获取搜索框的焦点，默认为False.

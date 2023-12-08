@@ -45,7 +45,7 @@ const FefferyCountUp = (props) => {
 // 定义参数或属性
 FefferyCountUp.propTypes = {
     /**
-     * 部件id
+     * 组件id
      */
     id: PropTypes.string,
 

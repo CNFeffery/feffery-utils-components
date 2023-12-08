@@ -21,7 +21,7 @@ const FefferyRawHTML = (props) => {
 
 // 定义参数或属性
 FefferyRawHTML.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 要渲染的原始HTML内容字符串

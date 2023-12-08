@@ -35,7 +35,7 @@ const FefferyTextSelection = (props) => {
 
 // 定义参数或属性
 FefferyTextSelection.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 设置目标监听容器的id

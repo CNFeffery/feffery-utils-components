@@ -24,7 +24,7 @@ const FefferyTimeout = (props) => {
 
 // 定义参数或属性
 FefferyTimeout.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 监听超时事件完成次数，默认为0

@@ -49,7 +49,7 @@ const FefferyCompareSlider = (props) => {
 
 // 定义参数或属性
 FefferyCompareSlider.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // css样式

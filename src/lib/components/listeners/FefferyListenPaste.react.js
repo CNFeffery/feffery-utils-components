@@ -46,7 +46,7 @@ const FefferyListenPaste = (props) => {
 
 // 定义参数或属性
 FefferyListenPaste.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 监听最近一次文本粘贴事件对应的粘贴内容

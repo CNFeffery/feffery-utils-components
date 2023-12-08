@@ -22,7 +22,7 @@ const FefferyGeolocation = (props) => {
 
 // 定义参数或属性
 FefferyGeolocation.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 监听当前用户地理位置相关信息

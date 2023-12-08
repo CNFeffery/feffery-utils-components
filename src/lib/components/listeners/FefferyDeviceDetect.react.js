@@ -55,7 +55,7 @@ const FefferyDeviceDetect = (props) => {
 
 // 定义参数或属性
 FefferyDeviceDetect.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 监听当前访问设备的全部信息

@@ -30,7 +30,7 @@ const FefferyExternalCss = (props) => {
 
 // 定义参数或属性
 FefferyExternalCss.propTypes = {
-    // 部件id
+    // 组件id
     id: PropTypes.string,
 
     // 设置对应绑定的css静态文件资源url，默认为''
