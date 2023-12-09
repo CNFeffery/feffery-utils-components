@@ -9,25 +9,34 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        html.Div(
-            style={
-                'height': '200px'
-            }
+
+        fuc.FefferyStyle(
+            rawStyle='''
+.style-demo {
+    background: white;
+    width: 400px;
+    height: 200px;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.style-demo:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, .12);
+    transition: 0.3s;
+}
+'''
         ),
-        fuc.FefferySticky(
-            html.Div(
-                '请向下滚动查看效果',
-                style={
-                    'backgroundColor': 'green'
-                }
-            ),
-            top=25,
-            bottomBoundary=800
-        ),
+
         html.Div(
-            style={
-                'height': '1200px'
-            }
+            '鼠标移入查看效果',
+            className='style-demo'
         )
     ],
     style={
