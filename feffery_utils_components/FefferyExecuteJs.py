@@ -9,9 +9,11 @@ class FefferyExecuteJs(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- jsString (string; optional)
+- jsString (string; optional):
+    设置要执行的js代码字符串.
 
 - loading_state (dict; optional)
 
