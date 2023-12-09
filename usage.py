@@ -1,4 +1,6 @@
 
+from datetime import datetime
+import time
 import dash
 from dash import html, dcc
 import feffery_utils_components as fuc
@@ -12,26 +14,24 @@ app.layout = html.Div(
 
         html.Div(
             [
-                dcc.Input(
-                    id='timeout-demo-delay',
-                    value=2000,
-                    style={
-                        'maxWidth': '300px'
-                    }
+                fuc.FefferyWheelColorPicker(
+                    id='top-progress-color',
+                    color='#e74c3c'
                 ),
                 fuc.FefferyFancyButton(
-                    '开始',
-                    id='timeout-demo-start',
+                    '触发5秒耗时回调',
+                    id='top-progress-trigger-demo1',
                     type='primary'
                 )
             ]
         ),
-        fuc.FefferyTimeout(
-            id='timeout-demo'
-        ),
-
-        fuc.FefferyExecuteJs(
-            id='timeout-demo-output'
+        fuc.FefferyTopProgress(
+            html.Div(
+                id='top-progress-trigger-demo1-output'
+            ),
+            id='top-progress-demo',
+            listenPropsMode='exclude',
+            excludeProps=['top-progress-demo.color']
         )
     ],
     style={
@@ -41,25 +41,24 @@ app.layout = html.Div(
 
 
 @app.callback(
-    Output('timeout-demo', 'delay'),
-    Input('timeout-demo-start', 'nClicks'),
-    State('timeout-demo-delay', 'value'),
-    prevent_initial_call=True
+    Output('top-progress-demo', 'color'),
+    Input('top-progress-color', 'color')
 )
-def start_new_timeout(nClicks, value):
+def top_progress_demo_update_color(color):
 
-    if value > 0:
-        return value
+    return color
 
 
 @app.callback(
-    Output('timeout-demo-output', 'jsString'),
-    Input('timeout-demo', 'timeoutCount'),
+    Output('top-progress-trigger-demo1-output', 'children'),
+    Input('top-progress-trigger-demo1', 'nClicks'),
     prevent_initial_call=True
 )
-def after_timeout(timeoutCount):
+def top_progress_demo(nClicks):
 
-    return 'alert(`timeoutCount=${%s}`)' % timeoutCount
+    time.sleep(5)
+
+    return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 
 if __name__ == '__main__':

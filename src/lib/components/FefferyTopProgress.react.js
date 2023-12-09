@@ -18,6 +18,7 @@ const FefferyTopProgress = (props) => {
         id,
         className,
         style,
+        key,
         children,
         minimum,
         easing,
@@ -95,6 +96,7 @@ const FefferyTopProgress = (props) => {
     return (<div id={id}
         className={className}
         style={style}
+        key={key}
         data-dash-is-loading={
             (loading_state && loading_state.is_loading) || undefined
         } >
@@ -196,7 +198,9 @@ FefferyTopProgress._dashprivate_isLoadingComponent = true;
 
 // 定义参数或属性
 FefferyTopProgress.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
     /**
@@ -204,45 +208,76 @@ FefferyTopProgress.propTypes = {
      */
     children: PropTypes.node,
 
-    // css类名
+    /**
+     * css类名
+     */
     className: PropTypes.string,
 
-    // 自定义css字典
+    /**
+     * 自定义css字典
+     */
     style: PropTypes.object,
 
-    // 设置是否处于加载中状态
+    /**
+     * 辅助刷新用唯一标识key值
+     */
+    key: PropTypes.string,
+
+    /**
+     * 设置是否处于加载中状态
+     */
     spinning: PropTypes.bool,
 
-    // 设置顶端进度条的初始进度值，默认为0.33，取值在0到1之间
+    /**
+     * 设置顶端进度条的初始进度值，默认为0.33，取值在0到1之间
+     */
     minimum: PropTypes.number,
 
-    // 用于设置同名css动画效果，默认为'ease'
+    /**
+     * 用于设置同名css动画效果，默认为'ease'
+     */
     easing: PropTypes.string,
 
-    // 设置进度条每步递增耗时（单位：毫秒），默认为200
+    /**
+     * 设置进度条每步递增耗时（单位：毫秒），默认为200
+     */
     speed: PropTypes.number,
 
-    // 设置是否渲染右上角圆圈加载动画，默认为true
+    /**
+     * 设置是否渲染右上角圆圈加载动画，默认为true
+     */
     showSpinner: PropTypes.bool,
 
-    // 设置是否开启debug模式，开启后，每次动画加载都会在开发者工具的控制台打印prop信息
+    /**
+     * 设置是否开启debug模式，开启后，每次动画加载都会在开发者工具的控制台打印prop信息
+     */
     debug: PropTypes.bool,
 
-    // 设置自定义监听组件的模式，可选的有'default'、'exclude'、'include'，默认为'default'
+    /**
+     * 设置自定义监听组件的模式，可选的有'default'、'exclude'、'include'，默认为'default'
+     */
     listenPropsMode: PropTypes.oneOf(['default', 'exclude', 'include']),
 
-    // 设置需要忽略输出监听过程的组件信息列表
-    // 仅在listenPropsMode为'exclude'时生效
+    /**
+     * 设置需要忽略输出监听过程的组件信息列表,
+     * 仅在listenPropsMode为'exclude'时生效
+     */
     excludeProps: PropTypes.arrayOf(PropTypes.string),
 
-    // 设置需要包含输出监听过程的组件信息列表
-    // 仅在listenPropsMode为'include'时生效
+    /**
+     * 设置需要包含输出监听过程的组件信息列表,
+     * 仅在listenPropsMode为'include'时生效
+     */
     includeProps: PropTypes.arrayOf(PropTypes.string),
 
-    // 设置顶部进度条色彩，默认为'#29d'
+    /**
+     * 设置顶部进度条色彩，默认为'#29d'
+     */
     color: PropTypes.string,
 
-    // 设置顶部进度条的z-index，默认为99999
+    /**
+     * 设置顶部进度条的z-index，默认为99999
+     */
     zIndex: PropTypes.number,
 
     loading_state: PropTypes.shape({
