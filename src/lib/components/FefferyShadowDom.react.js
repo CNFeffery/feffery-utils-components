@@ -32,15 +32,29 @@ const FefferyShadowDom = (props) => {
 
 // 定义参数或属性
 FefferyShadowDom.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
+    /**
+     * 辅助刷新用唯一标识key值
+     */
     key: PropTypes.string,
 
+    /**
+     * 组件子元素
+     */
     children: PropTypes.node,
 
+    /**
+     * css类名
+     */
     className: PropTypes.string,
 
+    /**
+     * 自定义css字典
+     */
     style: PropTypes.object,
 
     loading_state: PropTypes.shape({

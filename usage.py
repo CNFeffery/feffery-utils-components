@@ -1,6 +1,6 @@
 
 import dash
-from dash import html, dcc
+from dash import html
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output
 import uuid
@@ -9,32 +9,54 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        dcc.Input(
-            id='set-title-demo',
-            placeholder='请输入新title信息',
-            style={
-                'maxWidth': '200px'
-            }
+        fuc.FefferyShadowDom(
+            [
+                fuc.FefferyStyle(
+                    rawStyle='''
+.style-demo {
+    width: 300px;
+    height: 150px;
+    background: linear-gradient(135deg,#fce38a,#f38181);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+'''
+                ),
+                html.Div(
+                    '节点1',
+                    className='style-demo'
+                )
+            ]
         ),
 
-        fuc.FefferySetTitle(
-            id='set-title-demo-output'
+        fuc.FefferyShadowDom(
+            [
+                fuc.FefferyStyle(
+                    rawStyle='''
+.style-demo {
+    width: 300px;
+    height: 150px;
+    background: linear-gradient(135deg,#17ead9,#6078ea);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+'''
+                ),
+                html.Div(
+                    '节点2',
+                    className='style-demo'
+                )
+            ]
         )
     ],
     style={
         'padding': 25
     }
 )
-
-
-@app.callback(
-    Output('set-title-demo-output', 'title'),
-    Input('set-title-demo', 'value'),
-    prevent_initial_call=True
-)
-def set_title_demo(value):
-
-    return value or dash.no_update
 
 
 if __name__ == '__main__':

@@ -9,13 +9,17 @@ class FefferyShadowDom(Component):
 
 Keyword arguments:
 
-- children (a list of or a singular dash component, string or number; optional)
+- children (a list of or a singular dash component, string or number; optional):
+    组件子元素.
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- className (string; optional)
+- className (string; optional):
+    css类名.
 
-- key (string; optional)
+- key (string; optional):
+    辅助刷新用唯一标识key值.
 
 - loading_state (dict; optional)
 
@@ -30,7 +34,8 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- style (dict; optional)"""
+- style (dict; optional):
+    自定义css字典."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
