@@ -24,14 +24,20 @@ const FefferyTimeout = (props) => {
 
 // 定义参数或属性
 FefferyTimeout.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 监听超时事件完成次数，默认为0
+    /**
+     * 监听超时事件完成次数，默认为0
+     */
     timeoutCount: PropTypes.number,
 
-    // 用于设置距离下一次超时事件触发的倒计时间隔（单位：毫秒）
-    // 每次有效的delay对应超时事件结束后都会被重置为undefined
+    /**
+     * 用于设置距离下一次超时事件触发的倒计时间隔（单位：毫秒），
+     * 每次有效的delay对应超时事件结束后都会被重置为undefined
+     */
     delay: PropTypes.number,
 
     /**

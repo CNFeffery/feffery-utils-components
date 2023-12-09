@@ -9,7 +9,8 @@ class FefferySetTitle(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
 - loading_state (dict; optional)
 
@@ -24,7 +25,8 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- title (string; optional)"""
+- title (string; optional):
+    用于设置要更新的title信息."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

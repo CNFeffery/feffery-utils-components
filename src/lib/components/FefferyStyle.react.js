@@ -5,6 +5,7 @@ const FefferyStyle = (props) => {
 
     const {
         id,
+        key,
         rawStyle,
         setProps,
         loading_state
@@ -13,6 +14,7 @@ const FefferyStyle = (props) => {
     return (<style
         jsx="true"
         id={id}
+        key={key}
         data-dash-is-loading={
             (loading_state && loading_state.is_loading) || undefined
         } >{rawStyle}</style>);
@@ -20,10 +22,19 @@ const FefferyStyle = (props) => {
 
 // 定义参数或属性
 FefferyStyle.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 设置要添加到文档中的原生css字符
+    /**
+     * 辅助刷新用唯一标识key值
+     */
+    key: PropTypes.string,
+
+    /**
+     * 设置要添加到文档中的原生css字符
+     */
     rawStyle: PropTypes.string,
 
     /**

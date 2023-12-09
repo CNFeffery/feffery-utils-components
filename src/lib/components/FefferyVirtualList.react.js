@@ -17,6 +17,7 @@ const FefferyVirtualList = (props) => {
         children,
         style,
         className,
+        key,
         height,
         itemHeight,
         setProps,
@@ -31,6 +32,7 @@ const FefferyVirtualList = (props) => {
         id={id}
         style={style}
         className={className}
+        key={key}
         itemKey="virtual-list-id"
         height={height}
         itemHeight={itemHeight}
@@ -43,19 +45,39 @@ const FefferyVirtualList = (props) => {
 
 // 定义参数或属性
 FefferyVirtualList.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
+    /**
+     * 组件子元素
+     */
     children: PropTypes.node,
 
+    /**
+     * 设置css样式
+     */
     style: PropTypes.object,
 
+    /**
+     * 设置css类名
+     */
     className: PropTypes.string,
 
-    // 虚拟化区域像素高度
+    /**
+     * 辅助刷新用唯一标识key值
+     */
+    key: PropTypes.string,
+
+    /**
+     * 虚拟化区域像素高度
+     */
     height: PropTypes.number.isRequired,
 
-    // 每个子元素区域的像素高度
+    /**
+     * 每个子元素区域的像素高度
+     */
     itemHeight: PropTypes.number.isRequired,
 
     /**

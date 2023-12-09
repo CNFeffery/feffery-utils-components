@@ -10,6 +10,7 @@ const FefferyLazyLoad = (props) => {
         children,
         style,
         className,
+        key,
         height,
         width,
         offset,
@@ -22,6 +23,7 @@ const FefferyLazyLoad = (props) => {
         id={id}
         style={style}
         className={className}
+        key={key}
         height={height}
         width={width}
         throttle={throttle}
@@ -40,35 +42,60 @@ const FefferyLazyLoad = (props) => {
 
 // 定义参数或属性
 FefferyLazyLoad.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
+    /**
+     * 组件子元素
+     */
     children: PropTypes.node,
 
+    /**
+     * 自定义css字典
+     */
     style: PropTypes.object,
 
+    /**
+     * 设置css类名
+     */
     className: PropTypes.string,
 
-    // 设置默认高度
+    /**
+     * 辅助刷新用唯一标识key值
+     */
+    key: PropTypes.string,
+
+    /**
+     * 设置默认高度
+     */
     height: PropTypes.oneOfType([
         PropTypes.number,
         PropTypes.string
     ]),
 
-    // 设置默认宽度
+    /**
+     * 设置默认宽度
+     */
     width: PropTypes.oneOfType([
         PropTypes.number,
         PropTypes.string
     ]),
 
-    // 设置元素距离浏览器下边界若干像素距离时开始预加载
-    // 默认为0
+    /**
+     * 设置元素距离浏览器下边界若干像素距离时开始预加载，默认为0
+     */
     offset: PropTypes.number,
 
-    // 监听容器是否已出现在用户视图中
+    /**
+     * 监听容器是否已出现在用户视图中
+     */
     visible: PropTypes.bool,
 
-    // 设置节流所需的延时加载时长（单位：毫秒），默认为250
+    /**
+     * 设置节流所需的延时加载时长（单位：毫秒），默认为250
+     */
     throttle: PropTypes.number,
 
     /**

@@ -70,29 +70,45 @@ const FefferyWebSocket = (props) => {
 
 // 定义参数或属性
 FefferyWebSocket.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 设置要建立连接的WebSocket服务url
+    /**
+     * 设置要建立连接的WebSocket服务url
+     */
     socketUrl: PropTypes.string.isRequired,
 
-    // 设置连接重试次数，默认为3
+    /**
+     * 设置连接重试次数，默认为3
+     */
     reconnectLimit: PropTypes.number,
 
-    // 设置连接重试间隔，默认为3000，单位：毫秒
+    /**
+     * 设置连接重试间隔，默认为3000，单位：毫秒
+     */
     reconnectInterval: PropTypes.number,
 
-    // 用于执行连接/断开连接/发送信息操作，可选项有'connect'、'disconnect'、'send'
-    // 每次新操作执行后，operation参数都会被重置为null
+    /**
+     * 用于执行连接/断开连接/发送信息操作，可选项有'connect'、'disconnect'、'send'，
+     * 每次新操作执行后，operation参数都会被重置为null
+     */
     operation: PropTypes.oneOf(['connect', 'disconnect', 'send']),
 
-    // 当operation更新为'send'时，用于设置要通过WebSocket服务向服务器发送的数据
+    /**
+     * 当operation更新为'send'时，用于设置要通过WebSocket服务向服务器发送的数据
+     */
     message: PropTypes.string,
 
-    // 监听从服务器传来的最新信息
+    /**
+     * 监听从服务器传来的最新信息
+     */
     latestMessage: PropTypes.string,
 
-    // 用于监听当前此连接的状态，有'connecting'、'open'、'closing'、'closed'四种状态
+    /**
+     * 用于监听当前此连接的状态，有'connecting'、'open'、'closing'、'closed'四种状态
+     */
     state: PropTypes.oneOf(['connecting', 'open', 'closing', 'closed']),
 
     /**
