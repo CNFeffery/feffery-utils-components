@@ -29,10 +29,14 @@ const FefferyExecuteJs = (props) => {
 
 // 定义参数或属性
 FefferyExecuteJs.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 设置要执行的js代码字符串
+    /**
+     * 设置要执行的js代码字符串
+     */
     jsString: PropTypes.string,
 
     loading_state: PropTypes.shape({

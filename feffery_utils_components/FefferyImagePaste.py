@@ -9,19 +9,25 @@ class FefferyImagePaste(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- disabled (boolean; default False)
+- disabled (boolean; default False):
+    设置是否禁用当前组件的图片粘贴行为监听功能，默认为False.
 
-- imageInfo (dict; optional)
+- imageInfo (dict; optional):
+    监听最近一次图片粘贴事件中载入图片的base64字符串及时间戳信息.
 
     `imageInfo` is a dict with keys:
 
-    - base64 (string; optional)
+    - base64 (string; optional):
+        记录最新粘贴图片的base64字符串.
 
-    - timestamp (number; optional)
+    - timestamp (number; optional):
+        时间戳信息.
 
-- key (string; optional)
+- key (string; optional):
+    辅助刷新用唯一标识key值.
 
 - loading_state (dict; optional)
 

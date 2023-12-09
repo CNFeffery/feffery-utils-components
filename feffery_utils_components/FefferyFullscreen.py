@@ -9,9 +9,11 @@ class FefferyFullscreen(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- isFullscreen (boolean; default False)
+- isFullscreen (boolean; default False):
+    设置或监听目标元素的全屏化状态，默认为False.
 
 - loading_state (dict; optional)
 
@@ -26,7 +28,8 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- targetId (string; required)"""
+- targetId (string; required):
+    设置要全屏化的目标元素id，必填."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

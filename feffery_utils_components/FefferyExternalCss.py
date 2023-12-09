@@ -9,9 +9,11 @@ class FefferyExternalCss(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- cssUrl (string; default '')
+- cssUrl (string; default ''):
+    设置对应绑定的css静态文件资源url，默认为''.
 
 - loading_state (dict; optional)
 
@@ -26,7 +28,8 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- recentlyStatus (a value equal to: 'unset', 'loading', 'ready', 'error'; optional)"""
+- recentlyStatus (a value equal to: 'unset', 'loading', 'ready', 'error'; optional):
+    监听最近一次资源变更操作后对应的状态."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

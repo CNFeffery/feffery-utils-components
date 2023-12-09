@@ -45,6 +45,7 @@ const FefferyExtraSpinner = (props) => {
         id,
         style,
         className,
+        key,
         type,
         size,
         color,
@@ -305,6 +306,7 @@ const FefferyExtraSpinner = (props) => {
             ...style
         }}
         className={className}
+        key={key}
         data-dash-is-loading={
             (loading_state && loading_state.is_loading) || undefined
         }>

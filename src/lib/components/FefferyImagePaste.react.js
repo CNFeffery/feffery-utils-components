@@ -70,21 +70,33 @@ const FefferyImagePaste = (props) => {
 
 // 定义参数或属性
 FefferyImagePaste.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 辅助刷新用唯一标识key值
+    /**
+     * 辅助刷新用唯一标识key值
+     */
     key: PropTypes.string,
 
-    // 监听最近一次图片粘贴事件中载入图片的base64字符串及时间戳信息
+    /**
+     * 监听最近一次图片粘贴事件中载入图片的base64字符串及时间戳信息
+     */
     imageInfo: PropTypes.exact({
-        // 记录最新粘贴图片的base64字符串
+        /**
+         * 记录最新粘贴图片的base64字符串
+         */
         base64: PropTypes.string,
-        // 时间戳信息
+        /**
+         * 时间戳信息
+         */
         timestamp: PropTypes.number
     }),
 
-    // 设置是否禁用当前组件的图片粘贴行为监听功能，默认为false
+    /**
+     * 设置是否禁用当前组件的图片粘贴行为监听功能，默认为false
+     */
     disabled: PropTypes.bool,
 
     loading_state: PropTypes.shape({
