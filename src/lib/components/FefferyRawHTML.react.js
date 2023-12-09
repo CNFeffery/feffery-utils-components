@@ -6,6 +6,7 @@ const FefferyRawHTML = (props) => {
 
     const {
         id,
+        key,
         htmlString,
         setProps,
         loading_state
@@ -13,6 +14,7 @@ const FefferyRawHTML = (props) => {
 
     return (<Interweave
         id={id}
+        key={key}
         content={htmlString}
         data-dash-is-loading={
             (loading_state && loading_state.is_loading) || undefined
@@ -21,10 +23,19 @@ const FefferyRawHTML = (props) => {
 
 // 定义参数或属性
 FefferyRawHTML.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 要渲染的原始HTML内容字符串
+    /**
+     * 辅助刷新用唯一标识key值
+     */
+    key: PropTypes.string,
+
+    /**
+     * 要渲染的原始HTML内容字符串
+     */
     htmlString: PropTypes.string,
 
     /**

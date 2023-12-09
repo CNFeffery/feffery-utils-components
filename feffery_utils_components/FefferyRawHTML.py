@@ -9,9 +9,14 @@ class FefferyRawHTML(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- htmlString (string; optional)
+- htmlString (string; optional):
+    要渲染的原始HTML内容字符串.
+
+- key (string; optional):
+    辅助刷新用唯一标识key值.
 
 - loading_state (dict; optional)
 
@@ -30,10 +35,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyRawHTML'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, htmlString=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'htmlString', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, htmlString=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'htmlString', 'key', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'htmlString', 'loading_state']
+        self.available_properties = ['id', 'htmlString', 'key', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

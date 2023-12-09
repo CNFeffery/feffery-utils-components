@@ -9,10 +9,13 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-
-        fuc.FefferyQRCode(
-            value='FefferyQRCode示例'
-        ),
+        fuc.FefferyRawHTML(
+            htmlString='''
+<div style="width: 300px;height: 150px;box-shadow: 0px 0px 12px rgba(0, 0, 0, .12); display: flex;justify-content: center;align-items: center;">
+    示例
+</ div>
+'''
+        )
     ],
     style={
         'padding': 25
