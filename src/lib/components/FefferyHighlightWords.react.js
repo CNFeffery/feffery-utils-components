@@ -9,6 +9,7 @@ const FefferyHighlightWords = (props) => {
         id,
         className,
         style,
+        key,
         caseSensitive,
         highlightClassName,
         highlightStyle,
@@ -25,6 +26,7 @@ const FefferyHighlightWords = (props) => {
         <Highlighter id={id}
             className={className}
             style={style}
+            key={key}
             caseSensitive={caseSensitive}
             highlightClassName={highlightClassName}
             highlightStyle={highlightStyle}
@@ -43,37 +45,64 @@ const FefferyHighlightWords = (props) => {
 
 // 定义参数或属性
 FefferyHighlightWords.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // css类名
+    /**
+     * css类名
+     */
     className: PropTypes.string,
 
-    // 自定义css字典
+    /**
+     * 自定义css字典
+     */
     style: PropTypes.object,
 
-    // 设置是否大小写敏感，默认为false
+    /**
+     * 辅助刷新用唯一标识key值
+     */
+    key: PropTypes.string,
+
+    /**
+     * 设置是否大小写敏感，默认为false
+     */
     caseSensitive: PropTypes.bool,
 
-    // 设置高亮部分的css样式类，默认为'feffery-highlight-words-highlight'
+    /**
+     * 设置高亮部分的css样式类，默认为'feffery-highlight-words-highlight'
+     */
     highlightClassName: PropTypes.string,
 
-    // 设置高亮部分的css样式
+    /**
+     * 设置高亮部分的css样式
+     */
     highlightStyle: PropTypes.object,
 
-    // 设置是否开启正则表达式模式，默认为false
+    /**
+     * 设置是否开启正则表达式模式，默认为false
+     */
     useRegex: PropTypes.bool,
 
-    // 设置要进行高亮的字符（或正则模式数组），当useRegex为true时会视作正则模式数组
+    /**
+     * 设置要进行高亮的字符（或正则模式数组），当useRegex为true时会视作正则模式数组
+     */
     searchWords: PropTypes.arrayOf(PropTypes.string),
 
-    // 设置文本内容字符串
+    /**
+     * 设置文本内容字符串
+     */
     textToHighlight: PropTypes.string,
 
-    // 设置非高亮部分的css样式类
+    /**
+     * 设置非高亮部分的css样式类
+     */
     unhighlightClassName: PropTypes.string,
 
-    // 设置非高亮部分的css样式
+    /**
+     * 设置非高亮部分的css样式
+     */
     unhighlightStyle: PropTypes.object,
 
     loading_state: PropTypes.shape({
