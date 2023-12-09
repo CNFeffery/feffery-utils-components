@@ -30,13 +30,19 @@ const FefferyExternalCss = (props) => {
 
 // 定义参数或属性
 FefferyExternalCss.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 设置对应绑定的css静态文件资源url，默认为''
+    /**
+     * 设置对应绑定的css静态文件资源url，默认为''
+     */
     cssUrl: PropTypes.string,
 
-    // 监听最近一次资源变更操作后对应的状态
+    /**
+     * 监听最近一次资源变更操作后对应的状态
+     */
     recentlyStatus: PropTypes.oneOf([
         'unset', 'loading', 'ready', 'error'
     ]),
