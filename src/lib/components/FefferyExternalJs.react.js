@@ -30,13 +30,19 @@ const FefferyExternalJs = (props) => {
 
 // 定义参数或属性
 FefferyExternalJs.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 设置对应绑定的js静态文件资源url，默认为''
+    /**
+     * 设置对应绑定的js静态文件资源url，默认为''
+     */
     jsUrl: PropTypes.string,
 
-    // 监听最近一次资源变更操作后对应的状态
+    /**
+     * 监听最近一次资源变更操作后对应的状态
+     */
     recentlyStatus: PropTypes.oneOf([
         'unset', 'loading', 'ready', 'error'
     ]),
