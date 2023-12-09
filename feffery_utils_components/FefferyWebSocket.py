@@ -9,9 +9,11 @@ class FefferyWebSocket(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- latestMessage (string; optional)
+- latestMessage (string; optional):
+    监听从服务器传来的最新信息.
 
 - loading_state (dict; optional)
 
@@ -26,17 +28,24 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- message (string; optional)
+- message (string; optional):
+    当operation更新为'send'时，用于设置要通过WebSocket服务向服务器发送的数据.
 
-- operation (a value equal to: 'connect', 'disconnect', 'send'; optional)
+- operation (a value equal to: 'connect', 'disconnect', 'send'; optional):
+    用于执行连接/断开连接/发送信息操作，可选项有'connect'、'disconnect'、'send'，
+    每次新操作执行后，operation参数都会被重置为None.
 
-- reconnectInterval (number; optional)
+- reconnectInterval (number; optional):
+    设置连接重试间隔，默认为3000，单位：毫秒.
 
-- reconnectLimit (number; optional)
+- reconnectLimit (number; optional):
+    设置连接重试次数，默认为3.
 
-- socketUrl (string; required)
+- socketUrl (string; required):
+    设置要建立连接的WebSocket服务url.
 
-- state (a value equal to: 'connecting', 'open', 'closing', 'closed'; optional)"""
+- state (a value equal to: 'connecting', 'open', 'closing', 'closed'; optional):
+    用于监听当前此连接的状态，有'connecting'、'open'、'closing'、'closed'四种状态."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

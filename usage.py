@@ -7,11 +7,9 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyVirtualList(
-            id='virtual-list-demo',
-            height=400,
-            itemHeight=40,
-            children=[html.Div(i) for i in range(1000)]
+        fuc.FefferyWebSocket(
+            id='websocket-demo',
+            socketUrl='wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self'
         )
     ],
     style={
