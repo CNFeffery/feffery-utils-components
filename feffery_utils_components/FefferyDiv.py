@@ -9,53 +9,77 @@ class FefferyDiv(Component):
 
 Keyword arguments:
 
-- children (a list of or a singular dash component, string or number; optional)
+- children (a list of or a singular dash component, string or number; optional):
+    组件子元素.
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- _height (number; optional)
+- _height (number; optional):
+    监听容器像素高度变化.
 
-- _width (number; optional)
+- _width (number; optional):
+    监听容器像素宽度变化.
 
-- align (string; optional)
+- align (string; optional):
+    针对flex布局的align-items快捷设置  传入有效值后会自动开启flex布局.
 
-- border (string; optional)
+- border (string; optional):
+    border快捷设置.
 
-- borderRadius (string | number; optional)
+- borderRadius (string | number; optional):
+    border-radius快捷设置.
 
-- className (string | dict; optional)
+- className (string | dict; optional):
+    css类名.
 
-- clickAwayCount (number; default 0)
+- clickAwayCount (number; default 0):
+    监听元素外点击事件发生次数，默认为0.
 
-- contextMenuEvent (dict; optional)
+- contextMenuEvent (dict; optional):
+    监听右键事件.
 
     `contextMenuEvent` is a dict with keys:
 
-    - clientX (number; optional)
+    - clientX (number; optional):
+        以浏览器窗口左上角为原点，记录x坐标.
 
-    - clientY (number; optional)
+    - clientY (number; optional):
+        以浏览器窗口左上角为原点，记录y坐标.
 
-    - pageX (number; optional)
+    - pageX (number; optional):
+        以页面整体左上角为原点，记录x坐标.
 
-    - pageY (number; optional)
+    - pageY (number; optional):
+        以页面整体左上角为原点，记录y坐标.
 
-    - screenX (number; optional)
+    - screenX (number; optional):
+        以屏幕左上角为原点，记录x坐标.
 
-    - screenY (number; optional)
+    - screenY (number; optional):
+        以屏幕左上角为原点，记录y坐标.
 
-    - timestamp (number; optional)
+    - timestamp (number; optional):
+        点击事件对应的时间戳.
 
-- debounceWait (number; default 150)
+- debounceWait (number; default 150):
+    设置针对尺寸变化事件的防抖等待时间（单位：毫秒），默认为150.
 
-- enableClickAway (boolean; default False)
+- enableClickAway (boolean; default False):
+    设置是否启用元素外点击事件监听，当页面中有大量FefferyDiv元素时，建议不要开启此特性，会导致明显的性能问题
+    默认为False.
 
-- enableListenContextMenu (boolean; default False)
+- enableListenContextMenu (boolean; default False):
+    设置是否针对当前div监听右键点击事件，开启后会强制关闭当前div内的默认右键菜单弹出  默认为False.
 
-- isHovering (boolean; optional)
+- isHovering (boolean; optional):
+    监听当前元素是否被鼠标悬浮.
 
-- justify (string; optional)
+- justify (string; optional):
+    针对flex布局的justify-content快捷设置  传入有效值后会自动开启flex布局.
 
-- key (string; optional)
+- key (string; optional):
+    强制刷新用.
 
 - loading_state (dict; optional)
 
@@ -70,27 +94,40 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- margin (string | number; optional)
+- margin (string | number; optional):
+    margin快捷设置.
 
-- mouseEnterCount (number; default 0)
+- mouseEnterCount (number; default 0):
+    监听鼠标移入事件次数，初始化为0.
 
-- mouseLeaveCount (number; default 0)
+- mouseLeaveCount (number; default 0):
+    监听鼠标移出事件次数，初始化为0.
 
-- nClicks (number; default 0)
+- nClicks (number; default 0):
+    监听单击事件次数，初始化为0.
 
-- nDoubleClicks (number; default 0)
+- nDoubleClicks (number; default 0):
+    监听双击事件次数，初始化为0.
 
-- padding (string | number; optional)
+- padding (string | number; optional):
+    padding快捷设置.
 
-- scrollbar (a value equal to: 'default', 'simple', 'hidden'; default 'default')
+- scrollbar (a value equal to: 'default', 'simple', 'hidden'; default 'default'):
+    设置当前容器的快捷滚动条美化效果，可选的有'default'、'simple'、'hidden'.
 
-- shadow (a value equal to: 'no-shadow', 'hover-shadow', 'always-shadow', 'hover-shadow-light', 'always-shadow-light'; default 'no-shadow')
+- shadow (a value equal to: 'no-shadow', 'hover-shadow', 'always-shadow', 'hover-shadow-light', 'always-shadow-light'; default 'no-shadow'):
+    设置当前容器的快捷阴影效果，可选的有'no-shadow'、'hover-shadow'、'always-shadow'
+    默认为'no-shadow'.
 
-- style (dict; optional)
+- style (dict; optional):
+    自定义css字典.
 
-- textAlign (a value equal to: 'left', 'center', 'right'; optional)
+- textAlign (a value equal to: 'left', 'center', 'right'; optional):
+    text-align快捷设置.
 
-- wheelEventStrategy (a value equal to: 'default', 'internally-only'; default 'default')"""
+- wheelEventStrategy (a value equal to: 'default', 'internally-only'; default 'default'):
+    设置当前div内部处理鼠标滑轮事件的策略  可选的有'default'、'internally-only'（不向外传递）
+    默认：'default'."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

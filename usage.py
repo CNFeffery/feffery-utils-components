@@ -8,7 +8,16 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyListenPaste()
+        fuc.FefferyDiv(
+            id='div-demo1',
+            style={
+                'height': '200px',
+                'background': 'grey',
+                'borderRadius': '8px',
+                'color': 'white',
+                'padding': '20px'
+            }
+        )
     ],
     style={
         'padding': 25

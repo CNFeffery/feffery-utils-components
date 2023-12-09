@@ -283,80 +283,136 @@ const FefferyDiv = (props) => {
 
 // 定义参数或属性
 FefferyDiv.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
+    /**
+     * 强制刷新用
+     */
     key: PropTypes.string,
 
+    /**
+     * 组件子元素
+     */
     children: PropTypes.node,
 
+    /**
+     * 自定义css字典
+     */
     style: PropTypes.object,
 
+    /**
+     * css类名
+     */
     className: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.object
     ]),
 
-    // 监听容器像素宽度变化
+    /**
+     * 监听容器像素宽度变化
+     */
     _width: PropTypes.number,
 
-    // 监听容器像素高度变化
+    /**
+     * 监听容器像素高度变化
+     */
     _height: PropTypes.number,
 
-    // 设置针对尺寸变化事件的防抖等待时间（单位：毫秒），默认为150
+    /**
+     * 设置针对尺寸变化事件的防抖等待时间（单位：毫秒），默认为150
+     */
     debounceWait: PropTypes.number,
 
-    // 监听鼠标移入事件次数，初始化为0
+    /**
+     * 监听鼠标移入事件次数，初始化为0
+     */
     mouseEnterCount: PropTypes.number,
 
-    // 监听鼠标移出事件次数，初始化为0
+    /**
+     * 监听鼠标移出事件次数，初始化为0
+     */
     mouseLeaveCount: PropTypes.number,
 
-    // 监听单击事件次数，初始化为0
+    /**
+     * 监听单击事件次数，初始化为0
+     */
     nClicks: PropTypes.number,
 
-    // 监听双击事件次数，初始化为0
+    /**
+     * 监听双击事件次数，初始化为0
+     */
     nDoubleClicks: PropTypes.number,
 
-    // 设置是否针对当前div监听右键点击事件，开启后会强制关闭当前div内的默认右键菜单弹出
-    // 默认为false
+    /**
+     * 设置是否针对当前div监听右键点击事件，开启后会强制关闭当前div内的默认右键菜单弹出
+     * 默认为false
+     */
     enableListenContextMenu: PropTypes.bool,
 
-    // 监听右键事件
+    /**
+     * 监听右键事件
+     */
     contextMenuEvent: PropTypes.exact({
-        // 以页面整体左上角为原点，记录x坐标
+        /**
+         * 以页面整体左上角为原点，记录x坐标
+         */
         pageX: PropTypes.number,
-        // 以页面整体左上角为原点，记录y坐标
+        /**
+         * 以页面整体左上角为原点，记录y坐标
+         */
         pageY: PropTypes.number,
-        // 以浏览器窗口左上角为原点，记录x坐标
+        /**
+         * 以浏览器窗口左上角为原点，记录x坐标
+         */
         clientX: PropTypes.number,
-        // 以浏览器窗口左上角为原点，记录y坐标
+        /**
+         * 以浏览器窗口左上角为原点，记录y坐标
+         */
         clientY: PropTypes.number,
-        // 以屏幕左上角为原点，记录x坐标
+        /**
+         * 以屏幕左上角为原点，记录x坐标
+         */
         screenX: PropTypes.number,
-        // 以屏幕左上角为原点，记录y坐标
+        /**
+         * 以屏幕左上角为原点，记录y坐标
+         */
         screenY: PropTypes.number,
-        // 点击事件对应的时间戳
+        /**
+         * 点击事件对应的时间戳
+         */
         timestamp: PropTypes.number
     }),
 
-    // 监听当前元素是否被鼠标悬浮
+    /**
+     * 监听当前元素是否被鼠标悬浮
+     */
     isHovering: PropTypes.bool,
 
-    // 设置是否启用元素外点击事件监听，当页面中有大量FefferyDiv元素时，建议不要开启此特性，会导致明显的性能问题
-    // 默认为false
+    /**
+     * 设置是否启用元素外点击事件监听，当页面中有大量FefferyDiv元素时，建议不要开启此特性，会导致明显的性能问题
+     * 默认为false
+     */
     enableClickAway: PropTypes.bool,
 
-    // 监听元素外点击事件发生次数，默认为0
+    /**
+     * 监听元素外点击事件发生次数，默认为0
+     */
     clickAwayCount: PropTypes.number,
 
-    // 设置当前div内部处理鼠标滑轮事件的策略
-    // 可选的有'default'、'internally-only'（不向外传递）
-    // 默认：'default'
+    /**
+     * 设置当前div内部处理鼠标滑轮事件的策略
+     * 可选的有'default'、'internally-only'（不向外传递）
+     * 默认：'default'
+     */
     wheelEventStrategy: PropTypes.oneOf(['default', 'internally-only']),
 
-    // 设置当前容器的快捷阴影效果，可选的有'no-shadow'、'hover-shadow'、'always-shadow'
-    // 默认为'no-shadow'
+    /**
+     * 设置当前容器的快捷阴影效果，可选的有'no-shadow'、'hover-shadow'、'always-shadow'
+     * 默认为'no-shadow'
+     */
     shadow: PropTypes.oneOf([
         'no-shadow',
         'hover-shadow',
@@ -365,36 +421,52 @@ FefferyDiv.propTypes = {
         'always-shadow-light'
     ]),
 
-    // 设置当前容器的快捷滚动条美化效果，可选的有'default'、'simple'、'hidden'
+    /**
+     * 设置当前容器的快捷滚动条美化效果，可选的有'default'、'simple'、'hidden'
+     */
     scrollbar: PropTypes.oneOf(['default', 'simple', 'hidden']),
 
-    // text-align快捷设置
+    /**
+     * text-align快捷设置
+     */
     textAlign: PropTypes.oneOf(['left', 'center', 'right']),
 
-    // 针对flex布局的justify-content快捷设置
-    // 传入有效值后会自动开启flex布局
+    /**
+     * 针对flex布局的justify-content快捷设置
+     * 传入有效值后会自动开启flex布局
+     */
     justify: PropTypes.string,
 
-    // 针对flex布局的align-items快捷设置
-    // 传入有效值后会自动开启flex布局
+    /**
+     * 针对flex布局的align-items快捷设置
+     * 传入有效值后会自动开启flex布局
+     */
     align: PropTypes.string,
 
-    // padding快捷设置
+    /**
+     * padding快捷设置
+     */
     padding: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number
     ]),
 
-    // margin快捷设置
+    /**
+     * margin快捷设置
+     */
     margin: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number
     ]),
 
-    // border快捷设置
+    /**
+     * border快捷设置
+     */
     border: PropTypes.string,
 
-    // border-radius快捷设置
+    /**
+     * border-radius快捷设置
+     */
     borderRadius: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.number
