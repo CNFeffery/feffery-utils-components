@@ -81,47 +81,77 @@ const FefferyFancyMessage = (props) => {
 // 定义参数或属性
 FefferyFancyMessage.propTypes = {
 
+    /**
+     * 组件子元素
+     */
     children: PropTypes.node,
 
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
+    /**
+     * 辅助刷新用唯一标识key值
+     */
     key: PropTypes.string,
 
-    // 设置容器的css类名
+    /**
+     * 设置容器的css类名
+     */
     className: PropTypes.string,
 
-    // 设置容器的css样式
+    /**
+     * 设置容器的css样式
+     */
     style: PropTypes.object,
 
-    // 主动设置是否可见，默认为false
+    /**
+     * 主动设置是否可见，默认为false
+     */
     visible: PropTypes.bool,
 
-    // 设置消息提示的弹出方位，可选的有'top-left'、'top-center'、'top-right'、'bottom-left'、
-    // 'bottom-center'、'bottom-right'，默认为'top-center'
+    /**
+     * 设置消息提示的弹出方位，可选的有'top-left'、'top-center'、'top-right'、'bottom-left'、'bottom-center'、'bottom-right'，默认为'top-center'
+     */
     position: PropTypes.oneOf([
         'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'
     ]),
 
-    // 设置较新的消息提示是否从底部进行追加，默认为true
+    /**
+     * 设置较新的消息提示是否从底部进行追加，默认为true
+     */
     reverseOrder: PropTypes.bool,
 
-    // 设置容器的css类名
+    /**
+     * 设置容器的css类名
+     */
     containerClassName: PropTypes.string,
 
-    // 设置容器的css样式
+    /**
+     * 设置容器的css样式
+     */
     containerStyle: PropTypes.object,
 
-    // 设置相邻消息提示之间的像素间距，默认为8
+    /**
+     * 设置相邻消息提示之间的像素间距，默认为8
+     */
     gutter: PropTypes.number,
 
-    // 设置信息类型，可选的有'blank', 'success', 'error'
-    // 默认为'blank'
+    /**
+     * 设置信息类型，可选的有'blank', 'success', 'error'
+     * 默认为'blank'
+     */
     type: PropTypes.oneOf(['blank', 'success', 'error']),
 
-    // 设置消息提示显示时长（单位：毫秒），默认为4000
+    /**
+     * 设置消息提示显示时长（单位：毫秒），默认为4000
+     */
     duration: PropTypes.number,
 
-    // 自定义消息提示图标
+    /**
+     * 自定义消息提示图标
+     */
     icon: PropTypes.node,
 
     /**
