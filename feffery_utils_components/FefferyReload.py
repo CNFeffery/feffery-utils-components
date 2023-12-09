@@ -9,9 +9,11 @@ class FefferyReload(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- delay (number; optional)
+- delay (number; optional):
+    设置重载执行的延时时长（单位：毫秒）.
 
 - loading_state (dict; optional)
 
@@ -26,7 +28,8 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- reload (boolean; optional)"""
+- reload (boolean; optional):
+    执行页面重载操作的标志，当设置为True时会进行页面重载."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

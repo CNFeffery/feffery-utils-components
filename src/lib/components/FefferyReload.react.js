@@ -33,13 +33,19 @@ const FefferyReload = (props) => {
 
 // 定义参数或属性
 FefferyReload.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 执行页面重载操作的标志，当设置为true时会进行页面重载
+    /**
+     * 执行页面重载操作的标志，当设置为true时会进行页面重载
+     */
     reload: PropTypes.bool,
 
-    // 设置重载执行的延时时长（单位：毫秒）
+    /**
+     * 设置重载执行的延时时长（单位：毫秒）
+     */
     delay: PropTypes.number,
 
     loading_state: PropTypes.shape({
