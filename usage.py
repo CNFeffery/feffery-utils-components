@@ -2,31 +2,53 @@
 import dash
 from dash import html
 import feffery_utils_components as fuc
-from dash.dependencies import Input, Output, State
-import uuid
+from dash.dependencies import Input, Output
 
 app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyHighlightWords(
-            textToHighlight="""　　从来就没有什么救世主，
-也不靠神仙皇帝。
-要创造人类的幸福，
-全靠我们自己。
-我们要夺回劳动果实，
-让思想冲破牢笼。
-快把那炉火烧得通红，
-趁热打铁才能成功！
-这是最后的斗争，
-团结起来，到明天，
-英特纳雄耐尔就一定要实现。""",
-            searchWords=['我们', '团结']
+        fuc.FefferyDiv(
+            '鼠标移入此区域后进行图片粘贴',
+            id='image-paste-container',
+            shadow='hover-shadow',
+            style={
+                'height': '200px',
+                'display': 'flex',
+                'justifyContent': 'center',
+                'alignItems': 'center',
+                'borderRadius': '6px',
+                'border': '1px solid #f0f0f0',
+                'marginBottom': '10px'
+            }
+        ),
+
+        fuc.FefferyImagePaste(
+            id='image-paste-demo',
+            disabled=True
+        ),
+
+        html.Img(
+            id='image-paste-output'
         )
     ],
     style={
         'padding': 25
     }
+)
+
+app.clientside_callback(
+    '''(isHovering) => !isHovering;''',
+    Output('image-paste-demo', 'disabled'),
+    Input('image-paste-container', 'isHovering')
+)
+
+
+app.clientside_callback(
+    '''(imageInfo) => imageInfo.base64;''',
+    Output('image-paste-output', 'src'),
+    Input('image-paste-demo', 'imageInfo'),
+    prevent_initial_call=True
 )
 
 
