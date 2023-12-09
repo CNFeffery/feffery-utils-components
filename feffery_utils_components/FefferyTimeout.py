@@ -9,9 +9,11 @@ class FefferyTimeout(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- delay (number; optional)
+- delay (number; optional):
+    用于设置距离下一次超时事件触发的倒计时间隔（单位：毫秒），  每次有效的delay对应超时事件结束后都会被重置为undefined.
 
 - loading_state (dict; optional)
 
@@ -26,7 +28,8 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- timeoutCount (number; default 0)"""
+- timeoutCount (number; default 0):
+    监听超时事件完成次数，默认为0."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

@@ -1,8 +1,8 @@
 
 import dash
-from dash import html
+from dash import html, dcc
 import feffery_utils_components as fuc
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 import uuid
 
 app = dash.Dash(__name__, compress=True)
@@ -10,39 +10,56 @@ app = dash.Dash(__name__, compress=True)
 app.layout = html.Div(
     [
 
-        fuc.FefferyStyle(
-            rawStyle='''
-.style-demo {
-    background: white;
-    width: 400px;
-    height: 200px;
-    border: 1px solid #f0f0f0;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 25px;
-}
-
-.style-demo:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 12px rgba(0, 0, 0, .12);
-    transition: 0.3s;
-}
-'''
+        html.Div(
+            [
+                dcc.Input(
+                    id='timeout-demo-delay',
+                    value=2000,
+                    style={
+                        'maxWidth': '300px'
+                    }
+                ),
+                fuc.FefferyFancyButton(
+                    '开始',
+                    id='timeout-demo-start',
+                    type='primary'
+                )
+            ]
+        ),
+        fuc.FefferyTimeout(
+            id='timeout-demo'
         ),
 
-        html.Div(
-            '鼠标移入查看效果',
-            className='style-demo'
+        fuc.FefferyExecuteJs(
+            id='timeout-demo-output'
         )
     ],
     style={
         'padding': 25
     }
 )
+
+
+@app.callback(
+    Output('timeout-demo', 'delay'),
+    Input('timeout-demo-start', 'nClicks'),
+    State('timeout-demo-delay', 'value'),
+    prevent_initial_call=True
+)
+def start_new_timeout(nClicks, value):
+
+    if value > 0:
+        return value
+
+
+@app.callback(
+    Output('timeout-demo-output', 'jsString'),
+    Input('timeout-demo', 'timeoutCount'),
+    prevent_initial_call=True
+)
+def after_timeout(timeoutCount):
+
+    return 'alert(`timeoutCount=${%s}`)' % timeoutCount
 
 
 if __name__ == '__main__':
