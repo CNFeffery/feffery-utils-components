@@ -3,28 +3,18 @@ import dash
 from dash import html
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output, State
+import uuid
 
 app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyFullscreen(
-            id='fullscreen-demo',
-            targetId='fullscreen-target'
-        ),
         html.Div(
-            fuc.FefferyFancyButton(
-                '全屏化',
-                id='toggle-fullscreen'
-            ),
-            id='fullscreen-target',
-            style={
-                'height': '200px',
-                'display': 'flex',
-                'justifyContent': 'center',
-                'alignItems': 'center',
-                'background': 'white'
-            }
+            id='guide-demo'
+        ),
+        html.Button(
+            '触发功能引导',
+            id='guide-show'
         )
     ],
     style={
@@ -34,18 +24,34 @@ app.layout = html.Div(
 
 
 @app.callback(
-    [Output('fullscreen-demo', 'isFullscreen'),
-    Output('toggle-fullscreen', 'children')],
-    Input('toggle-fullscreen', 'nClicks'),
-    State('fullscreen-demo', 'isFullscreen'),
+    Output('guide-demo', 'children'),
+    Input('guide-show', 'n_clicks'),
     prevent_initial_call=True
 )
-def toggle_fullscreen(nClicks, isFullscreen):
+def guide_demo(nClicks):
 
-    return [
-        not isFullscreen,
-        '全屏化' if isFullscreen else '退出全屏化'
-    ]
+    return fuc.FefferyGuide(
+        id='guide-demo-'+str(uuid.uuid4()),
+        steps=[
+            {
+                'selector': '#guide-show',
+                'title': '这是一个功能按钮',
+                'content': '这里展示了本次功能引导的第一步内容。'
+            },
+            {
+                'targetPos': {
+                    'top': 200,
+                    'left': 500,
+                    'width': 100,
+                    'height': 50
+                },
+                'title': '这是自定义屏幕绝对位置锚点示例',
+                'content': '这里展示了本次功能引导的第二步内容。'
+            }
+        ],
+        localKey='guide-demo-'+str(uuid.uuid4()),
+        closable=True
+    )
 
 
 if __name__ == '__main__':
