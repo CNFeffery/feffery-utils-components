@@ -8,10 +8,9 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyFancyMessage(
-            'FefferyFancyMessage示例',
-            id='fancy-message-demo',
-            type='success'
+        fuc.FefferyFancyNotification(
+            'FefferyFancyNotification示例',
+            id='fancy-notification-demo'
         )
     ],
     style={
