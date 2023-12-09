@@ -7,6 +7,7 @@ const FefferyQRCode = (props) => {
     // 取得必要属性或参数
     const {
         id,
+        key,
         renderer,
         value,
         size,
@@ -22,6 +23,7 @@ const FefferyQRCode = (props) => {
     if (renderer === 'canvas') {
         return (<QRCodeCanvas
             id={id}
+            key={key}
             value={value}
             size={size}
             bgColor={bgColor}
@@ -57,44 +59,75 @@ const FefferyQRCode = (props) => {
 
 // 定义参数或属性
 FefferyQRCode.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 设置二维码所表达的信息值
+    /**
+     * 辅助刷新用唯一标识key值
+     */
+    key: PropTypes.string,
+
+    /**
+     * 设置二维码所表达的信息值
+     */
     value: PropTypes.string.isRequired,
 
-    // 设置像素边长，默认为128
+    /**
+     * 设置像素边长，默认为128
+     */
     size: PropTypes.number,
 
-    // 设置背景色，默认为'#FFFFFF'
+    /**
+     * 设置背景色，默认为'#FFFFFF'
+     */
     bgColor: PropTypes.string,
 
-    // 设置前景色，默认为'#000000'
+    /**
+     * 设置前景色，默认为'#000000'
+     */
     fgColor: PropTypes.string,
 
-    // 设置解析精度，可选的有'L'、'M'、'Q'、'H'
-    // 默认为'L'
+    /**
+     * 设置解析精度，可选的有'L'、'M'、'Q'、'H'
+     * 默认为'L'
+     */
     level: PropTypes.oneOf(['L', 'M', 'Q', 'H']),
 
-    // 设置是否添加外边距，默认为false
+    /**
+     * 设置是否添加外边距，默认为false
+     */
     includeMargin: PropTypes.bool,
 
-    // 配置二维码中心图片信息
+    /**
+     * 配置二维码中心图片信息
+     */
     imageSettings: PropTypes.exact({
-        // 设置图片src
+        /**
+         * 设置图片src
+         */
         src: PropTypes.string,
 
-        // 设置图片像素高度，默认为二维码size的10%
+        /**
+         * 设置图片像素高度，默认为二维码size的10%
+         */
         height: PropTypes.number,
 
-        // 设置图片像素宽度，默认为二维码size的10%
+        /**
+         * 设置图片像素宽度，默认为二维码size的10%
+         */
         width: PropTypes.number,
 
-        // 设置图片四周是否添加环绕白边，默认为true
+        /**
+         * 设置图片四周是否添加环绕白边，默认为true
+         */
         excavate: PropTypes.bool
     }),
 
-    // 指定渲染引擎，可选的有'svg'、'canvas'，默认为'svg'
+    /**
+     * 指定渲染引擎，可选的有'svg'、'canvas'，默认为'svg'
+     */
     renderer: PropTypes.oneOf(['svg', 'canvas']),
 
     loading_state: PropTypes.shape({
