@@ -47,13 +47,19 @@ const FefferyFullscreen = (props) => {
 
 // 定义参数或属性
 FefferyFullscreen.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 设置要全屏化的目标元素id，必填
+    /**
+     * 设置要全屏化的目标元素id，必填
+     */
     targetId: PropTypes.string.isRequired,
 
-    // 设置或监听目标元素的全屏化状态，默认为false
+    /**
+     * 设置或监听目标元素的全屏化状态，默认为false
+     */
     isFullscreen: PropTypes.bool,
 
     loading_state: PropTypes.shape({
