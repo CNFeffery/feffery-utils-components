@@ -34,7 +34,7 @@ const FefferyDebounceProp = (props) => {
 // 定义参数或属性
 FefferyDebounceProp.propTypes = {
     /**
-     * 组件唯一id，用于编排回调角色等
+     * 组件id
      */
     id: PropTypes.string,
 

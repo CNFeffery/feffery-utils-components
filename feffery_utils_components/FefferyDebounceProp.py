@@ -10,7 +10,7 @@ class FefferyDebounceProp(Component):
 Keyword arguments:
 
 - id (string; optional):
-    组件唯一id，用于编排回调角色等.
+    组件id.
 
 - debounceProp (boolean | number | string | dict | list; optional):
     对应sourceProp的防抖控制状态.

@@ -9,11 +9,14 @@ class FefferyLocalStorage(Component):
 
 Keyword arguments:
 
-- id (string; required)
+- id (string; required):
+    组件id.
 
-- data (boolean | number | string | dict | list; optional)
+- data (boolean | number | string | dict | list; optional):
+    设置或监听当前id对应的localStorage数据.
 
-- initialSync (boolean; default False)
+- initialSync (boolean; default False):
+    设置初始化时是否从localStorage中尝试读取id对应的值并更新到data中  默认：False.
 
 - loading_state (dict; optional)
 
