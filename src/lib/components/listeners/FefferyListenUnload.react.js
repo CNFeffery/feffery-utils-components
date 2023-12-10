@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 
 // 定义页面关闭监听组件FefferyListenUnload
 const FefferyListenUnload = (props) => {
-
     let {
-        id,
         setProps,
         loading_state
     } = props;
@@ -29,10 +27,14 @@ const FefferyListenUnload = (props) => {
 
 // 定义参数或属性
 FefferyListenUnload.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 每次页面关闭时会触发更新为true
+    /**
+     * 监听页面重载或关闭事件，每次页面关闭时会触发更新为true
+     */
     unloaded: PropTypes.bool,
 
     /**

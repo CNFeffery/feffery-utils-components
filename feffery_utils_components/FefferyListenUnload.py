@@ -9,7 +9,8 @@ class FefferyListenUnload(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
 - loading_state (dict; optional)
 
@@ -24,7 +25,8 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- unloaded (boolean; optional)"""
+- unloaded (boolean; optional):
+    监听页面重载或关闭事件，每次页面关闭时会触发更新为True."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
