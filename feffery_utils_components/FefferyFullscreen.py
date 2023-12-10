@@ -28,14 +28,14 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- targetId (string; required):
-    设置要全屏化的目标元素id，必填."""
+- targetId (string; optional):
+    设置要全屏化的目标元素id，缺省时会以整个页面作为全屏化目标."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyFullscreen'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, targetId=Component.REQUIRED, isFullscreen=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+    def __init__(self, id=Component.UNDEFINED, targetId=Component.UNDEFINED, isFullscreen=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'isFullscreen', 'loading_state', 'targetId']
         self._valid_wildcard_attributes =            []
         self.available_properties = ['id', 'isFullscreen', 'loading_state', 'targetId']
@@ -44,10 +44,5 @@ Keyword arguments:
         _locals = locals()
         _locals.update(kwargs)  # For wildcard attrs and excess named props
         args = {k: _locals[k] for k in _explicit_args}
-
-        for k in ['targetId']:
-            if k not in args:
-                raise TypeError(
-                    'Required argument `' + k + '` was not specified.')
 
         super(FefferyFullscreen, self).__init__(**args)

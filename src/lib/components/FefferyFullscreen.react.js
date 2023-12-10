@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 const FefferyFullscreen = (props) => {
     // 取得必要属性或参数
     const {
-        id,
         targetId,
         isFullscreen,
         setProps,
@@ -17,19 +16,28 @@ const FefferyFullscreen = (props) => {
         _isFullscreen,
         {
             enterFullscreen,
-            exitFullscreen,
-            toggleFullscreen,
-            isEnabled,
+            exitFullscreen
         }
     ] = useFullscreen(
         () => document.getElementById(targetId)
     );
 
     useEffect(() => {
-        if (isFullscreen) {
-            enterFullscreen()
+        if (targetId) {
+            if (isFullscreen) {
+                enterFullscreen()
+            } else {
+                exitFullscreen()
+            }
         } else {
-            exitFullscreen()
+            if (isFullscreen) {
+                document.documentElement.requestFullscreen()
+            } else {
+                // 若当前处于全屏状态
+                if (document.fullscreenElement) {
+                    document.exitFullscreen()
+                }
+            }
         }
     }, [isFullscreen])
 
@@ -53,9 +61,9 @@ FefferyFullscreen.propTypes = {
     id: PropTypes.string,
 
     /**
-     * 设置要全屏化的目标元素id，必填
+     * 设置要全屏化的目标元素id，缺省时会以整个页面作为全屏化目标
      */
-    targetId: PropTypes.string.isRequired,
+    targetId: PropTypes.string,
 
     /**
      * 设置或监听目标元素的全屏化状态，默认为false
