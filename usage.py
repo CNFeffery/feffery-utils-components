@@ -6,7 +6,9 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyWindowSize()
+        fuc.FefferyCookie(
+            cookieKey='test'
+        )
     ],
     style={
         'padding': 50
