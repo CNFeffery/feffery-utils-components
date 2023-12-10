@@ -58,14 +58,20 @@ const FefferySessionStorage = (props) => {
 
 // 定义参数或属性
 FefferySessionStorage.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string.isRequired,
 
-    // 设置或监听当前id对应的sessionStorage数据
+    /**
+     * 设置或监听当前id对应的sessionStorage数据
+     */
     data: PropTypes.any,
 
-    // 设置初始化时是否从sessionStorage中尝试读取id对应的值并更新到data中
-    // 默认：false
+    /**
+     * 设置初始化时是否从sessionStorage中尝试读取id对应的值并更新到data中
+     * 默认：false
+     */
     initialSync: PropTypes.bool,
 
     loading_state: PropTypes.shape({

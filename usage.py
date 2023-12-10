@@ -6,7 +6,7 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyLocalStorage(id='test')
+        fuc.FefferySessionStorage(id='test')
     ],
     style={
         'padding': 50
