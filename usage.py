@@ -7,14 +7,48 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyWebSocket(
-            id='websocket-demo',
-            socketUrl='wss://demo.piesocket.com/v3/channel_1?api_key=VCXCEuvhGcBDP7XhiJJUDvR1e1D3eiVjgZ9VRiaV&notify_self'
-        )
+        fuc.FefferyAutoFit(
+            id='auto-fit',
+            containerId='app-container'
+        ),
+        html.Div(
+            id='div-demo1',
+            style={
+                'height': '500px',
+                'width': '500px',
+                'background': 'grey',
+                'borderRadius': '8px',
+                'color': 'white',
+                'margin': '10px',
+                'float': 'left'
+            }
+        ),
+        html.Div(
+            id='div-demo2',
+            style={
+                'height': '500px',
+                'width': '500px',
+                'background': 'grey',
+                'borderRadius': '8px',
+                'color': 'white',
+                'margin': '10px',
+                'float': 'left'
+            }
+        ),
+        html.Div(
+            id='div-demo3',
+            style={
+                'height': '500px',
+                'width': '500px',
+                'background': 'grey',
+                'borderRadius': '8px',
+                'color': 'white',
+                'margin': '10px',
+                'float': 'left'
+            }
+        ),
     ],
-    style={
-        'padding': 25
-    }
+    id='app-container'
 )
 
 
