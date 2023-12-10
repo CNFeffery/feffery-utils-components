@@ -63,6 +63,7 @@ from .FefferyWindowSize import FefferyWindowSize
 from .FefferyAPlayer import FefferyAPlayer
 from .FefferyDPlayer import FefferyDPlayer
 from .FefferyMusicPlayer import FefferyMusicPlayer
+from .FefferyAutoFit import FefferyAutoFit
 from .FefferyResizable import FefferyResizable
 from .FefferySortableList import FefferySortableList
 from .FefferySplit import FefferySplit
@@ -140,6 +141,7 @@ __all__ = [
     "FefferyAPlayer",
     "FefferyDPlayer",
     "FefferyMusicPlayer",
+    "FefferyAutoFit",
     "FefferyResizable",
     "FefferySortableList",
     "FefferySplit",

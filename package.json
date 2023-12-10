@@ -33,6 +33,7 @@
     "@uiw/react-color-wheel": "^1.1.0",
     "ahooks": "^3.7.0",
     "array-move": "^4.0.0",
+    "autofit.js": "^3.0.7",
     "byte-guide": "^1.0.7",
     "dashjs": "4.7.2",
     "emoji-mart": "^5.5.2",
