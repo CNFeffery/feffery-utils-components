@@ -59,6 +59,11 @@ FefferyRichTextEditor.propTypes = {
     locale: PropTypes.oneOf(['zh-CN', 'en']),
 
     /**
+     * 编辑器模式，可选的有两种：'default'和'simple'，默认为'default'，'default'模式 - 集成了 wangEditor 所有功能，'simple'模式 - 仅有部分常见功能，但更加简洁易用
+     */
+    mode: PropTypes.oneOf(['default','simple']),
+
+    /**
      * 编辑器html格式内容
      */
     htmlValue: PropTypes.string,
@@ -577,6 +582,7 @@ FefferyRichTextEditor.propTypes = {
 // 设置默认参数
 FefferyRichTextEditor.defaultProps = {
     locale: 'zh-CN',
+    mode: 'default',
     toolbarConfig: {
         modalAppendToBody: false
     },
