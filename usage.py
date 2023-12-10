@@ -7,49 +7,27 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyAutoFit(
-            id='auto-fit',
-            containerId='app-container'
+        html.Button(
+            '全屏化/退出全屏',
+            id='toggle-fullscreen'
         ),
-        html.Div(
-            id='div-demo1',
-            style={
-                'height': '500px',
-                'width': '500px',
-                'background': 'grey',
-                'borderRadius': '8px',
-                'color': 'white',
-                'margin': '10px',
-                'float': 'left'
-            }
-        ),
-        html.Div(
-            id='div-demo2',
-            style={
-                'height': '500px',
-                'width': '500px',
-                'background': 'grey',
-                'borderRadius': '8px',
-                'color': 'white',
-                'margin': '10px',
-                'float': 'left'
-            }
-        ),
-        html.Div(
-            id='div-demo3',
-            style={
-                'height': '500px',
-                'width': '500px',
-                'background': 'grey',
-                'borderRadius': '8px',
-                'color': 'white',
-                'margin': '10px',
-                'float': 'left'
-            }
-        ),
+        fuc.FefferyFullscreen(
+            id='fullscreen-demo'
+        )
     ],
     id='app-container'
 )
+
+
+@app.callback(
+    Output('fullscreen-demo', 'isFullscreen'),
+    Input('toggle-fullscreen', 'n_clicks'),
+    State('fullscreen-demo', 'isFullscreen'),
+    prevent_initial_call=True
+)
+def toggle_fullscreen_demo(n_clicks, isFullscreen):
+
+    return not isFullscreen
 
 
 if __name__ == '__main__':
