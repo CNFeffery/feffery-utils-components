@@ -14,8 +14,7 @@ app.layout = html.Div(
         fuc.FefferyFullscreen(
             id='fullscreen-demo'
         )
-    ],
-    id='app-container'
+    ]
 )
 
 
