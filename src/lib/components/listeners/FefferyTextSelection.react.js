@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 // 定义文字选中监听组件FefferyTextSelection
 const FefferyTextSelection = (props) => {
-
     const {
         targetId,
         targetSelector,

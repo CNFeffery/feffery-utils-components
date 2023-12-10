@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 
 // 定义浏览器窗口尺寸监听组件FefferyWindowSize
 const FefferyWindowSize = (props) => {
-
     const {
-        id,
         setProps,
         loading_state
     } = props;
@@ -25,13 +23,19 @@ const FefferyWindowSize = (props) => {
 
 // 定义参数或属性
 FefferyWindowSize.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 监听当前浏览器窗口像素宽度
+    /**
+     * 监听当前浏览器窗口像素宽度
+     */
     _width: PropTypes.number,
 
-    // 监听当前浏览器窗口高度
+    /**
+     * 监听当前浏览器窗口高度
+     */
     _height: PropTypes.number,
 
     /**

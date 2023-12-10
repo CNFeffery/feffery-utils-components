@@ -9,11 +9,14 @@ class FefferyWindowSize(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- _height (number; optional)
+- _height (number; optional):
+    监听当前浏览器窗口高度.
 
-- _width (number; optional)
+- _width (number; optional):
+    监听当前浏览器窗口像素宽度.
 
 - loading_state (dict; optional)
 
