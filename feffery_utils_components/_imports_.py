@@ -33,6 +33,7 @@ from .FefferyLazyLoad import FefferyLazyLoad
 from .FefferyQRCode import FefferyQRCode
 from .FefferyRawHTML import FefferyRawHTML
 from .FefferyReload import FefferyReload
+from .FefferyRichTextEditor import FefferyRichTextEditor
 from .FefferyScroll import FefferyScroll
 from .FefferyScrollbars import FefferyScrollbars
 from .FefferySetTitle import FefferySetTitle
@@ -111,6 +112,7 @@ __all__ = [
     "FefferyQRCode",
     "FefferyRawHTML",
     "FefferyReload",
+    "FefferyRichTextEditor",
     "FefferyScroll",
     "FefferyScrollbars",
     "FefferySetTitle",
