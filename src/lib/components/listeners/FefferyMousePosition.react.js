@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 
 // 定义鼠标位置监听组件FefferyMousePosition
 const FefferyMousePosition = (props) => {
-
     let {
-        id,
         setProps,
         loading_state
     } = props;
@@ -33,10 +31,14 @@ const FefferyMousePosition = (props) => {
 
 // 定义参数或属性
 FefferyMousePosition.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 用于记录当前鼠标位置相关信息
+    /**
+     * 监听当前鼠标位置相关信息
+     */
     position: PropTypes.object,
 
     /**

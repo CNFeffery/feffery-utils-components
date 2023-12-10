@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 const FefferyResponsive = (props) => {
 
     const {
-        id,
         setProps,
         loading_state
     } = props;
@@ -22,10 +21,14 @@ const FefferyResponsive = (props) => {
 
 // 定义参数或属性
 FefferyResponsive.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 监听当前页面尺寸下对应各断点的满足情况
+    /**
+     * 监听当前页面尺寸下对应各断点像素宽度的满足情况
+     */
     responsive: PropTypes.object,
 
     /**

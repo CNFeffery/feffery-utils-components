@@ -9,7 +9,8 @@ class FefferyResponsive(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
 - loading_state (dict; optional)
 
@@ -24,7 +25,8 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- responsive (dict; optional)"""
+- responsive (dict; optional):
+    监听当前页面尺寸下对应各断点像素宽度的满足情况."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

@@ -9,7 +9,8 @@ class FefferyMousePosition(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
 - loading_state (dict; optional)
 
@@ -24,7 +25,8 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- position (dict; optional)"""
+- position (dict; optional):
+    监听当前鼠标位置相关信息."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
