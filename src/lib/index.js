@@ -76,6 +76,7 @@ import FefferyTabMessenger from "./components/FefferyTabMessenger.react";
 import FefferyEmojiPicker from "./components/FefferyEmojiPicker.react";
 import './components/styles.css';
 import FefferyAutoFit from "./components/resizable/FefferyAutoFit.react";
+import FefferyRichTextEditor from "./components/FefferyRichTextEditor.react";
 
 // 自定义sessionStorage事件监听
 const originalSessionSetItem = sessionStorage.setItem;
@@ -174,5 +175,6 @@ export {
     FefferyThrottleProp,
     FefferyTabMessenger,
     FefferyEmojiPicker,
-    FefferyAutoFit
+    FefferyAutoFit,
+    FefferyRichTextEditor
 };
