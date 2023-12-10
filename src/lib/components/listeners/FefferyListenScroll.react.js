@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 
 // 定义滚动条监听组件FefferyListenScroll
 const FefferyListenScroll = (props) => {
-
     let {
-        id,
         target,
         setProps,
         loading_state
@@ -27,13 +25,19 @@ const FefferyListenScroll = (props) => {
 
 // 定义参数或属性
 FefferyListenScroll.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 设置滚动条监听目标元素id，默认为整个页面
+    /**
+     * 设置滚动条监听目标元素id，默认为整个页面
+     */
     target: PropTypes.string,
 
-    // 监听目标滚动条的水平及竖直方向上的像素偏移量
+    /**
+     * 监听目标滚动条的水平及竖直方向上的像素偏移量
+     */
     position: PropTypes.object,
 
     /**

@@ -9,7 +9,8 @@ class FefferyListenScroll(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
 - loading_state (dict; optional)
 
@@ -24,9 +25,11 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- position (dict; optional)
+- position (dict; optional):
+    监听目标滚动条的水平及竖直方向上的像素偏移量.
 
-- target (string; optional)"""
+- target (string; optional):
+    设置滚动条监听目标元素id，默认为整个页面."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
