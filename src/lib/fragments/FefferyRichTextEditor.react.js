@@ -20,6 +20,7 @@ const FefferyRichTextEditor = (props) => {
         editorClassName,
         editorStyle,
         locale,
+        mode,
         htmlValue,
         textValue,
         toolbarConfig,
@@ -184,7 +185,7 @@ const FefferyRichTextEditor = (props) => {
                     borderBottom: '1px solid #ccc',
                     ...toolbarStyle
                 }}
-                mode="default"
+                mode={mode}
                 editor={editor}
                 defaultConfig={toolbarConfig}
             />
@@ -195,7 +196,7 @@ const FefferyRichTextEditor = (props) => {
                         (editorClassName ? useCss(editorClassName) : undefined)
                 }
                 style={editorStyle}
-                mode="default"
+                mode={mode}
                 defaultConfig={editorConfig}
                 value={htmlValue}
                 onCreated={setEditor}
