@@ -35,20 +35,30 @@ const FefferyTextSelection = (props) => {
 
 // 定义参数或属性
 FefferyTextSelection.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 设置目标监听容器的id
+    /**
+     * 设置目标监听容器id
+     */
     targetId: PropTypes.string,
 
-    // 设置目标监听容器对应的css选择器
+    /**
+     * 设置目标监听容器对应的css选择器
+     */
     targetSelector: PropTypes.string,
 
-    // 设置目标监听规则类型，可选的有'id'、'selector'
-    // 默认：'id'
+    /**
+     * 设置目标监听规则类型，可选的有'id'、'selector'
+     * 默认：'id'
+     */
     targetType: PropTypes.oneOf(['id', 'selector']),
 
-    // 用于监听最近一次目标容器内文本选中事件相关信息
+    /**
+     * 监听最近一次目标容器内文本选中事件相关信息
+     */
     selectedTextInfo: PropTypes.object,
 
     /**
@@ -78,4 +88,4 @@ FefferyTextSelection.defaultProps = {
     targetType: 'id'
 }
 
-export default React.memo(FefferyTextSelection);
+export default FefferyTextSelection;
