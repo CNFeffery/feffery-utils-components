@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 const FefferyLongPress = (props) => {
 
     const {
-        id,
         targetId,
         pressCounts,
         delay,
@@ -31,17 +30,26 @@ const FefferyLongPress = (props) => {
 
 // 定义参数或属性
 FefferyLongPress.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 设置当前长按监听组件的监听目标元素id
+    /**
+     * 设置当前长按监听组件的监听目标元素id
+     */
     targetId: PropTypes.string,
 
-    // 监听目标组件累计被长按次数，默认为0
+    /**
+     * 监听目标组件累计被长按次数
+     * 默认：0
+     */
     pressCounts: PropTypes.number,
 
-    // 设置符合长按行为的持续时长，单位：毫秒
-    // 默认：300
+    /**
+     * 设置符合长按行为的持续时长，单位：毫秒
+     * 默认：300
+     */
     delay: PropTypes.number,
 
     /**

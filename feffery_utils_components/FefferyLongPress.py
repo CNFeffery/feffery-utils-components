@@ -9,9 +9,11 @@ class FefferyLongPress(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- delay (number; default 300)
+- delay (number; default 300):
+    设置符合长按行为的持续时长，单位：毫秒  默认：300.
 
 - loading_state (dict; optional)
 
@@ -26,9 +28,11 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- pressCounts (number; default 0)
+- pressCounts (number; default 0):
+    监听目标组件累计被长按次数  默认：0.
 
-- targetId (string; optional)"""
+- targetId (string; optional):
+    设置当前长按监听组件的监听目标元素id."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
