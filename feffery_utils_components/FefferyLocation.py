@@ -9,15 +9,20 @@ class FefferyLocation(Component):
 
 Keyword arguments:
 
-- id (string; optional)
+- id (string; optional):
+    组件id.
 
-- hash (string; optional)
+- hash (string; optional):
+    监听最新的hash信息.
 
-- host (string; optional)
+- host (string; optional):
+    监听最新的host信息.
 
-- hostname (string; optional)
+- hostname (string; optional):
+    监听最新的hostname信息.
 
-- href (string; optional)
+- href (string; optional):
+    监听最新的href信息.
 
 - loading_state (dict; optional)
 
@@ -32,15 +37,20 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- pathname (string; optional)
+- pathname (string; optional):
+    监听最新的pathname信息.
 
-- port (string; optional)
+- port (string; optional):
+    监听最新的port信息.
 
-- protocol (string; optional)
+- protocol (string; optional):
+    监听最新的protocol信息.
 
-- search (string; optional)
+- search (string; optional):
+    监听最新的search信息.
 
-- trigger (a value equal to: 'load', 'pushstate', 'popstate'; optional)"""
+- trigger (a value equal to: 'load', 'pushstate', 'popstate'; optional):
+    监听最近一次地址更新行为触发类型，'load'表示页面重载行为，'pushstate'表示动态更新行为，'popstate'表示返回上一步地址."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 const FefferyLocation = (props) => {
 
     const {
-        id,
         setProps,
         loading_state
     } = props;
@@ -35,35 +34,54 @@ const FefferyLocation = (props) => {
 
 // 定义参数或属性
 FefferyLocation.propTypes = {
-    // 组件id
+    /**
+     * 组件id
+     */
     id: PropTypes.string,
 
-    // 用于监听最新的href信息
+    /**
+     * 监听最新的href信息
+     */
     href: PropTypes.string,
 
-    // 用于监听最新的pathname信息
+    /**
+     * 监听最新的pathname信息
+     */
     pathname: PropTypes.string,
 
-    // 用于监听最新的search信息
+    /**
+     * 监听最新的search信息
+     */
     search: PropTypes.string,
 
-    // 用于监听最新的hash信息
+    /**
+     * 监听最新的hash信息
+     */
     hash: PropTypes.string,
 
-    // 用于监听最新的host信息
+    /**
+     * 监听最新的host信息
+     */
     host: PropTypes.string,
 
-    // 用于监听最新的hostname信息
+    /**
+     * 监听最新的hostname信息
+     */
     hostname: PropTypes.string,
 
-    // 用于监听最新的port信息
+    /**
+     * 监听最新的port信息
+     */
     port: PropTypes.string,
 
-    // 用于监听最新的protocol信息
+    /**
+     * 监听最新的protocol信息
+     */
     protocol: PropTypes.string,
 
-    // 用于监听最近一次地址更新行为触发类型
-    // 'load'表示页面重载行为，'pushstate'表示动态更新行为，'popstate'表示返回上一步地址
+    /**
+     * 监听最近一次地址更新行为触发类型，'load'表示页面重载行为，'pushstate'表示动态更新行为，'popstate'表示返回上一步地址
+     */
     trigger: PropTypes.oneOf(['load', 'pushstate', 'popstate']),
 
     /**

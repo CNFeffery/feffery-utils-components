@@ -6,7 +6,7 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyListenUnload()
+        fuc.FefferyLocation()
     ],
     style={
         'padding': 50
