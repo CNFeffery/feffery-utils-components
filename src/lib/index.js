@@ -74,6 +74,7 @@ import FefferyTabMessenger from "./components/FefferyTabMessenger.react";
 import FefferyEmojiPicker from "./components/FefferyEmojiPicker.react";
 import FefferyAutoFit from "./components/resizable/FefferyAutoFit.react";
 import FefferyRichTextEditor from "./components/FefferyRichTextEditor.react";
+import FefferyImageGallery from "./components/images/FefferyImageGallery.react";
 import './components/styles.css';
 
 // 自定义sessionStorage事件监听
@@ -172,5 +173,6 @@ export {
     FefferyTabMessenger,
     FefferyEmojiPicker,
     FefferyAutoFit,
-    FefferyRichTextEditor
+    FefferyRichTextEditor,
+    FefferyImageGallery
 };
