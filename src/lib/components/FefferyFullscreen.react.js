@@ -23,6 +23,26 @@ const FefferyFullscreen = (props) => {
     );
 
     useEffect(() => {
+        if (!targetId) {
+            const onFullscreenChange = (e) => {
+                if (document.fullscreenElement) {
+                    setProps({
+                        isFullscreen: true
+                    })
+                } else {
+                    setProps({
+                        isFullscreen: false
+                    })
+                }
+            }
+            document.addEventListener('fullscreenchange', onFullscreenChange)
+            return () => {
+                document.removeEventListener('fullscreenchange', onFullscreenChange)
+            }
+        }
+    }, [])
+
+    useEffect(() => {
         if (targetId) {
             if (isFullscreen) {
                 enterFullscreen()
@@ -30,13 +50,12 @@ const FefferyFullscreen = (props) => {
                 exitFullscreen()
             }
         } else {
-            if (isFullscreen) {
+            if (isFullscreen && !document.fullscreenElement) {
+                // 若当前处于非全屏状态
                 document.documentElement.requestFullscreen()
-            } else {
+            } else if (!isFullscreen && document.fullscreenElement) {
                 // 若当前处于全屏状态
-                if (document.fullscreenElement) {
-                    document.exitFullscreen()
-                }
+                document.exitFullscreen()
             }
         }
     }, [isFullscreen])
