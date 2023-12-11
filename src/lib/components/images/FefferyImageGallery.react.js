@@ -46,6 +46,7 @@ const FefferyImageGallery = (props) => {
                 slideDuration={slideDuration}
                 slideInterval={slideInterval}
                 startIndex={startIndex}
+                onScreenChange={(e) => setProps({ isFullscreen: e })}
                 data-dash-is-loading={
                     (loading_state && loading_state.is_loading) || undefined
                 }
@@ -160,6 +161,13 @@ FefferyImageGallery.propTypes = {
      */
     startIndex: PropTypes.number,
 
+    // 监听类参数
+    /**
+     * 用于监听当前相册是否处于全屏化状态
+     * 默认：false
+     */
+    isFullscreen: PropTypes.bool,
+
     loading_state: PropTypes.shape({
         /**
          * Determines if the component is loading or not
@@ -197,7 +205,8 @@ FefferyImageGallery.defaultProps = {
     autoPlay: false,
     slideDuration: 450,
     slideInterval: 3000,
-    startIndex: 0
+    startIndex: 0,
+    isFullscreen: false
 }
 
 export default FefferyImageGallery;

@@ -24,6 +24,9 @@ Keyword arguments:
 - infinite (boolean; default True):
     是否启用无限轮播  默认：True.
 
+- isFullscreen (boolean; default False):
+    用于监听当前相册是否处于全屏化状态  默认：False.
+
 - lazyLoad (boolean; default False):
     是否为图片启用懒加载功能  默认：False.
 
@@ -80,10 +83,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyImageGallery'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, images=Component.UNDEFINED, infinite=Component.UNDEFINED, lazyLoad=Component.UNDEFINED, showNav=Component.UNDEFINED, showThumbnails=Component.UNDEFINED, thumbnailPosition=Component.UNDEFINED, showFullscreenButton=Component.UNDEFINED, useBrowserFullscreen=Component.UNDEFINED, showPlayButton=Component.UNDEFINED, showBullets=Component.UNDEFINED, showIndex=Component.UNDEFINED, autoPlay=Component.UNDEFINED, slideDuration=Component.UNDEFINED, slideInterval=Component.UNDEFINED, startIndex=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'autoPlay', 'className', 'images', 'infinite', 'lazyLoad', 'loading_state', 'showBullets', 'showFullscreenButton', 'showIndex', 'showNav', 'showPlayButton', 'showThumbnails', 'slideDuration', 'slideInterval', 'startIndex', 'style', 'thumbnailPosition', 'useBrowserFullscreen']
+    def __init__(self, id=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, images=Component.UNDEFINED, infinite=Component.UNDEFINED, lazyLoad=Component.UNDEFINED, showNav=Component.UNDEFINED, showThumbnails=Component.UNDEFINED, thumbnailPosition=Component.UNDEFINED, showFullscreenButton=Component.UNDEFINED, useBrowserFullscreen=Component.UNDEFINED, showPlayButton=Component.UNDEFINED, showBullets=Component.UNDEFINED, showIndex=Component.UNDEFINED, autoPlay=Component.UNDEFINED, slideDuration=Component.UNDEFINED, slideInterval=Component.UNDEFINED, startIndex=Component.UNDEFINED, isFullscreen=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'autoPlay', 'className', 'images', 'infinite', 'isFullscreen', 'lazyLoad', 'loading_state', 'showBullets', 'showFullscreenButton', 'showIndex', 'showNav', 'showPlayButton', 'showThumbnails', 'slideDuration', 'slideInterval', 'startIndex', 'style', 'thumbnailPosition', 'useBrowserFullscreen']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'autoPlay', 'className', 'images', 'infinite', 'lazyLoad', 'loading_state', 'showBullets', 'showFullscreenButton', 'showIndex', 'showNav', 'showPlayButton', 'showThumbnails', 'slideDuration', 'slideInterval', 'startIndex', 'style', 'thumbnailPosition', 'useBrowserFullscreen']
+        self.available_properties = ['id', 'autoPlay', 'className', 'images', 'infinite', 'isFullscreen', 'lazyLoad', 'loading_state', 'showBullets', 'showFullscreenButton', 'showIndex', 'showNav', 'showPlayButton', 'showThumbnails', 'slideDuration', 'slideInterval', 'startIndex', 'style', 'thumbnailPosition', 'useBrowserFullscreen']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
