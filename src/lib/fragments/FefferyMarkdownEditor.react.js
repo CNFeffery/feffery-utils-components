@@ -4,7 +4,11 @@ import Cherry from 'cherry-markdown';
 import { pinyin } from 'pinyin_js';
 import { v4 as uuidv4 } from 'uuid';
 import upload from '../utils/upload';
+import MathJax from 'mathjax/es5/tex-svg';
+import katex from 'katex';
+import 'katex/dist/katex.css';
 import { propTypes, defaultProps } from '../components/FefferyMarkdownEditor.react';
+import FefferyStyle from '../components/FefferyStyle.react';
 
 // 定义markdown编辑器组件FefferyMarkdownEditor，api参数参考https://github.com/Tencent/cherry-markdown/wiki/%E9%85%8D%E7%BD%AE%E9%A1%B9%E5%85%A8%E8%A7%A3
 const FefferyMarkdownEditor = (props) => {
@@ -62,8 +66,6 @@ const FefferyMarkdownEditor = (props) => {
                         fineControl.videoFineControlOptions = fineControl.videoFineControlOptions || {};
                         const { posterUrl, isPoster } = fineControl.videoFineControlOptions;
                         fineControl.videoFineControlOptions.poster = `${posterUrl || url}?poster=${isPoster || ''}`;
-                        delete fineControl.videoFineControlOptions.posterUrl;
-                        delete fineControl.videoFineControlOptions.isPoster;
                         callback(url, fineControl.videoFineControlOptions);
                     } else if (/image/i.test(file.type)) {
                         // 如果上传的是图片
@@ -133,7 +135,11 @@ const FefferyMarkdownEditor = (props) => {
         const cherryInstance = new Cherry({
             ...editorAllConfig,
             id: containerId,
-            value: value
+            value: value,
+            externals: {
+                katex: katex,
+                MathJax: MathJax,
+            }
         });
     }, []);
 
@@ -142,7 +148,18 @@ const FefferyMarkdownEditor = (props) => {
             id={containerId}
             className={className}
             style={style}
-        />
+        >
+            <FefferyStyle
+                rawStyle={
+                    `
+                    iframe.cherry-dialog-iframe {
+                        width: 100%;
+                        height: 100%;
+                    }
+                    `
+                }
+            />
+        </div>
     );
 }
 

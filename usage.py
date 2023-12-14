@@ -45,6 +45,7 @@ app.layout = html.Div(
                 'toolbarRight': ['fullScreen', '|'],
                 'sidebar': ['mobilePreview', 'theme', 'copy'],
             },
+            drawioIframeUrl='assets/drawio/drawio_demo.html',
             uploadConfig={
                 'action': '/upload/',
                 'headers': {
@@ -55,7 +56,7 @@ app.layout = html.Div(
                 'isOpen': True,
                 'videoFineControlOptions': {
                     'isPoster': True,
-                    # 'posterUrl': 'http://127.0.0.1:8050/get?filename=test.jpg'
+                    'posterUrl': 'http://127.0.0.1:8050/get?filename=2dc5b01f-2bf5-4131-b883-30d384d7b3f1.png'
                 }
             },
             style={
