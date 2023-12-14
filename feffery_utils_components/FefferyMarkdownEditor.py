@@ -257,6 +257,60 @@ Keyword arguments:
 
     - word (string; optional)
 
+- fineControl (dict; default {    isOpen: False,    videoFineControlOptions: {        isPoster: False,        isBorder: False,        isShadow: False,        isRadius: False    },    imageFineControlOptions: {        isBorder: False,        isShadow: False,        isRadius: False,        width: '100%',        height: 'auto'    }}):
+    配置文件展示精细化控制，此功能只在配置了上传接口的情况下生效.
+
+    `fineControl` is a dict with keys:
+
+    - imageFineControlOptions (dict; optional):
+        图片文件精细化控制选项.
+
+        `imageFineControlOptions` is a dict with keys:
+
+        - height (string; optional):
+            图片的高度，默认'auto'.
+
+        - isBorder (boolean; optional):
+            是否显示边框，默认False.
+
+        - isRadius (boolean; optional):
+            是否显示圆角，默认False.
+
+        - isShadow (boolean; optional):
+            是否显示阴影，默认False.
+
+        - name (string; optional):
+            图片文件的名称.
+
+        - width (string; optional):
+            图片的宽度，默认'100%'，可配置百分比，也可配置像素值.
+
+    - isOpen (boolean; optional):
+        是否启用.
+
+    - videoFineControlOptions (dict; optional):
+        视频文件精细化控制选项.
+
+        `videoFineControlOptions` is a dict with keys:
+
+        - isBorder (boolean; optional):
+            是否显示边框，默认False.
+
+        - isPoster (boolean; optional):
+            是否启用视频文件封面，默认为False.
+
+        - isRadius (boolean; optional):
+            是否显示圆角，默认False.
+
+        - isShadow (boolean; optional):
+            是否显示阴影，默认False.
+
+        - name (string; optional):
+            视频文件的名称.
+
+        - posterUrl (string; optional):
+            自定义视频文件封面地址，如果不设置，则默认为视频文件地址.
+
 - forceAppend (boolean; default True):
     外层容器不存在时，是否强制输出到body上，默认为True.
 
@@ -387,6 +441,30 @@ Keyword arguments:
 
     - toolbarRight (list; optional)
 
+- uploadConfig (dict; default {    headers: {},    data: {},    withCredentials: False,    filename: 'file',    responseUrl: 'data.url',}):
+    设置文件上传相关信息.
+
+    `uploadConfig` is a dict with keys:
+
+    - action (string; optional):
+        设置上传的地址.
+
+    - data (dict; optional):
+        设置上传时附带的额外参数.
+
+    - filename (string; optional):
+        设置上传的文件字段名.
+
+    - headers (dict; optional):
+        设置上传的请求头部.
+
+    - responseUrl (string; optional):
+        设置上传接口响应中url的层级，如响应结果格式为{data: {url:
+        'xxx'}}，则配置为'data.url'，默认为'data.url'.
+
+    - withCredentials (boolean; optional):
+        设置是否支持发送cookie凭证信息，默认为False.
+
 - value (string; optional):
     编辑器内容."""
     _children_props = []
@@ -394,10 +472,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyMarkdownEditor'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, html=Component.UNDEFINED, engine=Component.UNDEFINED, editor=Component.UNDEFINED, toolbars=Component.UNDEFINED, drawioIframeUrl=Component.UNDEFINED, fileTypeLimitMap=Component.UNDEFINED, previewer=Component.UNDEFINED, theme=Component.UNDEFINED, isPreviewOnly=Component.UNDEFINED, autoScrollByCursor=Component.UNDEFINED, forceAppend=Component.UNDEFINED, locale=Component.UNDEFINED, autoScrollByHashAfterInit=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'autoScrollByCursor', 'autoScrollByHashAfterInit', 'className', 'drawioIframeUrl', 'editor', 'engine', 'fileTypeLimitMap', 'forceAppend', 'html', 'isPreviewOnly', 'loading_state', 'locale', 'previewer', 'style', 'theme', 'toolbars', 'value']
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, html=Component.UNDEFINED, engine=Component.UNDEFINED, editor=Component.UNDEFINED, toolbars=Component.UNDEFINED, drawioIframeUrl=Component.UNDEFINED, fileTypeLimitMap=Component.UNDEFINED, uploadConfig=Component.UNDEFINED, fineControl=Component.UNDEFINED, previewer=Component.UNDEFINED, theme=Component.UNDEFINED, isPreviewOnly=Component.UNDEFINED, autoScrollByCursor=Component.UNDEFINED, forceAppend=Component.UNDEFINED, locale=Component.UNDEFINED, autoScrollByHashAfterInit=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'autoScrollByCursor', 'autoScrollByHashAfterInit', 'className', 'drawioIframeUrl', 'editor', 'engine', 'fileTypeLimitMap', 'fineControl', 'forceAppend', 'html', 'isPreviewOnly', 'loading_state', 'locale', 'previewer', 'style', 'theme', 'toolbars', 'uploadConfig', 'value']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'autoScrollByCursor', 'autoScrollByHashAfterInit', 'className', 'drawioIframeUrl', 'editor', 'engine', 'fileTypeLimitMap', 'forceAppend', 'html', 'isPreviewOnly', 'loading_state', 'locale', 'previewer', 'style', 'theme', 'toolbars', 'value']
+        self.available_properties = ['id', 'autoScrollByCursor', 'autoScrollByHashAfterInit', 'className', 'drawioIframeUrl', 'editor', 'engine', 'fileTypeLimitMap', 'fineControl', 'forceAppend', 'html', 'isPreviewOnly', 'loading_state', 'locale', 'previewer', 'style', 'theme', 'toolbars', 'uploadConfig', 'value']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

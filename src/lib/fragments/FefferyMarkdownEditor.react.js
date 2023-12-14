@@ -1,8 +1,9 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useCallback } from 'react';
 import "cherry-markdown/dist/cherry-markdown.css";
 import Cherry from 'cherry-markdown';
 import { pinyin } from 'pinyin_js';
 import { v4 as uuidv4 } from 'uuid';
+import upload from '../utils/upload';
 import { propTypes, defaultProps } from '../components/FefferyMarkdownEditor.react';
 
 // 定义markdown编辑器组件FefferyMarkdownEditor，api参数参考https://github.com/Tencent/cherry-markdown/wiki/%E9%85%8D%E7%BD%AE%E9%A1%B9%E5%85%A8%E8%A7%A3
@@ -19,6 +20,8 @@ const FefferyMarkdownEditor = (props) => {
         toolbars,
         drawioIframeUrl,
         fileTypeLimitMap,
+        uploadConfig,
+        fineControl,
         previewer,
         theme,
         isPreviewOnly,
@@ -33,6 +36,55 @@ const FefferyMarkdownEditor = (props) => {
     const containerId = useMemo(() => {
         return id || uuidv4();
     }, []);
+
+    /**
+     * 上传文件函数
+     * @param file 上传文件的文件对象
+     * @param callback 回调函数，回调函数接收两个参数，第一个参数为文件上传后的url，第二个参数可选，为额外配置信息
+     */
+    const fileUpload = useCallback((file, callback) => {
+        // 安全获取嵌套对象属性函数
+        function getNestedProperty(obj, path) {
+            return path.split('.').reduce((acc, part) => acc && acc[part], obj);
+        }
+        uploadConfig.filename = uploadConfig.filename ? uploadConfig.filename : 'file';
+        let uploadOptions = {
+            ...uploadConfig,
+            file: file,
+            onProgress: (e) => {
+                console.log(e);
+            },
+            onSuccess: (res) => {
+                let url = getNestedProperty(res, uploadConfig.responseUrl || 'data.url');
+                if (fineControl.isOpen) {
+                    // 如果上传的是视频
+                    if (/video/i.test(file.type)) {
+                        fineControl.videoFineControlOptions = fineControl.videoFineControlOptions || {};
+                        const { posterUrl, isPoster } = fineControl.videoFineControlOptions;
+                        fineControl.videoFineControlOptions.poster = `${posterUrl || url}?poster=${isPoster || ''}`;
+                        delete fineControl.videoFineControlOptions.posterUrl;
+                        delete fineControl.videoFineControlOptions.isPoster;
+                        callback(url, fineControl.videoFineControlOptions);
+                    } else if (/image/i.test(file.type)) {
+                        // 如果上传的是图片
+                        callback(url, fineControl.imageFineControlOptions);
+                    } else {
+                        // 如果上传的是文件
+                        callback(url);
+                    }
+                } else {
+                    callback(url);
+                }
+            },
+            onError: (err) => {
+                console.log(err);
+            }
+        }
+        let req = upload(uploadOptions)
+        if (req && req.then) {
+            req.then(uploadOptions.onSuccess, uploadOptions.onError);
+        }
+    }, [])
 
     const editorAllConfig = useMemo(() => {
         engine.global = {
@@ -58,6 +110,7 @@ const FefferyMarkdownEditor = (props) => {
                 changeString2Pinyin: pinyin
             }
         }
+        let fileUploadOptions = uploadConfig.action ? { fileUpload: fileUpload } : {};
         return {
             ...engineOptions,
             ...editorOptions,
@@ -65,6 +118,7 @@ const FefferyMarkdownEditor = (props) => {
             ...fileTypeLimitMapOptions,
             ...previewerOptions,
             ...callbackOptions,
+            ...fileUploadOptions,
             drawioIframeUrl: drawioIframeUrl,
             theme: theme,
             isPreviewOnly: isPreviewOnly,
@@ -81,11 +135,6 @@ const FefferyMarkdownEditor = (props) => {
             id: containerId,
             value: value
         });
-
-        // 清理cherry实例
-        return () => {
-            cherryInstance.dispose();
-        };
     }, []);
 
     return (

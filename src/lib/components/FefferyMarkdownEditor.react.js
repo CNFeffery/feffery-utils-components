@@ -468,6 +468,104 @@ FefferyMarkdownEditor.propTypes = {
     }),
 
     /**
+     * 设置文件上传相关信息
+     */
+    uploadConfig: PropTypes.exact({
+        /**
+         * 设置上传的地址
+         */
+        action: PropTypes.string,
+        /**
+         * 设置上传的请求头部
+         */
+        headers: PropTypes.object,
+        /**
+         * 设置上传时附带的额外参数
+         */
+        data: PropTypes.object,
+        /**
+         * 设置是否支持发送cookie凭证信息，默认为false
+         */
+        withCredentials: PropTypes.bool,
+        /**
+         * 设置上传的文件字段名
+         */
+        filename: PropTypes.string,
+        /**
+         * 设置上传接口响应中url的层级，如响应结果格式为{data: {url: 'xxx'}}，则配置为'data.url'，默认为'data.url'
+         */
+        responseUrl: PropTypes.string
+    }),
+
+    /**
+     * 配置文件展示精细化控制，此功能只在配置了上传接口的情况下生效
+     */
+    fineControl: PropTypes.exact({
+        /**
+         * 是否启用
+         */
+        isOpen: PropTypes.bool,
+        /**
+         * 视频文件精细化控制选项
+         */
+        videoFineControlOptions: PropTypes.shape({
+            /**
+             * 视频文件的名称
+             */
+            name: PropTypes.string,
+            /**
+             * 是否启用视频文件封面，默认为false
+             */
+            isPoster: PropTypes.bool,
+            /**
+             * 自定义视频文件封面地址，如果不设置，则默认为视频文件地址
+             */
+            posterUrl: PropTypes.string,
+            /**
+             * 是否显示边框，默认false
+             */
+            isBorder: PropTypes.bool,
+            /**
+             * 是否显示阴影，默认false
+             */
+            isShadow: PropTypes.bool,
+            /**
+             * 是否显示圆角，默认false
+             */
+            isRadius: PropTypes.bool
+        }),
+        /**
+         * 图片文件精细化控制选项
+         */
+        imageFineControlOptions: PropTypes.shape({
+            /**
+             * 图片文件的名称
+             */
+            name: PropTypes.string,
+            /**
+             * 是否显示边框，默认false
+             */
+            isBorder: PropTypes.bool,
+            /**
+             * 是否显示阴影，默认false
+             */
+            isShadow: PropTypes.bool,
+            /**
+             * 是否显示圆角，默认false
+             */
+            isRadius: PropTypes.bool,
+            /**
+             * 图片的宽度，默认'100%'，可配置百分比，也可配置像素值
+             */
+            width: PropTypes.string,
+            /**
+             * 图片的高度，默认'auto'
+             */
+            height: PropTypes.string
+        }),
+    }),
+
+    /**
      * 预览区域配置
      */
     previewer: PropTypes.exact({
@@ -681,6 +779,29 @@ FefferyMarkdownEditor.defaultProps = {
         word: '.doc,.docx',
         pdf: '.pdf',
         file: '*',
+    },
+    uploadConfig: {
+        headers: {},
+        data: {},
+        withCredentials: false,
+        filename: 'file',
+        responseUrl: 'data.url',
+    },
+    fineControl: {
+        isOpen: false,
+        videoFineControlOptions: {
+            isPoster: false,
+            isBorder: false,
+            isShadow: false,
+            isRadius: false
+        },
+        imageFineControlOptions: {
+            isBorder: false,
+            isShadow: false,
+            isRadius: false,
+            width: '100%',
+            height: 'auto'
+        }
     },
     previewer: {
         dom: false,
