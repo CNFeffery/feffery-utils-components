@@ -45,7 +45,8 @@ async_resources = [
     'feffery_shortcut_panel',
     'feffery_grid',
     'feffery_auto_fit',
-    'feffery_rich_text_editor'
+    'feffery_rich_text_editor',
+    'feffery_markdown_editor'
 ]
 
 _js_dist = []

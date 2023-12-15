@@ -77,6 +77,19 @@ module.exports = (env, argv) => {
                     type: "javascript/auto"
                 },
                 {
+                    test: /cherry-markdown\.esm\.js$/,
+                    exclude: /node_modules\/(?!cherry-markdown)/,
+                    use: {
+                        loader: 'babel-loader',
+                        options: {
+                            plugins: [
+                                '@babel/plugin-transform-nullish-coalescing-operator',
+                                '@babel/plugin-transform-optional-chaining'
+                            ]
+                        }
+                    }
+                },
+                {
                     test: /\.(css|less)$/,
                     use: [
                         {
