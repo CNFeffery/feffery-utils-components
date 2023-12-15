@@ -33,6 +33,7 @@ const FefferyMarkdownEditor = (props) => {
         forceAppend,
         locale,
         autoScrollByHashAfterInit,
+        customSyntax,
         setProps,
         loading_state
     } = props;
@@ -65,7 +66,7 @@ const FefferyMarkdownEditor = (props) => {
                     if (/video/i.test(file.type)) {
                         fineControl.videoFineControlOptions = fineControl.videoFineControlOptions || {};
                         const { posterUrl, isPoster } = fineControl.videoFineControlOptions;
-                        fineControl.videoFineControlOptions.poster = `${posterUrl || url}?poster=${isPoster || ''}`;
+                        fineControl.videoFineControlOptions.poster = `${posterUrl}?poster=${isPoster || false}`;
                         callback(url, fineControl.videoFineControlOptions);
                     } else if (/image/i.test(file.type)) {
                         // 如果上传的是图片
@@ -89,14 +90,117 @@ const FefferyMarkdownEditor = (props) => {
     }, [])
 
     const editorAllConfig = useMemo(() => {
-        engine.global = {
-            ...engine.global,
+        let customEngine = engine;
+        let customSyntaxOptions = {};
+        if (customSyntax.length > 0) {
+            customSyntax.forEach(item => {
+                const { syntaxName, syntaxType, force, before, reg, result } = item;
+                let tmpCustomSyntaxObj = {};
+
+                if (syntaxType == 'inline') {
+                    let myInlineHook = Cherry.createSyntaxHook(syntaxName, Cherry.constants.HOOKS_TYPE_LIST.SEN, {
+                        makeHtml(str) {
+                            return str.replace(this.RULE.reg, function () {
+                                let filledResult = result;
+                                // 检查并替换 'arguments[0]' 占位符
+                                if (filledResult.includes('${arguments[0]}')) {
+                                    filledResult = filledResult.replace('${arguments[0]}', arguments[0]);
+                                }
+                                // 检查并替换 'arguments[1]' 占位符
+                                if (filledResult.includes('${arguments[1]}')) {
+                                    filledResult = filledResult.replace('${arguments[1]}', arguments[1]);
+                                }
+                                // 检查并替换 'arguments[2]' 占位符
+                                if (filledResult.includes('${arguments[2]}')) {
+                                    filledResult = filledResult.replace('${arguments[2]}', arguments[2]);
+                                }
+                                // 检查并替换 'arguments[3]' 占位符
+                                if (filledResult.includes('${arguments[3]}')) {
+                                    filledResult = filledResult.replace('${arguments[3]}', arguments[3]);
+                                }
+                                // 检查并替换 'arguments[4]' 占位符
+                                if (filledResult.includes('${arguments[4]}')) {
+                                    filledResult = filledResult.replace('${arguments[4]}', arguments[4]);
+                                }
+                                return filledResult;
+                            });
+                        },
+                        rule(str) {
+                            return { reg: new RegExp(reg, 'g') };
+                        },
+                    });
+                    tmpCustomSyntaxObj[syntaxName] = {
+                        syntaxClass: myInlineHook,
+                        force: force,
+                        before: before
+                    }
+                    Object.assign(customSyntaxOptions, tmpCustomSyntaxObj);
+                } else if (syntaxType == 'block') {
+                    let myBlockHook = Cherry.createSyntaxHook(syntaxName, Cherry.constants.HOOKS_TYPE_LIST.PAR, {
+                        needCache: true,
+                        makeHtml(str, sentenceMakeFunc) {
+                            const that = this;
+                            return str.replace(this.RULE.reg, function () {
+                                const lines = that.getLineCount(arguments[0]);
+                                const { sign, html } = sentenceMakeFunc(arguments[1]);
+                                let filledResult = result;
+                                // 检查并替换 'sign' 占位符
+                                if (filledResult.includes('${sign}')) {
+                                    filledResult = filledResult.replace('${sign}', sign);
+                                }
+                                // 检查并替换 'lines' 占位符
+                                if (filledResult.includes('${lines}')) {
+                                    filledResult = filledResult.replace('${lines}', lines);
+                                }
+                                // 检查并替换 'html' 占位符
+                                if (filledResult.includes('${html}')) {
+                                    filledResult = filledResult.replace('${html}', html);
+                                }
+                                // 检查并替换 'arguments[0]' 占位符
+                                if (filledResult.includes('${arguments[0]}')) {
+                                    filledResult = filledResult.replace('${arguments[0]}', arguments[0]);
+                                }
+                                // 检查并替换 'arguments[1]' 占位符
+                                if (filledResult.includes('${arguments[1]}')) {
+                                    filledResult = filledResult.replace('${arguments[1]}', arguments[1]);
+                                }
+                                // 检查并替换 'arguments[2]' 占位符
+                                if (filledResult.includes('${arguments[2]}')) {
+                                    filledResult = filledResult.replace('${arguments[2]}', arguments[2]);
+                                }
+                                // 检查并替换 'arguments[3]' 占位符
+                                if (filledResult.includes('${arguments[3]}')) {
+                                    filledResult = filledResult.replace('${arguments[3]}', arguments[3]);
+                                }
+                                // 检查并替换 'arguments[4]' 占位符
+                                if (filledResult.includes('${arguments[4]}')) {
+                                    filledResult = filledResult.replace('${arguments[4]}', arguments[4]);
+                                }
+                                return that.pushCache(filledResult, sign, lines);
+                            });
+                        },
+                        rule(str) {
+                            return { reg: new RegExp(reg, 'g') };
+                        },
+                    });
+                    tmpCustomSyntaxObj[syntaxName] = {
+                        syntaxClass: myBlockHook,
+                        force: force,
+                        before: before
+                    }
+                    Object.assign(customSyntaxOptions, tmpCustomSyntaxObj);
+                }
+            });
+        }
+        customEngine.global = {
+            ...customEngine.global,
             urlProcessor(url, srcType) {
                 console.log(`url-processor`, url, srcType);
                 return url;
             }
         }
-        let engineOptions = { engine: engine };
+        customEngine.customSyntax = customSyntaxOptions;
+        let engineOptions = { engine: customEngine };
         let editorOptions = editor ? { editor: editor } : {};
         let toolbarsOptions = toolbars ? { toolbars: toolbars } : {};
         let fileTypeLimitMapOptions = fileTypeLimitMap ? { fileTypeLimitMap: fileTypeLimitMap } : {};
@@ -113,6 +217,7 @@ const FefferyMarkdownEditor = (props) => {
             }
         }
         let fileUploadOptions = uploadConfig.action ? { fileUpload: fileUpload } : {};
+
         return {
             ...engineOptions,
             ...editorOptions,
@@ -129,7 +234,7 @@ const FefferyMarkdownEditor = (props) => {
             locale: locale,
             autoScrollByHashAfterInit: autoScrollByHashAfterInit
         }
-    }, [engine, editor, toolbars, drawioIframeUrl, fileTypeLimitMap, previewer, theme, isPreviewOnly, autoScrollByCursor, forceAppend, locale, autoScrollByHashAfterInit])
+    }, [engine, editor, toolbars, drawioIframeUrl, fileTypeLimitMap, previewer, theme, isPreviewOnly, autoScrollByCursor, forceAppend, locale, autoScrollByHashAfterInit, customSyntax])
 
     useEffect(() => {
         const cherryInstance = new Cherry({

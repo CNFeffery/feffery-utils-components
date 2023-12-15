@@ -21,6 +21,29 @@ Keyword arguments:
 - className (string; optional):
     css类名.
 
+- customSyntax (list of dicts; optional):
+    自定义语法.
+
+    `customSyntax` is a list of dicts with keys:
+
+    - before (string; optional):
+        定义该自定义语法在什么语法之前执行.
+
+    - force (boolean; optional):
+        是否用自定义的语法覆盖默认语法，默认为False.
+
+    - reg (string; optional):
+        自定义语法的正则表达式.
+
+    - result (string; optional):
+        自定义语法的渲染结果.
+
+    - syntaxName (string; optional):
+        自定义语法名称.
+
+    - syntaxType (a value equal to: 'inline', 'block'; optional):
+        自定义语法类型，'inline'表示行内语法，'block'表示段落语法.
+
 - drawioIframeUrl (string; default ''):
     打开draw.io编辑页的url，如果为空则drawio按钮失效.
 
@@ -472,10 +495,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyMarkdownEditor'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, html=Component.UNDEFINED, engine=Component.UNDEFINED, editor=Component.UNDEFINED, toolbars=Component.UNDEFINED, drawioIframeUrl=Component.UNDEFINED, fileTypeLimitMap=Component.UNDEFINED, uploadConfig=Component.UNDEFINED, fineControl=Component.UNDEFINED, previewer=Component.UNDEFINED, theme=Component.UNDEFINED, isPreviewOnly=Component.UNDEFINED, autoScrollByCursor=Component.UNDEFINED, forceAppend=Component.UNDEFINED, locale=Component.UNDEFINED, autoScrollByHashAfterInit=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'autoScrollByCursor', 'autoScrollByHashAfterInit', 'className', 'drawioIframeUrl', 'editor', 'engine', 'fileTypeLimitMap', 'fineControl', 'forceAppend', 'html', 'isPreviewOnly', 'loading_state', 'locale', 'previewer', 'style', 'theme', 'toolbars', 'uploadConfig', 'value']
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, html=Component.UNDEFINED, engine=Component.UNDEFINED, editor=Component.UNDEFINED, toolbars=Component.UNDEFINED, drawioIframeUrl=Component.UNDEFINED, fileTypeLimitMap=Component.UNDEFINED, uploadConfig=Component.UNDEFINED, fineControl=Component.UNDEFINED, previewer=Component.UNDEFINED, theme=Component.UNDEFINED, isPreviewOnly=Component.UNDEFINED, autoScrollByCursor=Component.UNDEFINED, forceAppend=Component.UNDEFINED, locale=Component.UNDEFINED, autoScrollByHashAfterInit=Component.UNDEFINED, customSyntax=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'autoScrollByCursor', 'autoScrollByHashAfterInit', 'className', 'customSyntax', 'drawioIframeUrl', 'editor', 'engine', 'fileTypeLimitMap', 'fineControl', 'forceAppend', 'html', 'isPreviewOnly', 'loading_state', 'locale', 'previewer', 'style', 'theme', 'toolbars', 'uploadConfig', 'value']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'autoScrollByCursor', 'autoScrollByHashAfterInit', 'className', 'drawioIframeUrl', 'editor', 'engine', 'fileTypeLimitMap', 'fineControl', 'forceAppend', 'html', 'isPreviewOnly', 'loading_state', 'locale', 'previewer', 'style', 'theme', 'toolbars', 'uploadConfig', 'value']
+        self.available_properties = ['id', 'autoScrollByCursor', 'autoScrollByHashAfterInit', 'className', 'customSyntax', 'drawioIframeUrl', 'editor', 'engine', 'fileTypeLimitMap', 'fineControl', 'forceAppend', 'html', 'isPreviewOnly', 'loading_state', 'locale', 'previewer', 'style', 'theme', 'toolbars', 'uploadConfig', 'value']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

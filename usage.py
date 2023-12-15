@@ -45,7 +45,7 @@ app.layout = html.Div(
                 'toolbarRight': ['fullScreen', '|'],
                 'sidebar': ['mobilePreview', 'theme', 'copy'],
             },
-            drawioIframeUrl='assets/drawio/drawio_demo.html',
+            # drawioIframeUrl='assets/drawio/drawio_demo.html',
             uploadConfig={
                 'action': '/upload/',
                 'headers': {
@@ -59,6 +59,24 @@ app.layout = html.Div(
                     'posterUrl': 'http://127.0.0.1:8050/get?filename=2dc5b01f-2bf5-4131-b883-30d384d7b3f1.png'
                 }
             },
+            customSyntax=[
+                {
+                    'syntaxName': 'importHook',
+                    'force': False,
+                    'before': 'fontEmphasis',
+                    'syntaxType': 'inline',
+                    'reg': '(\\*\\*\\*)([^\\*]+)\\1',
+                    'result': '<span style="color: red;"><strong>${arguments[2]}</strong></span>'
+                },
+                {
+                    'syntaxName': 'myBlock',
+                    'force': True,
+                    'before': 'blockquote',
+                    'syntaxType': 'block',
+                    'reg': '\\n\\+\\+(\\n[\\s\\S]+?\\n)\\+\\+\n',
+                    'result': '\n<div data-sign="${sign}" data-lines="${lines}" style="border: 1px solid;border-radius: 15px;background: gold;">${html}</div>\n'
+                },
+            ],
             style={
                 'height': '800px'
             }

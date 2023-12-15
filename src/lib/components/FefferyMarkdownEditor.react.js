@@ -130,7 +130,7 @@ FefferyMarkdownEditor.propTypes = {
     /**
          * 解析引擎配置
          */
-    engine: PropTypes.exact({
+    engine: PropTypes.shape({
         /**
          * 全局配置
          */
@@ -641,6 +641,38 @@ FefferyMarkdownEditor.propTypes = {
      * 编辑器初始化后是否检查 location.hash 尝试滚动到对应位置，默认为false
      */
     autoScrollByHashAfterInit: PropTypes.bool,
+
+    /**
+     * 自定义语法
+     */
+    customSyntax: PropTypes.arrayOf(
+        PropTypes.exact({
+            /**
+             * 自定义语法名称
+             */
+            syntaxName: PropTypes.string,
+            /**
+             * 是否用自定义的语法覆盖默认语法，默认为false
+             */
+            force: PropTypes.bool,
+            /**
+             * 定义该自定义语法在什么语法之前执行
+             */
+            before: PropTypes.string,
+            /**
+             * 自定义语法类型，'inline'表示行内语法，'block'表示段落语法
+             */
+            syntaxType: PropTypes.oneOf(['inline', 'block']),
+            /**
+             * 自定义语法的正则表达式
+             */
+            reg: PropTypes.string,
+            /**
+             * 自定义语法的渲染结果
+             */
+            result: PropTypes.string
+        })
+    ),
 
     loading_state: PropTypes.shape({
         /**
