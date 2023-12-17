@@ -3,10 +3,10 @@ import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
 import { isString } from 'lodash';
 import useCss from '../../hooks/useCss';
-import { propTypes, defaultProps } from '../../components/images/FefferyCropper.react';
+import { propTypes, defaultProps } from '../../components/images/FefferyImageCropper.react';
 
-// 定义自适应组件FefferyAutoFit
-const FefferyCropper = (props) => {
+// 定义图片裁剪组件FefferyImageCropper，api参数参考https://github.com/fengyuanchen/cropperjs?tab=readme-ov-file#options
+const FefferyImageCropper = (props) => {
     // 取得必要属性或参数
     const {
         id,
@@ -244,7 +244,7 @@ const FefferyCropper = (props) => {
     );
 }
 
-export default FefferyCropper;
+export default FefferyImageCropper;
 
-FefferyCropper.defaultProps = defaultProps;
-FefferyCropper.propTypes = propTypes;
+FefferyImageCropper.defaultProps = defaultProps;
+FefferyImageCropper.propTypes = propTypes;

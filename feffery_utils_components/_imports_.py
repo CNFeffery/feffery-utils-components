@@ -47,7 +47,7 @@ from .FefferyTimeout import FefferyTimeout
 from .FefferyTopProgress import FefferyTopProgress
 from .FefferyVirtualList import FefferyVirtualList
 from .FefferyWebSocket import FefferyWebSocket
-from .FefferyCropper import FefferyCropper
+from .FefferyImageCropper import FefferyImageCropper
 from .FefferyImageGallery import FefferyImageGallery
 from .FefferyDeviceDetect import FefferyDeviceDetect
 from .FefferyDocumentVisibility import FefferyDocumentVisibility
@@ -127,7 +127,7 @@ __all__ = [
     "FefferyTopProgress",
     "FefferyVirtualList",
     "FefferyWebSocket",
-    "FefferyCropper",
+    "FefferyImageCropper",
     "FefferyImageGallery",
     "FefferyDeviceDetect",
     "FefferyDocumentVisibility",

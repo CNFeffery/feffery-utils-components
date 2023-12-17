@@ -1,18 +1,18 @@
 import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
 
-const LazyFefferyCropper = React.lazy(() => import(/* webpackChunkName: "feffery_cropper" */ '../../fragments/images/FefferyCropper.react'));
+const LazyFefferyImageCropper = React.lazy(() => import(/* webpackChunkName: "feffery_image_cropper" */ '../../fragments/images/FefferyImageCropper.react'));
 
-const FefferyCropper = (props) => {
+const FefferyImageCropper = (props) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyCropper {...props} />
+            <LazyFefferyImageCropper {...props} />
         </Suspense>
     );
 }
 
 // 定义参数或属性
-FefferyCropper.propTypes = {
+FefferyImageCropper.propTypes = {
     /**
      * 组件id
      */
@@ -606,7 +606,7 @@ FefferyCropper.propTypes = {
 };
 
 // 设置默认参数
-FefferyCropper.defaultProps = {
+FefferyImageCropper.defaultProps = {
     alt: 'picture',
     viewMode: 0,
     dragMode: 'crop',
@@ -676,7 +676,7 @@ FefferyCropper.defaultProps = {
     }
 }
 
-export default FefferyCropper;
+export default FefferyImageCropper;
 
-export const propTypes = FefferyCropper.propTypes;
-export const defaultProps = FefferyCropper.defaultProps;
+export const propTypes = FefferyImageCropper.propTypes;
+export const defaultProps = FefferyImageCropper.defaultProps;

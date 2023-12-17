@@ -11,7 +11,7 @@ app.layout = html.Div(
     [
         html.Div(
             [
-                fuc.FefferyCropper(
+                fuc.FefferyImageCropper(
                     id='cropper',
                     src='https://raw.githubusercontent.com/roadmanfong/react-cropper/master/example/img/child.jpg',
                     aspectRatio=1,
