@@ -3,8 +3,8 @@
 from dash.development.base_component import Component, _explicitize_args
 
 
-class FefferyCropper(Component):
-    """A FefferyCropper component.
+class FefferyImageCropper(Component):
+    """A FefferyImageCropper component.
 
 
 Keyword arguments:
@@ -421,7 +421,7 @@ Keyword arguments:
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
-    _type = 'FefferyCropper'
+    _type = 'FefferyImageCropper'
     @_explicitize_args
     def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, key=Component.UNDEFINED, croppedImageData=Component.UNDEFINED, src=Component.UNDEFINED, alt=Component.UNDEFINED, crossOrigin=Component.UNDEFINED, viewMode=Component.UNDEFINED, dragMode=Component.UNDEFINED, initialAspectRatio=Component.UNDEFINED, aspectRatio=Component.UNDEFINED, data=Component.UNDEFINED, preview=Component.UNDEFINED, responsive=Component.UNDEFINED, restore=Component.UNDEFINED, checkCrossOrigin=Component.UNDEFINED, checkOrientation=Component.UNDEFINED, modal=Component.UNDEFINED, guides=Component.UNDEFINED, center=Component.UNDEFINED, highlight=Component.UNDEFINED, background=Component.UNDEFINED, autoCrop=Component.UNDEFINED, autoCropArea=Component.UNDEFINED, movable=Component.UNDEFINED, rotatable=Component.UNDEFINED, scalable=Component.UNDEFINED, zoomable=Component.UNDEFINED, zoomOnTouch=Component.UNDEFINED, zoomOnWheel=Component.UNDEFINED, wheelZoomRatio=Component.UNDEFINED, cropBoxMovable=Component.UNDEFINED, cropBoxResizable=Component.UNDEFINED, toggleDragModeOnDblclick=Component.UNDEFINED, minContainerWidth=Component.UNDEFINED, minContainerHeight=Component.UNDEFINED, minCanvasWidth=Component.UNDEFINED, minCanvasHeight=Component.UNDEFINED, minCropBoxWidth=Component.UNDEFINED, minCropBoxHeight=Component.UNDEFINED, reset=Component.UNDEFINED, clear=Component.UNDEFINED, replace=Component.UNDEFINED, enable=Component.UNDEFINED, disable=Component.UNDEFINED, destroy=Component.UNDEFINED, move=Component.UNDEFINED, moveTo=Component.UNDEFINED, zoom=Component.UNDEFINED, zoomTo=Component.UNDEFINED, rotate=Component.UNDEFINED, rotateTo=Component.UNDEFINED, scale=Component.UNDEFINED, scaleX=Component.UNDEFINED, scaleY=Component.UNDEFINED, outputData=Component.UNDEFINED, containerData=Component.UNDEFINED, imageData=Component.UNDEFINED, canvasData=Component.UNDEFINED, cropBoxData=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
         self._prop_names = ['id', 'alt', 'aspectRatio', 'autoCrop', 'autoCropArea', 'background', 'canvasData', 'center', 'checkCrossOrigin', 'checkOrientation', 'className', 'clear', 'containerData', 'cropBoxData', 'cropBoxMovable', 'cropBoxResizable', 'croppedImageData', 'crossOrigin', 'data', 'destroy', 'disable', 'dragMode', 'enable', 'guides', 'highlight', 'imageData', 'initialAspectRatio', 'key', 'loading_state', 'minCanvasHeight', 'minCanvasWidth', 'minContainerHeight', 'minContainerWidth', 'minCropBoxHeight', 'minCropBoxWidth', 'modal', 'movable', 'move', 'moveTo', 'outputData', 'preview', 'replace', 'reset', 'responsive', 'restore', 'rotatable', 'rotate', 'rotateTo', 'scalable', 'scale', 'scaleX', 'scaleY', 'src', 'style', 'toggleDragModeOnDblclick', 'viewMode', 'wheelZoomRatio', 'zoom', 'zoomOnTouch', 'zoomOnWheel', 'zoomTo', 'zoomable']
@@ -433,4 +433,4 @@ Keyword arguments:
         _locals.update(kwargs)  # For wildcard attrs and excess named props
         args = {k: _locals[k] for k in _explicit_args}
 
-        super(FefferyCropper, self).__init__(**args)
+        super(FefferyImageCropper, self).__init__(**args)

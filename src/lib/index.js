@@ -76,7 +76,7 @@ import FefferyAutoFit from "./components/resizable/FefferyAutoFit.react";
 import FefferyRichTextEditor from "./components/FefferyRichTextEditor.react";
 import FefferyImageGallery from "./components/images/FefferyImageGallery.react";
 import FefferyMarkdownEditor from "./components/FefferyMarkdownEditor.react";
-import FefferyCropper from "./components/images/FefferyCropper.react";
+import FefferyImageCropper from "./components/images/FefferyImageCropper.react";
 import './components/styles.css';
 
 // 自定义sessionStorage事件监听
@@ -178,5 +178,5 @@ export {
     FefferyRichTextEditor,
     FefferyImageGallery,
     FefferyMarkdownEditor,
-    FefferyCropper
+    FefferyImageCropper
 };

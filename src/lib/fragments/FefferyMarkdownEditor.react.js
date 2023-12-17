@@ -7,6 +7,8 @@ import upload from '../utils/upload';
 import MathJax from 'mathjax/es5/tex-svg';
 import katex from 'katex';
 import 'katex/dist/katex.css';
+import useCss from '../hooks/useCss';
+import { isString } from 'lodash';
 import { propTypes, defaultProps } from '../components/FefferyMarkdownEditor.react';
 import FefferyStyle from '../components/FefferyStyle.react';
 
@@ -17,6 +19,7 @@ const FefferyMarkdownEditor = (props) => {
         id,
         className,
         style,
+        key,
         value,
         html,
         engine,
@@ -251,7 +254,12 @@ const FefferyMarkdownEditor = (props) => {
     return (
         <div
             id={containerId}
-            className={className}
+            className={
+                isString(className) ?
+                    className :
+                    (className ? useCss(className) : undefined)
+            }
+            key={key}
             style={style}
         >
             <FefferyStyle

@@ -118,6 +118,11 @@ FefferyMarkdownEditor.propTypes = {
     style: PropTypes.object,
 
     /**
+     * 辅助刷新用唯一标识key值
+     */
+    key: PropTypes.string,
+
+    /**
      * 编辑器内容
      */
     value: PropTypes.string,

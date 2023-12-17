@@ -343,6 +343,9 @@ Keyword arguments:
 - isPreviewOnly (boolean; default False):
     预览页面是否需要绑定事件，默认为False.
 
+- key (string; optional):
+    辅助刷新用唯一标识key值.
+
 - loading_state (dict; optional)
 
     `loading_state` is a dict with keys:
@@ -495,10 +498,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyMarkdownEditor'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, value=Component.UNDEFINED, html=Component.UNDEFINED, engine=Component.UNDEFINED, editor=Component.UNDEFINED, toolbars=Component.UNDEFINED, drawioIframeUrl=Component.UNDEFINED, fileTypeLimitMap=Component.UNDEFINED, uploadConfig=Component.UNDEFINED, fineControl=Component.UNDEFINED, previewer=Component.UNDEFINED, theme=Component.UNDEFINED, isPreviewOnly=Component.UNDEFINED, autoScrollByCursor=Component.UNDEFINED, forceAppend=Component.UNDEFINED, locale=Component.UNDEFINED, autoScrollByHashAfterInit=Component.UNDEFINED, customSyntax=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'autoScrollByCursor', 'autoScrollByHashAfterInit', 'className', 'customSyntax', 'drawioIframeUrl', 'editor', 'engine', 'fileTypeLimitMap', 'fineControl', 'forceAppend', 'html', 'isPreviewOnly', 'loading_state', 'locale', 'previewer', 'style', 'theme', 'toolbars', 'uploadConfig', 'value']
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, key=Component.UNDEFINED, value=Component.UNDEFINED, html=Component.UNDEFINED, engine=Component.UNDEFINED, editor=Component.UNDEFINED, toolbars=Component.UNDEFINED, drawioIframeUrl=Component.UNDEFINED, fileTypeLimitMap=Component.UNDEFINED, uploadConfig=Component.UNDEFINED, fineControl=Component.UNDEFINED, previewer=Component.UNDEFINED, theme=Component.UNDEFINED, isPreviewOnly=Component.UNDEFINED, autoScrollByCursor=Component.UNDEFINED, forceAppend=Component.UNDEFINED, locale=Component.UNDEFINED, autoScrollByHashAfterInit=Component.UNDEFINED, customSyntax=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'autoScrollByCursor', 'autoScrollByHashAfterInit', 'className', 'customSyntax', 'drawioIframeUrl', 'editor', 'engine', 'fileTypeLimitMap', 'fineControl', 'forceAppend', 'html', 'isPreviewOnly', 'key', 'loading_state', 'locale', 'previewer', 'style', 'theme', 'toolbars', 'uploadConfig', 'value']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'autoScrollByCursor', 'autoScrollByHashAfterInit', 'className', 'customSyntax', 'drawioIframeUrl', 'editor', 'engine', 'fileTypeLimitMap', 'fineControl', 'forceAppend', 'html', 'isPreviewOnly', 'loading_state', 'locale', 'previewer', 'style', 'theme', 'toolbars', 'uploadConfig', 'value']
+        self.available_properties = ['id', 'autoScrollByCursor', 'autoScrollByHashAfterInit', 'className', 'customSyntax', 'drawioIframeUrl', 'editor', 'engine', 'fileTypeLimitMap', 'fineControl', 'forceAppend', 'html', 'isPreviewOnly', 'key', 'loading_state', 'locale', 'previewer', 'style', 'theme', 'toolbars', 'uploadConfig', 'value']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
