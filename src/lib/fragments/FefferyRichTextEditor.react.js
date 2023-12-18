@@ -36,8 +36,8 @@ const FefferyRichTextEditor = (props) => {
     // editor 实例
     const [editor, setEditor] = useState(null)
 
-    uploadImage.maxFileSize = uploadImage.maxFileSize ? uploadImage.maxFileSize * 1024 * 1024 : 2 * 1024 * 1024;
-    uploadVideo.maxFileSize = uploadVideo.maxFileSize ? uploadVideo.maxFileSize * 1024 * 1024 : 5 * 1024 * 1024;
+    uploadImage.maxFileSize = uploadImage.maxFileSize ? uploadImage.maxFileSize : 2 * 1024 * 1024;
+    uploadVideo.maxFileSize = uploadVideo.maxFileSize ? uploadVideo.maxFileSize : 10 * 1024 * 1024;
 
     // 当达到maxLength限制时，触发该回调函数
     editorConfig.onMaxLength = function (editor) {
@@ -73,7 +73,7 @@ const FefferyRichTextEditor = (props) => {
                 locale == 'zh-CN' ? `${file.name}上传成功！` : `${file.name} upload successful`,
                 { ...successMessage }
             )
-            console.log(`${file.name}上传成功`, res)
+            // console.log(`${file.name}上传成功`, res)
         },
 
         // 单个文件上传失败
@@ -82,7 +82,7 @@ const FefferyRichTextEditor = (props) => {
                 locale == 'zh-CN' ? `${file.name}上传失败！\n${res.message}` : `${file.name} upload failed.\n${res.message}`,
                 { ...errorMessage }
             )
-            console.log(`${file.name}上传失败`, res)
+            // console.log(`${file.name}上传失败`, res)
         },
 
         // 上传错误，或者触发 timeout 超时
@@ -91,7 +91,7 @@ const FefferyRichTextEditor = (props) => {
                 locale == 'zh-CN' ? `${file.name}上传出错！\n${err}\n${res.message}` : `${file.name} upload error.\n${err}\n${res.message}`,
                 { ...errorMessage }
             )
-            console.log(`${file.name}上传出错`, err, res)
+            // console.log(`${file.name}上传出错`, err, res)
         },
     }
 
@@ -120,7 +120,7 @@ const FefferyRichTextEditor = (props) => {
                 locale == 'zh-CN' ? `${file.name}上传成功！` : `${file.name} upload successful`,
                 { ...successMessage }
             )
-            console.log(`${file.name}上传成功`, res)
+            // console.log(`${file.name}上传成功`, res)
         },
 
         // 单个文件上传失败
@@ -129,7 +129,7 @@ const FefferyRichTextEditor = (props) => {
                 locale == 'zh-CN' ? `${file.name}上传失败！\n${res.message}` : `${file.name} upload failed.\n${res.message}`,
                 { ...errorMessage }
             )
-            console.log(`${file.name}上传失败`, res)
+            // console.log(`${file.name}上传失败`, res)
         },
 
         // 上传错误，或者触发 timeout 超时
@@ -138,7 +138,7 @@ const FefferyRichTextEditor = (props) => {
                 locale == 'zh-CN' ? `${file.name}上传出错！\n${err}\n${res.message}` : `${file.name} upload error.\n${err}\n${res.message}`,
                 { ...errorMessage }
             )
-            console.log(`${file.name}上传出错`, err, res)
+            // console.log(`${file.name}上传出错`, err, res)
         },
     }
 

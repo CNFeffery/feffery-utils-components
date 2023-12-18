@@ -312,7 +312,7 @@ Keyword arguments:
 - toolbarStyle (dict; optional):
     设置工具栏的样式.
 
-- uploadImage (dict; default {    fieldName: 'wangeditor-uploaded-image',    maxFileSize: 2,    maxNumberOfFiles: 100,    allowedFileTypes: ['image/*'],    metaWithUrl: False,    withCredentials: False,    timeout: 10,    base64LimitSize: 0}):
+- uploadImage (dict; default {    fieldName: 'wangeditor-uploaded-image',    maxFileSize: 2 * 1024 * 1024,    maxNumberOfFiles: 100,    allowedFileTypes: ['image/*'],    metaWithUrl: False,    withCredentials: False,    timeout: 10,    base64LimitSize: 0}):
     配置菜单图片上传.
 
     `uploadImage` is a dict with keys:
@@ -330,7 +330,7 @@ Keyword arguments:
         配置自定义增加 http  header.
 
     - maxFileSize (number; optional):
-        配置单个文件的最大体积限制，默认为2M.
+        配置单个文件的最大体积限制，默认为2MB，单位为B.
 
     - maxNumberOfFiles (number; optional):
         配置最多可上传几个文件，默认为100.
@@ -356,7 +356,7 @@ Keyword arguments:
     - withCredentials (boolean; optional):
         配置跨域是否传递cookie ，默认为False.
 
-- uploadVideo (dict; default {    fieldName: 'wangeditor-uploaded-video',    maxFileSize: 10,    maxNumberOfFiles: 5,    allowedFileTypes: ['video/*'],    metaWithUrl: False,    withCredentials: False,    timeout: 10}):
+- uploadVideo (dict; default {    fieldName: 'wangeditor-uploaded-video',    maxFileSize: 10 * 1024 * 1024,    maxNumberOfFiles: 5,    allowedFileTypes: ['video/*'],    metaWithUrl: False,    withCredentials: False,    timeout: 10}):
     配置菜单视频上传.
 
     `uploadVideo` is a dict with keys:
@@ -371,7 +371,7 @@ Keyword arguments:
         配置自定义增加 http  header.
 
     - maxFileSize (number; optional):
-        配置单个文件的最大体积限制，默认为10M.
+        配置单个文件的最大体积限制，默认为10MB，单位为B.
 
     - maxNumberOfFiles (number; optional):
         配置最多可上传几个文件，默认为5.
