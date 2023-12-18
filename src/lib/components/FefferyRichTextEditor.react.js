@@ -354,8 +354,8 @@ FefferyRichTextEditor.propTypes = {
     }),
 
     /**
-             * 配置菜单图片上传
-             */
+     * 配置菜单图片上传
+     */
     uploadImage: PropTypes.shape({
         /**
          * 配置上传的服务端地址，
@@ -381,7 +381,7 @@ FefferyRichTextEditor.propTypes = {
         fieldName: PropTypes.string,
 
         /**
-         * 配置单个文件的最大体积限制，默认为2M
+         * 配置单个文件的最大体积限制，默认为2MB，单位为B
          */
         maxFileSize: PropTypes.number,
 
@@ -453,7 +453,7 @@ FefferyRichTextEditor.propTypes = {
         fieldName: PropTypes.string,
 
         /**
-         * 配置单个文件的最大体积限制，默认为10M
+         * 配置单个文件的最大体积限制，默认为10MB，单位为B
          */
         maxFileSize: PropTypes.number,
 
@@ -593,7 +593,7 @@ FefferyRichTextEditor.defaultProps = {
     },
     uploadImage: {
         fieldName: 'wangeditor-uploaded-image',
-        maxFileSize: 2,
+        maxFileSize: 2 * 1024 * 1024,
         maxNumberOfFiles: 100,
         allowedFileTypes: ['image/*'],
         metaWithUrl: false,
@@ -603,7 +603,7 @@ FefferyRichTextEditor.defaultProps = {
     },
     uploadVideo: {
         fieldName: 'wangeditor-uploaded-video',
-        maxFileSize: 10,
+        maxFileSize: 10 * 1024 * 1024,
         maxNumberOfFiles: 5,
         allowedFileTypes: ['video/*'],
         metaWithUrl: false,
