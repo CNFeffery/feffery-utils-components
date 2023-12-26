@@ -31,6 +31,7 @@ from .FefferyImagePaste import FefferyImagePaste
 from .FefferyJsonViewer import FefferyJsonViewer
 from .FefferyLazyLoad import FefferyLazyLoad
 from .FefferyMarkdownEditor import FefferyMarkdownEditor
+from .FefferyPhotoSphereViewer import FefferyPhotoSphereViewer
 from .FefferyQRCode import FefferyQRCode
 from .FefferyRawHTML import FefferyRawHTML
 from .FefferyReload import FefferyReload
@@ -111,6 +112,7 @@ __all__ = [
     "FefferyJsonViewer",
     "FefferyLazyLoad",
     "FefferyMarkdownEditor",
+    "FefferyPhotoSphereViewer",
     "FefferyQRCode",
     "FefferyRawHTML",
     "FefferyReload",

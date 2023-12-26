@@ -40,14 +40,15 @@ async_resources = [
     'feffery_sortable_list',
     'feffery_local_large_storage',
     'feffery_color_pickers',
-    'feffery_fancy_button', 
+    'feffery_fancy_button',
     'feffery_extra_spinner',
     'feffery_shortcut_panel',
     'feffery_grid',
     'feffery_auto_fit',
     'feffery_rich_text_editor',
     'feffery_markdown_editor',
-    'feffery_image_cropper'
+    'feffery_image_cropper',
+    'feffery_photo_sphere_viewer'
 ]
 
 _js_dist = []
