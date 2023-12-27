@@ -10,6 +10,15 @@ const FefferyPhotoSphereViewer = (props) => {
         width,
         height,
         littlePlanet,
+        containerClass,
+        navbar,
+        caption,
+        loadingImg,
+        loadingTxt,
+        mousewheel,
+        mousemove,
+        moveSpeed,
+        zoomSpeed,
         setProps,
         loading_state
     } = props;
@@ -22,6 +31,15 @@ const FefferyPhotoSphereViewer = (props) => {
             width={width}
             height={height}
             littlePlanet={littlePlanet}
+            containerClass={containerClass}
+            navbar={navbar}
+            caption={caption}
+            loadingImg={loadingImg}
+            loadingTxt={loadingTxt}
+            mousewheel={mousewheel}
+            mousemove={mousemove}
+            moveSpeed={moveSpeed}
+            zoomSpeed={zoomSpeed}
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             } />
