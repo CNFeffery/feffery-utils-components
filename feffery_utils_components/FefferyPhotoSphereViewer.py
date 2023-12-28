@@ -58,8 +58,8 @@ Keyword arguments:
 - moveSpeed (number; default 1):
     设置鼠标平移速度  默认：1.
 
-- navbar (list of a value equal to: 'zoom', 'move', 'download', 'caption', 'fullscreen's; default ['caption']):
-    配置导航栏中需要显示的功能项及顺序
+- navbar (list of a value equal to: 'zoom', 'move', 'download', 'caption', 'fullscreen's | boolean; default ['caption']):
+    配置导航栏中需要显示的功能项及顺序，设置为False时将隐藏导航栏
     可选的有'zoom'、'move'、'download'、'caption'、'fullscreen'
     默认：['caption'].
 

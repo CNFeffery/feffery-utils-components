@@ -50,12 +50,17 @@ FefferyPhotoSphereViewer.propTypes = {
     containerClass: PropTypes.string,
 
     /**
-     * 配置导航栏中需要显示的功能项及顺序
+     * 配置导航栏中需要显示的功能项及顺序，设置为false时将隐藏导航栏
      * 可选的有'zoom'、'move'、'download'、'caption'、'fullscreen'
      * 默认：['caption']
      */
-    navbar: PropTypes.arrayOf(
-        PropTypes.oneOf(['zoom', 'move', 'download', 'caption', 'fullscreen'])
+    navbar: PropTypes.oneOfType(
+        [
+            PropTypes.arrayOf(
+                PropTypes.oneOf(['zoom', 'move', 'download', 'caption', 'fullscreen'])
+            ),
+            PropTypes.bool
+        ]
     ),
 
     /**
