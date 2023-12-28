@@ -7,11 +7,13 @@ app = dash.Dash(__name__)
 app.layout = html.Div(
     [
         fuc.FefferyPhotoSphereViewer(
-            src='https://uploads.codesandbox.io/uploads/user/01c56c10-96fe-4c29-835d-116aac7b5710/MVb7-Test_Pano.jpg',
+            # src='https://uploads.codesandbox.io/uploads/user/01c56c10-96fe-4c29-835d-116aac7b5710/MVb7-Test_Pano.jpg',
+            src='https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg',
             width='100%',
             height='100vh',
-            littlePlanet=True,
+            # littlePlanet=True,
             **dict(
+                fisheye=False,
                 caption='导航栏标题测试',
                 navbar=[
                     'zoom',

@@ -98,6 +98,12 @@ FefferyPhotoSphereViewer.propTypes = {
     zoomSpeed: PropTypes.number,
 
     /**
+     * 是否开启鱼眼模式
+     * 默认：false
+     */
+    fisheye: PropTypes.bool,
+
+    /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
@@ -126,7 +132,8 @@ FefferyPhotoSphereViewer.defaultProps = {
     mousewheel: true,
     mousemove: true,
     moveSpeed: 1,
-    zoomSpeed: 1
+    zoomSpeed: 1,
+    fisheye: false
 }
 
 export default FefferyPhotoSphereViewer;
