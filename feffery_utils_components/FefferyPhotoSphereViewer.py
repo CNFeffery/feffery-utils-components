@@ -18,6 +18,9 @@ Keyword arguments:
 - containerClass (string; optional):
     设置查看器所在容器css类名.
 
+- downloadUrl (string; optional):
+    手动设置下载目标文件地址.
+
 - fisheye (boolean; default False):
     是否开启鱼眼模式  默认：False.
 
@@ -76,10 +79,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyPhotoSphereViewer'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, src=Component.UNDEFINED, width=Component.UNDEFINED, height=Component.UNDEFINED, littlePlanet=Component.UNDEFINED, containerClass=Component.UNDEFINED, navbar=Component.UNDEFINED, caption=Component.UNDEFINED, loadingImg=Component.UNDEFINED, loadingTxt=Component.UNDEFINED, mousewheel=Component.UNDEFINED, mousemove=Component.UNDEFINED, moveSpeed=Component.UNDEFINED, zoomSpeed=Component.UNDEFINED, fisheye=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'caption', 'containerClass', 'fisheye', 'height', 'key', 'littlePlanet', 'loadingImg', 'loadingTxt', 'loading_state', 'mousemove', 'mousewheel', 'moveSpeed', 'navbar', 'src', 'width', 'zoomSpeed']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, src=Component.UNDEFINED, width=Component.UNDEFINED, height=Component.UNDEFINED, littlePlanet=Component.UNDEFINED, containerClass=Component.UNDEFINED, navbar=Component.UNDEFINED, caption=Component.UNDEFINED, downloadUrl=Component.UNDEFINED, loadingImg=Component.UNDEFINED, loadingTxt=Component.UNDEFINED, mousewheel=Component.UNDEFINED, mousemove=Component.UNDEFINED, moveSpeed=Component.UNDEFINED, zoomSpeed=Component.UNDEFINED, fisheye=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'caption', 'containerClass', 'downloadUrl', 'fisheye', 'height', 'key', 'littlePlanet', 'loadingImg', 'loadingTxt', 'loading_state', 'mousemove', 'mousewheel', 'moveSpeed', 'navbar', 'src', 'width', 'zoomSpeed']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'caption', 'containerClass', 'fisheye', 'height', 'key', 'littlePlanet', 'loadingImg', 'loadingTxt', 'loading_state', 'mousemove', 'mousewheel', 'moveSpeed', 'navbar', 'src', 'width', 'zoomSpeed']
+        self.available_properties = ['id', 'caption', 'containerClass', 'downloadUrl', 'fisheye', 'height', 'key', 'littlePlanet', 'loadingImg', 'loadingTxt', 'loading_state', 'mousemove', 'mousewheel', 'moveSpeed', 'navbar', 'src', 'width', 'zoomSpeed']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

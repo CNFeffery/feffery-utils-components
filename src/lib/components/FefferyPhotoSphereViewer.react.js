@@ -69,6 +69,11 @@ FefferyPhotoSphereViewer.propTypes = {
     caption: PropTypes.string,
 
     /**
+     * 手动设置下载目标文件地址
+     */
+    downloadUrl: PropTypes.string,
+
+    /**
      * 自定义载入阶段过场图片地址
      */
     loadingImg: PropTypes.string,

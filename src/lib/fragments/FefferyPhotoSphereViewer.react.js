@@ -13,6 +13,7 @@ const FefferyPhotoSphereViewer = (props) => {
         containerClass,
         navbar,
         caption,
+        downloadUrl,
         loadingImg,
         loadingTxt,
         mousewheel,
@@ -35,6 +36,7 @@ const FefferyPhotoSphereViewer = (props) => {
             containerClass={containerClass}
             navbar={navbar}
             caption={caption}
+            downloadUrl={downloadUrl}
             loadingImg={loadingImg}
             loadingTxt={loadingTxt}
             mousewheel={mousewheel}
