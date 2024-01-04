@@ -31,6 +31,7 @@ from .FefferyImagePaste import FefferyImagePaste as ImagePaste
 from .FefferyJsonViewer import FefferyJsonViewer as JsonViewer
 from .FefferyLazyLoad import FefferyLazyLoad as LazyLoad
 from .FefferyMarkdownEditor import FefferyMarkdownEditor as MarkdownEditor
+from .FefferyPhotoSphereViewer import FefferyPhotoSphereViewer as PhotoSphereViewer
 from .FefferyQRCode import FefferyQRCode as QRCode
 from .FefferyRawHTML import FefferyRawHTML as RawHTML
 from .FefferyReload import FefferyReload as Reload
@@ -64,6 +65,7 @@ from .FefferyMousePosition import FefferyMousePosition as MousePosition
 from .FefferyResponsive import FefferyResponsive as Responsive
 from .FefferyTextSelection import FefferyTextSelection as TextSelection
 from .FefferyWindowSize import FefferyWindowSize as WindowSize
+from .FefferyExcelPreview import FefferyExcelPreview as ExcelPreview
 from .FefferyAPlayer import FefferyAPlayer as APlayer
 from .FefferyDPlayer import FefferyDPlayer as DPlayer
 from .FefferyMusicPlayer import FefferyMusicPlayer as MusicPlayer
@@ -111,6 +113,7 @@ __all__ = [
     "JsonViewer",
     "LazyLoad",
     "MarkdownEditor",
+    "PhotoSphereViewer",
     "QRCode",
     "RawHTML",
     "Reload",
@@ -144,6 +147,7 @@ __all__ = [
     "Responsive",
     "TextSelection",
     "WindowSize",
+    "ExcelPreview",
     "APlayer",
     "DPlayer",
     "MusicPlayer",
