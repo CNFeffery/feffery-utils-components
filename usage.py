@@ -8,6 +8,7 @@ app.layout = html.Div(
     [
         fuc.FefferyExcelPreview(
             src='https://501351981.github.io/vue-office/examples/dist/static/test-files/test.xlsx',
+            minColLength=0,
             style={
                 'height': '100vh'
             }

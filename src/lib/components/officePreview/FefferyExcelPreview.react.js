@@ -33,6 +33,11 @@ FefferyExcelPreview.propTypes = {
      */
     src: PropTypes.string.isRequired,
 
+    /**
+     * 至少渲染的列数，当设置为0时会自动根据数据列数进行渲染
+     */
+    minColLength: PropTypes.number,
+
     loading_state: PropTypes.shape({
         /**
          * Determines if the component is loading or not

@@ -13,6 +13,7 @@ const FefferyExcelPreview = (props) => {
         style,
         className,
         src,
+        minColLength,
         setProps,
         loading_state
     } = props;
@@ -24,7 +25,12 @@ const FefferyExcelPreview = (props) => {
             if (!containerRef.current) return;
 
             // 挂载到指定目标容器
-            const excelPreviewer = jsPreviewExcel.init(containerRef.current);
+            const excelPreviewer = jsPreviewExcel.init(
+                containerRef.current,
+                {
+                    minColLength
+                }
+            );
 
             // 传递要预览的文件地址即可
             excelPreviewer.preview(src).then(res => {
