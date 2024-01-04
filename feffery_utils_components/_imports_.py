@@ -65,6 +65,7 @@ from .FefferyMousePosition import FefferyMousePosition
 from .FefferyResponsive import FefferyResponsive
 from .FefferyTextSelection import FefferyTextSelection
 from .FefferyWindowSize import FefferyWindowSize
+from .FefferyExcelPreview import FefferyExcelPreview
 from .FefferyAPlayer import FefferyAPlayer
 from .FefferyDPlayer import FefferyDPlayer
 from .FefferyMusicPlayer import FefferyMusicPlayer
@@ -146,6 +147,7 @@ __all__ = [
     "FefferyResponsive",
     "FefferyTextSelection",
     "FefferyWindowSize",
+    "FefferyExcelPreview",
     "FefferyAPlayer",
     "FefferyDPlayer",
     "FefferyMusicPlayer",

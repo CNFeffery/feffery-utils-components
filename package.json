@@ -1,6 +1,6 @@
 {
   "name": "feffery_utils_components",
-  "version": "0.2.0-b13",
+  "version": "0.2.0-b14",
   "description": "Build more utility components for Plotly Dash.",
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "@emoji-mart/data": "^1.1.2",
     "@emoji-mart/react": "^1.1.1",
     "@formkit/auto-animate": "1.0.0-beta.5",
+    "@js-preview/excel": "^1.6.0",
     "@uiw/color-convert": "^1.1.0",
     "@uiw/react-color-wheel": "^1.1.0",
     "@wangeditor/editor": "^5.1.23",

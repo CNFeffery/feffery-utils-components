@@ -48,7 +48,8 @@ async_resources = [
     'feffery_rich_text_editor',
     'feffery_markdown_editor',
     'feffery_image_cropper',
-    'feffery_photo_sphere_viewer'
+    'feffery_photo_sphere_viewer',
+    'feffery_excel_preview'
 ]
 
 _js_dist = []
