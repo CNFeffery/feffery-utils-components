@@ -6,9 +6,8 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyExcelPreview(
-            src='https://501351981.github.io/vue-office/examples/dist/static/test-files/test.xlsx',
-            minColLength=0,
+        fuc.FefferyWordPreview(
+            src='https://501351981.github.io/vue-office/examples/dist/static/test-files/test.docx',
             style={
                 'height': '100vh'
             }

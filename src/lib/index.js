@@ -79,6 +79,7 @@ import FefferyMarkdownEditor from "./components/FefferyMarkdownEditor.react";
 import FefferyImageCropper from "./components/images/FefferyImageCropper.react";
 import FefferyPhotoSphereViewer from "./components/FefferyPhotoSphereViewer.react";
 import FefferyExcelPreview from "./components/officePreview/FefferyExcelPreview.react";
+import FefferyWordPreview from "./components/officePreview/FefferyWordPreview.react";
 import './components/styles.css';
 
 // 自定义sessionStorage事件监听
@@ -182,5 +183,6 @@ export {
     FefferyMarkdownEditor,
     FefferyImageCropper,
     FefferyPhotoSphereViewer,
-    FefferyExcelPreview
+    FefferyExcelPreview,
+    FefferyWordPreview
 };
