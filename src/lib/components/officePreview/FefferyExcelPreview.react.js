@@ -38,6 +38,21 @@ FefferyExcelPreview.propTypes = {
      */
     minColLength: PropTypes.number,
 
+    /**
+     * 至少渲染的行数，当设置为0时会自动根据数据行数进行渲染
+     */
+    minRowLength: PropTypes.number,
+
+    /**
+     * 默认列宽的基础上额外增加的像素列宽
+     */
+    widthOffset: PropTypes.number,
+
+    /**
+     * 默认行高的基础上额外增加的像素行高
+     */
+    heightOffset: PropTypes.number,
+
     loading_state: PropTypes.shape({
         /**
          * Determines if the component is loading or not

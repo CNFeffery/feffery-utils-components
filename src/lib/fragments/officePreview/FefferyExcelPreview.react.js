@@ -14,6 +14,9 @@ const FefferyExcelPreview = (props) => {
         className,
         src,
         minColLength,
+        minRowLength,
+        widthOffset,
+        heightOffset,
         setProps,
         loading_state
     } = props;
@@ -28,7 +31,10 @@ const FefferyExcelPreview = (props) => {
             const excelPreviewer = jsPreviewExcel.init(
                 containerRef.current,
                 {
-                    minColLength
+                    minColLength,
+                    minRowLength,
+                    widthOffset,
+                    heightOffset
                 }
             );
 

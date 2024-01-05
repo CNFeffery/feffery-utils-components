@@ -15,6 +15,9 @@ Keyword arguments:
 - className (string; optional):
     css类名.
 
+- heightOffset (number; optional):
+    默认行高的基础上额外增加的像素行高.
+
 - loading_state (dict; optional)
 
     `loading_state` is a dict with keys:
@@ -31,20 +34,26 @@ Keyword arguments:
 - minColLength (number; optional):
     至少渲染的列数，当设置为0时会自动根据数据列数进行渲染.
 
+- minRowLength (number; optional):
+    至少渲染的行数，当设置为0时会自动根据数据行数进行渲染.
+
 - src (string; required):
     必填，设置目标excel文件资源地址.
 
 - style (dict; optional):
-    css样式."""
+    css样式.
+
+- widthOffset (number; optional):
+    默认列宽的基础上额外增加的像素列宽."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyExcelPreview'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, src=Component.REQUIRED, minColLength=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'loading_state', 'minColLength', 'src', 'style']
+    def __init__(self, id=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, src=Component.REQUIRED, minColLength=Component.UNDEFINED, minRowLength=Component.UNDEFINED, widthOffset=Component.UNDEFINED, heightOffset=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'className', 'heightOffset', 'loading_state', 'minColLength', 'minRowLength', 'src', 'style', 'widthOffset']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'loading_state', 'minColLength', 'src', 'style']
+        self.available_properties = ['id', 'className', 'heightOffset', 'loading_state', 'minColLength', 'minRowLength', 'src', 'style', 'widthOffset']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

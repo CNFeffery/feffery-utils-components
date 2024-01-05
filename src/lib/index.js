@@ -75,7 +75,7 @@ import FefferyEmojiPicker from "./components/FefferyEmojiPicker.react";
 import FefferyAutoFit from "./components/resizable/FefferyAutoFit.react";
 import FefferyRichTextEditor from "./components/FefferyRichTextEditor.react";
 import FefferyImageGallery from "./components/images/FefferyImageGallery.react";
-import FefferyMarkdownEditor from "./components/FefferyMarkdownEditor.react";
+// import FefferyMarkdownEditor from "./components/FefferyMarkdownEditor.react";
 import FefferyImageCropper from "./components/images/FefferyImageCropper.react";
 import FefferyPhotoSphereViewer from "./components/FefferyPhotoSphereViewer.react";
 import FefferyExcelPreview from "./components/officePreview/FefferyExcelPreview.react";
@@ -180,7 +180,7 @@ export {
     FefferyAutoFit,
     FefferyRichTextEditor,
     FefferyImageGallery,
-    FefferyMarkdownEditor,
+    // FefferyMarkdownEditor,
     FefferyImageCropper,
     FefferyPhotoSphereViewer,
     FefferyExcelPreview,
