@@ -38,6 +38,7 @@ from .FefferyReload import FefferyReload
 from .FefferyRichTextEditor import FefferyRichTextEditor
 from .FefferyScroll import FefferyScroll
 from .FefferyScrollbars import FefferyScrollbars
+from .FefferySeamlessScroll import FefferySeamlessScroll
 from .FefferySetTitle import FefferySetTitle
 from .FefferyShadowDom import FefferyShadowDom
 from .FefferyShortcutPanel import FefferyShortcutPanel
@@ -121,6 +122,7 @@ __all__ = [
     "FefferyRichTextEditor",
     "FefferyScroll",
     "FefferyScrollbars",
+    "FefferySeamlessScroll",
     "FefferySetTitle",
     "FefferyShadowDom",
     "FefferyShortcutPanel",
