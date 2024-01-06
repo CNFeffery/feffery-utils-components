@@ -40,6 +40,7 @@
     "autofit.js": "^3.0.7",
     "byte-guide": "^1.0.7",
     "cherry-markdown": "^0.8.31",
+    "comutils": "^1.1.19",
     "dashjs": "4.7.2",
     "emoji-mart": "^5.5.2",
     "flv.js": "1.6.2",

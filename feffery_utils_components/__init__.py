@@ -51,7 +51,8 @@ async_resources = [
     'feffery_image_cropper',
     'feffery_photo_sphere_viewer',
     'feffery_excel_preview',
-    'feffery_word_preview'
+    'feffery_word_preview',
+    'feffery_seamless_scroll'
 ]
 
 _js_dist = []
