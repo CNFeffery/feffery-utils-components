@@ -65,6 +65,13 @@ module.exports = (env, argv) => {
                     use: ["url-loader"],
                 },
                 {
+                    test: /\.(woff|ttf)$/,
+                    exclude: /node_modules\/katex\/dist\/fonts/,
+                    use: {
+                        loader: 'ignore-loader'
+                    }
+                },
+                {
                     test: /\.jsx?$/,
                     exclude: /node_modules/,
                     use: {
@@ -77,15 +84,12 @@ module.exports = (env, argv) => {
                     type: "javascript/auto"
                 },
                 {
-                    test: /cherry-markdown\.esm\.js$/,
-                    exclude: /node_modules\/(?!cherry-markdown)/,
+                    test: /mermaid.*\.js$/,
+                    include: path.resolve(__dirname, './node_modules/mermaid/dist'),
                     use: {
                         loader: 'babel-loader',
                         options: {
-                            plugins: [
-                                '@babel/plugin-transform-nullish-coalescing-operator',
-                                '@babel/plugin-transform-optional-chaining'
-                            ]
+                            "presets": ["@babel/preset-env"]
                         }
                     }
                 },

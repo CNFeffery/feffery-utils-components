@@ -793,7 +793,6 @@ FefferyMarkdownEditor.defaultProps = {
             {
                 insert: ['image', 'audio', 'video', 'link', 'hr', 'br', 'code', 'formula', 'toc', 'table', 'line-table', 'bar-table', 'pdf', 'word']
             },
-            'graph',
             'settings',
         ],
         toolbarRight: [],
