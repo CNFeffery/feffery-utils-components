@@ -52,9 +52,7 @@ async_resources = [
     'feffery_photo_sphere_viewer',
     'feffery_excel_preview',
     'feffery_word_preview',
-    'feffery_seamless_scroll',
-    'cherry_mermaid_plugin',
-    'mermaid'
+    'feffery_seamless_scroll'
 ]
 
 _js_dist = []

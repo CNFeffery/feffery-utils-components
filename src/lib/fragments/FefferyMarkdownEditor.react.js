@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useCallback } from 'react';
 import "cherry-markdown/dist/cherry-markdown.css";
-// import Cherry from 'cherry-markdown';
 import Cherry from 'cherry-markdown/dist/cherry-markdown.core';
+import mermaidPlugin from 'cherry-markdown/dist/addons/cherry-code-block-mermaid-plugin';
 import { pinyin } from 'pinyin_js';
 import { v4 as uuidv4 } from 'uuid';
 import upload from '../utils/upload';
@@ -13,15 +13,6 @@ import { isString } from 'lodash';
 import { propTypes, defaultProps } from '../components/FefferyMarkdownEditor.react';
 import FefferyStyle from '../components/FefferyStyle.react';
 
-const registerPlugin = async () => {
-    const [{ default: CherryMermaidPlugin }, { default: mermaid }] = await Promise.all([
-        import(/* webpackChunkName: "cherry_mermaid_plugin" */ 'cherry-markdown/dist/addons/cherry-code-block-mermaid-plugin'),
-        import(/* webpackChunkName: "mermaid" */ 'mermaid'),
-    ]);
-    Cherry.usePlugin(CherryMermaidPlugin, {
-        mermaid // pass in mermaid object
-    });
-};
 
 // 定义markdown编辑器组件FefferyMarkdownEditor，api参数参考https://github.com/Tencent/cherry-markdown/wiki/%E9%85%8D%E7%BD%AE%E9%A1%B9%E5%85%A8%E8%A7%A3
 const FefferyMarkdownEditor = (props) => {
@@ -251,32 +242,20 @@ const FefferyMarkdownEditor = (props) => {
     }, [engine, editor, toolbars, drawioIframeUrl, fileTypeLimitMap, previewer, theme, isPreviewOnly, autoScrollByCursor, forceAppend, locale, autoScrollByHashAfterInit, customSyntax])
 
     useEffect(() => {
-        if ((typeof (toolbars.toolbar) == 'object' && toolbars.toolbar.includes('graph')) ||
-            (typeof (toolbars.bubble) == 'object' && toolbars.bubble.includes('graph')) ||
-            (typeof (toolbars.float) == 'object' && toolbars.float.includes('graph'))) {
-            registerPlugin().then(() => {
-                //  Plug-in registration must be done before Cherry is instantiated
-                const cherryInstance = new Cherry({
-                    ...editorAllConfig,
-                    id: containerId,
-                    value: value,
-                    externals: {
-                        katex: katex,
-                        MathJax: MathJax,
-                    }
-                });
-            });
-        } else {
-            const cherryInstance = new Cherry({
-                ...editorAllConfig,
-                id: containerId,
-                value: value,
-                externals: {
-                    katex: katex,
-                    MathJax: MathJax,
-                }
-            });
+        if (window.mermaid) {
+            Cherry.usePlugin(mermaidPlugin, {
+                mermaid: window.mermaid
+            })
         }
+        new Cherry({
+            ...editorAllConfig,
+            id: containerId,
+            value: value,
+            externals: {
+                katex: katex,
+                MathJax: MathJax,
+            }
+        });
     }, []);
 
     return (
