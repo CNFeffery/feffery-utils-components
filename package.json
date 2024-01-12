@@ -51,7 +51,6 @@
     "localforage": "^1.10.0",
     "lodash": "^4.17.21",
     "mathjax": "^3.2.2",
-    "mermaid": "^9.4.3",
     "nano-css": "^5.3.5",
     "ninja-keys": "^1.1.12",
     "nprogress": "^0.2.0",

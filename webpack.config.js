@@ -84,16 +84,6 @@ module.exports = (env, argv) => {
                     type: "javascript/auto"
                 },
                 {
-                    test: /mermaid.*\.js$/,
-                    include: path.resolve(__dirname, './node_modules/mermaid/dist'),
-                    use: {
-                        loader: 'babel-loader',
-                        options: {
-                            "presets": ["@babel/preset-env"]
-                        }
-                    }
-                },
-                {
                     test: /\.(css|less)$/,
                     use: [
                         {
