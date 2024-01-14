@@ -1,6 +1,7 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 export(''FefferyAutoAnimate)
+export(''FefferyBirdsBackground)
 export(''FefferyMotion)
 export(''FefferyTiltHover)
 export(''FefferyBlockColorPicker)
@@ -83,3 +84,7 @@ export(''FefferyLocalLargeStorage)
 export(''FefferyLocalStorage)
 export(''FefferySessionStorage)
 export(''FefferyThrottleProp)
+export(FefferyCherryMarkdown)
+export(FefferyCropper)
+export(FefferySplit)
+export(FefferySplitPane)

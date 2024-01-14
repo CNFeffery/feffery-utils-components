@@ -88,9 +88,11 @@
     "react-toastify": "9.0.3",
     "react-use": "^17.4.0",
     "simplebar-react": "^2.3.7",
+    "three": "0.134.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "use-eye-dropper": "^1.4.3",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "vanta": "^0.5.24"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
