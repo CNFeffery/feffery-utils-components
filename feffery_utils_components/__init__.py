@@ -53,18 +53,8 @@ async_resources = [
     'feffery_excel_preview',
     'feffery_word_preview',
     'feffery_seamless_scroll',
-    'feffery_birds_background',
-    'feffery_fog_background',
-    'feffery_waves_background',
-    'feffery_clouds_background',
-    'feffery_clouds_two_background',
-    'feffery_globe_background',
-    'feffery_net_background',
-    'feffery_cells_background',
-    'feffery_rings_background',
-    'feffery_halo_background',
-    'feffery_trunk_background',
-    'feffery_topology_background'
+    'feffery_animated_3d_background_three',
+    'feffery_animated_3d_background_p5'
 ]
 
 _js_dist = []

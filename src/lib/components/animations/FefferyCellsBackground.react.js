@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
 
-const LazyFefferyCellsBackground = React.lazy(() => import(/* webpackChunkName: "feffery_cells_background" */ '../../fragments/animations/FefferyCellsBackground.react'));
+const LazyFefferyCellsBackground = React.lazy(() => import(/* webpackChunkName: "feffery_animated_3d_background_three" */ '../../fragments/animations/FefferyCellsBackground.react'));
 
 const FefferyCellsBackground = (props) => {
     return (
