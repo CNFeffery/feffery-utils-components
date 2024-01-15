@@ -10,6 +10,7 @@ from .FefferyMotion import FefferyMotion
 from .FefferyNetBackground import FefferyNetBackground
 from .FefferyRingsBackground import FefferyRingsBackground
 from .FefferyTiltHover import FefferyTiltHover
+from .FefferyTopologyBackground import FefferyTopologyBackground
 from .FefferyTrunkBackground import FefferyTrunkBackground
 from .FefferyWavesBackground import FefferyWavesBackground
 from .FefferyBlockColorPicker import FefferyBlockColorPicker
@@ -106,6 +107,7 @@ __all__ = [
     "FefferyNetBackground",
     "FefferyRingsBackground",
     "FefferyTiltHover",
+    "FefferyTopologyBackground",
     "FefferyTrunkBackground",
     "FefferyWavesBackground",
     "FefferyBlockColorPicker",

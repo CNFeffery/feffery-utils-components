@@ -63,7 +63,8 @@ async_resources = [
     'feffery_cells_background',
     'feffery_rings_background',
     'feffery_halo_background',
-    'feffery_trunk_background'
+    'feffery_trunk_background',
+    'feffery_topology_background'
 ]
 
 _js_dist = []
