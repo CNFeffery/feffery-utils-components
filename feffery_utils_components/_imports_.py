@@ -1,5 +1,6 @@
 from .FefferyAutoAnimate import FefferyAutoAnimate
 from .FefferyBirdsBackground import FefferyBirdsBackground
+from .FefferyCellsBackground import FefferyCellsBackground
 from .FefferyCloudsBackground import FefferyCloudsBackground
 from .FefferyCloudsTwoBackground import FefferyCloudsTwoBackground
 from .FefferyFogBackground import FefferyFogBackground
@@ -92,6 +93,7 @@ from .FefferyThrottleProp import FefferyThrottleProp
 __all__ = [
     "FefferyAutoAnimate",
     "FefferyBirdsBackground",
+    "FefferyCellsBackground",
     "FefferyCloudsBackground",
     "FefferyCloudsTwoBackground",
     "FefferyFogBackground",
