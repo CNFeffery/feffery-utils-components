@@ -6,9 +6,9 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyHaloBackground(
+        fuc.FefferyTrunkBackground(
             html.Div(
-                'Halo 3D背景效果',
+                'Trunk 3D背景效果',
                 style={
                     'color': 'white',
                     'fontSize': '55px',
@@ -18,7 +18,7 @@ app.layout = html.Div(
                     'alignItems': 'center',
                 }
             ),
-            id='halo-background',
+            id='trunk-background',
             minHeight=600,
             style={
                 'height': '100vh'
