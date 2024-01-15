@@ -82,7 +82,8 @@ import FefferyExcelPreview from "./components/officePreview/FefferyExcelPreview.
 import FefferyWordPreview from "./components/officePreview/FefferyWordPreview.react";
 import FefferySeamlessScroll from "./components/FefferySeamlessScroll.react";
 import FefferyTiltHover from "./components/animations/FefferyTiltHover.react";
-import FefferyBirdsBackground from "./components/animations/FefferyBirdsBackground.react.js"
+import FefferyBirdsBackground from "./components/animations/FefferyBirdsBackground.react.js";
+import FefferyFogBackground from "./components/animations/FefferyFogBackground.react.js";
 import './components/styles.css';
 
 // 自定义sessionStorage事件监听
@@ -190,5 +191,6 @@ export {
     FefferyWordPreview,
     FefferySeamlessScroll,
     FefferyTiltHover,
-    FefferyBirdsBackground
+    FefferyBirdsBackground,
+    FefferyFogBackground
 };

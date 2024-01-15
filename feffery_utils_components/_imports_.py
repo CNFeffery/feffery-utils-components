@@ -1,5 +1,6 @@
 from .FefferyAutoAnimate import FefferyAutoAnimate
 from .FefferyBirdsBackground import FefferyBirdsBackground
+from .FefferyFogBackground import FefferyFogBackground
 from .FefferyMotion import FefferyMotion
 from .FefferyTiltHover import FefferyTiltHover
 from .FefferyBlockColorPicker import FefferyBlockColorPicker
@@ -86,8 +87,11 @@ from .FefferyThrottleProp import FefferyThrottleProp
 __all__ = [
     "FefferyAutoAnimate",
     "FefferyBirdsBackground",
+    "FefferyCloudsBackground",
+    "FefferyFogBackground",
     "FefferyMotion",
     "FefferyTiltHover",
+    "FefferyWavesBackground",
     "FefferyBlockColorPicker",
     "FefferyCircleColorPicker",
     "FefferyEyeDropper",
