@@ -3,6 +3,7 @@
 export(''FefferyAutoAnimate)
 export(''FefferyBirdsBackground)
 export(''FefferyCloudsBackground)
+export(''FefferyCloudsTwoBackground)
 export(''FefferyFogBackground)
 export(''FefferyMotion)
 export(''FefferyTiltHover)
