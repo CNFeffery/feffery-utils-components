@@ -54,7 +54,8 @@ async_resources = [
     'feffery_word_preview',
     'feffery_seamless_scroll',
     'feffery_birds_background',
-    'feffery_fog_background'
+    'feffery_fog_background',
+    'feffery_waves_background'
 ]
 
 _js_dist = []

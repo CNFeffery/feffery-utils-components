@@ -6,9 +6,9 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyFogBackground(
+        fuc.FefferyWavesBackground(
             html.Div(
-                'Fog 3D背景效果',
+                'Waves 3D背景效果',
                 style={
                     'color': 'white',
                     'fontSize': '55px',
@@ -18,7 +18,7 @@ app.layout = html.Div(
                     'alignItems': 'center',
                 }
             ),
-            id='fog-background',
+            id='waves-background',
             minHeight=600,
             style={
                 'height': '100vh'
