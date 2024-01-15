@@ -1,5 +1,6 @@
 from .FefferyAutoAnimate import FefferyAutoAnimate
 from .FefferyBirdsBackground import FefferyBirdsBackground
+from .FefferyCloudsBackground import FefferyCloudsBackground
 from .FefferyFogBackground import FefferyFogBackground
 from .FefferyMotion import FefferyMotion
 from .FefferyTiltHover import FefferyTiltHover
