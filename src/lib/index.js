@@ -91,6 +91,7 @@ import FefferyGlobeBackground from "./components/animations/FefferyGlobeBackgrou
 import FefferyNetBackground from "./components/animations/FefferyNetBackground.react.js";
 import FefferyCellsBackground from "./components/animations/FefferyCellsBackground.react.js";
 import FefferyRingsBackground from "./components/animations/FefferyRingsBackground.react.js";
+import FefferyHaloBackground from "./components/animations/FefferyHaloBackground.react.js";
 import './components/styles.css';
 
 // 自定义sessionStorage事件监听
@@ -206,5 +207,6 @@ export {
     FefferyGlobeBackground,
     FefferyNetBackground,
     FefferyCellsBackground,
-    FefferyRingsBackground
+    FefferyRingsBackground,
+    FefferyHaloBackground
 };

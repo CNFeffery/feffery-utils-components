@@ -5,6 +5,7 @@ from .FefferyCloudsBackground import FefferyCloudsBackground
 from .FefferyCloudsTwoBackground import FefferyCloudsTwoBackground
 from .FefferyFogBackground import FefferyFogBackground
 from .FefferyGlobeBackground import FefferyGlobeBackground
+from .FefferyHaloBackground import FefferyHaloBackground
 from .FefferyMotion import FefferyMotion
 from .FefferyNetBackground import FefferyNetBackground
 from .FefferyRingsBackground import FefferyRingsBackground
@@ -99,6 +100,7 @@ __all__ = [
     "FefferyCloudsTwoBackground",
     "FefferyFogBackground",
     "FefferyGlobeBackground",
+    "FefferyHaloBackground",
     "FefferyMotion",
     "FefferyNetBackground",
     "FefferyRingsBackground",
