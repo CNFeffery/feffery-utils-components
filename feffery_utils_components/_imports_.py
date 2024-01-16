@@ -1,6 +1,18 @@
 from .FefferyAutoAnimate import FefferyAutoAnimate
+from .FefferyBirdsBackground import FefferyBirdsBackground
+from .FefferyCellsBackground import FefferyCellsBackground
+from .FefferyCloudsBackground import FefferyCloudsBackground
+from .FefferyCloudsTwoBackground import FefferyCloudsTwoBackground
+from .FefferyFogBackground import FefferyFogBackground
+from .FefferyGlobeBackground import FefferyGlobeBackground
+from .FefferyHaloBackground import FefferyHaloBackground
 from .FefferyMotion import FefferyMotion
+from .FefferyNetBackground import FefferyNetBackground
+from .FefferyRingsBackground import FefferyRingsBackground
 from .FefferyTiltHover import FefferyTiltHover
+from .FefferyTopologyBackground import FefferyTopologyBackground
+from .FefferyTrunkBackground import FefferyTrunkBackground
+from .FefferyWavesBackground import FefferyWavesBackground
 from .FefferyBlockColorPicker import FefferyBlockColorPicker
 from .FefferyCircleColorPicker import FefferyCircleColorPicker
 from .FefferyEyeDropper import FefferyEyeDropper
@@ -84,8 +96,20 @@ from .FefferyThrottleProp import FefferyThrottleProp
 
 __all__ = [
     "FefferyAutoAnimate",
+    "FefferyBirdsBackground",
+    "FefferyCellsBackground",
+    "FefferyCloudsBackground",
+    "FefferyCloudsTwoBackground",
+    "FefferyFogBackground",
+    "FefferyGlobeBackground",
+    "FefferyHaloBackground",
     "FefferyMotion",
+    "FefferyNetBackground",
+    "FefferyRingsBackground",
     "FefferyTiltHover",
+    "FefferyTopologyBackground",
+    "FefferyTrunkBackground",
+    "FefferyWavesBackground",
     "FefferyBlockColorPicker",
     "FefferyCircleColorPicker",
     "FefferyEyeDropper",

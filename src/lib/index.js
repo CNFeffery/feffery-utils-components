@@ -82,6 +82,18 @@ import FefferyExcelPreview from "./components/officePreview/FefferyExcelPreview.
 import FefferyWordPreview from "./components/officePreview/FefferyWordPreview.react";
 import FefferySeamlessScroll from "./components/FefferySeamlessScroll.react";
 import FefferyTiltHover from "./components/animations/FefferyTiltHover.react";
+import FefferyBirdsBackground from "./components/animations/FefferyBirdsBackground.react.js";
+import FefferyFogBackground from "./components/animations/FefferyFogBackground.react.js";
+import FefferyWavesBackground from "./components/animations/FefferyWavesBackground.react.js";
+import FefferyCloudsBackground from "./components/animations/FefferyCloudsBackground.react.js";
+import FefferyCloudsTwoBackground from "./components/animations/FefferyCloudsTwoBackground.react.js";
+import FefferyGlobeBackground from "./components/animations/FefferyGlobeBackground.react.js";
+import FefferyNetBackground from "./components/animations/FefferyNetBackground.react.js";
+import FefferyCellsBackground from "./components/animations/FefferyCellsBackground.react.js";
+import FefferyRingsBackground from "./components/animations/FefferyRingsBackground.react.js";
+import FefferyHaloBackground from "./components/animations/FefferyHaloBackground.react.js";
+import FefferyTrunkBackground from "./components/animations/FefferyTrunkBackground.react.js";
+import FefferyTopologyBackground from "./components/animations/FefferyTopologyBackground.react.js";
 import './components/styles.css';
 
 // 自定义sessionStorage事件监听
@@ -188,5 +200,17 @@ export {
     FefferyExcelPreview,
     FefferyWordPreview,
     FefferySeamlessScroll,
-    FefferyTiltHover
+    FefferyTiltHover,
+    FefferyBirdsBackground,
+    FefferyFogBackground,
+    FefferyWavesBackground,
+    FefferyCloudsBackground,
+    FefferyCloudsTwoBackground,
+    FefferyGlobeBackground,
+    FefferyNetBackground,
+    FefferyCellsBackground,
+    FefferyRingsBackground,
+    FefferyHaloBackground,
+    FefferyTrunkBackground,
+    FefferyTopologyBackground
 };
