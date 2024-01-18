@@ -1,12 +1,12 @@
 import dash
 from dash import html
-import feffery_utils_components as fuc
+import feffery_utils_components.alias as fuc
 
 app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyTopologyBackground(
+        fuc.TopologyBackground(
             html.Div(
                 'Topology 3D背景效果',
                 style={

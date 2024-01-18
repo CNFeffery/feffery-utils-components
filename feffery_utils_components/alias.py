@@ -1,5 +1,18 @@
 from .FefferyAutoAnimate import FefferyAutoAnimate as AutoAnimate
+from .FefferyBirdsBackground import FefferyBirdsBackground as BirdsBackground
+from .FefferyCellsBackground import FefferyCellsBackground as CellsBackground
+from .FefferyCloudsBackground import FefferyCloudsBackground as CloudsBackground
+from .FefferyCloudsTwoBackground import FefferyCloudsTwoBackground as CloudsTwoBackground
+from .FefferyFogBackground import FefferyFogBackground as FogBackground
+from .FefferyGlobeBackground import FefferyGlobeBackground as GlobeBackground
+from .FefferyHaloBackground import FefferyHaloBackground as HaloBackground
 from .FefferyMotion import FefferyMotion as Motion
+from .FefferyNetBackground import FefferyNetBackground as NetBackground
+from .FefferyRingsBackground import FefferyRingsBackground as RingsBackground
+from .FefferyTiltHover import FefferyTiltHover as TiltHover
+from .FefferyTopologyBackground import FefferyTopologyBackground as TopologyBackground
+from .FefferyTrunkBackground import FefferyTrunkBackground as TrunkBackground
+from .FefferyWavesBackground import FefferyWavesBackground as WavesBackground
 from .FefferyBlockColorPicker import FefferyBlockColorPicker as BlockColorPicker
 from .FefferyCircleColorPicker import FefferyCircleColorPicker as CircleColorPicker
 from .FefferyEyeDropper import FefferyEyeDropper as EyeDropper
@@ -38,6 +51,7 @@ from .FefferyReload import FefferyReload as Reload
 from .FefferyRichTextEditor import FefferyRichTextEditor as RichTextEditor
 from .FefferyScroll import FefferyScroll as Scroll
 from .FefferyScrollbars import FefferyScrollbars as Scrollbars
+from .FefferySeamlessScroll import FefferySeamlessScroll as SeamlessScroll
 from .FefferySetTitle import FefferySetTitle as SetTitle
 from .FefferyShadowDom import FefferyShadowDom as ShadowDom
 from .FefferyShortcutPanel import FefferyShortcutPanel as ShortcutPanel
@@ -66,6 +80,7 @@ from .FefferyResponsive import FefferyResponsive as Responsive
 from .FefferyTextSelection import FefferyTextSelection as TextSelection
 from .FefferyWindowSize import FefferyWindowSize as WindowSize
 from .FefferyExcelPreview import FefferyExcelPreview as ExcelPreview
+from .FefferyWordPreview import FefferyWordPreview as WordPreview
 from .FefferyAPlayer import FefferyAPlayer as APlayer
 from .FefferyDPlayer import FefferyDPlayer as DPlayer
 from .FefferyMusicPlayer import FefferyMusicPlayer as MusicPlayer
@@ -81,7 +96,20 @@ from .FefferyThrottleProp import FefferyThrottleProp as ThrottleProp
 
 __all__ = [
     "AutoAnimate",
+    "BirdsBackground",
+    "CellsBackground",
+    "CloudsBackground",
+    "CloudsTwoBackground",
+    "FogBackground",
+    "GlobeBackground",
+    "HaloBackground",
     "Motion",
+    "NetBackground",
+    "RingsBackground",
+    "TiltHover",
+    "TopologyBackground",
+    "TrunkBackground",
+    "WavesBackground",
     "BlockColorPicker",
     "CircleColorPicker",
     "EyeDropper",
@@ -120,6 +148,7 @@ __all__ = [
     "RichTextEditor",
     "Scroll",
     "Scrollbars",
+    "SeamlessScroll",
     "SetTitle",
     "ShadowDom",
     "ShortcutPanel",
@@ -148,6 +177,7 @@ __all__ = [
     "TextSelection",
     "WindowSize",
     "ExcelPreview",
+    "WordPreview",
     "APlayer",
     "DPlayer",
     "MusicPlayer",
