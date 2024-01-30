@@ -21,6 +21,7 @@ const FefferyPhotoSphereViewer = (props) => {
         moveSpeed,
         zoomSpeed,
         fisheye,
+        lang,
         setProps,
         loading_state
     } = props;
@@ -44,6 +45,7 @@ const FefferyPhotoSphereViewer = (props) => {
             moveSpeed={moveSpeed}
             zoomSpeed={zoomSpeed}
             fisheye={fisheye}
+            lang={lang}
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             } />

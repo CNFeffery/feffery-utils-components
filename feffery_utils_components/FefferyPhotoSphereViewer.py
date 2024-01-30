@@ -30,6 +30,38 @@ Keyword arguments:
 - key (string; optional):
     辅助刷新用唯一标识key值.
 
+- lang (dict; optional):
+    为相关功能控件设置鼠标悬停提示信息文案.
+
+    `lang` is a dict with keys:
+
+    - download (string; optional):
+        下载操作.
+
+    - fullscreen (string; optional):
+        全屏操作.
+
+    - littlePlanetButton (string; optional):
+        小星球模式.
+
+    - moveDown (string; optional):
+        下移操作.
+
+    - moveLeft (string; optional):
+        左移操作.
+
+    - moveRight (string; optional):
+        右移操作.
+
+    - moveUp (string; optional):
+        上移操作.
+
+    - zoomIn (string; optional):
+        放大操作.
+
+    - zoomOut (string; optional):
+        缩小操作.
+
 - littlePlanet (boolean; default False):
     是否开启小星球模式  默认：False.
 
@@ -61,7 +93,7 @@ Keyword arguments:
 - moveSpeed (number; default 1):
     设置鼠标平移速度  默认：1.
 
-- navbar (list of a value equal to: 'zoom', 'move', 'download', 'caption', 'fullscreen' | boolean | number | string | dict | lists | boolean; default ['caption']):
+- navbar (list of a value equal to: 'zoom', 'move', 'download', 'caption', 'fullscreen's | boolean; default ['caption']):
     配置导航栏中需要显示的功能项及顺序，设置为False时将隐藏导航栏
     可选的有'zoom'、'move'、'download'、'caption'、'fullscreen'
     默认：['caption'].
@@ -79,10 +111,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyPhotoSphereViewer'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, src=Component.UNDEFINED, width=Component.UNDEFINED, height=Component.UNDEFINED, littlePlanet=Component.UNDEFINED, containerClass=Component.UNDEFINED, navbar=Component.UNDEFINED, caption=Component.UNDEFINED, downloadUrl=Component.UNDEFINED, loadingImg=Component.UNDEFINED, loadingTxt=Component.UNDEFINED, mousewheel=Component.UNDEFINED, mousemove=Component.UNDEFINED, moveSpeed=Component.UNDEFINED, zoomSpeed=Component.UNDEFINED, fisheye=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'caption', 'containerClass', 'downloadUrl', 'fisheye', 'height', 'key', 'littlePlanet', 'loadingImg', 'loadingTxt', 'loading_state', 'mousemove', 'mousewheel', 'moveSpeed', 'navbar', 'src', 'width', 'zoomSpeed']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, src=Component.UNDEFINED, width=Component.UNDEFINED, height=Component.UNDEFINED, littlePlanet=Component.UNDEFINED, containerClass=Component.UNDEFINED, navbar=Component.UNDEFINED, caption=Component.UNDEFINED, downloadUrl=Component.UNDEFINED, loadingImg=Component.UNDEFINED, loadingTxt=Component.UNDEFINED, mousewheel=Component.UNDEFINED, mousemove=Component.UNDEFINED, moveSpeed=Component.UNDEFINED, zoomSpeed=Component.UNDEFINED, fisheye=Component.UNDEFINED, lang=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'caption', 'containerClass', 'downloadUrl', 'fisheye', 'height', 'key', 'lang', 'littlePlanet', 'loadingImg', 'loadingTxt', 'loading_state', 'mousemove', 'mousewheel', 'moveSpeed', 'navbar', 'src', 'width', 'zoomSpeed']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'caption', 'containerClass', 'downloadUrl', 'fisheye', 'height', 'key', 'littlePlanet', 'loadingImg', 'loadingTxt', 'loading_state', 'mousemove', 'mousewheel', 'moveSpeed', 'navbar', 'src', 'width', 'zoomSpeed']
+        self.available_properties = ['id', 'caption', 'containerClass', 'downloadUrl', 'fisheye', 'height', 'key', 'lang', 'littlePlanet', 'loadingImg', 'loadingTxt', 'loading_state', 'mousemove', 'mousewheel', 'moveSpeed', 'navbar', 'src', 'width', 'zoomSpeed']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -114,6 +114,48 @@ FefferyPhotoSphereViewer.propTypes = {
     fisheye: PropTypes.bool,
 
     /**
+     * 为相关功能控件设置鼠标悬停提示信息文案
+     */
+    lang: PropTypes.exact({
+        /**
+         * 小星球模式
+         */
+        littlePlanetButton: PropTypes.string,
+        /**
+         * 缩小操作
+         */
+        zoomOut: PropTypes.string,
+        /**
+         * 放大操作
+         */
+        zoomIn: PropTypes.string,
+        /**
+         * 左移操作
+         */
+        moveLeft: PropTypes.string,
+        /**
+         * 右移操作
+         */
+        moveRight: PropTypes.string,
+        /**
+         * 上移操作
+         */
+        moveUp: PropTypes.string,
+        /**
+         * 下移操作
+         */
+        moveDown: PropTypes.string,
+        /**
+         * 下载操作
+         */
+        download: PropTypes.string,
+        /**
+         * 全屏操作
+         */
+        fullscreen: PropTypes.string
+    }),
+
+    /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
