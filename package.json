@@ -1,6 +1,6 @@
 {
   "name": "feffery_utils_components",
-  "version": "0.2.0-b16",
+  "version": "0.2.0-rc1",
   "description": "Build more utility components for Plotly Dash.",
   "repository": {
     "type": "git",
@@ -79,7 +79,7 @@
     "react-jinke-music-player": "4.24.2",
     "react-lazy-load": "^3.1.14",
     "react-parallax-tilt": "^1.7.183",
-    "react-photo-sphere-viewer": "^4.0.2-psv5.4.4",
+    "react-photo-sphere-viewer": "^4.2.1-psv5.6.0",
     "react-resize-detector": "^7.1.2",
     "react-scroll": "^1.8.6",
     "react-shadow": "^19.0.3",
