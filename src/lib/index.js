@@ -70,7 +70,8 @@ import FefferyMusicPlayer from "./components/player/FefferyMusicPlayer.react";
 import FefferyAPlayer from "./components/player/FefferyAPlayer.react";
 import FefferyDPlayer from "./components/player/FefferyDPlayer.react";
 import FefferyThrottleProp from "./components/store/FefferyThrottleProp.react";
-import FefferyTabMessenger from "./components/FefferyTabMessenger.react";
+import FefferyTabMessenger from "./components/messenger/FefferyTabMessenger.react";
+import FefferyIframeMessenger from "./components/messenger/FefferyIframeMessenger.react";
 import FefferyEmojiPicker from "./components/FefferyEmojiPicker.react";
 import FefferyAutoFit from "./components/resizable/FefferyAutoFit.react";
 import FefferyRichTextEditor from "./components/FefferyRichTextEditor.react";
@@ -212,5 +213,6 @@ export {
     FefferyRingsBackground,
     FefferyHaloBackground,
     FefferyTrunkBackground,
-    FefferyTopologyBackground
+    FefferyTopologyBackground,
+    FefferyIframeMessenger
 };

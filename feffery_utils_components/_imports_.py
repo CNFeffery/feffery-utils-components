@@ -57,7 +57,6 @@ from .FefferyShadowDom import FefferyShadowDom
 from .FefferyShortcutPanel import FefferyShortcutPanel
 from .FefferySticky import FefferySticky
 from .FefferyStyle import FefferyStyle
-from .FefferyTabMessenger import FefferyTabMessenger
 from .FefferyTimeout import FefferyTimeout
 from .FefferyTopProgress import FefferyTopProgress
 from .FefferyVirtualList import FefferyVirtualList
@@ -79,6 +78,8 @@ from .FefferyMousePosition import FefferyMousePosition
 from .FefferyResponsive import FefferyResponsive
 from .FefferyTextSelection import FefferyTextSelection
 from .FefferyWindowSize import FefferyWindowSize
+from .FefferyIframeMessenger import FefferyIframeMessenger
+from .FefferyTabMessenger import FefferyTabMessenger
 from .FefferyExcelPreview import FefferyExcelPreview
 from .FefferyWordPreview import FefferyWordPreview
 from .FefferyAPlayer import FefferyAPlayer
@@ -154,7 +155,6 @@ __all__ = [
     "FefferyShortcutPanel",
     "FefferySticky",
     "FefferyStyle",
-    "FefferyTabMessenger",
     "FefferyTimeout",
     "FefferyTopProgress",
     "FefferyVirtualList",
@@ -176,6 +176,8 @@ __all__ = [
     "FefferyResponsive",
     "FefferyTextSelection",
     "FefferyWindowSize",
+    "FefferyIframeMessenger",
+    "FefferyTabMessenger",
     "FefferyExcelPreview",
     "FefferyWordPreview",
     "FefferyAPlayer",
