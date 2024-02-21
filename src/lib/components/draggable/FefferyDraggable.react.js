@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { useDraggable } from '@reactuses/core';
-import { useSize } from 'ahooks';
+import { useSize, useHover } from 'ahooks';
 import PropTypes from 'prop-types';
 
 const DragLine = (props) => {
@@ -51,6 +51,7 @@ const FefferyDraggable = (props) => {
         handle: handleRef
     });
     const size = useSize(ref);
+    const isHovering = useHover(ref);
 
     // 同步最新的_x，_y值
     useEffect(() => {
@@ -92,7 +93,7 @@ const FefferyDraggable = (props) => {
             </button>
             {children}
             {
-                (showDragLine && draggable && isDragging) ?
+                (showDragLine && draggable && (isDragging || isHovering)) ?
                     <DragLine x={_x} y={_y} width={size.width} height={size.height} /> :
                     null
             }
