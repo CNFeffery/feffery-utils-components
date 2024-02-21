@@ -9,7 +9,7 @@ const DragLine = (props) => {
             {/* 顶端线 */}
             <div style={{ height: 1, borderTop: '1px dashed #d9d9d9', position: 'fixed', boxSizing: 'border-box', left: 0, right: 0, top: props.y }} />
             {/* 底端线 */}
-            <div style={{ height: 1, borderBottom: '1px dashed #d9d9d9', position: 'fixed', boxSizing: 'border-box', left: 0, right: 0, top: props.y + props.height }} />
+            <div style={{ height: 1, borderBottom: '1px dashed #d9d9d9', position: 'fixed', boxSizing: 'border-box', left: 0, right: 0, top: props.y + props.height - 1 }} />
             {/* 左侧线 */}
             <div style={{ width: 1, borderLeft: '1px dashed #d9d9d9', position: 'fixed', boxSizing: 'border-box', top: 0, bottom: 0, left: props.x }} />
             {/* 右侧线 */}
@@ -68,10 +68,11 @@ const FefferyDraggable = (props) => {
             id={id}
             key={key}
             style={{
+                zIndex: 999,
                 ...style,
                 position: 'fixed',
-                left: draggable ? _x : (x || initialX),
-                top: draggable ? _y : (y || initialY)
+                left: x || initialX,
+                top: y || initialY
             }}
             className={className}
             data-dash-is-loading={
