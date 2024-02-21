@@ -6,28 +6,30 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyPhotoSphereViewer(
-            src='https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg',
-            width='100%',
-            height='100vh',
-            littlePlanet=True,
-            navbar=['zoom', 'move', 'download', 'caption', 'fullscreen'],
-            loadingTxt='载入中',
-            lang={
-                'littlePlanetButton': '小星球模式',
-                'zoomOut': '缩小',
-                'zoomIn': '放大',
-                'moveLeft': '左移',
-                'moveRight': '右移',
-                'moveUp': '上移',
-                'moveDown': '下移',
-                'download': '下载',
-                'fullscreen': '全屏'
-            }
-        )
+        fuc.FefferyDraggable(
+            fuc.FefferyResizable(
+                html.Div(
+                    style={
+                        'display': 'flex',
+                        'height': '100%',
+                        'justifyContent': 'center',
+                        'alignItems': 'center',
+                        'border': '1px solid #1890ff',
+                        'boxSizing': 'border-box',
+                    }
+                ),
+                defaultSize={
+                    'width': 200,
+                    'height': 50
+                }
+            ),
+            initialX=400,
+            initialY=200,
+            # draggable=False
+        ),
+        # 示例
     ]
 )
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)

@@ -11,81 +11,81 @@ const ResponsiveReactGridLayout = WidthProvider(Responsive);
 // 定义可拖拽网格组件FefferyGrid
 const FefferyGrid = (props) => {
 
-    // 取得必要属性或参数
-    let {
-        id,
-        children,
-        key,
-        style,
-        className,
-        height,
-        autoSize,
-        compactType,
-        margin,
-        containerPadding,
-        rowHeight,
-        isDraggable,
-        isResizable,
-        isBounded,
-        allowOverlap,
-        breakpoints,
-        cols,
-        layouts,
-        placeholderBackground,
-        placeholderOpacity,
-        placeholderBorder,
-        placeholderBorderRadius,
-        debug,
-        setProps,
-        loading_state
-    } = props;
+  // 取得必要属性或参数
+  let {
+    id,
+    children,
+    key,
+    style,
+    className,
+    height,
+    autoSize,
+    compactType,
+    margin,
+    containerPadding,
+    rowHeight,
+    isDraggable,
+    isResizable,
+    isBounded,
+    allowOverlap,
+    breakpoints,
+    cols,
+    layouts,
+    placeholderBackground,
+    placeholderOpacity,
+    placeholderBorder,
+    placeholderBorderRadius,
+    debug,
+    setProps,
+    loading_state
+  } = props;
 
-    children = parseChildrenToArray(children)
+  children = parseChildrenToArray(children)
 
-    const gridItems = children.map(
-        (child) => {
-            let childProps = resolveChildProps(child)
+  const gridItems = children.map(
+    (child) => {
+      let childProps = resolveChildProps(child)
 
-            return (
-                <div
-                    className={'feffery-grid-item-container'}
-                    {...omit(
-                        ['setProps', 'persistence', 'persistence_type', 'persisted_props', 'id', 'className', 'style'],
-                        childProps
-                    )}>
-                    <button className={"feffery-grid-item-dragger"}>
-                        <svg viewBox={"0 0 20 20"} style={{ width: 16, fill: '#919eab' }}>
-                            <path d={"M7 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 2zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 14zm6-8a2 2 0 1 0-.001-4.001A2 2 0 0 0 13 6zm0 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 14z"}>
-                            </path>
-                        </svg>
-                    </button>
-                    {child}
-                </div>
-            );
-        }
-    )
-
-    // 根据breakpoints为cols的通用模式重构数据结构
-    let _cols = {};
-    if (isNumber(cols)) {
-        for (let key of Object.keys(breakpoints)) {
-            _cols[key] = cols
-        }
+      return (
+        <div
+          className={'feffery-grid-item-container'}
+          {...omit(
+            ['setProps', 'persistence', 'persistence_type', 'persisted_props', 'id', 'className', 'style'],
+            childProps
+          )}>
+          <button className={"feffery-grid-item-dragger"}>
+            <svg viewBox={"0 0 20 20"} style={{ width: 16, fill: '#919eab' }}>
+              <path d={"M7 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 2zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 14zm6-8a2 2 0 1 0-.001-4.001A2 2 0 0 0 13 6zm0 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 14z"}>
+              </path>
+            </svg>
+          </button>
+          {child}
+        </div>
+      );
     }
+  )
 
-    // 根据breakpoints为layouts的通用模式重构数据结构
-    let _layouts = {};
-    if (Array.isArray(layouts)) {
-        for (let key of Object.keys(breakpoints)) {
-            _layouts[key] = layouts
-        }
+  // 根据breakpoints为cols的通用模式重构数据结构
+  let _cols = {};
+  if (isNumber(cols)) {
+    for (let key of Object.keys(breakpoints)) {
+      _cols[key] = cols
     }
+  }
 
-    return (
-        <React.Fragment >
-            <FefferyStyle
-                rawStyle={
-                    `
+  // 根据breakpoints为layouts的通用模式重构数据结构
+  let _layouts = {};
+  if (Array.isArray(layouts)) {
+    for (let key of Object.keys(breakpoints)) {
+      _layouts[key] = layouts
+    }
+  }
+
+  return (
+    <React.Fragment >
+      <FefferyStyle
+        rawStyle={
+          `
 .react-grid-layout {
   position: relative;
   transition: height 200ms ease;
@@ -206,42 +206,42 @@ const FefferyGrid = (props) => {
   transform: rotate(45deg);
 }
 `
-                }
-            />
-            <ResponsiveReactGridLayout
-                id={id}
-                key={key}
-                style={style}
-                className={className}
-                height={height}
-                autoSize={autoSize}
-                compactType={compactType}
-                margin={margin}
-                containerPadding={containerPadding}
-                rowHeight={rowHeight}
-                isDraggable={isDraggable}
-                isResizable={isResizable}
-                isBounded={isBounded}
-                allowOverlap={allowOverlap}
-                breakpoints={breakpoints}
-                cols={isEmpty(_cols) ? cols : _cols}
-                layouts={isEmpty(_layouts) ? layouts : _layouts}
-                draggableHandle={'.feffery-grid-item-dragger'}
-                onLayoutChange={(e) => {
-                    if (e) {
-                        if (debug) {
-                            console.log('layouts: ', e)
-                        }
-                        setProps({ layouts: cloneDeep(e) })
-                    }
-                }}
-                setProps={setProps}
-                useCSSTransforms={true}
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                } >{gridItems}</ResponsiveReactGridLayout>
-        </React.Fragment>
-    );
+        }
+      />
+      <ResponsiveReactGridLayout
+        id={id}
+        key={key}
+        style={style}
+        className={className}
+        height={height}
+        autoSize={autoSize}
+        compactType={compactType}
+        margin={margin}
+        containerPadding={containerPadding}
+        rowHeight={rowHeight}
+        isDraggable={isDraggable}
+        isResizable={isResizable}
+        isBounded={isBounded}
+        allowOverlap={allowOverlap}
+        breakpoints={breakpoints}
+        cols={isEmpty(_cols) ? cols : _cols}
+        layouts={isEmpty(_layouts) ? layouts : _layouts}
+        draggableHandle={'.feffery-grid-item-dragger'}
+        onLayoutChange={(e) => {
+          if (e) {
+            if (debug) {
+              console.log('layouts: ', e)
+            }
+            setProps({ layouts: cloneDeep(e) })
+          }
+        }}
+        setProps={setProps}
+        useCSSTransforms={true}
+        data-dash-is-loading={
+          (loading_state && loading_state.is_loading) || undefined
+        } >{gridItems}</ResponsiveReactGridLayout>
+    </React.Fragment>
+  );
 }
 
 export default FefferyGrid;

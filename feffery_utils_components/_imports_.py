@@ -21,6 +21,7 @@ from .FefferyHexColorPicker import FefferyHexColorPicker
 from .FefferyRgbColorPicker import FefferyRgbColorPicker
 from .FefferyTwitterColorPicker import FefferyTwitterColorPicker
 from .FefferyWheelColorPicker import FefferyWheelColorPicker
+from .FefferyDraggable import FefferyDraggable
 from .FefferyGrid import FefferyGrid
 from .FefferyGridItem import FefferyGridItem
 from .FefferyCaptcha import FefferyCaptcha
@@ -119,6 +120,7 @@ __all__ = [
     "FefferyRgbColorPicker",
     "FefferyTwitterColorPicker",
     "FefferyWheelColorPicker",
+    "FefferyDraggable",
     "FefferyGrid",
     "FefferyGridItem",
     "FefferyCaptcha",

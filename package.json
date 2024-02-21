@@ -1,6 +1,6 @@
 {
   "name": "feffery_utils_components",
-  "version": "0.2.0-rc1",
+  "version": "0.2.0-rc2",
   "description": "Build more utility components for Plotly Dash.",
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "@formkit/auto-animate": "1.0.0-beta.5",
     "@js-preview/docx": "^1.6.0",
     "@js-preview/excel": "^1.6.0",
+    "@reactuses/core": "^5.0.0",
     "@uiw/color-convert": "^1.1.0",
     "@uiw/react-color-wheel": "^1.1.0",
     "@wangeditor/editor": "^5.1.23",
