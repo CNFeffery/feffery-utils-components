@@ -4,7 +4,6 @@ import { useSize } from 'ahooks';
 import PropTypes from 'prop-types';
 
 const DragLine = (props) => {
-    console.log(props)
     return (
         <>
             {/* 顶端线 */}
@@ -33,6 +32,7 @@ const FefferyDraggable = (props) => {
         className,
         children,
         draggable,
+        showDragLine,
         initialX,
         initialY,
         x,
@@ -92,7 +92,7 @@ const FefferyDraggable = (props) => {
             </button>
             {children}
             {
-                (draggable && isDragging) ?
+                (showDragLine && draggable && isDragging) ?
                     <DragLine x={_x} y={_y} width={size.width} height={size.height} /> :
                     null
             }
@@ -144,6 +144,12 @@ FefferyDraggable.propTypes = {
     initialY: PropTypes.number.isRequired,
 
     /**
+     * 设置是否在拖拽时显示相关辅助线
+     * 默认：false
+     */
+    showDragLine: PropTypes.bool,
+
+    /**
      * 只读，用于监听当前可拖拽组件左上角距离页面顶端的像素距离
      */
     x: PropTypes.number,
@@ -177,7 +183,8 @@ FefferyDraggable.propTypes = {
 
 // 设置默认参数
 FefferyDraggable.defaultProps = {
-    draggable: true
+    draggable: true,
+    showDragLine: false
 }
 
 export default FefferyDraggable;

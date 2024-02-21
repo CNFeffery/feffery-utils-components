@@ -25,6 +25,7 @@ app.layout = html.Div(
             ),
             initialX=400,
             initialY=200,
+            showDragLine=True,
             # draggable=False
         ),
         # 示例
