@@ -4,7 +4,6 @@
 <h1 align="center">feffery-utils-components</h1>
 <div align="center">
 
-
 [![GitHub](https://img.shields.io/github/license/plotly/dash.svg?color=dark-green)](https://github.com/plotly/dash/blob/master/LICENSE)
 [![PyPI](https://img.shields.io/pypi/v/feffery-utils-components.svg?color=dark-green)](https://pypi.org/project/feffery-utils-components/)
 [![Downloads](https://pepy.tech/badge/feffery-utils-components)](https://pepy.tech/project/feffery-utils-components)
@@ -12,7 +11,7 @@
 
 </div>
 
-`feffery-components`计划子项目，`Plotly Dash`第三方组件库，将超多实用辅助功能组件引入`Dash`的世界🥳，最新版本：`0.1.29`
+`feffery-components`计划子项目，`Plotly Dash`第三方组件库，将超多实用辅助功能组件引入`Dash`的世界 🥳，最新版本：`0.1.29`
 
 ## 1 最新版本安装方式
 
@@ -23,7 +22,7 @@ pip install feffery-utils-components -U
 ## 2 最新预发布版本安装方式
 
 > [!NOTE]  
-> 最新预发布版本（2024-01-31）：`0.2.0rc1`
+> 最新预发布版本（2024-02-22）：`0.2.0rc2`
 
 ```bash
 pip install feffery-utils-components --pre -U
