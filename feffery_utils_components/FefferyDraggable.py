@@ -15,6 +15,9 @@ Keyword arguments:
 - id (string; optional):
     组件id.
 
+- boundsSelector (string; optional):
+    设置可拖拽范围边界容器对应的css选择器，设置后拖拽将基于相对-绝对布局被限制在边界容器内部.
+
 - className (string; optional):
     当前可拖拽组件css类名.
 
@@ -68,10 +71,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyDraggable'
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, draggable=Component.UNDEFINED, initialX=Component.REQUIRED, initialY=Component.REQUIRED, showDragLine=Component.UNDEFINED, dragLineColors=Component.UNDEFINED, focusWithinStyle=Component.UNDEFINED, x=Component.UNDEFINED, y=Component.UNDEFINED, isFocusWithin=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'dragLineColors', 'draggable', 'focusWithinStyle', 'initialX', 'initialY', 'isFocusWithin', 'key', 'loading_state', 'showDragLine', 'style', 'x', 'y']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, draggable=Component.UNDEFINED, initialX=Component.REQUIRED, initialY=Component.REQUIRED, showDragLine=Component.UNDEFINED, dragLineColors=Component.UNDEFINED, focusWithinStyle=Component.UNDEFINED, boundsSelector=Component.UNDEFINED, x=Component.UNDEFINED, y=Component.UNDEFINED, isFocusWithin=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'boundsSelector', 'className', 'dragLineColors', 'draggable', 'focusWithinStyle', 'initialX', 'initialY', 'isFocusWithin', 'key', 'loading_state', 'showDragLine', 'style', 'x', 'y']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'dragLineColors', 'draggable', 'focusWithinStyle', 'initialX', 'initialY', 'isFocusWithin', 'key', 'loading_state', 'showDragLine', 'style', 'x', 'y']
+        self.available_properties = ['children', 'id', 'boundsSelector', 'className', 'dragLineColors', 'draggable', 'focusWithinStyle', 'initialX', 'initialY', 'isFocusWithin', 'key', 'loading_state', 'showDragLine', 'style', 'x', 'y']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

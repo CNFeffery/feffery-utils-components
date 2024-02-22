@@ -18,49 +18,47 @@ app.layout = html.Div(
         #         'display': 'block'
         #     }
         # ),
-        fuc.FefferyDraggable(
-            fuc.FefferyResizable(
-                html.Div(
-                    id='show-bounding',
-                    style={
-                        'display': 'flex',
-                        'height': '100%',
-                        'justifyContent': 'center',
-                        'alignItems': 'center',
-                        'border': '2px solid #1890ff',
-                        'boxSizing': 'border-box',
-                        'padding': 2
-                    }
-                ),
-                id='demo-resizable',
-                boundsSelector='#demo-bounds',
-                defaultSize={
-                    'width': 500,
-                    'height': 120
-                }
-            ),
-            id='demo-draggable',
-            initialX=400,
-            initialY=200,
-            showDragLine=True,
-            # boundsSelector='#demo-bounds',
-            # draggable=False,
-        ),
         # 示例边界范围
         html.Div(
+            fuc.FefferyDraggable(
+                fuc.FefferyResizable(
+                    html.Div(
+                        id='show-bounding',
+                        style={
+                            'display': 'flex',
+                            'height': '100%',
+                            'justifyContent': 'center',
+                            'alignItems': 'center',
+                            'border': '2px solid #1890ff',
+                            'boxSizing': 'border-box',
+                            'padding': 2
+                        }
+                    ),
+                    id='demo-resizable',
+                    boundsSelector='#demo-bounds',
+                    defaultSize={
+                        'width': 500,
+                        'height': 120
+                    }
+                ),
+                id='demo-draggable',
+                initialX=0,
+                initialY=0,
+                showDragLine=True,
+                boundsSelector='#demo-bounds',
+                # draggable=False,
+            ),
             id='demo-bounds',
             style={
-                'position': 'fixed',
-                'top': 100,
-                'right': 100,
-                'bottom': 100,
-                'left': 100,
-                # 'backgroundColor': '#f0f0f0'
+                'position': 'relative',
+                'backgroundColor': '#f0f0f0',
+                'height': 'calc(100vh - 100px)',
+                'margin': '0 auto'
             }
         )
     ],
     style={
-        'height': '100vh',
+        'padding': '50px 100px 0 100px',
         'position': 'relative'
     }
 )
@@ -75,7 +73,7 @@ app.layout = html.Div(
 )
 def show_bounding(x, y, size, isFocusWithin):
 
-    if x and y and size:
+    if size:
         return f'x: {x}, y: {y}, width: {size["width"]}, height: {size["height"]}, isFocusWithin: {isFocusWithin}'
 
 

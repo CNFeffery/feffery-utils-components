@@ -4,6 +4,27 @@ import { useSize, useHover, useFocusWithin } from 'ahooks';
 import PropTypes from 'prop-types';
 
 const DragLine = (props) => {
+    // 局部容器模式
+    if (props.boundsRef?.current) {
+        // 获取局部容器的位置及尺寸信息
+        let boundsRect = props.boundsRef.current.getBoundingClientRect();
+        return (
+            <>
+                {/* 顶端线 */}
+                <div style={{ height: 1, borderTop: `1px dashed ${props.dragLineColors[0]}`, position: 'fixed', boxSizing: 'border-box', left: 0, right: 0, top: props.y + boundsRect.top }} />
+                {/* 底端线 */}
+                <div style={{ height: 1, borderBottom: `1px dashed ${props.dragLineColors[0]}`, position: 'fixed', boxSizing: 'border-box', left: 0, right: 0, top: props.y + props.height - 1 + boundsRect.top }} />
+                {/* 左侧线 */}
+                <div style={{ width: 1, borderLeft: `1px dashed ${props.dragLineColors[0]}`, position: 'fixed', boxSizing: 'border-box', top: 0, bottom: 0, left: props.x + boundsRect.left }} />
+                {/* 右侧线 */}
+                <div style={{ width: 1, borderRight: `1px dashed ${props.dragLineColors[0]}`, position: 'fixed', boxSizing: 'border-box', top: 0, bottom: 0, left: props.x + props.width + boundsRect.left }} />
+                {/* 中心水平线 */}
+                <div style={{ height: 1, borderTop: `1px dashed ${props.dragLineColors[1]}`, position: 'fixed', boxSizing: 'border-box', left: 0, right: 0, top: props.y + 0.5 * props.height + boundsRect.top }} />
+                {/* 中心垂直线 */}
+                <div style={{ width: 1, borderLeft: `1px dashed ${props.dragLineColors[1]}`, position: 'fixed', boxSizing: 'border-box', top: 0, bottom: 0, left: props.x + 0.5 * props.width + boundsRect.left }} />
+            </>
+        );
+    }
     return (
         <>
             {/* 顶端线 */}
@@ -35,6 +56,7 @@ const FefferyDraggable = (props) => {
         showDragLine,
         dragLineColors,
         focusWithinStyle,
+        boundsSelector,
         initialX,
         initialY,
         x,
@@ -45,12 +67,20 @@ const FefferyDraggable = (props) => {
 
     const ref = useRef(null);
     const handleRef = useRef(null);
+    const boundsRef = useRef(null);
+
+    useEffect(() => {
+        if (boundsSelector) {
+            boundsRef.current = document.querySelector(boundsSelector);
+        }
+    }, [boundsSelector])
 
     const [initialValue, setInitialValue] = useState({ x: initialX, y: initialY });
 
     const [_x, _y, isDragging] = useDraggable(ref, {
         initialValue,
-        handle: handleRef
+        handle: handleRef,
+        containerElement: boundsRef
     });
     const size = useSize(ref);
     const isHovering = useHover(ref);
@@ -80,9 +110,9 @@ const FefferyDraggable = (props) => {
             style={{
                 zIndex: 999,
                 ...style,
-                position: 'fixed',
-                left: x || initialX,
-                top: y || initialY,
+                position: boundsSelector ? 'absolute' : 'fixed',
+                left: x === 0 ? x : (x || initialX),
+                top: y === 0 ? y : (y || initialY),
                 // 根据是否处于聚焦状态，进行聚焦样式的添加
                 ...(_isFocusWithin ? focusWithinStyle : {}),
             }}
@@ -107,7 +137,7 @@ const FefferyDraggable = (props) => {
             {children}
             {
                 (showDragLine && draggable && (isDragging || isHovering)) ?
-                    <DragLine x={_x} y={_y} width={size.width} height={size.height} dragLineColors={dragLineColors} /> :
+                    <DragLine x={_x} y={_y} width={size.width} height={size.height} dragLineColors={dragLineColors} boundsRef={boundsRef} /> :
                     null
             }
         </div>
@@ -173,6 +203,11 @@ FefferyDraggable.propTypes = {
      * 设置聚焦状态下的额外css样式
      */
     focusWithinStyle: PropTypes.object,
+
+    /**
+     * 设置可拖拽范围边界容器对应的css选择器，设置后拖拽将基于相对-绝对布局被限制在边界容器内部
+     */
+    boundsSelector: PropTypes.string,
 
     /**
      * 只读，用于监听当前可拖拽组件左上角距离页面顶端的像素距离
