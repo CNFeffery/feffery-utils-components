@@ -35,14 +35,15 @@ app.layout = html.Div(
                 id='demo-resizable',
                 boundsSelector='#demo-bounds',
                 defaultSize={
-                    'width': 300,
-                    'height': 80
+                    'width': 500,
+                    'height': 120
                 }
             ),
             id='demo-draggable',
             initialX=400,
             initialY=200,
             showDragLine=True,
+            # boundsSelector='#demo-bounds',
             # draggable=False,
         ),
         # 示例边界范围
@@ -54,7 +55,7 @@ app.layout = html.Div(
                 'right': 100,
                 'bottom': 100,
                 'left': 100,
-                'backgroundColor': '#f0f0f0'
+                # 'backgroundColor': '#f0f0f0'
             }
         )
     ],
@@ -69,12 +70,13 @@ app.layout = html.Div(
     Output('show-bounding', 'children'),
     [Input('demo-draggable', 'x'),
      Input('demo-draggable', 'y'),
-     Input('demo-resizable', 'size')]
+     Input('demo-resizable', 'size'),
+     Input('demo-draggable', 'isFocusWithin')]
 )
-def show_bounding(x, y, size):
+def show_bounding(x, y, size, isFocusWithin):
 
     if x and y and size:
-        return f'x: {x}, y: {y}, width: {size["width"]}, height: {size["height"]}'
+        return f'x: {x}, y: {y}, width: {size["width"]}, height: {size["height"]}, isFocusWithin: {isFocusWithin}'
 
 
 if __name__ == '__main__':

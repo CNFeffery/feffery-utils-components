@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { useDraggable } from '@reactuses/core';
-import { useSize, useHover } from 'ahooks';
+import { useSize, useHover, useFocusWithin } from 'ahooks';
 import PropTypes from 'prop-types';
 
 const DragLine = (props) => {
@@ -34,6 +34,7 @@ const FefferyDraggable = (props) => {
         draggable,
         showDragLine,
         dragLineColors,
+        focusWithinStyle,
         initialX,
         initialY,
         x,
@@ -53,6 +54,7 @@ const FefferyDraggable = (props) => {
     });
     const size = useSize(ref);
     const isHovering = useHover(ref);
+    const _isFocusWithin = useFocusWithin(ref);
 
     // 同步最新的_x，_y值
     useEffect(() => {
@@ -64,6 +66,13 @@ const FefferyDraggable = (props) => {
         }
     }, [_x, _y])
 
+    // 同步最新的聚焦状态
+    useEffect(() => {
+        setProps({
+            isFocusWithin: _isFocusWithin
+        })
+    }, [_isFocusWithin])
+
     return (
         <div ref={ref}
             id={id}
@@ -73,7 +82,9 @@ const FefferyDraggable = (props) => {
                 ...style,
                 position: 'fixed',
                 left: x || initialX,
-                top: y || initialY
+                top: y || initialY,
+                // 根据是否处于聚焦状态，进行聚焦样式的添加
+                ...(_isFocusWithin ? focusWithinStyle : {}),
             }}
             className={className}
             data-dash-is-loading={
@@ -159,6 +170,11 @@ FefferyDraggable.propTypes = {
     dragLineColors: PropTypes.arrayOf(PropTypes.string),
 
     /**
+     * 设置聚焦状态下的额外css样式
+     */
+    focusWithinStyle: PropTypes.object,
+
+    /**
      * 只读，用于监听当前可拖拽组件左上角距离页面顶端的像素距离
      */
     x: PropTypes.number,
@@ -167,6 +183,11 @@ FefferyDraggable.propTypes = {
      * 只读，用于监听当前可拖拽组件左上角距离页面左侧的像素距离
      */
     y: PropTypes.number,
+
+    /**
+     * 只读，用于监听当前可拖拽组件是否处于聚焦状态
+     */
+    isFocusWithin: PropTypes.bool,
 
     loading_state: PropTypes.shape({
         /**
@@ -195,6 +216,9 @@ FefferyDraggable.defaultProps = {
     draggable: true,
     showDragLine: false,
     dragLineColors: ['#d9d9d9', '#8c8c8c'],
+    focusWithinStyle: {
+        boxShadow: 'rgba(0, 0, 0, 0.08) 0px 6px 16px -8px, rgba(0, 0, 0, 0.05) 0px 9px 28px, rgba(0, 0, 0, 0.03) 0px 12px 48px 16px'
+    }
 }
 
 export default FefferyDraggable;
