@@ -14,7 +14,8 @@ app.layout = html.Div(
             style={
                 'width': '100%',
                 'height': '100%',
-                'objectFit': 'contain'
+                'objectFit': 'contain',
+                'display': 'block'
             }
         ),
         fuc.FefferyDraggable(
