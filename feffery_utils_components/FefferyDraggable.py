@@ -18,6 +18,9 @@ Keyword arguments:
 - className (string; optional):
     当前可拖拽组件css类名.
 
+- dragLineColors (list of strings; default ['#d9d9d9', '#8c8c8c']):
+    设置拖拽辅助线颜色  默认：['#d9d9d9', '#8c8c8c'].
+
 - draggable (boolean; default True):
     是否开启可拖拽  默认：True.
 
@@ -59,10 +62,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyDraggable'
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, draggable=Component.UNDEFINED, initialX=Component.REQUIRED, initialY=Component.REQUIRED, showDragLine=Component.UNDEFINED, x=Component.UNDEFINED, y=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'className', 'draggable', 'initialX', 'initialY', 'key', 'loading_state', 'showDragLine', 'style', 'x', 'y']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, draggable=Component.UNDEFINED, initialX=Component.REQUIRED, initialY=Component.REQUIRED, showDragLine=Component.UNDEFINED, dragLineColors=Component.UNDEFINED, x=Component.UNDEFINED, y=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'className', 'dragLineColors', 'draggable', 'initialX', 'initialY', 'key', 'loading_state', 'showDragLine', 'style', 'x', 'y']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'className', 'draggable', 'initialX', 'initialY', 'key', 'loading_state', 'showDragLine', 'style', 'x', 'y']
+        self.available_properties = ['children', 'id', 'className', 'dragLineColors', 'draggable', 'initialX', 'initialY', 'key', 'loading_state', 'showDragLine', 'style', 'x', 'y']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

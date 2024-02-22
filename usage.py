@@ -6,6 +6,16 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
+        # 背景图
+        html.Img(
+            src=dash.get_asset_url('bg.png'),
+            style={
+                'width': '100%',
+                'height': '100%',
+                'objectFit': 'contain'
+            }
+        ),
+
         fuc.FefferyDraggable(
             fuc.FefferyResizable(
                 html.Div(
@@ -26,9 +36,14 @@ app.layout = html.Div(
             initialX=400,
             initialY=200,
             showDragLine=True,
+            dragLineColors=['red', 'yellow'],
             # draggable=False
         )
-    ]
+    ],
+    style={
+        'height': '100vh',
+        'position': 'relative'
+    }
 )
 
 if __name__ == '__main__':

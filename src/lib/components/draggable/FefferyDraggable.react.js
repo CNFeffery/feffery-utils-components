@@ -7,17 +7,17 @@ const DragLine = (props) => {
     return (
         <>
             {/* 顶端线 */}
-            <div style={{ height: 1, borderTop: '1px dashed #d9d9d9', position: 'fixed', boxSizing: 'border-box', left: 0, right: 0, top: props.y }} />
+            <div style={{ height: 1, borderTop: `1px dashed ${props.dragLineColors[0]}`, position: 'fixed', boxSizing: 'border-box', left: 0, right: 0, top: props.y }} />
             {/* 底端线 */}
-            <div style={{ height: 1, borderBottom: '1px dashed #d9d9d9', position: 'fixed', boxSizing: 'border-box', left: 0, right: 0, top: props.y + props.height - 1 }} />
+            <div style={{ height: 1, borderBottom: `1px dashed ${props.dragLineColors[0]}`, position: 'fixed', boxSizing: 'border-box', left: 0, right: 0, top: props.y + props.height - 1 }} />
             {/* 左侧线 */}
-            <div style={{ width: 1, borderLeft: '1px dashed #d9d9d9', position: 'fixed', boxSizing: 'border-box', top: 0, bottom: 0, left: props.x }} />
+            <div style={{ width: 1, borderLeft: `1px dashed ${props.dragLineColors[0]}`, position: 'fixed', boxSizing: 'border-box', top: 0, bottom: 0, left: props.x }} />
             {/* 右侧线 */}
-            <div style={{ width: 1, borderRight: '1px dashed #d9d9d9', position: 'fixed', boxSizing: 'border-box', top: 0, bottom: 0, left: props.x + props.width }} />
+            <div style={{ width: 1, borderRight: `1px dashed ${props.dragLineColors[0]}`, position: 'fixed', boxSizing: 'border-box', top: 0, bottom: 0, left: props.x + props.width }} />
             {/* 中心水平线 */}
-            <div style={{ height: 1, borderTop: '1px dashed #8c8c8c', position: 'fixed', boxSizing: 'border-box', left: 0, right: 0, top: props.y + 0.5 * props.height }} />
+            <div style={{ height: 1, borderTop: `1px dashed ${props.dragLineColors[1]}`, position: 'fixed', boxSizing: 'border-box', left: 0, right: 0, top: props.y + 0.5 * props.height }} />
             {/* 中心垂直线 */}
-            <div style={{ width: 1, borderLeft: '1px dashed #8c8c8c', position: 'fixed', boxSizing: 'border-box', top: 0, bottom: 0, left: props.x + 0.5 * props.width }} />
+            <div style={{ width: 1, borderLeft: `1px dashed ${props.dragLineColors[1]}`, position: 'fixed', boxSizing: 'border-box', top: 0, bottom: 0, left: props.x + 0.5 * props.width }} />
         </>
     );
 }
@@ -33,6 +33,7 @@ const FefferyDraggable = (props) => {
         children,
         draggable,
         showDragLine,
+        dragLineColors,
         initialX,
         initialY,
         x,
@@ -95,7 +96,7 @@ const FefferyDraggable = (props) => {
             {children}
             {
                 (showDragLine && draggable && (isDragging || isHovering)) ?
-                    <DragLine x={_x} y={_y} width={size.width} height={size.height} /> :
+                    <DragLine x={_x} y={_y} width={size.width} height={size.height} dragLineColors={dragLineColors} /> :
                     null
             }
         </div>
@@ -152,6 +153,12 @@ FefferyDraggable.propTypes = {
     showDragLine: PropTypes.bool,
 
     /**
+     * 设置拖拽辅助线颜色
+     * 默认：['#d9d9d9', '#8c8c8c']
+     */
+    dragLineColors: PropTypes.arrayOf(PropTypes.string),
+
+    /**
      * 只读，用于监听当前可拖拽组件左上角距离页面顶端的像素距离
      */
     x: PropTypes.number,
@@ -186,7 +193,8 @@ FefferyDraggable.propTypes = {
 // 设置默认参数
 FefferyDraggable.defaultProps = {
     draggable: true,
-    showDragLine: false
+    showDragLine: false,
+    dragLineColors: ['#d9d9d9', '#8c8c8c'],
 }
 
 export default FefferyDraggable;

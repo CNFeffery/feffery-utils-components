@@ -232,7 +232,7 @@ body {
 }
 
 .feffery-draggable-dragger:hover {
-  background: #f2f2f2;
+  /* background: #f2f2f2; */
   transition: background 0.15s ease;
 }
 
