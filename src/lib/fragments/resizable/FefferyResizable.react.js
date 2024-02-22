@@ -21,6 +21,7 @@ const FefferyResizable = (props) => {
         direction,
         grid,
         bounds,
+        boundsSelector,
         handleStyles,
         handleClassNames,
         setProps,
@@ -69,7 +70,11 @@ const FefferyResizable = (props) => {
             maxWidth={maxWidth}
             maxHeight={maxHeight}
             grid={grid}
-            bounds={bounds}
+            bounds={
+                boundsSelector ?
+                    document.querySelector(boundsSelector) :
+                    bounds
+            }
             enable={enable}
             handleStyles={{
                 ...handleStyles,

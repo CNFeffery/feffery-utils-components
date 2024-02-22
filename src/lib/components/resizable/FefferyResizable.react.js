@@ -127,6 +127,11 @@ FefferyResizable.propTypes = {
     bounds: PropTypes.oneOf(['window', 'parent']),
 
     /**
+     * 用于指定边界元素的css选择器，优先级高于bounds
+     */
+    boundsSelector: PropTypes.string,
+
+    /**
      * 用于分别设置不同方向上拖拽控件部分的css样式
      */
     handleStyles: PropTypes.exact({

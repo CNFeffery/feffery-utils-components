@@ -8,16 +8,16 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        # 背景图
-        html.Img(
-            src=dash.get_asset_url('bg.png'),
-            style={
-                'width': '100%',
-                'height': '100%',
-                'objectFit': 'contain',
-                'display': 'block'
-            }
-        ),
+        # # 背景图
+        # html.Img(
+        #     src=dash.get_asset_url('bg.png'),
+        #     style={
+        #         'width': '100%',
+        #         'height': '100%',
+        #         'objectFit': 'contain',
+        #         'display': 'block'
+        #     }
+        # ),
         fuc.FefferyDraggable(
             fuc.FefferyResizable(
                 html.Div(
@@ -33,6 +33,7 @@ app.layout = html.Div(
                     }
                 ),
                 id='demo-resizable',
+                boundsSelector='#demo-bounds',
                 defaultSize={
                     'width': 300,
                     'height': 80
@@ -43,6 +44,18 @@ app.layout = html.Div(
             initialY=200,
             showDragLine=True,
             # draggable=False,
+        ),
+        # 示例边界范围
+        html.Div(
+            id='demo-bounds',
+            style={
+                'position': 'fixed',
+                'top': 100,
+                'right': 100,
+                'bottom': 100,
+                'left': 100,
+                'backgroundColor': '#f0f0f0'
+            }
         )
     ],
     style={
