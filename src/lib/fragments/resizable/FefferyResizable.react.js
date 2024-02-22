@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Resizable } from 're-resizable';
 import { propTypes, defaultProps } from '../../components/resizable/FefferyResizable.react';
 import { clone } from 'lodash';
@@ -11,6 +12,7 @@ const FefferyResizable = (props) => {
         children,
         className,
         style,
+        size,
         defaultSize,
         minWidth,
         minHeight,
@@ -24,6 +26,15 @@ const FefferyResizable = (props) => {
         setProps,
         loading_state
     } = props;
+
+    useEffect(() => {
+        // size缺省且defaultSize有效时，进行赋值
+        if (!size && defaultSize) {
+            setProps({
+                size: defaultSize
+            })
+        }
+    }, [])
 
     // 初始化enable
     const defaultEnable = {
@@ -51,6 +62,7 @@ const FefferyResizable = (props) => {
             children={children}
             className={className}
             style={style}
+            size={size}
             defaultSize={defaultSize}
             minWidth={minWidth}
             minHeight={minHeight}
@@ -79,6 +91,16 @@ const FefferyResizable = (props) => {
                 }
             }}
             handleClasses={handleClassNames}
+            onResizeStop={(e, direction, ref, d) => {
+                if (size) {
+                    setProps({
+                        size: {
+                            width: size.width + d.width,
+                            height: size.height + d.height,
+                        }
+                    });
+                }
+            }}
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             }

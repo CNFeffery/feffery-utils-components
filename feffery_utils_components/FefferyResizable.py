@@ -22,7 +22,7 @@ Keyword arguments:
     设置css类名.
 
 - defaultSize (dict; optional):
-    监听或设置尺寸调整组件初始化时的宽度、高度，可传入如300、'300px'、'50%'、'50vh'等形式.
+    设置尺寸调整组件初始化时的宽度、高度，可传入如300、'300px'、'50%'、'50vh'等形式.
 
     `defaultSize` is a dict with keys:
 
@@ -109,6 +109,17 @@ Keyword arguments:
 - minWidth (number | string; default 10):
     设置尺寸调整组件的最小宽度，默认为10.
 
+- size (dict; optional):
+    监听或设置尺寸调整组件的宽度、高度，可传入如300、'300px'、'50%'、'50vh'等形式.
+
+    `size` is a dict with keys:
+
+    - height (number | string; optional):
+        设置高度.
+
+    - width (number | string; optional):
+        设置宽度.
+
 - style (dict; optional):
     设置css样式."""
     _children_props = []
@@ -116,10 +127,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyResizable'
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, defaultSize=Component.UNDEFINED, minWidth=Component.UNDEFINED, minHeight=Component.UNDEFINED, maxWidth=Component.UNDEFINED, maxHeight=Component.UNDEFINED, direction=Component.UNDEFINED, grid=Component.UNDEFINED, bounds=Component.UNDEFINED, handleStyles=Component.UNDEFINED, handleClassNames=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'bounds', 'className', 'defaultSize', 'direction', 'grid', 'handleClassNames', 'handleStyles', 'key', 'loading_state', 'maxHeight', 'maxWidth', 'minHeight', 'minWidth', 'style']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, defaultSize=Component.UNDEFINED, size=Component.UNDEFINED, minWidth=Component.UNDEFINED, minHeight=Component.UNDEFINED, maxWidth=Component.UNDEFINED, maxHeight=Component.UNDEFINED, direction=Component.UNDEFINED, grid=Component.UNDEFINED, bounds=Component.UNDEFINED, handleStyles=Component.UNDEFINED, handleClassNames=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'bounds', 'className', 'defaultSize', 'direction', 'grid', 'handleClassNames', 'handleStyles', 'key', 'loading_state', 'maxHeight', 'maxWidth', 'minHeight', 'minWidth', 'size', 'style']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'bounds', 'className', 'defaultSize', 'direction', 'grid', 'handleClassNames', 'handleStyles', 'key', 'loading_state', 'maxHeight', 'maxWidth', 'minHeight', 'minWidth', 'style']
+        self.available_properties = ['children', 'id', 'bounds', 'className', 'defaultSize', 'direction', 'grid', 'handleClassNames', 'handleStyles', 'key', 'loading_state', 'maxHeight', 'maxWidth', 'minHeight', 'minWidth', 'size', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

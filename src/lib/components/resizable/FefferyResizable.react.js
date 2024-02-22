@@ -36,9 +36,29 @@ FefferyResizable.propTypes = {
     style: PropTypes.object,
 
     /**
-     * 监听或设置尺寸调整组件初始化时的宽度、高度，可传入如300、'300px'、'50%'、'50vh'等形式
+     * 设置尺寸调整组件初始化时的宽度、高度，可传入如300、'300px'、'50%'、'50vh'等形式
      */
     defaultSize: PropTypes.exact({
+        /**
+         * 设置宽度
+         */
+        width: PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.string
+        ]),
+        /**
+         * 设置高度
+         */
+        height: PropTypes.oneOfType([
+            PropTypes.number,
+            PropTypes.string
+        ])
+    }),
+
+    /**
+     * 监听或设置尺寸调整组件的宽度、高度，可传入如300、'300px'、'50%'、'50vh'等形式
+     */
+    size: PropTypes.exact({
         /**
          * 设置宽度
          */
