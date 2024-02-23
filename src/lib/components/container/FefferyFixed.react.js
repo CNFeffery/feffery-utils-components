@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import useCss from '../../hooks/useCss';
+import { isString } from 'lodash';
 import { useWindowSize } from '@reactuses/core';
 
 // 定义固定布局组件FefferyFixed
@@ -27,7 +28,7 @@ const FefferyFixed = (props) => {
         // 计算最新的图片实际像素宽度、像素高度
         let followImageWidthExact;
         let followImageHeightExact;
-        if (windowWidth >= windowHeight) {
+        if ((windowHeight / windowWidth) <= (followImageHeight / followImageWidth)) {
             followImageWidthExact = windowHeight * (followImageWidth / followImageHeight);
             followImageHeightExact = windowHeight;
         } else {
@@ -43,7 +44,7 @@ const FefferyFixed = (props) => {
                     ...style,
                     position: 'fixed',
                     ...(
-                        windowWidth >= windowHeight ?
+                        (windowHeight / windowWidth) <= (followImageHeight / followImageWidth) ?
                             {
                                 left: 0.5 * windowWidth - 0.5 * followImageWidthExact + followImageContainerPosition[0] * followImageWidthExact,
                                 top: followImageContainerPosition[1] * followImageHeightExact,
