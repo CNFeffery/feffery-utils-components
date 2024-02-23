@@ -2,6 +2,7 @@
 /build
 /deps
 /dist
+/assets
 /feffery_utils_components/*.js
 /feffery_utils_components/*.txt
 /feffery_utils_components/*.json
