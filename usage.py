@@ -6,32 +6,17 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        html.Img(
-            src='assets/报告背景示例.png',
+        fuc.FefferyDiv(
             style={
-                'width': '100%',
-                'height': '100%',
-                'objectFit': 'contain',
-                'display': 'block'
-            }
-        ),
-        fuc.FefferyFixed(
-            '测试',
-            mode='follow-image',
-            followImageWidth=1920,
-            followImageHeight=1079,
-            followImageContainerPosition=[0, 0],
-            followImageContainerSize=[0.5, 0.5],
-            style={
-                'background': '#1890ff',
-                'display': 'flex',
-                'justifyContent': 'center',
-                'alignItems': 'center'
+                'height': '50vw',
+                'border': '1px solid red'
             }
         )
     ],
     style={
-        'height': '100vh'
+        'height': 10000,
+        'paddingTop': 800,
+        'paddingLeft': '10vw'
     }
 )
 

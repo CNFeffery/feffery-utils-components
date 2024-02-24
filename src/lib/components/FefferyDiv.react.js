@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import useCss from '../hooks/useCss'
 import { isString } from 'lodash';
 import PropTypes from 'prop-types';
+import { useElementBounding } from '@reactuses/core';
 import { useSize, useRequest, useHover, useClickAway } from 'ahooks';
 import './styles.css'
 
@@ -107,7 +108,18 @@ const FefferyDiv = (props) => {
 
     const ref = useRef(null);
     const size = useSize(ref);
+    const _bounding = useElementBounding(ref);
     const _isHovering = useHover(ref);
+
+    // 更新位置信息
+    useEffect(() => {
+        setProps({
+            position: {
+                x: _bounding.x,
+                y: _bounding.y
+            }
+        })
+    }, [_bounding])
 
     // 处理鼠标滚轮事件处理策略
     useEffect(() => {
@@ -401,6 +413,20 @@ FefferyDiv.propTypes = {
      * 监听元素外点击事件发生次数，默认为0
      */
     clickAwayCount: PropTypes.number,
+
+    /**
+     * 监听当前元素左上角在视口中的坐标位置
+     */
+    position: PropTypes.exact({
+        /**
+         * 以页面整体左上角为原点，记录x坐标
+         */
+        x: PropTypes.number,
+        /**
+         * 以页面整体左上角为原点，记录y坐标
+         */
+        y: PropTypes.number,
+    }),
 
     /**
      * 设置当前div内部处理鼠标滑轮事件的策略
