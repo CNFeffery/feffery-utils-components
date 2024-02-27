@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import useCss from '../hooks/useCss'
-import { isString } from 'lodash';
+import { isString, isNull } from 'lodash';
 import PropTypes from 'prop-types';
-import { useElementBounding } from '@reactuses/core';
+import { useElementBounding, useFocus } from '@reactuses/core';
 import { useSize, useRequest, useHover, useClickAway } from 'ahooks';
 import './styles.css'
 
@@ -91,6 +91,8 @@ const FefferyDiv = (props) => {
         enableListenContextMenu,
         debounceWait,
         clickAwayCount,
+        enableFocus,
+        isFocused,
         shadow,
         scrollbar,
         textAlign,
@@ -110,6 +112,19 @@ const FefferyDiv = (props) => {
     const size = useSize(ref);
     const _bounding = useElementBounding(ref);
     const _isHovering = useHover(ref);
+    const [_focus, setFocus] = useFocus(ref)
+
+    useEffect(() => {
+        setProps({
+            isFocused: _focus
+        })
+    }, [_focus])
+
+    useEffect(() => {
+        if (!isNull(isFocused)) {
+            setFocus(isFocused)
+        }
+    }, [isFocused])
 
     // 更新位置信息
     useEffect(() => {
@@ -286,6 +301,7 @@ const FefferyDiv = (props) => {
         }}
         onMouseEnter={() => setProps({ mouseEnterCount: mouseEnterCount + 1 })}
         onMouseLeave={() => setProps({ mouseLeaveCount: mouseLeaveCount + 1 })}
+        tabIndex={enableFocus ? 0 : undefined}
         data-dash-is-loading={
             (loading_state && loading_state.is_loading) || undefined
         } >
@@ -429,6 +445,17 @@ FefferyDiv.propTypes = {
     }),
 
     /**
+     * 是否启用聚焦状态监听功能
+     * 默认：false
+     */
+    enableFocus: PropTypes.bool,
+
+    /**
+     * 监听或设置当前元素是否聚焦
+     */
+    isFocused: PropTypes.bool,
+
+    /**
      * 设置当前div内部处理鼠标滑轮事件的策略
      * 可选的有'default'、'internally-only'（不向外传递）
      * 默认：'default'
@@ -532,6 +559,7 @@ FefferyDiv.defaultProps = {
     shadow: 'no-shadow',
     scrollbar: 'default',
     enableClickAway: false,
+    enableFocus: false,
     wheelEventStrategy: 'default'
 }
 
