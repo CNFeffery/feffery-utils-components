@@ -7,15 +7,8 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        fuc.FefferyDiv(
-            id='demo-div',
-            enableFocus=True,
-            style={
-                'width': 400,
-                'height': 300,
-                'border': '1px solid black'
-            }
-        )
+        fuc.FefferyPageLeave(id='page-leave-demo'),
+        html.Div(id='output')
     ],
     style={
         'padding': 50
@@ -24,12 +17,13 @@ app.layout = html.Div(
 
 
 @app.callback(
-    Output('demo-div', 'children'),
-    Input('demo-div', 'isFocused')
+    Output('output', 'children'),
+    Input('page-leave-demo', 'isLeft'),
+    prevent_initial_call=True
 )
-def demo(isFocused):
+def demo(isLeft):
 
-    return f'isFocused: {isFocused}'
+    return f'isLeft: {isLeft}'
 
 
 if __name__ == '__main__':
