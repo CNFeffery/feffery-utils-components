@@ -98,6 +98,7 @@ import FefferyTopologyBackground from "./components/animations/FefferyTopologyBa
 import FefferyDraggable from "./components/draggable/FefferyDraggable.react";
 import FefferyFixed from "./components/container/FefferyFixed.react";
 import FefferyPageLeave from "./components/listeners/FefferyPageLeave.react";
+import FefferyMediaQuery from "./components/listeners/FefferyMediaQuery.react";
 import './components/styles.css';
 
 // 自定义sessionStorage事件监听
@@ -220,5 +221,6 @@ export {
     FefferyIframeMessenger,
     FefferyDraggable,
     FefferyFixed,
-    FefferyPageLeave
+    FefferyPageLeave,
+    FefferyMediaQuery
 };

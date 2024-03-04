@@ -7,7 +7,8 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        fuc.FefferyPageLeave(id='page-leave-demo'),
+        fuc.FefferyMediaQuery(id='media-query-demo',
+                              query='(min-width: 480px)'),
         html.Div(id='output')
     ],
     style={
@@ -18,12 +19,12 @@ app.layout = html.Div(
 
 @app.callback(
     Output('output', 'children'),
-    Input('page-leave-demo', 'isLeft'),
+    Input('media-query-demo', 'isMatch'),
     prevent_initial_call=True
 )
-def demo(isLeft):
+def demo(isMatch):
 
-    return f'isLeft: {isLeft}'
+    return f'isMatch: {isMatch}'
 
 
 if __name__ == '__main__':
