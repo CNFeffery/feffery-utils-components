@@ -21,8 +21,11 @@ from .FefferyHexColorPicker import FefferyHexColorPicker as HexColorPicker
 from .FefferyRgbColorPicker import FefferyRgbColorPicker as RgbColorPicker
 from .FefferyTwitterColorPicker import FefferyTwitterColorPicker as TwitterColorPicker
 from .FefferyWheelColorPicker import FefferyWheelColorPicker as WheelColorPicker
+from .FefferyFixed import FefferyFixed as Fixed
+from .FefferyDraggable import FefferyDraggable as Draggable
 from .FefferyGrid import FefferyGrid as Grid
 from .FefferyGridItem import FefferyGridItem as GridItem
+from .FefferyRND import FefferyRND as RND
 from .FefferyCaptcha import FefferyCaptcha as Captcha
 from .FefferyCompareSlider import FefferyCompareSlider as CompareSlider
 from .FefferyCountDown import FefferyCountDown as CountDown
@@ -57,7 +60,6 @@ from .FefferyShadowDom import FefferyShadowDom as ShadowDom
 from .FefferyShortcutPanel import FefferyShortcutPanel as ShortcutPanel
 from .FefferySticky import FefferySticky as Sticky
 from .FefferyStyle import FefferyStyle as Style
-from .FefferyTabMessenger import FefferyTabMessenger as TabMessenger
 from .FefferyTimeout import FefferyTimeout as Timeout
 from .FefferyTopProgress import FefferyTopProgress as TopProgress
 from .FefferyVirtualList import FefferyVirtualList as VirtualList
@@ -75,10 +77,14 @@ from .FefferyListenScroll import FefferyListenScroll as ListenScroll
 from .FefferyListenUnload import FefferyListenUnload as ListenUnload
 from .FefferyLocation import FefferyLocation as Location
 from .FefferyLongPress import FefferyLongPress as LongPress
+from .FefferyMediaQuery import FefferyMediaQuery as MediaQuery
 from .FefferyMousePosition import FefferyMousePosition as MousePosition
+from .FefferyPageLeave import FefferyPageLeave as PageLeave
 from .FefferyResponsive import FefferyResponsive as Responsive
 from .FefferyTextSelection import FefferyTextSelection as TextSelection
 from .FefferyWindowSize import FefferyWindowSize as WindowSize
+from .FefferyIframeMessenger import FefferyIframeMessenger as IframeMessenger
+from .FefferyTabMessenger import FefferyTabMessenger as TabMessenger
 from .FefferyExcelPreview import FefferyExcelPreview as ExcelPreview
 from .FefferyWordPreview import FefferyWordPreview as WordPreview
 from .FefferyAPlayer import FefferyAPlayer as APlayer
@@ -118,8 +124,11 @@ __all__ = [
     "RgbColorPicker",
     "TwitterColorPicker",
     "WheelColorPicker",
+    "Fixed",
+    "Draggable",
     "Grid",
     "GridItem",
+    "RND",
     "Captcha",
     "CompareSlider",
     "CountDown",
@@ -154,7 +163,6 @@ __all__ = [
     "ShortcutPanel",
     "Sticky",
     "Style",
-    "TabMessenger",
     "Timeout",
     "TopProgress",
     "VirtualList",
@@ -172,10 +180,14 @@ __all__ = [
     "ListenUnload",
     "Location",
     "LongPress",
+    "MediaQuery",
     "MousePosition",
+    "PageLeave",
     "Responsive",
     "TextSelection",
     "WindowSize",
+    "IframeMessenger",
+    "TabMessenger",
     "ExcelPreview",
     "WordPreview",
     "APlayer",
