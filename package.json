@@ -82,6 +82,7 @@
     "react-parallax-tilt": "^1.7.183",
     "react-photo-sphere-viewer": "^4.2.1-psv5.6.0",
     "react-resize-detector": "^7.1.2",
+    "react-rnd": "^10.4.1",
     "react-scroll": "^1.8.6",
     "react-shadow": "^19.0.3",
     "react-spinners-kit": "^1.9.1",

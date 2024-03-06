@@ -25,6 +25,7 @@ from .FefferyFixed import FefferyFixed
 from .FefferyDraggable import FefferyDraggable
 from .FefferyGrid import FefferyGrid
 from .FefferyGridItem import FefferyGridItem
+from .FefferyRND import FefferyRND
 from .FefferyCaptcha import FefferyCaptcha
 from .FefferyCompareSlider import FefferyCompareSlider
 from .FefferyCountDown import FefferyCountDown
@@ -127,6 +128,7 @@ __all__ = [
     "FefferyDraggable",
     "FefferyGrid",
     "FefferyGridItem",
+    "FefferyRND",
     "FefferyCaptcha",
     "FefferyCompareSlider",
     "FefferyCountDown",
