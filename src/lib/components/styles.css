@@ -2,7 +2,6 @@ body {
   margin: 0;
 }
 
-
 .modal-footer {
   background: var(--ninja-footer-background);
   padding: 0.5em 1em;
@@ -247,4 +246,9 @@ ninja-keys::part(actions-list) {
 
 ninja-keys {
   --ninja-z-index: 99999;
+}
+
+/* 提升卷帘拖拽条默认层级 */
+[data-rcs="handle-container"] {
+  z-index: 500;
 }
