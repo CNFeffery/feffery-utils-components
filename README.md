@@ -22,7 +22,7 @@ pip install feffery-utils-components -U
 ## 2 最新预发布版本安装方式
 
 > [!NOTE]  
-> 最新预发布版本（2024-02-23）：`0.2.0rc5`
+> 最新预发布版本（2024-03-06）：`0.2.0rc6`
 
 ```bash
 pip install feffery-utils-components --pre -U
