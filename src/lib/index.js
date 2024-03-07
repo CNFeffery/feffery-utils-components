@@ -60,7 +60,6 @@ import FefferyLocation from "./components/listeners/FefferyLocation.react";
 import FefferyCookie from "./components/store/FefferyCookie.react";
 import FefferyResizable from "./components/resizable/FefferyResizable.react";
 import FefferyCompareSlider from "./components/FefferyCompareSlider.react";
-import FefferySortableList from "./components/sortable/FefferySortableList.react";
 import FefferyLocalStorage from "./components/store/FefferyLocalStorage.react";
 import FefferyTextSelection from "./components/listeners/FefferyTextSelection.react";
 import FefferyLocalLargeStorage from "./components/store/FefferyLocalLargeStorage.react";
@@ -185,7 +184,6 @@ export {
     FefferyCookie,
     FefferyResizable,
     FefferyCompareSlider,
-    FefferySortableList,
     FefferyLocalStorage,
     FefferyTextSelection,
     FefferyLocalLargeStorage,

@@ -63,6 +63,7 @@
     "re-resizable": "^6.9.9",
     "react-aplayer": "1.0.0",
     "react-awesome-button": "^7.0.5",
+    "react-beautiful-dnd": "^13.1.1",
     "react-captcha-code": "^1.0.7",
     "react-color": "^2.19.3",
     "react-colorful": "^5.6.1",
