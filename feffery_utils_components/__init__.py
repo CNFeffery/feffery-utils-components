@@ -38,7 +38,7 @@ async_resources = [
     'feffery_auto_animate',
     'feffery_json_viewer',
     'feffery_resizable',
-    'feffery_sortable_list',
+    'feffery_sortable',
     'feffery_local_large_storage',
     'feffery_color_pickers',
     'feffery_fancy_button',

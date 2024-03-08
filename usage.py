@@ -1,59 +1,79 @@
 import dash
-import json
-from dash import html
+from dash import html, dcc
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output
 
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        html.Div(
-            fuc.FefferyRND(
-                html.Pre(id='params'),
-                defaultState={
-                    'width': 400,
-                    'height': 300,
-                    'x': 100,
-                    'y': 100
-                },
-                id='demo-rnd',
-                bounds='parent',
-                style={
-                    'background': '#f0f0f0',
-                    'display': 'flex',
-                    'alignItems': 'center',
-                    'justifyContent': 'center'
+        fuc.FefferySortable(
+            id='input',
+            items=[
+                {
+                    'key': f'子项{i}',
+                    'content': [
+                        f'子项{i}',
+                        dcc.Checklist(
+                            id=f'checklist{i}',
+                            options=[f'选项{i}' for i in range(1, 3)]
+                        )
+                    ],
+                    'style': {
+                        'borderBottom': '1px solid lightgrey',
+                        'background': 'white',
+                        'padding': '5px'
+                    },
+                    'draggingStyle': {
+                        'boxShadow': '0px 0px 12px rgba(0, 0, 0, 0.12)',
+                        'borderBottom': '1px solid transparent'
+                    }
                 }
-            ),
+                for i in range(1, 6)
+            ],
+            currentOrder=['子项2', '子项3', '子项1', '子项4', '子项5'],
+            itemDraggingScale=1.025,
+            handleStyle={
+                'color': '#adb5bd'
+            },
+            handleClassName={
+                '&:hover': {
+                    'background': '#f1f3f5'
+                },
+                'padding': '4px',
+                'borderRadius': '8px'
+            },
             style={
-                'border': '1px solid black',
-                'height': 'calc(100vh - 100px)',
-                'position': 'relative'
+                'width': 400
             }
-        )
+        ),
+
+        html.Pre(id='output')
     ],
     style={
-        'padding': '50px 50px 0 50px'
+        'padding': 50
     }
 )
 
 
 @app.callback(
-    Output('params', 'children'),
-    [Input('demo-rnd', 'position'),
-     Input('demo-rnd', 'size')]
+    Output('output', 'children'),
+    Input('input', 'currentOrder')
 )
-def update_params(position, size):
+def sortable_list_demo(currentOrder):
 
-    return json.dumps(
-        dict(
-            position=position,
-            size=size
-        ),
-        indent=4,
-        ensure_ascii=False
-    )
+    return str(currentOrder)
+
+
+@app.callback(
+    Output('checklist1', 'id'),
+    Input('checklist1', 'value')
+)
+def demo(value):
+
+    print(value)
+
+    return dash.no_update
 
 
 if __name__ == '__main__':

@@ -92,6 +92,7 @@ from .FefferyDPlayer import FefferyDPlayer as DPlayer
 from .FefferyMusicPlayer import FefferyMusicPlayer as MusicPlayer
 from .FefferyAutoFit import FefferyAutoFit as AutoFit
 from .FefferyResizable import FefferyResizable as Resizable
+from .FefferySortable import FefferySortable as Sortable
 from .FefferyCookie import FefferyCookie as Cookie
 from .FefferyDebounceProp import FefferyDebounceProp as DebounceProp
 from .FefferyLocalLargeStorage import FefferyLocalLargeStorage as LocalLargeStorage
@@ -194,6 +195,7 @@ __all__ = [
     "MusicPlayer",
     "AutoFit",
     "Resizable",
+    "Sortable",
     "Cookie",
     "DebounceProp",
     "LocalLargeStorage",

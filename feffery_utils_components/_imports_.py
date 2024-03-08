@@ -92,6 +92,7 @@ from .FefferyDPlayer import FefferyDPlayer
 from .FefferyMusicPlayer import FefferyMusicPlayer
 from .FefferyAutoFit import FefferyAutoFit
 from .FefferyResizable import FefferyResizable
+from .FefferySortable import FefferySortable
 from .FefferyCookie import FefferyCookie
 from .FefferyDebounceProp import FefferyDebounceProp
 from .FefferyLocalLargeStorage import FefferyLocalLargeStorage
@@ -194,6 +195,7 @@ __all__ = [
     "FefferyMusicPlayer",
     "FefferyAutoFit",
     "FefferyResizable",
+    "FefferySortable",
     "FefferyCookie",
     "FefferyDebounceProp",
     "FefferyLocalLargeStorage",
