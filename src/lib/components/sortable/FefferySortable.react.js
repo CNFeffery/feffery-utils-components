@@ -114,6 +114,16 @@ FefferySortable.propTypes = {
     handleType: PropTypes.oneOf(['holder', 'menu', 'drag']),
 
     /**
+     * 限制横向拖拽最大像素偏移距离，默认无限制
+     */
+    maxTranslateX: PropTypes.number,
+
+    /**
+     * 限制纵向拖拽最大像素偏移距离，默认无限制
+     */
+    maxTranslateY: PropTypes.number,
+
+    /**
      * 监听或设置当前各子项呈现的顺序
      */
     currentOrder: PropTypes.arrayOf(
@@ -122,6 +132,40 @@ FefferySortable.propTypes = {
             PropTypes.string
         ])
     ),
+
+    // 子项点选相关功能
+    /**
+     * 设置或监听当前处于选中状态的子项key值
+     */
+    value: PropTypes.oneOfType([
+        /**
+         * 单选模式
+         */
+        PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        /**
+         * 多选模式
+         */
+        PropTypes.arrayOf(
+            PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+        )
+    ]),
+
+    /**
+     * 是否允许多选
+     * 默认：false
+     */
+    multiple: PropTypes.bool,
+
+    /**
+     * 是否允许无选中项
+     * 默认：true
+     */
+    allowNoValue: PropTypes.bool,
+
+    /**
+     * 针对已选中项设置额外的css样式
+     */
+    selectedStyle: PropTypes.object,
 
     loading_state: PropTypes.shape({
         /**
@@ -150,7 +194,9 @@ FefferySortable.defaultProps = {
     direction: 'vertical',
     itemDraggingScale: 1,
     handlePosition: 'end',
-    handleType: 'holder'
+    handleType: 'holder',
+    multiple: false,
+    allowNoValue: true
 }
 
 export default React.memo(FefferySortable);

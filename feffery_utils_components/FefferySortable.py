@@ -12,6 +12,9 @@ Keyword arguments:
 - id (string; optional):
     组件id.
 
+- allowNoValue (boolean; default True):
+    是否允许无选中项  默认：True.
+
 - className (string | dict; optional):
     组件css类.
 
@@ -75,17 +78,32 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
+- maxTranslateX (number; optional):
+    限制横向拖拽最大像素偏移距离，默认无限制.
+
+- maxTranslateY (number; optional):
+    限制纵向拖拽最大像素偏移距离，默认无限制.
+
+- multiple (boolean; default False):
+    是否允许多选  默认：False.
+
+- selectedStyle (dict; optional):
+    针对已选中项设置额外的css样式.
+
 - style (dict; optional):
-    组件css样式."""
+    组件css样式.
+
+- value (number | string | list of number | strings; optional):
+    设置或监听当前处于选中状态的子项key值."""
     _children_props = ['items[].content']
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferySortable'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, style=Component.UNDEFINED, handleStyle=Component.UNDEFINED, handleClassName=Component.UNDEFINED, className=Component.UNDEFINED, key=Component.UNDEFINED, items=Component.REQUIRED, direction=Component.UNDEFINED, itemDraggingScale=Component.UNDEFINED, handlePosition=Component.UNDEFINED, handleType=Component.UNDEFINED, currentOrder=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'currentOrder', 'direction', 'handleClassName', 'handlePosition', 'handleStyle', 'handleType', 'itemDraggingScale', 'items', 'key', 'loading_state', 'style']
+    def __init__(self, id=Component.UNDEFINED, style=Component.UNDEFINED, handleStyle=Component.UNDEFINED, handleClassName=Component.UNDEFINED, className=Component.UNDEFINED, key=Component.UNDEFINED, items=Component.REQUIRED, direction=Component.UNDEFINED, itemDraggingScale=Component.UNDEFINED, handlePosition=Component.UNDEFINED, handleType=Component.UNDEFINED, maxTranslateX=Component.UNDEFINED, maxTranslateY=Component.UNDEFINED, currentOrder=Component.UNDEFINED, value=Component.UNDEFINED, multiple=Component.UNDEFINED, allowNoValue=Component.UNDEFINED, selectedStyle=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'allowNoValue', 'className', 'currentOrder', 'direction', 'handleClassName', 'handlePosition', 'handleStyle', 'handleType', 'itemDraggingScale', 'items', 'key', 'loading_state', 'maxTranslateX', 'maxTranslateY', 'multiple', 'selectedStyle', 'style', 'value']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'currentOrder', 'direction', 'handleClassName', 'handlePosition', 'handleStyle', 'handleType', 'itemDraggingScale', 'items', 'key', 'loading_state', 'style']
+        self.available_properties = ['id', 'allowNoValue', 'className', 'currentOrder', 'direction', 'handleClassName', 'handlePosition', 'handleStyle', 'handleType', 'itemDraggingScale', 'items', 'key', 'loading_state', 'maxTranslateX', 'maxTranslateY', 'multiple', 'selectedStyle', 'style', 'value']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

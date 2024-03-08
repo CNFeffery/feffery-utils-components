@@ -1,79 +1,93 @@
 import dash
+import json
 from dash import html, dcc
 import feffery_utils_components as fuc
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, ALL
 
-app = dash.Dash(__name__, compress=True)
+app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
         fuc.FefferySortable(
-            id='input',
+            id='sortable-demo',
+            value='子项1',
+            maxTranslateX=0,
+            # multiple=True,
+            allowNoValue=False,
+            selectedStyle={
+                'border': '1px solid red'
+            },
             items=[
                 {
                     'key': f'子项{i}',
                     'content': [
                         f'子项{i}',
                         dcc.Checklist(
-                            id=f'checklist{i}',
-                            options=[f'选项{i}' for i in range(1, 3)]
+                            id={
+                                'type': 'checklist-demo',
+                                'index': f'子项{i}'
+                            },
+                            options=[f'选项{j}' for j in range(1, 3)]
                         )
                     ],
                     'style': {
-                        'borderBottom': '1px solid lightgrey',
+                        'border': '1px solid lightgrey',
                         'background': 'white',
                         'padding': '5px',
-                        'height': 50 + i * 20,
-                        'border': '1px solid #bfbfbf'
+                        'marginBottom': 3
                     },
                     'draggingStyle': {
                         'boxShadow': '0px 0px 12px rgba(0, 0, 0, 0.12)',
-                        'borderBottom': '1px solid transparent'
+                        'border': '1px solid transparent'
                     }
                 }
-                for i in range(1, 6)
+                for i in range(1, 11)
             ],
-            currentOrder=['子项2', '子项3', '子项1', '子项4', '子项5'],
-            itemDraggingScale=1.025,
-            handleStyle={
-                'color': '#adb5bd'
-            },
-            handleClassName={
-                '&:hover': {
-                    'background': '#f1f3f5'
-                },
-                'padding': '4px',
-                'borderRadius': '8px'
-            },
+            itemDraggingScale=1.05,
             style={
-                'width': 400
+                'width': 400,
+                'padding': '4px 20px',
+                'background': '#bfbfbf',
+                'maxHeight': 600,
+                'overflowY': 'auto'
             }
         ),
-
-        html.Pre(id='output')
+        html.Pre(
+            id='output-demo'
+        )
     ],
     style={
-        'padding': 50
+        'padding': '50px 100px'
     }
 )
 
 
 @app.callback(
-    Output('output', 'children'),
-    Input('input', 'currentOrder')
+    Output('output-demo', 'children'),
+    [
+        Input('sortable-demo', 'currentOrder'),
+        Input(
+            {
+                'type': 'checklist-demo',
+                'index': ALL
+            },
+            'value'
+        )
+    ]
 )
-def sortable_list_demo(currentOrder):
+def update_params(currentOrder, values):
 
-    return str(currentOrder)
-
-
-@app.callback(
-    Output('checklist2', 'id'),
-    Input('checklist2', 'value')
-)
-def demo(value):
-
-    return dash.no_update
+    return json.dumps(
+        {
+            'currentOrder': currentOrder,
+            'values': {
+                item['id']['index']: item.get('value')
+                for item in dash.ctx.inputs_list[1]
+            }
+        },
+        ensure_ascii=False,
+        indent=4
+    )
 
 
 if __name__ == '__main__':

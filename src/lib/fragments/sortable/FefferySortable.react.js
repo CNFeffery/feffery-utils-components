@@ -38,7 +38,14 @@ const SortableItem = React.memo(
         handleClassName,
         handlePosition,
         handleType,
-        itemDraggingScale
+        maxTranslateX,
+        maxTranslateY,
+        itemDraggingScale,
+        setProps,
+        value,
+        multiple,
+        allowNoValue,
+        selectedStyle
     }) => {
 
         const {
@@ -54,7 +61,12 @@ const SortableItem = React.memo(
         const style = {
             transform: CSS.Transform.toString(
                 transform && {
-                    ...transform,
+                    ...{
+                        ...transform,
+                        x: (maxTranslateX || maxTranslateX === 0) ? maxTranslateX : transform.x,
+                        y: (maxTranslateY || maxTranslateY === 0) ? maxTranslateY : transform.y
+                    },
+                    scaleX: 1,
                     scaleY: 1,
                     ...(
                         isDragging ?
@@ -78,6 +90,16 @@ const SortableItem = React.memo(
                         ...draggingStyle
                     }
                     : {}
+            ),
+            // 处理已选中状态
+            ...(
+                (
+                    Array.isArray(value) ?
+                        value.includes(id) :
+                        value === id
+                ) ?
+                    selectedStyle :
+                    {}
             )
         };
 
@@ -124,11 +146,70 @@ const SortableItem = React.memo(
                         {handlePosition === 'start' ? <div style={{ flex: 'auto' }}>{children}</div> : null}
                     </>
                 }
+                onClick={() => {
+                    // 处理点击选中功能
+                    // 单选模式
+                    if (!multiple) {
+                        if (id === value) {
+                            // 若允许空值
+                            if (allowNoValue) {
+                                setProps({
+                                    value: null
+                                })
+                            }
+                        } else {
+                            setProps({
+                                value: id
+                            })
+                        }
+                    } else {
+                        // 多选模式
+                        if (value) {
+                            if (Array.isArray(value)) {
+                                if (value.includes(id)) {
+                                    if (value.length === 1) {
+                                        // 若允许空值
+                                        if (allowNoValue) {
+                                            setProps({
+                                                value: value.filter(item => item !== id)
+                                            })
+                                        }
+                                    } else {
+                                        setProps({
+                                            value: value.filter(item => item !== id)
+                                        })
+                                    }
+                                } else {
+                                    setProps({
+                                        value: [...value, id]
+                                    })
+                                }
+                            } else {
+                                if (id === value) {
+                                    // 若允许空值
+                                    if (allowNoValue) {
+                                        setProps({
+                                            value: []
+                                        })
+                                    }
+                                } else {
+                                    setProps({
+                                        value: [value, id]
+                                    })
+                                }
+                            }
+                        } else {
+                            setProps({
+                                value: [id]
+                            })
+                        }
+                    }
+                }}
             />
         );
     },
     (prevProps, nextProps) => {
-        return isEqual(prevProps.children, nextProps.children);
+        return isEqual(prevProps.children, nextProps.children) && prevProps.value === nextProps.value;
     }
 )
 
@@ -147,6 +228,12 @@ const FefferySortable = (props) => {
         itemDraggingScale,
         handlePosition,
         handleType,
+        maxTranslateX,
+        maxTranslateY,
+        value,
+        multiple,
+        allowNoValue,
+        selectedStyle,
         setProps,
         loading_state
     } = props;
@@ -220,7 +307,14 @@ const FefferySortable = (props) => {
                             handleClassName={handleClassName}
                             handlePosition={handlePosition}
                             handleType={handleType}
-                            itemDraggingScale={itemDraggingScale} />
+                            maxTranslateX={maxTranslateX}
+                            maxTranslateY={maxTranslateY}
+                            itemDraggingScale={itemDraggingScale}
+                            setProps={setProps}
+                            value={value}
+                            multiple={multiple}
+                            allowNoValue={allowNoValue}
+                            selectedStyle={selectedStyle} />
                     ))}
                 </ul>
             </SortableContext>
