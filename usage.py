@@ -22,7 +22,9 @@ app.layout = html.Div(
                     'style': {
                         'borderBottom': '1px solid lightgrey',
                         'background': 'white',
-                        'padding': '5px'
+                        'padding': '5px',
+                        'height': 50 + i * 20,
+                        'border': '1px solid #bfbfbf'
                     },
                     'draggingStyle': {
                         'boxShadow': '0px 0px 12px rgba(0, 0, 0, 0.12)',
@@ -66,12 +68,10 @@ def sortable_list_demo(currentOrder):
 
 
 @app.callback(
-    Output('checklist1', 'id'),
-    Input('checklist1', 'value')
+    Output('checklist2', 'id'),
+    Input('checklist2', 'value')
 )
 def demo(value):
-
-    print(value)
 
     return dash.no_update
 

@@ -44,10 +44,13 @@ FefferySortable.propTypes = {
         PropTypes.object
     ]),
 
+    /**
+     * 强制刷新用
+     */
     key: PropTypes.string,
 
     /**
-     * 必填参数，用于定义当前排序列表组件的各子元素
+     * 必填参数，用于定义子项源数组，数组顺序不会受拖拽排序结果影响
      */
     items: PropTypes.arrayOf(
         PropTypes.exact({
@@ -111,7 +114,7 @@ FefferySortable.propTypes = {
     handleType: PropTypes.oneOf(['holder', 'menu', 'drag']),
 
     /**
-     * 监听当前items顺序对应的子项id数组
+     * 监听或设置当前各子项呈现的顺序
      */
     currentOrder: PropTypes.arrayOf(
         PropTypes.oneOfType([

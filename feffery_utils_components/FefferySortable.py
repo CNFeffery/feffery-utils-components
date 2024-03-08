@@ -16,7 +16,7 @@ Keyword arguments:
     组件css类.
 
 - currentOrder (list of number | strings; optional):
-    监听当前items顺序对应的子项id数组.
+    监听或设置当前各子项呈现的顺序.
 
 - direction (a value equal to: 'vertical', 'horizontal'; default 'vertical'):
     设置排序列表的方向，可选的有'vertical'和'horizontal'  默认：'vertical'.
@@ -37,7 +37,7 @@ Keyword arguments:
     设置子项处于拖拽中状态下的缩放比例，默认为1即不缩放.
 
 - items (list of dicts; required):
-    必填参数，用于定义当前排序列表组件的各子元素.
+    必填参数，用于定义子项源数组，数组顺序不会受拖拽排序结果影响.
 
     `items` is a list of dicts with keys:
 
@@ -59,7 +59,8 @@ Keyword arguments:
     - style (dict; optional):
         当前子元素容器css样式.
 
-- key (string; optional)
+- key (string; optional):
+    强制刷新用.
 
 - loading_state (dict; optional)
 
