@@ -75,8 +75,23 @@ module.exports = (env, argv) => {
                     test: /\.jsx?$/,
                     exclude: /node_modules/,
                     use: {
+                        loader: 'babel-loader'
+                    }
+                },
+                {
+                    test: /\.jsx?$/,
+                    // 针对@lit
+                    exclude: /node_modules\/@lit/,
+                    use: {
                         loader: 'babel-loader',
-                    },
+                        options: {
+                            presets: ['@babel/preset-env'],
+                            plugins: [
+                                '@babel/plugin-proposal-optional-chaining',
+                                '@babel/plugin-proposal-nullish-coalescing-operator'
+                            ]
+                        }
+                    }
                 },
                 {
                     test: /\.mjs$/,

@@ -100,6 +100,7 @@ import FefferyPageLeave from "./components/listeners/FefferyPageLeave.react";
 import FefferyMediaQuery from "./components/listeners/FefferyMediaQuery.react";
 import FefferyRND from "./components/draggable/FefferyRND.react";
 import FefferySortable from "./components/sortable/FefferySortable.react";
+import FefferyAnimatedImage from "./components/FefferyAnimatedImage.react";
 import './components/styles.css';
 
 // 自定义sessionStorage事件监听
@@ -224,5 +225,6 @@ export {
     FefferyPageLeave,
     FefferyMediaQuery,
     FefferyRND,
-    FefferySortable
+    FefferySortable,
+    FefferyAnimatedImage
 };

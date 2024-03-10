@@ -1,3 +1,9 @@
+/* 补充部分css变量 */
+:root {
+  --sl-border-radius-circle: 50%;
+  --sl-transition-fast: 150ms;
+}
+
 body {
   margin: 0;
 }
