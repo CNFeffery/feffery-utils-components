@@ -1,27 +1,47 @@
 import dash
-import json
-from dash import html, dcc
+from dash import html
 import feffery_utils_components as fuc
-from dash.dependencies import Input, Output, ALL
 
 app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyAnimatedImage(
-            src="https://shoelace.style/assets/images/walk.gif",
-            alt="Animation of untied shoes walking on pavement",
-            play=True,
+        fuc.FefferyMotion(
             style={
-                'width': 300
+                'background': '#71afe5',
+                'width': '50px',
+                'height': '50px',
+                'marginBottom': '10px'
+            },
+            animate={
+                'transform': 'translateX(200px)',
+                'background': '#d83b01'
+            },
+            transition={
+                # 无限循环动画
+                'repeat': 'infinity',
+                'duration': 2
             }
         ),
-        fuc.FefferyAnimatedImage(
-            src="https://shoelace.style/assets/images/tie.webp",
-            alt="Animation of a shoe being tied",
-            play=True,
+
+        fuc.FefferyMotion(
+            '示例',
             style={
-                'width': 300
+                'border': '1px dashed #71afe5',
+                'width': '100px',
+                'height': '100px',
+                'display': 'flex',
+                'justifyContent': 'center',
+                'alignItems': 'center'
+            },
+            animate={
+                'transform': 'translateX(300px) rotate(180deg)',
+                'borderRadius': '100%'
+            },
+            transition={
+                # 无限循环动画
+                'repeat': 'infinity',
+                'duration': 2
             }
         )
     ],
