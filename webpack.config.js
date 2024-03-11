@@ -79,9 +79,11 @@ module.exports = (env, argv) => {
                     }
                 },
                 {
-                    test: /\.jsx?$/,
-                    // 针对@lit
-                    exclude: /node_modules\/@lit/,
+                    test: /\.js$/,
+                    include: [
+                        path.resolve('node_modules', '@lit'),
+                        path.resolve('node_modules', '@shoelace-style'),
+                    ],
                     use: {
                         loader: 'babel-loader',
                         options: {

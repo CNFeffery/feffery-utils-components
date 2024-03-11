@@ -6,42 +6,20 @@ app = dash.Dash(__name__, compress=True)
 
 app.layout = html.Div(
     [
-        fuc.FefferyMotion(
+        fuc.FefferyAnimatedImage(
+            src="https://shoelace.style/assets/images/walk.gif",
+            alt="Animation of untied shoes walking on pavement",
+            play=True,
             style={
-                'background': '#71afe5',
-                'width': '50px',
-                'height': '50px',
-                'marginBottom': '10px'
-            },
-            animate={
-                'transform': 'translateX(200px)',
-                'background': '#d83b01'
-            },
-            transition={
-                # 无限循环动画
-                'repeat': 'infinity',
-                'duration': 2
+                'width': 300
             }
         ),
-
-        fuc.FefferyMotion(
-            '示例',
+        fuc.FefferyAnimatedImage(
+            src="https://shoelace.style/assets/images/tie.webp",
+            alt="Animation of a shoe being tied",
+            play=True,
             style={
-                'border': '1px dashed #71afe5',
-                'width': '100px',
-                'height': '100px',
-                'display': 'flex',
-                'justifyContent': 'center',
-                'alignItems': 'center'
-            },
-            animate={
-                'transform': 'translateX(300px) rotate(180deg)',
-                'borderRadius': '100%'
-            },
-            transition={
-                # 无限循环动画
-                'repeat': 'infinity',
-                'duration': 2
+                'width': 300
             }
         )
     ],
