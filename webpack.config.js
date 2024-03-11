@@ -61,7 +61,7 @@ module.exports = (env, argv) => {
         module: {
             rules: [
                 {
-                    test: /\.(woff2|woff|ttf|svg|eot)$/,//fonts目录下四个文件后缀名
+                    test: /\.(woff2|woff|ttf|svg|eot)$/, //fonts目录下四个文件后缀名
                     use: ["url-loader"],
                 },
                 {
@@ -129,9 +129,9 @@ module.exports = (env, argv) => {
                         'css-loader',
                         // 将 Sass 编译成 CSS
                         'sass-loader',
-                    ],
+                    ]
                 }
-            ],
+            ]
         },
         optimization: {
             minimizer: [
