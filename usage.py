@@ -8,32 +8,13 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
+        # default模式示例
+        html.Button(
+            'default模式',
+            id='execute-js'
+        ),
         html.Div(
-            fuc.FefferyRND(
-                html.Pre(id='params'),
-                defaultState={
-                    'width': 400,
-                    'height': 300,
-                    'x': 100,
-                    'y': 100
-                },
-                id='demo-rnd',
-                bounds='parent',
-                style={
-                    'background': '#f0f0f0',
-                    'display': 'flex',
-                    'alignItems': 'center',
-                    'justifyContent': 'center'
-                },
-                selectedStyle={
-                    'border': '1px solid red'
-                }
-            ),
-            style={
-                'border': '1px solid black',
-                'height': 'calc(100vh - 100px)',
-                'position': 'relative'
-            }
+            id='execute-js-output'
         )
     ],
     style={
@@ -43,21 +24,14 @@ app.layout = html.Div(
 
 
 @app.callback(
-    Output('params', 'children'),
-    [Input('demo-rnd', 'position'),
-     Input('demo-rnd', 'size'),
-     Input('demo-rnd', 'selected')]
+    Output('execute-js-output', 'children'),
+    Input('execute-js', 'n_clicks'),
+    prevent_initial_call=True
 )
-def update_params(position, size, selected):
+def handle_execute_js(n_clicks):
 
-    return json.dumps(
-        dict(
-            position=position,
-            size=size,
-            selected=selected
-        ),
-        indent=4,
-        ensure_ascii=False
+    return fuc.FefferyExecuteJs(
+        jsString='alert("default模式测试")'
     )
 
 
