@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Rnd } from 'react-rnd';
 import { propTypes, defaultProps } from '../../components/draggable/FefferyRND.react';
 import { clone } from 'lodash';
@@ -34,6 +34,9 @@ const FefferyRND = (props) => {
         setProps,
         loading_state
     } = props;
+
+    // 记录拖拽或尺寸调整结束事件时间戳
+    const [dragOrResizeStopTimestamp, setDragOrResizeStopTimestamp] = useState(0);
 
     useEffect(() => {
         // size缺省且defaultState.width，defaultState.height有效时，进行赋值
@@ -95,8 +98,15 @@ const FefferyRND = (props) => {
             disableDragging={disableDragging}
             dragAxis={dragAxis}
             bounds={bounds}
-            onDragStop={(e, d) => setProps({ position: { x: d.x, y: d.y } })}
+            onDragStop={(e, d) => {
+                // 若本次拖拽事件导致了有效偏移，则更新拖拽结束事件时间戳
+                if (position && (position.x !== d.x || position.y !== d.y)) {
+                    setDragOrResizeStopTimestamp(new Date().getTime());
+                }
+                setProps({ position: { x: d.x, y: d.y } })
+            }}
             onResizeStop={(e, direction, ref, delta, p) => {
+                setDragOrResizeStopTimestamp(new Date().getTime());
                 setProps({
                     size: {
                         width: ref.style.width,
@@ -108,7 +118,13 @@ const FefferyRND = (props) => {
                     }
                 })
             }}
-            onClick={() => setProps({ selected: !selected })}
+            onClick={() => {
+                // 若距离最近一次拖拽结束事件时间戳大于200ms，则切换选中状态
+                // 从而避免拖拽导致的选中误操作
+                if (new Date().getTime() - dragOrResizeStopTimestamp >= 200) {
+                    setProps({ selected: !selected })
+                }
+            }}
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             }>
