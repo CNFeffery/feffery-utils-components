@@ -8,9 +8,9 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        # default模式示例
+        # delay模式示例
         html.Button(
-            'default模式',
+            'delay模式',
             id='execute-js'
         ),
         html.Div(
@@ -31,7 +31,9 @@ app.layout = html.Div(
 def handle_execute_js(n_clicks):
 
     return fuc.FefferyExecuteJs(
-        jsString='alert("default模式测试")'
+        jsString='alert("delay模式测试")',
+        mode='delay',
+        delay=3000
     )
 
 
