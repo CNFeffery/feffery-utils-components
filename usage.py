@@ -54,7 +54,8 @@ def handle_execute_js(n_clicks):
     return fuc.FefferyExecuteJs(
         jsString="alert('目标元素出现！')",
         mode='wait-until-element-rendered',
-        targetSelector='#target-element'
+        targetSelector='#target-element',
+        targetWaitTimeout=5000  # 至多等待5秒
     )
 
 
