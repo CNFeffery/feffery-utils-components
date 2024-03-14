@@ -192,6 +192,22 @@ FefferyRND.propTypes = {
     bounds: PropTypes.oneOf(['window', 'parent']),
 
     /**
+     * 设置或监听当前组件是否处于选择状态
+     * 默认：false
+     */
+    selected: PropTypes.bool,
+
+    /**
+     * 设置当前组件在选中状态下的css样式
+     */
+    selectedStyle: PropTypes.object,
+
+    /**
+     * 配置当前组件在选中状态下的css类名
+     */
+    selectedClassName: PropTypes.string,
+
+    /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
@@ -215,7 +231,8 @@ FefferyRND.propTypes = {
 
 // 设置默认参数
 FefferyRND.defaultProps = {
-    direction: ['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft']
+    direction: ['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft'],
+    selected: false
 }
 
 export default FefferyRND;

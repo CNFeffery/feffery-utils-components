@@ -103,6 +103,15 @@ Keyword arguments:
 - resizeGrid (list of numbers; optional):
     针对尺寸调整行为，设置水平和竖直方向上调整的像素步长，格式为：[水平像素步长, 竖直像素步长]  默认：[1, 1].
 
+- selected (boolean; default False):
+    设置或监听当前组件是否处于选择状态  默认：False.
+
+- selectedClassName (string; optional):
+    配置当前组件在选中状态下的css类名.
+
+- selectedStyle (dict; optional):
+    设置当前组件在选中状态下的css样式.
+
 - size (dict; optional):
     设置或监听当前组件尺寸信息.
 
@@ -121,10 +130,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyRND'
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, defaultState=Component.UNDEFINED, size=Component.UNDEFINED, position=Component.UNDEFINED, minWidth=Component.UNDEFINED, minHeight=Component.UNDEFINED, maxWidth=Component.UNDEFINED, maxHeight=Component.UNDEFINED, resizeGrid=Component.UNDEFINED, dragGrid=Component.UNDEFINED, lockAspectRatio=Component.UNDEFINED, lockAspectRatioExtraWidth=Component.UNDEFINED, lockAspectRatioExtraHeight=Component.UNDEFINED, direction=Component.UNDEFINED, disableDragging=Component.UNDEFINED, dragAxis=Component.UNDEFINED, bounds=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'bounds', 'className', 'defaultState', 'direction', 'disableDragging', 'dragAxis', 'dragGrid', 'key', 'loading_state', 'lockAspectRatio', 'lockAspectRatioExtraHeight', 'lockAspectRatioExtraWidth', 'maxHeight', 'maxWidth', 'minHeight', 'minWidth', 'position', 'resizeGrid', 'size', 'style']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, defaultState=Component.UNDEFINED, size=Component.UNDEFINED, position=Component.UNDEFINED, minWidth=Component.UNDEFINED, minHeight=Component.UNDEFINED, maxWidth=Component.UNDEFINED, maxHeight=Component.UNDEFINED, resizeGrid=Component.UNDEFINED, dragGrid=Component.UNDEFINED, lockAspectRatio=Component.UNDEFINED, lockAspectRatioExtraWidth=Component.UNDEFINED, lockAspectRatioExtraHeight=Component.UNDEFINED, direction=Component.UNDEFINED, disableDragging=Component.UNDEFINED, dragAxis=Component.UNDEFINED, bounds=Component.UNDEFINED, selected=Component.UNDEFINED, selectedStyle=Component.UNDEFINED, selectedClassName=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'bounds', 'className', 'defaultState', 'direction', 'disableDragging', 'dragAxis', 'dragGrid', 'key', 'loading_state', 'lockAspectRatio', 'lockAspectRatioExtraHeight', 'lockAspectRatioExtraWidth', 'maxHeight', 'maxWidth', 'minHeight', 'minWidth', 'position', 'resizeGrid', 'selected', 'selectedClassName', 'selectedStyle', 'size', 'style']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'bounds', 'className', 'defaultState', 'direction', 'disableDragging', 'dragAxis', 'dragGrid', 'key', 'loading_state', 'lockAspectRatio', 'lockAspectRatioExtraHeight', 'lockAspectRatioExtraWidth', 'maxHeight', 'maxWidth', 'minHeight', 'minWidth', 'position', 'resizeGrid', 'size', 'style']
+        self.available_properties = ['children', 'id', 'bounds', 'className', 'defaultState', 'direction', 'disableDragging', 'dragAxis', 'dragGrid', 'key', 'loading_state', 'lockAspectRatio', 'lockAspectRatioExtraHeight', 'lockAspectRatioExtraWidth', 'maxHeight', 'maxWidth', 'minHeight', 'minWidth', 'position', 'resizeGrid', 'selected', 'selectedClassName', 'selectedStyle', 'size', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

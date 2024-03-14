@@ -28,6 +28,9 @@ const FefferyRND = (props) => {
         disableDragging,
         dragAxis,
         bounds,
+        selected,
+        selectedStyle,
+        selectedClassName,
         setProps,
         loading_state
     } = props;
@@ -74,8 +77,8 @@ const FefferyRND = (props) => {
 
     return (
         <Rnd id={id}
-            style={style}
-            className={className}
+            style={{ ...style, ...(selected ? selectedStyle : {}) }}
+            className={(selected && selectedClassName) ? className + ' ' + selectedClassName : className}
             default={defaultState}
             size={size}
             position={position}
@@ -105,6 +108,7 @@ const FefferyRND = (props) => {
                     }
                 })
             }}
+            onClick={() => setProps({ selected: !selected })}
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             }>
