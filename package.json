@@ -44,6 +44,7 @@
     "cherry-markdown": "^0.8.31",
     "comutils": "^1.1.19",
     "dashjs": "4.7.2",
+    "devtools-detector": "^2.0.15",
     "emoji-mart": "^5.5.2",
     "flv.js": "1.6.2",
     "framer-motion": "^8.4.1",
