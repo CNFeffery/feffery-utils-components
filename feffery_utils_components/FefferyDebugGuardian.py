@@ -12,8 +12,8 @@ Keyword arguments:
 - id (string; optional):
     组件id.
 
-- detectInterval (number; default 3000):
-    设置后台轮询检测的间隔时长，单位：毫秒  默认：3000.
+- detectInterval (number; default 1000):
+    设置后台轮询检测的间隔时长，单位：毫秒  默认：1000.
 
 - jsString (string; optional):
     当strategy为'debugger-then-execute-js'时，设置要执行的js代码.

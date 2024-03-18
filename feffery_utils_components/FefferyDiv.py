@@ -36,6 +36,32 @@ Keyword arguments:
 - clickAwayCount (number; default 0):
     监听元素外点击事件发生次数，默认为0.
 
+- clickEvent (dict; optional):
+    监听单击事件详细参数.
+
+    `clickEvent` is a dict with keys:
+
+    - clientX (number; optional):
+        以浏览器窗口左上角为原点，记录x坐标.
+
+    - clientY (number; optional):
+        以浏览器窗口左上角为原点，记录y坐标.
+
+    - pageX (number; optional):
+        以页面整体左上角为原点，记录x坐标.
+
+    - pageY (number; optional):
+        以页面整体左上角为原点，记录y坐标.
+
+    - screenX (number; optional):
+        以屏幕左上角为原点，记录x坐标.
+
+    - screenY (number; optional):
+        以屏幕左上角为原点，记录y坐标.
+
+    - timestamp (number; optional):
+        点击事件对应的时间戳.
+
 - contextMenuEvent (dict; optional):
     监听右键事件.
 
@@ -64,6 +90,32 @@ Keyword arguments:
 
 - debounceWait (number; default 150):
     设置针对尺寸变化事件的防抖等待时间（单位：毫秒），默认为150.
+
+- doubleClickEvent (dict; optional):
+    监听双击事件详细参数.
+
+    `doubleClickEvent` is a dict with keys:
+
+    - clientX (number; optional):
+        以浏览器窗口左上角为原点，记录x坐标.
+
+    - clientY (number; optional):
+        以浏览器窗口左上角为原点，记录y坐标.
+
+    - pageX (number; optional):
+        以页面整体左上角为原点，记录x坐标.
+
+    - pageY (number; optional):
+        以页面整体左上角为原点，记录y坐标.
+
+    - screenX (number; optional):
+        以屏幕左上角为原点，记录x坐标.
+
+    - screenY (number; optional):
+        以屏幕左上角为原点，记录y坐标.
+
+    - timestamp (number; optional):
+        点击事件对应的时间戳.
 
 - enableClickAway (boolean; default False):
     设置是否启用元素外点击事件监听，当页面中有大量FefferyDiv元素时，建议不要开启此特性，会导致明显的性能问题
@@ -150,10 +202,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyDiv'
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, _width=Component.UNDEFINED, _height=Component.UNDEFINED, debounceWait=Component.UNDEFINED, mouseEnterCount=Component.UNDEFINED, mouseLeaveCount=Component.UNDEFINED, nClicks=Component.UNDEFINED, nDoubleClicks=Component.UNDEFINED, enableListenContextMenu=Component.UNDEFINED, contextMenuEvent=Component.UNDEFINED, isHovering=Component.UNDEFINED, enableClickAway=Component.UNDEFINED, clickAwayCount=Component.UNDEFINED, position=Component.UNDEFINED, enableFocus=Component.UNDEFINED, isFocused=Component.UNDEFINED, wheelEventStrategy=Component.UNDEFINED, shadow=Component.UNDEFINED, scrollbar=Component.UNDEFINED, textAlign=Component.UNDEFINED, justify=Component.UNDEFINED, align=Component.UNDEFINED, padding=Component.UNDEFINED, margin=Component.UNDEFINED, border=Component.UNDEFINED, borderRadius=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', '_height', '_width', 'align', 'border', 'borderRadius', 'className', 'clickAwayCount', 'contextMenuEvent', 'debounceWait', 'enableClickAway', 'enableFocus', 'enableListenContextMenu', 'isFocused', 'isHovering', 'justify', 'key', 'loading_state', 'margin', 'mouseEnterCount', 'mouseLeaveCount', 'nClicks', 'nDoubleClicks', 'padding', 'position', 'scrollbar', 'shadow', 'style', 'textAlign', 'wheelEventStrategy']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, _width=Component.UNDEFINED, _height=Component.UNDEFINED, debounceWait=Component.UNDEFINED, mouseEnterCount=Component.UNDEFINED, mouseLeaveCount=Component.UNDEFINED, nClicks=Component.UNDEFINED, clickEvent=Component.UNDEFINED, nDoubleClicks=Component.UNDEFINED, doubleClickEvent=Component.UNDEFINED, enableListenContextMenu=Component.UNDEFINED, contextMenuEvent=Component.UNDEFINED, isHovering=Component.UNDEFINED, enableClickAway=Component.UNDEFINED, clickAwayCount=Component.UNDEFINED, position=Component.UNDEFINED, enableFocus=Component.UNDEFINED, isFocused=Component.UNDEFINED, wheelEventStrategy=Component.UNDEFINED, shadow=Component.UNDEFINED, scrollbar=Component.UNDEFINED, textAlign=Component.UNDEFINED, justify=Component.UNDEFINED, align=Component.UNDEFINED, padding=Component.UNDEFINED, margin=Component.UNDEFINED, border=Component.UNDEFINED, borderRadius=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', '_height', '_width', 'align', 'border', 'borderRadius', 'className', 'clickAwayCount', 'clickEvent', 'contextMenuEvent', 'debounceWait', 'doubleClickEvent', 'enableClickAway', 'enableFocus', 'enableListenContextMenu', 'isFocused', 'isHovering', 'justify', 'key', 'loading_state', 'margin', 'mouseEnterCount', 'mouseLeaveCount', 'nClicks', 'nDoubleClicks', 'padding', 'position', 'scrollbar', 'shadow', 'style', 'textAlign', 'wheelEventStrategy']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', '_height', '_width', 'align', 'border', 'borderRadius', 'className', 'clickAwayCount', 'contextMenuEvent', 'debounceWait', 'enableClickAway', 'enableFocus', 'enableListenContextMenu', 'isFocused', 'isHovering', 'justify', 'key', 'loading_state', 'margin', 'mouseEnterCount', 'mouseLeaveCount', 'nClicks', 'nDoubleClicks', 'padding', 'position', 'scrollbar', 'shadow', 'style', 'textAlign', 'wheelEventStrategy']
+        self.available_properties = ['children', 'id', '_height', '_width', 'align', 'border', 'borderRadius', 'className', 'clickAwayCount', 'clickEvent', 'contextMenuEvent', 'debounceWait', 'doubleClickEvent', 'enableClickAway', 'enableFocus', 'enableListenContextMenu', 'isFocused', 'isHovering', 'justify', 'key', 'loading_state', 'margin', 'mouseEnterCount', 'mouseLeaveCount', 'nClicks', 'nDoubleClicks', 'padding', 'position', 'scrollbar', 'shadow', 'style', 'textAlign', 'wheelEventStrategy']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

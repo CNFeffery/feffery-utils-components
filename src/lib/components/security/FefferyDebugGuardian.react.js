@@ -40,7 +40,7 @@ const FefferyDebugGuardian = (props) => {
                     }
                 }
             );
-            devtoolsDetector.setDetectDelay(detectInterval || 3000);
+            devtoolsDetector.setDetectDelay(detectInterval || 1000);
             devtoolsDetector.launch();
 
             return () => devtoolsDetector.isLaunch() && devtoolsDetector.stop();
@@ -59,7 +59,7 @@ FefferyDebugGuardian.propTypes = {
 
     /**
      * 设置后台轮询检测的间隔时长，单位：毫秒
-     * 默认：3000
+     * 默认：1000
      */
     detectInterval: PropTypes.number,
 
@@ -98,7 +98,7 @@ FefferyDebugGuardian.propTypes = {
 
 // 设置默认参数
 FefferyDebugGuardian.defaultProps = {
-    detectInterval: 3000,
+    detectInterval: 1000,
     strategy: 'infinite-debugger'
 }
 

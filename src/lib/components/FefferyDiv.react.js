@@ -140,7 +140,6 @@ const FefferyDiv = (props) => {
     useEffect(() => {
         const handleWheel = (e) => {
             if (wheelEventStrategy === 'internally-only') {
-                console.log('触发！')
                 // 拦截当前触发的滚轮事件
                 e.preventDefault();
             }
@@ -281,8 +280,34 @@ const FefferyDiv = (props) => {
                 (className ? useCss(className) : undefined)
         }
         ref={ref}
-        onClick={() => setProps({ nClicks: nClicks + 1 })}
-        onDoubleClick={() => setProps({ nDoubleClicks: nDoubleClicks + 1 })}
+        onClick={(e) => {
+            setProps({
+                nClicks: nClicks + 1,
+                clickEvent: {
+                    pageX: e.pageX,
+                    pageY: e.pageY,
+                    clientX: e.clientX,
+                    clientY: e.clientY,
+                    screenX: e.screenX,
+                    screenY: e.screenY,
+                    timestamp: Date.now()
+                }
+            })
+        }}
+        onDoubleClick={(e) => {
+            setProps({
+                nDoubleClicks: nDoubleClicks + 1,
+                doubleClickEvent: {
+                    pageX: e.pageX,
+                    pageY: e.pageY,
+                    clientX: e.clientX,
+                    clientY: e.clientY,
+                    screenX: e.screenX,
+                    screenY: e.screenY,
+                    timestamp: Date.now()
+                }
+            })
+        }}
         onContextMenu={(e) => {
             if (enableListenContextMenu) {
                 e.preventDefault()
@@ -370,9 +395,77 @@ FefferyDiv.propTypes = {
     nClicks: PropTypes.number,
 
     /**
+     * 监听单击事件详细参数
+     */
+    clickEvent: PropTypes.exact({
+        /**
+         * 以页面整体左上角为原点，记录x坐标
+         */
+        pageX: PropTypes.number,
+        /**
+         * 以页面整体左上角为原点，记录y坐标
+         */
+        pageY: PropTypes.number,
+        /**
+         * 以浏览器窗口左上角为原点，记录x坐标
+         */
+        clientX: PropTypes.number,
+        /**
+         * 以浏览器窗口左上角为原点，记录y坐标
+         */
+        clientY: PropTypes.number,
+        /**
+         * 以屏幕左上角为原点，记录x坐标
+         */
+        screenX: PropTypes.number,
+        /**
+         * 以屏幕左上角为原点，记录y坐标
+         */
+        screenY: PropTypes.number,
+        /**
+         * 点击事件对应的时间戳
+         */
+        timestamp: PropTypes.number
+    }),
+
+    /**
      * 监听双击事件次数，初始化为0
      */
     nDoubleClicks: PropTypes.number,
+
+    /**
+     * 监听双击事件详细参数
+     */
+    doubleClickEvent: PropTypes.exact({
+        /**
+         * 以页面整体左上角为原点，记录x坐标
+         */
+        pageX: PropTypes.number,
+        /**
+         * 以页面整体左上角为原点，记录y坐标
+         */
+        pageY: PropTypes.number,
+        /**
+         * 以浏览器窗口左上角为原点，记录x坐标
+         */
+        clientX: PropTypes.number,
+        /**
+         * 以浏览器窗口左上角为原点，记录y坐标
+         */
+        clientY: PropTypes.number,
+        /**
+         * 以屏幕左上角为原点，记录x坐标
+         */
+        screenX: PropTypes.number,
+        /**
+         * 以屏幕左上角为原点，记录y坐标
+         */
+        screenY: PropTypes.number,
+        /**
+         * 点击事件对应的时间戳
+         */
+        timestamp: PropTypes.number
+    }),
 
     /**
      * 设置是否针对当前div监听右键点击事件，开启后会强制关闭当前div内的默认右键菜单弹出
