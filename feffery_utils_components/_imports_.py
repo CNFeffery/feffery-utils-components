@@ -33,6 +33,7 @@ from .FefferyCountDown import FefferyCountDown
 from .FefferyCountUp import FefferyCountUp
 from .FefferyCssVar import FefferyCssVar
 from .FefferyDiv import FefferyDiv
+from .FefferyDom2Image import FefferyDom2Image
 from .FefferyEmojiPicker import FefferyEmojiPicker
 from .FefferyExecuteJs import FefferyExecuteJs
 from .FefferyExternalCss import FefferyExternalCss
@@ -138,6 +139,7 @@ __all__ = [
     "FefferyCountUp",
     "FefferyCssVar",
     "FefferyDiv",
+    "FefferyDom2Image",
     "FefferyEmojiPicker",
     "FefferyExecuteJs",
     "FefferyExternalCss",

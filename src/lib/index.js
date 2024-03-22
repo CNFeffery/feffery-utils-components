@@ -102,6 +102,7 @@ import FefferyRND from "./components/draggable/FefferyRND.react";
 import FefferySortable from "./components/sortable/FefferySortable.react";
 import FefferyAnimatedImage from "./components/FefferyAnimatedImage.react";
 import FefferyDebugGuardian from "./components/security/FefferyDebugGuardian.react";
+import FefferyDom2Image from "./components/FefferyDom2Image.react";
 import './components/styles.css';
 
 // 自定义sessionStorage事件监听
@@ -228,5 +229,6 @@ export {
     FefferyRND,
     FefferySortable,
     FefferyAnimatedImage,
-    FefferyDebugGuardian
+    FefferyDebugGuardian,
+    FefferyDom2Image
 };

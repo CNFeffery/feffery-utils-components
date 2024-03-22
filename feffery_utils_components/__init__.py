@@ -57,7 +57,8 @@ async_resources = [
     'feffery_animated_3d_background_p5',
     'feffery_rnd',
     'feffery_animated_image',
-    'feffery_motion'
+    'feffery_motion',
+    'feffery_dom2image'
 ]
 
 _js_dist = []
