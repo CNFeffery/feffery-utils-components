@@ -33,6 +33,7 @@ from .FefferyCountDown import FefferyCountDown as CountDown
 from .FefferyCountUp import FefferyCountUp as CountUp
 from .FefferyCssVar import FefferyCssVar as CssVar
 from .FefferyDiv import FefferyDiv as Div
+from .FefferyDom2Image import FefferyDom2Image as Dom2Image
 from .FefferyEmojiPicker import FefferyEmojiPicker as EmojiPicker
 from .FefferyExecuteJs import FefferyExecuteJs as ExecuteJs
 from .FefferyExternalCss import FefferyExternalCss as ExternalCss
@@ -138,6 +139,7 @@ __all__ = [
     "CountUp",
     "CssVar",
     "Div",
+    "Dom2Image",
     "EmojiPicker",
     "ExecuteJs",
     "ExternalCss",
