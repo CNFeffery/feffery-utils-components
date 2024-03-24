@@ -1,6 +1,5 @@
 import dash
-import json
-from dash import html, dcc
+from dash import html
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output
 
@@ -9,13 +8,12 @@ app = dash.Dash(__name__)
 app.layout = html.Div(
     [
         html.Button(
-            '销毁',
+            '还原favicon',
             id='clear-demo-output'
         ),
         html.Div(
-            fuc.FefferySetTitle(
-                title='测试title',
-                originTitle='默认title'
+            fuc.FefferySetFavicon(
+                favicon='https://www.google.com/favicon.ico'
             ),
             id='demo-output'
         )
@@ -33,7 +31,9 @@ app.layout = html.Div(
 )
 def demo(n_clicks):
 
-    return
+    return fuc.FefferySetFavicon(
+        favicon='/_favicon.ico'
+    )
 
 
 if __name__ == '__main__':

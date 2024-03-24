@@ -103,6 +103,7 @@ import FefferySortable from "./components/sortable/FefferySortable.react";
 import FefferyAnimatedImage from "./components/FefferyAnimatedImage.react";
 import FefferyDebugGuardian from "./components/security/FefferyDebugGuardian.react";
 import FefferyDom2Image from "./components/FefferyDom2Image.react";
+import FefferySetFavicon from "./components/FefferySetFavicon.react";
 import './components/styles.css';
 
 // 自定义sessionStorage事件监听
@@ -230,5 +231,6 @@ export {
     FefferySortable,
     FefferyAnimatedImage,
     FefferyDebugGuardian,
-    FefferyDom2Image
+    FefferyDom2Image,
+    FefferySetFavicon
 };
