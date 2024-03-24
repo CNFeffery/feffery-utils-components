@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferySetTitle(Component):
     """A FefferySetTitle component.
-
+页面title设置组件FefferySetTitle
 
 Keyword arguments:
 
@@ -25,6 +25,9 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
+- originTitle (string; optional):
+    当title参数为空，或当前组件从页面中卸载后应当还原的title.
+
 - title (string; optional):
     用于设置要更新的title信息."""
     _children_props = []
@@ -32,10 +35,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferySetTitle'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, title=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'loading_state', 'title']
+    def __init__(self, id=Component.UNDEFINED, title=Component.UNDEFINED, originTitle=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'loading_state', 'originTitle', 'title']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'loading_state', 'title']
+        self.available_properties = ['id', 'loading_state', 'originTitle', 'title']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

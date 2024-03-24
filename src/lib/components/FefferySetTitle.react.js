@@ -1,20 +1,30 @@
+import { useEffect } from 'react';
 import { useTitle } from 'ahooks';
 import PropTypes from 'prop-types';
 
-// 定义页面title设置组件FefferySetTitle
+/**
+ * 页面title设置组件FefferySetTitle
+ */
 const FefferySetTitle = (props) => {
 
     const {
-        id,
         title,
+        originTitle,
         setProps,
         loading_state
     } = props;
 
-    // 随着title更新进而改变页面title
-    if (title) {
-        useTitle(title)
-    }
+    // 组件卸载时，还原有效的originTitle
+    useEffect(() => {
+        return () => {
+            if (originTitle) {
+                document.title = originTitle;
+            }
+        }
+    }, [])
+
+    // 处理title变化时的更新
+    useTitle(title || originTitle);
 
     return <></>;
 }
@@ -30,6 +40,11 @@ FefferySetTitle.propTypes = {
      * 用于设置要更新的title信息
      */
     title: PropTypes.string,
+
+    /**
+     * 当title参数为空，或当前组件从页面中卸载后应当还原的title
+     */
+    originTitle: PropTypes.string,
 
     /**
      * Dash-assigned callback that should be called to report property changes
