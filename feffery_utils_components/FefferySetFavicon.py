@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferySetFavicon(Component):
     """A FefferySetFavicon component.
-页面favicon设置组件FefferySetFavicon
+favicon设置组件FefferySetFavicon
 
 Keyword arguments:
 
