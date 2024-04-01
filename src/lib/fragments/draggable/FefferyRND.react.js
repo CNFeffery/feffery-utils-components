@@ -57,7 +57,7 @@ const FefferyRND = (props) => {
                 }
             })
         }
-    }, [])
+    }, [size,position])
 
     // 初始化enableResizing
     const defaultEnableResizing = {
