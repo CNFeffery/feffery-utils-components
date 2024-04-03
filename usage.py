@@ -1,4 +1,5 @@
 import dash
+import json
 from dash import html
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output
@@ -8,31 +9,40 @@ app = dash.Dash(__name__)
 app.layout = html.Div(
     [
         html.Button(
-            '还原favicon',
-            id='clear-demo-output'
+            '手动刷新',
+            id='manual-refresh'
         ),
-        html.Div(
-            fuc.FefferySetFavicon(
-                favicon='https://www.google.com/favicon.ico'
-            ),
-            id='demo-output'
-        )
+        fuc.FefferySliderCaptcha(
+            id='demo-slider-captcha',
+            imgSrc='/assets/demo.jpg',
+            imgWidth=360
+        ),
+        html.Pre(id='demo-output')
     ],
     style={
-        'padding': '50px 50px 0 50px'
+        'padding': '300px 100px'
     }
 )
 
 
 @app.callback(
-    Output('demo-output', 'children'),
-    Input('clear-demo-output', 'n_clicks'),
+    Output('demo-slider-captcha', 'refresh'),
+    Input('manual-refresh', 'n_clicks'),
     prevent_initial_call=True
 )
-def demo(n_clicks):
+def manual_refresh(n_clicks):
+    return True
 
-    return fuc.FefferySetFavicon(
-        favicon='/_favicon.ico'
+
+@app.callback(
+    Output('demo-output', 'children'),
+    Input('demo-slider-captcha', 'verifyResult')
+)
+def update_output(verifyResult):
+    return json.dumps(
+        verifyResult,
+        indent=4,
+        ensure_ascii=False
     )
 
 

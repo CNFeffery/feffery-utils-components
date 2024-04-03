@@ -61,6 +61,7 @@ from .FefferySetFavicon import FefferySetFavicon
 from .FefferySetTitle import FefferySetTitle
 from .FefferyShadowDom import FefferyShadowDom
 from .FefferyShortcutPanel import FefferyShortcutPanel
+from .FefferySliderCaptcha import FefferySliderCaptcha
 from .FefferySticky import FefferySticky
 from .FefferyStyle import FefferyStyle
 from .FefferyTimeout import FefferyTimeout
@@ -168,6 +169,7 @@ __all__ = [
     "FefferySetTitle",
     "FefferyShadowDom",
     "FefferyShortcutPanel",
+    "FefferySliderCaptcha",
     "FefferySticky",
     "FefferyStyle",
     "FefferyTimeout",
