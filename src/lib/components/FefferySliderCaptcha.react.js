@@ -34,8 +34,15 @@ FefferySliderCaptcha.propTypes = {
 
     /**
      * 声明用于生成拼图的完整图片像素宽度值
+     * 默认值：`320`
      */
     imgWidth: PropTypes.number,
+
+    /**
+     * 声明用于生成拼图的完整图片像素高度值
+     * 默认值：`160`
+     */
+    imgHeight: PropTypes.number,
 
     /**
      * 拼图合法验证像素偏移量
@@ -147,6 +154,8 @@ FefferySliderCaptcha.propTypes = {
 // 设置默认参数
 FefferySliderCaptcha.defaultProps = {
     xOffset: 5,
+    imgWidth: 320,
+    imgHeight: 160,
     mode: 'embed',
     showRefreshIcon: true,
     autoRefreshOnError: true,

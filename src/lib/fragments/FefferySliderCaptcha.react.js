@@ -14,6 +14,7 @@ const FefferySliderCaptcha = (props) => {
         imgSrc,
         xOffset,
         imgWidth,
+        imgHeight,
         mode,
         tipText,
         showRefreshIcon,
@@ -82,7 +83,8 @@ const FefferySliderCaptcha = (props) => {
                 }
             }
             bgSize={{
-                width: imgWidth
+                width: imgWidth,
+                height: imgHeight
             }}
             mode={mode}
             tipText={tipText}

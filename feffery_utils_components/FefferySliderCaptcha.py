@@ -21,11 +21,14 @@ Keyword arguments:
 - errorHoldDuration (number; default 500):
     当`autoRefreshOnError=True`时，每次验证失败后停顿多少毫秒自动刷新  默认值：`500`.
 
+- imgHeight (number; default 160):
+    声明用于生成拼图的完整图片像素高度值  默认值：`160`.
+
 - imgSrc (string; optional):
     用于生成拼图的完整图片地址.
 
-- imgWidth (number; optional):
-    声明用于生成拼图的完整图片像素宽度值.
+- imgWidth (number; default 320):
+    声明用于生成拼图的完整图片像素宽度值  默认值：`320`.
 
 - loading_state (dict; optional)
 
@@ -96,10 +99,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferySliderCaptcha'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, imgSrc=Component.UNDEFINED, imgWidth=Component.UNDEFINED, xOffset=Component.UNDEFINED, mode=Component.UNDEFINED, tipText=Component.UNDEFINED, showRefreshIcon=Component.UNDEFINED, autoRefreshOnError=Component.UNDEFINED, errorHoldDuration=Component.UNDEFINED, placement=Component.UNDEFINED, refresh=Component.UNDEFINED, verifyResult=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'autoRefreshOnError', 'className', 'errorHoldDuration', 'imgSrc', 'imgWidth', 'loading_state', 'mode', 'placement', 'refresh', 'showRefreshIcon', 'style', 'tipText', 'verifyResult', 'xOffset']
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, imgSrc=Component.UNDEFINED, imgWidth=Component.UNDEFINED, imgHeight=Component.UNDEFINED, xOffset=Component.UNDEFINED, mode=Component.UNDEFINED, tipText=Component.UNDEFINED, showRefreshIcon=Component.UNDEFINED, autoRefreshOnError=Component.UNDEFINED, errorHoldDuration=Component.UNDEFINED, placement=Component.UNDEFINED, refresh=Component.UNDEFINED, verifyResult=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'autoRefreshOnError', 'className', 'errorHoldDuration', 'imgHeight', 'imgSrc', 'imgWidth', 'loading_state', 'mode', 'placement', 'refresh', 'showRefreshIcon', 'style', 'tipText', 'verifyResult', 'xOffset']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'autoRefreshOnError', 'className', 'errorHoldDuration', 'imgSrc', 'imgWidth', 'loading_state', 'mode', 'placement', 'refresh', 'showRefreshIcon', 'style', 'tipText', 'verifyResult', 'xOffset']
+        self.available_properties = ['id', 'autoRefreshOnError', 'className', 'errorHoldDuration', 'imgHeight', 'imgSrc', 'imgWidth', 'loading_state', 'mode', 'placement', 'refresh', 'showRefreshIcon', 'style', 'tipText', 'verifyResult', 'xOffset']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
