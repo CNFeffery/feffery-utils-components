@@ -105,6 +105,7 @@ import FefferyDebugGuardian from "./components/security/FefferyDebugGuardian.rea
 import FefferyDom2Image from "./components/FefferyDom2Image.react";
 import FefferySetFavicon from "./components/FefferySetFavicon.react";
 import FefferySliderCaptcha from "./components/FefferySliderCaptcha.react";
+import FefferyPortal from "./components/FefferyPortal.react";
 import './components/styles.css';
 
 // 自定义sessionStorage事件监听
@@ -234,5 +235,6 @@ export {
     FefferyDebugGuardian,
     FefferyDom2Image,
     FefferySetFavicon,
-    FefferySliderCaptcha
+    FefferySliderCaptcha,
+    FefferyPortal
 };

@@ -9,15 +9,33 @@ app = dash.Dash(__name__)
 app.layout = html.Div(
     [
         html.Button(
-            '手动刷新',
-            id='manual-refresh'
+            '传送！',
+            id='render-portal'
         ),
-        fuc.FefferySliderCaptcha(
-            id='demo-slider-captcha',
-            imgSrc='/assets/demo.jpg',
-            imgWidth=360
+        html.Div(
+            id='portal-container'
         ),
-        html.Pre(id='demo-output')
+        html.Div(
+            html.Div(
+                html.Div(
+                    html.Div(
+                        html.Div(
+                            html.Div(
+                                id='portal-target'
+                            )
+                        )
+                    )
+                )
+            ),
+            style={
+                'position': 'fixed',
+                'background': 'white',
+                'border': '1px solid black',
+                'top': 24,
+                'right': 24,
+                'padding': 24
+            }
+        )
     ],
     style={
         'padding': '300px 100px'
@@ -26,25 +44,19 @@ app.layout = html.Div(
 
 
 @app.callback(
-    Output('demo-slider-captcha', 'refresh'),
-    Input('manual-refresh', 'n_clicks'),
+    Output('portal-container', 'children'),
+    Input('render-portal', 'n_clicks'),
     prevent_initial_call=True
 )
-def manual_refresh(n_clicks):
-    return True
+def render_portal(n_clicks):
 
-
-@app.callback(
-    Output('demo-output', 'children'),
-    Input('demo-slider-captcha', 'verifyResult')
-)
-def update_output(verifyResult):
-    return json.dumps(
-        verifyResult,
-        indent=4,
-        ensure_ascii=False
+    return fuc.FefferyPortal(
+        html.Div(
+            '传送内容',
+            id='portal-demo'
+        ),
+        targetSelector='#portal-target'
     )
-
 
 if __name__ == '__main__':
     app.run(debug=True)
