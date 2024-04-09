@@ -1,7 +1,7 @@
 import dash
 import json
 from dash import html
-import feffery_utils_components as fuc
+import feffery_utils_components.alias as fuc
 from dash.dependencies import Input, Output
 
 app = dash.Dash(__name__)
@@ -50,7 +50,7 @@ app.layout = html.Div(
 )
 def render_portal(n_clicks):
 
-    return fuc.FefferyPortal(
+    return fuc.Portal(
         html.Div(
             '传送内容',
             id='portal-demo'
