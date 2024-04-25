@@ -1,11 +1,11 @@
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
 import React, { useState, useEffect } from 'react'
-import useCss from '../hooks/useCss';
+import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
 import { i18nChangeLanguage } from '@wangeditor/editor';
 import { Editor, Toolbar } from '@wangeditor/editor-for-react';
 import toast, { Toaster } from 'react-hot-toast';
-import { propTypes, defaultProps } from '../components/FefferyRichTextEditor.react';
+import { propTypes, defaultProps } from '../../components/editor/FefferyRichTextEditor.react';
 
 // 定义富文本编辑器组件FefferyRichTextEditor
 const FefferyRichTextEditor = (props) => {

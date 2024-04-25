@@ -103,6 +103,7 @@ from .FefferyLocalLargeStorage import FefferyLocalLargeStorage as LocalLargeStor
 from .FefferyLocalStorage import FefferyLocalStorage as LocalStorage
 from .FefferySessionStorage import FefferySessionStorage as SessionStorage
 from .FefferyThrottleProp import FefferyThrottleProp as ThrottleProp
+from .FefferyVditor import FefferyVditor as Vditor
 
 __all__ = [
     "AutoAnimate",
@@ -209,5 +210,6 @@ __all__ = [
     "LocalLargeStorage",
     "LocalStorage",
     "SessionStorage",
-    "ThrottleProp"
+    "ThrottleProp",
+    "Vditor"
 ]

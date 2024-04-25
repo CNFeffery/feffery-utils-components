@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
 
-const LazyFefferyMarkdownEditor = React.lazy(() => import(/* webpackChunkName: "feffery_markdown_editor" */ '../fragments/FefferyMarkdownEditor.react'));
+const LazyFefferyMarkdownEditor = React.lazy(() => import(/* webpackChunkName: "feffery_markdown_editor" */ '../../fragments/editor/FefferyMarkdownEditor.react'));
 
 const FefferyMarkdownEditor = (props) => {
     return (
