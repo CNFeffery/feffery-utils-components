@@ -4,14 +4,14 @@ import Cherry from 'cherry-markdown/dist/cherry-markdown.core';
 import mermaidPlugin from 'cherry-markdown/dist/addons/cherry-code-block-mermaid-plugin';
 import { pinyin } from 'pinyin_js';
 import { v4 as uuidv4 } from 'uuid';
-import upload from '../utils/upload';
+import upload from '../../utils/upload';
 import MathJax from 'mathjax/es5/tex-svg';
 import katex from 'katex';
 import 'katex/dist/katex.css';
-import useCss from '../hooks/useCss';
+import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
-import { propTypes, defaultProps } from '../components/FefferyMarkdownEditor.react';
-import FefferyStyle from '../components/FefferyStyle.react';
+import { propTypes, defaultProps } from '../../components/editor/FefferyMarkdownEditor.react';
+import FefferyStyle from '../../components/FefferyStyle.react';
 
 
 // 定义markdown编辑器组件FefferyMarkdownEditor，api参数参考https://github.com/Tencent/cherry-markdown/wiki/%E9%85%8D%E7%BD%AE%E9%A1%B9%E5%85%A8%E8%A7%A3

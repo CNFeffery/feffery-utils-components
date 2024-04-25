@@ -73,9 +73,9 @@ import FefferyTabMessenger from "./components/messenger/FefferyTabMessenger.reac
 import FefferyIframeMessenger from "./components/messenger/FefferyIframeMessenger.react";
 import FefferyEmojiPicker from "./components/FefferyEmojiPicker.react";
 import FefferyAutoFit from "./components/resizable/FefferyAutoFit.react";
-import FefferyRichTextEditor from "./components/FefferyRichTextEditor.react";
+import FefferyRichTextEditor from "./components/editor/FefferyRichTextEditor.react";
 import FefferyImageGallery from "./components/images/FefferyImageGallery.react";
-import FefferyMarkdownEditor from "./components/FefferyMarkdownEditor.react";
+import FefferyMarkdownEditor from "./components/editor/FefferyMarkdownEditor.react";
 import FefferyImageCropper from "./components/images/FefferyImageCropper.react";
 import FefferyPhotoSphereViewer from "./components/FefferyPhotoSphereViewer.react";
 import FefferyExcelPreview from "./components/officePreview/FefferyExcelPreview.react";
@@ -106,6 +106,7 @@ import FefferyDom2Image from "./components/FefferyDom2Image.react";
 import FefferySetFavicon from "./components/FefferySetFavicon.react";
 import FefferySliderCaptcha from "./components/FefferySliderCaptcha.react";
 import FefferyPortal from "./components/FefferyPortal.react";
+import FefferyVditor from "./components/editor/FefferyVditor.react.js";
 import './components/styles.css';
 
 // 自定义sessionStorage事件监听
@@ -236,5 +237,6 @@ export {
     FefferyDom2Image,
     FefferySetFavicon,
     FefferySliderCaptcha,
-    FefferyPortal
+    FefferyPortal,
+    FefferyVditor
 };

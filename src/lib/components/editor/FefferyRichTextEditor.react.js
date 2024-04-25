@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
 
-const LazyFefferyRichTextEditor = React.lazy(() => import(/* webpackChunkName: "feffery_rich_text_editor" */ '../fragments/FefferyRichTextEditor.react'));
+const LazyFefferyRichTextEditor = React.lazy(() => import(/* webpackChunkName: "feffery_rich_text_editor" */ '../../fragments/editor/FefferyRichTextEditor.react'));
 
 const FefferyRichTextEditor = (props) => {
     return (

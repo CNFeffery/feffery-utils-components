@@ -26,6 +26,9 @@ from .FefferyDraggable import FefferyDraggable
 from .FefferyGrid import FefferyGrid
 from .FefferyGridItem import FefferyGridItem
 from .FefferyRND import FefferyRND
+from .FefferyMarkdownEditor import FefferyMarkdownEditor
+from .FefferyRichTextEditor import FefferyRichTextEditor
+from .FefferyVditor import FefferyVditor
 from .FefferyAnimatedImage import FefferyAnimatedImage
 from .FefferyCaptcha import FefferyCaptcha
 from .FefferyCompareSlider import FefferyCompareSlider
@@ -48,13 +51,11 @@ from .FefferyHighlightWords import FefferyHighlightWords
 from .FefferyImagePaste import FefferyImagePaste
 from .FefferyJsonViewer import FefferyJsonViewer
 from .FefferyLazyLoad import FefferyLazyLoad
-from .FefferyMarkdownEditor import FefferyMarkdownEditor
 from .FefferyPhotoSphereViewer import FefferyPhotoSphereViewer
 from .FefferyPortal import FefferyPortal
 from .FefferyQRCode import FefferyQRCode
 from .FefferyRawHTML import FefferyRawHTML
 from .FefferyReload import FefferyReload
-from .FefferyRichTextEditor import FefferyRichTextEditor
 from .FefferyScroll import FefferyScroll
 from .FefferyScrollbars import FefferyScrollbars
 from .FefferySeamlessScroll import FefferySeamlessScroll
@@ -135,6 +136,9 @@ __all__ = [
     "FefferyGrid",
     "FefferyGridItem",
     "FefferyRND",
+    "FefferyMarkdownEditor",
+    "FefferyRichTextEditor",
+    "FefferyVditor",
     "FefferyAnimatedImage",
     "FefferyCaptcha",
     "FefferyCompareSlider",
@@ -157,13 +161,11 @@ __all__ = [
     "FefferyImagePaste",
     "FefferyJsonViewer",
     "FefferyLazyLoad",
-    "FefferyMarkdownEditor",
     "FefferyPhotoSphereViewer",
     "FefferyPortal",
     "FefferyQRCode",
     "FefferyRawHTML",
     "FefferyReload",
-    "FefferyRichTextEditor",
     "FefferyScroll",
     "FefferyScrollbars",
     "FefferySeamlessScroll",
