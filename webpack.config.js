@@ -82,7 +82,10 @@ module.exports = (env, argv) => {
                     test: /\.js$/,
                     include: [
                         path.resolve('node_modules', '@lit'),
+                        path.resolve('node_modules', 'lit-element'),
+                        path.resolve('node_modules', 'lit-html'),
                         path.resolve('node_modules', '@shoelace-style'),
+                        path.resolve('node_modules', 'emoji-mart'),
                     ],
                     use: {
                         loader: 'babel-loader',

@@ -48,6 +48,7 @@ from .FefferyFancyNotification import FefferyFancyNotification
 from .FefferyFullscreen import FefferyFullscreen
 from .FefferyGuide import FefferyGuide
 from .FefferyHighlightWords import FefferyHighlightWords
+from .FefferyHttpRequests import FefferyHttpRequests
 from .FefferyImagePaste import FefferyImagePaste
 from .FefferyJsonViewer import FefferyJsonViewer
 from .FefferyLazyLoad import FefferyLazyLoad
@@ -158,6 +159,7 @@ __all__ = [
     "FefferyFullscreen",
     "FefferyGuide",
     "FefferyHighlightWords",
+    "FefferyHttpRequests",
     "FefferyImagePaste",
     "FefferyJsonViewer",
     "FefferyLazyLoad",

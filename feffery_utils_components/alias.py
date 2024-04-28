@@ -45,6 +45,7 @@ from .FefferyFancyNotification import FefferyFancyNotification as FancyNotificat
 from .FefferyFullscreen import FefferyFullscreen as Fullscreen
 from .FefferyGuide import FefferyGuide as Guide
 from .FefferyHighlightWords import FefferyHighlightWords as HighlightWords
+from .FefferyHttpRequests import FefferyHttpRequests as HttpRequests
 from .FefferyImagePaste import FefferyImagePaste as ImagePaste
 from .FefferyJsonViewer import FefferyJsonViewer as JsonViewer
 from .FefferyLazyLoad import FefferyLazyLoad as LazyLoad
@@ -153,6 +154,7 @@ __all__ = [
     "Fullscreen",
     "Guide",
     "HighlightWords",
+    "HttpRequests",
     "ImagePaste",
     "JsonViewer",
     "LazyLoad",

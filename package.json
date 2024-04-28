@@ -40,6 +40,7 @@
     "ahooks": "^3.7.0",
     "array-move": "^4.0.0",
     "autofit.js": "^3.0.7",
+    "axios": "^1.6.8",
     "byte-guide": "^1.0.7",
     "cherry-markdown": "^0.8.31",
     "comutils": "^1.1.19",

@@ -107,6 +107,7 @@ import FefferySetFavicon from "./components/FefferySetFavicon.react";
 import FefferySliderCaptcha from "./components/FefferySliderCaptcha.react";
 import FefferyPortal from "./components/FefferyPortal.react";
 import FefferyVditor from "./components/editor/FefferyVditor.react.js";
+import FefferyHttpRequests from "./components/FefferyHttpRequests.react.js";
 import './components/styles.css';
 
 // 自定义sessionStorage事件监听
@@ -238,5 +239,6 @@ export {
     FefferySetFavicon,
     FefferySliderCaptcha,
     FefferyPortal,
-    FefferyVditor
+    FefferyVditor,
+    FefferyHttpRequests
 };

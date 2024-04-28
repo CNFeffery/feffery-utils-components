@@ -60,7 +60,8 @@ async_resources = [
     'feffery_motion',
     'feffery_dom2image',
     'feffery_slider_captcha',
-    'feffery_vditor'
+    'feffery_vditor',
+    'feffery_http_requests'
 ]
 
 _js_dist = []
