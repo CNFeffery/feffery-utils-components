@@ -3,6 +3,7 @@ import Vditor from "vditor";
 import "vditor/dist/index.css";
 import useCss from '../../hooks/useCss';
 import { isString, isUndefined } from 'lodash';
+import { useRequest } from 'ahooks';
 import { propTypes, defaultProps } from '../../components/editor/FefferyVditor.react';
 
 
@@ -14,6 +15,7 @@ const FefferyVditor = (props) => {
         className,
         style,
         key,
+        debounceWait,
         undoDelay,
         height,
         minHeight,
@@ -50,6 +52,17 @@ const FefferyVditor = (props) => {
     } = props;
 
     const [vd, setVd] = useState();
+    const [_value, setValue] = useState();
+
+    const { run: syncValue } = useRequest(
+        (value) => {
+            setValue(value);
+        },
+        {
+            debounceWait: debounceWait,
+            manual: true
+        }
+    )
 
     const optionCounter = useMemo(() => {
         return {
@@ -110,15 +123,26 @@ const FefferyVditor = (props) => {
         toolbar, toolbarConfig, optionCounter, cache, preview, image, link, hint, upload, optionResize, classes, fullscreen, outline])
 
     useEffect(() => {
+        setValue(isUndefined(value) ? "" : value)
+    }, [value]);
+    
+        useEffect(() => {
+        if (vd) {
+            vd.setValue(isUndefined(_value) ? "" : _value);
+            setProps({ value: _value });
+            setProps({ htmlValue: vd.getHTML() });
+        }
+    }, [vd, _value]);
+
+
+    useEffect(() => {
         const vditor = new Vditor(id, {
             ...options,
             after: () => {
-                vditor.setValue(isUndefined(value) ? "" : value);
                 setVd(vditor);
             },
             input: (value) => {
-                setProps({ value: value });
-                setProps({ htmlValue: vditor.getHTML() });
+                syncValue(value);
             },
             select: (value) => {
                 setProps({ selectedValue: value })
@@ -129,7 +153,7 @@ const FefferyVditor = (props) => {
             vd?.destroy();
             setVd(undefined);
         };
-    }, [options]);
+    }, []);
 
     return (
         <div

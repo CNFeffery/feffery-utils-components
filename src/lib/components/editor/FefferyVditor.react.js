@@ -34,6 +34,11 @@ FefferyVditor.propTypes = {
     key: PropTypes.string,
 
     /**
+     * 用于配置value变化更新的防抖等待时长（单位：毫秒），默认为200
+     */
+    debounceWait: PropTypes.number,
+
+    /**
      * 设置历史记录间隔
      */
     undoDelay: PropTypes.number,
@@ -598,6 +603,7 @@ FefferyVditor.propTypes = {
 
 // 设置默认参数
 FefferyVditor.defaultProps = {
+    debounceWait: 200,
     lang: 'zh_CN',
     typewriterMode: false,
     mode: 'ir',
