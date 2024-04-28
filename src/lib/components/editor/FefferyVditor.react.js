@@ -80,9 +80,18 @@ FefferyVditor.propTypes = {
     typewriterMode: PropTypes.bool,
 
     /**
-     * 配置自建CDN地址
+     * 配置CDN地址，
+     * 可选的有`https://unpkg.com/vditor@${VDITOR_VERSION}`、`https://registry.npmmirror.com/vditor/${VDITOR_VERSION}/files`，
+     * VDITOR_VERSION是vditor版本号，可通过不设置此参数从浏览器请求信息中获取版本号信息，默认使用的是`https://unpkg.com/vditor@${VDITOR_VERSION}`，
+     * 也可使用自行搭建的cdn地址
      */
-    cdn: PropTypes.string,
+    cdn: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.oneOf([
+            `https://unpkg.com/vditor@${VDITOR_VERSION}`,
+            `https://registry.npmmirror.com/vditor/${VDITOR_VERSION}/files`
+        ])
+    ]),
 
     /**
      * 设置模式，可选的有：sv、ir和 wysiwyg，默认为'ir'
