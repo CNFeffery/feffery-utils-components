@@ -23,8 +23,11 @@ Keyword arguments:
     - id (string; optional):
         缓存key.
 
-- cdn (string; optional):
-    配置自建CDN地址.
+- cdn (string | a value equal to: `https://unpkg.com/vditor@${VDITOR_VERSION}`, `https://registry.npmmirror.com/vditor/${VDITOR_VERSION}/files`; optional):
+    配置CDN地址，
+    可选的有`https://unpkg.com/vditor@${VDITOR_VERSION}`、`https://registry.npmmirror.com/vditor/${VDITOR_VERSION}/files`，
+    VDITOR_VERSION是vditor版本号，可通过不设置此参数从浏览器请求信息中获取版本号信息，默认使用的是`https://unpkg.com/vditor@${VDITOR_VERSION}`，
+    也可使用自行搭建的cdn地址.
 
 - className (string; optional):
     组件类名.
@@ -324,7 +327,10 @@ Keyword arguments:
 - toolbar (list of a value equal to: 'emoji', 'headings', 'bold', 'italic', 'strike', '|', 'line', 'quote', 'list', 'ordered-list', 'check', 'outdent', 'indent', 'code', 'inline-code', 'insert-after', 'insert-before', 'undo', 'redo', 'upload', 'link', 'table', 'record', 'edit-mode', 'both', 'preview', 'fullscreen', 'outline', 'code-theme', 'content-theme', 'export', 'devtools', 'info', 'help', 'br's; optional):
     设置工具栏.
 
-- toolbarConfig (dict; default {    hide: False,    pin: False}):
+- toolbarConfig (dict; default {
+    hide: False,
+    pin: False
+}):
     工具栏配置.
 
     `toolbarConfig` is a dict with keys:
