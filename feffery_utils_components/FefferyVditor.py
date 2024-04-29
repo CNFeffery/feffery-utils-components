@@ -54,6 +54,9 @@ Keyword arguments:
     - type (a value equal to: 'markdown', 'text'; optional):
         设置统计类型，可选的有：'markdown'和'text'，默认为'markdown'.
 
+- debounceWait (number; default 200):
+    用于配置value变化更新的防抖等待时长（单位：毫秒），默认为200.
+
 - debuggerMode (boolean; default False):
     是否显示日志，默认为False.
 
@@ -327,10 +330,7 @@ Keyword arguments:
 - toolbar (list of a value equal to: 'emoji', 'headings', 'bold', 'italic', 'strike', '|', 'line', 'quote', 'list', 'ordered-list', 'check', 'outdent', 'indent', 'code', 'inline-code', 'insert-after', 'insert-before', 'undo', 'redo', 'upload', 'link', 'table', 'record', 'edit-mode', 'both', 'preview', 'fullscreen', 'outline', 'code-theme', 'content-theme', 'export', 'devtools', 'info', 'help', 'br's; optional):
     设置工具栏.
 
-- toolbarConfig (dict; default {
-    hide: False,
-    pin: False
-}):
+- toolbarConfig (dict; default {    hide: False,    pin: False}):
     工具栏配置.
 
     `toolbarConfig` is a dict with keys:
@@ -395,10 +395,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyVditor'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, key=Component.UNDEFINED, undoDelay=Component.UNDEFINED, height=Component.UNDEFINED, minHeight=Component.UNDEFINED, width=Component.UNDEFINED, placeholder=Component.UNDEFINED, lang=Component.UNDEFINED, tab=Component.UNDEFINED, typewriterMode=Component.UNDEFINED, cdn=Component.UNDEFINED, mode=Component.UNDEFINED, debuggerMode=Component.UNDEFINED, value=Component.UNDEFINED, theme=Component.UNDEFINED, icon=Component.UNDEFINED, toolbar=Component.UNDEFINED, toolbarConfig=Component.UNDEFINED, counter=Component.UNDEFINED, cache=Component.UNDEFINED, preview=Component.UNDEFINED, image=Component.UNDEFINED, link=Component.UNDEFINED, hint=Component.UNDEFINED, upload=Component.UNDEFINED, resize=Component.UNDEFINED, classes=Component.UNDEFINED, fullscreen=Component.UNDEFINED, outline=Component.UNDEFINED, htmlValue=Component.UNDEFINED, selectedValue=Component.UNDEFINED, wordCount=Component.UNDEFINED, resizeHeight=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'cache', 'cdn', 'className', 'classes', 'counter', 'debuggerMode', 'fullscreen', 'height', 'hint', 'htmlValue', 'icon', 'image', 'key', 'lang', 'link', 'loading_state', 'minHeight', 'mode', 'outline', 'placeholder', 'preview', 'resize', 'resizeHeight', 'selectedValue', 'style', 'tab', 'theme', 'toolbar', 'toolbarConfig', 'typewriterMode', 'undoDelay', 'upload', 'value', 'width', 'wordCount']
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, key=Component.UNDEFINED, debounceWait=Component.UNDEFINED, undoDelay=Component.UNDEFINED, height=Component.UNDEFINED, minHeight=Component.UNDEFINED, width=Component.UNDEFINED, placeholder=Component.UNDEFINED, lang=Component.UNDEFINED, tab=Component.UNDEFINED, typewriterMode=Component.UNDEFINED, cdn=Component.UNDEFINED, mode=Component.UNDEFINED, debuggerMode=Component.UNDEFINED, value=Component.UNDEFINED, theme=Component.UNDEFINED, icon=Component.UNDEFINED, toolbar=Component.UNDEFINED, toolbarConfig=Component.UNDEFINED, counter=Component.UNDEFINED, cache=Component.UNDEFINED, preview=Component.UNDEFINED, image=Component.UNDEFINED, link=Component.UNDEFINED, hint=Component.UNDEFINED, upload=Component.UNDEFINED, resize=Component.UNDEFINED, classes=Component.UNDEFINED, fullscreen=Component.UNDEFINED, outline=Component.UNDEFINED, htmlValue=Component.UNDEFINED, selectedValue=Component.UNDEFINED, wordCount=Component.UNDEFINED, resizeHeight=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'cache', 'cdn', 'className', 'classes', 'counter', 'debounceWait', 'debuggerMode', 'fullscreen', 'height', 'hint', 'htmlValue', 'icon', 'image', 'key', 'lang', 'link', 'loading_state', 'minHeight', 'mode', 'outline', 'placeholder', 'preview', 'resize', 'resizeHeight', 'selectedValue', 'style', 'tab', 'theme', 'toolbar', 'toolbarConfig', 'typewriterMode', 'undoDelay', 'upload', 'value', 'width', 'wordCount']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'cache', 'cdn', 'className', 'classes', 'counter', 'debuggerMode', 'fullscreen', 'height', 'hint', 'htmlValue', 'icon', 'image', 'key', 'lang', 'link', 'loading_state', 'minHeight', 'mode', 'outline', 'placeholder', 'preview', 'resize', 'resizeHeight', 'selectedValue', 'style', 'tab', 'theme', 'toolbar', 'toolbarConfig', 'typewriterMode', 'undoDelay', 'upload', 'value', 'width', 'wordCount']
+        self.available_properties = ['id', 'cache', 'cdn', 'className', 'classes', 'counter', 'debounceWait', 'debuggerMode', 'fullscreen', 'height', 'hint', 'htmlValue', 'icon', 'image', 'key', 'lang', 'link', 'loading_state', 'minHeight', 'mode', 'outline', 'placeholder', 'preview', 'resize', 'resizeHeight', 'selectedValue', 'style', 'tab', 'theme', 'toolbar', 'toolbarConfig', 'typewriterMode', 'undoDelay', 'upload', 'value', 'width', 'wordCount']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
