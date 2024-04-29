@@ -17,13 +17,13 @@ app.layout = html.Div(
             height=600,
             mode='wysiwyg',
             # debounceWait=500,
-            value='''
+            value="""
 ## 教程
 
 这是一篇讲解如何正确使用 **Markdown** 的排版示例，学会这个很有必要，能让你的文章有更佳清晰的排版。
 
 > 引用文本：Markdown is a text formatting syntax inspired
-            ''',
+            """,
             preview={
                 'markdown': {
                     'toc': True,
@@ -50,8 +50,8 @@ app.layout = html.Div(
                 'url': '/upload/',
                 'extraData': {
                     'uploadId': str(uuid.uuid4())
-                }
-            }
+                },
+            },
         ),
         html.Pre('回显展示'),
         fuc.FefferyVditor(
@@ -82,19 +82,17 @@ app.layout = html.Div(
                 'url': '/upload/',
                 'extraData': {
                     'uploadId': str(uuid.uuid4())
-                }
-            }
-        )
+                },
+            },
+        ),
     ],
-    style={
-        'padding': '50px'
-    }
+    style={'padding': '50px'},
 )
 
 
 @app.callback(
     Output('output', 'children'),
-    Input('vditor', 'wordCount')
+    Input('vditor', 'wordCount'),
 )
 def show_word_count(wordCount):
     if wordCount:
@@ -104,7 +102,7 @@ def show_word_count(wordCount):
 
 @app.callback(
     Output('output-vditor', 'value'),
-    Input('vditor', 'value')
+    Input('vditor', 'value'),
 )
 def show_value(value):
     if value:
@@ -114,10 +112,10 @@ def show_value(value):
 
 @app.server.route('/upload/', methods=['POST'])
 def upload():
-    '''
+    """
     构建文件上传服务
     :return:
-    '''
+    """
 
     # 获取上传id参数，用于指向保存路径
     uploadId = request.values.get('uploadId')
@@ -132,20 +130,27 @@ def upload():
         pass
 
     # 流式写出文件到指定目录
-    with open(os.path.join('assets', uploadId, filename), 'wb') as f:
+    with open(
+        os.path.join('assets', uploadId, filename), 'wb'
+    ) as f:
         # 流式写出大型文件，这里的10代表10MB
-        for chunk in iter(lambda: request.files['file[]'].read(1024 * 1024 * 10), b''):
+        for chunk in iter(
+            lambda: request.files['file[]'].read(
+                1024 * 1024 * 10
+            ),
+            b'',
+        ):
             f.write(chunk)
 
     return {
-        "msg": "上传成功",
-        "code": 0,
-        "data": {
+        'msg': '上传成功',
+        'code': 0,
+        'data': {
             # "errFiles": [filename],
-            "succMap": {
-                f"{filename}": f"http://127.0.0.1:8050/assets/{uploadId}/{filename}",
+            'succMap': {
+                f'{filename}': f'http://127.0.0.1:8050/assets/{uploadId}/{filename}',
             }
-        }
+        },
     }
 
 
