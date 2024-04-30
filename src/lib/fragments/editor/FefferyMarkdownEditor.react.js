@@ -97,7 +97,7 @@ const FefferyMarkdownEditor = (props) => {
     const editorAllConfig = useMemo(() => {
         let customEngine = engine;
         let customSyntaxOptions = {};
-        if (customSyntax.length > 0) {
+        if (customSyntax?.length > 0) {
             customSyntax.forEach(item => {
                 const { syntaxName, syntaxType, force, before, reg, result } = item;
                 let tmpCustomSyntaxObj = {};
