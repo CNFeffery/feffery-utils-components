@@ -12,7 +12,7 @@ app.layout = html.Div(
     [
         html.Div(id='output'),
         fuc.FefferyVditor(
-            id='vditor',
+            # id='vditor',
             cdn='https://registry.npmmirror.com/vditor/3.10.4/files',
             height=600,
             mode='ir',
@@ -55,7 +55,7 @@ app.layout = html.Div(
         ),
         html.Pre('回显展示'),
         fuc.FefferyVditor(
-            id='output-vditor',
+            # id='output-vditor',
             height=600,
             mode='wysiwyg',
             cdn='https://registry.npmmirror.com/vditor/3.10.4/files',
@@ -90,24 +90,24 @@ app.layout = html.Div(
 )
 
 
-@app.callback(
-    Output('output', 'children'),
-    Input('vditor', 'wordCount'),
-)
-def show_word_count(wordCount):
-    if wordCount:
-        return wordCount
-    return dash.no_update
+# @app.callback(
+#     Output('output', 'children'),
+#     Input('vditor', 'wordCount'),
+# )
+# def show_word_count(wordCount):
+#     if wordCount:
+#         return wordCount
+#     return dash.no_update
 
 
-@app.callback(
-    Output('output-vditor', 'value'),
-    Input('vditor', 'value'),
-)
-def show_value(value):
-    if value:
-        return value
-    return dash.no_update
+# @app.callback(
+#     Output('output-vditor', 'value'),
+#     Input('vditor', 'value'),
+# )
+# def show_value(value):
+#     if value:
+#         return value
+#     return dash.no_update
 
 
 @app.server.route('/upload/', methods=['POST'])

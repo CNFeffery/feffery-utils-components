@@ -4,6 +4,7 @@ import "vditor/dist/index.css";
 import useCss from '../../hooks/useCss';
 import { isString, isUndefined } from 'lodash';
 import { useRequest } from 'ahooks';
+import { v4 as uuidv4 } from 'uuid';
 import { propTypes, defaultProps } from '../../components/editor/FefferyVditor.react';
 
 
@@ -66,6 +67,10 @@ const FefferyVditor = (props) => {
             manual: true
         }
     )
+
+    const containerId = useMemo(() => {
+        return id || uuidv4();
+    }, []);
 
     const optionCounter = useMemo(() => {
         return {
@@ -137,7 +142,7 @@ const FefferyVditor = (props) => {
 
 
     useEffect(() => {
-        const vditor = new Vditor(id, {
+        const vditor = new Vditor(containerId, {
             ...options,
             after: () => {
                 setVd(vditor);
@@ -159,7 +164,7 @@ const FefferyVditor = (props) => {
 
     return (
         <div
-            id={id}
+            id={containerId}
             className={
                 isString(className) ?
                     className :
