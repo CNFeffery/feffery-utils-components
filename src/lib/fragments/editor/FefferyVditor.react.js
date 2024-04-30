@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import Vditor from "vditor";
 import "vditor/dist/index.css";
 import useCss from '../../hooks/useCss';
@@ -52,11 +52,14 @@ const FefferyVditor = (props) => {
     } = props;
 
     const [vd, setVd] = useState();
-    const [_value, setValue] = useState();
+    const [valueTrigger, setValueTrigger] = useState('initial');
 
     const { run: syncValue } = useRequest(
         (value) => {
-            setValue(value);
+            setProps({ 
+                value: value,
+                htmlValue: vd.getHTML()
+            });
         },
         {
             debounceWait: debounceWait,
@@ -123,16 +126,14 @@ const FefferyVditor = (props) => {
         toolbar, toolbarConfig, optionCounter, cache, preview, image, link, hint, upload, optionResize, classes, fullscreen, outline])
 
     useEffect(() => {
-        setValue(isUndefined(value) ? "" : value)
-    }, [value]);
-    
-        useEffect(() => {
-        if (vd) {
-            vd.setValue(isUndefined(_value) ? "" : _value);
-            setProps({ value: _value });
-            setProps({ htmlValue: vd.getHTML() });
+        if (vd && valueTrigger === 'initial') {
+            vd.setValue(isUndefined(value) ? "" : value);
         }
-    }, [vd, _value]);
+        // Clear the effect
+        return () => {
+            setValueTrigger('initial');
+        };
+    }, [vd, value]);
 
 
     useEffect(() => {
@@ -142,6 +143,7 @@ const FefferyVditor = (props) => {
                 setVd(vditor);
             },
             input: (value) => {
+                setValueTrigger('event');
                 syncValue(value);
             },
             select: (value) => {
