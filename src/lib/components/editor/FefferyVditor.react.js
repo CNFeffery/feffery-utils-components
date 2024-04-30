@@ -11,6 +11,69 @@ const FefferyVditor = (props) => {
     );
 }
 
+// 定义递归PropTypes
+const PropTreeNodeShape = {
+    /**
+     * 唯一标示
+     */
+    name: PropTypes.string,
+
+    /**
+     * svg图标
+     */
+    icon: PropTypes.string,
+
+    /**
+     * 提示
+     */
+    tip: PropTypes.string,
+
+    /**
+     * 提示位置，可选的有'n', 'ne', 'nw', 's', 'se', 'sw', 'w', 'e'
+     */
+    tipPosition: PropTypes.oneOf(['n', 'ne', 'nw', 's', 'se', 'sw', 'w', 'e']),
+
+    /**
+     * 快捷键，格式为⇧⌘/⌘/⌥⌘
+     */
+    hotkey: PropTypes.string,
+
+    /**
+     * 插入编辑器中的后缀
+     */
+    suffix: PropTypes.string,
+
+    /**
+     * 插入编辑器中的前缀
+     */
+    prefix: PropTypes.string,
+
+    /**
+     * 样式名
+     */
+    className: PropTypes.string
+}
+
+const PropTreeNode = PropTypes.shape(PropTreeNodeShape);
+PropTreeNodeShape.toolbar = PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.oneOf([
+        'emoji', 'headings', 'bold', 'italic', 'strike', '|', 'line', 'quote', 'list', 'ordered-list', 'check', 'outdent',
+        'indent', 'code', 'inline-code', 'insert-after', 'insert-before', 'undo', 'redo', 'upload', 'link', 'table', 'record',
+        'edit-mode', 'both', 'preview', 'fullscreen', 'outline', 'code-theme', 'content-theme', 'export', 'devtools', 'info',
+        'help', 'br'
+    ]),
+    PropTreeNode
+]));
+const toolbarPropTypes = PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.oneOf([
+        'emoji', 'headings', 'bold', 'italic', 'strike', '|', 'line', 'quote', 'list', 'ordered-list', 'check', 'outdent',
+        'indent', 'code', 'inline-code', 'insert-after', 'insert-before', 'undo', 'redo', 'upload', 'link', 'table', 'record',
+        'edit-mode', 'both', 'preview', 'fullscreen', 'outline', 'code-theme', 'content-theme', 'export', 'devtools', 'info',
+        'help', 'br'
+    ]),
+    PropTreeNode
+]));
+
 // 定义参数或属性
 FefferyVditor.propTypes = {
     /**
@@ -99,7 +162,7 @@ FefferyVditor.propTypes = {
     ]),
 
     /**
-     * 设置模式，可选的有：sv、ir和 wysiwyg，默认为'ir'
+     * 设置模式，可选的有：'sv'(分屏预览)、'ir'(即时渲染)和'wysiwyg'(所见即所得)，默认为'ir'(所见即所得)
      */
     mode: PropTypes.oneOf(['wysiwyg', 'ir', 'sv']),
 
@@ -127,12 +190,7 @@ FefferyVditor.propTypes = {
     /**
      * 设置工具栏
      */
-    toolbar: PropTypes.arrayOf(PropTypes.oneOf([
-        'emoji', 'headings', 'bold', 'italic', 'strike', '|', 'line', 'quote', 'list', 'ordered-list', 'check', 'outdent',
-        'indent', 'code', 'inline-code', 'insert-after', 'insert-before', 'undo', 'redo', 'upload', 'link', 'table', 'record',
-        'edit-mode', 'both', 'preview', 'fullscreen', 'outline', 'code-theme', 'content-theme', 'export', 'devtools', 'info',
-        'help', 'br'
-    ])),
+    toolbar: toolbarPropTypes,
 
     /**
      * 工具栏配置
@@ -610,6 +668,48 @@ FefferyVditor.defaultProps = {
     debuggerMode: false,
     theme: 'classic',
     icon: 'ant',
+    toolbar: [
+        "emoji",
+        "headings",
+        "bold",
+        "italic",
+        "strike",
+        "link",
+        "|",
+        "list",
+        "ordered-list",
+        "check",
+        "outdent",
+        "indent",
+        "|",
+        "quote",
+        "line",
+        "code",
+        "inline-code",
+        "insert-before",
+        "insert-after",
+        "|",
+        "upload",
+        "record",
+        "table",
+        "|",
+        "undo",
+        "redo",
+        "|",
+        "fullscreen",
+        "edit-mode",
+        {
+            name: "more",
+            toolbar: [
+                "both",
+                "code-theme",
+                "content-theme",
+                "export",
+                "outline",
+                "preview"
+            ],
+        },
+    ],
     toolbarConfig: {
         hide: false,
         pin: false
