@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import Vditor from "vditor";
 import "vditor/dist/index.css";
 import useCss from '../../hooks/useCss';
 import { isString, isUndefined } from 'lodash';
 import { useRequest } from 'ahooks';
+import { v4 as uuidv4 } from 'uuid';
 import { propTypes, defaultProps } from '../../components/editor/FefferyVditor.react';
 
 
@@ -52,17 +53,24 @@ const FefferyVditor = (props) => {
     } = props;
 
     const [vd, setVd] = useState();
-    const [_value, setValue] = useState();
+    const [valueTrigger, setValueTrigger] = useState('initial');
 
     const { run: syncValue } = useRequest(
         (value) => {
-            setValue(value);
+            setProps({ 
+                value: value,
+                htmlValue: vd.getHTML()
+            });
         },
         {
             debounceWait: debounceWait,
             manual: true
         }
     )
+
+    const containerId = useMemo(() => {
+        return id || uuidv4();
+    }, []);
 
     const optionCounter = useMemo(() => {
         return {
@@ -123,25 +131,24 @@ const FefferyVditor = (props) => {
         toolbar, toolbarConfig, optionCounter, cache, preview, image, link, hint, upload, optionResize, classes, fullscreen, outline])
 
     useEffect(() => {
-        setValue(isUndefined(value) ? "" : value)
-    }, [value]);
-    
-        useEffect(() => {
-        if (vd) {
-            vd.setValue(isUndefined(_value) ? "" : _value);
-            setProps({ value: _value });
-            setProps({ htmlValue: vd.getHTML() });
+        if (vd && valueTrigger === 'initial') {
+            vd.setValue(isUndefined(value) ? "" : value);
         }
-    }, [vd, _value]);
+        // Clear the effect
+        return () => {
+            setValueTrigger('initial');
+        };
+    }, [vd, value]);
 
 
     useEffect(() => {
-        const vditor = new Vditor(id, {
+        const vditor = new Vditor(containerId, {
             ...options,
             after: () => {
                 setVd(vditor);
             },
             input: (value) => {
+                setValueTrigger('event');
                 syncValue(value);
             },
             select: (value) => {
@@ -157,7 +164,7 @@ const FefferyVditor = (props) => {
 
     return (
         <div
-            id={id}
+            id={containerId}
             className={
                 isString(className) ?
                     className :

@@ -136,7 +136,7 @@ Keyword arguments:
     设置编辑区域最小高度.
 
 - mode (a value equal to: 'wysiwyg', 'ir', 'sv'; default 'ir'):
-    设置模式，可选的有：sv、ir和 wysiwyg，默认为'ir'.
+    设置模式，可选的有：'sv'(分屏预览)、'ir'(即时渲染)和'wysiwyg'(所见即所得)，默认为'ir'(所见即所得).
 
 - outline (dict; optional):
     大纲配置.
@@ -327,7 +327,7 @@ Keyword arguments:
 - theme (a value equal to: 'classic', 'dark'; default 'classic'):
     设置编辑器主题，可选的有：'classic'和'dark'，默认为'classic'.
 
-- toolbar (list of a value equal to: 'emoji', 'headings', 'bold', 'italic', 'strike', '|', 'line', 'quote', 'list', 'ordered-list', 'check', 'outdent', 'indent', 'code', 'inline-code', 'insert-after', 'insert-before', 'undo', 'redo', 'upload', 'link', 'table', 'record', 'edit-mode', 'both', 'preview', 'fullscreen', 'outline', 'code-theme', 'content-theme', 'export', 'devtools', 'info', 'help', 'br's; optional):
+- toolbar (default [    "emoji",    "headings",    "bold",    "italic",    "strike",    "link",    "|",    "list",    "ordered-list",    "check",    "outdent",    "indent",    "|",    "quote",    "line",    "code",    "inline-code",    "insert-before",    "insert-after",    "|",    "upload",    "record",    "table",    "|",    "undo",    "redo",    "|",    "fullscreen",    "edit-mode",    {        name: "more",        toolbar: [            "both",            "code-theme",            "content-theme",            "export",            "outline",            "preview"        ],    },]):
     设置工具栏.
 
 - toolbarConfig (dict; default {    hide: False,    pin: False}):

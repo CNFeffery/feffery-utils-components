@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useCallback } from 'react';
+import React, { useEffect, useMemo, useCallback, useState } from 'react';
 import "cherry-markdown/dist/cherry-markdown.css";
 import Cherry from 'cherry-markdown/dist/cherry-markdown.core';
 import mermaidPlugin from 'cherry-markdown/dist/addons/cherry-code-block-mermaid-plugin';
@@ -9,9 +9,17 @@ import MathJax from 'mathjax/es5/tex-svg';
 import katex from 'katex';
 import 'katex/dist/katex.css';
 import useCss from '../../hooks/useCss';
-import { isString } from 'lodash';
+import { isString, isUndefined } from 'lodash';
+import { useRequest } from 'ahooks';
 import { propTypes, defaultProps } from '../../components/editor/FefferyMarkdownEditor.react';
 import FefferyStyle from '../../components/FefferyStyle.react';
+
+
+if (window.mermaid) {
+    Cherry.usePlugin(mermaidPlugin, {
+        mermaid: window.mermaid
+    })
+}
 
 
 // 定义markdown编辑器组件FefferyMarkdownEditor，api参数参考https://github.com/Tencent/cherry-markdown/wiki/%E9%85%8D%E7%BD%AE%E9%A1%B9%E5%85%A8%E8%A7%A3
@@ -22,6 +30,7 @@ const FefferyMarkdownEditor = (props) => {
         className,
         style,
         key,
+        debounceWait,
         value,
         html,
         engine,
@@ -42,6 +51,22 @@ const FefferyMarkdownEditor = (props) => {
         setProps,
         loading_state
     } = props;
+
+    const [cherry, setCherry] = useState();
+    const [valueTrigger, setValueTrigger] = useState('initial');
+
+    const { run: syncValue } = useRequest(
+        (text, html) => {
+            setProps({
+                value: text,
+                html: html
+            });
+        },
+        {
+            debounceWait: debounceWait,
+            manual: true
+        }
+    )
 
     const containerId = useMemo(() => {
         return id || uuidv4();
@@ -97,7 +122,7 @@ const FefferyMarkdownEditor = (props) => {
     const editorAllConfig = useMemo(() => {
         let customEngine = engine;
         let customSyntaxOptions = {};
-        if (customSyntax.length > 0) {
+        if (customSyntax?.length > 0) {
             customSyntax.forEach(item => {
                 const { syntaxName, syntaxType, force, before, reg, result } = item;
                 let tmpCustomSyntaxObj = {};
@@ -213,10 +238,8 @@ const FefferyMarkdownEditor = (props) => {
         let callbackOptions = {
             callback: {
                 afterChange: (text, html) => {
-                    setProps({
-                        value: text,
-                        html: html
-                    });
+                    setValueTrigger('event');
+                    syncValue(text, html);
                 },
                 changeString2Pinyin: pinyin
             }
@@ -242,20 +265,36 @@ const FefferyMarkdownEditor = (props) => {
     }, [engine, editor, toolbars, drawioIframeUrl, fileTypeLimitMap, previewer, theme, isPreviewOnly, autoScrollByCursor, forceAppend, locale, autoScrollByHashAfterInit, customSyntax])
 
     useEffect(() => {
-        if (window.mermaid) {
-            Cherry.usePlugin(mermaidPlugin, {
-                mermaid: window.mermaid
-            })
+        if (cherry && valueTrigger === 'initial') {
+            cherry.setMarkdown(isUndefined(value) ? "" : value);
         }
-        new Cherry({
+        // Clear the effect
+        return () => {
+            setValueTrigger('initial');
+        };
+    }, [cherry, value]);
+    
+    useEffect(() => {
+        let externals = {
+            katex: katex,
+            MathJax: MathJax,
+        }
+        if (window.echarts) {
+            externals.echarts = window.echarts;
+        }
+        const cherryMarkdownEditor = new Cherry({
             ...editorAllConfig,
             id: containerId,
             value: value,
-            externals: {
-                katex: katex,
-                MathJax: MathJax,
-            }
+            externals: externals
         });
+        if (cherryMarkdownEditor) {
+            setCherry(cherryMarkdownEditor);
+        }
+        return () => {
+            cherry?.destroy();
+            setCherry(undefined);
+        }
     }, []);
 
     return (
