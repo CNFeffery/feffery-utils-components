@@ -1,169 +1,162 @@
 import dash
 from dash import html
 import feffery_utils_components as fuc
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 import os
-import uuid
-from flask import request
+from flask import request, send_file
 
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, compress=True, external_scripts=['https://registry.npmmirror.com/mermaid/9.4.3/files/dist/mermaid.min.js'])
 
 app.layout = html.Div(
     [
-        html.Div(id='output'),
-        fuc.FefferyVditor(
-            id='vditor',
-            cdn='https://registry.npmmirror.com/vditor/3.10.4/files',
-            height=600,
-            toolbar=[
-                "emoji",
-                "headings",
-                "bold",
-                "italic",
-                "strike",
-                "link",
-                "|",
-                "list",
-                "ordered-list",
-                "check",
-                "outdent",
-                "indent",
-                "|",
-                "quote",
-                "line",
-                "code",
-                "inline-code",
-                "insert-before",
-                "insert-after",
-                "|",
-                "upload",
-                "record",
-                "table",
-                "|",
-                "undo",
-                "redo",
-                "|",
-                "fullscreen",
-                "edit-mode",
+        fuc.FefferyMarkdownEditor(
+            id='markdown',
+            # engine={
+            #     'syntax': {
+            #         'mathBlock': {
+            #             'engine': 'katex'
+            #         }
+            #     }
+            # },
+            value='哈哈哈',
+            toolbars={
+                'toolbar': [
+                    'bold',
+                    'italic',
+                    'underline',
+                    'strikethrough',
+                    'sub',
+                    'sup',
+                    'size',
+                    'color',
+                    '|',
+                    'quote',
+                    'detail',
+                    'header',
+                    'checklist',
+                    'list',
+                    'justify',
+                    'panel',
+                    '|',
+                    'drawIo',
+                    'graph',
+                    {
+                        'insert': ['image', 'audio', 'video', 'pdf', 'word', 'file', 'link', 'hr', 'br', 'code', 'formula', 'toc', 'table', 'ruby'],
+                    },
+                    '|',
+                    'undo',
+                    'redo',
+                    'settings',
+                    'codeTheme',
+                    'export'
+                ],
+                'toolbarRight': ['fullScreen', '|'],
+                'sidebar': ['mobilePreview', 'theme', 'copy'],
+            },
+            # drawioIframeUrl='assets/drawio/drawio_demo.html',
+            uploadConfig={
+                'action': '/upload/',
+                'headers': {
+                    'test': '111'
+                }
+            },
+            fineControl={
+                'isOpen': True,
+                'videoFineControlOptions': {
+                    'isPoster': True,
+                    'posterUrl': 'http://127.0.0.1:8050/get?filename=2dc5b01f-2bf5-4131-b883-30d384d7b3f1.png'
+                }
+            },
+            customSyntax=[
                 {
-                    'name': "more",
-                    'toolbar': [
-                        "both",
-                        "code-theme",
-                        "content-theme",
-                        "export",
-                        "outline",
-                        "preview"
-                    ],
+                    'syntaxName': 'importHook',
+                    'force': False,
+                    'before': 'fontEmphasis',
+                    'syntaxType': 'inline',
+                    'reg': '(\\*\\*\\*)([^\\*]+)\\1',
+                    'result': '<span style="color: red;"><strong>${arguments[2]}</strong></span>'
+                },
+                {
+                    'syntaxName': 'myBlock',
+                    'force': True,
+                    'before': 'blockquote',
+                    'syntaxType': 'block',
+                    'reg': '\\n\\+\\+(\\n[\\s\\S]+?\\n)\\+\\+\n',
+                    'result': '\n<div data-sign="${sign}" data-lines="${lines}" style="border: 1px solid;border-radius: 15px;background: gold;">${html}</div>\n'
                 },
             ],
-            upload={
-                'url': '/upload/',
-                'extraData': {
-                    'uploadId': str(uuid.uuid4())
-                },
-            },
+            style={
+                'height': '500px'
+            }
         ),
-        html.Pre('回显展示'),
-        fuc.FefferyVditor(
-            id='output-vditor',
-            height=600,
-            mode='wysiwyg',
-            cdn='https://registry.npmmirror.com/vditor/3.10.4/files',
-            preview={
-                'markdown': {
-                    'toc': True,
-                    'mark': True,
-                    'footnotes': True,
-                    'autoSpace': True,
-                },
-                'math': {
-                    'engine': 'KaTeX',
-                    'inlineDigit': True,
-                },
-            },
-            toolbarConfig={
-                'pin': True,
-            },
-            counter={
-                'enable': True,
-                'type': 'text',
-            },
-            upload={
-                'url': '/upload/',
-                'extraData': {
-                    'uploadId': str(uuid.uuid4())
-                },
-            },
+        fuc.FefferyMarkdownEditor(
+            id='markdown-output',
+            style={
+                'height': '500px',
+                'marginTop': '50px'
+            }
         ),
+        html.Pre(id='output'),
     ],
-    style={'padding': '50px'},
+    style={
+        'padding': 50
+    }
 )
 
 
 @app.callback(
-    Output('output', 'children'),
-    Input('vditor', 'wordCount'),
+    Output('markdown-output', 'value'),
+    Input('markdown', 'value')
 )
-def show_word_count(wordCount):
-    if wordCount:
-        return wordCount
-    return dash.no_update
-
-
-@app.callback(
-    Output('output-vditor', 'value'),
-    Input('vditor', 'value'),
-)
-def show_value(value):
-    if value:
-        return value
-    return dash.no_update
+def callback_output(value):
+    return value
 
 
 @app.server.route('/upload/', methods=['POST'])
 def upload():
-    """
+    '''
     构建文件上传服务
     :return:
-    """
-
-    # 获取上传id参数，用于指向保存路径
-    uploadId = request.values.get('uploadId')
+    '''
 
     # 获取上传的文件名称
-    filename = request.files['file[]'].filename
+    filename = request.files['file'].filename
 
     # 基于上传id，若本地不存在则会自动创建目录
     try:
-        os.makedirs(os.path.join('assets', uploadId))
+        os.mkdir(os.path.join('cache'))
     except FileExistsError:
         pass
+    try:
+        # 流式写出文件到指定目录
+        with open(os.path.join('cache', filename), 'wb') as f:
+            # 流式写出大型文件，这里的10代表10MB
+            for chunk in iter(lambda: request.files['file'].read(1024 * 1024 * 10), b''):
+                f.write(chunk)
 
-    # 流式写出文件到指定目录
-    with open(
-        os.path.join('assets', uploadId, filename), 'wb'
-    ) as f:
-        # 流式写出大型文件，这里的10代表10MB
-        for chunk in iter(
-            lambda: request.files['file[]'].read(
-                1024 * 1024 * 10
-            ),
-            b'',
-        ):
-            f.write(chunk)
-
-    return {
-        'msg': '上传成功',
-        'code': 0,
-        'data': {
-            # "errFiles": [filename],
-            'succMap': {
-                f'{filename}': f'http://127.0.0.1:8050/assets/{uploadId}/{filename}',
+        return {
+            "errno": 0,
+            "data": {
+                "url": "http://127.0.0.1:8050/get?filename=" + filename,
+                "alt": "yyy",
+                "href": "zzz"
             }
-        },
-    }
+        }
+    except Exception as e:
+        return {
+            "errno": 1,
+            "message": str(e)
+        }
+
+
+@app.server.route('/get', methods=['GET'])
+def get_file():
+    filename = request.args.get('filename')  # 从查询字符串中获取文件名
+    # 检查文件是否存在，这里省略相关逻辑
+
+    # 返回文件
+    return send_file(os.path.join('cache', filename), as_attachment=True)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run_server(debug=True)

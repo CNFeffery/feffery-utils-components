@@ -44,6 +44,9 @@ Keyword arguments:
     - syntaxType (a value equal to: 'inline', 'block'; optional):
         自定义语法类型，'inline'表示行内语法，'block'表示段落语法.
 
+- debounceWait (number; default 200):
+    用于配置value变化更新的防抖等待时长（单位：毫秒），默认为200.
+
 - drawioIframeUrl (string; default ''):
     打开draw.io编辑页的url，如果为空则drawio按钮失效.
 
@@ -411,7 +414,7 @@ Keyword arguments:
 
     - label (a value equal to: '默认', '暗黑', '明亮', '清新', '热情', '淡雅', '清幽'; optional)
 
-- toolbars (dict; default {    theme: 'dark',    showToolbar: True,    toolbar: [        'bold',        'italic',        'strikethrough',        '|',        'color',        'header',        'ruby',        '|',        'list',        'panel',        'detail',        {            insert: ['image', 'audio', 'video', 'link', 'hr', 'br', 'code', 'formula', 'toc', 'table', 'line-table', 'bar-table', 'pdf', 'word']        },        'settings',    ],    toolbarRight: [],    sidebar: [],    bubble: ['bold', 'italic', 'underline', 'strikethrough', 'sub', 'sup', 'quote', '|', 'size', 'color'],    float: ['h1', 'h2', 'h3', '|', 'checklist', 'quote', 'table', 'code'],    shortcutKey: {},    config: {        formula: {            showLatexLive: True,            templateConfig: False,        },    },}):
+- toolbars (dict; default {    theme: 'dark',    showToolbar: True,    toolbar: [        'bold',        'italic',        'strikethrough',        '|',        'color',        'header',        'ruby',        '|',        'list',        'panel',        'detail',        {            insert: ['image', 'audio', 'video', 'link', 'hr', 'br', 'code', 'formula', 'toc', 'table', 'pdf', 'word']        },        'settings',    ],    toolbarRight: [],    sidebar: [],    bubble: ['bold', 'italic', 'underline', 'strikethrough', 'sub', 'sup', 'quote', '|', 'size', 'color'],    float: ['h1', 'h2', 'h3', '|', 'checklist', 'quote', 'table', 'code'],    shortcutKey: {},    config: {        formula: {            showLatexLive: True,            templateConfig: False,        },    },}):
     工具栏配置.
 
     `toolbars` is a dict with keys:
@@ -498,10 +501,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyMarkdownEditor'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, key=Component.UNDEFINED, value=Component.UNDEFINED, html=Component.UNDEFINED, engine=Component.UNDEFINED, editor=Component.UNDEFINED, toolbars=Component.UNDEFINED, drawioIframeUrl=Component.UNDEFINED, fileTypeLimitMap=Component.UNDEFINED, uploadConfig=Component.UNDEFINED, fineControl=Component.UNDEFINED, previewer=Component.UNDEFINED, theme=Component.UNDEFINED, isPreviewOnly=Component.UNDEFINED, autoScrollByCursor=Component.UNDEFINED, forceAppend=Component.UNDEFINED, locale=Component.UNDEFINED, autoScrollByHashAfterInit=Component.UNDEFINED, customSyntax=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'autoScrollByCursor', 'autoScrollByHashAfterInit', 'className', 'customSyntax', 'drawioIframeUrl', 'editor', 'engine', 'fileTypeLimitMap', 'fineControl', 'forceAppend', 'html', 'isPreviewOnly', 'key', 'loading_state', 'locale', 'previewer', 'style', 'theme', 'toolbars', 'uploadConfig', 'value']
+    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, key=Component.UNDEFINED, debounceWait=Component.UNDEFINED, value=Component.UNDEFINED, html=Component.UNDEFINED, engine=Component.UNDEFINED, editor=Component.UNDEFINED, toolbars=Component.UNDEFINED, drawioIframeUrl=Component.UNDEFINED, fileTypeLimitMap=Component.UNDEFINED, uploadConfig=Component.UNDEFINED, fineControl=Component.UNDEFINED, previewer=Component.UNDEFINED, theme=Component.UNDEFINED, isPreviewOnly=Component.UNDEFINED, autoScrollByCursor=Component.UNDEFINED, forceAppend=Component.UNDEFINED, locale=Component.UNDEFINED, autoScrollByHashAfterInit=Component.UNDEFINED, customSyntax=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'autoScrollByCursor', 'autoScrollByHashAfterInit', 'className', 'customSyntax', 'debounceWait', 'drawioIframeUrl', 'editor', 'engine', 'fileTypeLimitMap', 'fineControl', 'forceAppend', 'html', 'isPreviewOnly', 'key', 'loading_state', 'locale', 'previewer', 'style', 'theme', 'toolbars', 'uploadConfig', 'value']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'autoScrollByCursor', 'autoScrollByHashAfterInit', 'className', 'customSyntax', 'drawioIframeUrl', 'editor', 'engine', 'fileTypeLimitMap', 'fineControl', 'forceAppend', 'html', 'isPreviewOnly', 'key', 'loading_state', 'locale', 'previewer', 'style', 'theme', 'toolbars', 'uploadConfig', 'value']
+        self.available_properties = ['id', 'autoScrollByCursor', 'autoScrollByHashAfterInit', 'className', 'customSyntax', 'debounceWait', 'drawioIframeUrl', 'editor', 'engine', 'fileTypeLimitMap', 'fineControl', 'forceAppend', 'html', 'isPreviewOnly', 'key', 'loading_state', 'locale', 'previewer', 'style', 'theme', 'toolbars', 'uploadConfig', 'value']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

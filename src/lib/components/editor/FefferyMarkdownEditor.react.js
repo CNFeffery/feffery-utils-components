@@ -123,6 +123,11 @@ FefferyMarkdownEditor.propTypes = {
     key: PropTypes.string,
 
     /**
+     * 用于配置value变化更新的防抖等待时长（单位：毫秒），默认为200
+     */
+    debounceWait: PropTypes.number,
+
+    /**
      * 编辑器内容
      */
     value: PropTypes.string,
@@ -703,6 +708,7 @@ FefferyMarkdownEditor.propTypes = {
 
 // 设置默认参数
 FefferyMarkdownEditor.defaultProps = {
+    debounceWait: 200,
     engine: {
         global: {
             classicBr: false,
@@ -791,7 +797,7 @@ FefferyMarkdownEditor.defaultProps = {
             'panel',
             'detail',
             {
-                insert: ['image', 'audio', 'video', 'link', 'hr', 'br', 'code', 'formula', 'toc', 'table', 'line-table', 'bar-table', 'pdf', 'word']
+                insert: ['image', 'audio', 'video', 'link', 'hr', 'br', 'code', 'formula', 'toc', 'table', 'pdf', 'word']
             },
             'settings',
         ],
