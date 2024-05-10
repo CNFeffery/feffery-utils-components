@@ -30,10 +30,10 @@ FefferyHttpRequests.propTypes = {
      */
     requestConfig: PropTypes.shape({
         /**
-         * 请求类型，可选项有`'get'`、`'post'`
+         * 请求类型，可选项有`'get'`、`'post'`、`'put'`、`'patch'`、`'delete'`
          * 默认值：`'get'`
          */
-        method: PropTypes.oneOf(['get', 'post']),
+        method: PropTypes.oneOf(['get', 'post', 'put', 'patch', 'delete']),
         /**
          * 必填，请求目标url
          */

@@ -39,8 +39,9 @@ Keyword arguments:
     - headers (dict; optional):
         自定义请求头.
 
-    - method (a value equal to: 'get', 'post'; optional):
-        请求类型，可选项有`'get'`、`'post'`  默认值：`'get'`.
+    - method (a value equal to: 'get', 'post', 'put', 'patch', 'delete'; optional):
+        请求类型，可选项有`'get'`、`'post'`、`'put'`、`'patch'`、`'delete'`
+        默认值：`'get'`.
 
     - params (dict; optional):
         自定义请求参数.
