@@ -38,6 +38,9 @@ Keyword arguments:
 
     `lang` is a dict with keys:
 
+    - autorotate (string; optional):
+        自动旋转调节.
+
     - download (string; optional):
         下载操作.
 
@@ -99,15 +102,30 @@ Keyword arguments:
 - moveSpeed (number; default 1):
     设置鼠标平移速度  默认：1.
 
-- navbar (list of a value equal to: 'zoom', 'move', 'download', 'caption', 'fullscreen's | boolean; default ['caption']):
-    配置导航栏中需要显示的功能项及顺序，设置为False时将隐藏导航栏
-    可选的有'zoom'、'move'、'download'、'caption'、'fullscreen'
-    默认：['caption'].
+- navbar (list of a value equal to: 'zoom', 'move', 'download', 'caption', 'fullscreen', 'autorotate's | boolean; default ['caption']):
+    配置导航栏中需要显示的功能项及顺序，设置为`False`时将隐藏导航栏
+    可选的有`'zoom'`、`'move'`、`'download'`、`'caption'`、`'fullscreen'`、`'autorotate'`
+    默认值：`['caption']`.
+
+- plugins (list of dicts; optional):
+    用于配置额外插件功能.
+
+    `plugins` is a list of dicts with keys:
+
+    - autorotateSpeed (string; optional):
+        `Autorotate`模式下，自动旋转速度  默认值：`2rpm`.
+
+    - autostartDelay (number; optional):
+        `Autorotate`模式下，从用户无操作到恢复自动旋转的延时，单位：毫秒  默认值：`2000`.
+
+    - autostartOnIdle (boolean; optional):
+        `Autorotate`模式下，是否在用户无操作一段时间后恢复自动旋转  默认值：`True`.
+
+    - type (a value equal to: 'Autorotate'; required):
+        必填，插件类型，可选项有`'Autorotate'`.
 
 - src (string; optional):
     设置全景图片资源地址.
-
-- testProps (dict; optional)
 
 - width (string; optional):
     设置查看器宽度，同css中的width属性.
@@ -119,10 +137,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyPhotoSphereViewer'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, src=Component.UNDEFINED, width=Component.UNDEFINED, height=Component.UNDEFINED, littlePlanet=Component.UNDEFINED, containerClass=Component.UNDEFINED, navbar=Component.UNDEFINED, caption=Component.UNDEFINED, downloadUrl=Component.UNDEFINED, loadingImg=Component.UNDEFINED, loadingTxt=Component.UNDEFINED, mousewheel=Component.UNDEFINED, mousemove=Component.UNDEFINED, moveSpeed=Component.UNDEFINED, zoomSpeed=Component.UNDEFINED, fisheye=Component.UNDEFINED, lang=Component.UNDEFINED, hideNavbarButton=Component.UNDEFINED, testProps=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'caption', 'containerClass', 'downloadUrl', 'fisheye', 'height', 'hideNavbarButton', 'key', 'lang', 'littlePlanet', 'loadingImg', 'loadingTxt', 'loading_state', 'mousemove', 'mousewheel', 'moveSpeed', 'navbar', 'src', 'testProps', 'width', 'zoomSpeed']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, src=Component.UNDEFINED, width=Component.UNDEFINED, height=Component.UNDEFINED, littlePlanet=Component.UNDEFINED, containerClass=Component.UNDEFINED, navbar=Component.UNDEFINED, caption=Component.UNDEFINED, downloadUrl=Component.UNDEFINED, loadingImg=Component.UNDEFINED, loadingTxt=Component.UNDEFINED, mousewheel=Component.UNDEFINED, mousemove=Component.UNDEFINED, moveSpeed=Component.UNDEFINED, zoomSpeed=Component.UNDEFINED, fisheye=Component.UNDEFINED, lang=Component.UNDEFINED, hideNavbarButton=Component.UNDEFINED, plugins=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'caption', 'containerClass', 'downloadUrl', 'fisheye', 'height', 'hideNavbarButton', 'key', 'lang', 'littlePlanet', 'loadingImg', 'loadingTxt', 'loading_state', 'mousemove', 'mousewheel', 'moveSpeed', 'navbar', 'plugins', 'src', 'width', 'zoomSpeed']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'caption', 'containerClass', 'downloadUrl', 'fisheye', 'height', 'hideNavbarButton', 'key', 'lang', 'littlePlanet', 'loadingImg', 'loadingTxt', 'loading_state', 'mousemove', 'mousewheel', 'moveSpeed', 'navbar', 'src', 'testProps', 'width', 'zoomSpeed']
+        self.available_properties = ['id', 'caption', 'containerClass', 'downloadUrl', 'fisheye', 'height', 'hideNavbarButton', 'key', 'lang', 'littlePlanet', 'loadingImg', 'loadingTxt', 'loading_state', 'mousemove', 'mousewheel', 'moveSpeed', 'navbar', 'plugins', 'src', 'width', 'zoomSpeed']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -50,14 +50,14 @@ FefferyPhotoSphereViewer.propTypes = {
     containerClass: PropTypes.string,
 
     /**
-     * 配置导航栏中需要显示的功能项及顺序，设置为false时将隐藏导航栏
-     * 可选的有'zoom'、'move'、'download'、'caption'、'fullscreen'
-     * 默认：['caption']
+     * 配置导航栏中需要显示的功能项及顺序，设置为`false`时将隐藏导航栏
+     * 可选的有`'zoom'`、`'move'`、`'download'`、`'caption'`、`'fullscreen'`、`'autorotate'`
+     * 默认值：`['caption']`
      */
     navbar: PropTypes.oneOfType(
         [
             PropTypes.arrayOf(
-                PropTypes.oneOf(['zoom', 'move', 'download', 'caption', 'fullscreen'])
+                PropTypes.oneOf(['zoom', 'move', 'download', 'caption', 'fullscreen', 'autorotate'])
             ),
             PropTypes.bool
         ]
@@ -156,7 +156,11 @@ FefferyPhotoSphereViewer.propTypes = {
         /**
          * 资源加载失败
          */
-        loadError: PropTypes.string
+        loadError: PropTypes.string,
+        /**
+         * 自动旋转调节
+         */
+        autorotate: PropTypes.string
     }),
 
     /**
@@ -165,7 +169,32 @@ FefferyPhotoSphereViewer.propTypes = {
      */
     hideNavbarButton: PropTypes.bool,
 
-    testProps: PropTypes.object,
+    /**
+     * 用于配置额外插件功能
+     */
+    plugins: PropTypes.arrayOf(
+        PropTypes.shape({
+            /**
+             * 必填，插件类型，可选项有`'Autorotate'`
+             */
+            type: PropTypes.oneOf(['Autorotate']).isRequired,
+            /**
+             * `Autorotate`模式下，从用户无操作到恢复自动旋转的延时，单位：毫秒
+             * 默认值：`2000`
+             */
+            autostartDelay: PropTypes.number,
+            /**
+             * `Autorotate`模式下，是否在用户无操作一段时间后恢复自动旋转
+             * 默认值：`true`
+             */
+            autostartOnIdle: PropTypes.bool,
+            /**
+             * `Autorotate`模式下，自动旋转速度
+             * 默认值：`2rpm`
+             */
+            autorotateSpeed: PropTypes.string
+        })
+    ),
 
     /**
      * Dash-assigned callback that should be called to report property changes

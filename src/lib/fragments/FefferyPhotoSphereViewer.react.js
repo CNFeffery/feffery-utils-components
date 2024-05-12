@@ -1,5 +1,13 @@
 import { ReactPhotoSphereViewer } from 'react-photo-sphere-viewer';
+// 额外插件
+import { AutorotatePlugin } from '@photo-sphere-viewer/autorotate-plugin';
+import { omit } from 'ramda';
 import { propTypes, defaultProps } from '../components/FefferyPhotoSphereViewer.react';
+
+// 插件名 -> 插件
+const type2plugins = {
+    Autorotate: AutorotatePlugin
+}
 
 // 定义全景图片查看器组件FefferyPhotoSphereViewer
 const FefferyPhotoSphereViewer = (props) => {
@@ -23,7 +31,7 @@ const FefferyPhotoSphereViewer = (props) => {
         fisheye,
         lang,
         hideNavbarButton,
-        testProps,
+        plugins,
         setProps,
         loading_state
     } = props;
@@ -49,7 +57,14 @@ const FefferyPhotoSphereViewer = (props) => {
             fisheye={fisheye}
             lang={lang}
             hideNavbarButton={hideNavbarButton}
-            {...testProps}
+            plugins={
+                plugins && plugins.map(
+                    (plugin) => ([
+                        type2plugins[plugin.type],
+                        omit(['type'], plugin)
+                    ])
+                )
+            }
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             } />
