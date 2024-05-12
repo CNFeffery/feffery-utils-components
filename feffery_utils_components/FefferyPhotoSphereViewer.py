@@ -27,6 +27,9 @@ Keyword arguments:
 - height (string; optional):
     设置查看器高度，同css中的height属性.
 
+- hideNavbarButton (boolean; default False):
+    是否渲染底部导航栏隐藏按钮  默认值：`False`.
+
 - key (string; optional):
     辅助刷新用唯一标识key值.
 
@@ -101,6 +104,8 @@ Keyword arguments:
 - src (string; optional):
     设置全景图片资源地址.
 
+- testProps (dict; optional)
+
 - width (string; optional):
     设置查看器宽度，同css中的width属性.
 
@@ -111,10 +116,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyPhotoSphereViewer'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, src=Component.UNDEFINED, width=Component.UNDEFINED, height=Component.UNDEFINED, littlePlanet=Component.UNDEFINED, containerClass=Component.UNDEFINED, navbar=Component.UNDEFINED, caption=Component.UNDEFINED, downloadUrl=Component.UNDEFINED, loadingImg=Component.UNDEFINED, loadingTxt=Component.UNDEFINED, mousewheel=Component.UNDEFINED, mousemove=Component.UNDEFINED, moveSpeed=Component.UNDEFINED, zoomSpeed=Component.UNDEFINED, fisheye=Component.UNDEFINED, lang=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'caption', 'containerClass', 'downloadUrl', 'fisheye', 'height', 'key', 'lang', 'littlePlanet', 'loadingImg', 'loadingTxt', 'loading_state', 'mousemove', 'mousewheel', 'moveSpeed', 'navbar', 'src', 'width', 'zoomSpeed']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, src=Component.UNDEFINED, width=Component.UNDEFINED, height=Component.UNDEFINED, littlePlanet=Component.UNDEFINED, containerClass=Component.UNDEFINED, navbar=Component.UNDEFINED, caption=Component.UNDEFINED, downloadUrl=Component.UNDEFINED, loadingImg=Component.UNDEFINED, loadingTxt=Component.UNDEFINED, mousewheel=Component.UNDEFINED, mousemove=Component.UNDEFINED, moveSpeed=Component.UNDEFINED, zoomSpeed=Component.UNDEFINED, fisheye=Component.UNDEFINED, lang=Component.UNDEFINED, hideNavbarButton=Component.UNDEFINED, testProps=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'caption', 'containerClass', 'downloadUrl', 'fisheye', 'height', 'hideNavbarButton', 'key', 'lang', 'littlePlanet', 'loadingImg', 'loadingTxt', 'loading_state', 'mousemove', 'mousewheel', 'moveSpeed', 'navbar', 'src', 'testProps', 'width', 'zoomSpeed']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'caption', 'containerClass', 'downloadUrl', 'fisheye', 'height', 'key', 'lang', 'littlePlanet', 'loadingImg', 'loadingTxt', 'loading_state', 'mousemove', 'mousewheel', 'moveSpeed', 'navbar', 'src', 'width', 'zoomSpeed']
+        self.available_properties = ['id', 'caption', 'containerClass', 'downloadUrl', 'fisheye', 'height', 'hideNavbarButton', 'key', 'lang', 'littlePlanet', 'loadingImg', 'loadingTxt', 'loading_state', 'mousemove', 'mousewheel', 'moveSpeed', 'navbar', 'src', 'testProps', 'width', 'zoomSpeed']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -12,6 +12,10 @@ app.layout = html.Div(
             height='100%',
             width='100%',
             loadingTxt='载入中',
+            hideNavbarButton=True,
+            testProps={
+                # 'hideNavbarButton': False
+            },
         )
     ],
     style={'height': '100vh'},

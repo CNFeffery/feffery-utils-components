@@ -156,6 +156,14 @@ FefferyPhotoSphereViewer.propTypes = {
     }),
 
     /**
+     * 是否渲染底部导航栏隐藏按钮
+     * 默认值：`false`
+     */
+    hideNavbarButton: PropTypes.bool,
+
+    testProps: PropTypes.object,
+
+    /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
@@ -185,7 +193,8 @@ FefferyPhotoSphereViewer.defaultProps = {
     mousemove: true,
     moveSpeed: 1,
     zoomSpeed: 1,
-    fisheye: false
+    fisheye: false,
+    hideNavbarButton: false
 }
 
 export default FefferyPhotoSphereViewer;
