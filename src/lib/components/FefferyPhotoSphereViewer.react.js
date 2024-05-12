@@ -114,7 +114,7 @@ FefferyPhotoSphereViewer.propTypes = {
     fisheye: PropTypes.bool,
 
     /**
-     * 为相关功能控件设置鼠标悬停提示信息文案
+     * 为相关功能控件或场景设置鼠标悬停提示信息文案
      */
     lang: PropTypes.exact({
         /**
@@ -152,7 +152,11 @@ FefferyPhotoSphereViewer.propTypes = {
         /**
          * 全屏操作
          */
-        fullscreen: PropTypes.string
+        fullscreen: PropTypes.string,
+        /**
+         * 资源加载失败
+         */
+        loadError: PropTypes.string
     }),
 
     /**

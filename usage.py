@@ -7,15 +7,13 @@ app = dash.Dash(__name__)
 app.layout = html.Div(
     [
         fuc.FefferyPhotoSphereViewer(
-            src='https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg',
+            src='https://photo-sphere-viewer-data.netlify.app/asse',
             littlePlanet=True,
             height='100%',
             width='100%',
             loadingTxt='载入中',
-            hideNavbarButton=True,
-            testProps={
-                # 'hideNavbarButton': False
-            },
+            lang={'loadError': '资源加载失败'},
+            testProps={},
         )
     ],
     style={'height': '100vh'},

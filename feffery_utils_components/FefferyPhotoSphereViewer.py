@@ -34,7 +34,7 @@ Keyword arguments:
     辅助刷新用唯一标识key值.
 
 - lang (dict; optional):
-    为相关功能控件设置鼠标悬停提示信息文案.
+    为相关功能控件或场景设置鼠标悬停提示信息文案.
 
     `lang` is a dict with keys:
 
@@ -46,6 +46,9 @@ Keyword arguments:
 
     - littlePlanetButton (string; optional):
         小星球模式.
+
+    - loadError (string; optional):
+        资源加载失败.
 
     - moveDown (string; optional):
         下移操作.
