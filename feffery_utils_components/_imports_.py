@@ -30,6 +30,7 @@ from .FefferyMarkdownEditor import FefferyMarkdownEditor
 from .FefferyRichTextEditor import FefferyRichTextEditor
 from .FefferyVditor import FefferyVditor
 from .FefferyAnimatedImage import FefferyAnimatedImage
+from .FefferyBurger import FefferyBurger
 from .FefferyCaptcha import FefferyCaptcha
 from .FefferyCompareSlider import FefferyCompareSlider
 from .FefferyCountDown import FefferyCountDown
@@ -141,6 +142,7 @@ __all__ = [
     "FefferyRichTextEditor",
     "FefferyVditor",
     "FefferyAnimatedImage",
+    "FefferyBurger",
     "FefferyCaptcha",
     "FefferyCompareSlider",
     "FefferyCountDown",

@@ -27,6 +27,7 @@ from .FefferyGrid import FefferyGrid as Grid
 from .FefferyGridItem import FefferyGridItem as GridItem
 from .FefferyRND import FefferyRND as RND
 from .FefferyAnimatedImage import FefferyAnimatedImage as AnimatedImage
+from .FefferyBurger import FefferyBurger as Burger
 from .FefferyCaptcha import FefferyCaptcha as Captcha
 from .FefferyCompareSlider import FefferyCompareSlider as CompareSlider
 from .FefferyCountDown import FefferyCountDown as CountDown
@@ -136,6 +137,7 @@ __all__ = [
     "GridItem",
     "RND",
     "AnimatedImage",
+    "Burger",
     "Captcha",
     "CompareSlider",
     "CountDown",

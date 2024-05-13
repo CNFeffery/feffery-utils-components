@@ -51,6 +51,7 @@
     "emoji-mart": "^5.5.2",
     "flv.js": "1.6.2",
     "framer-motion": "^8.4.1",
+    "hamburger-react": "^2.5.1",
     "hls.js": "1.4.12",
     "interweave": "^13.0.0",
     "katex": "^0.16.9",

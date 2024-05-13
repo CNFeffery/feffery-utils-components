@@ -6,23 +6,35 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        fuc.FefferyPhotoSphereViewer(
-            src='https://photo-sphere-viewer-data.netlify.app/assets/sphere.jpg',
-            littlePlanet=True,
-            height='100%',
-            width='100%',
-            loadingTxt='载入中',
-            navbar=['autorotate'],
-            lang={'autorotate': '自动旋转'},
-            plugins=[
-                {
-                    'type': 'Autorotate',
-                    'autorotateSpeed': '10rpm',
-                }
-            ],
+        fuc.FefferyBurger(
+            type=t,
+            color='white',
+            size=18,
+            distance='sm',
+            toggled=True,
         )
+        for t in [
+            'default',
+            'squash',
+            'cross',
+            'twirl',
+            'fade',
+            'slant',
+            'spiral',
+            'divide',
+            'turn',
+            'pivot',
+            'sling',
+            'squeeze',
+            'spin',
+            'rotate',
+        ]
     ],
-    style={'height': '100vh'},
+    style={
+        'height': '100vh',
+        'background': '#1a202c',
+        'padding': '0 100px',
+    },
 )
 
 if __name__ == '__main__':
