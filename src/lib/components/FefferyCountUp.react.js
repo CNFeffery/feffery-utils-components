@@ -21,6 +21,31 @@ const FefferyCountUp = (props) => {
         loading_state
     } = props;
 
+    if (enableScrollSpy) {
+        // #70 
+        // 参考资料：https://stackoverflow.com/questions/76977652/countup-target-is-null-or-undefined-null-react-js
+        return (
+            <CountUp
+                id={id}
+                className={className}
+                style={style}
+                key={key}
+                end={end}
+                start={start}
+                duration={duration}
+                decimals={decimals}
+                enableScrollSpy={enableScrollSpy}
+                scrollSpyDelay={scrollSpyDelay}
+                scrollSpyOnce={scrollSpyOnce}
+                separator={separator}
+                data-dash-is-loading={
+                    (loading_state && loading_state.is_loading) || undefined
+                } >
+                {({ countUpRef }) => <span ref={countUpRef} />}
+            </CountUp>
+        )
+    }
+
     return (
         <CountUp
             id={id}
@@ -31,14 +56,12 @@ const FefferyCountUp = (props) => {
             start={start}
             duration={duration}
             decimals={decimals}
-            enableScrollSpy={enableScrollSpy}
-            scrollSpyDelay={scrollSpyDelay}
-            scrollSpyOnce={scrollSpyOnce}
             separator={separator}
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
-            } />
-    );
+            }
+        />
+    )
 }
 
 
