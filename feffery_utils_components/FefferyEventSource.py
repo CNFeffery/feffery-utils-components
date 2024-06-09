@@ -13,7 +13,7 @@ Keyword arguments:
     组件id.
 
 - autoReconnect (dict; optional):
-    配置连接断开自动重连相关参数.
+    配置连接断开自动重连相关参数，设置为`False`时将不会自动重连.
 
     `autoReconnect` is a dict with keys:
 
@@ -21,7 +21,7 @@ Keyword arguments:
         重试前的延时时长，单位：毫秒.
 
     - retries (number; optional):
-        重试次数.
+        重试次数. | boolean
 
 - data (boolean | number | string | dict | list; optional):
     监听最新的返回数据.

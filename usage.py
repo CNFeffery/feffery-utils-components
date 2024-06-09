@@ -1,54 +1,35 @@
 import dash
-import json
+import time
+import random
 from dash import html
+from urllib.parse import unquote
 import feffery_utils_components as fuc
-from dash.dependencies import Input, Output
+from flask import request, Response
 
 app = dash.Dash(__name__)
+
+
+@app.server.route('/stream-chat')
+def chatgpt():
+    question = request.args.get('question', '')
+    question = unquote(question).strip()
+
+    def stream():
+        for s in '测试问题回复结果巴拉巴拉巴拉巴拉':
+            time.sleep(random.uniform(0.25, 0.5))
+            yield 'data: %s\n\n' % s
+
+    return Response(stream(), mimetype='text/event-stream')
+
 
 app.layout = html.Div(
     [
         fuc.FefferyEventSource(
-            id='sse-demo',
-            url='https://sse.dev/test',
-            immediate=False,
-        ),
-        html.Button('open', id='open'),
-        html.Button('close', id='close'),
-        html.Pre(id='output'),
+            url='/stream-chat?question=%E4%BD%A0%E6%98%AF%E8%B0%81',
+            autoReconnect=False,
+        )
     ]
 )
-
-
-@app.callback(
-    Output('output', 'children'),
-    [
-        Input('sse-demo', 'status'),
-        Input('sse-demo', 'data'),
-        Input('sse-demo', 'event'),
-    ],
-)
-def update_output(status, data, event):
-    return json.dumps(
-        {'status': status, 'data': data, 'event': event},
-        indent=2,
-        ensure_ascii=False,
-    )
-
-
-@app.callback(
-    Output('sse-demo', 'operation'),
-    [
-        Input('open', 'n_clicks'),
-        Input('close', 'n_clicks'),
-    ],
-    prevent_initial_call=True,
-)
-def operation(*args):
-    if dash.ctx.triggered_id == 'open':
-        return 'open'
-
-    return 'close'
 
 
 if __name__ == '__main__':

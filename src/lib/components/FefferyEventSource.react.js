@@ -26,6 +26,9 @@ const FefferyEventSource = (props) => {
     );
 
     useEffect(() => {
+        if (!autoReconnect && _status === 'DISCONNECTED' && _data) {
+            close();
+        }
         setProps({ status: _status })
     }, [_status])
 
@@ -78,18 +81,21 @@ FefferyEventSource.propTypes = {
     immediate: PropTypes.bool,
 
     /**
-     * 配置连接断开自动重连相关参数
+     * 配置连接断开自动重连相关参数，设置为`false`时将不会自动重连
      */
-    autoReconnect: PropTypes.shape({
-        /**
-         * 重试次数
-         */
-        retries: PropTypes.number,
-        /**
-         * 重试前的延时时长，单位：毫秒
-         */
-        delay: PropTypes.number
-    }),
+    autoReconnect: PropTypes.oneOfType([
+        PropTypes.shape({
+            /**
+             * 重试次数
+             */
+            retries: PropTypes.number,
+            /**
+             * 重试前的延时时长，单位：毫秒
+             */
+            delay: PropTypes.number
+        }),
+        PropTypes.bool
+    ]),
 
     /**
      * 监听最新的连接状态
