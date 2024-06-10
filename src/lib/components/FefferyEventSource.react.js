@@ -82,6 +82,7 @@ FefferyEventSource.propTypes = {
 
     /**
      * 配置连接断开自动重连相关参数，设置为`false`时将不会自动重连
+     * 默认：`false`
      */
     autoReconnect: PropTypes.oneOfType([
         PropTypes.shape({
@@ -142,6 +143,7 @@ FefferyEventSource.propTypes = {
 // 设置默认参数
 FefferyEventSource.defaultProps = {
     immediate: true,
+    autoReconnect: false,
     events: []
 }
 

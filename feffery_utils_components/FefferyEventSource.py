@@ -12,8 +12,8 @@ Keyword arguments:
 - id (string; optional):
     组件id.
 
-- autoReconnect (dict; optional):
-    配置连接断开自动重连相关参数，设置为`False`时将不会自动重连.
+- autoReconnect (dict; default False):
+    配置连接断开自动重连相关参数，设置为`False`时将不会自动重连  默认：`False`.
 
     `autoReconnect` is a dict with keys:
 
