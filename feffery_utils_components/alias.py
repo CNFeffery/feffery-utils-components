@@ -26,6 +26,9 @@ from .FefferyDraggable import FefferyDraggable as Draggable
 from .FefferyGrid import FefferyGrid as Grid
 from .FefferyGridItem import FefferyGridItem as GridItem
 from .FefferyRND import FefferyRND as RND
+from .FefferyMarkdownEditor import FefferyMarkdownEditor as MarkdownEditor
+from .FefferyRichTextEditor import FefferyRichTextEditor as RichTextEditor
+from .FefferyVditor import FefferyVditor as Vditor
 from .FefferyAnimatedImage import FefferyAnimatedImage as AnimatedImage
 from .FefferyBurger import FefferyBurger as Burger
 from .FefferyCaptcha import FefferyCaptcha as Captcha
@@ -36,6 +39,7 @@ from .FefferyCssVar import FefferyCssVar as CssVar
 from .FefferyDiv import FefferyDiv as Div
 from .FefferyDom2Image import FefferyDom2Image as Dom2Image
 from .FefferyEmojiPicker import FefferyEmojiPicker as EmojiPicker
+from .FefferyEventSource import FefferyEventSource as EventSource
 from .FefferyExecuteJs import FefferyExecuteJs as ExecuteJs
 from .FefferyExternalCss import FefferyExternalCss as ExternalCss
 from .FefferyExternalJs import FefferyExternalJs as ExternalJs
@@ -50,19 +54,19 @@ from .FefferyHttpRequests import FefferyHttpRequests as HttpRequests
 from .FefferyImagePaste import FefferyImagePaste as ImagePaste
 from .FefferyJsonViewer import FefferyJsonViewer as JsonViewer
 from .FefferyLazyLoad import FefferyLazyLoad as LazyLoad
-from .FefferyMarkdownEditor import FefferyMarkdownEditor as MarkdownEditor
 from .FefferyPhotoSphereViewer import FefferyPhotoSphereViewer as PhotoSphereViewer
 from .FefferyPortal import FefferyPortal as Portal
 from .FefferyQRCode import FefferyQRCode as QRCode
 from .FefferyRawHTML import FefferyRawHTML as RawHTML
 from .FefferyReload import FefferyReload as Reload
-from .FefferyRichTextEditor import FefferyRichTextEditor as RichTextEditor
 from .FefferyScroll import FefferyScroll as Scroll
 from .FefferyScrollbars import FefferyScrollbars as Scrollbars
 from .FefferySeamlessScroll import FefferySeamlessScroll as SeamlessScroll
+from .FefferySetFavicon import FefferySetFavicon as SetFavicon
 from .FefferySetTitle import FefferySetTitle as SetTitle
 from .FefferyShadowDom import FefferyShadowDom as ShadowDom
 from .FefferyShortcutPanel import FefferyShortcutPanel as ShortcutPanel
+from .FefferySliderCaptcha import FefferySliderCaptcha as SliderCaptcha
 from .FefferySticky import FefferySticky as Sticky
 from .FefferyStyle import FefferyStyle as Style
 from .FefferyTimeout import FefferyTimeout as Timeout
@@ -73,10 +77,12 @@ from .FefferyImageCropper import FefferyImageCropper as ImageCropper
 from .FefferyImageGallery import FefferyImageGallery as ImageGallery
 from .FefferyDeviceDetect import FefferyDeviceDetect as DeviceDetect
 from .FefferyDocumentVisibility import FefferyDocumentVisibility as DocumentVisibility
+from .FefferyEventListener import FefferyEventListener as EventListener
 from .FefferyGeolocation import FefferyGeolocation as Geolocation
 from .FefferyIdle import FefferyIdle as Idle
 from .FefferyInViewport import FefferyInViewport as InViewport
 from .FefferyKeyPress import FefferyKeyPress as KeyPress
+from .FefferyListenHover import FefferyListenHover as ListenHover
 from .FefferyListenPaste import FefferyListenPaste as ListenPaste
 from .FefferyListenScroll import FefferyListenScroll as ListenScroll
 from .FefferyListenUnload import FefferyListenUnload as ListenUnload
@@ -105,7 +111,6 @@ from .FefferyLocalLargeStorage import FefferyLocalLargeStorage as LocalLargeStor
 from .FefferyLocalStorage import FefferyLocalStorage as LocalStorage
 from .FefferySessionStorage import FefferySessionStorage as SessionStorage
 from .FefferyThrottleProp import FefferyThrottleProp as ThrottleProp
-from .FefferyVditor import FefferyVditor as Vditor
 
 __all__ = [
     "AutoAnimate",
@@ -136,6 +141,9 @@ __all__ = [
     "Grid",
     "GridItem",
     "RND",
+    "MarkdownEditor",
+    "RichTextEditor",
+    "Vditor",
     "AnimatedImage",
     "Burger",
     "Captcha",
@@ -146,6 +154,7 @@ __all__ = [
     "Div",
     "Dom2Image",
     "EmojiPicker",
+    "EventSource",
     "ExecuteJs",
     "ExternalCss",
     "ExternalJs",
@@ -160,19 +169,19 @@ __all__ = [
     "ImagePaste",
     "JsonViewer",
     "LazyLoad",
-    "MarkdownEditor",
     "PhotoSphereViewer",
     "Portal",
     "QRCode",
     "RawHTML",
     "Reload",
-    "RichTextEditor",
     "Scroll",
     "Scrollbars",
     "SeamlessScroll",
+    "SetFavicon",
     "SetTitle",
     "ShadowDom",
     "ShortcutPanel",
+    "SliderCaptcha",
     "Sticky",
     "Style",
     "Timeout",
@@ -183,10 +192,12 @@ __all__ = [
     "ImageGallery",
     "DeviceDetect",
     "DocumentVisibility",
+    "EventListener",
     "Geolocation",
     "Idle",
     "InViewport",
     "KeyPress",
+    "ListenHover",
     "ListenPaste",
     "ListenScroll",
     "ListenUnload",
@@ -214,6 +225,5 @@ __all__ = [
     "LocalLargeStorage",
     "LocalStorage",
     "SessionStorage",
-    "ThrottleProp",
-    "Vditor"
+    "ThrottleProp"
 ]
