@@ -1,5 +1,4 @@
 import dash
-import json
 from dash import html
 import feffery_utils_components as fuc
 from dash.dependencies import Input, Output
@@ -8,35 +7,27 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        html.Button('示例按钮', id='target-demo'),
-        fuc.FefferyEventListener(
-            id='event-listener-demo',
-            eventName='click',
-            handler="""(e) => {
-                console.log(e)
-                return {
-                    result: {
-                        event: eventName,
-                        timestamp: Date.now()
-                    }
-                };
-            }""",
-            targetSelector='#target-demo',
+        fuc.FefferyListenHover(
+            id='listen-hover-demo',
+            targetSelector='#listen-hover-target',
         ),
-        html.Pre(id='result'),
+        html.Div(
+            id='listen-hover-target',
+            style={
+                'width': 200,
+                'height': 200,
+                'background': '#d9d9d9',
+            },
+        ),
     ],
     style={'padding': 50},
 )
 
-
-@app.callback(
-    Output('result', 'children'),
-    Input('event-listener-demo', 'result'),
-    prevent_initial_call=True,
+app.clientside_callback(
+    '(isHovering) => `isHovering: ${isHovering}`',
+    Output('listen-hover-target', 'children'),
+    Input('listen-hover-demo', 'isHovering'),
 )
-def show_result(result):
-    return json.dumps(result, indent=4, ensure_ascii=False)
-
 
 if __name__ == '__main__':
     app.run(debug=True)

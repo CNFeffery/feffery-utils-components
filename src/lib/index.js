@@ -111,6 +111,7 @@ import FefferyHttpRequests from "./components/FefferyHttpRequests.react.js";
 import FefferyBurger from './components/FefferyBurger.react';
 import FefferyEventSource from "./components/FefferyEventSource.react.js";
 import FefferyEventListener from "./components/listeners/FefferyEventListener.react.js";
+import FefferyListenHover from "./components/listeners/FefferyListenHover.js";
 import './components/styles.css';
 
 // 自定义sessionStorage事件监听
@@ -246,5 +247,6 @@ export {
     FefferyHttpRequests,
     FefferyBurger,
     FefferyEventSource,
-    FefferyEventListener
+    FefferyEventListener,
+    FefferyListenHover
 };

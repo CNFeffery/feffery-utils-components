@@ -82,6 +82,7 @@ from .FefferyGeolocation import FefferyGeolocation
 from .FefferyIdle import FefferyIdle
 from .FefferyInViewport import FefferyInViewport
 from .FefferyKeyPress import FefferyKeyPress
+from .FefferyListenHover import FefferyListenHover
 from .FefferyListenPaste import FefferyListenPaste
 from .FefferyListenScroll import FefferyListenScroll
 from .FefferyListenUnload import FefferyListenUnload
@@ -196,6 +197,7 @@ __all__ = [
     "FefferyIdle",
     "FefferyInViewport",
     "FefferyKeyPress",
+    "FefferyListenHover",
     "FefferyListenPaste",
     "FefferyListenScroll",
     "FefferyListenUnload",

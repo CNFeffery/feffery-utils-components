@@ -22,7 +22,7 @@ const FefferyEventListener = (props) => {
             });
         },
         {
-            target: document.querySelector(targetSelector),
+            target: () => document.querySelector(targetSelector),
             enabled: enable
         }
     )
