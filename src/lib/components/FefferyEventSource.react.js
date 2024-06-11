@@ -47,6 +47,8 @@ const FefferyEventSource = (props) => {
             } else if (operation === 'open') {
                 open();
             }
+            // 重置operation
+            setProps({ operation: null })
         }
     }, [operation])
 
