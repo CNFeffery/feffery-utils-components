@@ -77,6 +77,7 @@ from .FefferyImageCropper import FefferyImageCropper
 from .FefferyImageGallery import FefferyImageGallery
 from .FefferyDeviceDetect import FefferyDeviceDetect
 from .FefferyDocumentVisibility import FefferyDocumentVisibility
+from .FefferyEventListener import FefferyEventListener
 from .FefferyGeolocation import FefferyGeolocation
 from .FefferyIdle import FefferyIdle
 from .FefferyInViewport import FefferyInViewport
@@ -190,6 +191,7 @@ __all__ = [
     "FefferyImageGallery",
     "FefferyDeviceDetect",
     "FefferyDocumentVisibility",
+    "FefferyEventListener",
     "FefferyGeolocation",
     "FefferyIdle",
     "FefferyInViewport",

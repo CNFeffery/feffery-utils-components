@@ -1,46 +1,42 @@
 import dash
-import time
-import random
+import json
 from dash import html
-from urllib.parse import unquote
 import feffery_utils_components as fuc
-from flask import request, Response
-from dash.dependencies import Input, Output, State
+from dash.dependencies import Input, Output
 
 app = dash.Dash(__name__)
 
-
-@app.server.route('/stream-chat')
-def chatgpt():
-    question = request.args.get('question', '')
-    question = unquote(question).strip()
-
-    def stream():
-        for s in '测试问题回复结果' + '巴拉' * 1000:
-            time.sleep(random.uniform(0.05, 0.25))
-            yield 'data: %s\n\n' % s
-
-    return Response(stream(), mimetype='text/event-stream')
-
-
 app.layout = html.Div(
     [
-        fuc.FefferyEventSource(
-            id='sse-demo',
-            url='/stream-chat?question=%E4%BD%A0%E6%98%AF%E8%B0%81',
-            autoReconnect=False,
+        html.Button('示例按钮', id='target-demo'),
+        fuc.FefferyEventListener(
+            id='event-listener-demo',
+            eventName='click',
+            handler="""(e) => {
+                console.log(e)
+                return {
+                    result: {
+                        event: eventName,
+                        timestamp: Date.now()
+                    }
+                };
+            }""",
+            targetSelector='#target-demo',
         ),
-        html.Div('', id='sse-demo-output'),
+        html.Pre(id='result'),
     ],
     style={'padding': 50},
 )
 
-app.clientside_callback(
-    """(data, children) => data ? children + data : ''""",
-    Output('sse-demo-output', 'children'),
-    Input('sse-demo', 'data'),
-    State('sse-demo-output', 'children'),
+
+@app.callback(
+    Output('result', 'children'),
+    Input('event-listener-demo', 'result'),
+    prevent_initial_call=True,
 )
+def show_result(result):
+    return json.dumps(result, indent=4, ensure_ascii=False)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

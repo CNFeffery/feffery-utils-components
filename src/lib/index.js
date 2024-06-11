@@ -110,6 +110,7 @@ import FefferyVditor from "./components/editor/FefferyVditor.react.js";
 import FefferyHttpRequests from "./components/FefferyHttpRequests.react.js";
 import FefferyBurger from './components/FefferyBurger.react';
 import FefferyEventSource from "./components/FefferyEventSource.react.js";
+import FefferyEventListener from "./components/listeners/FefferyEventListener.react.js";
 import './components/styles.css';
 
 // 自定义sessionStorage事件监听
@@ -244,5 +245,6 @@ export {
     FefferyVditor,
     FefferyHttpRequests,
     FefferyBurger,
-    FefferyEventSource
+    FefferyEventSource,
+    FefferyEventListener
 };
