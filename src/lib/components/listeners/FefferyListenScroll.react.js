@@ -100,10 +100,26 @@ FefferyListenScroll.propTypes = {
     idle: PropTypes.number,
 
     /**
-     * 针对到达边界状态，设置像素阈值
-     * 默认：`0`
+     * 针对各个方向的到达边界状态，设置像素阈值
      */
-    offset: PropTypes.number,
+    offset: PropTypes.shape({
+        /**
+         * 上顶端到达边界像素阈值
+         */
+        top: PropTypes.number,
+        /**
+         * 下底部到达边界像素阈值
+         */
+        bottom: PropTypes.number,
+        /**
+         * 左侧到达边界像素阈值
+         */
+        left: PropTypes.number,
+        /**
+         * 右侧到达边界像素阈值
+         */
+        right: PropTypes.number
+    }),
 
     /**
      * Dash-assigned callback that should be called to report property changes

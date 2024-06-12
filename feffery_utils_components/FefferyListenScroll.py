@@ -40,8 +40,22 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- offset (number; optional):
-    针对到达边界状态，设置像素阈值  默认：`0`.
+- offset (dict; optional):
+    针对各个方向的到达边界状态，设置像素阈值.
+
+    `offset` is a dict with keys:
+
+    - bottom (number; optional):
+        下底部到达边界像素阈值.
+
+    - left (number; optional):
+        左侧到达边界像素阈值.
+
+    - right (number; optional):
+        右侧到达边界像素阈值.
+
+    - top (number; optional):
+        上顶端到达边界像素阈值.
 
 - position (dict; optional):
     监听目标滚动条的水平及竖直方向上的像素偏移量.
