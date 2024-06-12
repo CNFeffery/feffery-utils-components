@@ -1,32 +1,37 @@
 import dash
 from dash import html
 import feffery_utils_components as fuc
-from dash.dependencies import Input, Output
 
 app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        fuc.FefferyListenHover(
-            id='listen-hover-demo',
-            targetSelector='#listen-hover-target',
+        fuc.FefferyListenScroll(
+            id='global-listen-scroll-demo'
+        ),
+        fuc.FefferyListenScroll(
+            id='local-listen-scroll-demo',
+            target='local-scroll-target',
         ),
         html.Div(
-            id='listen-hover-target',
+            html.Div(
+                style={
+                    'width': 4000,
+                    'height': 4000,
+                }
+            ),
+            id='local-scroll-target',
             style={
-                'width': 200,
-                'height': 200,
-                'background': '#d9d9d9',
+                'width': 400,
+                'height': 400,
+                'overflow': 'auto',
+                'position': 'fixed',
+                'left': 50,
+                'top': 50,
             },
         ),
     ],
-    style={'padding': 50},
-)
-
-app.clientside_callback(
-    '(isHovering) => `isHovering: ${isHovering}`',
-    Output('listen-hover-target', 'children'),
-    Input('listen-hover-demo', 'isHovering'),
+    style={'padding': 50, 'height': 99999, 'width': 99999},
 )
 
 if __name__ == '__main__':
