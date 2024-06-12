@@ -36,6 +36,18 @@ const FefferyListenScroll = (props) => {
         })
     }, [_isScrolling])
 
+    useEffect(() => {
+        setProps({
+            arrivedState: _arrivedState
+        })
+    }, [_arrivedState])
+
+    useEffect(() => {
+        setProps({
+            directions: _directions
+        })
+    }, [_directions])
+
     return <></>;
 }
 
