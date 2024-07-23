@@ -113,6 +113,8 @@ import FefferyEventSource from "./components/FefferyEventSource.react.js";
 import FefferyEventListener from "./components/listeners/FefferyEventListener.react.js";
 import FefferyListenHover from "./components/listeners/FefferyListenHover.js";
 import FefferyListenElementSize from "./components/listeners/FefferyListenElementSize.react.js";
+import FefferyListenDrag from './components/listeners/FefferyListenDrag.react';
+import FefferyListenDrop from './components/listeners/FefferyListenDrop.react';
 import './components/styles.css';
 
 // 自定义sessionStorage事件监听
@@ -250,5 +252,7 @@ export {
     FefferyEventSource,
     FefferyEventListener,
     FefferyListenHover,
-    FefferyListenElementSize
+    FefferyListenElementSize,
+    FefferyListenDrag,
+    FefferyListenDrop
 };
