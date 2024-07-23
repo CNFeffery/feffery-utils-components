@@ -25,7 +25,8 @@ Keyword arguments:
     用于自定义断点及其对应的像素值映射对象  默认为{lg: 1200, md: 996, sm: 768, xs: 480, xxs:
     0}.
 
-- className (string; optional)
+- className (string; optional):
+    当前组件css类名.
 
 - cols (dict with strings as keys and values of type number | number; default 12):
     与breakpoints对应，用于设置不同断点下网格系统的列数  默认为{lg: 12, md: 10, sm: 6, xs: 4,
@@ -53,7 +54,7 @@ Keyword arguments:
     设置是否开启当前网格内部的尺寸调整行为，默认为True.
 
 - key (string; optional):
-    唯一标识符，强制刷新用.
+    强制刷新用.
 
 - layouts (dict; optional):
     用于定义不同断点下的各个网格项布局相关参数.
@@ -177,7 +178,8 @@ Keyword arguments:
 - rowHeight (number; default 150):
     用于设置网格中每行的像素高度，默认为150.
 
-- style (dict; optional)"""
+- style (dict; optional):
+    当前组件css样式."""
     _children_props = ['placeholder']
     _base_nodes = ['placeholder', 'children']
     _namespace = 'feffery_utils_components'

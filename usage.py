@@ -7,13 +7,34 @@ app = dash.Dash(__name__)
 app.layout = html.Div(
     [
         fuc.FefferyGrid(
-            placeholder='请从上方区域拖拽对应的组件到下方区域',
-            layouts=[],
-            cols=1,
-            rowHeight=100,
+            [
+                fuc.FefferyGridItem(
+                    '测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试',
+                    key=str(i),
+                    style={
+                        # 'height': '100%',
+                        # 'display': 'flex',
+                        # 'justifyContent': 'center',
+                        # 'alignItems': 'center',
+                    },
+                )
+                for i in range(10)
+            ],
+            layouts=[
+                dict(
+                    i=str(i),
+                    x=i,
+                    y=i + 1,
+                    w=1,
+                    h=i + i % 2 + 1,
+                )
+                for i in range(5)
+            ],
+            cols=5,
+            rowHeight=75,
             placeholderBorderRadius='5px',
-            margin=[25, 25],
-            isResizable=False,
+            margin=[5, 5],
+            containerPadding=[8, 8],
             style={'border': '1px dashed #e1dfdd'},
         )
     ],

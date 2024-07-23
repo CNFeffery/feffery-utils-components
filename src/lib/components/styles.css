@@ -1,260 +1,262 @@
 /* 补充部分css变量 */
 :root {
-  --sl-border-radius-circle: 50%;
-  --sl-transition-fast: 150ms;
+    --sl-border-radius-circle: 50%;
+    --sl-transition-fast: 150ms;
 }
 
 body {
-  margin: 0;
+    margin: 0;
 }
 
 .modal-footer {
-  background: var(--ninja-footer-background);
-  padding: 0.5em 1em;
-  display: flex;
-  border-top: var(--ninja-separate-border);
-  color: var(--ninja-secondary-text-color);
+    background: var(--ninja-footer-background);
+    padding: 0.5em 1em;
+    display: flex;
+    border-top: var(--ninja-separate-border);
+    color: var(--ninja-secondary-text-color);
 }
 
 .modal-footer .help {
-  display: flex;
-  margin-right: 1em;
-  align-items: center;
-  font-size: 0.75em;
+    display: flex;
+    margin-right: 1em;
+    align-items: center;
+    font-size: 0.75em;
 }
 
 .ninja-examplekey {
-  background: var(--ninja-secondary-background-color);
-  padding: 0.06em 0.25em;
-  border-radius: var(--ninja-key-border-radius);
-  color: var(--ninja-secondary-text-color);
-  height: 1em;
-  margin-right: 0.5em;
-  font-size: 1.25em;
-  fill: currentColor;
+    background: var(--ninja-secondary-background-color);
+    padding: 0.06em 0.25em;
+    border-radius: var(--ninja-key-border-radius);
+    color: var(--ninja-secondary-text-color);
+    height: 1em;
+    margin-right: 0.5em;
+    font-size: 1.25em;
+    fill: currentColor;
 }
 
 .ninja-examplekey.esc {
-  width: auto;
-  height: auto;
-  font-size: 1.1em;
+    width: auto;
+    height: auto;
+    font-size: 1.1em;
 }
 
 .ninja-examplekey.backspace {
-  opacity: 0.7;
+    opacity: 0.7;
 }
 
 .feffery-split-vertical {
-  border: none;
+    border: none;
 }
 
 .feffery-split-horizontal {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 .gutter {
-  position: relative;
+    position: relative;
 }
 
 .gutter.gutter-horizontal {
-  cursor: col-resize;
+    cursor: col-resize;
 }
 
 .gutter.gutter-horizontal:after {
-  content: "";
-  box-sizing: border-box;
-  border-right: 1px solid #e6e6e6;
-  inset: 0;
-  position: absolute;
-  transform: translateX(-50%);
-  left: 1px;
+    content: "";
+    box-sizing: border-box;
+    border-right: 1px solid #e6e6e6;
+    inset: 0;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 1px;
 }
 
 .gutter.gutter-vertical {
-  cursor: row-resize;
+    cursor: row-resize;
 }
 
 .gutter.gutter-horizontal:after {
-  content: "";
-  box-sizing: border-box;
-  border-right: 1px solid #e6e6e6;
-  inset: 0;
-  position: absolute;
-  transform: translateX(-50%);
-  left: 1px;
+    content: "";
+    box-sizing: border-box;
+    border-right: 1px solid #e6e6e6;
+    inset: 0;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 1px;
 }
 
 .gutter.gutter-vertical:after {
-  content: "";
-  box-sizing: border-box;
-  border-bottom: 1px solid #e6e6e6;
-  inset: 0;
-  transform: translateY(-50%);
-  position: absolute;
-  top: 1px;
+    content: "";
+    box-sizing: border-box;
+    border-bottom: 1px solid #e6e6e6;
+    inset: 0;
+    transform: translateY(-50%);
+    position: absolute;
+    top: 1px;
 }
 
 .copy-to-clipboard-button:hover {
-  opacity: 0.8;
+    opacity: 0.8;
 }
 
 /* FefferyHighlightWords高亮相关样式 */
 .feffery-highlight-words-highlight {
-  background-color: #ffd54f;
-  font-weight: "normal";
+    background-color: #ffd54f;
+    font-weight: "normal";
 }
 
 .sortable-helper {
-  box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.15);
 }
 
 /* FefferyDiv阴影相关样式效果 */
 .feffery-div-always-shadow {
-  box-shadow: 0 8px 24px rgba(81, 87, 103, 0.16);
+    box-shadow: 0 8px 24px rgba(81, 87, 103, 0.16);
 }
 
 .feffery-div-always-shadow-light {
-  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
 }
 
 .feffery-div-hover-shadow {
-  transition: box-shadow 0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .feffery-div-hover-shadow-light {
-  transition: box-shadow 0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .feffery-div-hover-shadow:hover {
-  box-shadow: 0 8px 24px rgba(81, 87, 103, 0.16);
-  transition: box-shadow 0.3s ease-in-out;
+    box-shadow: 0 8px 24px rgba(81, 87, 103, 0.16);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .feffery-div-hover-shadow-light:hover {
-  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
-  transition: box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 /* FefferyDiv滚动条相关样式 */
 .feffery-div-scrollbar-simple::-webkit-scrollbar {
-  width: 6px;
+    width: 6px;
 }
 
 .feffery-div-scrollbar-simple::-webkit-scrollbar-thumb {
-  background-color: #e4e6eb;
-  outline: none;
-  border-radius: 2px;
+    background-color: #e4e6eb;
+    outline: none;
+    border-radius: 2px;
 }
 
 .feffery-div-scrollbar-simple::-webkit-scrollbar-track {
-  box-shadow: none;
-  border-radius: 2px;
+    box-shadow: none;
+    border-radius: 2px;
 }
 
 .feffery-div-scrollbar-hidden::-webkit-scrollbar {
-  width: 0;
+    width: 0;
 }
 
 .feffery-div-scrollbar-hidden {
-  scrollbar-width: none;
+    scrollbar-width: none;
 }
 
 .github-picker {
-  box-sizing: content-box;
+    box-sizing: content-box;
 }
 
 /* 可拖拽网格项样式美化 */
 .feffery-grid-item-container {
-  position: relative;
-  box-shadow: 0px 0px 6px rgba(0, 0, 0, .12);
-  border-radius: 5px;
-  padding: 6px 4px;
-  background: #fff;
+    position: relative;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, .12);
+    border-radius: 5px;
+    padding: 6px 4px;
+    background: #fff;
+    box-sizing: border-box;
 }
 
 .feffery-grid-item-container>div {
-  height: 100%;
-  overflow: auto;
-  padding: 25px 5px 5px 5px;
+    height: 100%;
+    overflow: auto;
+    padding: 25px 5px 5px 5px;
+    box-sizing: border-box;
 }
 
 .feffery-grid-item-container>div::-webkit-scrollbar-thumb {
-  background-color: #bfbfbf;
-  outline: none;
-  border-radius: 6px;
+    background-color: #bfbfbf;
+    outline: none;
+    border-radius: 6px;
 }
 
 .feffery-grid-item-container>div::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+    width: 6px;
+    height: 6px;
 }
 
 /* firefox */
 .feffery-grid-item-container>div {
-  scrollbar-width: thin;
+    scrollbar-width: thin;
 }
 
 .feffery-grid-item-dragger {
-  cursor: all-scroll;
-  touch-action: none;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  appearance: none;
-  background-color: transparent;
-  -webkit-tap-highlight-color: transparent;
-  position: absolute;
-  top: 5px;
-  right: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 24px;
-  transition: background 0.15s ease;
-  z-index: 2;
+    cursor: all-scroll;
+    touch-action: none;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    appearance: none;
+    background-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+    position: absolute;
+    top: 5px;
+    right: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    transition: background 0.15s ease;
+    z-index: 2;
 }
 
 .feffery-grid-item-dragger:hover {
-  background: #f2f2f2;
-  transition: background 0.15s ease;
+    background: #f2f2f2;
+    transition: background 0.15s ease;
 }
 
 .feffery-draggable-dragger {
-  touch-action: none;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-  appearance: none;
-  background-color: transparent;
-  -webkit-tap-highlight-color: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 24px;
-  transition: background 0.15s ease;
-  z-index: 2;
+    touch-action: none;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    appearance: none;
+    background-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    transition: background 0.15s ease;
+    z-index: 2;
 }
 
 .feffery-draggable-dragger:hover {
-  /* background: #f2f2f2; */
-  transition: background 0.15s ease;
+    /* background: #f2f2f2; */
+    transition: background 0.15s ease;
 }
 
 .react-json-view svg {
-  vertical-align: middle !important;
+    vertical-align: middle !important;
 }
 
 /* firefox */
 ninja-keys::part(actions-list) {
-  scrollbar-width: thin;
+    scrollbar-width: thin;
 }
 
 ninja-keys {
-  --ninja-z-index: 99999;
+    --ninja-z-index: 99999;
 }
 
 /* 提升卷帘拖拽条默认层级 */
 [data-rcs="handle-container"] {
-  z-index: 500;
+    z-index: 500;
 }

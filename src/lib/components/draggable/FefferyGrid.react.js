@@ -29,12 +29,18 @@ FefferyGrid.propTypes = {
     placeholder: PropTypes.node,
 
     /**
-     * 唯一标识符，强制刷新用
+     * 强制刷新用
      */
     key: PropTypes.string,
 
+    /**
+     * 当前组件css样式
+     */
     style: PropTypes.object,
 
+    /**
+     * 当前组件css类名
+     */
     className: PropTypes.string,
 
     /**
