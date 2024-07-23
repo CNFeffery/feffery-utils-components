@@ -24,6 +24,11 @@ FefferyGrid.propTypes = {
     children: PropTypes.node,
 
     /**
+     * 占位元素，用于在children为空时呈现相关提示信息
+     */
+    placeholder: PropTypes.node,
+
+    /**
      * 唯一标识符，强制刷新用
      */
     key: PropTypes.string,

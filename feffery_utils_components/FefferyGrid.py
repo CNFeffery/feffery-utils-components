@@ -159,6 +159,9 @@ Keyword arguments:
 - margin (list of numbers | dict with strings as keys and values of type list of numbers; default [10, 10]):
     用于设置当前网格容器内子元素之间的像素margin，格式：[x, y]  也可以传入以断点为键的字典从而实现响应式.
 
+- placeholder (a list of or a singular dash component, string or number; optional):
+    占位元素，用于在children为空时呈现相关提示信息.
+
 - placeholderBackground (string; default '#3b3a39'):
     自定义样式相关快捷样式参数  自定义拖拽预览占位的background属性，默认为'#3b3a39'.
 
@@ -175,15 +178,15 @@ Keyword arguments:
     用于设置网格中每行的像素高度，默认为150.
 
 - style (dict; optional)"""
-    _children_props = []
-    _base_nodes = ['children']
+    _children_props = ['placeholder']
+    _base_nodes = ['placeholder', 'children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyGrid'
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, height=Component.UNDEFINED, autoSize=Component.UNDEFINED, compactType=Component.UNDEFINED, margin=Component.UNDEFINED, containerPadding=Component.UNDEFINED, rowHeight=Component.UNDEFINED, isDraggable=Component.UNDEFINED, isResizable=Component.UNDEFINED, isBounded=Component.UNDEFINED, allowOverlap=Component.UNDEFINED, breakpoints=Component.UNDEFINED, cols=Component.UNDEFINED, layouts=Component.UNDEFINED, placeholderBackground=Component.UNDEFINED, placeholderOpacity=Component.UNDEFINED, placeholderBorder=Component.UNDEFINED, placeholderBorderRadius=Component.UNDEFINED, debug=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'allowOverlap', 'autoSize', 'breakpoints', 'className', 'cols', 'compactType', 'containerPadding', 'debug', 'height', 'isBounded', 'isDraggable', 'isResizable', 'key', 'layouts', 'loading_state', 'margin', 'placeholderBackground', 'placeholderBorder', 'placeholderBorderRadius', 'placeholderOpacity', 'rowHeight', 'style']
+    def __init__(self, children=None, id=Component.UNDEFINED, placeholder=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, height=Component.UNDEFINED, autoSize=Component.UNDEFINED, compactType=Component.UNDEFINED, margin=Component.UNDEFINED, containerPadding=Component.UNDEFINED, rowHeight=Component.UNDEFINED, isDraggable=Component.UNDEFINED, isResizable=Component.UNDEFINED, isBounded=Component.UNDEFINED, allowOverlap=Component.UNDEFINED, breakpoints=Component.UNDEFINED, cols=Component.UNDEFINED, layouts=Component.UNDEFINED, placeholderBackground=Component.UNDEFINED, placeholderOpacity=Component.UNDEFINED, placeholderBorder=Component.UNDEFINED, placeholderBorderRadius=Component.UNDEFINED, debug=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'allowOverlap', 'autoSize', 'breakpoints', 'className', 'cols', 'compactType', 'containerPadding', 'debug', 'height', 'isBounded', 'isDraggable', 'isResizable', 'key', 'layouts', 'loading_state', 'margin', 'placeholder', 'placeholderBackground', 'placeholderBorder', 'placeholderBorderRadius', 'placeholderOpacity', 'rowHeight', 'style']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'allowOverlap', 'autoSize', 'breakpoints', 'className', 'cols', 'compactType', 'containerPadding', 'debug', 'height', 'isBounded', 'isDraggable', 'isResizable', 'key', 'layouts', 'loading_state', 'margin', 'placeholderBackground', 'placeholderBorder', 'placeholderBorderRadius', 'placeholderOpacity', 'rowHeight', 'style']
+        self.available_properties = ['children', 'id', 'allowOverlap', 'autoSize', 'breakpoints', 'className', 'cols', 'compactType', 'containerPadding', 'debug', 'height', 'isBounded', 'isDraggable', 'isResizable', 'key', 'layouts', 'loading_state', 'margin', 'placeholder', 'placeholderBackground', 'placeholderBorder', 'placeholderBorderRadius', 'placeholderOpacity', 'rowHeight', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
