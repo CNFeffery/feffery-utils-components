@@ -2,7 +2,7 @@ import dash
 import json
 from dash import html
 import feffery_utils_components as fuc
-from dash.dependencies import Input, Output, State
+from dash.dependencies import Input, Output
 
 app = dash.Dash(__name__)
 
