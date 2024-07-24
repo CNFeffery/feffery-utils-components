@@ -47,7 +47,8 @@ const FefferyListenDrop = (props) => {
                         clientY: e.clientY,
                         screenX: e.screenX,
                         screenY: e.screenY
-                    }
+                    },
+                    isHovering: false
                 })
             },
             onDragEnter: () => setProps({ isHovering: true }),
