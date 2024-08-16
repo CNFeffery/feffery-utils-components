@@ -4,7 +4,7 @@ import { propTypes, defaultProps } from '../../components/draggable/FefferyGrid.
 import { omit } from 'ramda';
 import { isNumber, isEmpty, cloneDeep } from 'lodash';
 import { parseChildrenToArray, resolveChildProps } from '../../components/utils';
-import FefferyStyle from '../../components/FefferyStyle.react';
+import FefferyStyle from '../../components/styleControl/FefferyStyle.react';
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 

@@ -12,7 +12,7 @@ import useCss from '../../hooks/useCss';
 import { isString, isUndefined } from 'lodash';
 import { useRequest } from 'ahooks';
 import { propTypes, defaultProps } from '../../components/editor/FefferyMarkdownEditor.react';
-import FefferyStyle from '../../components/FefferyStyle.react';
+import FefferyStyle from '../../components/styleControl/FefferyStyle.react';
 
 
 if (window.mermaid) {

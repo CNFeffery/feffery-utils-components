@@ -1,144 +1,144 @@
 /* eslint-disable import/prefer-default-export */
 // 通用
-import FefferyFancyButton from "./components/FefferyFancyButton.react";
-import FefferyBurger from './components/FefferyBurger.react';
+import FefferyBurger from './components/general/FefferyBurger.react.js';
+import FefferyFancyButton from "./components/general/FefferyFancyButton.react.js";
 // 颜色选择
-import FefferyHexColorPicker from "./components/colorPickers/FefferyHexColorPicker.react";
-import FefferyRgbColorPicker from "./components/colorPickers/FefferyRgbColorPicker.react";
-import FefferyGithubColorPicker from "./components/colorPickers/FefferyGithubColorPicker.react";
-import FefferyTwitterColorPicker from "./components/colorPickers/FefferyTwitterColorPicker.react";
 import FefferyBlockColorPicker from "./components/colorPickers/FefferyBlockColorPicker.react";
 import FefferyCircleColorPicker from "./components/colorPickers/FefferyCircleColorPicker.react";
-import FefferyWheelColorPicker from "./components/colorPickers/FefferyWheelColorPicker.react";
 import FefferyEyeDropper from "./components/colorPickers/FefferyEyeDropper.react";
+import FefferyGithubColorPicker from "./components/colorPickers/FefferyGithubColorPicker.react";
+import FefferyHexColorPicker from "./components/colorPickers/FefferyHexColorPicker.react";
+import FefferyRgbColorPicker from "./components/colorPickers/FefferyRgbColorPicker.react";
+import FefferyTwitterColorPicker from "./components/colorPickers/FefferyTwitterColorPicker.react";
+import FefferyWheelColorPicker from "./components/colorPickers/FefferyWheelColorPicker.react";
 // 动效
 import FefferyAutoAnimate from "./components/animations/FefferyAutoAnimate.react";
-import FefferyMotion from "./components/animations/FefferyMotion.react";
-import FefferyTiltHover from "./components/animations/FefferyTiltHover.react";
 import FefferyBirdsBackground from "./components/animations/FefferyBirdsBackground.react.js";
-import FefferyFogBackground from "./components/animations/FefferyFogBackground.react.js";
-import FefferyWavesBackground from "./components/animations/FefferyWavesBackground.react.js";
+import FefferyCellsBackground from "./components/animations/FefferyCellsBackground.react.js";
 import FefferyCloudsBackground from "./components/animations/FefferyCloudsBackground.react.js";
 import FefferyCloudsTwoBackground from "./components/animations/FefferyCloudsTwoBackground.react.js";
+import FefferyFogBackground from "./components/animations/FefferyFogBackground.react.js";
 import FefferyGlobeBackground from "./components/animations/FefferyGlobeBackground.react.js";
-import FefferyNetBackground from "./components/animations/FefferyNetBackground.react.js";
-import FefferyCellsBackground from "./components/animations/FefferyCellsBackground.react.js";
-import FefferyRingsBackground from "./components/animations/FefferyRingsBackground.react.js";
 import FefferyHaloBackground from "./components/animations/FefferyHaloBackground.react.js";
-import FefferyTrunkBackground from "./components/animations/FefferyTrunkBackground.react.js";
+import FefferyMotion from "./components/animations/FefferyMotion.react";
+import FefferyNetBackground from "./components/animations/FefferyNetBackground.react.js";
+import FefferyRingsBackground from "./components/animations/FefferyRingsBackground.react.js";
+import FefferyTiltHover from "./components/animations/FefferyTiltHover.react";
 import FefferyTopologyBackground from "./components/animations/FefferyTopologyBackground.react.js";
+import FefferyTrunkBackground from "./components/animations/FefferyTrunkBackground.react.js";
+import FefferyWavesBackground from "./components/animations/FefferyWavesBackground.react.js";
 // 加载动画
-import FefferyTopProgress from "./components/FefferyTopProgress.react";
-import FefferyExtraSpinner from "./components/FefferyExtraSpinner.react";
+import FefferyExtraSpinner from "./components/loadingAnimations/FefferyExtraSpinner.react.js";
+import FefferyTopProgress from "./components/loadingAnimations/FefferyTopProgress.react.js";
 // 容器
+import FefferyDiv from "./components/container/FefferyDiv.react.js";
 import FefferyFixed from "./components/container/FefferyFixed.react";
-import FefferyScrollbars from "./components/FefferyScrollbars.react";
-import FefferyHighlightWords from "./components/FefferyHighlightWords.react";
-import FefferyDiv from "./components/FefferyDiv.react";
-import FefferySticky from "./components/FefferySticky.react";
-import FefferyShadowDom from "./components/FefferyShadowDom.react";
-import FefferyPortal from "./components/FefferyPortal.react";
+import FefferyHighlightWords from "./components/container/FefferyHighlightWords.react.js";
+import FefferyPortal from "./components/container/FefferyPortal.react.js";
+import FefferyScrollbars from "./components/container/FefferyScrollbars.react.js";
+import FefferyShadowDom from "./components/container/FefferyShadowDom.react.js";
+import FefferySticky from "./components/container/FefferySticky.react.js";
 // 拖拽交互
-import FefferyRND from "./components/draggable/FefferyRND.react";
-import FefferySortable from "./components/sortable/FefferySortable.react";
+import FefferyDraggable from "./components/draggable/FefferyDraggable.react";
 import FefferyGrid from "./components/draggable/FefferyGrid.react";
 import FefferyGridItem from "./components/draggable/FefferyGridItem.react";
-import FefferyDraggable from "./components/draggable/FefferyDraggable.react";
+import FefferyRND from "./components/draggable/FefferyRND.react";
+import FefferySortable from "./components/draggable/FefferySortable.react.js";
 // 播放器
-import FefferyMusicPlayer from "./components/player/FefferyMusicPlayer.react";
 import FefferyAPlayer from "./components/player/FefferyAPlayer.react";
 import FefferyDPlayer from "./components/player/FefferyDPlayer.react";
+import FefferyMusicPlayer from "./components/player/FefferyMusicPlayer.react";
 // 编辑器
 import FefferyMarkdownEditor from "./components/editor/FefferyMarkdownEditor.react";
 import FefferyRichTextEditor from "./components/editor/FefferyRichTextEditor.react";
 import FefferyVditor from "./components/editor/FefferyVditor.react.js";
 // 图片
-import FefferyAnimatedImage from "./components/FefferyAnimatedImage.react";
+import FefferyAnimatedImage from "./components/images/FefferyAnimatedImage.react.js";
+import FefferyDom2Image from "./components/images/FefferyDom2Image.react.js";
 import FefferyImageCropper from "./components/images/FefferyImageCropper.react";
-import FefferyPhotoSphereViewer from "./components/FefferyPhotoSphereViewer.react";
 import FefferyImageGallery from "./components/images/FefferyImageGallery.react";
+import FefferyPhotoSphereViewer from "./components/images/FefferyPhotoSphereViewer.react.js";
 // 数据录入
-import FefferyImagePaste from "./components/FefferyImagePaste.react";
-import FefferyEmojiPicker from "./components/FefferyEmojiPicker.react";
+import FefferyEmojiPicker from "./components/dataInput/FefferyEmojiPicker.react.js";
+import FefferyImagePaste from "./components/dataInput/FefferyImagePaste.react.js";
 // 事件监听
-import FefferyInViewport from "./components/listeners/FefferyInViewport.react";
+import FefferyDeviceDetect from "./components/listeners/FefferyDeviceDetect.react";
 import FefferyDocumentVisibility from "./components/listeners/FefferyDocumentVisibility.react";
-import FefferyResponsive from "./components/listeners/FefferyResponsive.react";
+import FefferyEventListener from "./components/listeners/FefferyEventListener.react.js";
 import FefferyGeolocation from "./components/listeners/FefferyGeolocation.react";
 import FefferyIdle from "./components/listeners/FefferyIdle.react";
-import FefferyWindowSize from "./components/listeners/FefferyWindowSize.react";
+import FefferyInViewport from "./components/listeners/FefferyInViewport.react";
 import FefferyKeyPress from "./components/listeners/FefferyKeyPress.react";
-import FefferyDeviceDetect from "./components/listeners/FefferyDeviceDetect.react";
-import FefferyListenUnload from "./components/listeners/FefferyListenUnload.react";
-import FefferyListenScroll from "./components/listeners/FefferyListenScroll.react";
-import FefferyMousePosition from "./components/listeners/FefferyMousePosition.react";
-import FefferyListenPaste from "./components/listeners/FefferyListenPaste.react";
-import FefferyLocation from "./components/listeners/FefferyLocation.react";
-import FefferyTextSelection from "./components/listeners/FefferyTextSelection.react";
-import FefferyLongPress from "./components/listeners/FefferyLongPress.react";
-import FefferyPageLeave from "./components/listeners/FefferyPageLeave.react";
-import FefferyMediaQuery from "./components/listeners/FefferyMediaQuery.react";
-import FefferyEventListener from "./components/listeners/FefferyEventListener.react.js";
-import FefferyListenHover from "./components/listeners/FefferyListenHover.js";
-import FefferyListenElementSize from "./components/listeners/FefferyListenElementSize.react.js";
 import FefferyListenDrag from './components/listeners/FefferyListenDrag.react';
 import FefferyListenDrop from './components/listeners/FefferyListenDrop.react';
+import FefferyListenElementSize from "./components/listeners/FefferyListenElementSize.react.js";
+import FefferyListenHover from "./components/listeners/FefferyListenHover.js";
+import FefferyListenPaste from "./components/listeners/FefferyListenPaste.react";
+import FefferyListenScroll from "./components/listeners/FefferyListenScroll.react";
+import FefferyListenUnload from "./components/listeners/FefferyListenUnload.react";
+import FefferyLocation from "./components/listeners/FefferyLocation.react";
+import FefferyLongPress from "./components/listeners/FefferyLongPress.react";
+import FefferyMediaQuery from "./components/listeners/FefferyMediaQuery.react";
+import FefferyMousePosition from "./components/listeners/FefferyMousePosition.react";
+import FefferyPageLeave from "./components/listeners/FefferyPageLeave.react";
+import FefferyResponsive from "./components/listeners/FefferyResponsive.react";
+import FefferyTextSelection from "./components/listeners/FefferyTextSelection.react";
+import FefferyWindowSize from "./components/listeners/FefferyWindowSize.react";
 // 静态资源控制
-import FefferyExternalCss from "./components/FefferyExternalCss.react";
-import FefferyExternalJs from "./components/FefferyExternalJs.react";
+import FefferyExternalCss from "./components/staticResourceControl/FefferyExternalCss.react.js";
+import FefferyExternalJs from "./components/staticResourceControl/FefferyExternalJs.react.js";
 // 页面控制
-import FefferyScroll from "./components/FefferyScroll.react";
-import FefferySetTitle from "./components/FefferySetTitle.react";
-import FefferyReload from "./components/FefferyReload.react";
-import FefferyFullscreen from "./components/FefferyFullscreen.react";
-import FefferySetFavicon from "./components/FefferySetFavicon.react";
+import FefferyFullscreen from "./components/pageControl/FefferyFullscreen.react.js";
+import FefferyReload from "./components/pageControl/FefferyReload.react.js";
+import FefferyScroll from "./components/pageControl/FefferyScroll.react.js";
+import FefferySetFavicon from "./components/pageControl/FefferySetFavicon.react.js";
+import FefferySetTitle from "./components/pageControl/FefferySetTitle.react.js";
 // 快捷样式控制
-import FefferyCssVar from "./components/FefferyCssVar.react";
-import FefferyStyle from "./components/FefferyStyle.react";
-import FefferyAutoFit from "./components/resizable/FefferyAutoFit.react";
+import FefferyCssVar from "./components/styleControl/FefferyCssVar.react.js";
+import FefferyStyle from "./components/styleControl/FefferyStyle.react.js";
 // 通信
-import FefferyWebSocket from "./components/FefferyWebSocket.react";
-import FefferyTabMessenger from "./components/messenger/FefferyTabMessenger.react";
-import FefferyIframeMessenger from "./components/messenger/FefferyIframeMessenger.react";
-import FefferyHttpRequests from "./components/FefferyHttpRequests.react.js";
-import FefferyEventSource from "./components/FefferyEventSource.react.js";
+import FefferyEventSource from "./components/communication/FefferyEventSource.react.js";
+import FefferyHttpRequests from "./components/communication/FefferyHttpRequests.react.js";
+import FefferyIframeMessenger from "./components/communication/FefferyIframeMessenger.react.js";
+import FefferyTabMessenger from "./components/communication/FefferyTabMessenger.react.js";
+import FefferyWebSocket from "./components/communication/FefferyWebSocket.react.js";
 // 文件预览
-import FefferyExcelPreview from "./components/officePreview/FefferyExcelPreview.react";
-import FefferyWordPreview from "./components/officePreview/FefferyWordPreview.react";
+import FefferyExcelPreview from "./components/filePreview/FefferyExcelPreview.react.js";
+import FefferyWordPreview from "./components/filePreview/FefferyWordPreview.react.js";
 // 尺寸调整
+import FefferyAutoFit from "./components/resizable/FefferyAutoFit.react";
 import FefferyResizable from "./components/resizable/FefferyResizable.react";
 // 安全
 import FefferyDebugGuardian from "./components/security/FefferyDebugGuardian.react";
 // 性能优化
-import FefferyLazyLoad from "./components/FefferyLazyLoad.react";
-import FefferyVirtualList from "./components/FefferyVirtualList.react";
-import FefferyDebounceProp from "./components/store/FefferyDebounceProp.react";
-import FefferyThrottleProp from "./components/store/FefferyThrottleProp.react";
+import FefferyDebounceProp from "./components/performance/FefferyDebounceProp.react.js";
+import FefferyLazyLoad from "./components/performance/FefferyLazyLoad.react.js";
+import FefferyThrottleProp from "./components/performance/FefferyThrottleProp.react.js";
+import FefferyVirtualList from "./components/performance/FefferyVirtualList.react.js";
 // 数据展示
-import FefferyRawHTML from "./components/FefferyRawHTML.react";
-import FefferyQRCode from "./components/FefferyQrcode.react";
-import FefferyJsonViewer from "./components/FefferyJsonViewer.react";
-import FefferyCountUp from "./components/FefferyCountUp.react";
-import FefferyCompareSlider from "./components/FefferyCompareSlider.react";
-import FefferySeamlessScroll from "./components/FefferySeamlessScroll.react";
+import FefferyCompareSlider from "./components/dataDisplay/FefferyCompareSlider.react.js";
+import FefferyCountUp from "./components/dataDisplay/FefferyCountUp.react.js";
+import FefferyJsonViewer from "./components/dataDisplay/FefferyJsonViewer.react.js";
+import FefferyQRCode from "./components/dataDisplay/FefferyQRCode.react.js";
+import FefferyRawHTML from "./components/dataDisplay/FefferyRawHTML.react.js";
+import FefferySeamlessScroll from "./components/dataDisplay/FefferySeamlessScroll.react.js";
 // 反馈
-import FefferyFancyNotification from "./components/FefferyFancyNotification";
-import FefferyFancyMessage from "./components/FefferyFancyMessage";
+import FefferyFancyMessage from "./components/feedback/FefferyFancyMessage.js";
+import FefferyFancyNotification from "./components/feedback/FefferyFancyNotification.js";
 // 存储
-import FefferySessionStorage from "./components/store/FefferySessionStorage.react";
-import FefferyLocalStorage from "./components/store/FefferyLocalStorage.react";
-import FefferyLocalLargeStorage from "./components/store/FefferyLocalLargeStorage.react";
 import FefferyCookie from "./components/store/FefferyCookie.react";
+import FefferyLocalLargeStorage from "./components/store/FefferyLocalLargeStorage.react";
+import FefferyLocalStorage from "./components/store/FefferyLocalStorage.react";
+import FefferySessionStorage from "./components/store/FefferySessionStorage.react";
 // 验证码
-import FefferyCaptcha from "./components/FefferyCaptcha.react";
-import FefferySliderCaptcha from "./components/FefferySliderCaptcha.react";
+import FefferyCaptcha from "./components/verification/FefferyCaptcha.react.js";
+import FefferySliderCaptcha from "./components/verification/FefferySliderCaptcha.react.js";
 // 其他
-import FefferyShortcutPanel from "./components/FefferyShortcutPanel.react";
-import FefferyGuide from "./components/FefferyGuide.react";
-import FefferyExecuteJs from "./components/FefferyExecuteJs.react";
-import FefferyTimeout from "./components/FefferyTimeout.react";
-import FefferyCountDown from "./components/FefferyCountDown.react";
-import FefferyDom2Image from "./components/FefferyDom2Image.react";
+import FefferyCountDown from "./components/other/FefferyCountDown.react.js";
+import FefferyExecuteJs from "./components/other/FefferyExecuteJs.react.js";
+import FefferyGuide from "./components/other/FefferyGuide.react.js";
+import FefferyShortcutPanel from "./components/other/FefferyShortcutPanel.react.js";
+import FefferyTimeout from "./components/other/FefferyTimeout.react.js";
 // 自定义样式
 import './components/styles.css';
 
@@ -164,120 +164,144 @@ localStorage.setItem = function (key, newValue) {
 
 
 export {
-    FefferyCaptcha,
-    FefferyTopProgress,
-    FefferyShortcutPanel,
-    FefferyGuide,
-    FefferyExecuteJs,
-    FefferyScroll,
-    FefferyScrollbars,
-    FefferyExtraSpinner,
-    FefferyLazyLoad,
-    FefferyVirtualList,
-    FefferyInViewport,
-    FefferyHexColorPicker,
-    FefferyRgbColorPicker,
-    FefferyGithubColorPicker,
-    FefferyTwitterColorPicker,
+    // 通用
+    FefferyBurger,
+    FefferyFancyButton,
+    // 颜色选择
     FefferyBlockColorPicker,
     FefferyCircleColorPicker,
-    FefferyWheelColorPicker,
-    FefferyHighlightWords,
-    FefferyDocumentVisibility,
-    FefferyExternalCss,
-    FefferyExternalJs,
-    FefferySetTitle,
-    FefferyResponsive,
-    FefferyGeolocation,
-    FefferyIdle,
-    FefferyWindowSize,
-    FefferyKeyPress,
-    FefferyTimeout,
-    FefferyCountDown,
-    FefferyRawHTML,
-    FefferyFancyNotification,
-    FefferyQRCode,
-    FefferyFancyMessage,
-    FefferyStyle,
-    FefferyDiv,
-    FefferyReload,
-    FefferyCssVar,
     FefferyEyeDropper,
-    FefferySticky,
-    FefferySessionStorage,
-    FefferyWebSocket,
-    FefferyShadowDom,
-    FefferyGrid,
-    FefferyGridItem,
-    FefferyFancyButton,
-    FefferyJsonViewer,
-    FefferyImagePaste,
-    FefferyFullscreen,
-    FefferyDeviceDetect,
-    FefferyMotion,
+    FefferyGithubColorPicker,
+    FefferyHexColorPicker,
+    FefferyRgbColorPicker,
+    FefferyTwitterColorPicker,
+    FefferyWheelColorPicker,
+    // 动效
     FefferyAutoAnimate,
-    FefferyCountUp,
-    FefferyListenUnload,
-    FefferyListenScroll,
-    FefferyMousePosition,
-    FefferyListenPaste,
-    FefferyLocation,
-    FefferyCookie,
-    FefferyResizable,
-    FefferyCompareSlider,
-    FefferyLocalStorage,
-    FefferyTextSelection,
-    FefferyLocalLargeStorage,
-    FefferyLongPress,
-    FefferyDebounceProp,
-    FefferyMusicPlayer,
-    FefferyAPlayer,
-    FefferyDPlayer,
-    FefferyThrottleProp,
-    FefferyTabMessenger,
-    FefferyEmojiPicker,
-    FefferyAutoFit,
-    FefferyRichTextEditor,
-    FefferyImageGallery,
-    FefferyMarkdownEditor,
-    FefferyImageCropper,
-    FefferyPhotoSphereViewer,
-    FefferyExcelPreview,
-    FefferyWordPreview,
-    FefferySeamlessScroll,
-    FefferyTiltHover,
     FefferyBirdsBackground,
-    FefferyFogBackground,
-    FefferyWavesBackground,
+    FefferyCellsBackground,
     FefferyCloudsBackground,
     FefferyCloudsTwoBackground,
+    FefferyFogBackground,
     FefferyGlobeBackground,
-    FefferyNetBackground,
-    FefferyCellsBackground,
-    FefferyRingsBackground,
     FefferyHaloBackground,
-    FefferyTrunkBackground,
+    FefferyMotion,
+    FefferyNetBackground,
+    FefferyRingsBackground,
+    FefferyTiltHover,
     FefferyTopologyBackground,
-    FefferyIframeMessenger,
-    FefferyDraggable,
+    FefferyTrunkBackground,
+    FefferyWavesBackground,
+    // 加载动画
+    FefferyExtraSpinner,
+    FefferyTopProgress,
+    // 容器
+    FefferyDiv,
     FefferyFixed,
-    FefferyPageLeave,
-    FefferyMediaQuery,
+    FefferyHighlightWords,
+    FefferyPortal,
+    FefferyScrollbars,
+    FefferyShadowDom,
+    FefferySticky,
+    // 拖拽交互
+    FefferyDraggable,
+    FefferyGrid,
+    FefferyGridItem,
     FefferyRND,
     FefferySortable,
-    FefferyAnimatedImage,
-    FefferyDebugGuardian,
-    FefferyDom2Image,
-    FefferySetFavicon,
-    FefferySliderCaptcha,
-    FefferyPortal,
+    // 播放器
+    FefferyAPlayer,
+    FefferyDPlayer,
+    FefferyMusicPlayer,
+    // 编辑器
+    FefferyMarkdownEditor,
+    FefferyRichTextEditor,
     FefferyVditor,
-    FefferyHttpRequests,
-    FefferyBurger,
-    FefferyEventSource,
+    // 图片
+    FefferyAnimatedImage,
+    FefferyDom2Image,
+    FefferyImageCropper,
+    FefferyImageGallery,
+    FefferyPhotoSphereViewer,
+    // 数据录入
+    FefferyEmojiPicker,
+    FefferyImagePaste,
+    // 事件监听
+    FefferyDeviceDetect,
+    FefferyDocumentVisibility,
     FefferyEventListener,
-    FefferyListenHover,
-    FefferyListenElementSize,
+    FefferyGeolocation,
+    FefferyIdle,
+    FefferyInViewport,
+    FefferyKeyPress,
     FefferyListenDrag,
-    FefferyListenDrop
+    FefferyListenDrop,
+    FefferyListenElementSize,
+    FefferyListenHover,
+    FefferyListenPaste,
+    FefferyListenScroll,
+    FefferyListenUnload,
+    FefferyLocation,
+    FefferyLongPress,
+    FefferyMediaQuery,
+    FefferyMousePosition,
+    FefferyPageLeave,
+    FefferyResponsive,
+    FefferyTextSelection,
+    FefferyWindowSize,
+    // 静态资源控制
+    FefferyExternalCss,
+    FefferyExternalJs,
+    // 页面控制
+    FefferyFullscreen,
+    FefferyReload,
+    FefferyScroll,
+    FefferySetFavicon,
+    FefferySetTitle,
+    // 快捷样式控制
+    FefferyCssVar,
+    FefferyStyle,
+    // 通信
+    FefferyEventSource,
+    FefferyHttpRequests,
+    FefferyIframeMessenger,
+    FefferyTabMessenger,
+    FefferyWebSocket,
+    //文件预览
+    FefferyExcelPreview,
+    FefferyWordPreview,
+    // 尺寸调整
+    FefferyAutoFit,
+    FefferyResizable,
+    // 安全
+    FefferyDebugGuardian,
+    // 性能优化
+    FefferyDebounceProp,
+    FefferyLazyLoad,
+    FefferyThrottleProp,
+    FefferyVirtualList,
+    // 数据展示
+    FefferyCompareSlider,
+    FefferyCountUp,
+    FefferyJsonViewer,
+    FefferyQRCode,
+    FefferyRawHTML,
+    FefferySeamlessScroll,
+    // 反馈
+    FefferyFancyMessage,
+    FefferyFancyNotification,
+    // 存储
+    FefferyCookie,
+    FefferyLocalLargeStorage,
+    FefferyLocalStorage,
+    FefferySessionStorage,
+    // 验证码
+    FefferyCaptcha,
+    FefferySliderCaptcha,
+    // 其他
+    FefferyCountDown,
+    FefferyExecuteJs,
+    FefferyGuide,
+    FefferyShortcutPanel,
+    FefferyTimeout
 };
