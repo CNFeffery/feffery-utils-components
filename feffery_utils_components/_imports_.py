@@ -78,6 +78,7 @@ from .FefferyLocation import FefferyLocation
 from .FefferyLongPress import FefferyLongPress
 from .FefferyMediaQuery import FefferyMediaQuery
 from .FefferyMousePosition import FefferyMousePosition
+from .FefferyNetwork import FefferyNetwork
 from .FefferyPageLeave import FefferyPageLeave
 from .FefferyResponsive import FefferyResponsive
 from .FefferyTextSelection import FefferyTextSelection
@@ -196,6 +197,7 @@ __all__ = [
     "FefferyLongPress",
     "FefferyMediaQuery",
     "FefferyMousePosition",
+    "FefferyNetwork",
     "FefferyPageLeave",
     "FefferyResponsive",
     "FefferyTextSelection",
