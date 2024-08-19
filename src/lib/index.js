@@ -80,6 +80,7 @@ import FefferyLocation from "./components/listeners/FefferyLocation.react";
 import FefferyLongPress from "./components/listeners/FefferyLongPress.react";
 import FefferyMediaQuery from "./components/listeners/FefferyMediaQuery.react";
 import FefferyMousePosition from "./components/listeners/FefferyMousePosition.react";
+import FefferyNetwork from './components/listeners/FefferyNetwork.react';
 import FefferyPageLeave from "./components/listeners/FefferyPageLeave.react";
 import FefferyResponsive from "./components/listeners/FefferyResponsive.react";
 import FefferyTextSelection from "./components/listeners/FefferyTextSelection.react";
@@ -245,6 +246,7 @@ export {
     FefferyLongPress,
     FefferyMediaQuery,
     FefferyMousePosition,
+    FefferyNetwork,
     FefferyPageLeave,
     FefferyResponsive,
     FefferyTextSelection,
