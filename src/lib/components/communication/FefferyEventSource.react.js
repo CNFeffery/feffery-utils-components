@@ -16,7 +16,7 @@ const FefferyEventSource = (props) => {
         loading_state
     } = props;
 
-    const { status: _status, data: _data, event: _event, close, open } = useEventSource(
+    const { status: _status, data: _data, event: _event, close, open, error: _error } = useEventSource(
         url,
         events,
         {
@@ -51,6 +51,16 @@ const FefferyEventSource = (props) => {
             setProps({ operation: null })
         }
     }, [operation])
+
+    useEffect(() => {
+        if (_error) {
+            setProps({
+                errorEvent: {
+                    timestamp: Date.now()
+                }
+            })
+        }
+    }, [_error])
 
     return <></>;
 }
@@ -119,6 +129,16 @@ FefferyEventSource.propTypes = {
      * 控制要立即执行的操作，可选项有`'open'`、`'close'`，每次新的操作执行完成后都会重置为空值
      */
     operation: PropTypes.oneOf(['open', 'close']),
+
+    /**
+     * 监听最新的异常错误事件
+     */
+    errorEvent: PropTypes.shape({
+        /**
+         * 错误事件时间戳
+         */
+        timestamp: PropTypes.number
+    }),
 
     /**
      * Dash-assigned callback that should be called to report property changes

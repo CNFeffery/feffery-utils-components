@@ -26,6 +26,14 @@ Keyword arguments:
 - data (boolean | number | string | dict | list; optional):
     监听最新的返回数据.
 
+- errorEvent (dict; optional):
+    监听最新的异常错误事件.
+
+    `errorEvent` is a dict with keys:
+
+    - timestamp (number; optional):
+        错误事件时间戳.
+
 - event (string; optional):
     监听最新的事件名称.
 
@@ -64,10 +72,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyEventSource'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, url=Component.REQUIRED, events=Component.UNDEFINED, immediate=Component.UNDEFINED, autoReconnect=Component.UNDEFINED, status=Component.UNDEFINED, data=Component.UNDEFINED, event=Component.UNDEFINED, operation=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'autoReconnect', 'data', 'event', 'events', 'immediate', 'key', 'loading_state', 'operation', 'status', 'url']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, url=Component.REQUIRED, events=Component.UNDEFINED, immediate=Component.UNDEFINED, autoReconnect=Component.UNDEFINED, status=Component.UNDEFINED, data=Component.UNDEFINED, event=Component.UNDEFINED, operation=Component.UNDEFINED, errorEvent=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'autoReconnect', 'data', 'errorEvent', 'event', 'events', 'immediate', 'key', 'loading_state', 'operation', 'status', 'url']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'autoReconnect', 'data', 'event', 'events', 'immediate', 'key', 'loading_state', 'operation', 'status', 'url']
+        self.available_properties = ['id', 'autoReconnect', 'data', 'errorEvent', 'event', 'events', 'immediate', 'key', 'loading_state', 'operation', 'status', 'url']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
