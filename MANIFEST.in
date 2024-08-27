@@ -1,11 +1,6 @@
-include feffery_utils_components/feffery_utils_components.min.js
-include feffery_utils_components/feffery_utils_components.min.js.map
-include feffery_utils_components/async-*.js
-include feffery_utils_components/async-*.js.map
-include feffery_utils_components/*-shared.js
-include feffery_utils_components/*-shared.js.map
-include feffery_utils_components/metadata.json
-include feffery_utils_components/package-info.json
+include feffery_utils_components/*.js
+exclude feffery_utils_components/*.map
+include *.json
 include README.md
 include LICENSE
 include package.json

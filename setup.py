@@ -1,5 +1,5 @@
+import io
 import json
-import os
 from setuptools import setup
 
 
@@ -11,21 +11,23 @@ package_name = package["name"].replace(" ", "_").replace("-", "_")
 setup(
     name=package_name,
     version=package["version"],
-    author=package['author'],
     author_email=package['email'],
+    homepage='https://github.com/CNFeffery/feffery-utils-components',
+    author=package['author'],
     packages=[package_name],
     include_package_data=True,
     package_data={
-        'feffery_antd_components': ['*']
+        'feffery_utils_components': ['*']
     },
     license=package['license'],
     description=package.get('description', package_name),
+    long_description=io.open("README.md", encoding="utf-8").read(),
+    long_description_content_type="text/markdown",
     install_requires=[
-        'dash>=2.10.2, !=2.16.0'
+        'dash>=2.17.1'
     ],
     classifiers=[
         'Framework :: Dash',
     ],
-    homepage='https://github.com/CNFeffery/feffery-utils-components',
     url='https://github.com/CNFeffery/feffery-utils-components'
 )
