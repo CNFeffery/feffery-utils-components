@@ -8,6 +8,7 @@ from .FefferyGlobeBackground import FefferyGlobeBackground as GlobeBackground
 from .FefferyHaloBackground import FefferyHaloBackground as HaloBackground
 from .FefferyMotion import FefferyMotion as Motion
 from .FefferyNetBackground import FefferyNetBackground as NetBackground
+from .FefferyNetwork import FefferyNetwork as Network
 from .FefferyRingsBackground import FefferyRingsBackground as RingsBackground
 from .FefferyTiltHover import FefferyTiltHover as TiltHover
 from .FefferyTopologyBackground import FefferyTopologyBackground as TopologyBackground
@@ -124,6 +125,7 @@ __all__ = [
     "HaloBackground",
     "Motion",
     "NetBackground",
+    "Network",
     "RingsBackground",
     "TiltHover",
     "TopologyBackground",
