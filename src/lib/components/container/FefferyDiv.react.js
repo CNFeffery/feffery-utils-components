@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 // 辅助库
-import { isString, isNull } from 'lodash';
+import { isString, isNull, isEqual } from 'lodash';
 import { useElementBounding, useFocus } from '@reactuses/core';
 import { useSize, useRequest, useHover, useClickAway } from 'ahooks';
 // 自定义hooks
@@ -87,6 +87,7 @@ const FefferyDiv = (props) => {
         children,
         style,
         className,
+        enableEvents,
         mouseEnterCount,
         mouseLeaveCount,
         nClicks,
@@ -112,10 +113,10 @@ const FefferyDiv = (props) => {
     } = props;
 
     const ref = useRef(null);
-    const size = useSize(ref);
-    const _bounding = useElementBounding(ref);
-    const _isHovering = useHover(ref);
-    const [_focus, setFocus] = useFocus(ref)
+    const size = useSize(enableEvents?.includes('size') ? ref : null);
+    const _bounding = useElementBounding(enableEvents?.includes('position') ? ref : null);
+    const _isHovering = useHover(enableEvents?.includes('hover') ? ref : null);
+    const [_focus, setFocus] = useFocus(enableEvents?.includes('focus') ? ref : null);
 
     useEffect(() => {
         setProps({
@@ -189,7 +190,7 @@ const FefferyDiv = (props) => {
     }, [_isHovering])
 
     // 监听元素外点击事件
-    if (enableClickAway) {
+    if (enableClickAway || enableEvents?.includes('clickaway')) {
         useClickAway(() => {
             setProps({ clickAwayCount: clickAwayCount + 1 })
         }, ref);
@@ -283,55 +284,81 @@ const FefferyDiv = (props) => {
                 (className ? useCss(className) : undefined)
         }
         ref={ref}
-        onClick={(e) => {
-            setProps({
-                nClicks: nClicks + 1,
-                clickEvent: {
-                    pageX: e.pageX,
-                    pageY: e.pageY,
-                    clientX: e.clientX,
-                    clientY: e.clientY,
-                    screenX: e.screenX,
-                    screenY: e.screenY,
-                    timestamp: Date.now()
-                }
-            })
-        }}
-        onDoubleClick={(e) => {
-            setProps({
-                nDoubleClicks: nDoubleClicks + 1,
-                doubleClickEvent: {
-                    pageX: e.pageX,
-                    pageY: e.pageY,
-                    clientX: e.clientX,
-                    clientY: e.clientY,
-                    screenX: e.screenX,
-                    screenY: e.screenY,
-                    timestamp: Date.now()
-                }
-            })
-        }}
-        onContextMenu={(e) => {
-            if (enableListenContextMenu) {
-                e.preventDefault()
-                setProps({
-                    contextMenuEvent: {
-                        pageX: e.pageX,
-                        pageY: e.pageY,
-                        clientX: e.clientX,
-                        clientY: e.clientY,
-                        screenX: e.screenX,
-                        screenY: e.screenY,
-                        timestamp: Date.now()
-                    }
-                })
-            }
-        }}
-        onMouseEnter={() => setProps({ mouseEnterCount: mouseEnterCount + 1 })}
-        onMouseLeave={() => setProps({ mouseLeaveCount: mouseLeaveCount + 1 })}
-        onTouchStart={() => setProps({ isTouching: true })}
-        onTouchEnd={() => setProps({ isTouching: false })}
-        tabIndex={enableFocus ? 0 : undefined}
+        onClick={
+            enableEvents?.includes('click') ?
+                (e) => {
+                    setProps({
+                        nClicks: nClicks + 1,
+                        clickEvent: {
+                            pageX: e.pageX,
+                            pageY: e.pageY,
+                            clientX: e.clientX,
+                            clientY: e.clientY,
+                            screenX: e.screenX,
+                            screenY: e.screenY,
+                            timestamp: Date.now()
+                        }
+                    })
+                } :
+                undefined
+        }
+        onDoubleClick={
+            enableEvents?.includes('dbclick') ?
+                (e) => {
+                    setProps({
+                        nDoubleClicks: nDoubleClicks + 1,
+                        doubleClickEvent: {
+                            pageX: e.pageX,
+                            pageY: e.pageY,
+                            clientX: e.clientX,
+                            clientY: e.clientY,
+                            screenX: e.screenX,
+                            screenY: e.screenY,
+                            timestamp: Date.now()
+                        }
+                    })
+                } :
+                undefined
+        }
+        onContextMenu={
+            enableListenContextMenu || enableEvents?.includes('contextmenu') ?
+                (e) => {
+                    e.preventDefault()
+                    setProps({
+                        contextMenuEvent: {
+                            pageX: e.pageX,
+                            pageY: e.pageY,
+                            clientX: e.clientX,
+                            clientY: e.clientY,
+                            screenX: e.screenX,
+                            screenY: e.screenY,
+                            timestamp: Date.now()
+                        }
+                    })
+                } :
+                undefined
+        }
+        onMouseEnter={
+            enableEvents?.includes('mouseenter') ?
+                () => setProps({ mouseEnterCount: mouseEnterCount + 1 }) :
+                undefined
+        }
+        onMouseLeave={
+            enableEvents?.includes('mouseleave') ?
+                () => setProps({ mouseLeaveCount: mouseLeaveCount + 1 }) :
+                undefined
+        }
+        onTouchStart={
+            enableEvents?.includes('touch') ?
+                () => setProps({ isTouching: true }) :
+                undefined
+        }
+        onTouchEnd={
+            enableEvents?.includes('touch') ?
+                () => setProps({ isTouching: false }) :
+                undefined
+        }
+        tabIndex={enableFocus || enableEvents?.includes('focus') ? 0 : undefined}
         data-dash-is-loading={
             (loading_state && loading_state.is_loading) || undefined
         } >
@@ -368,6 +395,29 @@ FefferyDiv.propTypes = {
         PropTypes.string,
         PropTypes.object
     ]),
+
+    /**
+     * 控制要开启的事件监听类型数组，可选项有`'click'`（单击事件）、`'dbclick'`（双击事件）、`'size'`（尺寸变化事件）、
+     * `'mouseenter'`（鼠标移入事件），`'mouseleave'`（鼠标移出事件）、`'contextmenu'`（鼠标右键点击事件）、
+     * `'hover'`（鼠标悬停事件）、`'touch'`（移动端触碰事件）、`'clickaway'`（元素外点击事件）、`'position'`（左上角坐标位置变化事件）、
+     * `'focus'`（聚焦状态切换事件）
+     * 默认值：`['click', 'dbclick']`
+     */
+    enableEvents: PropTypes.arrayOf(
+        PropTypes.oneOf([
+            'click',
+            'dbclick',
+            'size',
+            'mouseenter',
+            'mouseleave',
+            'contextmenu',
+            'hover',
+            'touch',
+            'clickaway',
+            'position',
+            'focus'
+        ])
+    ),
 
     /**
      * 监听容器像素宽度变化
@@ -652,6 +702,7 @@ FefferyDiv.propTypes = {
 
 // 设置默认参数
 FefferyDiv.defaultProps = {
+    enableEvents: ['click', 'dbclick'],
     mouseEnterCount: 0,
     mouseLeaveCount: 0,
     nClicks: 0,
