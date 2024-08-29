@@ -18,8 +18,14 @@ Keyword arguments:
 - animate (dict | string; optional):
     设置从初始状态进行转化的目标样式  传入字符串时用于设置样式组别名.
 
+- animated (boolean; optional):
+    监听当前组件的`animate`目标动画过程是否已完成.
+
 - className (string; optional):
     css类名.
+
+- destroyWhenAnimated (boolean; default False):
+    是否在动画完成后销毁当前组件  默认值：`False`.
 
 - exit (dict | string; optional):
     设置当前元素从页面卸载时的目标样式  传入字符串时用于设置样式组别名.
@@ -110,10 +116,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyMotion'
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, key=Component.UNDEFINED, initial=Component.UNDEFINED, animate=Component.UNDEFINED, exit=Component.UNDEFINED, whileHover=Component.UNDEFINED, whileTap=Component.UNDEFINED, transition=Component.UNDEFINED, whileInView=Component.UNDEFINED, viewport=Component.UNDEFINED, variants=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'animate', 'className', 'exit', 'initial', 'key', 'loading_state', 'style', 'transition', 'variants', 'viewport', 'whileHover', 'whileInView', 'whileTap']
+    def __init__(self, children=None, id=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, key=Component.UNDEFINED, initial=Component.UNDEFINED, animate=Component.UNDEFINED, exit=Component.UNDEFINED, whileHover=Component.UNDEFINED, whileTap=Component.UNDEFINED, transition=Component.UNDEFINED, whileInView=Component.UNDEFINED, viewport=Component.UNDEFINED, variants=Component.UNDEFINED, animated=Component.UNDEFINED, destroyWhenAnimated=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'animate', 'animated', 'className', 'destroyWhenAnimated', 'exit', 'initial', 'key', 'loading_state', 'style', 'transition', 'variants', 'viewport', 'whileHover', 'whileInView', 'whileTap']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'animate', 'className', 'exit', 'initial', 'key', 'loading_state', 'style', 'transition', 'variants', 'viewport', 'whileHover', 'whileInView', 'whileTap']
+        self.available_properties = ['children', 'id', 'animate', 'animated', 'className', 'destroyWhenAnimated', 'exit', 'initial', 'key', 'loading_state', 'style', 'transition', 'variants', 'viewport', 'whileHover', 'whileInView', 'whileTap']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

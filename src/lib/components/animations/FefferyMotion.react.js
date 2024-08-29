@@ -183,6 +183,17 @@ FefferyMotion.propTypes = {
      */
     variants: PropTypes.objectOf(PropTypes.object),
 
+    /**
+     * 监听当前组件的`animate`目标动画过程是否已完成
+     */
+    animated: PropTypes.bool,
+
+    /**
+     * 是否在动画完成后销毁当前组件
+     * 默认值：`false`
+     */
+    destroyWhenAnimated: PropTypes.bool,
+
     loading_state: PropTypes.shape({
         /**
          * Determines if the component is loading or not
@@ -207,6 +218,7 @@ FefferyMotion.propTypes = {
 
 // 设置默认参数
 FefferyMotion.defaultProps = {
+    destroyWhenAnimated: false
 }
 
 export default FefferyMotion;

@@ -29,6 +29,8 @@ const FefferyMotion = (props) => {
         whileInView,
         viewport,
         variants,
+        animated,
+        destroyWhenAnimated,
         setProps,
         loading_state
     } = props;
@@ -39,29 +41,34 @@ const FefferyMotion = (props) => {
     }
 
     return (
-        <motion.div
-            id={id}
-            className={
-                isString(className) ?
-                    className :
-                    (className ? useCss(className) : undefined)
-            }
-            style={style}
-            key={key}
-            initial={initial}
-            animate={animate}
-            exit={exit}
-            whileHover={whileHover}
-            whileTap={whileTap}
-            transition={transition}
-            whileInView={whileInView}
-            viewport={viewport}
-            variants={variants}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } >
-            {children}
-        </motion.div>
+        destroyWhenAnimated && animated ?
+            null :
+            (
+                <motion.div
+                    id={id}
+                    className={
+                        isString(className) ?
+                            className :
+                            (className ? useCss(className) : undefined)
+                    }
+                    style={style}
+                    key={key}
+                    initial={initial}
+                    animate={animate}
+                    exit={exit}
+                    whileHover={whileHover}
+                    whileTap={whileTap}
+                    transition={transition}
+                    whileInView={whileInView}
+                    viewport={viewport}
+                    variants={variants}
+                    onAnimationComplete={() => setProps({ animated: true })}
+                    data-dash-is-loading={
+                        (loading_state && loading_state.is_loading) || undefined
+                    } >
+                    {children}
+                </motion.div>
+            )
     );
 }
 
