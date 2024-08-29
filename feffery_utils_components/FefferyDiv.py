@@ -133,6 +133,9 @@ Keyword arguments:
 - isHovering (boolean; optional):
     监听当前元素是否被鼠标悬浮.
 
+- isTouching (boolean; optional):
+    针对移动端场景，监听当前元素是否触碰中.
+
 - justify (string; optional):
     针对flex布局的justify-content快捷设置  传入有效值后会自动开启flex布局.
 
@@ -202,10 +205,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyDiv'
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, _width=Component.UNDEFINED, _height=Component.UNDEFINED, debounceWait=Component.UNDEFINED, mouseEnterCount=Component.UNDEFINED, mouseLeaveCount=Component.UNDEFINED, nClicks=Component.UNDEFINED, clickEvent=Component.UNDEFINED, nDoubleClicks=Component.UNDEFINED, doubleClickEvent=Component.UNDEFINED, enableListenContextMenu=Component.UNDEFINED, contextMenuEvent=Component.UNDEFINED, isHovering=Component.UNDEFINED, enableClickAway=Component.UNDEFINED, clickAwayCount=Component.UNDEFINED, position=Component.UNDEFINED, enableFocus=Component.UNDEFINED, isFocused=Component.UNDEFINED, wheelEventStrategy=Component.UNDEFINED, shadow=Component.UNDEFINED, scrollbar=Component.UNDEFINED, textAlign=Component.UNDEFINED, justify=Component.UNDEFINED, align=Component.UNDEFINED, padding=Component.UNDEFINED, margin=Component.UNDEFINED, border=Component.UNDEFINED, borderRadius=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', '_height', '_width', 'align', 'border', 'borderRadius', 'className', 'clickAwayCount', 'clickEvent', 'contextMenuEvent', 'debounceWait', 'doubleClickEvent', 'enableClickAway', 'enableFocus', 'enableListenContextMenu', 'isFocused', 'isHovering', 'justify', 'key', 'loading_state', 'margin', 'mouseEnterCount', 'mouseLeaveCount', 'nClicks', 'nDoubleClicks', 'padding', 'position', 'scrollbar', 'shadow', 'style', 'textAlign', 'wheelEventStrategy']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, _width=Component.UNDEFINED, _height=Component.UNDEFINED, debounceWait=Component.UNDEFINED, mouseEnterCount=Component.UNDEFINED, mouseLeaveCount=Component.UNDEFINED, nClicks=Component.UNDEFINED, clickEvent=Component.UNDEFINED, nDoubleClicks=Component.UNDEFINED, doubleClickEvent=Component.UNDEFINED, enableListenContextMenu=Component.UNDEFINED, contextMenuEvent=Component.UNDEFINED, isHovering=Component.UNDEFINED, isTouching=Component.UNDEFINED, enableClickAway=Component.UNDEFINED, clickAwayCount=Component.UNDEFINED, position=Component.UNDEFINED, enableFocus=Component.UNDEFINED, isFocused=Component.UNDEFINED, wheelEventStrategy=Component.UNDEFINED, shadow=Component.UNDEFINED, scrollbar=Component.UNDEFINED, textAlign=Component.UNDEFINED, justify=Component.UNDEFINED, align=Component.UNDEFINED, padding=Component.UNDEFINED, margin=Component.UNDEFINED, border=Component.UNDEFINED, borderRadius=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', '_height', '_width', 'align', 'border', 'borderRadius', 'className', 'clickAwayCount', 'clickEvent', 'contextMenuEvent', 'debounceWait', 'doubleClickEvent', 'enableClickAway', 'enableFocus', 'enableListenContextMenu', 'isFocused', 'isHovering', 'isTouching', 'justify', 'key', 'loading_state', 'margin', 'mouseEnterCount', 'mouseLeaveCount', 'nClicks', 'nDoubleClicks', 'padding', 'position', 'scrollbar', 'shadow', 'style', 'textAlign', 'wheelEventStrategy']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', '_height', '_width', 'align', 'border', 'borderRadius', 'className', 'clickAwayCount', 'clickEvent', 'contextMenuEvent', 'debounceWait', 'doubleClickEvent', 'enableClickAway', 'enableFocus', 'enableListenContextMenu', 'isFocused', 'isHovering', 'justify', 'key', 'loading_state', 'margin', 'mouseEnterCount', 'mouseLeaveCount', 'nClicks', 'nDoubleClicks', 'padding', 'position', 'scrollbar', 'shadow', 'style', 'textAlign', 'wheelEventStrategy']
+        self.available_properties = ['children', 'id', '_height', '_width', 'align', 'border', 'borderRadius', 'className', 'clickAwayCount', 'clickEvent', 'contextMenuEvent', 'debounceWait', 'doubleClickEvent', 'enableClickAway', 'enableFocus', 'enableListenContextMenu', 'isFocused', 'isHovering', 'isTouching', 'justify', 'key', 'loading_state', 'margin', 'mouseEnterCount', 'mouseLeaveCount', 'nClicks', 'nDoubleClicks', 'padding', 'position', 'scrollbar', 'shadow', 'style', 'textAlign', 'wheelEventStrategy']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

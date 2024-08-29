@@ -1,9 +1,12 @@
+// react核心
 import React, { useEffect, useRef } from 'react';
-import useCss from '../../hooks/useCss'
-import { isString, isNull } from 'lodash';
 import PropTypes from 'prop-types';
+// 辅助库
+import { isString, isNull } from 'lodash';
 import { useElementBounding, useFocus } from '@reactuses/core';
 import { useSize, useRequest, useHover, useClickAway } from 'ahooks';
+// 自定义hooks
+import useCss from '../../hooks/useCss'
 
 // 定义兼容虚拟className的阴影效果、滚动条样式字典
 const shadowVirtualClassName = new Map(
@@ -78,7 +81,6 @@ const scrollbarVirtualClassName = new Map(
  * 进阶div容器组件FefferyDiv
  */
 const FefferyDiv = (props) => {
-    // 取得必要属性或参数
     let {
         id,
         key,
@@ -327,6 +329,8 @@ const FefferyDiv = (props) => {
         }}
         onMouseEnter={() => setProps({ mouseEnterCount: mouseEnterCount + 1 })}
         onMouseLeave={() => setProps({ mouseLeaveCount: mouseLeaveCount + 1 })}
+        onTouchStart={() => setProps({ isTouching: true })}
+        onTouchEnd={() => setProps({ isTouching: false })}
         tabIndex={enableFocus ? 0 : undefined}
         data-dash-is-loading={
             (loading_state && loading_state.is_loading) || undefined
@@ -512,6 +516,11 @@ FefferyDiv.propTypes = {
      * 监听当前元素是否被鼠标悬浮
      */
     isHovering: PropTypes.bool,
+
+    /**
+     * 针对移动端场景，监听当前元素是否触碰中
+     */
+    isTouching: PropTypes.bool,
 
     /**
      * 设置是否启用元素外点击事件监听，当页面中有大量FefferyDiv元素时，建议不要开启此特性，会导致明显的性能问题
