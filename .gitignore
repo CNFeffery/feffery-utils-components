@@ -4,6 +4,7 @@
 /dist
 /assets
 /feffery_utils_components/*.js
+/feffery_utils_components/*.map
 /feffery_utils_components/*.txt
 /feffery_utils_components/*.json
 /feffery_utils_components.egg-info
