@@ -1,5 +1,5 @@
 include feffery_utils_components/*.js
-exclude feffery_utils_components/*.map
+include feffery_utils_components/*.map
 include *.json
 include README.md
 include LICENSE
