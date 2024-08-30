@@ -25,7 +25,7 @@ app.layout = html.Div(
             transition={
                 'duration': 2,
             },
-            destroyWhenAnimated=True
+            destroyWhenAnimated=True,
         ),
         html.Pre(id='animated'),
     ],
@@ -43,4 +43,4 @@ def demo(animated):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

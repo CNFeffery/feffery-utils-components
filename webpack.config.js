@@ -1,10 +1,9 @@
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const WebpackDashDynamicImport = require('@plotly/webpack-dash-dynamic-import');
 const packagejson = require('./package.json');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const vditorPkg = require('vditor/package.json');
 
 const dashLibraryName = packagejson.name.replace(/-/g, '_');
@@ -57,7 +56,8 @@ module.exports = (env, argv) => {
             library: dashLibraryName,
             libraryTarget: 'window',
         },
-        devtool,
+        // devtool: false, // 开发阶段使用，生成全量source-map
+        devtool, // 发布阶段使用，生成最小化source-map
         externals,
         module: {
             rules: [
@@ -147,14 +147,6 @@ module.exports = (env, argv) => {
                     terserOptions: {
                         warnings: false,
                         ie8: false
-                    }
-                }),
-                new UglifyJsPlugin({
-                    uglifyOptions: {
-                        output: {
-                            comments: false, // 移除注释
-                        },
-                        warnings: false // 移除警告
                     }
                 })
             ],
