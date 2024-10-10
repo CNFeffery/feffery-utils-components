@@ -15,12 +15,12 @@ Keyword arguments:
 - cssUrl (string; default ''):
     设置对应绑定的css静态文件资源url，默认为''.
 
+- recentlyStatus (a value equal to: 'unset', 'loading', 'ready', 'error'; optional):
+    监听最近一次资源变更操作后对应的状态.
+
 - loading_state (dict; optional)
 
     `loading_state` is a dict with keys:
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
 
     - is_loading (boolean; optional):
         Determines if the component is loading or not.
@@ -28,17 +28,17 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- recentlyStatus (a value equal to: 'unset', 'loading', 'ready', 'error'; optional):
-    监听最近一次资源变更操作后对应的状态."""
+    - component_name (string; optional):
+        Holds the name of the component that is loading."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyExternalCss'
     @_explicitize_args
     def __init__(self, id=Component.UNDEFINED, cssUrl=Component.UNDEFINED, recentlyStatus=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'cssUrl', 'loading_state', 'recentlyStatus']
+        self._prop_names = ['id', 'cssUrl', 'recentlyStatus', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'cssUrl', 'loading_state', 'recentlyStatus']
+        self.available_properties = ['id', 'cssUrl', 'recentlyStatus', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

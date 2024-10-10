@@ -12,12 +12,15 @@ Keyword arguments:
 - id (string; optional):
     组件id.
 
+- title (string; optional):
+    用于设置要更新的title信息.
+
+- originTitle (string; optional):
+    当title参数为空，或当前组件从页面中卸载后应当还原的title.
+
 - loading_state (dict; optional)
 
     `loading_state` is a dict with keys:
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
 
     - is_loading (boolean; optional):
         Determines if the component is loading or not.
@@ -25,20 +28,17 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- originTitle (string; optional):
-    当title参数为空，或当前组件从页面中卸载后应当还原的title.
-
-- title (string; optional):
-    用于设置要更新的title信息."""
+    - component_name (string; optional):
+        Holds the name of the component that is loading."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferySetTitle'
     @_explicitize_args
     def __init__(self, id=Component.UNDEFINED, title=Component.UNDEFINED, originTitle=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'loading_state', 'originTitle', 'title']
+        self._prop_names = ['id', 'title', 'originTitle', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'loading_state', 'originTitle', 'title']
+        self.available_properties = ['id', 'title', 'originTitle', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -54,6 +54,7 @@ from .FefferyFancyNotification import FefferyFancyNotification
 from .FefferyExcelPreview import FefferyExcelPreview
 from .FefferyWordPreview import FefferyWordPreview
 from .FefferyBurger import FefferyBurger
+from .FefferyDownload import FefferyDownload
 from .FefferyFancyButton import FefferyFancyButton
 from .FefferyAnimatedImage import FefferyAnimatedImage
 from .FefferyDom2Image import FefferyDom2Image
@@ -173,6 +174,7 @@ __all__ = [
     "FefferyExcelPreview",
     "FefferyWordPreview",
     "FefferyBurger",
+    "FefferyDownload",
     "FefferyFancyButton",
     "FefferyAnimatedImage",
     "FefferyDom2Image",

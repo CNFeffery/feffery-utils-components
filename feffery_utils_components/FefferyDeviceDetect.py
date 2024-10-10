@@ -17,48 +17,48 @@ Keyword arguments:
 
     `deviceInfo` is a dict with keys:
 
-    - browserName (string; optional)
-
-    - browserVersion (string; optional)
-
-    - deviceType (string; optional)
-
-    - fullBrowserVersion (string; optional)
+    - isMobile (boolean; optional)
 
     - isAndroid (boolean; optional)
 
-    - isChrome (boolean; optional)
+    - isIOS (boolean; optional)
 
-    - isEdge (boolean; optional)
+    - isChrome (boolean; optional)
 
     - isFirefox (boolean; optional)
 
-    - isIE (boolean; optional)
-
-    - isIOS (boolean; optional)
-
-    - isMobile (boolean; optional)
-
     - isSafari (boolean; optional)
 
-    - osName (string; optional)
+    - isIE (boolean; optional)
+
+    - isEdge (boolean; optional)
 
     - osVersion (string; optional)
 
+    - osName (string; optional)
+
+    - browserVersion (string; optional)
+
+    - fullBrowserVersion (string; optional)
+
+    - browserName (string; optional)
+
     - ua (string; optional)
+
+    - deviceType (string; optional)
 
 - loading_state (dict; optional)
 
     `loading_state` is a dict with keys:
 
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
-
     - is_loading (boolean; optional):
         Determines if the component is loading or not.
 
     - prop_name (string; optional):
-        Holds which property is loading."""
+        Holds which property is loading.
+
+    - component_name (string; optional):
+        Holds the name of the component that is loading."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 // 通用
 import FefferyBurger from './components/general/FefferyBurger.react.js';
+import FefferyDownload from './components/general/FefferyDownload.react.js';
 import FefferyFancyButton from "./components/general/FefferyFancyButton.react.js";
 // 颜色选择
 import FefferyBlockColorPicker from "./components/colorPickers/FefferyBlockColorPicker.react";
@@ -167,6 +168,7 @@ localStorage.setItem = function (key, newValue) {
 export {
     // 通用
     FefferyBurger,
+    FefferyDownload,
     FefferyFancyButton,
     // 颜色选择
     FefferyBlockColorPicker,

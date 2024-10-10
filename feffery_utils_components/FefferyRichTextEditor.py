@@ -15,187 +15,23 @@ Keyword arguments:
 - className (string; optional):
     组件类名.
 
-- editorClassName (string; optional):
-    编辑器类名.
-
-- editorConfig (dict; default {    readOnly: False,    autoFocus: True,    scroll: True}):
-    编辑器配置.
-
-    `editorConfig` is a dict with keys:
-
-    - MENU_CONF (dict; optional):
-        配置菜单.
-
-        `MENU_CONF` is a dict with keys:
-
-        - bgColor (list; optional):
-            配置菜单背景颜色选项.
-
-        - codeSelectLang (dict; optional):
-            配置代码高亮.
-
-            `codeSelectLang` is a dict with keys:
-
-            - codeLangs (list of dicts; optional):
-                配置代码语言，可用的有：  [                          {
-                \"text\": \"CSS\",
-                \"value\": \"css\"                          },
-                {                              \"text\": \"HTML\",
-                \"value\": \"html\"                          },
-                {                              \"text\": \"XML\",
-                \"value\": \"xml\"                          },
-                {                              \"text\":
-                \"Javascript\",
-                \"value\": \"javascript\"                          },
-                {                              \"text\":
-                \"Typescript\",
-                \"value\": \"typescript\"                          },
-                {                              \"text\": \"JSX\",
-                \"value\": \"jsx\"                          },
-                {                              \"text\": \"Go\",
-                \"value\": \"go\"                          },
-                {                              \"text\": \"PHP\",
-                \"value\": \"php\"                          },
-                {                              \"text\": \"C\",
-                \"value\": \"c\"                          },
-                {                              \"text\": \"Python\",
-                \"value\": \"python\"                          },
-                {                              \"text\": \"Java\",
-                \"value\": \"java\"                          },
-                {                              \"text\": \"C++\",
-                \"value\": \"cpp\"                          },
-                {                              \"text\": \"C#\",
-                \"value\": \"csharp\"                          },
-                {                              \"text\": \"Visual
-                Basic\",                              \"value\":
-                \"visual-basic\"                          },
-                {                              \"text\": \"SQL\",
-                \"value\": \"sql\"                          },
-                {                              \"text\": \"Ruby\",
-                \"value\": \"ruby\"                          },
-                {                              \"text\": \"Swift\",
-                \"value\": \"swift\"                          },
-                {                              \"text\": \"Bash\",
-                \"value\": \"bash\"                          },
-                {                              \"text\": \"Lua\",
-                \"value\": \"lua\"                          },
-                {                              \"text\": \"Groovy\",
-                \"value\": \"groovy\"                          },
-                {                              \"text\": \"Markdown\",
-                \"value\": \"markdown\"                          }
-                ].
-
-                `codeLangs` is a list of dicts with keys:
-
-    - text (string; optional)
-
-    - value (string; optional)
-
-        - color (list; optional):
-            配置菜单文字颜色选项.
-
-        - emotions (dict; optional):
-            配置菜单表情选项.
-
-            `emotions` is a dict with keys:
-
-            - emotions (list of strings; optional)
-
-        - fontFamily (dict; optional):
-            配置菜单字体选项.
-
-            `fontFamily` is a dict with keys:
-
-            - fontFamilyList (list of dicts; optional)
-
-                `fontFamilyList` is a list of string
-
-              Or dict with keys:
-
-    - name (string; optional)
-
-    - value (string; optional)s
-
-        - fontSize (dict; optional):
-            配置菜单字号选项.
-
-            `fontSize` is a dict with keys:
-
-            - fontSizeList (list of dicts; optional)
-
-                `fontSizeList` is a list of string
-
-              Or dict with keys:
-
-    - name (string; optional)
-
-    - value (string; optional)s
-
-        - lineHeight (dict; optional):
-            配置菜单行高选项.
-
-            `lineHeight` is a dict with keys:
-
-            - lineHeightList (list of strings; optional)
-
-    - autoFocus (boolean; optional):
-        配置编辑器默认是否focus ，默认为True.
-
-    - maxLength (number; optional):
-        配置编辑器的maxlength，TIP：无特殊需求，请慎用maxLength，这可能会导致编辑器内容过多时，编辑卡顿.
-
-    - placeholder (string; optional):
-        配置编辑器placeholder.
-
-    - readOnly (boolean; optional):
-        配置编辑器是否只读，默认为False.
-
-    - scroll (boolean; optional):
-        配置编辑器是否支持滚动，默认为True。
-        注意，此时不要固定editor-container的高度，设置一个min-height即可，  TIP：可将 scroll
-        设置为 False 的情况：编辑器高度自增、在线文档，如腾讯文档、语雀那样的.
-
-- editorStyle (dict; optional):
-    设置编辑器的样式.
-
-- errorMessage (dict; optional):
-    错误的消息提示配置.
-
-    `errorMessage` is a dict with keys:
-
-    - className (string; optional):
-        设置消息的css类名.
-
-    - duration (number; optional):
-        设置消息提示显示时长（单位：毫秒），默认为4000.
-
-    - icon (a list of or a singular dash component, string or number; optional):
-        自定义消息提示图标.
-
-    - position (a value equal to: 'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'; optional):
-        设置消息提示的弹出方位，可选的有'top-left'、'top-center'、'top-right'、'bottom-left'、'bottom-center'、'bottom-right'，默认为'top-center'.
-
-    - style (dict; optional):
-        设置消息的css样式.
-
-- htmlValue (string; optional):
-    编辑器html格式内容.
+- style (dict; optional):
+    设置组件的样式.
 
 - key (string; optional):
     辅助刷新用唯一标识key值.
 
-- loading_state (dict; optional)
+- toolbarClassName (string; optional):
+    工具栏类名.
 
-    `loading_state` is a dict with keys:
+- toolbarStyle (dict; optional):
+    设置工具栏的样式.
 
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
+- editorClassName (string; optional):
+    编辑器类名.
 
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
+- editorStyle (dict; optional):
+    设置编辑器的样式.
 
 - locale (a value equal to: 'zh-CN', 'en'; default 'zh-CN'):
     组件语言，默认可支持中文和英文，默认为中文.
@@ -204,42 +40,16 @@ Keyword arguments:
     编辑器模式，可选的有两种：'default'和'simple'，默认为'default'，'default'模式 - 集成了
     wangEditor 所有功能，'simple'模式 - 仅有部分常见功能，但更加简洁易用.
 
-- style (dict; optional):
-    设置组件的样式.
-
-- successMessage (dict; optional):
-    成功的消息提示配置.
-
-    `successMessage` is a dict with keys:
-
-    - className (string; optional):
-        设置消息的css类名.
-
-    - duration (number; optional):
-        设置消息提示显示时长（单位：毫秒），默认为4000.
-
-    - icon (a list of or a singular dash component, string or number; optional):
-        自定义消息提示图标.
-
-    - position (a value equal to: 'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'; optional):
-        设置消息提示的弹出方位，可选的有'top-left'、'top-center'、'top-right'、'bottom-left'、'bottom-center'、'bottom-right'，默认为'top-center'.
-
-    - style (dict; optional):
-        设置消息的css样式.
+- htmlValue (string; optional):
+    编辑器html格式内容.
 
 - textValue (string; optional):
     编辑器纯文本内容.
-
-- toolbarClassName (string; optional):
-    工具栏类名.
 
 - toolbarConfig (dict; default {    modalAppendToBody: False}):
     工具栏配置.
 
     `toolbarConfig` is a dict with keys:
-
-    - modalAppendToBody (boolean; optional):
-        是否将菜单弹出的modal添加到body下，默认为False.
 
     - toolbarKeys (list; optional):
         配置工具栏显示的菜单key，默认工具栏从左至右菜单对应的key为  [
@@ -309,37 +119,150 @@ Keyword arguments:
         \"undo\",                  \"redo\",                  \"|\",
         \"fullScreen\"              ].
 
-- toolbarStyle (dict; optional):
-    设置工具栏的样式.
+    - modalAppendToBody (boolean; optional):
+        是否将菜单弹出的modal添加到body下，默认为False.
+
+- editorConfig (dict; default {    readOnly: False,    autoFocus: True,    scroll: True}):
+    编辑器配置.
+
+    `editorConfig` is a dict with keys:
+
+    - placeholder (string; optional):
+        配置编辑器placeholder.
+
+    - readOnly (boolean; optional):
+        配置编辑器是否只读，默认为False.
+
+    - autoFocus (boolean; optional):
+        配置编辑器默认是否focus ，默认为True.
+
+    - scroll (boolean; optional):
+        配置编辑器是否支持滚动，默认为True。
+        注意，此时不要固定editor-container的高度，设置一个min-height即可，  TIP：可将 scroll
+        设置为 False 的情况：编辑器高度自增、在线文档，如腾讯文档、语雀那样的.
+
+    - maxLength (number; optional):
+        配置编辑器的maxlength，TIP：无特殊需求，请慎用maxLength，这可能会导致编辑器内容过多时，编辑卡顿.
+
+    - MENU_CONF (dict; optional):
+        配置菜单.
+
+        `MENU_CONF` is a dict with keys:
+
+        - color (list; optional):
+            配置菜单文字颜色选项.
+
+        - bgColor (list; optional):
+            配置菜单背景颜色选项.
+
+        - fontSize (dict; optional):
+            配置菜单字号选项.
+
+            `fontSize` is a dict with keys:
+
+            - fontSizeList (list of dicts; optional)
+
+                `fontSizeList` is a list of string
+
+              Or dict with keys:
+
+    - name (string; optional)
+
+    - value (string; optional)s
+
+        - fontFamily (dict; optional):
+            配置菜单字体选项.
+
+            `fontFamily` is a dict with keys:
+
+            - fontFamilyList (list of dicts; optional)
+
+                `fontFamilyList` is a list of string
+
+              Or dict with keys:
+
+    - name (string; optional)
+
+    - value (string; optional)s
+
+        - lineHeight (dict; optional):
+            配置菜单行高选项.
+
+            `lineHeight` is a dict with keys:
+
+            - lineHeightList (list of strings; optional)
+
+        - emotions (dict; optional):
+            配置菜单表情选项.
+
+            `emotions` is a dict with keys:
+
+            - emotions (list of strings; optional)
+
+        - codeSelectLang (dict; optional):
+            配置代码高亮.
+
+            `codeSelectLang` is a dict with keys:
+
+            - codeLangs (list of dicts; optional):
+                配置代码语言，可用的有：  [                          {
+                \"text\": \"CSS\",
+                \"value\": \"css\"                          },
+                {                              \"text\": \"HTML\",
+                \"value\": \"html\"                          },
+                {                              \"text\": \"XML\",
+                \"value\": \"xml\"                          },
+                {                              \"text\":
+                \"Javascript\",
+                \"value\": \"javascript\"                          },
+                {                              \"text\":
+                \"Typescript\",
+                \"value\": \"typescript\"                          },
+                {                              \"text\": \"JSX\",
+                \"value\": \"jsx\"                          },
+                {                              \"text\": \"Go\",
+                \"value\": \"go\"                          },
+                {                              \"text\": \"PHP\",
+                \"value\": \"php\"                          },
+                {                              \"text\": \"C\",
+                \"value\": \"c\"                          },
+                {                              \"text\": \"Python\",
+                \"value\": \"python\"                          },
+                {                              \"text\": \"Java\",
+                \"value\": \"java\"                          },
+                {                              \"text\": \"C++\",
+                \"value\": \"cpp\"                          },
+                {                              \"text\": \"C#\",
+                \"value\": \"csharp\"                          },
+                {                              \"text\": \"Visual
+                Basic\",                              \"value\":
+                \"visual-basic\"                          },
+                {                              \"text\": \"SQL\",
+                \"value\": \"sql\"                          },
+                {                              \"text\": \"Ruby\",
+                \"value\": \"ruby\"                          },
+                {                              \"text\": \"Swift\",
+                \"value\": \"swift\"                          },
+                {                              \"text\": \"Bash\",
+                \"value\": \"bash\"                          },
+                {                              \"text\": \"Lua\",
+                \"value\": \"lua\"                          },
+                {                              \"text\": \"Groovy\",
+                \"value\": \"groovy\"                          },
+                {                              \"text\": \"Markdown\",
+                \"value\": \"markdown\"                          }
+                ].
+
+                `codeLangs` is a list of dicts with keys:
+
+    - text (string; optional)
+
+    - value (string; optional)
 
 - uploadImage (dict; default {    fieldName: 'wangeditor-uploaded-image',    maxFileSize: 2 * 1024 * 1024,    maxNumberOfFiles: 100,    allowedFileTypes: ['image/*'],    metaWithUrl: False,    withCredentials: False,    timeout: 10,    base64LimitSize: 0}):
     配置菜单图片上传.
 
     `uploadImage` is a dict with keys:
-
-    - allowedFileTypes (list; optional):
-        配置选择文件时的类型限制，默认为['image/*']。如不想限制，则设置为[].
-
-    - base64LimitSize (number; optional):
-        配置小于该值就插入base64格式（而不上传），默认为0.
-
-    - fieldName (string; optional):
-        配置上传的form-data fieldName ，默认值'wangeditor-uploaded-image'.
-
-    - headers (dict; optional):
-        配置自定义增加 http  header.
-
-    - maxFileSize (number; optional):
-        配置单个文件的最大体积限制，默认为2MB，单位为B.
-
-    - maxNumberOfFiles (number; optional):
-        配置最多可上传几个文件，默认为100.
-
-    - meta (dict; optional):
-        配置自定义上传参数，例如传递验证的token等。参数会被添加到formData中，一起上传到服务端.
-
-    - metaWithUrl (boolean; optional):
-        配置是否将meta拼接到url参数中，默认False.
 
     - server (string; optional):
         配置上传的服务端地址，  服务端 response body 格式要求如下：  上传成功的返回格式：{
@@ -350,37 +273,40 @@ Keyword arguments:
         \"errno\": 1, // 只要不等于 0 就行                  \"message\":
         \"失败信息\"              }.
 
-    - timeout (number; optional):
-        配置超时时间，默认为10秒.
-
-    - withCredentials (boolean; optional):
-        配置跨域是否传递cookie ，默认为False.
-
-- uploadVideo (dict; default {    fieldName: 'wangeditor-uploaded-video',    maxFileSize: 10 * 1024 * 1024,    maxNumberOfFiles: 5,    allowedFileTypes: ['video/*'],    metaWithUrl: False,    withCredentials: False,    timeout: 10}):
-    配置菜单视频上传.
-
-    `uploadVideo` is a dict with keys:
-
-    - allowedFileTypes (list; optional):
-        选择文件时的类型限制，默认为['video/*']。如不想限制，则设置为[].
-
     - fieldName (string; optional):
-        配置上传的form-data fieldName ，默认值 'wangeditor-uploaded-video'.
-
-    - headers (dict; optional):
-        配置自定义增加 http  header.
+        配置上传的form-data fieldName ，默认值'wangeditor-uploaded-image'.
 
     - maxFileSize (number; optional):
-        配置单个文件的最大体积限制，默认为10MB，单位为B.
+        配置单个文件的最大体积限制，默认为2MB，单位为B.
 
     - maxNumberOfFiles (number; optional):
-        配置最多可上传几个文件，默认为5.
+        配置最多可上传几个文件，默认为100.
+
+    - allowedFileTypes (list; optional):
+        配置选择文件时的类型限制，默认为['image/*']。如不想限制，则设置为[].
 
     - meta (dict; optional):
         配置自定义上传参数，例如传递验证的token等。参数会被添加到formData中，一起上传到服务端.
 
     - metaWithUrl (boolean; optional):
         配置是否将meta拼接到url参数中，默认False.
+
+    - headers (dict; optional):
+        配置自定义增加 http  header.
+
+    - withCredentials (boolean; optional):
+        配置跨域是否传递cookie ，默认为False.
+
+    - timeout (number; optional):
+        配置超时时间，默认为10秒.
+
+    - base64LimitSize (number; optional):
+        配置小于该值就插入base64格式（而不上传），默认为0.
+
+- uploadVideo (dict; default {    fieldName: 'wangeditor-uploaded-video',    maxFileSize: 10 * 1024 * 1024,    maxNumberOfFiles: 5,    allowedFileTypes: ['video/*'],    metaWithUrl: False,    withCredentials: False,    timeout: 10}):
+    配置菜单视频上传.
+
+    `uploadVideo` is a dict with keys:
 
     - server (string; optional):
         配置上传的服务端地址，  服务端 response body 格式要求如下：  上传成功的返回格式：{
@@ -390,20 +316,94 @@ Keyword arguments:
         }  上传失败的返回格式：{                  \"errno\": 1, // 只要不等于 0 就行
         \"message\": \"失败信息\"              }.
 
+    - fieldName (string; optional):
+        配置上传的form-data fieldName ，默认值 'wangeditor-uploaded-video'.
+
+    - maxFileSize (number; optional):
+        配置单个文件的最大体积限制，默认为10MB，单位为B.
+
+    - maxNumberOfFiles (number; optional):
+        配置最多可上传几个文件，默认为5.
+
+    - allowedFileTypes (list; optional):
+        选择文件时的类型限制，默认为['video/*']。如不想限制，则设置为[].
+
+    - meta (dict; optional):
+        配置自定义上传参数，例如传递验证的token等。参数会被添加到formData中，一起上传到服务端.
+
+    - metaWithUrl (boolean; optional):
+        配置是否将meta拼接到url参数中，默认False.
+
+    - headers (dict; optional):
+        配置自定义增加 http  header.
+
+    - withCredentials (boolean; optional):
+        配置跨域是否传递cookie ，默认为False.
+
     - timeout (number; optional):
         配置超时时间，默认为10秒.
 
-    - withCredentials (boolean; optional):
-        配置跨域是否传递cookie ，默认为False."""
+- successMessage (dict; optional):
+    成功的消息提示配置.
+
+    `successMessage` is a dict with keys:
+
+    - className (string; optional):
+        设置消息的css类名.
+
+    - style (dict; optional):
+        设置消息的css样式.
+
+    - duration (number; optional):
+        设置消息提示显示时长（单位：毫秒），默认为4000.
+
+    - icon (a list of or a singular dash component, string or number; optional):
+        自定义消息提示图标.
+
+    - position (a value equal to: 'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'; optional):
+        设置消息提示的弹出方位，可选的有'top-left'、'top-center'、'top-right'、'bottom-left'、'bottom-center'、'bottom-right'，默认为'top-center'.
+
+- errorMessage (dict; optional):
+    错误的消息提示配置.
+
+    `errorMessage` is a dict with keys:
+
+    - className (string; optional):
+        设置消息的css类名.
+
+    - style (dict; optional):
+        设置消息的css样式.
+
+    - duration (number; optional):
+        设置消息提示显示时长（单位：毫秒），默认为4000.
+
+    - icon (a list of or a singular dash component, string or number; optional):
+        自定义消息提示图标.
+
+    - position (a value equal to: 'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'; optional):
+        设置消息提示的弹出方位，可选的有'top-left'、'top-center'、'top-right'、'bottom-left'、'bottom-center'、'bottom-right'，默认为'top-center'.
+
+- loading_state (dict; optional)
+
+    `loading_state` is a dict with keys:
+
+    - is_loading (boolean; optional):
+        Determines if the component is loading or not.
+
+    - prop_name (string; optional):
+        Holds which property is loading.
+
+    - component_name (string; optional):
+        Holds the name of the component that is loading."""
     _children_props = ['successMessage.icon', 'errorMessage.icon']
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyRichTextEditor'
     @_explicitize_args
     def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, key=Component.UNDEFINED, toolbarClassName=Component.UNDEFINED, toolbarStyle=Component.UNDEFINED, editorClassName=Component.UNDEFINED, editorStyle=Component.UNDEFINED, locale=Component.UNDEFINED, mode=Component.UNDEFINED, htmlValue=Component.UNDEFINED, textValue=Component.UNDEFINED, toolbarConfig=Component.UNDEFINED, editorConfig=Component.UNDEFINED, uploadImage=Component.UNDEFINED, uploadVideo=Component.UNDEFINED, successMessage=Component.UNDEFINED, errorMessage=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'editorClassName', 'editorConfig', 'editorStyle', 'errorMessage', 'htmlValue', 'key', 'loading_state', 'locale', 'mode', 'style', 'successMessage', 'textValue', 'toolbarClassName', 'toolbarConfig', 'toolbarStyle', 'uploadImage', 'uploadVideo']
+        self._prop_names = ['id', 'className', 'style', 'key', 'toolbarClassName', 'toolbarStyle', 'editorClassName', 'editorStyle', 'locale', 'mode', 'htmlValue', 'textValue', 'toolbarConfig', 'editorConfig', 'uploadImage', 'uploadVideo', 'successMessage', 'errorMessage', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'editorClassName', 'editorConfig', 'editorStyle', 'errorMessage', 'htmlValue', 'key', 'loading_state', 'locale', 'mode', 'style', 'successMessage', 'textValue', 'toolbarClassName', 'toolbarConfig', 'toolbarStyle', 'uploadImage', 'uploadVideo']
+        self.available_properties = ['id', 'className', 'style', 'key', 'toolbarClassName', 'toolbarStyle', 'editorClassName', 'editorStyle', 'locale', 'mode', 'htmlValue', 'textValue', 'toolbarConfig', 'editorConfig', 'uploadImage', 'uploadVideo', 'successMessage', 'errorMessage', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

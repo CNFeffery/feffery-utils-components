@@ -12,12 +12,12 @@ Keyword arguments:
 - id (string; optional):
     组件id.
 
+- unloaded (boolean; optional):
+    监听页面重载或关闭事件，每次页面关闭时会触发更新为True.
+
 - loading_state (dict; optional)
 
     `loading_state` is a dict with keys:
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
 
     - is_loading (boolean; optional):
         Determines if the component is loading or not.
@@ -25,17 +25,17 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- unloaded (boolean; optional):
-    监听页面重载或关闭事件，每次页面关闭时会触发更新为True."""
+    - component_name (string; optional):
+        Holds the name of the component that is loading."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyListenUnload'
     @_explicitize_args
     def __init__(self, id=Component.UNDEFINED, unloaded=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'loading_state', 'unloaded']
+        self._prop_names = ['id', 'unloaded', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'loading_state', 'unloaded']
+        self.available_properties = ['id', 'unloaded', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
