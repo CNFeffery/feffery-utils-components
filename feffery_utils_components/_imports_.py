@@ -35,6 +35,8 @@ from .FefferyShadowDom import FefferyShadowDom
 from .FefferySticky import FefferySticky
 from .FefferyCompareSlider import FefferyCompareSlider
 from .FefferyCountUp import FefferyCountUp
+from .FefferyFormatBytes import FefferyFormatBytes
+from .FefferyFormatNumber import FefferyFormatNumber
 from .FefferyJsonViewer import FefferyJsonViewer
 from .FefferyQRCode import FefferyQRCode
 from .FefferyRawHTML import FefferyRawHTML
@@ -56,8 +58,6 @@ from .FefferyWordPreview import FefferyWordPreview
 from .FefferyBurger import FefferyBurger
 from .FefferyDownload import FefferyDownload
 from .FefferyFancyButton import FefferyFancyButton
-from .FefferyFormatBytes import FefferyFormatBytes
-from .FefferyFormatNumber import FefferyFormatNumber
 from .FefferyAnimatedImage import FefferyAnimatedImage
 from .FefferyDom2Image import FefferyDom2Image
 from .FefferyImageCropper import FefferyImageCropper
@@ -157,6 +157,8 @@ __all__ = [
     "FefferySticky",
     "FefferyCompareSlider",
     "FefferyCountUp",
+    "FefferyFormatBytes",
+    "FefferyFormatNumber",
     "FefferyJsonViewer",
     "FefferyQRCode",
     "FefferyRawHTML",
@@ -178,8 +180,6 @@ __all__ = [
     "FefferyBurger",
     "FefferyDownload",
     "FefferyFancyButton",
-    "FefferyFormatBytes",
-    "FefferyFormatNumber",
     "FefferyAnimatedImage",
     "FefferyDom2Image",
     "FefferyImageCropper",

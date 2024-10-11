@@ -3,8 +3,6 @@
 import FefferyBurger from './components/general/FefferyBurger.react.js';
 import FefferyDownload from './components/general/FefferyDownload.react.js';
 import FefferyFancyButton from "./components/general/FefferyFancyButton.react.js";
-import FefferyFormatBytes from './components/general/FefferyFormatBytes.react.js';
-import FefferyFormatNumber from './components/general/FefferyFormatNumber.react.js';
 // 颜色选择
 import FefferyBlockColorPicker from "./components/colorPickers/FefferyBlockColorPicker.react";
 import FefferyCircleColorPicker from "./components/colorPickers/FefferyCircleColorPicker.react";
@@ -122,6 +120,8 @@ import FefferyVirtualList from "./components/performance/FefferyVirtualList.reac
 // 数据展示
 import FefferyCompareSlider from "./components/dataDisplay/FefferyCompareSlider.react.js";
 import FefferyCountUp from "./components/dataDisplay/FefferyCountUp.react.js";
+import FefferyFormatBytes from './components/dataDisplay/FefferyFormatBytes.react.js';
+import FefferyFormatNumber from './components/dataDisplay/FefferyFormatNumber.react.js';
 import FefferyJsonViewer from "./components/dataDisplay/FefferyJsonViewer.react.js";
 import FefferyQRCode from "./components/dataDisplay/FefferyQRCode.react.js";
 import FefferyRawHTML from "./components/dataDisplay/FefferyRawHTML.react.js";
