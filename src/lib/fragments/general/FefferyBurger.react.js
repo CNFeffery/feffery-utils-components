@@ -1,3 +1,4 @@
+// 组件核心
 import Hamburger, {
     Squash,
     Cross,
@@ -13,6 +14,7 @@ import Hamburger, {
     Spin,
     Rotate
 } from 'hamburger-react';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/general/FefferyBurger.react';
 
 /**

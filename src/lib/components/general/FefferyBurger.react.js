@@ -26,24 +26,23 @@ FefferyBurger.propTypes = {
     key: PropTypes.string,
 
     /**
-     * 当前组件css类名
-     */
-    className: PropTypes.string,
-
-    /**
      * 当前组件css样式
      */
     style: PropTypes.object,
 
     /**
-     * 图标类型，可选项有`'default'`、`'squash'`、`'cross'`、`'twirl'`、`'fade'`、`'slant'`、`'spiral'`
-     * 、`'divide'`、`'turn'`、`'pivot'`、`'sling'`、`'squeeze'`、`'spin'`、`'rotate'`
+     * 当前组件css类名
+     */
+    className: PropTypes.string,
+
+    /**
+     * 图标类型，可选项有`'default'`、`'squash'`、`'cross'`、`'twirl'`、`'fade'`、`'slant'`、`'spiral'` 、`'divide'`、`'turn'`、`'pivot'`、`'sling'`、`'squeeze'`、`'spin'`、`'rotate'`
      * 默认值：`'default'`
      */
     type: PropTypes.oneOf(['default', 'squash', 'cross', 'twirl', 'fade', 'slant', 'spiral', 'divide', 'turn', 'pivot', 'sling', 'squeeze', 'spin', 'rotate']),
 
     /**
-     * 设置或监听切换状态
+     * 设置或监听图标状态
      */
     toggled: PropTypes.bool,
 
@@ -104,7 +103,6 @@ FefferyBurger.propTypes = {
     setProps: PropTypes.func
 };
 
-// 设置默认参数
 FefferyBurger.defaultProps = {
     type: 'default',
     size: 32,
