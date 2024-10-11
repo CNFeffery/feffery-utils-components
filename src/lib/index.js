@@ -4,6 +4,7 @@ import FefferyBurger from './components/general/FefferyBurger.react.js';
 import FefferyDownload from './components/general/FefferyDownload.react.js';
 import FefferyFancyButton from "./components/general/FefferyFancyButton.react.js";
 import FefferyFormatBytes from './components/general/FefferyFormatBytes.react.js';
+import FefferyFormatNumber from './components/general/FefferyFormatNumber.react.js';
 // 颜色选择
 import FefferyBlockColorPicker from "./components/colorPickers/FefferyBlockColorPicker.react";
 import FefferyCircleColorPicker from "./components/colorPickers/FefferyCircleColorPicker.react";
@@ -172,6 +173,7 @@ export {
     FefferyDownload,
     FefferyFancyButton,
     FefferyFormatBytes,
+    FefferyFormatNumber,
     // 颜色选择
     FefferyBlockColorPicker,
     FefferyCircleColorPicker,

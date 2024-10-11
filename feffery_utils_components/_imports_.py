@@ -57,6 +57,7 @@ from .FefferyBurger import FefferyBurger
 from .FefferyDownload import FefferyDownload
 from .FefferyFancyButton import FefferyFancyButton
 from .FefferyFormatBytes import FefferyFormatBytes
+from .FefferyFormatNumber import FefferyFormatNumber
 from .FefferyAnimatedImage import FefferyAnimatedImage
 from .FefferyDom2Image import FefferyDom2Image
 from .FefferyImageCropper import FefferyImageCropper
@@ -178,6 +179,7 @@ __all__ = [
     "FefferyDownload",
     "FefferyFancyButton",
     "FefferyFormatBytes",
+    "FefferyFormatNumber",
     "FefferyAnimatedImage",
     "FefferyDom2Image",
     "FefferyImageCropper",
