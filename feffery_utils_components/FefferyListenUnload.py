@@ -15,6 +15,9 @@ Keyword arguments:
 - unloaded (boolean; optional):
     监听页面重载或关闭事件，每次页面关闭时会触发更新为True.
 
+- confirmBeforeUnload (boolean; default False):
+    是否在用户重载或关闭当前页面时，添加二次确认  默认值：`False`.
+
 - loading_state (dict; optional)
 
     `loading_state` is a dict with keys:
@@ -32,10 +35,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyListenUnload'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, unloaded=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'unloaded', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, unloaded=Component.UNDEFINED, confirmBeforeUnload=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'unloaded', 'confirmBeforeUnload', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'unloaded', 'loading_state']
+        self.available_properties = ['id', 'unloaded', 'confirmBeforeUnload', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
