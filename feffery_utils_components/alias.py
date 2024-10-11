@@ -56,6 +56,7 @@ from .FefferyWordPreview import FefferyWordPreview as WordPreview
 from .FefferyBurger import FefferyBurger as Burger
 from .FefferyDownload import FefferyDownload as Download
 from .FefferyFancyButton import FefferyFancyButton as FancyButton
+from .FefferyFormatBytes import FefferyFormatBytes as FormatBytes
 from .FefferyAnimatedImage import FefferyAnimatedImage as AnimatedImage
 from .FefferyDom2Image import FefferyDom2Image as Dom2Image
 from .FefferyImageCropper import FefferyImageCropper as ImageCropper
@@ -176,6 +177,7 @@ __all__ = [
     "Burger",
     "Download",
     "FancyButton",
+    "FormatBytes",
     "AnimatedImage",
     "Dom2Image",
     "ImageCropper",
