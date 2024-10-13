@@ -5,7 +5,9 @@ import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
 import { propTypes, defaultProps } from '../../components/animations/FefferyHaloBackground.react';
 
-// 定义3d背景之halo背景组件FefferyHaloBackground
+/**
+ * 3D-Halo背景组件FefferyHaloBackground
+ */
 const FefferyHaloBackground = (props) => {
     // 取得必要属性或参数
     let {
