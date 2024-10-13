@@ -5,7 +5,9 @@ import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
 import { propTypes, defaultProps } from '../../components/animations/FefferyNetBackground.react';
 
-// 定义3d背景之net背景组件FefferyNetBackground
+/**
+ * 3D-Net背景组件FefferyNetBackground
+ */
 const FefferyNetBackground = (props) => {
     // 取得必要属性或参数
     let {
