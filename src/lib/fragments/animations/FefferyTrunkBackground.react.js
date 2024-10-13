@@ -5,7 +5,9 @@ import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
 import { propTypes, defaultProps } from '../../components/animations/FefferyTrunkBackground.react';
 
-// 定义3d背景之trunk背景组件FefferyTrunkBackground
+/**
+ * 3D-Trunk背景组件FefferyTrunkBackground
+ */
 const FefferyTrunkBackground = (props) => {
     // 取得必要属性或参数
     let {
