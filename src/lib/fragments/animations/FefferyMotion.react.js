@@ -3,15 +3,9 @@ import useCss from '../../hooks/useCss'
 import { isString } from 'lodash';
 import { propTypes, defaultProps } from "../../components/animations/FefferyMotion.react";
 
-// 定义动画编排组件FefferyMotion，api参数参考：https://github.com/framer/motion
-// 备注：
-// 1.针对style、initial、animate等接受样式定义的参数，除了标准的css属性外，还额外可用以下快捷方式属性：
-// 位置移动类：x、y、z、translateX、translateY、translateZ
-// 缩放类：scale、scaleX、scaleY
-// 旋转类：rotate、rotateX、rotateY、rotateZ
-// 倾斜类：skew、skewX、skewY
-// 透视类：transformPerspective
-// 元素变形原点：originX、originY、originZ
+/**
+ * 动画编排组件FefferyMotion
+ */
 const FefferyMotion = (props) => {
     // 取得必要属性或参数
     const {
