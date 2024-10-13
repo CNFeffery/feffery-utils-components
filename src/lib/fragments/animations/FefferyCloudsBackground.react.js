@@ -5,7 +5,9 @@ import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
 import { propTypes, defaultProps } from '../../components/animations/FefferyCloudsBackground.react';
 
-// 定义3d背景之clouds背景组件FefferyCloudsBackground
+/**
+ * 3D-Clouds背景组件FefferyCloudsBackground
+ */
 const FefferyCloudsBackground = (props) => {
     // 取得必要属性或参数
     let {
