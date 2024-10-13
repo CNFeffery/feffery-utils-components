@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferyCloudsTwoBackground = React.lazy(() => import(/* webpackChunkName: "feffery_animated_3d_background_three" */ '../../fragments/animations/FefferyCloudsTwoBackground.react'));
 
+/**
+ * 3D-CloudsTwo背景组件FefferyCloudsTwoBackground
+ */
 const FefferyCloudsTwoBackground = (props) => {
     return (
         <Suspense fallback={null}>
@@ -12,20 +15,29 @@ const FefferyCloudsTwoBackground = (props) => {
 }
 
 
-// 定义参数或属性
 FefferyCloudsTwoBackground.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 设置内嵌元素内容
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
+     * 组件型，设置内嵌元素内容
      */
     children: PropTypes.node,
 
     /**
-     * css类名
+     * 当前组件css样式
+     */
+    style: PropTypes.object,
+
+    /**
+     * 当前组件css类名，支持[动态css](/advanced-classname)
      */
     className: PropTypes.oneOfType([
         PropTypes.string,
@@ -33,72 +45,73 @@ FefferyCloudsTwoBackground.propTypes = {
     ]),
 
     /**
-     * 自定义css字典
-     */
-    style: PropTypes.object,
-
-    /**
-     * 辅助刷新用唯一标识key值
-     */
-    key: PropTypes.string,
-
-    /**
-     * 设置是否开启鼠标控制，默认为true
+     * 设置是否开启鼠标控制
+     * 默认为`true`
      */
     mouseControls: PropTypes.bool,
 
     /**
-     * 设置是否开启触摸控制，默认为true
+     * 设置是否开启触摸控制
+     * 默认为`true`
      */
     touchControls: PropTypes.bool,
 
     /**
-     * 设置是否开启陀螺仪控制，默认为false
+     * 设置是否开启陀螺仪控制
+     * 默认为`false`
      */
     gyroControls: PropTypes.bool,
 
     /**
-     * 设置最小高度，默认为200.00
+     * 设置最小高度
+     * 默认为`200.00`
      */
     minHeight: PropTypes.number,
 
     /**
-     * 设置最小宽度，默认为200.00
+     * 设置最小宽度
+     * 默认为`200.00`
      */
     minWidth: PropTypes.number,
 
     /**
-     * 设置比例，默认为1.00
+     * 设置比例
+     * 默认为`1.00`
      */
     scale: PropTypes.number,
 
     /**
-     * 设置纹理图片的url，支持base64编码的字符串
+     * 设置纹理图片的`url`，支持`base64`编码的字符串
      */
     texturePath: PropTypes.string,
 
     /**
-     * 设置背景颜色，默认为'#000000'
+     * 设置背景颜色
+     * 默认为`'#000000'`
      */
     backgroundColor: PropTypes.string,
 
     /**
-     * 设置天空颜色，默认为'#5ca6ca'
+     * 设置天空颜色
+     * 默认为`'#5ca6ca'`
      */
     skyColor: PropTypes.string,
 
     /**
-     * 设置云颜色，默认为'#334d80'
+     * 设置云颜色
+     * 默认为`'#334d80'`
      */
     cloudColor: PropTypes.string,
 
     /**
-     * 设置光线颜色，默认为'#ffffff'
+     * 设置光线颜色
+     * 默认为`'#ffffff'`
      */
     lightColor: PropTypes.string,
 
     /**
-     * 设置动画速度，范围0到5，默认为1
+     * 设置动画速度，范围`0`到`5`
+     * 默认为`1`
      */
     speed: PropTypes.number,
 

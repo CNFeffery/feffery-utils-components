@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferyBirdsBackground = React.lazy(() => import(/* webpackChunkName: "feffery_animated_3d_background_three" */ '../../fragments/animations/FefferyBirdsBackground.react'));
 
+/**
+ * 3D-Birds背景组件FefferyBirdsBackground
+ */
 const FefferyBirdsBackground = (props) => {
     return (
         <Suspense fallback={null}>
@@ -12,20 +15,29 @@ const FefferyBirdsBackground = (props) => {
 }
 
 
-// 定义参数或属性
 FefferyBirdsBackground.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 设置内嵌元素内容
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
+     * 组件型，设置内嵌元素内容
      */
     children: PropTypes.node,
 
     /**
-     * css类名
+     * 当前组件css样式
+     */
+    style: PropTypes.object,
+
+    /**
+     * 当前组件css类名，支持[动态css](/advanced-classname)
      */
     className: PropTypes.oneOfType([
         PropTypes.string,
@@ -33,108 +45,116 @@ FefferyBirdsBackground.propTypes = {
     ]),
 
     /**
-     * 自定义css字典
-     */
-    style: PropTypes.object,
-
-    /**
-     * 辅助刷新用唯一标识key值
-     */
-    key: PropTypes.string,
-
-    /**
-     * 设置是否开启鼠标控制，默认为true
+     * 设置是否开启鼠标控
+     * 默认为`true`
      */
     mouseControls: PropTypes.bool,
 
     /**
-     * 设置是否开启触摸控制，默认为true
+     * 设置是否开启触摸控制
+     * 默认为`true`
      */
     touchControls: PropTypes.bool,
 
     /**
-     * 设置是否开启陀螺仪控制，默认为false
+     * 设置是否开启陀螺仪控制
+     * 默认为`false`
      */
     gyroControls: PropTypes.bool,
 
     /**
-     * 设置最小高度，默认为200.00
+     * 设置最小高度
+     * 默认为`200.00`
      */
     minHeight: PropTypes.number,
 
     /**
-     * 设置最小宽度，默认为200.00
+     * 设置最小宽度
+     * 默认为`200.00`
      */
     minWidth: PropTypes.number,
 
     /**
-     * 设置比例，默认为1.00
+     * 设置比例
+     * 默认为`1.00`
      */
     scale: PropTypes.number,
 
     /**
-     * 设置移动端比例，默认为1.00
+     * 设置移动端比例
+     * 默认为`1.00`
      */
     scaleMobile: PropTypes.number,
 
     /**
-     * 设置背景颜色，默认为'#000000'
+     * 设置背景颜色
+     * 默认为`'#000000'`
      */
     backgroundColor: PropTypes.string,
 
     /**
-     * 设置背景颜色透明度，范围0到1，默认为1
+     * 设置背景颜色透明度，范围`0`到`1`
+     * 默认为`1`
      */
     backgroundAlpha: PropTypes.number,
 
     /**
-     * 设置birds颜色1，默认为'#ff0000'
+     * 设置birds颜色1
+     * 默认为`'#ff0000'`
      */
     color1: PropTypes.string,
 
     /**
-     * 设置birds颜色2，默认为'#13becf'
+     * 设置birds颜色2
+     * 默认为`'#13becf'`
      */
     color2: PropTypes.string,
 
     /**
-     * 设置颜色模式，可选的有'lerp', 'variance', 'lerpGradient', 'varianceGradient'
-     * 默认为'varianceGradient'
+     * 设置颜色模式，可选的有`'lerp'`、`'variance'`、`'lerpGradient'`、`'varianceGradient'`
+     * 默认为`'varianceGradient'`
      */
     colorMode: PropTypes.oneOf(['lerp', 'variance', 'lerpGradient', 'varianceGradient']),
 
     /**
-     * 设置背景质量，范围1到5，默认为5
+     * 设置背景质量，范围`1`到`5`
+     * 默认为`5`
      */
     quantity: PropTypes.number,
 
     /**
-     * 设置birds大小，范围1到4，默认为1
+     * 设置birds大小，范围`1`到`4`
+     * 默认为`1`
      */
     birdSize: PropTypes.number,
 
     /**
-     * 设置birds翼展，范围10到40，默认为30
+     * 设置birds翼展，范围`10`到`40`
+     * 默认为`30`
      */
     wingSpan: PropTypes.number,
 
     /**
-     * 设置birds速度限制，范围1到10，默认为5
+     * 设置birds速度限制，范围`1`到`10`
+     * 默认为`5`
      */
     speedLimit: PropTypes.number,
 
     /**
-     * 设置birds分离大小，范围1到100，默认为20
+     * 设置birds分离大小，范围`1`到`100
+     * 默认为`20`
      */
     separation: PropTypes.number,
 
     /**
-     * 设置birds对齐大小，范围1到100，默认为20
+     * 设置birds对齐大小，范围`1`到`100`
+     * 默认为`20`
      */
     alignment: PropTypes.number,
 
     /**
-     * 设置birds内聚大小，范围1到100，默认为20
+     * 设置birds内聚大小，范围`1`到`100`
+     * 默认为`20`
      */
     cohesion: PropTypes.number,
 

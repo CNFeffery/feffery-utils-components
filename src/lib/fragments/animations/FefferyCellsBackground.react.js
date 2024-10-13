@@ -5,7 +5,9 @@ import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
 import { propTypes, defaultProps } from '../../components/animations/FefferyCellsBackground.react';
 
-// 定义3d背景之cells背景组件FefferyCellsBackground
+/**
+ * 3D-Cells背景组件FefferyCellsBackground
+ */
 const FefferyCellsBackground = (props) => {
     // 取得必要属性或参数
     let {

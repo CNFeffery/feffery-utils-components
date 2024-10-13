@@ -3,11 +3,14 @@ import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
 import { propTypes, defaultProps } from '../../components/animations/FefferyAutoAnimate.react';
 
-// 定义自动动画组件FefferyAutoAnimate，api参数参考：https://github.com/formkit/auto-animate
+/**
+ * 自动动画组件FefferyAutoAnimate
+ */
 const FefferyAutoAnimate = (props) => {
     // 取得必要属性或参数
     const {
         id,
+        key,
         children,
         style,
         className,
@@ -25,6 +28,7 @@ const FefferyAutoAnimate = (props) => {
     return (
         <div
             id={id}
+            key={key}
             className={
                 isString(className) ?
                     className :

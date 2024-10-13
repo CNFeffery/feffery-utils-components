@@ -5,7 +5,9 @@ import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
 import { propTypes, defaultProps } from '../../components/animations/FefferyFogBackground.react';
 
-// 定义3d背景之fog背景组件FefferyFogBackground
+/**
+ * 3D-Fog背景组件FefferyFogBackground
+ */
 const FefferyFogBackground = (props) => {
     // 取得必要属性或参数
     let {

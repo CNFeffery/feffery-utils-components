@@ -5,7 +5,9 @@ import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
 import { propTypes, defaultProps } from '../../components/animations/FefferyTopologyBackground.react';
 
-// 定义3d背景之topology背景组件FefferyTopologyBackground
+/**
+ * 3D-Topology背景组件FefferyTopologyBackground
+ */
 const FefferyTopologyBackground = (props) => {
     // 取得必要属性或参数
     let {

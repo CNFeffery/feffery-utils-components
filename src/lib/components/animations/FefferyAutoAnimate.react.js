@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferyAutoAnimate = React.lazy(() => import(/* webpackChunkName: "feffery_auto_animate" */ '../../fragments/animations/FefferyAutoAnimate.react'));
 
+/**
+ * 自动动画组件FefferyAutoAnimate
+ */
 const FefferyAutoAnimate = (props) => {
     return (
         <Suspense fallback={null}>
@@ -11,36 +14,44 @@ const FefferyAutoAnimate = (props) => {
     );
 }
 
-// 定义参数或属性
 FefferyAutoAnimate.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 要进行动画效果编排的目标元素
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
+     * 组件型，要进行动画效果编排的目标元素
      */
     children: PropTypes.node,
 
     /**
-     * css样式
+     * 当前组件css样式
      */
     style: PropTypes.object,
 
     /**
-     * css类名
+     * 当前组件css类名，支持[动态css](/advanced-classname)
      */
-    className: PropTypes.string,
+    className: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ]),
 
     /**
      * 配置动画时长，单位：秒
-     * 默认为0.25
+     * 默认为`0.25`
      */
     duration: PropTypes.number,
 
     /**
-     * 设置过渡动画函数，同css中的easing-function，默认为'ease-in-out'
+     * 设置过渡动画函数，同css中的`easing-function`
+     * 默认为`'ease-in-out'`
      */
     easing: PropTypes.string,
 

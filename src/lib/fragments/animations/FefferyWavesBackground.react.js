@@ -5,7 +5,9 @@ import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
 import { propTypes, defaultProps } from '../../components/animations/FefferyWavesBackground.react';
 
-// 定义3d背景之waves背景组件FefferyWavesBackground
+/**
+ * 3D-Waves背景组件FefferyWavesBackground
+ */
 const FefferyWavesBackground = (props) => {
     // 取得必要属性或参数
     let {
