@@ -5,7 +5,9 @@ import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
 import { propTypes, defaultProps } from '../../components/animations/FefferyGlobeBackground.react';
 
-// 定义3d背景之globe背景组件FefferyGlobeBackground
+/**
+ * 3D-Globe背景组件FefferyGlobeBackground
+ */
 const FefferyGlobeBackground = (props) => {
     // 取得必要属性或参数
     let {
