@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferyTopologyBackground = React.lazy(() => import(/* webpackChunkName: "feffery_animated_3d_background_p5" */ '../../fragments/animations/FefferyTopologyBackground.react'));
 
+/**
+ * 3D-Topology背景组件FefferyTopologyBackground
+ */
 const FefferyTopologyBackground = (props) => {
     return (
         <Suspense fallback={null}>
@@ -12,20 +15,29 @@ const FefferyTopologyBackground = (props) => {
 }
 
 
-// 定义参数或属性
 FefferyTopologyBackground.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 设置内嵌元素内容
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
+     * 组件型，设置内嵌元素内容
      */
     children: PropTypes.node,
 
     /**
-     * css类名
+     * 当前组件css样式
+     */
+    style: PropTypes.object,
+
+    /**
+     * 当前组件css类名，支持[动态css](/advanced-classname)
      */
     className: PropTypes.oneOfType([
         PropTypes.string,
@@ -33,57 +45,56 @@ FefferyTopologyBackground.propTypes = {
     ]),
 
     /**
-     * 自定义css字典
-     */
-    style: PropTypes.object,
-
-    /**
-     * 辅助刷新用唯一标识key值
-     */
-    key: PropTypes.string,
-
-    /**
-     * 设置是否开启鼠标控制，默认为true
+     * 设置是否开启鼠标控制
+     * 默认为`true`
      */
     mouseControls: PropTypes.bool,
 
     /**
-     * 设置是否开启触摸控制，默认为true
+     * 设置是否开启触摸控制
+     * 默认为`true`
      */
     touchControls: PropTypes.bool,
 
     /**
-     * 设置是否开启陀螺仪控制，默认为false
+     * 设置是否开启陀螺仪控制
+     * 默认为`false`
      */
     gyroControls: PropTypes.bool,
 
     /**
-     * 设置最小高度，默认为200.00
+     * 设置最小高度
+     * 默认为`200.00`
      */
     minHeight: PropTypes.number,
 
     /**
-     * 设置最小宽度，默认为200.00
+     * 设置最小宽度
+     * 默认为`200.00`
      */
     minWidth: PropTypes.number,
 
     /**
-     * 设置比例，默认为1.00
+     * 设置比例
+     * 默认为`1.00`
      */
     scale: PropTypes.number,
 
     /**
-     * 设置移动端比例，默认为1.00
+     * 设置移动端比例
+     * 默认为`1.00`
      */
     scaleMobile: PropTypes.number,
 
     /**
-     * 设置背景颜色，默认为'#102d2d'
+     * 设置背景颜色
+     * 默认为`'#102d2d'`
      */
     backgroundColor: PropTypes.string,
 
     /**
-     * 设置topology颜色，默认为'#89964e'
+     * 设置`topology`颜色
+     * 默认为`'#89964e'`
      */
     color: PropTypes.string,
 
