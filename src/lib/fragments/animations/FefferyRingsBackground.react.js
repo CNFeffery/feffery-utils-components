@@ -5,7 +5,9 @@ import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
 import { propTypes, defaultProps } from '../../components/animations/FefferyRingsBackground.react';
 
-// 定义3d背景之rings背景组件FefferyRingsBackground
+/**
+ * 3D-Rings背景组件FefferyRingsBackground
+ */
 const FefferyRingsBackground = (props) => {
     // 取得必要属性或参数
     let {
