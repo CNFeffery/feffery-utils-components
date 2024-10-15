@@ -1,11 +1,14 @@
+// react核心
 import { useEffect } from 'react';
+// 组件核心
 import useEyeDropper from 'use-eye-dropper';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/colorPickers/FefferyEyeDropper.react';
 
-// 定义色彩拾取组件FefferyEyeDropper
+/**
+ * 色彩拾取组件FefferyEyeDropper
+ */
 const FefferyEyeDropper = (props) => {
-
-    // 取得必要属性或参数
     const {
         id,
         enable,

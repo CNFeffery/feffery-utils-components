@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferyEyeDropper = React.lazy(() => import(/* webpackChunkName: "feffery_color_pickers" */ '../../fragments/colorPickers/FefferyEyeDropper.react'));
 
+/**
+ * 色彩拾取组件FefferyEyeDropper
+ */
 const FefferyEyeDropper = (props) => {
     return (
         <Suspense fallback={null}>
@@ -11,21 +14,25 @@ const FefferyEyeDropper = (props) => {
     );
 }
 
-// 定义参数或属性
 FefferyEyeDropper.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 设置是否启用色彩拾取模式，每次取色完成后都会被重置为false
-     * 默认：false
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
+     * 控制激活新一次的色彩拾取，每次完成色彩拾取后都会自动被重置为`false`
+     * 默认值：`false`
      */
     enable: PropTypes.bool,
 
     /**
-     * 用于监听最近一次取色完成后对应的16进制色彩值
+     * 监听最近一次色彩拾取操作对应16进制颜色值
      */
     color: PropTypes.string,
 
@@ -51,7 +58,6 @@ FefferyEyeDropper.propTypes = {
     setProps: PropTypes.func,
 };
 
-// 设置默认参数
 FefferyEyeDropper.defaultProps = {
     enable: false
 }
