@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferyFancyButton = React.lazy(() => import(/* webpackChunkName: "feffery_fancy_button" */ '../../fragments/general/FefferyFancyButton.react'));
 
+/**
+ * 美观按钮组件FefferyFancyButton
+ */
 const FefferyFancyButton = (props) => {
     return (
         <Suspense fallback={null}>
@@ -11,21 +14,29 @@ const FefferyFancyButton = (props) => {
     );
 }
 
-
-// 定义参数或属性
 FefferyFancyButton.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 设置按钮内嵌元素内容
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
+     * 组件型，内嵌元素
      */
     children: PropTypes.node,
 
     /**
-     * css类名
+     * 当前组件css样式
+     */
+    style: PropTypes.object,
+
+    /**
+     * 当前组件css类名
      */
     className: PropTypes.oneOfType([
         PropTypes.string,
@@ -33,58 +44,53 @@ FefferyFancyButton.propTypes = {
     ]),
 
     /**
-     * 自定义css字典
-     */
-    style: PropTypes.object,
-
-    /**
-     * 辅助刷新用唯一标识key值
-     */
-    key: PropTypes.string,
-
-    /**
-     * 记录按钮从渲染后开始被点击的次数，默认为0
+     * 按钮累计点击次数，用于监听按钮点击行为
+     * 默认值：`0`
      */
     nClicks: PropTypes.number,
 
     /**
-     * 用于配置value变化更新的防抖等待时长（单位：毫秒），默认为0
+     * 按钮点击事件监听防抖延时，单位：毫秒
+     * 默认值：`0`
      */
     debounceWait: PropTypes.number,
 
     /**
-     * 设置按钮类型，可选的有'primary'、'secondary'、'danger'
-     * 默认为'primary'
+     * 按钮类型，可选项有`'primary'`、`'secondary'`、`'danger'`
+     * 默认值：`'primary'`
      */
     type: PropTypes.oneOf(['primary', 'secondary', 'danger']),
 
     /**
-     * 设置是否禁用当前按钮，默认为false
+     * 是否禁用当前组件
+     * 默认值：`false`
      */
     disabled: PropTypes.bool,
 
     /**
-     * 当按钮充当链接功能时，用于设置链接地址
+     * 按钮点击跳转链接地址
      */
     href: PropTypes.string,
 
     /**
-     * 设置按钮的target属性，默认为'_blank'
+     * 按钮点击跳转链接方式
+     * 默认值：`'_blank'`
      */
     target: PropTypes.string,
 
     /**
-     * 设置按钮前缀图标元素
+     * 组件型，按钮前缀元素
      */
     before: PropTypes.node,
 
     /**
-     * 设置按钮后缀图标元素
+     * 组件型，按钮后缀元素
      */
     after: PropTypes.node,
 
     /**
-     * 设置是否开启点击涟漪效果，默认为false
+     * 是否开启点击涟漪效果
+     * 默认值：`false`
      */
     ripple: PropTypes.bool,
 
@@ -110,7 +116,6 @@ FefferyFancyButton.propTypes = {
     setProps: PropTypes.func,
 };
 
-// 设置默认参数
 FefferyFancyButton.defaultProps = {
     nClicks: 0,
     debounceWait: 0,

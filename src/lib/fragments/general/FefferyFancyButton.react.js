@@ -1,13 +1,19 @@
+// 组件核心
 import { AwesomeButton } from 'react-awesome-button';
-import useCss from '../../hooks/useCss';
+// 辅助库
 import { isString } from 'lodash';
 import { useRequest } from 'ahooks';
+// 自定义hooks
+import useCss from '../../hooks/useCss';
+// 样式
 import AwesomeButtonStyles from 'react-awesome-button/src/styles/styles.scss';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/general/FefferyFancyButton.react';
 
-// 定义美观按钮组件FefferyFancyButton
+/**
+ * 美观按钮组件FefferyFancyButton
+ */
 const FefferyFancyButton = (props) => {
-    // 取得必要属性或参数
     let {
         id,
         children,
