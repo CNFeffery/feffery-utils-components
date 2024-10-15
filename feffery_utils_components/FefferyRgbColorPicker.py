@@ -10,19 +10,22 @@ class FefferyRgbColorPicker(Component):
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
+
+- key (string; optional):
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - style (dict; optional):
-    css样式.
+    当前组件css样式.
 
 - className (string; optional):
-    css类名.
+    当前组件css类名.
 
 - color (string; default 'rgb(68, 206, 246)'):
-    对应当前选中的rgb[a]色彩值字符串  默认：'rgb(68, 206, 246)'.
+    监听或设置当前选中色彩对应rgb格式颜色值  默认值：`'rgb(68, 206, 246)'`.
 
 - showAlpha (boolean; default False):
-    设置是否显示透明度选择控件  默认：False.
+    是否显示透明度选择控件  默认值：`False`.
 
 - loading_state (dict; optional)
 
@@ -41,10 +44,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyRgbColorPicker'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, showAlpha=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'style', 'className', 'color', 'showAlpha', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, showAlpha=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'style', 'className', 'color', 'showAlpha', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'style', 'className', 'color', 'showAlpha', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'color', 'showAlpha', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -1,10 +1,14 @@
+// react核心
 import React, { useEffect } from 'react';
+// 组件核心
 import Wheel from '@uiw/react-color-wheel';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/colorPickers/FefferyWheelColorPicker.react';
 
-// 定义Wheel风格色彩选择器FefferyWheelColorPicker，文档参考：https://uiwjs.github.io/react-color/#/wheel
+/**
+ * Wheel风格色彩选择器FefferyWheelColorPicker
+ */
 const FefferyWheelColorPicker = (props) => {
-    // 取得必要属性或参数
     const {
         id,
         className,

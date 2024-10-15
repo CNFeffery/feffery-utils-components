@@ -1,10 +1,14 @@
+// react核心
 import React, { useEffect } from 'react';
+// 组件核心
 import GithubPicker from 'react-color/es/Github';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/colorPickers/FefferyGithubColorPicker.react';
 
-// 定义Github风格色彩选择器FefferyGithubColorPicker，文档参考：https://casesandberg.github.io/react-color/
+/**
+ * Github风格色彩选择器FefferyGithubColorPicker
+ */
 const FefferyGithubColorPicker = (props) => {
-    // 取得必要属性或参数
     const {
         id,
         className,

@@ -1,10 +1,14 @@
+// react核心
 import React, { useEffect } from 'react';
+// 组件核心
 import BlockPicker from 'react-color/es/Block';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/colorPickers/FefferyBlockColorPicker.react';
 
-// 定义Block风格色彩选择器FefferyBlockColorPicker，文档参考：https://casesandberg.github.io/react-color/
+/**
+ * Block风格色彩选择器
+ */
 const FefferyBlockColorPicker = (props) => {
-    // 取得必要属性或参数
     const {
         id,
         className,

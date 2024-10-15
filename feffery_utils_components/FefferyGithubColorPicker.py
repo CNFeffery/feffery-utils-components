@@ -5,29 +5,33 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyGithubColorPicker(Component):
     """A FefferyGithubColorPicker component.
-
+Github风格色彩选择器FefferyGithubColorPicker
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
+
+- key (string; optional):
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - style (dict; optional):
-    css样式.
+    当前组件css样式.
 
 - className (string; optional):
-    css类名.
+    当前组件css类名.
 
 - color (string; optional):
-    设置或监听当前选中色彩对应16进制颜色值.
+    监听或设置当前选中色彩对应16进制颜色值.
 
 - colors (list of strings; default ['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB', '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB']):
-    设置可选色彩对应16进制颜色值数组  默认：['#B80000', '#DB3E00', '#FCCB00', '#008B02',
-    '#006B76', '#1273DE', '#004DCF', '#5300EB', '#EB9694', '#FAD0C3',
-    '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB'].
+    设置可选色彩对应16进制颜色值数组  默认值：`['#B80000', '#DB3E00', '#FCCB00',
+    '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB', '#EB9694',
+    '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3',
+    '#D4C4FB']`.
 
 - triangle (a value equal to: 'hide', 'top-left', 'top-right'; default 'top-left'):
-    设置顶部箭头的方位，可选的有'hide'、'top-left'、'top-right'  默认：'top-left'.
+    顶部箭头方位，可选项有`'hide'`、`'top-left'`、`'top-right'`  默认值：`'top-left'`.
 
 - loading_state (dict; optional)
 
@@ -46,10 +50,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyGithubColorPicker'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, colors=Component.UNDEFINED, triangle=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'style', 'className', 'color', 'colors', 'triangle', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, color=Component.UNDEFINED, colors=Component.UNDEFINED, triangle=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'style', 'className', 'color', 'colors', 'triangle', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'style', 'className', 'color', 'colors', 'triangle', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'color', 'colors', 'triangle', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
