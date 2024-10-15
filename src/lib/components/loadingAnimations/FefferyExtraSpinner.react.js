@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferyExtraSpinner = React.lazy(() => import(/* webpackChunkName: "feffery_extra_spinner" */ '../../fragments/loadingAnimations/FefferyExtraSpinner.react'));
 
+/**
+ * 额外加载动画组件FefferyExtraSpinner
+ */
 const FefferyExtraSpinner = (props) => {
     return (
         <Suspense fallback={null}>
@@ -11,30 +14,33 @@ const FefferyExtraSpinner = (props) => {
     );
 }
 
-// 定义参数或属性
 FefferyExtraSpinner.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 自定义css字典
-     */
-    style: PropTypes.object,
-
-    /**
-     * css类名
-     */
-    className: PropTypes.string,
-
-    /**
-     * 辅助刷新用唯一标识key值
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 加载动画类型
+     * 当前组件css样式
+     */
+    style: PropTypes.object,
+
+    /**
+     * 当前组件css类名
+     */
+    className: PropTypes.string,
+
+    /**
+     * 可用的动画类型，可选项有`'ball'`、`'swap'`、`'bars'`、`'grid'`、`'wave'`、`'push'`、`'firework'`、
+     * `'stage'`、`'ring'`、`'heart'`、`'guard'`、`'rotate'`、`'spiral'`、`'pulse'`、`'swish'`、
+     * `'sequence'`、`'impulse'`、`'cube'`、`'magic'`、`'flag'`、`'fill'`、`'sphere'`、`'domino'`、
+     * `'goo'`、`'comb'`、`'pong'`、`'rainbow'`、`'hoop'`、`'flapper'`、`'jellyfish'`、`'trace'`、
+     * `'classic'`、`'whisper'`、`'metro'`
      */
     type: PropTypes.oneOf([
         "ball", "swap", "bars", "grid", "wave", "push", "firework",
@@ -45,27 +51,28 @@ FefferyExtraSpinner.propTypes = {
     ]),
 
     /**
-     * 设置尺寸
+     * 图标尺寸值
      */
     size: PropTypes.number,
 
     /**
-     * 设置尺寸值单位，默认为'px'
+     * 图标尺寸值单位
+     * 默认值：`'px'`
      */
     sizeUnit: PropTypes.string,
 
     /**
-     * 设置颜色
+     * 图标颜色
      */
     color: PropTypes.string,
 
     /**
-     * 设置前景色
+     * 图标前景色
      */
     frontColor: PropTypes.string,
 
     /**
-     * 设置背景色
+     * 图标背景色
      */
     backColor: PropTypes.string,
 
@@ -85,7 +92,6 @@ FefferyExtraSpinner.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyExtraSpinner.defaultProps = {
     sizeUnit: 'px',
     type: 'ball',

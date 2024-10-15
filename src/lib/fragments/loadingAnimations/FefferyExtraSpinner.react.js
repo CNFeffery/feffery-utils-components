@@ -1,3 +1,4 @@
+// 组件核心
 import {
     BallSpinner,
     SwapSpinner,
@@ -34,13 +35,13 @@ import {
     WhisperSpinner,
     MetroSpinner
 } from "react-spinners-kit";
+// 参数类型
 import { propTypes, defaultProps } from '../../components/loadingAnimations/FefferyExtraSpinner.react';
 
-
-// 定义额外加载动画组件FefferyExtraSpinner，api参考https://github.com/dmitrymorozoff/react-spinners-kit
-// 取得必要属性或参数
+/**
+ * 额外加载动画组件FefferyExtraSpinner
+ */
 const FefferyExtraSpinner = (props) => {
-    // 取得必要属性或参数
     const {
         id,
         style,
