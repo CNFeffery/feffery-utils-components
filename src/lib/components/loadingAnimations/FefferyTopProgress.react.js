@@ -1,19 +1,16 @@
+// react核心
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+// 组件核心
 import NProgress from 'nprogress';
+// 辅助库
 import FefferyStyle from '../styleControl/FefferyStyle.react';
+import { parseChildrenToArray } from '../utils';
 
-
-const parseChildrenToArray = children => {
-    if (children && !Array.isArray(children)) {
-        return [children];
-    }
-    return children;
-};
-
-// 定义顶部加载进度条组件FefferyTopProgress，api参数参考https://github.com/rstacruz/nprogress
+/**
+ * 顶端加载进度条组件FefferyTopProgress
+ */
 const FefferyTopProgress = (props) => {
-    // 取得必要属性或参数
     let {
         id,
         className,
@@ -196,87 +193,92 @@ const FefferyTopProgress = (props) => {
 
 FefferyTopProgress._dashprivate_isLoadingComponent = true;
 
-// 定义参数或属性
 FefferyTopProgress.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * The content of the tab - will only be displayed if this tab is selected
-     */
-    children: PropTypes.node,
-
-    /**
-     * css类名
-     */
-    className: PropTypes.string,
-
-    /**
-     * 自定义css字典
-     */
-    style: PropTypes.object,
-
-    /**
-     * 辅助刷新用唯一标识key值
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 设置是否处于加载中状态
+     * 组件型，内嵌元素
+     */
+    children: PropTypes.node,
+
+    /**
+     * 当前组件css样式
+     */
+    style: PropTypes.object,
+
+    /**
+     * 当前组件css类名
+     */
+    className: PropTypes.string,
+
+    /**
+     * 是否处于加载中状态
      */
     spinning: PropTypes.bool,
 
     /**
-     * 设置顶端进度条的初始进度值，默认为0.33，取值在0到1之间
+     * 顶端进度条初始进度值，取值在`0.33`到`1`之间
+     * 默认值：`0.33`
      */
     minimum: PropTypes.number,
 
     /**
-     * 用于设置同名css动画效果，默认为'ease'
+     * 对应设置`css`中的`easing`属性
+     * 默认值：`'ease'`
      */
     easing: PropTypes.string,
 
     /**
-     * 设置进度条每步递增耗时（单位：毫秒），默认为200
+     * 进度条每步递增耗时，单位：毫秒
+     * 默认值：`200`
      */
     speed: PropTypes.number,
 
     /**
-     * 设置是否渲染右上角圆圈加载动画，默认为true
+     * 是否在右上角渲染圆圈加载动画
+     * 默认值：`true`
      */
     showSpinner: PropTypes.bool,
 
     /**
-     * 设置是否开启debug模式，开启后，每次动画加载都会在开发者工具的控制台打印prop信息
+     * 是否开启debug模式，开启后，每次动画加载都会在开发者工具的控制台打印相关`prop`信息
+     * 默认值：`false`
      */
     debug: PropTypes.bool,
 
     /**
-     * 设置自定义监听组件的模式，可选的有'default'、'exclude'、'include'，默认为'default'
+     * 监听模式，可选项有`'default'`、`'exclude'`、`'include'`
+     * 默认值：`'default'`
      */
     listenPropsMode: PropTypes.oneOf(['default', 'exclude', 'include']),
 
     /**
-     * 设置需要忽略输出监听过程的组件信息列表,
-     * 仅在listenPropsMode为'exclude'时生效
+     * `listenPropsMode='exclude'`时，设置需要排除监听的回调目标列表，格式如`['组件id1.组件属性1', '组件id2.组件属性2', ...]`
      */
     excludeProps: PropTypes.arrayOf(PropTypes.string),
 
     /**
-     * 设置需要包含输出监听过程的组件信息列表,
-     * 仅在listenPropsMode为'include'时生效
+     * `listenPropsMode='include'`时，设置需要包含监听的回调目标列表，格式如`['组件id1.组件属性1', '组件id2.组件属性2', ...]`
      */
     includeProps: PropTypes.arrayOf(PropTypes.string),
 
     /**
-     * 设置顶部进度条色彩，默认为'#29d'
+     * 顶部进度条色彩
+     * 默认值：`'#29d'`
      */
     color: PropTypes.string,
 
     /**
-     * 设置顶部进度条的z-index，默认为99999
+     * 顶部进度条`z-index`值
+     * 默认值：`99999`
      */
     zIndex: PropTypes.number,
 
@@ -302,7 +304,6 @@ FefferyTopProgress.propTypes = {
     setProps: PropTypes.func
 };
 
-// 设置默认参数
 FefferyTopProgress.defaultProps = {
     spinning: false,
     listenPropsMode: 'default',
