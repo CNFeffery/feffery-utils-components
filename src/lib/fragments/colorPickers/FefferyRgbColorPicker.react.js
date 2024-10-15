@@ -1,10 +1,14 @@
-import { RgbStringColorPicker, RgbaStringColorPicker } from 'react-colorful';
+// react核心
 import { useEffect } from 'react';
+// 组件核心
+import { RgbStringColorPicker, RgbaStringColorPicker } from 'react-colorful';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/colorPickers/FefferyRgbColorPicker.react';
 
-// 定义rgb色彩选择器FefferyRgbColorPicker，文档参考：https://github.com/omgovich/react-colorful
+/**
+ * rgb色彩选择器FefferyRgbColorPicker
+ */
 const FefferyRgbColorPicker = (props) => {
-    // 取得必要属性或参数
     const {
         id,
         className,
