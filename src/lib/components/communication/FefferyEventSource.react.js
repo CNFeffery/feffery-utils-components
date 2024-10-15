@@ -67,12 +67,12 @@ const FefferyEventSource = (props) => {
 
 FefferyEventSource.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 强制刷新用唯一标识key值
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 

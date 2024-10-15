@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-// 定义跨标签页通信器FefferyTabMessenger
+/**
+ * 跨标签页通信组件FefferyTabMessenger
+ */
 const FefferyTabMessenger = (props) => {
     // 取得必要属性或参数
     const {
@@ -70,37 +72,37 @@ const FefferyTabMessenger = (props) => {
 // 定义参数或属性
 FefferyTabMessenger.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 强制刷新组件状态用
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 必填，声明当前组件所在标签页角色，可选的有'sender'和'receiver'
+     * 必填，声明当前组件所在标签页角色，可选的有`'sender'`和`'receiver'`
      */
     role: PropTypes.oneOf(['sender', 'receiver']).isRequired,
 
     /**
-     * 当role为'sender'时，用于定义自动创建打开的目标标签页对应url
+     * 当`role='sender'`时，用于定义自动创建打开的目标标签页对应`url`
      */
     targetUrl: PropTypes.string,
 
     /**
-     * 当role为'sender'时，用于定义自动创建打开的目标标签页底层调用window.open()对应的额外的windowFeatures字符串
+     * 当`role='sender'`时，用于定义自动创建打开的目标标签页底层调用`window.open()`对应的额外的windowFeatures字符串
      */
     targetWindowFeatures: PropTypes.string,
 
     /**
-     * 当role为'sender'时，用于设置将要新发送的信息内容，每次成功发送后都会重置为空
+     * 当`role='sender'`时，用于设置将要新发送的信息内容，每次成功发送后都会重置为空
      */
     toSendMessage: PropTypes.any,
 
     /**
-     * 当role为'receiver'时，用于监听最近一次收到的信息内容
+     * 当`role='receiver'`时，用于监听最近一次收到的信息内容
      */
     recivedMessage: PropTypes.any,
 
