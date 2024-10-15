@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-// 定义跨iframe通信器FefferyIframeMessenger
+/**
+ * 跨iframe通信组件FefferyIframeMessenger
+ */
 const FefferyIframeMessenger = (props) => {
     // 取得必要属性或参数
     const {
@@ -77,37 +79,37 @@ const FefferyIframeMessenger = (props) => {
 // 定义参数或属性
 FefferyIframeMessenger.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 强制刷新组件状态用
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 必填，声明当前组件所在标签页角色，可选的有'sender'和'receiver'
+     * 必填，声明当前组件所在标签页角色，可选的有`'sender'`和`'receiver'`
      */
     role: PropTypes.oneOf(['sender', 'receiver']).isRequired,
 
     /**
-     * 必填，声明当前组件对应传递信息的模式，可选的有'to-parent'和'to-child'
+     * 必填，声明当前组件对应传递信息的模式，可选的有`'to-parent'`和`'to-child'`
      */
     mode: PropTypes.oneOf(['to-parent', 'to-child']).isRequired,
 
     /**
-     * 当role为'sender'且mode为'to-child'时，用于定义需要发送消息的目标iframe组件的id
+     * 当`role='sender'`且`mode='to-child'`时，用于定义需要发送消息的目标iframe组件的`id`
      */
     targetIframeId: PropTypes.string,
 
     /**
-     * 当role为'sender'时，用于设置将要新发送的信息内容，每次成功发送后都会重置为空
+     * 当`role='sender'`时，用于设置将要新发送的信息内容，每次成功发送后都会重置为空
      */
     toSendMessage: PropTypes.any,
 
     /**
-     * 当role为'receiver'时，用于监听最近一次收到的信息内容
+     * 当`role='receiver'`时，用于监听最近一次收到的信息内容
      */
     recivedMessage: PropTypes.any,
 

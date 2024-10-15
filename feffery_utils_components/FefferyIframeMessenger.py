@@ -5,30 +5,30 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyIframeMessenger(Component):
     """A FefferyIframeMessenger component.
-
+跨iframe通信组件FefferyIframeMessenger
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - key (string; optional):
-    强制刷新组件状态用.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - role (a value equal to: 'sender', 'receiver'; required):
-    必填，声明当前组件所在标签页角色，可选的有'sender'和'receiver'.
+    必填，声明当前组件所在标签页角色，可选的有`'sender'`和`'receiver'`.
 
 - mode (a value equal to: 'to-parent', 'to-child'; required):
-    必填，声明当前组件对应传递信息的模式，可选的有'to-parent'和'to-child'.
+    必填，声明当前组件对应传递信息的模式，可选的有`'to-parent'`和`'to-child'`.
 
 - targetIframeId (string; optional):
-    当role为'sender'且mode为'to-child'时，用于定义需要发送消息的目标iframe组件的id.
+    当`role='sender'`且`mode='to-child'`时，用于定义需要发送消息的目标iframe组件的`id`.
 
 - toSendMessage (boolean | number | string | dict | list; optional):
-    当role为'sender'时，用于设置将要新发送的信息内容，每次成功发送后都会重置为空.
+    当`role='sender'`时，用于设置将要新发送的信息内容，每次成功发送后都会重置为空.
 
 - recivedMessage (boolean | number | string | dict | list; optional):
-    当role为'receiver'时，用于监听最近一次收到的信息内容.
+    当`role='receiver'`时，用于监听最近一次收到的信息内容.
 
 - loading_state (dict; optional)
 
