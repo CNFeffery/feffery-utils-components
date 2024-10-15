@@ -1,10 +1,14 @@
+// react核心
 import React, { useEffect } from 'react';
+// 组件核心
 import TwitterPicker from 'react-color/es/Twitter';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/colorPickers/FefferyTwitterColorPicker.react';
 
-// 定义Twitter风格色彩选择器FefferyGithubColorPicker，文档参考：https://casesandberg.github.io/react-color/
+/**
+ * Twitter风格色彩选择器FefferyGithubColorPicker
+ */
 const FefferyTwitterColorPicker = (props) => {
-    // 取得必要属性或参数
     const {
         id,
         className,
