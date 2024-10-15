@@ -10,10 +10,10 @@ EventSource通信组件FefferyEventSource
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - key (string; optional):
-    强制刷新用唯一标识key值.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - url (string; required):
     必填，目标服务地址.
