@@ -3,6 +3,9 @@ import React, { Suspense } from 'react';
 
 const LazyFefferyHexColorPicker = React.lazy(() => import(/* webpackChunkName: "feffery_color_pickers" */ '../../fragments/colorPickers/FefferyHexColorPicker.react'));
 
+/**
+ * 16进制色彩选择器FefferyHexColorPicker
+ */
 const FefferyHexColorPicker = (props) => {
     return (
         <Suspense fallback={null}>
@@ -11,32 +14,36 @@ const FefferyHexColorPicker = (props) => {
     );
 }
 
-// 定义参数或属性
 FefferyHexColorPicker.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * css样式
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
+     * 当前组件css样式
      */
     style: PropTypes.object,
 
     /**
-     * css类名
+     * 当前组件css类名
      */
     className: PropTypes.string,
 
     /**
-     * 设置或监听当前选中色彩对应16进制颜色值
-     * 默认：'#36a0f8'
+     * 监听或设置当前选中色彩对应16进制颜色值
+     * 默认值：`'#36a0f8'`
      */
     color: PropTypes.string,
 
     /**
-     * 设置是否显示透明度选择控件
-     * 默认：false
+     * 是否显示透明度选择控件
+     * 默认值：`false`
      */
     showAlpha: PropTypes.bool,
 
@@ -56,7 +63,6 @@ FefferyHexColorPicker.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyHexColorPicker.defaultProps = {
     showAlpha: false,
     color: '#44cef6'

@@ -1,10 +1,14 @@
-import { HexColorPicker, HexAlphaColorPicker } from 'react-colorful';
+// react核心
 import { useEffect } from 'react';
+// 组件核心
+import { HexColorPicker, HexAlphaColorPicker } from 'react-colorful';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/colorPickers/FefferyHexColorPicker.react';
 
-// 定义16进制色彩选择器FefferyHexColorPicker，文档参考：https://github.com/omgovich/react-colorful
+/**
+ * 16进制色彩选择器FefferyHexColorPicker
+ */
 const FefferyHexColorPicker = (props) => {
-    // 取得必要属性或参数
     const {
         id,
         className,
