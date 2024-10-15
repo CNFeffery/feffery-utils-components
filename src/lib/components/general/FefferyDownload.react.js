@@ -1,3 +1,4 @@
+// react核心
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
@@ -31,9 +32,14 @@ const FefferyDownload = (props) => {
 
 FefferyDownload.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
+
+    /**
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
 
     /**
      * 设置新的下载任务对应文件信息，每次触发下载后都会重置为空置
