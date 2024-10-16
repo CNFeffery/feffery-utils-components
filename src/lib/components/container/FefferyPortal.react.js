@@ -1,3 +1,4 @@
+// react核心
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 
@@ -6,8 +7,6 @@ import PropTypes from 'prop-types';
  */
 const FefferyPortal = (props) => {
     const {
-        id,
-        key,
         children,
         targetSelector,
         setProps,
@@ -22,22 +21,22 @@ const FefferyPortal = (props) => {
 
 FefferyPortal.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 辅助强制刷新用
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 需要传送的子元素
+     * 组件型，设置需要传送的子元素
      */
     children: PropTypes.node,
 
     /**
-     * 传送目标对应的css选择器
+     * 传送目标对应的`css`选择器
      */
     targetSelector: PropTypes.string,
 
@@ -63,7 +62,6 @@ FefferyPortal.propTypes = {
     setProps: PropTypes.func,
 };
 
-// 设置默认参数
 FefferyPortal.defaultProps = {
 }
 
