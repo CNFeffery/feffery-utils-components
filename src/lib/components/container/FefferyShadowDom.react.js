@@ -1,10 +1,13 @@
-import root from 'react-shadow';
+// react核心
 import React from 'react';
 import PropTypes from 'prop-types';
+// 组件核心
+import root from 'react-shadow';
 
-// 定义Shadow DOM组件FefferyShadowDom
+/**
+ * Shadow DOM组件FefferyShadowDom
+ */
 const FefferyShadowDom = (props) => {
-    // 取得必要属性或参数
     const {
         id,
         key,
@@ -29,33 +32,31 @@ const FefferyShadowDom = (props) => {
     );
 }
 
-
-// 定义参数或属性
 FefferyShadowDom.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 辅助刷新用唯一标识key值
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 组件子元素
+     * 组件型，内嵌元素
      */
     children: PropTypes.node,
 
     /**
-     * css类名
-     */
-    className: PropTypes.string,
-
-    /**
-     * 自定义css字典
+     * 当前组件css样式
      */
     style: PropTypes.object,
+
+    /**
+     * 当前组件css类名
+     */
+    className: PropTypes.string,
 
     loading_state: PropTypes.shape({
         /**
@@ -79,7 +80,6 @@ FefferyShadowDom.propTypes = {
     setProps: PropTypes.func,
 };
 
-// 设置默认参数
 FefferyShadowDom.defaultProps = {
 }
 

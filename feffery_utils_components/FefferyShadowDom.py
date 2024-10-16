@@ -5,24 +5,24 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyShadowDom(Component):
     """A FefferyShadowDom component.
-
+Shadow DOM组件FefferyShadowDom
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - key (string; optional):
-    辅助刷新用唯一标识key值.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - children (a list of or a singular dash component, string or number; optional):
-    组件子元素.
-
-- className (string; optional):
-    css类名.
+    组件型，内嵌元素.
 
 - style (dict; optional):
-    自定义css字典.
+    当前组件css样式.
+
+- className (string; optional):
+    当前组件css类名.
 
 - loading_state (dict; optional)
 
@@ -41,10 +41,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyShadowDom'
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'children', 'className', 'style', 'loading_state']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'className', 'style', 'loading_state']
+        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
