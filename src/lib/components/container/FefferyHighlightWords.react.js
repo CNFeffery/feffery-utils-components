@@ -1,14 +1,16 @@
-import Highlighter from "react-highlight-words";
+// react核心
 import PropTypes from 'prop-types';
+// 组件核心
+import Highlighter from "react-highlight-words";
 
-// 定义关键词高亮组件FefferyHighlightWords，文档参考：https://github.com/bvaughn/react-highlight-words#readme
+/**
+ * 关键词高亮组件FefferyHighlightWords
+ */
 const FefferyHighlightWords = (props) => {
-    // 取得必要属性或参数
     const {
         id,
         className,
         style,
-        key,
         caseSensitive,
         highlightClassName,
         highlightStyle,
@@ -25,7 +27,6 @@ const FefferyHighlightWords = (props) => {
         <Highlighter id={id}
             className={className}
             style={style}
-            key={key}
             caseSensitive={caseSensitive}
             highlightClassName={highlightClassName}
             highlightStyle={highlightStyle}
@@ -42,67 +43,72 @@ const FefferyHighlightWords = (props) => {
     );
 }
 
-// 定义参数或属性
 FefferyHighlightWords.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * css类名
-     */
-    className: PropTypes.string,
-
-    /**
-     * 自定义css字典
-     */
-    style: PropTypes.object,
-
-    /**
-     * 辅助刷新用唯一标识key值
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 设置是否大小写敏感，默认为false
+     * 当前组件css样式
+     */
+    style: PropTypes.object,
+
+    /**
+     * 当前组件css类名
+     */
+    className: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ]),
+
+    /**
+     * 是否启用大小写敏感
+     * 默认值：`false`
      */
     caseSensitive: PropTypes.bool,
 
     /**
-     * 设置高亮部分的css样式类，默认为'feffery-highlight-words-highlight'
-     */
-    highlightClassName: PropTypes.string,
-
-    /**
-     * 设置高亮部分的css样式
+     * 高亮部分元素css样式
      */
     highlightStyle: PropTypes.object,
 
     /**
-     * 设置是否开启正则表达式模式，默认为false
+     * 高亮部分元素css类名
+     * 默认值：`'feffery-highlight-words-highlight'`
+     */
+    highlightClassName: PropTypes.string,
+
+    /**
+     * 是否开启正则表达式模式
+     * 默认值：`false`
      */
     useRegex: PropTypes.bool,
 
     /**
-     * 设置要进行高亮的字符（或正则模式数组），当useRegex为true时会视作正则模式数组
+     * 设置要进行高亮的目标字符或正则表达式数组
      */
     searchWords: PropTypes.arrayOf(PropTypes.string),
 
     /**
-     * 设置文本内容字符串
+     * 原始文本内容
      */
     textToHighlight: PropTypes.string,
 
     /**
-     * 设置非高亮部分的css样式类
-     */
-    unhighlightClassName: PropTypes.string,
-
-    /**
-     * 设置非高亮部分的css样式
+     * 非高亮部分元素css样式
      */
     unhighlightStyle: PropTypes.object,
+
+    /**
+     * 非高亮部分元素css类名
+     */
+    unhighlightClassName: PropTypes.string,
 
     loading_state: PropTypes.shape({
         /**
@@ -120,7 +126,6 @@ FefferyHighlightWords.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyHighlightWords.defaultProps = {
     caseSensitive: false,
     useRegex: false,

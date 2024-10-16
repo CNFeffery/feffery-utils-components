@@ -10,16 +10,16 @@ class FefferyPortal(Component):
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - key (string; optional):
-    辅助强制刷新用.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - children (a list of or a singular dash component, string or number; optional):
-    需要传送的子元素.
+    组件型，设置需要传送的子元素.
 
 - targetSelector (string; optional):
-    传送目标对应的css选择器.
+    传送目标对应的`css`选择器.
 
 - loading_state (dict; optional)
 

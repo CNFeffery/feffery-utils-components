@@ -5,32 +5,33 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferySticky(Component):
     """A FefferySticky component.
-
+粘性布局组件FefferySticky
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - key (string; optional):
-    辅助刷新用唯一标识key值.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - children (a list of or a singular dash component, string or number; optional):
-    组件子元素.
+    组件型，内嵌元素.
 
 - enabled (boolean; default True):
-    设置是否启用粘性布局效果，默认为True.
+    是否启用粘性布局效果  默认值：`True`.
 
 - top (number | string; default 0):
-    用于设置触发粘性布局效果对应的顶部距离阈值，  当传入字符型时，字符应为css选择器规则，则此时的顶部距离阈值  默认为0，
-    为选择器对应目标元素的高度.
+    用于设置触发粘性布局效果对应的顶部距离阈值，当当前元素距离窗口顶部达到此阈值时会触发粘性布局状态，
+    当传入数值型时，用于设置窗口顶端到当前元素顶部的像素距离阈值，
+    当传入字符型时，用于定义`css`选择器规则，被此选择器规则匹配到的元素的高度会被作为阈值所使用.
 
 - bottomBoundary (number | string; optional):
-    设置粘性布局元素底部距离文档顶部的像素距离阈值，  当超出这个阈值范围时，粘性状态会被解除；
-    当传入字符型时，字符应为css选择器规则，则此时当目标元素底部  到达粘性布局元素底部时，粘性状态会被解除.
+    用于设置解除粘性布局效果对应的底部距离阈值，  当传入数值型时，用于设置页面顶端到当前元素顶部的像素距离阈值，
+    当传入字符型时，用于定义`css`选择器规则，当该规则匹配到的目标元素底部到达粘性布局元素底部时，粘性状态会被解除.
 
 - zIndex (number; optional):
-    设置粘性布局元素的z-index属性.
+    粘性布局元素对应`z-index`属性.
 
 - loading_state (dict; optional)
 

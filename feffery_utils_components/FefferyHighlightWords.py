@@ -5,45 +5,45 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyHighlightWords(Component):
     """A FefferyHighlightWords component.
-
+关键词高亮组件FefferyHighlightWords
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
-
-- className (string; optional):
-    css类名.
-
-- style (dict; optional):
-    自定义css字典.
+    组件唯一id.
 
 - key (string; optional):
-    辅助刷新用唯一标识key值.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
+
+- style (dict; optional):
+    当前组件css样式.
+
+- className (string | dict; optional):
+    当前组件css类名.
 
 - caseSensitive (boolean; default False):
-    设置是否大小写敏感，默认为False.
-
-- highlightClassName (string; default 'feffery-highlight-words-highlight'):
-    设置高亮部分的css样式类，默认为'feffery-highlight-words-highlight'.
+    是否启用大小写敏感  默认值：`False`.
 
 - highlightStyle (dict; optional):
-    设置高亮部分的css样式.
+    高亮部分元素css样式.
+
+- highlightClassName (string; default 'feffery-highlight-words-highlight'):
+    高亮部分元素css类名  默认值：`'feffery-highlight-words-highlight'`.
 
 - useRegex (boolean; default False):
-    设置是否开启正则表达式模式，默认为False.
+    是否开启正则表达式模式  默认值：`False`.
 
 - searchWords (list of strings; optional):
-    设置要进行高亮的字符（或正则模式数组），当useRegex为True时会视作正则模式数组.
+    设置要进行高亮的目标字符或正则表达式数组.
 
 - textToHighlight (string; optional):
-    设置文本内容字符串.
-
-- unhighlightClassName (string; optional):
-    设置非高亮部分的css样式类.
+    原始文本内容.
 
 - unhighlightStyle (dict; optional):
-    设置非高亮部分的css样式.
+    非高亮部分元素css样式.
+
+- unhighlightClassName (string; optional):
+    非高亮部分元素css类名.
 
 - loading_state (dict; optional)
 
@@ -62,10 +62,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyHighlightWords'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, key=Component.UNDEFINED, caseSensitive=Component.UNDEFINED, highlightClassName=Component.UNDEFINED, highlightStyle=Component.UNDEFINED, useRegex=Component.UNDEFINED, searchWords=Component.UNDEFINED, textToHighlight=Component.UNDEFINED, unhighlightClassName=Component.UNDEFINED, unhighlightStyle=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'style', 'key', 'caseSensitive', 'highlightClassName', 'highlightStyle', 'useRegex', 'searchWords', 'textToHighlight', 'unhighlightClassName', 'unhighlightStyle', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, caseSensitive=Component.UNDEFINED, highlightStyle=Component.UNDEFINED, highlightClassName=Component.UNDEFINED, useRegex=Component.UNDEFINED, searchWords=Component.UNDEFINED, textToHighlight=Component.UNDEFINED, unhighlightStyle=Component.UNDEFINED, unhighlightClassName=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'style', 'className', 'caseSensitive', 'highlightStyle', 'highlightClassName', 'useRegex', 'searchWords', 'textToHighlight', 'unhighlightStyle', 'unhighlightClassName', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'style', 'key', 'caseSensitive', 'highlightClassName', 'highlightStyle', 'useRegex', 'searchWords', 'textToHighlight', 'unhighlightClassName', 'unhighlightStyle', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'caseSensitive', 'highlightStyle', 'highlightClassName', 'useRegex', 'searchWords', 'textToHighlight', 'unhighlightStyle', 'unhighlightClassName', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

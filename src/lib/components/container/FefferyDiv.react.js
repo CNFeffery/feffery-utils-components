@@ -2,11 +2,11 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 // 辅助库
-import { isString, isNull, isEqual } from 'lodash';
+import { isString, isNull } from 'lodash';
 import { useElementBounding, useFocus } from '@reactuses/core';
 import { useSize, useRequest, useHover, useClickAway } from 'ahooks';
 // 自定义hooks
-import useCss from '../../hooks/useCss'
+import useCss from '../../hooks/useCss';
 
 // 定义兼容虚拟className的阴影效果、滚动条样式字典
 const shadowVirtualClassName = new Map(
@@ -366,30 +366,29 @@ const FefferyDiv = (props) => {
     </ div>;
 }
 
-// 定义参数或属性
 FefferyDiv.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 强制刷新用
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 组件子元素
+     * 组件型，内嵌元素
      */
     children: PropTypes.node,
 
     /**
-     * 自定义css字典
+     * 当前组件css样式
      */
     style: PropTypes.object,
 
     /**
-     * css类名
+     * 当前组件css类名
      */
     className: PropTypes.oneOfType([
         PropTypes.string,
@@ -420,37 +419,41 @@ FefferyDiv.propTypes = {
     ),
 
     /**
-     * 监听容器像素宽度变化
+     * 监听容器当前像素宽度值
      */
     _width: PropTypes.number,
 
     /**
-     * 监听容器像素高度变化
+     * 监听容器当前像素高度值
      */
     _height: PropTypes.number,
 
     /**
-     * 设置针对尺寸变化事件的防抖等待时间（单位：毫秒），默认为150
+     * 尺寸变化事件监听属性的防抖等待时间，单位：毫秒
+     * 默认值：`150`
      */
     debounceWait: PropTypes.number,
 
     /**
-     * 监听鼠标移入事件次数，初始化为0
+     * 监听鼠标移入事件累计次数
+     * 默认值：`0`
      */
     mouseEnterCount: PropTypes.number,
 
     /**
-     * 监听鼠标移出事件次数，初始化为0
+     * 监听鼠标移出事件累计次数
+     * 默认值：`0`
      */
     mouseLeaveCount: PropTypes.number,
 
     /**
-     * 监听单击事件次数，初始化为0
+     * 监听单击事件累计次数
+     * 默认值：`0`
      */
     nClicks: PropTypes.number,
 
     /**
-     * 监听单击事件详细参数
+     * 监听单击事件对应详细参数
      */
     clickEvent: PropTypes.exact({
         /**
@@ -484,12 +487,13 @@ FefferyDiv.propTypes = {
     }),
 
     /**
-     * 监听双击事件次数，初始化为0
+     * 监听双击事件累计次数
+     * 默认值：`0`
      */
     nDoubleClicks: PropTypes.number,
 
     /**
-     * 监听双击事件详细参数
+     * 监听双击事件对应详细参数
      */
     doubleClickEvent: PropTypes.exact({
         /**
@@ -523,13 +527,13 @@ FefferyDiv.propTypes = {
     }),
 
     /**
-     * 设置是否针对当前div监听右键点击事件，开启后会强制关闭当前div内的默认右键菜单弹出
-     * 默认为false
+     * 是否针对当前组件监听右键点击事件，开启后会强制阻止当前组件内的默认右键菜单弹出行为
+     * 默认值：`false`
      */
     enableListenContextMenu: PropTypes.bool,
 
     /**
-     * 监听右键事件
+     * 监听鼠标右键点击事件对应详细参数
      */
     contextMenuEvent: PropTypes.exact({
         /**
@@ -563,23 +567,24 @@ FefferyDiv.propTypes = {
     }),
 
     /**
-     * 监听当前元素是否被鼠标悬浮
+     * 监听当前元素是否正处于鼠标悬停状态
      */
     isHovering: PropTypes.bool,
 
     /**
-     * 针对移动端场景，监听当前元素是否触碰中
+     * 针对移动端场景，监听当前元素是否处于触摸状态
      */
     isTouching: PropTypes.bool,
 
     /**
-     * 设置是否启用元素外点击事件监听，当页面中有大量FefferyDiv元素时，建议不要开启此特性，会导致明显的性能问题
-     * 默认为false
+     * 是否启用元素外点击事件监听
+     * 默认值：`false`
      */
     enableClickAway: PropTypes.bool,
 
     /**
-     * 监听元素外点击事件发生次数，默认为0
+     * 监听当前元素外部点击事件累计次数
+     * 默认值：`0`
      */
     clickAwayCount: PropTypes.number,
 
@@ -599,25 +604,24 @@ FefferyDiv.propTypes = {
 
     /**
      * 是否启用聚焦状态监听功能
-     * 默认：false
+     * 默认值：`false`
      */
     enableFocus: PropTypes.bool,
 
     /**
-     * 监听或设置当前元素是否聚焦
+     * 监听或设置当前元素是否聚焦中
      */
     isFocused: PropTypes.bool,
 
     /**
-     * 设置当前div内部处理鼠标滑轮事件的策略
-     * 可选的有'default'、'internally-only'（不向外传递）
-     * 默认：'default'
+     * 设置当前组件内部处理鼠标滑轮事件的策略，可选项有`'default'`、`'internally-only'`（不向外传递）
+     * 默认值：`'default'
      */
     wheelEventStrategy: PropTypes.oneOf(['default', 'internally-only']),
 
     /**
-     * 设置当前容器的快捷阴影效果，可选的有'no-shadow'、'hover-shadow'、'always-shadow'
-     * 默认为'no-shadow'
+     * 为当前组件快捷设置内置阴影效果，可选项有`'no-shadow'`、`'hover-shadow'`、`'always-shadow'`、`'hover-shadow-light'`、`'always-shadow-light'`
+     * 默认值：`'no-shadow'`
      */
     shadow: PropTypes.oneOf([
         'no-shadow',
@@ -628,29 +632,28 @@ FefferyDiv.propTypes = {
     ]),
 
     /**
-     * 设置当前容器的快捷滚动条美化效果，可选的有'default'、'simple'、'hidden'
+     * 为当前组件快捷设置内置滚动条效果，可选项有`'default'`、`'simple'`、`'hidden'`
+     * 默认值：`'default'
      */
     scrollbar: PropTypes.oneOf(['default', 'simple', 'hidden']),
 
     /**
-     * text-align快捷设置
+     * 当前组件`css`对应`text-align`属性快捷设置
      */
     textAlign: PropTypes.oneOf(['left', 'center', 'right']),
 
     /**
-     * 针对flex布局的justify-content快捷设置
-     * 传入有效值后会自动开启flex布局
+     * 针对flex布局的`justify-content`属性快捷设置，传入有效值后会自动开启flex布局
      */
     justify: PropTypes.string,
 
     /**
-     * 针对flex布局的align-items快捷设置
-     * 传入有效值后会自动开启flex布局
+     * 针对flex布局的`align-items`快捷设置，传入有效值后会自动开启flex布局
      */
     align: PropTypes.string,
 
     /**
-     * padding快捷设置
+     * `css`对应`padding`属性快捷设置
      */
     padding: PropTypes.oneOfType([
         PropTypes.string,
@@ -658,7 +661,7 @@ FefferyDiv.propTypes = {
     ]),
 
     /**
-     * margin快捷设置
+     * `css`对应`margin`属性快捷设置
      */
     margin: PropTypes.oneOfType([
         PropTypes.string,
@@ -666,12 +669,12 @@ FefferyDiv.propTypes = {
     ]),
 
     /**
-     * border快捷设置
+     * `css`对应`border`属性快捷设置
      */
     border: PropTypes.string,
 
     /**
-     * border-radius快捷设置
+     * `css`对应`border-radius`属性快捷设置
      */
     borderRadius: PropTypes.oneOfType([
         PropTypes.string,
@@ -700,7 +703,6 @@ FefferyDiv.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyDiv.defaultProps = {
     enableEvents: ['click', 'dbclick'],
     mouseEnterCount: 0,

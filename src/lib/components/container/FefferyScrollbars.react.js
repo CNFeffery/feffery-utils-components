@@ -1,10 +1,14 @@
-import SimpleBarReact from "simplebar-react";
-import "simplebar/src/simplebar.css";
+// react核心
 import PropTypes from 'prop-types';
+// 组件核心
+import SimpleBarReact from "simplebar-react";
+// 样式
+import "simplebar/src/simplebar.css";
 
-// 定义自定义滚动条容器组件FefferyScrollbars
+/**
+ * 滚动条容器组件FefferyScrollbars
+ */
 const FefferyScrollbars = (props) => {
-    // 取得必要属性或参数
     const {
         id,
         children,
@@ -38,41 +42,40 @@ const FefferyScrollbars = (props) => {
     </ SimpleBarReact>;
 }
 
-
-// 定义参数或属性
 FefferyScrollbars.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 组件子元素
-     */
-    children: PropTypes.node,
-
-    /**
-     * 设置自定义css样式
-     */
-    style: PropTypes.object,
-
-    /**
-     * 设置自定义css类名
-     */
-    className: PropTypes.string,
-
-    /**
-     * 辅助刷新用唯一标识key值
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 设置是否在无操作时自动隐藏滚动条，默认为true
+     * 组件型，内嵌元素
+     */
+    children: PropTypes.node,
+
+    /**
+     * 当前组件css样式
+     */
+    style: PropTypes.object,
+
+    /**
+     * 当前组件css类名
+     */
+    className: PropTypes.string,
+
+    /**
+     * 是否在无操作时自动隐藏滚动条
+     * 默认值：`true`
      */
     autoHide: PropTypes.bool,
 
     /**
-     * 针对各组成部分单独设置自定义css类名
+     * 各组成部分css类名
      */
     classNames: PropTypes.exact({
         /**
@@ -94,7 +97,8 @@ FefferyScrollbars.propTypes = {
     }),
 
     /**
-     * 设置滑块区域是否强制可见，默认为false
+     * 滑块区域是否强制可见，可传入由`'x'`、`'y'`组成的列表进行水平、竖直方向的单独设置
+     * 默认值：`false`
      */
     forceVisible: PropTypes.oneOfType([
         PropTypes.bool,
@@ -102,17 +106,19 @@ FefferyScrollbars.propTypes = {
     ]),
 
     /**
-     * 设置滑块自动隐藏的毫秒数，默认为1000
+     * 滑块自动隐藏延时，单位：毫秒
+     * 默认值：`1000`
      */
     timeout: PropTypes.number,
 
     /**
-     * 设置滚动条最小像素长度，默认为25
+     * 滚动条最小像素长度
+     * 默认值：`25`
      */
     scrollbarMinSize: PropTypes.number,
 
     /**
-     * 设置滚动条最大像素长度，默认无限制
+     * 滚动条最大像素长度
      */
     scrollbarMaxSize: PropTypes.number,
 
@@ -132,7 +138,6 @@ FefferyScrollbars.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyScrollbars.defaultProps = {
     autoHide: true,
     timeout: 1000,
