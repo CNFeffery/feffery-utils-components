@@ -1,14 +1,17 @@
+// react核心
 import PropTypes from 'prop-types';
-import useCss from '../../hooks/useCss';
+// 辅助库
 import { isString } from 'lodash';
 import { useWindowSize } from '@reactuses/core';
+// 自定义hooks
+import useCss from '../../hooks/useCss';
 
-// 定义固定布局组件FefferyFixed
+/**
+ * 固定布局组件FefferyFixed
+ */
 const FefferyFixed = (props) => {
-    // 取得必要属性或参数
     const {
         id,
-        key,
         style,
         className,
         children,
@@ -39,7 +42,6 @@ const FefferyFixed = (props) => {
         // 根据实际情况计算当前固定容器的像素位置、像素尺寸信息
         return (
             <div id={id}
-                key={key}
                 style={{
                     ...style,
                     position: 'fixed',
@@ -72,31 +74,29 @@ const FefferyFixed = (props) => {
     return <></>;
 }
 
-
-// 定义参数或属性
 FefferyFixed.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 强制刷新用
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 组件子元素
+     * 组件型，内嵌元素
      */
     children: PropTypes.node,
 
     /**
-     * 自定义css字典
+     * 当前组件css样式
      */
     style: PropTypes.object,
 
     /**
-     * css类名
+     * 当前组件css类名
      */
     className: PropTypes.oneOfType([
         PropTypes.string,
@@ -104,28 +104,27 @@ FefferyFixed.propTypes = {
     ]),
 
     /**
-     * 必填，用于设置固定布局模式，可选的有'follow-image'（跟随object-fit为contain的全屏图片）
+     * 必填，设置固定布局模式，可选的有`'follow-image'`（跟随对应`css`属性`object-fit`为`contain`的全屏图片）
      */
     mode: PropTypes.oneOf(['follow-image']).isRequired,
 
-    // mode='follow-image'时的参数
     /**
-     * 跟随目标图片原始像素宽度
+     * 当`mode='follow-image'`时，设置跟随目标图片原始像素宽度
      */
     followImageWidth: PropTypes.number,
 
     /**
-     * 跟随目标图片原始像素高度
+     * 当`mode='follow-image'`时，设置跟随目标图片原始像素高度
      */
     followImageHeight: PropTypes.number,
 
     /**
-     * 以目标图片左上角为原点下，当前容器的左上角比例坐标，格式：(x_ratio, y_ratio)
+     * 当`mode='follow-image'`时，以目标图片左上角为原点，当前容器的左上角比例坐标，格式如`[x_ratio, y_ratio]`
      */
     followImageContainerPosition: PropTypes.arrayOf(PropTypes.number),
 
     /**
-     * 当前容器宽度、高度分别占目标图片对应宽度、高度的比例，格式：(width_ratio, height_ratio)
+     * 当`mode='follow-image'`时，当前容器宽度、高度分别占目标图片对应宽度、高度的比例，格式如`[width_ratio, height_ratio]`
      */
     followImageContainerSize: PropTypes.arrayOf(PropTypes.number),
 
@@ -151,7 +150,6 @@ FefferyFixed.propTypes = {
     setProps: PropTypes.func,
 };
 
-// 设置默认参数
 FefferyFixed.defaultProps = {
 }
 

@@ -5,39 +5,41 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyFixed(Component):
     """A FefferyFixed component.
-
+固定布局组件FefferyFixed
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - key (string; optional):
-    强制刷新用.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - children (a list of or a singular dash component, string or number; optional):
-    组件子元素.
+    组件型，内嵌元素.
 
 - style (dict; optional):
-    自定义css字典.
+    当前组件css样式.
 
 - className (string | dict; optional):
-    css类名.
+    当前组件css类名.
 
 - mode (a value equal to: 'follow-image'; required):
-    必填，用于设置固定布局模式，可选的有'follow-image'（跟随object-fit为contain的全屏图片）.
+    必填，设置固定布局模式，可选的有`'follow-image'`（跟随对应`css`属性`object-fit`为`contain`的全屏图片）.
 
 - followImageWidth (number; optional):
-    跟随目标图片原始像素宽度.
+    当`mode='follow-image'`时，设置跟随目标图片原始像素宽度.
 
 - followImageHeight (number; optional):
-    跟随目标图片原始像素高度.
+    当`mode='follow-image'`时，设置跟随目标图片原始像素高度.
 
 - followImageContainerPosition (list of numbers; optional):
-    以目标图片左上角为原点下，当前容器的左上角比例坐标，格式：(x_ratio, y_ratio).
+    当`mode='follow-image'`时，以目标图片左上角为原点，当前容器的左上角比例坐标，格式如`[x_ratio,
+    y_ratio]`.
 
 - followImageContainerSize (list of numbers; optional):
-    当前容器宽度、高度分别占目标图片对应宽度、高度的比例，格式：(width_ratio, height_ratio).
+    当`mode='follow-image'`时，当前容器宽度、高度分别占目标图片对应宽度、高度的比例，格式如`[width_ratio,
+    height_ratio]`.
 
 - loading_state (dict; optional)
 
