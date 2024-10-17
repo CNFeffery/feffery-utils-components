@@ -3,7 +3,9 @@ import ReactJkMusicPlayer from 'react-jinke-music-player'
 import 'react-jinke-music-player/assets/index.css'
 import { propTypes, defaultProps } from '../../components/player/FefferyMusicPlayer.react';
 
-// 定义音乐播放组件FefferyMusicPlayer
+/**
+ * 音乐播放组件FefferyMusicPlayer
+ */
 const FefferyMusicPlayer = (props) => {
     // 取得必要属性或参数
     const {
