@@ -1,7 +1,10 @@
+// react核心
 import { useEffect, useState, useRef } from 'react';
-import { useDraggable } from '@reactuses/core';
-import { useSize, useHover, useFocusWithin } from 'ahooks';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useDraggable } from '@reactuses/core';
+// 辅助库
+import { useSize, useHover, useFocusWithin } from 'ahooks';
 
 const DragLine = (props) => {
     // 局部容器模式
@@ -43,9 +46,10 @@ const DragLine = (props) => {
     );
 }
 
-// 定义可拖拽组件FefferyDraggable
+/**
+ * 可拖拽组件FefferyDraggable
+ */
 const FefferyDraggable = (props) => {
-    // 取得必要属性或参数
     const {
         id,
         key,
@@ -144,36 +148,35 @@ const FefferyDraggable = (props) => {
     );
 }
 
-// 定义参数或属性
 FefferyDraggable.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 强制刷新用
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 当前可拖拽组件css样式
-     */
-    style: PropTypes.object,
-
-    /**
-     * 当前可拖拽组件css类名
-     */
-    className: PropTypes.string,
-
-    /**
-     * 设置内部元素
+     * 组件型，内嵌元素
      */
     children: PropTypes.node,
 
     /**
+     * 当前组件css样式
+     */
+    style: PropTypes.object,
+
+    /**
+     * 当前组件css类名
+     */
+    className: PropTypes.string,
+
+    /**
      * 是否开启可拖拽
-     * 默认：true
+     * 默认值：`true`
      */
     draggable: PropTypes.bool,
 
@@ -189,23 +192,23 @@ FefferyDraggable.propTypes = {
 
     /**
      * 设置是否在拖拽时显示相关辅助线
-     * 默认：false
+     * 默认值：`false`
      */
     showDragLine: PropTypes.bool,
 
     /**
      * 设置拖拽辅助线颜色
-     * 默认：['#d9d9d9', '#8c8c8c']
+     * 默认值：`['#d9d9d9', '#8c8c8c']`
      */
     dragLineColors: PropTypes.arrayOf(PropTypes.string),
 
     /**
-     * 设置聚焦状态下的额外css样式
+     * 设置聚焦状态下的额外`css`样式
      */
     focusWithinStyle: PropTypes.object,
 
     /**
-     * 设置可拖拽范围边界容器对应的css选择器，设置后拖拽将基于相对-绝对布局被限制在边界容器内部
+     * 设置可拖拽范围边界容器对应的`css`选择器，设置后拖拽将基于*相对-绝对布局*被限制在边界容器内部
      */
     boundsSelector: PropTypes.string,
 
@@ -246,7 +249,6 @@ FefferyDraggable.propTypes = {
     setProps: PropTypes.func,
 };
 
-// 设置默认参数
 FefferyDraggable.defaultProps = {
     draggable: true,
     showDragLine: false,
