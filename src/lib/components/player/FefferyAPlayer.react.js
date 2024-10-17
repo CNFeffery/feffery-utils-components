@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferyAPlayer = React.lazy(() => import(/* webpackChunkName: "feffery_aplayer" */ '../../fragments/player/FefferyAPlayer.react'));
 
+/**
+ * 音频播放组件FefferyAPlayer
+ */
 const FefferyAPlayer = (props) => {
     return (
         <Suspense fallback={null}>
@@ -11,60 +14,69 @@ const FefferyAPlayer = (props) => {
     );
 }
 
-// 定义参数或属性，API参数参考https://github.com/MoePlayer/react-aplayer#props
 FefferyAPlayer.propTypes = {
     /**
-     * 播放器id 
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 设置播放器的css类名 
-     */
-    className: PropTypes.string,
-
-    /**
-     * 设置播放器的样式
-     */
-    style: PropTypes.object,
-
-    /**
-     * 设置播放器的key，强制刷新组件
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 是否开启吸底模式，默认为false
+     * 当前组件css样式
+     */
+    style: PropTypes.object,
+
+    /**
+     * 当前组件css类名，支持[动态css](/advanced-classname)
+     */
+    className: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ]),
+
+    /**
+     * 是否开启吸底模式
+     * 默认值：`false`
      */
     fixed: PropTypes.bool,
 
     /**
-     * 是否开启迷你模式，默认为false
+     * 是否开启迷你模式
+     * 默认值：`false`
      */
     mini: PropTypes.bool,
 
     /**
-     * 音频是否自动播放，默认为false
+     * 音频是否自动播放
+     * 默认值：`false`
      */
     autoplay: PropTypes.bool,
 
     /**
-     * 设置主题色，默认为'#b7daff'
+     * 设置主题色
+     * 默认值：`'#b7daff'`
      */
     theme: PropTypes.string,
 
     /**
-     * 设置音频循环播放, 可选值: 'all', 'one', 'none'，默认为'all'
+     * 设置音频循环播放, 可选值: `'all'`、`'one'`、`'none'`
+     * 默认值：`'all'`
      */
     loop: PropTypes.oneOf(['all', 'one', 'none']),
 
     /**
-     * 设置音频循环顺序, 可选值: 'list', 'random'，默认为'list'
+     * 设置音频循环顺序, 可选值: `'list'`、`'random'`
+     * 默认值：`'list'`
      */
     order: PropTypes.oneOf(['list', 'random']),
 
     /**
-     * 设置音频预加载，可选值: 'none', 'metadata', 'auto'，默认为'auto'
+     * 设置音频预加载，可选值: `'none'`、`'metadata'`、`'auto'`
+     * 默认值：`'auto'`
      */
     preload: PropTypes.oneOf(['none', 'metadata', 'auto']),
 
@@ -94,38 +106,41 @@ FefferyAPlayer.propTypes = {
          */
         cover: PropTypes.string,
         /**
-         * 设置音频lrc歌词
+         * 设置音频`lrc`歌词
          */
         lrc: PropTypes.string,
         /**
-         * 设置切换到此音频时的主题色，比上面的 theme 优先级高
+         * 设置切换到此音频时的主题色，比上面的`theme`优先级高
          */
         theme: PropTypes.string,
         /**
-         * 设置音频类型，可选的有'auto'、'hls'、'normal'，默认为'auto'
+         * 设置音频类型，可选的有`'auto'`、`'hls'`、`'normal'`
+         * 默认值：`'auto'`
          */
         type: PropTypes.oneOf(['auto', 'hls', 'normal'])
     })),
 
     /**
-     * 是否互斥，阻止多个播放器同时播放，当前播放器播放时暂停其他播放器，默认为true
+     * 是否互斥，阻止多个播放器同时播放，当前播放器播放时暂停其他播放器
+     * 默认值：`true`
      */
     mutex: PropTypes.bool,
 
     /**
-     * 有三种方式来给APlayer传递歌词，使用lrcType参数指明使用哪种方式，然后把歌词放到audio.lrc参数或者HTML里
-     * 1表示把歌词放到JS字符串里面，2表示把歌词放到HTML里面，3表示把歌词放到 LRC 文件里，音频播放时会加载对应的 LRC 文件
-     * audio.lrc支持下面格式的歌词：
-     * [mm:ss]APlayer[mm:ss.xx]is
-     * [mm:ss.xxx]amazing
-     * [mm:ss.xx][mm:ss.xx]APlayer
-     * [mm:ss.xx]<mm:ss.xx>is
-     * [mm:ss.xx]amazing[mm:ss.xx]APlayer
+     * 有三种方式来给`APlayer`传递歌词，使用`lrcType`参数指明使用哪种方式，然后把歌词放到`audio.lrc`参数或者`HTML`里
+     * `1`表示把歌词放到`JS`字符串里面，`2`表示把歌词放到`HTML`里面，`3`表示把歌词放到`LRC`文件里，音频播放时会加载对应的`LRC`文件
+     * `audio.lrc`支持下面格式的歌词：
+     * `[mm:ss]APlayer[mm:ss.xx]is`
+     * `[mm:ss.xxx]amazing`
+     * `[mm:ss.xx][mm:ss.xx]APlayer`
+     * `[mm:ss.xx]<mm:ss.xx>is`
+     * `[mm:ss.xx]amazing[mm:ss.xx]APlayer`
      */
     lrcType: PropTypes.oneOf([0, 1, 2, 3]),
 
     /**
-     * 列表是否默认折叠，默认为false
+     * 列表是否默认折叠
+     * 默认值：`false`
      */
     listFolded: PropTypes.bool,
 
@@ -135,24 +150,28 @@ FefferyAPlayer.propTypes = {
     listMaxHeight: PropTypes.number,
 
     /**
-     * 存储播放器设置的 localStorage key，默认为'aplayer-setting'
+     * 存储播放器设置的`localStorage key`
+     * 默认值：`'aplayer-setting'`
      */
     storageName: PropTypes.string,
 
     /**
-     * 播放音频，每次设置为true后执行完相应操作后会自动置为false
+     * 播放音频，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     play: PropTypes.bool,
 
     /**
-     * 暂停音频，每次设置为true后执行完相应操作后会自动置为false
+     * 暂停音频，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     pause: PropTypes.bool,
 
     /**
-     * 跳转到特定时间，时间的单位为秒，每次isSeek设置为true后执行完相应操作后会自动置为false
+     * 跳转到特定时间，时间的单位为秒，每次`isSeek`设置为`true`后执行完相应操作后会自动置为`false`
      */
     seek: PropTypes.exact({
+        /**
+         * 是否跳转到特定时间
+         */
         isSeek: PropTypes.bool,
         /**
          * 跳转到的时间
@@ -161,36 +180,39 @@ FefferyAPlayer.propTypes = {
     }),
 
     /**
-     * 切换到上一首音频，每次设置为true后执行完相应操作后会自动置为false
+     * 切换到上一首音频，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     skipBack: PropTypes.bool,
 
     /**
-     * 切换到下一首音频，每次设置为true后执行完相应操作后会自动置为false
+     * 切换到下一首音频，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     skipForward: PropTypes.bool,
 
     /**
-     * 显示歌词，每次设置为true后执行完相应操作后会自动置为false
+     * 显示歌词，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     showLrc: PropTypes.bool,
 
     /**
-     * 隐藏歌词，每次设置为true后执行完相应操作后会自动置为false
+     * 隐藏歌词，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     hideLrc: PropTypes.bool,
 
     /**
-     * 显示通知信息，每次isShow设置为true后执行完相应操作后会自动置为false
+     * 显示通知信息，每次`isShow`设置为`true`后执行完相应操作后会自动置为`false`
      */
     notice: PropTypes.exact({
+        /**
+         * 是否显示通知信息
+         */
         isShow: PropTypes.bool,
         /**
          * 通知内容
          */
         text: PropTypes.string,
         /**
-         * 通知持续时间，单位为毫秒，设置时间为 0 可以取消通知自动隐藏
+         * 通知持续时间，单位为毫秒，设置时间为`0`可以取消通知自动隐藏
          */
         time: PropTypes.number,
         /**
@@ -200,19 +222,22 @@ FefferyAPlayer.propTypes = {
     }),
 
     /**
-     * 显示播放列表，每次设置为true后执行完相应操作后会自动置为false
+     * 显示播放列表，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     showList: PropTypes.bool,
 
     /**
-     * 隐藏播放列表，每次设置为true后执行完相应操作后会自动置为false
+     * 隐藏播放列表，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     hideList: PropTypes.bool,
 
     /**
-     * 增加音频到播放列表，每次isAdd设置为true后执行完相应操作后会自动置为false
+     * 增加音频到播放列表，每次`isAdd`设置为`true`后执行完相应操作后会自动置为`false`
      */
     addList: PropTypes.exact({
+        /**
+         * 是否增加音频到播放列表
+         */
         isAdd: PropTypes.bool,
         /**
          * 音频信息
@@ -235,24 +260,28 @@ FefferyAPlayer.propTypes = {
              */
             cover: PropTypes.string,
             /**
-             * 设置音频lrc歌词
+             * 设置音频`lrc`歌词
              */
             lrc: PropTypes.string,
             /**
-             * 设置切换到此音频时的主题色，比上面的 theme 优先级高
+             * 设置切换到此音频时的主题色，比上面的`theme`优先级高
              */
             theme: PropTypes.string,
             /**
-             * 设置音频类型，可选的有'auto'、'hls'、'normal'，默认为'auto'
+             * 设置音频类型，可选的有`'auto'`、`'hls'`、`'normal'`
+             * 默认值：`'auto'`
              */
             type: PropTypes.oneOf(['auto', 'hls', 'normal'])
         })),
     }),
 
     /**
-     * 删除播放列表中的音频，每次isDelete设置为true后执行完相应操作后会自动置为false
+     * 删除播放列表中的音频，每次`isRemove`设置为`true`后执行完相应操作后会自动置为`false`
      */
     removeList: PropTypes.exact({
+        /**
+         * 是否删除播放列表中的音频
+         */
         isRemove: PropTypes.bool,
         /**
          * 音频索引
@@ -261,9 +290,12 @@ FefferyAPlayer.propTypes = {
     }),
 
     /**
-     * 切换播放列表，每次isSwitch设置为true后执行完相应操作后会自动置为false
+     * 切换播放列表，每次`isSwitch`设置为`true`后执行完相应操作后会自动置为`false`
      */
     switchList: PropTypes.exact({
+        /**
+         * 是否切换播放列表
+         */
         isSwitch: PropTypes.bool,
         /**
          * 音频索引
@@ -272,12 +304,12 @@ FefferyAPlayer.propTypes = {
     }),
 
     /**
-     * 清空播放列表，每次设置为true后执行完相应操作后会自动置为false
+     * 清空播放列表，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     clearList: PropTypes.bool,
 
     /**
-     * 销毁播放器，每次设置为true后执行完相应操作后会自动置为false
+     * 销毁播放器，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     destroy: PropTypes.bool,
 
