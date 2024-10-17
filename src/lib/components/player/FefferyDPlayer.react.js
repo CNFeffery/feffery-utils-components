@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferyDPlayer = React.lazy(() => import(/* webpackChunkName: "feffery_dplayer" */ '../../fragments/player/FefferyDPlayer.react'));
 
+/**
+ * 视频播放组件FefferyDPlayer
+ */
 const FefferyDPlayer = (props) => {
     return (
         <Suspense fallback={null}>
@@ -11,75 +14,87 @@ const FefferyDPlayer = (props) => {
     );
 }
 
-// 定义参数或属性，API参数参考https://dplayer.diygod.dev/zh/guide.html#参数
 FefferyDPlayer.propTypes = {
     /**
-     * 播放器id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 设置播放器的css类名
-     */
-    className: PropTypes.string,
-
-    /**
-     * 设置播放器的样式
-     */
-    style: PropTypes.object,
-
-    /**
-     * 设置播放器的key，强制刷新组件
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 是否开启开启直播模式，默认为false
+     * 当前组件css样式
+     */
+    style: PropTypes.object,
+
+    /**
+     * 当前组件css类名，支持[动态css](/advanced-classname)
+     */
+    className: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ]),
+
+    /**
+     * 是否开启开启直播模式
+     * 默认值：`false`
      */
     live: PropTypes.bool,
 
     /**
-     * 视频是否自动播放，默认为false
+     * 视频是否自动播放
+     * 默认值：`false`
      */
     autoplay: PropTypes.bool,
 
     /**
-     * 设置主题色，默认为'#b7daff'
+     * 设置主题色
+     * 默认值：`'#b7daff'`
      */
     theme: PropTypes.string,
 
     /**
-     * 视频是否循环播放, 默认为false
+     * 视频是否循环播放
+     * 默认值：`false`
      */
     loop: PropTypes.bool,
 
     /**
-     * 设置语言， 可选值: 'en', 'zh-cn', 'zh-tw'，默认为'zh-cn'
+     * 设置语言，可选值: `'en'`、`'zh-cn'`、`'zh-tw'`
+     * 默认值：`'zh-cn'`
      */
     lang: PropTypes.oneOf(['en', 'zh-cn', 'zh-tw']),
 
     /**
-     * 是否开启截图，如果开启，视频和视频封面需要允许跨域， 默认为false
+     * 是否开启截图，如果开启，视频和视频封面需要允许跨域
+     * 默认值：`false`
      */
     screenshot: PropTypes.bool,
 
     /**
-     * 在 Safari 中是否开启 AirPlay，默认false
+     * 在`Safari`中是否开启`AirPlay`
+     * 默认值：`false`
      */
     airplay: PropTypes.bool,
 
     /**
-     * 是否开启热键，支持快进、快退、音量控制、播放暂停， 默认为true
+     * 是否开启热键，支持快进、快退、音量控制、播放暂停
+     * 默认值：`true`
      */
     hotkey: PropTypes.bool,
 
     /**
-     * 是否启用Chromecast，默认false
+     * 是否启用`Chromecast`
+     * 默认值：`false`
      */
     chromecast: PropTypes.bool,
 
     /**
-     * 设置音频预加载，可选值: 'none', 'metadata', 'auto'，默认为'auto'
+     * 设置音频预加载，可选值: `'none'`、`'metadata'`、`'auto'`
+     * 默认值：`'auto'`
      */
     preload: PropTypes.oneOf(['none', 'metadata', 'auto']),
 
@@ -94,19 +109,20 @@ FefferyDPlayer.propTypes = {
     playbackSpeed: PropTypes.arrayOf(PropTypes.number),
 
     /**
-     * 在左上角展示一个 logo，你可以通过 CSS 调整它的大小和位置
+     * 在左上角展示一个`logo`，你可以通过`CSS`调整它的大小和位置
      */
     logo: PropTypes.string,
 
     /**
-     * 是否阻止点击播放器时候自动切换播放/暂停，默认为false
+     * 是否阻止点击播放器时候自动切换播放/暂停
+     * 默认值：`false`
      */
     preventClickToggle: PropTypes.bool,
 
     /**
      * 设置视频信息
      */
-    video: PropTypes.exact({
+    video: PropTypes.shape({
         /**
          * 设置清晰度切换
          */
@@ -120,7 +136,8 @@ FefferyDPlayer.propTypes = {
              */
             url: PropTypes.string,
             /**
-             * 设置视频类型，可选的有'auto'、'hls'、'flv'、 'dash'、'normal'，默认为'auto'
+             * 设置视频类型，可选的有`'auto'`、`'hls'`、`'flv'`、`'dash'`、`'normal'`
+             * 默认值：`'auto'`
              */
             type: PropTypes.oneOf(['auto', 'hls', 'flv', 'dash', 'normal'])
         })),
@@ -141,13 +158,10 @@ FefferyDPlayer.propTypes = {
          */
         thumbnails: PropTypes.string,
         /**
-         * 设置视频类型，可选的有'auto'、'hls'、'flv'、 'dash'、'normal'，默认为'auto'
+         * 设置视频类型，可选的有`'auto'`、`'hls'`、`'flv'`、`'dash'`、`'normal'`
+         * 默认值：`'auto'`
          */
         type: PropTypes.oneOf(['auto', 'hls', 'flv', 'dash', 'normal']),
-        /**
-         * 自定义视频类型，此参数无需设置，会根据设置的type参数自动接管
-         */
-        customType: PropTypes.object
     }),
 
     /**
@@ -155,7 +169,8 @@ FefferyDPlayer.propTypes = {
      */
     subtitle: PropTypes.exact({
         /**
-         * 是否开启外挂字幕，默认为false
+         * 是否开启外挂字幕
+         * 默认值：`false`
          */
         isOpen: PropTypes.bool,
         /**
@@ -163,7 +178,8 @@ FefferyDPlayer.propTypes = {
          */
         url: PropTypes.string,
         /**
-         * 设置字幕类型，可选的有'webvtt'、'ass'，默认为'webvtt'，目前只支持 webvtt
+         * 设置字幕类型，可选的有`'webvtt'`、`'ass'`，目前只支持`'webvtt'`
+         * 默认值：`'webvtt'`
          */
         type: PropTypes.oneOf(['webvtt', 'ass']),
         /**
@@ -171,7 +187,7 @@ FefferyDPlayer.propTypes = {
          */
         fontSize: PropTypes.string,
         /**
-         * 设置字幕距离播放器底部的距离，取值形如: '10px' '10%'
+         * 设置字幕距离播放器底部的距离，取值形如: `'10px'`、`'10%'`
          */
         bottom: PropTypes.string,
         /**
@@ -185,11 +201,12 @@ FefferyDPlayer.propTypes = {
      */
     danmaku: PropTypes.exact({
         /**
-         * 是否开启弹幕，默认为false
+         * 是否开启弹幕
+         * 默认值：`false`
          */
         isOpen: PropTypes.bool,
         /**
-         * 设置弹幕弹幕池id，必须唯一，设置弹幕时必选
+         * 设置弹幕弹幕池`id`，必须唯一，设置弹幕时必选
          */
         id: PropTypes.string,
         /**
@@ -197,7 +214,7 @@ FefferyDPlayer.propTypes = {
          */
         api: PropTypes.string,
         /**
-         * 设置弹幕后端验证token
+         * 设置弹幕后端验证`token`
          */
         token: PropTypes.string,
         /**
@@ -213,15 +230,17 @@ FefferyDPlayer.propTypes = {
          */
         user: PropTypes.string,
         /**
-         * 设置弹幕距离播放器底部的距离，防止遮挡字幕，取值形如: '10px' '10%'
+         * 设置弹幕距离播放器底部的距离，防止遮挡字幕，取值形如: `'10px'`、`'10%'`
          */
         bottom: PropTypes.string,
         /**
-         * 设置海量弹幕模式，即使重叠也展示全部弹幕，请注意播放器会记忆用户设置，用户手动设置后即失效，默认为false
+         * 设置海量弹幕模式，即使重叠也展示全部弹幕，请注意播放器会记忆用户设置，用户手动设置后即失效
+         * 默认值：`false`
          */
         unlimited: PropTypes.bool,
         /**
-         * 设置弹幕速度倍率，越大速度越快，默认为1
+         * 设置弹幕速度倍率，越大速度越快
+         * 默认值：`1`
          */
         speedRate: PropTypes.number
     }),
@@ -255,24 +274,28 @@ FefferyDPlayer.propTypes = {
     })),
 
     /**
-     * 是否互斥，阻止多个播放器同时播放，当前播放器播放时暂停其他播放器，默认为true
+     * 是否互斥，阻止多个播放器同时播放，当前播放器播放时暂停其他播放器
+     * 默认值：`true`
      */
     mutex: PropTypes.bool,
 
     /**
-     * 播放视频，每次设置为true后执行完相应操作后会自动置为false
+     * 播放视频，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     play: PropTypes.bool,
 
     /**
-     * 暂停视频，每次设置为true后执行完相应操作后会自动置为false
+     * 暂停视频，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     pause: PropTypes.bool,
 
     /**
-     * 跳转到特定时间，时间的单位为秒，每次isSeek设置为true后执行完相应操作后会自动置为false
+     * 跳转到特定时间，时间的单位为秒，每次`isSeek`设置为`true`后执行完相应操作后会自动置为`false`
      */
     seek: PropTypes.exact({
+        /**
+         * 跳转到特定时间
+         */
         isSeek: PropTypes.bool,
         /**
          * 跳转到的时间
@@ -281,16 +304,19 @@ FefferyDPlayer.propTypes = {
     }),
 
     /**
-     * 显示通知信息，每次isShow设置为true后执行完相应操作后会自动置为false
+     * 显示通知信息，每次`isShow`设置为`true`后执行完相应操作后会自动置为`false`
      */
     notice: PropTypes.exact({
+        /**
+         * 是否显示通知信息
+         */
         isShow: PropTypes.bool,
         /**
          * 通知内容
          */
         text: PropTypes.string,
         /**
-         * 通知持续时间，单位为毫秒，设置时间为 0 可以取消通知自动隐藏
+         * 通知持续时间，单位为毫秒，设置时间为`0`可以取消通知自动隐藏
          */
         time: PropTypes.number,
         /**
@@ -300,9 +326,12 @@ FefferyDPlayer.propTypes = {
     }),
 
     /**
-     * 设置视频速度，每次isSpeed设置为true后执行完相应操作后会自动置为false
+     * 设置视频速度，每次`isSpeed`设置为`true`后执行完相应操作后会自动置为`false`
      */
     speed: PropTypes.exact({
+        /**
+         * 是否设置视频速度
+         */
         isSpeed: PropTypes.bool,
         /**
          * 视频速度
@@ -311,12 +340,15 @@ FefferyDPlayer.propTypes = {
     }),
 
     /**
-     * 设置音量，每次isVolume设置为true后执行完相应操作后会自动置为false
+     * 设置音量，每次`isVolume`设置为`true`后执行完相应操作后会自动置为`false`
      */
     volumeSet: PropTypes.exact({
+        /**
+         * 是否设置音量
+         */
         isVolume: PropTypes.bool,
         /**
-         * 音量，取值范围为0-1
+         * 音量，取值范围为`0-1`
          */
         percentage: PropTypes.number,
         /**
@@ -330,38 +362,45 @@ FefferyDPlayer.propTypes = {
     }),
 
     /**
-     * 设置全屏，每次isFullScreen设置为true后执行完相应操作后会自动置为false
+     * 设置全屏，每次`isFullScreen`设置为`true`后执行完相应操作后会自动置为`false`
      */
     fullScreen: PropTypes.exact({
         /**
-         * 是否全屏，每次设置为true后执行完相应操作后会自动置为false
+         * 是否设置全屏
          */
         isFullScreen: PropTypes.bool,
         /**
-         * 全屏的类型，可选的有'web'、'browser'，默认为'browser'
+         * 全屏的类型，可选的有`'web'`、`'browser'`
+         * 默认值：`'browser'`
          */
         type: PropTypes.oneOf(['web', 'browser']),
         /**
-         * 全屏操作类型，可选的有'request'、'cancel'
+         * 全屏操作类型，可选的有`'request'`、`'cancel'`
          */
         operate: PropTypes.oneOf(['request', 'cancel'])
     }),
 
     /**
-     * 切换清晰度，每次isSwitch设置为true后执行完相应操作后会自动置为false
+     * 切换清晰度，每次`isSwitch`设置为`true`后执行完相应操作后会自动置为`false`
      */
     switchQuality: PropTypes.exact({
+        /**
+         * 是否切换清晰度
+         */
         isSwitch: PropTypes.bool,
         /**
-         * 切换的清晰度index
+         * 切换的清晰度`index`
          */
         index: PropTypes.number
     }),
 
     /**
-     * 切换视频，每次isSwitch设置为true后执行完相应操作后会自动置为false
+     * 切换视频，每次`isSwitch`设置为`true`后执行完相应操作后会自动置为`false`
      */
     switchVideo: PropTypes.exact({
+        /**
+         * 是否切换视频
+         */
         isSwitch: PropTypes.bool,
         /**
          * 切换的视频信息
@@ -380,7 +419,8 @@ FefferyDPlayer.propTypes = {
                  */
                 url: PropTypes.string,
                 /**
-                 * 设置视频类型，可选的有'auto'、'hls'、'flv'、 'dash'、'normal'，默认为'auto'
+                 * 设置视频类型，可选的有`'auto'`、`'hls'`、`'flv'`、`'dash'`、`'normal'`
+                 * 默认值：`'auto'`
                  */
                 type: PropTypes.oneOf(['auto', 'hls', 'flv', 'dash', 'normal'])
             })),
@@ -401,7 +441,8 @@ FefferyDPlayer.propTypes = {
              */
             thumbnails: PropTypes.string,
             /**
-             * 设置视频类型，可选的有'auto'、'hls'、'flv'、 'dash'、'normal'，默认为'auto'
+             * 设置视频类型，可选的有`'auto'`、`'hls'`、`'flv'`、`'dash'`、`'normal'`
+             * 默认值：`'auto'`
              */
             type: PropTypes.oneOf(['auto', 'hls', 'flv', 'dash', 'normal']),
             /**
@@ -414,11 +455,12 @@ FefferyDPlayer.propTypes = {
          */
         danmaku: PropTypes.exact({
             /**
-             * 是否开启弹幕，默认为false
+             * 是否开启弹幕
+             * 默认值：`false`
              */
             isOpen: PropTypes.bool,
             /**
-             * 设置弹幕弹幕池id，必须唯一，设置弹幕时必选
+             * 设置弹幕弹幕池`id`，必须唯一，设置弹幕时必选
              */
             id: PropTypes.string,
             /**
@@ -426,7 +468,7 @@ FefferyDPlayer.propTypes = {
              */
             api: PropTypes.string,
             /**
-             * 设置弹幕后端验证token
+             * 设置弹幕后端验证`token`
              */
             token: PropTypes.string,
             /**
@@ -442,24 +484,29 @@ FefferyDPlayer.propTypes = {
              */
             user: PropTypes.string,
             /**
-             * 设置弹幕距离播放器底部的距离，防止遮挡字幕，取值形如: '10px' '10%'
+             * 设置弹幕距离播放器底部的距离，防止遮挡字幕，取值形如: `'10px'`、`'10%'`
              */
             bottom: PropTypes.string,
             /**
-             * 设置海量弹幕模式，即使重叠也展示全部弹幕，请注意播放器会记忆用户设置，用户手动设置后即失效，默认为false
+             * 设置海量弹幕模式，即使重叠也展示全部弹幕，请注意播放器会记忆用户设置，用户手动设置后即失效
+             * 默认值：`false`
              */
             unlimited: PropTypes.bool,
             /**
-             * 设置弹幕速度倍率，越大速度越快，默认为1
+             * 设置弹幕速度倍率，越大速度越快
+             * 默认值：`1`
              */
             speedRate: PropTypes.number
         })
     }),
 
     /**
-     * 发送弹幕，每次isSend设置为true后执行完相应操作后会自动置为false
+     * 发送弹幕，每次`isSend`设置为`true`后执行完相应操作后会自动置为`false`
      */
     sendDanmaku: PropTypes.exact({
+        /**
+         * 是否发送弹幕
+         */
         isSend: PropTypes.bool,
         /**
          * 发送的弹幕内容
@@ -481,9 +528,12 @@ FefferyDPlayer.propTypes = {
     }),
 
     /**
-     * 绘制弹幕，每次isDraw设置为true后执行完相应操作后会自动置为false
+     * 绘制弹幕，每次`isDraw`设置为`true`后执行完相应操作后会自动置为`false`
      */
     drawDanmaku: PropTypes.exact({
+        /**
+         * 是否绘制弹幕
+         */
         isDraw: PropTypes.bool,
         /**
          * 绘制的弹幕内容
@@ -505,33 +555,36 @@ FefferyDPlayer.propTypes = {
     }),
 
     /**
-     * 设置弹幕透明度，每次isOpacity设置为true后执行完相应操作后会自动置为false
+     * 设置弹幕透明度，每次`isOpacity`设置为`true`后执行完相应操作后会自动置为`false`
      */
     opacityDanmaku: PropTypes.exact({
+        /**
+         * 是否设置弹幕透明度
+         */
         isOpacity: PropTypes.bool,
         /**
-         * 弹幕透明度，取值范围为0-1
+         * 弹幕透明度，取值范围为`0-1`
          */
         opacity: PropTypes.number,
     }),
 
     /**
-     * 清空弹幕，每次设置为true后执行完相应操作后会自动置为false
+     * 清空弹幕，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     clearDanmaku: PropTypes.bool,
 
     /**
-     * 隐藏弹幕，每次设置为true后执行完相应操作后会自动置为false
+     * 隐藏弹幕，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     hideDanmaku: PropTypes.bool,
 
     /**
-     * 显示弹幕，每次设置为true后执行完相应操作后会自动置为false
+     * 显示弹幕，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     showDanmaku: PropTypes.bool,
 
     /**
-     * 销毁播放器，每次设置为true后执行完相应操作后会自动置为false
+     * 销毁播放器，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     destroy: PropTypes.bool,
 
@@ -584,6 +637,9 @@ FefferyDPlayer.propTypes = {
      * 监听参数，发送弹幕的次数和信息
      */
     sendDanmakuCallback: PropTypes.exact({
+        /**
+         * 发送弹幕的次数
+         */
         sendDanmakuClicks: PropTypes.number,
         /**
          * 发送的弹幕信息
@@ -605,6 +661,9 @@ FefferyDPlayer.propTypes = {
      * 监听参数，设置弹幕透明度的次数和透明度
      */
     opacityDanmakuCallback: PropTypes.exact({
+        /**
+         * 设置弹幕透明度的次数
+         */
         opacityDanmakuClicks: PropTypes.number,
         /**
          * 弹幕透明度，取值范围为0-1

@@ -6,7 +6,9 @@ import { isString } from 'lodash';
 import useCss from '../../hooks/useCss';
 import { propTypes, defaultProps } from '../../components/player/FefferyAPlayer.react';
 
-// 定义音乐播放组件FefferyAPlayer
+/**
+ * 音频播放组件FefferyAPlayer
+ */
 const FefferyAPlayer = (props) => {
     // 取得必要属性或参数
     const {
