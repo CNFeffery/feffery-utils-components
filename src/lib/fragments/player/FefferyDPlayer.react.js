@@ -8,7 +8,9 @@ import { isString } from 'lodash';
 import useCss from '../../hooks/useCss';
 import { propTypes, defaultProps } from '../../components/player/FefferyDPlayer.react';
 
-// 定义视频播放组件FefferyDPlayer
+/**
+ * 视频播放组件FefferyDPlayer
+ */
 const FefferyDPlayer = (props) => {
     // 取得必要属性或参数
     const {
