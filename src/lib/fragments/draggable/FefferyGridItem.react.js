@@ -1,9 +1,10 @@
 import React from 'react';
 import { propTypes, defaultProps } from '../../components/draggable/FefferyGridItem.react';
 
-// 定义可拖拽网格项组件FefferyGridItem
+/**
+ * 可拖拽网格项组件FefferyGridItem
+ */
 const FefferyGridItem = (props) => {
-    // 取得必要属性或参数
     const {
         id,
         children,

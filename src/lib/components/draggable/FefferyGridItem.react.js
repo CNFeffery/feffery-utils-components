@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferyGridItem = React.lazy(() => import(/* webpackChunkName: "feffery_grid" */ '../../fragments/draggable/FefferyGridItem.react'));
 
+/**
+ * 可拖拽网格项组件FefferyGridItem
+ */
 const FefferyGridItem = (props) => {
     return (
         <Suspense fallback={null}>
@@ -11,32 +14,31 @@ const FefferyGridItem = (props) => {
     );
 }
 
-// 定义参数或属性
 FefferyGridItem.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 设置要嵌套的子元素
+     * 用于为当前可拖拽网格项设置唯一标识`key`值
+     */
+    key: PropTypes.string,
+
+    /**
+     * 组件型，内嵌元素
      */
     children: PropTypes.node,
 
     /**
-     * css样式
+     * 当前组件css样式
      */
     style: PropTypes.object,
 
     /**
-     * css类名
+     * 当前组件css类名
      */
     className: PropTypes.string,
-
-    /**
-     * 用于为当前可拖拽网格项设置唯一的标识key值
-     */
-    key: PropTypes.string,
 
     loading_state: PropTypes.shape({
         /**
@@ -60,7 +62,6 @@ FefferyGridItem.propTypes = {
     setProps: PropTypes.func,
 };
 
-// 设置默认参数
 FefferyGridItem.defaultProps = {
 }
 
