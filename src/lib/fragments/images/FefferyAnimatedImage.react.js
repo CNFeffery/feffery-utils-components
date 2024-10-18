@@ -6,7 +6,6 @@ import { propTypes, defaultProps } from '../../components/images/FefferyAnimated
  * 动图组件FefferyAnimatedImage
  */
 const FefferyAnimatedImage = (props) => {
-    // 取得必要属性或参数
     let {
         id,
         className,
