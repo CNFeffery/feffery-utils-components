@@ -1,5 +1,6 @@
+// react核心
 import React, { useEffect } from "react";
-import { propTypes, defaultProps } from '../../components/draggable/FefferySortable.react';
+// 组件核心
 import {
     DndContext,
     useSensors,
@@ -15,16 +16,19 @@ import {
     horizontalListSortingStrategy
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+// 辅助库
 import { HolderOutlined, MenuOutlined, DragOutlined } from "@ant-design/icons";
-import useCss from "../../hooks/useCss";
 import { isString, isEqual } from 'lodash';
+// 自定义hooks
+import useCss from "../../hooks/useCss";
+// 参数类型
+import { propTypes, defaultProps } from '../../components/draggable/FefferySortable.react';
 
 const type2icon = new Map([
     ['holder', HolderOutlined],
     ['menu', MenuOutlined],
     ['drag', DragOutlined],
 ])
-
 
 const SortableItem = React.memo(
     ({
@@ -213,9 +217,10 @@ const SortableItem = React.memo(
     }
 )
 
-// 定义排序列表组件FefferySortable
+/**
+ * 排序列表组件FefferySortable
+ */
 const FefferySortable = (props) => {
-
     const {
         id,
         style,

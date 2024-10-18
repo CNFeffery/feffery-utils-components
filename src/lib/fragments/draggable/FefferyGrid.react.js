@@ -1,10 +1,14 @@
+// react核心
 import React from 'react';
+// 组件核心
 import { Responsive, WidthProvider } from "react-grid-layout";
-import { propTypes, defaultProps } from '../../components/draggable/FefferyGrid.react';
+// 辅助库
 import { omit } from 'ramda';
 import { isNumber, isEmpty, cloneDeep } from 'lodash';
 import { parseChildrenToArray, resolveChildProps } from '../../components/utils';
 import FefferyStyle from '../../components/styleControl/FefferyStyle.react';
+// 参数类型
+import { propTypes, defaultProps } from '../../components/draggable/FefferyGrid.react';
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 

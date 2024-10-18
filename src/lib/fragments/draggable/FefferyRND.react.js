@@ -1,7 +1,11 @@
+// react核心
 import { useEffect, useState } from 'react';
+// 组件核心
 import { Rnd } from 'react-rnd';
-import { propTypes, defaultProps } from '../../components/draggable/FefferyRND.react';
+// 辅助库
 import { clone } from 'lodash';
+// 参数类型
+import { propTypes, defaultProps } from '../../components/draggable/FefferyRND.react';
 
 /**
  * 尺寸可调可拖拽组件FefferyRND
