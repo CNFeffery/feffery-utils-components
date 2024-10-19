@@ -5,30 +5,30 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyImageCropper(Component):
     """A FefferyImageCropper component.
-
+图片裁剪组件FefferyImageCropper
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
-
-- className (string | dict; optional):
-    css类名.
-
-- style (dict; optional):
-    自定义css字典.
+    组件唯一id.
 
 - key (string; optional):
-    辅助刷新用唯一标识key值.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
+
+- style (dict; optional):
+    当前组件css样式.
+
+- className (string | dict; optional):
+    当前组件css类名.
 
 - croppedImageData (string; optional):
-    裁剪后的图片数据，base64格式.
+    裁剪后的图片数据，`base64`格式.
 
 - src (string; optional):
-    要裁剪的图片的地址.
+    裁切目标图片地址.
 
 - alt (string; default 'picture'):
-    图片占位名称，默认为'picture'.
+    图片占位名称  默认值：`'picture'`.
 
 - crossOrigin (string; optional):
     图片跨域属性.
@@ -38,17 +38,17 @@ Keyword arguments:
     如果将viewMode设置为0，裁剪框可以超出画布的范围，而设置为1、2或3的值将限制裁剪框的大小与画布一致。
     viewMode为2或3还会额外限制画布适应容器的大小，当画布和容器的比例相同时，2和3没有区别。  0：无限制。
     1：限制裁剪框不超过画布的大小。  2：限制最小画布尺寸适应容器。如果画布和容器的比例不同，最小画布将在一个维度上被额外空间包围。
-    3：限制最小画布尺寸填满容器。如果画布和容器的比例不同，容器将无法在一个维度上容纳整个画布。  默认为0.
+    3：限制最小画布尺寸填满容器。如果画布和容器的比例不同，容器将无法在一个维度上容纳整个画布。  默认值：`0`.
 
 - dragMode (a value equal to: 'crop', 'move', 'none'; default 'crop'):
     设置裁剪器的拖动模式。  'crop'：创建一个新的裁剪框。  'move'：移动画布。  'none'：无操作。
-    默认为'crop'.
+    默认值：`'crop'`.
 
 - initialAspectRatio (number; optional):
-    设置裁剪框的初始宽高比，默认与画布宽高比相同，仅在aspectRatio未设置时有效.
+    设置裁剪框的初始宽高比，默认与画布宽高比相同，仅在`aspectRatio`未设置时有效.
 
 - aspectRatio (number; optional):
-    设置裁剪框的固定宽高比。 默认情况下，裁剪框具有自由比例.
+    设置裁剪框的固定宽高比，默认情况下，裁剪框具有自由比例.
 
 - data (dict; optional):
     设置初始化时要传给setData方法的裁剪的数据，仅当autoCrop选项设置为True时才有效.
@@ -59,10 +59,10 @@ Keyword arguments:
     如果预览无法正确显示，请将预览容器设置为overflow:hidden样式。.
 
 - responsive (boolean; default True):
-    调整窗口大小时s是否重新渲染裁剪器，默认为True.
+    调整窗口大小时是否重新渲染裁剪器  默认值：`True`.
 
 - restore (boolean; default True):
-    调整窗口大小后是否恢复裁剪区域，默认为True.
+    调整窗口大小后是否恢复裁剪区域  默认值：`True`.
 
 - checkCrossOrigin (boolean; default True):
     检查当前图片是否为跨域图片。
@@ -71,91 +71,91 @@ Keyword arguments:
     但是读取图片数据以进行方向检查的请求（XMLHttpRequest）将需要时间戳来破坏缓存以避免浏览器缓存错误。
     您可以将checkOrientation选项设置为False以取消此请求。
     如果图片的crossOrigin属性值为'use-credentials'，那么当通过XMLHttpRequest读取图片数据时，withCredentials属性将设置为True。
-    默认为True.
+    默认值：`True`.
 
 - checkOrientation (boolean; default True):
     检查当前图片的Exif方向信息。请注意，只有JPEG图片可能包含Exif方向信息。
     具体来说，读取旋转或翻转图片的方向值，然后用1（默认值）覆盖方向值，以避免iOS设备上的某些问题。
     需要同时将可旋转和可缩放选项设置为 True。  注意：不要总是相信这一点，因为某些 JPG
-    图片可能具有不正确（非标准）的方向值，需要类型化数组支持（IE 10+）。  默认为True.
+    图片可能具有不正确（非标准）的方向值，需要类型化数组支持（IE 10+）。  默认值：`True`.
 
 - modal (boolean; default True):
-    是否在图片上方和裁剪框下方显示黑色模态，默认为True.
+    是否在图片上方和裁剪框下方显示黑色模态  默认值：`True`.
 
 - guides (boolean; default True):
-    是否显示裁剪框上方的虚线，默认为True.
+    是否显示裁剪框上方的虚线  默认值：`True`.
 
 - center (boolean; default True):
-    是否在裁剪框上方显示中心指示器，默认为True.
+    是否在裁剪框上方显示中心指示器  默认值：`True`.
 
 - highlight (boolean; default True):
-    是否在裁剪框上方显示白色模态（突出显示裁剪框），默认为True.
+    是否在裁剪框上方显示白色模态（突出显示裁剪框）  默认值：`True`.
 
 - background (boolean; default True):
-    是否显示容器的网格背景，默认为True.
+    是否显示容器的网格背景  默认值：`True`.
 
 - autoCrop (boolean; default True):
-    是否在初始化时自动裁剪图片，默认为True.
+    是否在初始化时自动裁剪图片  默认值：`True`.
 
 - autoCropArea (number; default 0.8):
-    设置自动裁剪区域大小，为0到1之间的值，默认为0.8.
+    设置自动裁剪区域大小，为0到1之间的值  默认值：`0.8`.
 
 - movable (boolean; default True):
-    是否可以移动图片，默认为True.
+    是否可以移动图片  默认值：`True`.
 
 - rotatable (boolean; default True):
-    是否可以旋转图片，默认为True.
+    是否可以旋转图片  默认值：`True`.
 
 - scalable (boolean; default True):
-    是否可以缩放图片（居中缩放），默认为True.
+    是否可以缩放图片（居中缩放）  默认值：`True`.
 
 - zoomable (boolean; default True):
-    是否可以缩放图片（相对于左上角），默认为True.
+    是否可以缩放图片（相对于左上角）  默认值：`True`.
 
 - zoomOnTouch (boolean; default True):
-    是否可以通过拖动触摸来缩放图片，默认为True.
+    是否可以通过拖动触摸来缩放图片  默认值：`True`.
 
 - zoomOnWheel (boolean; default True):
-    是否可以通过鼠标滚轮缩放图片，默认为True.
+    是否可以通过鼠标滚轮缩放图片  默认值：`True`.
 
 - wheelZoomRatio (number; default 0.1):
-    设置通过鼠标滚轮缩放图片时的缩放比例，默认为0.1.
+    设置通过鼠标滚轮缩放图片时的缩放比例  默认值：`0.1`.
 
 - cropBoxMovable (boolean; default True):
-    是否可以通过拖动来移动裁剪框，默认为True.
+    是否可以通过拖动来移动裁剪框  默认值：`True`.
 
 - cropBoxResizable (boolean; default True):
-    是否可以通过拖动来调整裁剪框的大小，默认为True.
+    是否可以通过拖动来调整裁剪框的大小  默认值：`True`.
 
 - toggleDragModeOnDblclick (boolean; default True):
     单击裁剪器两次时，是否可以在'crop'和'move'之间切换拖动模式，需要支持dbclick事件，需要默认为True.
 
 - minContainerWidth (number; default 200):
-    设置容器的最小宽度，默认为200.
+    设置容器的最小像素宽度  默认值：`200`.
 
 - minContainerHeight (number; default 100):
-    设置容器的最小高度，默认为100.
+    设置容器的最小像素高度  默认值：`100`.
 
 - minCanvasWidth (number; default 0):
-    设置画布的最小宽度，默认为0.
+    设置画布的最小宽度\  默认值：`0`.
 
 - minCanvasHeight (number; default 0):
-    设置画布的最小高度，默认为0.
+    设置画布的最小高度  默认值：`0`.
 
 - minCropBoxWidth (number; default 0):
-    设置裁剪框的最小宽度（这个尺寸是相对于页面的，而不是图片的），默认为0.
+    设置裁剪框的最小宽度（这个尺寸是相对于页面的，而不是图片的）  默认值：`0`.
 
 - minCropBoxHeight (number; default 0):
-    设置裁剪框的最小高度（这个尺寸是相对于页面的，而不是图片的），默认为0.
+    设置裁剪框的最小高度（这个尺寸是相对于页面的，而不是图片的）  默认值：`0`.
 
 - reset (boolean; default False):
-    将图片和裁剪框重置为初始状态，每次设置为True后执行完相应操作后会自动置为False.
+    将图片和裁剪框重置为初始状态，每次设置为`True`后执行完相应操作后会自动置为`False`.
 
 - clear (boolean; default False):
-    清除裁剪框，每次设置为True后执行完相应操作后会自动置为False.
+    清除裁剪框，每次设置为`True`后执行完相应操作后会自动置为`False`.
 
 - replace (dict; default {    isReplace: False,    hasSameSize: False}):
-    替换图片的src并重新构建裁剪器，每次isReplace设置为True后执行完相应操作后会自动置为False.
+    替换图片的`src`并重新构建裁剪器，每次`isReplace`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `replace` is a dict with keys:
 
@@ -169,16 +169,16 @@ Keyword arguments:
         如果新图片的大小与旧图片相同，则它不会重建裁剪器，而只会更新所有相关图片的url.
 
 - enable (boolean; default False):
-    启用裁剪器，每次设置为True后执行完相应操作后会自动置为False.
+    启用裁剪器，每次设置为`True`后执行完相应操作后会自动置为`False`.
 
 - disable (boolean; default False):
-    禁用裁剪器，每次设置为True后执行完相应操作后会自动置为False.
+    禁用裁剪器，每次设置为`True`后执行完相应操作后会自动置为`False`.
 
 - destroy (boolean; default False):
-    销毁裁剪器并从图片中删除实例，每次设置为True后执行完相应操作后会自动置为False.
+    销毁裁剪器并从图片中删除实例，每次设置为`True`后执行完相应操作后会自动置为`False`.
 
 - move (dict; default {    isMove: False}):
-    使用相对偏移量移动画布，每次isMove设置为True后执行完相应操作后会自动置为False.
+    使用相对偏移量移动画布，每次`isMove`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `move` is a dict with keys:
 
@@ -186,13 +186,13 @@ Keyword arguments:
         是否启用.
 
     - offsetX (number; optional):
-        在水平方向上移动大小 （px）.
+        在水平方向上移动像素大小.
 
     - offsetY (number; optional):
-        在垂直方向上移动大小 （px），如果不存在，则其默认值为offsetX.
+        在垂直方向上移动像素大小，如果不存在，则其默认值为`offsetX`.
 
 - moveTo (dict; default {    isMoveTo: False}):
-    将画布移动到绝对点，每次isMoveTo设置为True后执行完相应操作后会自动置为False.
+    将画布移动到绝对点，每次`isMoveTo`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `moveTo` is a dict with keys:
 
@@ -200,13 +200,13 @@ Keyword arguments:
         是否启用.
 
     - x (number; optional):
-        画布left的值.
+        画布`left`的值.
 
     - y (number; optional):
-        画布top的值，如果不存在，则其默认值为x.
+        画布`top`的值，如果不存在，则其默认值为`x`.
 
 - zoom (dict; default {    isZoom: False}):
-    使用相对比例缩放画布，每次isZoom设置为True后执行完相应操作后会自动置为False.
+    使用相对比例缩放画布，每次`isZoom`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `zoom` is a dict with keys:
 
@@ -217,7 +217,7 @@ Keyword arguments:
         放大：需要一个正数（比率 > 0）；  缩小：需要负数（比率 < 0）.
 
 - zoomTo (dict; default {    isZoomTo: False}):
-    将画布缩放到绝对比例，每次isZoomTo设置为True后执行完相应操作后会自动置为False.
+    将画布缩放到绝对比例，每次`isZoomTo`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `zoomTo` is a dict with keys:
 
@@ -237,7 +237,7 @@ Keyword arguments:
         - y (number; optional)
 
 - rotate (dict; default {    isRotate: False}):
-    将图片旋转到相对角度，每次isRotate设置为True后执行完相应操作后会自动置为False.
+    将图片旋转到相对角度，每次`isRotate`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `rotate` is a dict with keys:
 
@@ -248,7 +248,7 @@ Keyword arguments:
         向右旋转：需要正数（度数 > 0）；  向左旋转：需要负数（度数 < 0）.
 
 - rotateTo (dict; default {    isRotateTo: False}):
-    将图片旋转到绝对角度，每次isRotateTo设置为True后执行完相应操作后会自动置为False.
+    将图片旋转到绝对角度，每次`isRotateTo`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `rotateTo` is a dict with keys:
 
@@ -259,7 +259,7 @@ Keyword arguments:
         绝对角度的度数.
 
 - scale (dict; default {    isScale: False}):
-    缩放图片，每次isScale设置为True后执行完相应操作后会自动置为False.
+    缩放图片，每次`isScale`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `scale` is a dict with keys:
 
@@ -273,7 +273,7 @@ Keyword arguments:
         要应用于图片纵坐标的比例因子，如果不存在，则其默认值为scaleX.
 
 - scaleX (dict; default {    isScaleX: False}):
-    缩放图片的横坐标，每次isScaleX设置为True后执行完相应操作后会自动置为False.
+    缩放图片的横坐标，每次`isScaleX`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `scaleX` is a dict with keys:
 
@@ -284,7 +284,7 @@ Keyword arguments:
         要应用于图片横坐标的比例因子，当等于1时，图片保持不变.
 
 - scaleY (dict; default {    isScaleY: False}):
-    缩放图片的纵坐标，每次isScaleY设置为True后执行完相应操作后会自动置为False.
+    缩放图片的纵坐标，每次`isScaleY`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `scaleY` is a dict with keys:
 
@@ -423,10 +423,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyImageCropper'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, key=Component.UNDEFINED, croppedImageData=Component.UNDEFINED, src=Component.UNDEFINED, alt=Component.UNDEFINED, crossOrigin=Component.UNDEFINED, viewMode=Component.UNDEFINED, dragMode=Component.UNDEFINED, initialAspectRatio=Component.UNDEFINED, aspectRatio=Component.UNDEFINED, data=Component.UNDEFINED, preview=Component.UNDEFINED, responsive=Component.UNDEFINED, restore=Component.UNDEFINED, checkCrossOrigin=Component.UNDEFINED, checkOrientation=Component.UNDEFINED, modal=Component.UNDEFINED, guides=Component.UNDEFINED, center=Component.UNDEFINED, highlight=Component.UNDEFINED, background=Component.UNDEFINED, autoCrop=Component.UNDEFINED, autoCropArea=Component.UNDEFINED, movable=Component.UNDEFINED, rotatable=Component.UNDEFINED, scalable=Component.UNDEFINED, zoomable=Component.UNDEFINED, zoomOnTouch=Component.UNDEFINED, zoomOnWheel=Component.UNDEFINED, wheelZoomRatio=Component.UNDEFINED, cropBoxMovable=Component.UNDEFINED, cropBoxResizable=Component.UNDEFINED, toggleDragModeOnDblclick=Component.UNDEFINED, minContainerWidth=Component.UNDEFINED, minContainerHeight=Component.UNDEFINED, minCanvasWidth=Component.UNDEFINED, minCanvasHeight=Component.UNDEFINED, minCropBoxWidth=Component.UNDEFINED, minCropBoxHeight=Component.UNDEFINED, reset=Component.UNDEFINED, clear=Component.UNDEFINED, replace=Component.UNDEFINED, enable=Component.UNDEFINED, disable=Component.UNDEFINED, destroy=Component.UNDEFINED, move=Component.UNDEFINED, moveTo=Component.UNDEFINED, zoom=Component.UNDEFINED, zoomTo=Component.UNDEFINED, rotate=Component.UNDEFINED, rotateTo=Component.UNDEFINED, scale=Component.UNDEFINED, scaleX=Component.UNDEFINED, scaleY=Component.UNDEFINED, outputData=Component.UNDEFINED, containerData=Component.UNDEFINED, imageData=Component.UNDEFINED, canvasData=Component.UNDEFINED, cropBoxData=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'style', 'key', 'croppedImageData', 'src', 'alt', 'crossOrigin', 'viewMode', 'dragMode', 'initialAspectRatio', 'aspectRatio', 'data', 'preview', 'responsive', 'restore', 'checkCrossOrigin', 'checkOrientation', 'modal', 'guides', 'center', 'highlight', 'background', 'autoCrop', 'autoCropArea', 'movable', 'rotatable', 'scalable', 'zoomable', 'zoomOnTouch', 'zoomOnWheel', 'wheelZoomRatio', 'cropBoxMovable', 'cropBoxResizable', 'toggleDragModeOnDblclick', 'minContainerWidth', 'minContainerHeight', 'minCanvasWidth', 'minCanvasHeight', 'minCropBoxWidth', 'minCropBoxHeight', 'reset', 'clear', 'replace', 'enable', 'disable', 'destroy', 'move', 'moveTo', 'zoom', 'zoomTo', 'rotate', 'rotateTo', 'scale', 'scaleX', 'scaleY', 'outputData', 'containerData', 'imageData', 'canvasData', 'cropBoxData', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, croppedImageData=Component.UNDEFINED, src=Component.UNDEFINED, alt=Component.UNDEFINED, crossOrigin=Component.UNDEFINED, viewMode=Component.UNDEFINED, dragMode=Component.UNDEFINED, initialAspectRatio=Component.UNDEFINED, aspectRatio=Component.UNDEFINED, data=Component.UNDEFINED, preview=Component.UNDEFINED, responsive=Component.UNDEFINED, restore=Component.UNDEFINED, checkCrossOrigin=Component.UNDEFINED, checkOrientation=Component.UNDEFINED, modal=Component.UNDEFINED, guides=Component.UNDEFINED, center=Component.UNDEFINED, highlight=Component.UNDEFINED, background=Component.UNDEFINED, autoCrop=Component.UNDEFINED, autoCropArea=Component.UNDEFINED, movable=Component.UNDEFINED, rotatable=Component.UNDEFINED, scalable=Component.UNDEFINED, zoomable=Component.UNDEFINED, zoomOnTouch=Component.UNDEFINED, zoomOnWheel=Component.UNDEFINED, wheelZoomRatio=Component.UNDEFINED, cropBoxMovable=Component.UNDEFINED, cropBoxResizable=Component.UNDEFINED, toggleDragModeOnDblclick=Component.UNDEFINED, minContainerWidth=Component.UNDEFINED, minContainerHeight=Component.UNDEFINED, minCanvasWidth=Component.UNDEFINED, minCanvasHeight=Component.UNDEFINED, minCropBoxWidth=Component.UNDEFINED, minCropBoxHeight=Component.UNDEFINED, reset=Component.UNDEFINED, clear=Component.UNDEFINED, replace=Component.UNDEFINED, enable=Component.UNDEFINED, disable=Component.UNDEFINED, destroy=Component.UNDEFINED, move=Component.UNDEFINED, moveTo=Component.UNDEFINED, zoom=Component.UNDEFINED, zoomTo=Component.UNDEFINED, rotate=Component.UNDEFINED, rotateTo=Component.UNDEFINED, scale=Component.UNDEFINED, scaleX=Component.UNDEFINED, scaleY=Component.UNDEFINED, outputData=Component.UNDEFINED, containerData=Component.UNDEFINED, imageData=Component.UNDEFINED, canvasData=Component.UNDEFINED, cropBoxData=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'style', 'className', 'croppedImageData', 'src', 'alt', 'crossOrigin', 'viewMode', 'dragMode', 'initialAspectRatio', 'aspectRatio', 'data', 'preview', 'responsive', 'restore', 'checkCrossOrigin', 'checkOrientation', 'modal', 'guides', 'center', 'highlight', 'background', 'autoCrop', 'autoCropArea', 'movable', 'rotatable', 'scalable', 'zoomable', 'zoomOnTouch', 'zoomOnWheel', 'wheelZoomRatio', 'cropBoxMovable', 'cropBoxResizable', 'toggleDragModeOnDblclick', 'minContainerWidth', 'minContainerHeight', 'minCanvasWidth', 'minCanvasHeight', 'minCropBoxWidth', 'minCropBoxHeight', 'reset', 'clear', 'replace', 'enable', 'disable', 'destroy', 'move', 'moveTo', 'zoom', 'zoomTo', 'rotate', 'rotateTo', 'scale', 'scaleX', 'scaleY', 'outputData', 'containerData', 'imageData', 'canvasData', 'cropBoxData', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'style', 'key', 'croppedImageData', 'src', 'alt', 'crossOrigin', 'viewMode', 'dragMode', 'initialAspectRatio', 'aspectRatio', 'data', 'preview', 'responsive', 'restore', 'checkCrossOrigin', 'checkOrientation', 'modal', 'guides', 'center', 'highlight', 'background', 'autoCrop', 'autoCropArea', 'movable', 'rotatable', 'scalable', 'zoomable', 'zoomOnTouch', 'zoomOnWheel', 'wheelZoomRatio', 'cropBoxMovable', 'cropBoxResizable', 'toggleDragModeOnDblclick', 'minContainerWidth', 'minContainerHeight', 'minCanvasWidth', 'minCanvasHeight', 'minCropBoxWidth', 'minCropBoxHeight', 'reset', 'clear', 'replace', 'enable', 'disable', 'destroy', 'move', 'moveTo', 'zoom', 'zoomTo', 'rotate', 'rotateTo', 'scale', 'scaleX', 'scaleY', 'outputData', 'containerData', 'imageData', 'canvasData', 'cropBoxData', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'croppedImageData', 'src', 'alt', 'crossOrigin', 'viewMode', 'dragMode', 'initialAspectRatio', 'aspectRatio', 'data', 'preview', 'responsive', 'restore', 'checkCrossOrigin', 'checkOrientation', 'modal', 'guides', 'center', 'highlight', 'background', 'autoCrop', 'autoCropArea', 'movable', 'rotatable', 'scalable', 'zoomable', 'zoomOnTouch', 'zoomOnWheel', 'wheelZoomRatio', 'cropBoxMovable', 'cropBoxResizable', 'toggleDragModeOnDblclick', 'minContainerWidth', 'minContainerHeight', 'minCanvasWidth', 'minCanvasHeight', 'minCropBoxWidth', 'minCropBoxHeight', 'reset', 'clear', 'replace', 'enable', 'disable', 'destroy', 'move', 'moveTo', 'zoom', 'zoomTo', 'rotate', 'rotateTo', 'scale', 'scaleX', 'scaleY', 'outputData', 'containerData', 'imageData', 'canvasData', 'cropBoxData', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

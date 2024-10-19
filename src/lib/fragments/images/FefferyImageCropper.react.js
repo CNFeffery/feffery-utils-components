@@ -1,13 +1,20 @@
+// react核心
 import React, { useRef, useEffect } from "react";
+// 组件核心
 import Cropper from "react-cropper";
-import "cropperjs/dist/cropper.css";
+// 辅助库
 import { isString } from 'lodash';
+// 自定义hooks
 import useCss from '../../hooks/useCss';
+// 样式
+import "cropperjs/dist/cropper.css";
+// 参数类型
 import { propTypes, defaultProps } from '../../components/images/FefferyImageCropper.react';
 
-// 定义图片裁剪组件FefferyImageCropper，api参数参考https://github.com/fengyuanchen/cropperjs?tab=readme-ov-file#options
+/**
+ * 图片裁剪组件FefferyImageCropper
+ */
 const FefferyImageCropper = (props) => {
-    // 取得必要属性或参数
     const {
         id,
         className,
