@@ -5,47 +5,65 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyDeviceDetect(Component):
     """A FefferyDeviceDetect component.
-
+设备信息检测组件FefferyDeviceDetect
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
+
+- key (string; optional):
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - deviceInfo (dict; optional):
     监听当前访问设备的全部信息.
 
     `deviceInfo` is a dict with keys:
 
-    - isMobile (boolean; optional)
+    - isMobile (boolean; optional):
+        检测是否为手机、平板等移动设备.
 
-    - isAndroid (boolean; optional)
+    - isAndroid (boolean; optional):
+        检测是否为安卓系统.
 
-    - isIOS (boolean; optional)
+    - isIOS (boolean; optional):
+        检测是否为ios系统.
 
-    - isChrome (boolean; optional)
+    - isChrome (boolean; optional):
+        检测是否为Chrome浏览器.
 
-    - isFirefox (boolean; optional)
+    - isFirefox (boolean; optional):
+        检测是否为Firefox浏览器.
 
-    - isSafari (boolean; optional)
+    - isSafari (boolean; optional):
+        检测是否为Safari浏览器.
 
-    - isIE (boolean; optional)
+    - isIE (boolean; optional):
+        检测是否为IE浏览器.
 
-    - isEdge (boolean; optional)
+    - isEdge (boolean; optional):
+        检测是否为Edge浏览器.
 
-    - osVersion (string; optional)
+    - osVersion (string; optional):
+        检测系统版本.
 
-    - osName (string; optional)
+    - osName (string; optional):
+        检测系统名称.
 
-    - browserVersion (string; optional)
+    - browserVersion (string; optional):
+        检测浏览器缩略版本.
 
-    - fullBrowserVersion (string; optional)
+    - fullBrowserVersion (string; optional):
+        检测完整的浏览器版本.
 
-    - browserName (string; optional)
+    - browserName (string; optional):
+        检测浏览器名称.
 
-    - ua (string; optional)
+    - ua (string; optional):
+        检测`User-Agent`信息.
 
-    - deviceType (string; optional)
+    - deviceType (string; optional):
+        检测设备类型.
 
 - loading_state (dict; optional)
 
@@ -64,10 +82,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyDeviceDetect'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, deviceInfo=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'deviceInfo', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, deviceInfo=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'deviceInfo', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'deviceInfo', 'loading_state']
+        self.available_properties = ['id', 'key', 'deviceInfo', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
