@@ -17,15 +17,14 @@ const FefferySetFavicon = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferySetFavicon.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 用于设置要更新的favicon图片文件地址，支持svg、png、ico、gif格式
+     * 用于设置要更新的`favicon`图片文件地址，支持`svg`、`png`、`ico`、`gif`格式
      */
     favicon: PropTypes.string,
 
