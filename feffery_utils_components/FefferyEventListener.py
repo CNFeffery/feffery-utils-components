@@ -10,16 +10,16 @@ class FefferyEventListener(Component):
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - key (string; optional):
-    强制刷新用key值.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - eventName (string; required):
     必填，目标事件名称.
 
 - handler (string; optional):
-    必填，自定义事件处理js函数字符串，唯一入参为事件对象，返回值将用于更新`result`属性.
+    必填，自定义事件处理`js`函数字符串，唯一入参为事件对象，返回值将用于更新`result`属性.
 
 - targetSelector (string; optional):
     事件监听目标对应的选择器字符串，默认监听目标为整个页面.

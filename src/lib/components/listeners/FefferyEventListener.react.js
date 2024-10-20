@@ -1,5 +1,7 @@
-import { useEventListener } from 'ahooks';
+// react核心
 import PropTypes from 'prop-types';
+// 组件核心
+import { useEventListener } from 'ahooks';
 
 /**
  * 通用事件监听组件FefferyEventListener
@@ -32,12 +34,12 @@ const FefferyEventListener = (props) => {
 
 FefferyEventListener.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 强制刷新用key值
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
@@ -47,7 +49,7 @@ FefferyEventListener.propTypes = {
     eventName: PropTypes.string.isRequired,
 
     /**
-     * 必填，自定义事件处理js函数字符串，唯一入参为事件对象，返回值将用于更新`result`属性
+     * 必填，自定义事件处理`js`函数字符串，唯一入参为事件对象，返回值将用于更新`result`属性
      */
     handler: PropTypes.string,
 
@@ -89,7 +91,6 @@ FefferyEventListener.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyEventListener.defaultProps = {
     enable: true
 }
