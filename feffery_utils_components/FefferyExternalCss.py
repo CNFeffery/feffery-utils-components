@@ -5,15 +5,15 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyExternalCss(Component):
     """A FefferyExternalCss component.
-
+外部css资源动态注入组件FefferyExternalCss
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - cssUrl (string; default ''):
-    设置对应绑定的css静态文件资源url，默认为''.
+    设置对应绑定的css静态文件资源`url`  默认值：`''`.
 
 - recentlyStatus (a value equal to: 'unset', 'loading', 'ready', 'error'; optional):
     监听最近一次资源变更操作后对应的状态.
