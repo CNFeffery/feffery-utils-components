@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { useExternal } from 'ahooks';
 import PropTypes from 'prop-types';
 
-// 定义外部js资源动态注入组件FefferyExternalJs
+/**
+ * 外部js资源动态注入组件FefferyExternalJs
+ */
 const FefferyExternalJs = (props) => {
 
     const {
@@ -28,15 +30,15 @@ const FefferyExternalJs = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyExternalJs.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 设置对应绑定的js静态文件资源url，默认为''
+     * 设置对应绑定的js静态文件资源`url`
+     * 默认值：`''`
      */
     jsUrl: PropTypes.string,
 

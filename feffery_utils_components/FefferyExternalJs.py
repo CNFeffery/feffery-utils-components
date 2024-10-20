@@ -5,15 +5,15 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyExternalJs(Component):
     """A FefferyExternalJs component.
-
+外部js资源动态注入组件FefferyExternalJs
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - jsUrl (string; default ''):
-    设置对应绑定的js静态文件资源url，默认为''.
+    设置对应绑定的js静态文件资源`url`  默认值：`''`.
 
 - recentlyStatus (a value equal to: 'unset', 'loading', 'ready', 'error'; optional):
     监听最近一次资源变更操作后对应的状态.
