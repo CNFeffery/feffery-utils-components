@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { animateScroll as scroll, scroller } from 'react-scroll'
 
-// 定义滚动操作组件FefferyScroll，api参数参考https://github.com/fisshy/react-scroll
+/**
+ * 滚动操作组件FefferyScroll
+ */
 const FefferyScroll = (props) => {
     // 取得必要属性或参数
     let {
@@ -82,49 +84,50 @@ const FefferyScroll = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyScroll.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 设置页面滚动模式，可选的有'top'、'bottom'、'top-offset'、'relative-offset'、'target'
+     * 设置页面滚动模式，可选的有`'to-top'`、`'to-bottom'`、`'top-offset'`、`'relative-offset'`、`'target'`
+     * 默认值：`'to-top'`
      */
     scrollMode: PropTypes.oneOf([
         'to-top', 'to-bottom', 'top-offset', 'relative-offset', 'target'
     ]).isRequired,
 
     /**
-     * 用于指示是否进行滚动操作，默认为false
-     * 在回调中可executeScroll参数Output为true从而触发新一次滚动
-     * 每次由executeScroll=true触发的滚动完成后，executeScroll会自动重置为false
+     * 用于指示是否进行滚动操作，在回调中设置`executeScroll`参数Output为`true`从而触发新一次滚动，每次由`executeScroll=true`触发的滚动完成后，`executeScroll`会自动重置为`false`
+     * 默认值：`false`
      */
     executeScroll: PropTypes.bool,
 
     /**
-     * 当scrollMode='top-offset'时，用于设置滚动终点距离页面顶端的像素
+     * 当`scrollMode='top-offset'`时，用于设置滚动终点距离页面顶端的像素
      */
     scrollTopOffset: PropTypes.number,
 
     /**
-     * 当scrollMode='relative-offset'时，用于设置相对滚动的像素距离，负数则为向上滚动
+     * 当`scrollMode='relative-offset'`时，用于设置相对滚动的像素距离，负数则为向上滚动
      */
     scrollRelativeOffset: PropTypes.number,
 
     /**
-     * 当scrollMode='target'时，用于设置滚动目标元素的id信息
+     * 当`scrollMode='target'`时，用于设置滚动目标元素的id信息
      */
     scrollTargetId: PropTypes.string,
 
     /**
-     * 用于设置滚动过程耗时（单位：毫秒），默认为500
+     * 用于设置滚动过程耗时（单位：毫秒）
+     * 默认值：`500`
      */
     duration: PropTypes.number,
 
     /**
-     * 用于设置滚动过程动画模式，默认为true
+     * 用于设置滚动过程动画模式
+     * 默认值：true
      */
     smooth: PropTypes.oneOfType([
         PropTypes.bool,
@@ -146,12 +149,13 @@ FefferyScroll.propTypes = {
     ]),
 
     /**
-     * 用于设置滚动延时（单位：毫秒），默认为0
+     * 用于设置滚动延时（单位：毫秒）
+     * 默认值：0
      */
     delay: PropTypes.number,
 
     /**
-     * 当滚动目标位于局部滚动条内时，用于设置局部滚动条所在的容器id信息*
+     * 当滚动目标位于局部滚动条内时，用于设置局部滚动条所在的容器id信息
      */
     containerId: PropTypes.string,
 
