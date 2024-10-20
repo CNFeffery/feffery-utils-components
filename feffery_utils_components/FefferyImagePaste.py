@@ -5,29 +5,29 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyImagePaste(Component):
     """A FefferyImagePaste component.
-
+粘贴板图片获取组件FefferyImagePaste
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - key (string; optional):
-    辅助刷新用唯一标识key值.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - imageInfo (dict; optional):
-    监听最近一次图片粘贴事件中载入图片的base64字符串及时间戳信息.
+    监听最近一次图片粘贴事件中载入图片的`base64`字符串及时间戳信息.
 
     `imageInfo` is a dict with keys:
 
     - base64 (string; optional):
-        记录最新粘贴图片的base64字符串.
+        记录最新粘贴图片的`base64`字符串.
 
     - timestamp (number; optional):
         时间戳信息.
 
 - disabled (boolean; default False):
-    设置是否禁用当前组件的图片粘贴行为监听功能，默认为False.
+    设置是否禁用当前组件的图片粘贴行为监听功能  默认值：`False`.
 
 - loading_state (dict; optional)
 
