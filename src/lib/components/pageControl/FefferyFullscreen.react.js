@@ -2,7 +2,9 @@ import { useEffect } from 'react';
 import { useFullscreen } from 'ahooks';
 import PropTypes from 'prop-types';
 
-// 定义全屏化组件FefferyFullscreen，api参数参考：https://ahooks.js.org/zh-CN/hooks/use-fullscreen
+/**
+ * 全屏化组件FefferyFullscreen
+ */
 const FefferyFullscreen = (props) => {
     // 取得必要属性或参数
     const {
@@ -71,11 +73,9 @@ const FefferyFullscreen = (props) => {
     return <></>;
 }
 
-
-// 定义参数或属性
 FefferyFullscreen.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
@@ -85,7 +85,8 @@ FefferyFullscreen.propTypes = {
     targetId: PropTypes.string,
 
     /**
-     * 设置或监听目标元素的全屏化状态，默认为false
+     * 设置或监听目标元素的全屏化状态
+     * 默认值：`false`
      */
     isFullscreen: PropTypes.bool,
 
