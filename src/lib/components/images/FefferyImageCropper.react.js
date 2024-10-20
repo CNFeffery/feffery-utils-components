@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferyImageCropper = React.lazy(() => import(/* webpackChunkName: "feffery_image_cropper" */ '../../fragments/images/FefferyImageCropper.react'));
 
+/**
+ * 图片裁剪组件FefferyImageCropper
+ */
 const FefferyImageCropper = (props) => {
     return (
         <Suspense fallback={null}>
@@ -11,15 +14,24 @@ const FefferyImageCropper = (props) => {
     );
 }
 
-// 定义参数或属性
 FefferyImageCropper.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * css类名
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
+     * 当前组件css样式
+     */
+    style: PropTypes.object,
+
+    /**
+     * 当前组件css类名
      */
     className: PropTypes.oneOfType([
         PropTypes.string,
@@ -27,30 +39,21 @@ FefferyImageCropper.propTypes = {
     ]),
 
     /**
-     * 自定义css字典
-     */
-    style: PropTypes.object,
-
-    /**
-     * 辅助刷新用唯一标识key值
-     */
-    key: PropTypes.string,
-
-    /**
-     * 裁剪后的图片数据，base64格式
+     * 裁剪后的图片数据，`base64`格式
      */
     croppedImageData: PropTypes.string,
 
     /**
-     * 要裁剪的图片的地址
+     * 裁切目标图片地址
      */
     src: PropTypes.string,
 
     /**
-     * 图片占位名称，默认为'picture'
+     * 图片占位名称
+     * 默认值：`'picture'`
      */
     alt: PropTypes.string,
-    
+
     /**
      * 图片跨域属性
      */
@@ -64,7 +67,7 @@ FefferyImageCropper.propTypes = {
      * 1：限制裁剪框不超过画布的大小。
      * 2：限制最小画布尺寸适应容器。如果画布和容器的比例不同，最小画布将在一个维度上被额外空间包围。
      * 3：限制最小画布尺寸填满容器。如果画布和容器的比例不同，容器将无法在一个维度上容纳整个画布。
-     * 默认为0
+     * 默认值：`0`
      */
     viewMode: PropTypes.oneOf([0, 1, 2, 3]),
 
@@ -73,17 +76,17 @@ FefferyImageCropper.propTypes = {
      * 'crop'：创建一个新的裁剪框。
      * 'move'：移动画布。
      * 'none'：无操作。
-     * 默认为'crop'
+     * 默认值：`'crop'`
      */
     dragMode: PropTypes.oneOf(['crop', 'move', 'none']),
 
     /**
-     * 设置裁剪框的初始宽高比，默认与画布宽高比相同，仅在aspectRatio未设置时有效
+     * 设置裁剪框的初始宽高比，默认与画布宽高比相同，仅在`aspectRatio`未设置时有效
      */
     initialAspectRatio: PropTypes.number,
 
     /**
-     * 设置裁剪框的固定宽高比。 默认情况下，裁剪框具有自由比例
+     * 设置裁剪框的固定宽高比，默认情况下，裁剪框具有自由比例
      */
     aspectRatio: PropTypes.number,
 
@@ -105,12 +108,14 @@ FefferyImageCropper.propTypes = {
     ]),
 
     /**
-     * 调整窗口大小时s是否重新渲染裁剪器，默认为true
+     * 调整窗口大小时是否重新渲染裁剪器
+     * 默认值：`true`
      */
     responsive: PropTypes.bool,
 
     /**
-     * 调整窗口大小后是否恢复裁剪区域，默认为true
+     * 调整窗口大小后是否恢复裁剪区域
+     * 默认值：`true`
      */
     restore: PropTypes.bool,
 
@@ -119,7 +124,7 @@ FefferyImageCropper.propTypes = {
      * 如果是，则会在克隆的图片元素中添加一个crossOrigin属性，并在src属性中添加一个时间戳参数，以重新加载源图片，以避免浏览器缓存错误。
      * 向图片元素添加 crossOrigin 属性将停止向图片 URL 添加时间戳并停止重新加载图片。 但是读取图片数据以进行方向检查的请求（XMLHttpRequest）将需要时间戳来破坏缓存以避免浏览器缓存错误。 您可以将checkOrientation选项设置为false以取消此请求。
      * 如果图片的crossOrigin属性值为'use-credentials'，那么当通过XMLHttpRequest读取图片数据时，withCredentials属性将设置为true。
-     * 默认为true
+     * 默认值：`true`
      */
     checkCrossOrigin: PropTypes.bool,
 
@@ -128,87 +133,103 @@ FefferyImageCropper.propTypes = {
      * 具体来说，读取旋转或翻转图片的方向值，然后用1（默认值）覆盖方向值，以避免iOS设备上的某些问题。
      * 需要同时将可旋转和可缩放选项设置为 true。
      * 注意：不要总是相信这一点，因为某些 JPG 图片可能具有不正确（非标准）的方向值，需要类型化数组支持（IE 10+）。
-     * 默认为true
+     * 默认值：`true`
      */
     checkOrientation: PropTypes.bool,
 
     /**
-     * 是否在图片上方和裁剪框下方显示黑色模态，默认为true
+     * 是否在图片上方和裁剪框下方显示黑色模态
+     * 默认值：`true`
      */
     modal: PropTypes.bool,
 
     /**
-     * 是否显示裁剪框上方的虚线，默认为true
+     * 是否显示裁剪框上方的虚线
+     * 默认值：`true`
      */
     guides: PropTypes.bool,
 
     /**
-     * 是否在裁剪框上方显示中心指示器，默认为true
+     * 是否在裁剪框上方显示中心指示器
+     * 默认值：`true`
      */
     center: PropTypes.bool,
 
     /**
-     * 是否在裁剪框上方显示白色模态（突出显示裁剪框），默认为true
+     * 是否在裁剪框上方显示白色模态（突出显示裁剪框）
+     * 默认值：`true`
      */
     highlight: PropTypes.bool,
 
     /**
-     * 是否显示容器的网格背景，默认为true
+     * 是否显示容器的网格背景
+     * 默认值：`true`
      */
     background: PropTypes.bool,
 
     /**
-     * 是否在初始化时自动裁剪图片，默认为true
+     * 是否在初始化时自动裁剪图片
+     * 默认值：`true`
      */
     autoCrop: PropTypes.bool,
 
     /**
-     * 设置自动裁剪区域大小，为0到1之间的值，默认为0.8
+     * 设置自动裁剪区域大小，为0到1之间的值
+     * 默认值：`0.8`
      */
     autoCropArea: PropTypes.number,
 
     /**
-     * 是否可以移动图片，默认为true
+     * 是否可以移动图片
+     * 默认值：`true`
      */
     movable: PropTypes.bool,
 
     /**
-     * 是否可以旋转图片，默认为true
+     * 是否可以旋转图片
+     * 默认值：`true`
      */
     rotatable: PropTypes.bool,
 
     /**
-     * 是否可以缩放图片（居中缩放），默认为true
+     * 是否可以缩放图片（居中缩放）
+     * 默认值：`true`
      */
     scalable: PropTypes.bool,
 
     /**
-     * 是否可以缩放图片（相对于左上角），默认为true
+     * 是否可以缩放图片（相对于左上角）
+     * 默认值：`true`
      */
     zoomable: PropTypes.bool,
 
     /**
-     * 是否可以通过拖动触摸来缩放图片，默认为true
+     * 是否可以通过拖动触摸来缩放图片
+     * 默认值：`true`
      */
     zoomOnTouch: PropTypes.bool,
 
     /**
-     * 是否可以通过鼠标滚轮缩放图片，默认为true
+     * 是否可以通过鼠标滚轮缩放图片
+     * 默认值：`true`
      */
     zoomOnWheel: PropTypes.bool,
 
     /**
-     * 设置通过鼠标滚轮缩放图片时的缩放比例，默认为0.1
+     * 设置通过鼠标滚轮缩放图片时的缩放比例
+     * 默认值：`0.1`
      */
     wheelZoomRatio: PropTypes.number,
 
     /**
-     * 是否可以通过拖动来移动裁剪框，默认为true
+     * 是否可以通过拖动来移动裁剪框
+     * 默认值：`true`
      */
     cropBoxMovable: PropTypes.bool,
 
     /**
-     * 是否可以通过拖动来调整裁剪框的大小，默认为true
+     * 是否可以通过拖动来调整裁剪框的大小
+     * 默认值：`true`
      */
     cropBoxResizable: PropTypes.bool,
 
@@ -218,47 +239,53 @@ FefferyImageCropper.propTypes = {
     toggleDragModeOnDblclick: PropTypes.bool,
 
     /**
-     * 设置容器的最小宽度，默认为200
+     * 设置容器的最小像素宽度
+     * 默认值：`200`
      */
     minContainerWidth: PropTypes.number,
 
     /**
-     * 设置容器的最小高度，默认为100
+     * 设置容器的最小像素高度
+     * 默认值：`100`
      */
     minContainerHeight: PropTypes.number,
 
     /**
-     * 设置画布的最小宽度，默认为0
+     * 设置画布的最小宽度\
+     * 默认值：`0`
      */
     minCanvasWidth: PropTypes.number,
 
     /**
-     * 设置画布的最小高度，默认为0
+     * 设置画布的最小高度
+     * 默认值：`0`
      */
     minCanvasHeight: PropTypes.number,
 
     /**
-     * 设置裁剪框的最小宽度（这个尺寸是相对于页面的，而不是图片的），默认为0
+     * 设置裁剪框的最小宽度（这个尺寸是相对于页面的，而不是图片的）
+     * 默认值：`0`
      */
     minCropBoxWidth: PropTypes.number,
 
     /**
-     * 设置裁剪框的最小高度（这个尺寸是相对于页面的，而不是图片的），默认为0
+     * 设置裁剪框的最小高度（这个尺寸是相对于页面的，而不是图片的）
+     * 默认值：`0`
      */
     minCropBoxHeight: PropTypes.number,
 
     /**
-     * 将图片和裁剪框重置为初始状态，每次设置为true后执行完相应操作后会自动置为false
+     * 将图片和裁剪框重置为初始状态，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     reset: PropTypes.bool,
 
     /**
-     * 清除裁剪框，每次设置为true后执行完相应操作后会自动置为false
+     * 清除裁剪框，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     clear: PropTypes.bool,
 
     /**
-     * 替换图片的src并重新构建裁剪器，每次isReplace设置为true后执行完相应操作后会自动置为false
+     * 替换图片的`src`并重新构建裁剪器，每次`isReplace`设置为`true`后执行完相应操作后会自动置为`false`
      */
     replace: PropTypes.exact({
         /**
@@ -276,22 +303,22 @@ FefferyImageCropper.propTypes = {
     }),
 
     /**
-     * 启用裁剪器，每次设置为true后执行完相应操作后会自动置为false
+     * 启用裁剪器，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     enable: PropTypes.bool,
 
     /**
-     * 禁用裁剪器，每次设置为true后执行完相应操作后会自动置为false
+     * 禁用裁剪器，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     disable: PropTypes.bool,
 
     /**
-     * 销毁裁剪器并从图片中删除实例，每次设置为true后执行完相应操作后会自动置为false
+     * 销毁裁剪器并从图片中删除实例，每次设置为`true`后执行完相应操作后会自动置为`false`
      */
     destroy: PropTypes.bool,
 
     /**
-     * 使用相对偏移量移动画布，每次isMove设置为true后执行完相应操作后会自动置为false
+     * 使用相对偏移量移动画布，每次`isMove`设置为`true`后执行完相应操作后会自动置为`false`
      */
     move: PropTypes.exact({
         /**
@@ -299,17 +326,17 @@ FefferyImageCropper.propTypes = {
          */
         isMove: PropTypes.bool,
         /**
-         * 在水平方向上移动大小 （px）
+         * 在水平方向上移动像素大小
          */
         offsetX: PropTypes.number,
         /**
-         * 在垂直方向上移动大小 （px），如果不存在，则其默认值为offsetX
+         * 在垂直方向上移动像素大小，如果不存在，则其默认值为`offsetX`
          */
         offsetY: PropTypes.number
     }),
 
     /**
-     * 将画布移动到绝对点，每次isMoveTo设置为true后执行完相应操作后会自动置为false
+     * 将画布移动到绝对点，每次`isMoveTo`设置为`true`后执行完相应操作后会自动置为`false`
      */
     moveTo: PropTypes.exact({
         /**
@@ -317,17 +344,17 @@ FefferyImageCropper.propTypes = {
          */
         isMoveTo: PropTypes.bool,
         /**
-         * 画布left的值
+         * 画布`left`的值
          */
         x: PropTypes.number,
         /**
-         * 画布top的值，如果不存在，则其默认值为x
+         * 画布`top`的值，如果不存在，则其默认值为`x`
          */
         y: PropTypes.number
     }),
 
     /**
-     * 使用相对比例缩放画布，每次isZoom设置为true后执行完相应操作后会自动置为false
+     * 使用相对比例缩放画布，每次`isZoom`设置为`true`后执行完相应操作后会自动置为`false`
      */
     zoom: PropTypes.exact({
         /**
@@ -342,7 +369,7 @@ FefferyImageCropper.propTypes = {
     }),
 
     /**
-     * 将画布缩放到绝对比例，每次isZoomTo设置为true后执行完相应操作后会自动置为false
+     * 将画布缩放到绝对比例，每次`isZoomTo`设置为`true`后执行完相应操作后会自动置为`false`
      */
     zoomTo: PropTypes.exact({
         /**
@@ -363,7 +390,7 @@ FefferyImageCropper.propTypes = {
     }),
 
     /**
-     * 将图片旋转到相对角度，每次isRotate设置为true后执行完相应操作后会自动置为false
+     * 将图片旋转到相对角度，每次`isRotate`设置为`true`后执行完相应操作后会自动置为`false`
      */
     rotate: PropTypes.exact({
         /**
@@ -378,7 +405,7 @@ FefferyImageCropper.propTypes = {
     }),
 
     /**
-     * 将图片旋转到绝对角度，每次isRotateTo设置为true后执行完相应操作后会自动置为false
+     * 将图片旋转到绝对角度，每次`isRotateTo`设置为`true`后执行完相应操作后会自动置为`false`
      */
     rotateTo: PropTypes.exact({
         /**
@@ -392,7 +419,7 @@ FefferyImageCropper.propTypes = {
     }),
 
     /**
-     * 缩放图片，每次isScale设置为true后执行完相应操作后会自动置为false
+     * 缩放图片，每次`isScale`设置为`true`后执行完相应操作后会自动置为`false`
      */
     scale: PropTypes.exact({
         /**
@@ -410,7 +437,7 @@ FefferyImageCropper.propTypes = {
     }),
 
     /**
-     * 缩放图片的横坐标，每次isScaleX设置为true后执行完相应操作后会自动置为false
+     * 缩放图片的横坐标，每次`isScaleX`设置为`true`后执行完相应操作后会自动置为`false`
      */
     scaleX: PropTypes.exact({
         /**
@@ -424,7 +451,7 @@ FefferyImageCropper.propTypes = {
     }),
 
     /**
-     * 缩放图片的纵坐标，每次isScaleY设置为true后执行完相应操作后会自动置为false
+     * 缩放图片的纵坐标，每次`isScaleY`设置为`true`后执行完相应操作后会自动置为`false`
      */
     scaleY: PropTypes.exact({
         /**
@@ -605,7 +632,6 @@ FefferyImageCropper.propTypes = {
     setProps: PropTypes.func,
 };
 
-// 设置默认参数
 FefferyImageCropper.defaultProps = {
     alt: 'picture',
     viewMode: 0,

@@ -1,5 +1,8 @@
-import { useAsyncEffect } from 'ahooks';
+// 组件核心
 import { domToPng } from 'modern-screenshot';
+// 辅助库
+import { useAsyncEffect } from 'ahooks';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/images/FefferyDom2Image.react';
 
 /**

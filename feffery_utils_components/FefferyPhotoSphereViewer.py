@@ -5,38 +5,37 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyPhotoSphereViewer(Component):
     """A FefferyPhotoSphereViewer component.
-
+全景图片查看器组件FefferyPhotoSphereViewer
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - key (string; optional):
-    辅助刷新用唯一标识key值.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - src (string; optional):
-    设置全景图片资源地址.
+    全景图片资源地址.
 
 - width (string; optional):
-    设置查看器宽度，同css中的width属性.
+    设置查看器宽度，同`css`中的`width`属性.
 
 - height (string; optional):
-    设置查看器高度，同css中的height属性.
+    设置查看器高度，同`css`中的`height`属性.
 
 - littlePlanet (boolean; default False):
-    是否开启小星球模式  默认：False.
+    是否开启小星球模式  默认值：`False`.
 
 - containerClass (string; optional):
-    设置查看器所在容器css类名.
+    设置查看器所在容器`css`类名.
 
 - navbar (list of a value equal to: 'zoom', 'move', 'download', 'caption', 'fullscreen', 'autorotate's | boolean; default ['caption']):
-    配置导航栏中需要显示的功能项及顺序，设置为`False`时将隐藏导航栏
-    可选的有`'zoom'`、`'move'`、`'download'`、`'caption'`、`'fullscreen'`、`'autorotate'`
+    配置导航栏中需要显示的功能项及顺序，设置为`False`时将隐藏导航栏，可选项有`'zoom'`、`'move'`、`'download'`、`'caption'`、`'fullscreen'`、`'autorotate'`
     默认值：`['caption']`.
 
 - caption (string; optional):
-    导航栏标题内容，支持HTML字符串，仅当navbar中包含'caption'时有效.
+    导航栏标题内容，支持`HTML`字符串，仅当`navbar`中包含`'caption'`时有效.
 
 - downloadUrl (string; optional):
     手动设置下载目标文件地址.
@@ -48,19 +47,19 @@ Keyword arguments:
     自定义载入阶段文字提示内容.
 
 - mousewheel (boolean; default True):
-    是否允许鼠标滚轮缩放  默认：True.
+    是否允许鼠标滚轮缩放  默认值：`True`.
 
 - mousemove (boolean; default True):
-    是否允许鼠标拖拽平移  默认：True.
+    是否允许鼠标拖拽平移  默认值：`True`.
 
 - moveSpeed (number; default 1):
-    设置鼠标平移速度  默认：1.
+    设置鼠标平移速度  默认值：`1`.
 
 - zoomSpeed (number; default 1):
-    设置鼠标滚轮缩放速度  默认：1.
+    设置鼠标滚轮缩放速度  默认值：`1`.
 
 - fisheye (boolean; default False):
-    是否开启鱼眼模式  默认：False.
+    是否开启鱼眼模式  默认值：`False`.
 
 - lang (dict; optional):
     为相关功能控件或场景设置鼠标悬停提示信息文案.

@@ -1,7 +1,9 @@
+// 组件核心
 import { ReactPhotoSphereViewer } from 'react-photo-sphere-viewer';
-// 额外插件
 import { AutorotatePlugin } from '@photo-sphere-viewer/autorotate-plugin';
+// 辅助库
 import { omit } from 'ramda';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/images/FefferyPhotoSphereViewer.react';
 
 // 插件名 -> 插件
@@ -9,7 +11,9 @@ const type2plugins = {
     Autorotate: AutorotatePlugin
 }
 
-// 定义全景图片查看器组件FefferyPhotoSphereViewer
+/**
+ * 全景图片查看器组件FefferyPhotoSphereViewer
+ */
 const FefferyPhotoSphereViewer = (props) => {
     const {
         id,

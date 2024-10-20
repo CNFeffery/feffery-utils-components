@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferyDom2Image = React.lazy(() => import(/* webpackChunkName: "feffery_dom2image" */ '../../fragments/images/FefferyDom2Image.react'));
 
+/**
+ * 元素转图片组件FefferyDom2Image
+ */
 const FefferyDom2Image = (props) => {
     return (
         <Suspense fallback={null}>
@@ -11,15 +14,14 @@ const FefferyDom2Image = (props) => {
     );
 }
 
-// 定义参数或属性
 FefferyDom2Image.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 强制刷新用
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
@@ -29,7 +31,8 @@ FefferyDom2Image.propTypes = {
     targetSelector: PropTypes.string,
 
     /**
-     * 精度缩放比例，默认为1
+     * 精度缩放比例
+     * 默认值：`1`
      */
     scale: PropTypes.number,
 
@@ -42,7 +45,7 @@ FefferyDom2Image.propTypes = {
          */
         selector: PropTypes.string,
         /**
-         * 记录本次转换任务的执行状态，可选的有'success'、'failed'
+         * 记录本次转换任务的执行状态，可选项有`'success'`、`'failed'`
          */
         status: PropTypes.oneOf(['success', 'failed']),
         /**
@@ -77,7 +80,6 @@ FefferyDom2Image.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyDom2Image.defaultProps = {
     scale: 1
 }
