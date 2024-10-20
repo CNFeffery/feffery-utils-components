@@ -5,12 +5,15 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyGeolocation(Component):
     """A FefferyGeolocation component.
-
+地理位置监听组件FefferyGeolocation
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
+
+- key (string; optional):
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - geoLocationInfo (dict; optional):
     监听当前用户地理位置相关信息.
@@ -32,10 +35,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyGeolocation'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, geoLocationInfo=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'geoLocationInfo', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, geoLocationInfo=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'geoLocationInfo', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'geoLocationInfo', 'loading_state']
+        self.available_properties = ['id', 'key', 'geoLocationInfo', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
