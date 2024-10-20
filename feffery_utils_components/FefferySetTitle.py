@@ -10,13 +10,13 @@ class FefferySetTitle(Component):
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - title (string; optional):
-    用于设置要更新的title信息.
+    用于设置要更新的`title`信息.
 
 - originTitle (string; optional):
-    当title参数为空，或当前组件从页面中卸载后应当还原的title.
+    当`title`参数为空，或当前组件从页面中卸载后应当还原的`title`.
 
 - loading_state (dict; optional)
 
