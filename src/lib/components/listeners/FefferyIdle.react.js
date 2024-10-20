@@ -1,8 +1,12 @@
+// react核心
 import { useEffect } from 'react';
-import { useIdle } from 'react-use';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useIdle } from 'react-use';
 
-// 定义闲置状态监听组件FefferyIdle
+/**
+ * 闲置状态监听组件FefferyIdle
+ */
 const FefferyIdle = (props) => {
     const {
         waitDuration,
@@ -19,12 +23,16 @@ const FefferyIdle = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyIdle.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
+
+    /**
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
 
     /**
      * 监听当前应用是否处于闲置状态
@@ -32,8 +40,8 @@ FefferyIdle.propTypes = {
     isIdle: PropTypes.bool,
 
     /**
-     * 设置经过多长时间（单位：毫秒）没有操作后视作闲置状态
-     * 默认：3000
+     * 设置经过多长时间没有操作后视作闲置状态，单位：毫秒
+     * 默认值：`3000`
      */
     waitDuration: PropTypes.number,
 
@@ -59,7 +67,6 @@ FefferyIdle.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyIdle.defaultProps = {
     waitDuration: 3000
 }
