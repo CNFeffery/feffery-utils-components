@@ -1,9 +1,14 @@
+// react核心
 import React, { useRef, useEffect } from 'react';
-import { useInViewport } from 'ahooks';
-import { isUndefined } from 'lodash';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useInViewport } from 'ahooks';
+// 辅助库
+import { isUndefined } from 'lodash';
 
-// 定义元素可见性检查组件FefferyInViewport
+/**
+ * 元素可见性检查组件FefferyInViewport
+ */
 const FefferyInViewport = (props) => {
     const {
         id,
@@ -23,7 +28,6 @@ const FefferyInViewport = (props) => {
     });
 
     useEffect(() => {
-
         // 若设置了阈值
         if (!isUndefined(threshold)) {
             // 本身可见的元素，可见部分比例开始小于阈值时
@@ -56,15 +60,19 @@ const FefferyInViewport = (props) => {
         } />);
 }
 
-// 定义参数或属性
 FefferyInViewport.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 需要进行可见性监听的目标元素
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
+     * 组件型，需要进行可见性监听的目标元素
      */
     children: PropTypes.node,
 
@@ -74,7 +82,7 @@ FefferyInViewport.propTypes = {
     inViewport: PropTypes.bool,
 
     /**
-     * 用于设置触发元素可见性状态切换的比例阈值
+     * 触发元素可见性状态切换的比例阈值
      */
     threshold: PropTypes.number,
 
@@ -100,7 +108,6 @@ FefferyInViewport.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyInViewport.defaultProps = {
 }
 
