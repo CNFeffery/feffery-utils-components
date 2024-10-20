@@ -26,7 +26,9 @@ const urlToBase64 = (url) => {
     )
 }
 
-// 定义粘贴板图片获取组件FefferyImagePaste，api参数参考https://github.com/charliewilco/react-gluejar
+/**
+ * 粘贴板图片获取组件FefferyImagePaste
+ */
 const FefferyImagePaste = (props) => {
     // 取得必要属性或参数
     let {
@@ -68,24 +70,23 @@ const FefferyImagePaste = (props) => {
     );
 }
 
-// 定义参数或属性
 FefferyImagePaste.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 辅助刷新用唯一标识key值
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 监听最近一次图片粘贴事件中载入图片的base64字符串及时间戳信息
+     * 监听最近一次图片粘贴事件中载入图片的`base64`字符串及时间戳信息
      */
     imageInfo: PropTypes.exact({
         /**
-         * 记录最新粘贴图片的base64字符串
+         * 记录最新粘贴图片的`base64`字符串
          */
         base64: PropTypes.string,
         /**
@@ -95,7 +96,8 @@ FefferyImagePaste.propTypes = {
     }),
 
     /**
-     * 设置是否禁用当前组件的图片粘贴行为监听功能，默认为false
+     * 设置是否禁用当前组件的图片粘贴行为监听功能
+     * 默认值：`false`
      */
     disabled: PropTypes.bool,
 

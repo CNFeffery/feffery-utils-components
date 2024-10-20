@@ -5,13 +5,16 @@ import en from '@emoji-mart/data/i18n/en.json';
 import zh from '@emoji-mart/data/i18n/zh.json';
 import { propTypes, defaultProps } from '../../components/dataInput/FefferyEmojiPicker.react';
 
-// 定义emoji选择器组件FefferyEmojiPicker，api参数参考https://github.com/missive/emoji-mart#-picker
+/**
+ * emoji选择器组件FefferyEmojiPicker
+ */
 const FefferyEmojiPicker = (props) => {
     // 取得必要属性或参数
     let {
         id,
-        className,
+        key,
         style,
+        className,
         locale,
         categories,
         custom,
@@ -57,8 +60,9 @@ const FefferyEmojiPicker = (props) => {
         <div>
             <Picker
                 id={id}
-                className={className}
+                key={key}
                 style={style}
+                className={className}
                 i18n={i18n}
                 data={data}
                 categories={categories}
