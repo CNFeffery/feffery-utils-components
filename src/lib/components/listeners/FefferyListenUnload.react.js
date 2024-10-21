@@ -1,7 +1,10 @@
+// raect核心
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-// 定义页面关闭监听组件FefferyListenUnload
+/**
+ * 页面关闭监听组件FefferyListenUnload
+ */
 const FefferyListenUnload = (props) => {
     let {
         confirmBeforeUnload,
@@ -29,15 +32,19 @@ const FefferyListenUnload = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyListenUnload.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 监听页面重载或关闭事件，每次页面关闭时会触发更新为true
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
+     * 监听页面重载或关闭事件，每次页面关闭时会触发更新为`true`
      */
     unloaded: PropTypes.bool,
 
@@ -69,7 +76,6 @@ FefferyListenUnload.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyListenUnload.defaultProps = {
     confirmBeforeUnload: false
 }
