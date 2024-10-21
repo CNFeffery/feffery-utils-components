@@ -1,11 +1,15 @@
+// react核心
 import React from 'react';
-import Guide from 'byte-guide'
 import PropTypes from 'prop-types';
+// 组件核心
+import Guide from 'byte-guide'
+// 辅助库
 import { isString } from 'lodash';
 
-// 定义引导部件FefferyGuide，api参数参考https://github.com/bytedance/guide/blob/main/README.zh-CN.md
+/**
+ * 引导部件FefferyGuide
+ */
 const FefferyGuide = (props) => {
-    // 取得必要属性或参数
     let {
         id,
         className,
@@ -61,31 +65,31 @@ const FefferyGuide = (props) => {
     );
 }
 
-// 定义参数或属性
 FefferyGuide.propTypes = {
 
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * css类名
-     */
-    className: PropTypes.string,
-
-    /**
-     * 自定义css字典
-     */
-    style: PropTypes.object,
-
-    /**
-     * 辅助刷新用唯一标识key值
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 设置语言，可选的有'en'、'zh'，默认为'zh'
+     * 当前组件css样式
+     */
+    style: PropTypes.object,
+
+    /**
+     * 当前组件css类名
+     */
+    className: PropTypes.string,
+
+    /**
+     * 设置语言，可选项有`'zh'`、`'en'`
+     * 默认值：`'zh'`
      */
     locale: PropTypes.oneOf(['zh', 'en']),
 
@@ -95,12 +99,12 @@ FefferyGuide.propTypes = {
     steps: PropTypes.arrayOf(
         PropTypes.exact({
             /**
-             * 对应当前步骤锚定的元素对应的css选择器
+             * 对应当前步骤锚定的元素对应的`css`选择器
              */
             selector: PropTypes.string,
 
             /**
-             * 当selector参数缺省时，可用targetPos参数基于绝对位置进行步骤锚定
+             * 当`selector`参数缺省时，可用`targetPos`参数基于绝对位置进行步骤锚定
              */
             targetPos: PropTypes.exact({
                 /**
@@ -132,8 +136,8 @@ FefferyGuide.propTypes = {
             content: PropTypes.node,
 
             /**
-             * 设置展示面板相对锚点的方位，可选的有'top', 'bottom', 'left', 'right', 'top-left', 'top-right', 'bottom-left', 'bottom-right', 'left-top', 'left-bottom',
-             * 'right-top', 'right-bottom'，默认为'bottom'
+             * 设置展示面板相对锚点的方位，可选项有`'top'`、`'bottom'`、`'left'`、`'right'`、`'top-left'`、`'top-right'`、`'bottom-left'`、`'bottom-right'`、`'left-top'`、`'left-bottom'`、`'right-top'`、`'right-bottom'`
+             * 默认值：`'bottom'`
              */
             placement: PropTypes.oneOf([
                 'top', 'bottom', 'left', 'right', 'top-left', 'top-right',
@@ -158,67 +162,74 @@ FefferyGuide.propTypes = {
     ).isRequired,
 
     /**
-     * 用于设置本地缓存唯一标识key，从而辅助应用判断是否已展示过该引导页
+     * 用于设置本地缓存唯一标识`key`，从而辅助应用判断是否已展示过该引导页
      */
     localKey: PropTypes.string.isRequired,
 
     /**
-     * 设置是否允许跳过引导，默认为true
+     * 设置是否允许跳过引导
+     * 默认值：`true`
      */
     closable: PropTypes.bool,
 
     /**
-     * 设置弹窗的css类
+     * 弹窗css类名
      */
     modalClassName: PropTypes.string,
 
     /**
-     * 设置蒙版层css类
+     * 蒙版层css类名
      */
     maskClassName: PropTypes.string,
 
     /**
-     * 设置是否展示蒙版层，默认为true
+     * 是否展示蒙版层
+     * 默认值：`true`
      */
     mask: PropTypes.bool,
 
     /**
-     * 设置展示面板是否添加箭头，默认为true
+     * 展示面板是否添加箭头
+     * 默认值：`true`
      */
     arrow: PropTypes.bool,
 
     /**
-     * 设置展示面板是否展示热点标识，默认为false
+     * 展示面板是否展示热点标识
+     * 默认值：`false`
      */
     hotspot: PropTypes.bool,
 
     /**
-     * 自定义步骤信息展示内容的回调函数，默认为"(stepIndex, stepCount) => { return '第${stepIndex}步，共${stepCount}步'; }"
+     * 自定义步骤信息展示内容的回调函数
+     * 默认值：`"(stepIndex, stepCount) => { return '第${stepIndex}步，共${stepCount}步'; }"`
      */
     stepText: PropTypes.string,
 
     /**
-     * 设置“下一步”按钮的文案信息
+     * “下一步”按钮文案信息
      */
     nextText: PropTypes.string,
 
     /**
-     * 设置“上一步”按钮的文案信息
+     * “上一步”按钮文案信息
      */
     prevText: PropTypes.string,
 
     /**
-     * 设置是否显示“上一步”按钮，默认为true
+     * 是否显示“上一步”按钮
+     * 默认值：`true`
      */
     showPreviousBtn: PropTypes.bool,
 
     /**
-     * 设置确认按钮的文案信息
+     * 确认按钮的文案信息
      */
     okText: PropTypes.string,
 
     /**
-     * 设置初始化时的起始步骤，为-1时则不显示引导组件，默认为0
+     * 设置初始化时的起始步骤，为`-1`时则不显示引导组件
+     * 默认值：`0`
      */
     step: PropTypes.number,
 
@@ -244,7 +255,6 @@ FefferyGuide.propTypes = {
     setProps: PropTypes.func
 };
 
-// 设置默认参数
 FefferyGuide.defaultProps = {
     locale: 'zh',
     showPreviousBtn: true,
