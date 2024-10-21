@@ -1,8 +1,12 @@
+// react核心
 import { useEffect } from 'react';
-import { useMediaQuery } from '@reactuses/core';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useMediaQuery } from '@reactuses/core';
 
-// 定义媒体查询监听组件FefferyMediaQuery
+/**
+ * 媒体查询监听组件FefferyMediaQuery
+ */
 const FefferyMediaQuery = (props) => {
     const {
         query,
@@ -18,15 +22,14 @@ const FefferyMediaQuery = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyMediaQuery.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 强制刷新用
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
@@ -36,7 +39,7 @@ FefferyMediaQuery.propTypes = {
     query: PropTypes.string.isRequired,
 
     /**
-     * 是否满足当前媒体查询
+     * 监听当前媒体查询是否满足
      */
     isMatch: PropTypes.bool,
 
@@ -62,7 +65,6 @@ FefferyMediaQuery.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyMediaQuery.defaultProps = {
 }
 
