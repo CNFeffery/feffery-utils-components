@@ -1,10 +1,13 @@
+// react核心
 import { useEffect, useState } from 'react';
-import { useCountDown } from 'ahooks';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useCountDown } from 'ahooks';
 
-// 定义倒计时组件FefferyCountDown
+/**
+ * 倒计时组件FefferyCountDown
+ */
 const FefferyCountDown = (props) => {
-
     const {
         id,
         delay,
@@ -43,26 +46,30 @@ const FefferyCountDown = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyCountDown.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 用于设置距离下一次超时事件触发的倒计时间隔（单位：秒）
-     * 每次有效的delay对应超时事件结束后都会被重置为undefined
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
+     * 用于设置距离下一次超时事件触发的倒计时间隔，单位：秒，每次有效的`delay`对应超时事件结束后都会被重置为空值
      */
     delay: PropTypes.number,
 
     /**
-     * 设置倒计时时间间隔（单位：秒），默认为1
+     * 设置倒计时时间间隔，单位：秒
+     * 默认值：`1`
      */
     interval: PropTypes.number,
 
     /**
-     * 监听当前剩余时间秒数，默认为0
+     * 监听当前剩余时间秒数
      */
     countdown: PropTypes.number,
 
@@ -88,7 +95,6 @@ FefferyCountDown.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyCountDown.defaultProps = {
     interval: 1
 }

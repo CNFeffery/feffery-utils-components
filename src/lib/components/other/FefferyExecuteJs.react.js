@@ -1,11 +1,11 @@
+// react核心
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * js直接执行组件FefferyExecuteJs
+ * js执行组件FefferyExecuteJs
  */
 const FefferyExecuteJs = (props) => {
-    // 取得必要属性或参数
     const {
         jsString,
         mode,
@@ -100,42 +100,45 @@ const FefferyExecuteJs = (props) => {
     return <></>;
 }
 
-
-// 定义参数或属性
 FefferyExecuteJs.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 设置要执行的js代码字符串
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
+     * 设置要执行的`javascript`代码字符串
      */
     jsString: PropTypes.string,
 
     /**
-     * 设置执行模式，可选的有'default'（立即执行）、'delay'（延迟执行）、'interval'（定时轮询执行）、'wait-until-element-rendered'（等待目标元素渲染后执行）
-     * 默认：'default'
+     * 设置执行模式，可选项有`'default'`（立即执行）、`'delay'`（延迟执行）、`'interval'`（定时轮询执行）、`'wait-until-element-rendered'`（等待目标元素渲染后执行）
+     * 默认值：`'default'`
      */
     mode: PropTypes.oneOf(['default', 'delay', 'interval', 'wait-until-element-rendered']),
 
     /**
-     * delay模式下，设置延时执行时长，单位：毫秒
+     * `delay`模式下，设置延时执行时长，单位：毫秒
      */
     delay: PropTypes.number,
 
     /**
-     * interval模式下，设置轮询执行间隔时长，单位：毫秒
+     * `interval`模式下，设置轮询执行间隔时长，单位：毫秒
      */
     interval: PropTypes.number,
 
     /**
-     * wait-until-element-rendered模式下，设置需要等待渲染完成的目标元素css选择器
+     * `wait-until-element-rendered`模式下，设置需要等待渲染完成的目标元素`css`选择器
      */
     targetSelector: PropTypes.string,
 
     /**
-     * wait-until-element-rendered模式下，设置目标元素渲染检测最大等待时长，单位：毫秒，默认无限制
+     * `wait-until-element-rendered`模式下，设置目标元素渲染检测最大等待时长，单位：毫秒，默认无限制
      */
     targetWaitTimeout: PropTypes.number,
 
@@ -161,7 +164,6 @@ FefferyExecuteJs.propTypes = {
     setProps: PropTypes.func,
 };
 
-// 设置默认参数
 FefferyExecuteJs.defaultProps = {
     mode: 'default'
 }

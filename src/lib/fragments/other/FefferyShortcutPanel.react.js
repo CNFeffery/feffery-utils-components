@@ -1,7 +1,10 @@
+// react核心
 import React, { useRef, useEffect } from 'react';
 import { propTypes, defaultProps } from '../../components/other/FefferyShortcutPanel.react';
-import { isString } from 'lodash';
+// 组件核心
 import "ninja-keys";
+// 辅助库
+import { isString } from 'lodash';
 import FefferyStyle from '../../components/styleControl/FefferyStyle.react';
 
 const footerHtmlEn = <div class="modal-footer" slot="footer">
@@ -87,9 +90,10 @@ const locale2placeholder = new Map([
     ['zh', '输入指令或进行搜索...']
 ])
 
-// 定义快捷方式面板部件FefferyShortcutPanel，api参数参考https://github.com/ssleptsov/ninja-keys
+/**
+ * 快捷指令面板部件FefferyShortcutPanel
+ */
 const FefferyShortcutPanel = (props) => {
-    // 取得必要属性或参数
     let {
         id,
         data,
