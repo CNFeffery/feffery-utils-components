@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferyShortcutPanel = React.lazy(() => import(/* webpackChunkName: "feffery_shortcut_panel" */ '../../fragments/other/FefferyShortcutPanel.react'));
 
+/**
+ * 快捷指令面板部件FefferyShortcutPanel
+ */
 const FefferyShortcutPanel = (props) => {
     return (
         <Suspense fallback={null}>
@@ -11,19 +14,25 @@ const FefferyShortcutPanel = (props) => {
     );
 }
 
-// 定义参数或属性
 FefferyShortcutPanel.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 设置语言，可选的有'en'、'zh'，默认为'zh'
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
+     * 设置语言，可选项有`'en'`、`'zh'`
+     * 默认值：`'zh'`
      */
     locale: PropTypes.oneOf(['en', 'zh']),
 
-    /**用于定义热键节点的数据结构
+    /**
+     * 配置指令面板子项
      * 例：
      * [
      *      {
@@ -71,22 +80,22 @@ FefferyShortcutPanel.propTypes = {
     data: PropTypes.arrayOf(
         PropTypes.exact({
             /**
-             * 用于定义当前热键的唯一id，会在顶端热键面包屑中进行显示
+             * 当前子项的唯一标识，会在顶端热键面包屑中进行显示
              */
             id: PropTypes.string.isRequired,
 
             /**
-             * 用于定义当前热键的标题信息
+             * 必填，当前子项标题信息
              */
             title: PropTypes.string.isRequired,
 
             /**
-             * 用于定义当前热键对应的快捷键方式
+             * 配置当前子项对应快捷键
              */
             hotkey: PropTypes.string,
 
             /**
-             * 用于传入字符型的js函数体源码，作为当前热键被触发时的行为
+             * 传入字符型的`javascript`函数体源码，在当前子项被激活时触发
              */
             handler: PropTypes.oneOfType([
                 PropTypes.string,
@@ -94,122 +103,136 @@ FefferyShortcutPanel.propTypes = {
             ]),
 
             /**
-             * 用于设置当前热键上一层级节点的id信息
+             * 当前子项所属上一层级节点的`id`信息
              */
             parent: PropTypes.string,
 
             /**
-             * 用于设置当前热键被搜索时对应的关键词
+             * 当前子项被搜索时对应的目标关键词
              */
             keywords: PropTypes.string,
 
             /**
-             * 用于设置当前热键节点下一层级对应的节点id信息数组
+             * 当前子项节点下一层级对应的节点`id`信息数组
              */
             children: PropTypes.arrayOf(PropTypes.string),
 
             /**
-             * 用于设置分组标题文字
+             * 分组标题文字
              */
             section: PropTypes.string
         })
     ).isRequired,
 
     /**
-     * 监听记录最近一次被触发的热键id以及对应触发时间的时间戳信息
+     * 监听记录最近一次被触发的子项`id`以及对应触发时间的时间戳信息
      */
     triggeredHotkey: PropTypes.exact({
         /**
-         * 触发指令菜单项id
+         * 触发子项`id`
          */
         id: PropTypes.string,
         /**
-         * 触发时间戳信息
+         * 触发时间戳
          */
         timestamp: PropTypes.number
     }),
 
     /**
-     * 定义输入框提示内容，默认会根据locale赋以不同的缺省值
+     * 定义输入框提示内容，默认会根据`locale`赋以不同的缺省值
      */
     placeholder: PropTypes.string,
 
     /**
-     * 设置唤出指令面板的快捷键组合，默认为'cmd+k,ctrl+k'
+     * 设置唤出指令面板的快捷键组合
+     * 默认值：`'cmd+k,ctrl+k'`
      */
     openHotkey: PropTypes.string,
 
     /**
-     * 设置主题，可选的有'light'、'dark'，默认为'light'
+     * 设置主题，可选项有`'light'`、`'dark'`
+     * 默认值：`'light'`
      */
     theme: PropTypes.oneOf(['light', 'dark']),
 
     /**
-     * 传入true时手动展开指令面板，默认为false
+     * 更新为`true`时手动展开指令面板
      */
     open: PropTypes.bool,
 
     /**
-     * 传入true时手动关闭指令面板，默认为false
+     * 更新为`true`时手动关闭指令面板
      */
     close: PropTypes.bool,
 
     /**
-     * 用于配置指令面板相关样式参数
+     * 配置指令面板相关样式参数
      */
     panelStyles: PropTypes.exact({
         /**
-         * 设置面板宽度，默认为'640px'
+         * 面板宽度
+         * 默认值：`'640px'`
          */
         width: PropTypes.string,
         /**
-         * 设置面板选项滚动区背景色，默认为'rgba(255, 255, 255, 0.5)'
+         * 面板选项滚动区背景色
+         * 默认值：`'rgba(255, 255, 255, 0.5)'`
          */
         overflowBackground: PropTypes.string,
         /**
-         * 设置面板字体颜色，默认为'rgb(60, 65, 73)'
+         * 面板字体颜色
+         * 默认值：`'rgb(60, 65, 73)'`
          */
         textColor: PropTypes.string,
         /**
-         * 设置面板字体大小，默认为'16px'
+         * 面板字体大小
+         * 默认值：`'16px'`
          */
         fontSize: PropTypes.string,
         /**
-         * 设置面板距离顶端距离，默认为'20%'
+         * 面板到顶端的距离
+         * 默认值：`'20%'`
          */
         top: PropTypes.string,
         /**
-         * 设置面板主色，默认为'rgb(110, 94, 210)'
+         * 面板主色
+         * 默认值：`'rgb(110, 94, 210)'`
          */
         accentColor: PropTypes.string,
         /**
-         * 设置面板次要背景色，默认为'rgb(239, 241, 244)'
+         * 面板次要背景色
+         * 默认值：`'rgb(239, 241, 244)'`
          */
         secondaryBackgroundColor: PropTypes.string,
         /**
-         * 设置面板次要文字颜色，默认为'rgb(107, 111, 118)'
+         * 面板次要文字颜色
+         * 默认值：`'rgb(107, 111, 118)'`
          */
         secondaryTextColor: PropTypes.string,
         /**
-         * 设置面板选中项背景色，默认为'rgb(248, 249, 251)'
+         * 面板选中项背景色
+         * 默认值：`'rgb(248, 249, 251)'`
          */
         selectedBackground: PropTypes.string,
         /**
-         * 设置面板选项区高度，默认为'300px'
+         * 面板选项区高度
+         * 默认值：`'300px'`
          */
         actionsHeight: PropTypes.string,
         /**
-         * 设置面板分组标签文字颜色，默认为'rgb(144, 149, 157)'
+         * 面板分组标签文字颜色
+         * 默认值：`'rgb(144, 149, 157)'`
          */
         groupTextColor: PropTypes.string,
         /**
-         * 设置面板的z-index信息，默认为1
+         * 面板`z-index`
+         * 默认值：`1`
          */
         zIndex: PropTypes.number
     }),
 
     /**
-     * 用于监听用户当前已输入搜索内容
+     * 监听用户当前已输入搜索内容
      */
     searchValue: PropTypes.string,
 
@@ -235,7 +258,6 @@ FefferyShortcutPanel.propTypes = {
     setProps: PropTypes.func
 };
 
-// 设置默认参数
 FefferyShortcutPanel.defaultProps = {
     locale: 'zh',
     theme: 'light',
