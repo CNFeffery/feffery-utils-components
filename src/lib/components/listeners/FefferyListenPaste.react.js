@@ -1,8 +1,12 @@
+// react核心
 import { useEffect, useCallback } from 'react';
-import { useHover } from 'ahooks';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useHover } from 'ahooks';
 
-// 定义全局粘贴监听组件FefferyListenPaste
+/**
+ * 全局粘贴监听组件FefferyListenPaste
+ */
 const FefferyListenPaste = (props) => {
     let {
         pasteCount,
@@ -42,12 +46,16 @@ const FefferyListenPaste = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyListenPaste.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
+
+    /**
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
 
     /**
      * 监听最近一次文本粘贴事件对应的粘贴内容
@@ -56,13 +64,13 @@ FefferyListenPaste.propTypes = {
 
     /**
      * 监听累计监听到的粘贴事件发生次数
-     * 默认：0
+     * 默认值：`0`
      */
     pasteCount: PropTypes.number,
 
     /**
      * 用于设置是否为当前组件启用粘贴事件监听
-     * 默认：false
+     * 默认值：`false`
      */
     enableListenPaste: PropTypes.bool,
 
@@ -93,7 +101,6 @@ FefferyListenPaste.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyListenPaste.defaultProps = {
     pasteCount: 0,
     enableListenPaste: false

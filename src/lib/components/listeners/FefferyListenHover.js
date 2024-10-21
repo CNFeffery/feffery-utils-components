@@ -1,5 +1,7 @@
-import { useHover } from 'ahooks';
+// react核心
 import PropTypes from 'prop-types';
+// 组件核心
+import { useHover } from 'ahooks';
 
 /**
  * 鼠标悬停监听组件FefferyListenHover
@@ -27,12 +29,12 @@ const FefferyListenHover = (props) => {
 
 FefferyListenHover.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 强制刷新用key值
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
@@ -68,7 +70,6 @@ FefferyListenHover.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyListenHover.defaultProps = {
 }
 

@@ -10,10 +10,10 @@ class FefferyListenHover(Component):
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - key (string; optional):
-    强制刷新用key值.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - targetSelector (string; required):
     必填，监听目标选择器字符串.
