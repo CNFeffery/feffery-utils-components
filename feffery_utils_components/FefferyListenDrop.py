@@ -10,13 +10,16 @@ class FefferyListenDrop(Component):
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
+
+- key (string; optional):
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - targetSelector (string; optional):
     放置事件监听目标容器选择器规则字符串.
 
 - dropEvent (dict; optional):
-    监听最近一次基于FefferyListenDrag的元素拖拽放置事件.
+    监听最近一次基于`FefferyListenDrag`的元素拖拽放置事件.
 
     `dropEvent` is a dict with keys:
 
@@ -27,22 +30,22 @@ Keyword arguments:
         事件携带数据.
 
     - pageX (number; optional):
-        以页面整体左上角为原点，记录x坐标.
+        以页面整体左上角为原点，记录`x`坐标.
 
     - pageY (number; optional):
-        以页面整体左上角为原点，记录y坐标.
+        以页面整体左上角为原点，记录`y`坐标.
 
     - clientX (number; optional):
-        以浏览器窗口左上角为原点，记录x坐标.
+        以浏览器窗口左上角为原点，记录`x`坐标.
 
     - clientY (number; optional):
-        以浏览器窗口左上角为原点，记录y坐标.
+        以浏览器窗口左上角为原点，记录`y`坐标.
 
     - screenX (number; optional):
-        以屏幕左上角为原点，记录x坐标.
+        以屏幕左上角为原点，记录`x`坐标.
 
     - screenY (number; optional):
-        以屏幕左上角为原点，记录y坐标.
+        以屏幕左上角为原点，记录`y`坐标.
 
 - isHovering (boolean; optional):
     监听放置事件监听目标容器是否正处于待放置鼠标悬停状态.
@@ -56,22 +59,22 @@ Keyword arguments:
         事件对应时间戳.
 
     - pageX (number; optional):
-        以页面整体左上角为原点，记录x坐标.
+        以页面整体左上角为原点，记录`x`坐标.
 
     - pageY (number; optional):
-        以页面整体左上角为原点，记录y坐标.
+        以页面整体左上角为原点，记录`y`坐标.
 
     - clientX (number; optional):
-        以浏览器窗口左上角为原点，记录x坐标.
+        以浏览器窗口左上角为原点，记录`x`坐标.
 
     - clientY (number; optional):
-        以浏览器窗口左上角为原点，记录y坐标.
+        以浏览器窗口左上角为原点，记录`y`坐标.
 
     - screenX (number; optional):
-        以屏幕左上角为原点，记录x坐标.
+        以屏幕左上角为原点，记录`x`坐标.
 
     - screenY (number; optional):
-        以屏幕左上角为原点，记录y坐标.
+        以屏幕左上角为原点，记录`y`坐标.
 
 - loading_state (dict; optional)
 
@@ -90,10 +93,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyListenDrop'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, targetSelector=Component.UNDEFINED, dropEvent=Component.UNDEFINED, isHovering=Component.UNDEFINED, hoverEvent=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'targetSelector', 'dropEvent', 'isHovering', 'hoverEvent', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, targetSelector=Component.UNDEFINED, dropEvent=Component.UNDEFINED, isHovering=Component.UNDEFINED, hoverEvent=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'targetSelector', 'dropEvent', 'isHovering', 'hoverEvent', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'targetSelector', 'dropEvent', 'isHovering', 'hoverEvent', 'loading_state']
+        self.available_properties = ['id', 'key', 'targetSelector', 'dropEvent', 'isHovering', 'hoverEvent', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
