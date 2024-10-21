@@ -1,9 +1,12 @@
-import { useTimeout } from 'ahooks';
+// react核心
 import PropTypes from 'prop-types';
+// 组件核心
+import { useTimeout } from 'ahooks';
 
-// 定义定时执行组件FefferyTimeout
+/**
+ * 定时执行组件FefferyTimeout
+ */
 const FefferyTimeout = (props) => {
-
     const {
         id,
         delay,
@@ -22,21 +25,20 @@ const FefferyTimeout = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyTimeout.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 监听超时事件完成次数，默认为0
+     * 监听超时事件完成次数
+     * 默认值：`0`
      */
     timeoutCount: PropTypes.number,
 
     /**
-     * 用于设置距离下一次超时事件触发的倒计时间隔（单位：毫秒），
-     * 每次有效的delay对应超时事件结束后都会被重置为undefined
+     * 设置距离下一次超时事件触发的倒计时间隔，单位：毫秒，每次有效的`delay`对应超时事件结束后都会被重置为空值
      */
     delay: PropTypes.number,
 
@@ -62,7 +64,6 @@ FefferyTimeout.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyTimeout.defaultProps = {
     timeoutCount: 0
 }

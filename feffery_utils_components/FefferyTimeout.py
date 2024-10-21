@@ -5,18 +5,18 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyTimeout(Component):
     """A FefferyTimeout component.
-
+定时执行组件FefferyTimeout
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - timeoutCount (number; default 0):
-    监听超时事件完成次数，默认为0.
+    监听超时事件完成次数  默认值：`0`.
 
 - delay (number; optional):
-    用于设置距离下一次超时事件触发的倒计时间隔（单位：毫秒），  每次有效的delay对应超时事件结束后都会被重置为undefined.
+    设置距离下一次超时事件触发的倒计时间隔，单位：毫秒，每次有效的`delay`对应超时事件结束后都会被重置为空值.
 
 - loading_state (dict; optional)
 
