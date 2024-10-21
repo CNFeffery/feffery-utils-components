@@ -1,10 +1,13 @@
+// react核心
 import { useEffect } from 'react';
-import { useGeolocation } from 'react-use';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useGeolocation } from 'react-use';
 
-// 定义地理位置监听组件FefferyGeolocation
+/**
+ * 地理位置监听组件FefferyGeolocation
+ */
 const FefferyGeolocation = (props) => {
-
     const {
         setProps,
         loading_state
@@ -19,12 +22,16 @@ const FefferyGeolocation = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyGeolocation.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
+
+    /**
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
 
     /**
      * 监听当前用户地理位置相关信息
@@ -53,7 +60,6 @@ FefferyGeolocation.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyGeolocation.defaultProps = {
 }
 

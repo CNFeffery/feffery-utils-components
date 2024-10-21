@@ -5,15 +5,15 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyPageLeave(Component):
     """A FefferyPageLeave component.
-
+鼠标离开页面监听组件FefferyPageLeave
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - key (string; optional):
-    强制刷新用.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - isLeft (boolean; optional):
     监听鼠标是否离开当前页面.

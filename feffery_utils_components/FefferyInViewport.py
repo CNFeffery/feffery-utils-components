@@ -5,21 +5,24 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyInViewport(Component):
     """A FefferyInViewport component.
-
+元素可见性检查组件FefferyInViewport
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
+
+- key (string; optional):
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - children (a list of or a singular dash component, string or number; optional):
-    需要进行可见性监听的目标元素.
+    组件型，需要进行可见性监听的目标元素.
 
 - inViewport (boolean; optional):
     监听当前元素是否出现在可视范围内.
 
 - threshold (number; optional):
-    用于设置触发元素可见性状态切换的比例阈值.
+    触发元素可见性状态切换的比例阈值.
 
 - loading_state (dict; optional)
 
@@ -38,10 +41,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyInViewport'
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, inViewport=Component.UNDEFINED, threshold=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'children', 'inViewport', 'threshold', 'loading_state']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, inViewport=Component.UNDEFINED, threshold=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'children', 'inViewport', 'threshold', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'children', 'inViewport', 'threshold', 'loading_state']
+        self.available_properties = ['id', 'key', 'children', 'inViewport', 'threshold', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

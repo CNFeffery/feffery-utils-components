@@ -1,10 +1,13 @@
+// react核心
 import { useEffect } from 'react';
-import { useResponsive } from 'ahooks';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useResponsive } from 'ahooks';
 
-// 定义页面响应式监听组件FefferyResponsive
+/**
+ * 页面响应式监听组件FefferyResponsive
+ */
 const FefferyResponsive = (props) => {
-
     const {
         setProps,
         loading_state
@@ -19,10 +22,9 @@ const FefferyResponsive = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyResponsive.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
@@ -53,7 +55,6 @@ FefferyResponsive.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyResponsive.defaultProps = {
 }
 

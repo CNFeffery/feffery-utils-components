@@ -10,13 +10,13 @@ class FefferyListenScroll(Component):
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - key (string; optional):
-    强制刷新用key值.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - target (string; optional):
-    设置滚动条监听目标元素id，默认为整个页面.
+    设置滚动条监听目标元素`id`，默认为整个页面.
 
 - position (dict; optional):
     监听目标滚动条的水平及竖直方向上的像素偏移量.
@@ -31,10 +31,10 @@ Keyword arguments:
     监听目标滚动条的滚动方向.
 
 - throttle (number; optional):
-    滚动事件监听节流时长，单位：毫秒  默认：`0`.
+    滚动事件监听节流时长，单位：毫秒  默认值：`0`.
 
 - idle (number; optional):
-    滚动结束行为的检查时长，单位：毫秒，当`throttle>0`时，检查时长将为`throttle+idle`  默认：`0`.
+    滚动结束行为的检查时长，单位：毫秒，当`throttle>0`时，检查时长将为`throttle+idle`  默认值：`0`.
 
 - offset (dict; optional):
     针对各个方向的到达边界状态，设置像素阈值.

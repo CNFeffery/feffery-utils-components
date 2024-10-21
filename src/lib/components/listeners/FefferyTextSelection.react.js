@@ -1,8 +1,12 @@
+// react核心
 import React, { useEffect } from 'react';
-import { useTextSelection } from 'ahooks';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useTextSelection } from 'ahooks';
 
-// 定义文字选中监听组件FefferyTextSelection
+/**
+ * 文字选中监听组件FefferyTextSelection
+ */
 const FefferyTextSelection = (props) => {
     const {
         targetId,
@@ -32,26 +36,30 @@ const FefferyTextSelection = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyTextSelection.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 设置目标监听容器id
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
+     * 设置目标监听容器`id`
      */
     targetId: PropTypes.string,
 
     /**
-     * 设置目标监听容器对应的css选择器
+     * 设置目标监听容器对应的`css`选择器
      */
     targetSelector: PropTypes.string,
 
     /**
-     * 设置目标监听规则类型，可选的有'id'、'selector'
-     * 默认：'id'
+     * 设置目标监听规则类型，可选项有`'id'`、`'selector'`
+     * 默认值：`'id'`
      */
     targetType: PropTypes.oneOf(['id', 'selector']),
 
@@ -82,7 +90,6 @@ FefferyTextSelection.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyTextSelection.defaultProps = {
     targetType: 'id'
 }

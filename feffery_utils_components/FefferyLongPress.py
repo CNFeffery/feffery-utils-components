@@ -5,21 +5,21 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyLongPress(Component):
     """A FefferyLongPress component.
-
+长按事件监听组件FefferyLongPress
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - targetId (string; optional):
-    设置当前长按监听组件的监听目标元素id.
+    设置当前长按监听组件的监听目标元素`id`.
 
 - pressCounts (number; default 0):
-    监听目标组件累计被长按次数  默认：0.
+    监听目标组件累计被长按次数  默认值：`0`.
 
 - delay (number; default 300):
-    设置符合长按行为的持续时长，单位：毫秒  默认：300.
+    设置符合长按行为的持续时长，单位：毫秒  默认值：`300`.
 
 - loading_state (dict; optional)
 

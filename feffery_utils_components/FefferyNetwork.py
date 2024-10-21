@@ -10,10 +10,10 @@ class FefferyNetwork(Component):
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - key (string; optional):
-    强制刷新用key值.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - online (boolean; optional):
     网络是否为在线.
@@ -25,7 +25,7 @@ Keyword arguments:
     当前连接下评估的往返时延.
 
 - type (a value equal to: 'bluetooth', 'cellular', 'ethernet', 'none', 'wifi', 'wimax', 'other', 'unknown'; optional):
-    设备使用与所述网络进行通信的连接的类型，可选项有'bluetooth'、'cellular'、'ethernet'、'none'、'wifi'、'wimax'、'other'、'unknown'.
+    设备使用与所述网络进行通信的连接的类型，可选项有`'bluetooth'`、`'cellular'`、`'ethernet'`、`'none'`、`'wifi'`、`'wimax'`、`'other'`、`'unknown'`.
 
 - downlink (number; optional):
     有效带宽估算（单位：兆比特/秒）.
@@ -37,7 +37,7 @@ Keyword arguments:
     用户代理是否设置了减少数据使用的选项.
 
 - effectiveType (a value equal to: 'slow-2g', '2g', '3g', '4g'; optional):
-    网络连接的类型，可选的值有'slow-2g'、'2g'、'3g'、'4g'.
+    网络连接的类型，可选项有`'slow-2g'`、`'2g'`、`'3g'`、`'4g'`.
 
 - loading_state (dict; optional)
 

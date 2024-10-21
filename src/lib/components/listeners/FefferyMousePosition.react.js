@@ -1,8 +1,12 @@
+// react核心
 import { useEffect } from 'react';
-import { useMouse } from 'ahooks';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useMouse } from 'ahooks';
 
-// 定义鼠标位置监听组件FefferyMousePosition
+/**
+ * 鼠标位置监听组件FefferyMousePosition
+ */
 const FefferyMousePosition = (props) => {
     let {
         setProps,
@@ -29,12 +33,16 @@ const FefferyMousePosition = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyMousePosition.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
+
+    /**
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
 
     /**
      * 监听当前鼠标位置相关信息
@@ -63,7 +71,6 @@ FefferyMousePosition.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyMousePosition.defaultProps = {
 }
 

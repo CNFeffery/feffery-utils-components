@@ -5,18 +5,21 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyWindowSize(Component):
     """A FefferyWindowSize component.
-
+浏览器窗口尺寸监听组件FefferyWindowSize
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
+
+- key (string; optional):
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - _width (number; optional):
     监听当前浏览器窗口像素宽度.
 
 - _height (number; optional):
-    监听当前浏览器窗口高度.
+    监听当前浏览器窗口像素高度.
 
 - loading_state (dict; optional)
 
@@ -35,10 +38,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyWindowSize'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, _width=Component.UNDEFINED, _height=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', '_width', '_height', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, _width=Component.UNDEFINED, _height=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', '_width', '_height', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', '_width', '_height', 'loading_state']
+        self.available_properties = ['id', 'key', '_width', '_height', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -1,8 +1,12 @@
+// react核心
 import { useEffect } from 'react';
-import { usePageLeave } from '@reactuses/core';
 import PropTypes from 'prop-types';
+// 组件核心
+import { usePageLeave } from '@reactuses/core';
 
-// 定义鼠标离开页面监听组件FefferyPageLeave
+/**
+ * 鼠标离开页面监听组件FefferyPageLeave
+ */
 const FefferyPageLeave = (props) => {
     const {
         setProps
@@ -17,15 +21,14 @@ const FefferyPageLeave = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyPageLeave.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 强制刷新用
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
@@ -56,7 +59,6 @@ FefferyPageLeave.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyPageLeave.defaultProps = {
 }
 

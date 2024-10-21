@@ -1,6 +1,8 @@
+// react核心
 import { useEffect } from 'react';
-import { useElementSize } from '@reactuses/core';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useElementSize } from '@reactuses/core';
 
 /**
  * 元素尺寸监听组件FefferyListenElementSize
@@ -33,17 +35,17 @@ const FefferyListenElementSize = (props) => {
 
 FefferyListenElementSize.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 强制刷新用key值
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 必填，设置尺寸监听目标元素id
+     * 必填，设置尺寸监听目标元素`id`
      */
     target: PropTypes.string.isRequired,
 
@@ -79,7 +81,6 @@ FefferyListenElementSize.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyListenElementSize.defaultProps = {
 }
 

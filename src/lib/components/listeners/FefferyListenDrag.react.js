@@ -1,5 +1,7 @@
-import { useDrag } from 'ahooks';
+// react核心
 import PropTypes from 'prop-types';
+// 组件核心
+import { useDrag } from 'ahooks';
 
 /**
  * 拖拽事件监听组件FefferyListenDrag
@@ -35,9 +37,14 @@ const FefferyListenDrag = (props) => {
 
 FefferyListenDrag.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
+
+    /**
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
 
     /**
      * 拖拽事件监听目标选择器规则字符串
@@ -76,7 +83,6 @@ FefferyListenDrag.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyListenDrag.defaultProps = {
 }
 
