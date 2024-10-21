@@ -1,6 +1,8 @@
+// react核心
 import { useEffect } from 'react';
-import { useNetwork } from 'ahooks';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useNetwork } from 'ahooks';
 
 /**
  * 网络状态信息监听组件FefferyNetwork
@@ -24,12 +26,12 @@ const FefferyNetwork = (props) => {
 
 FefferyNetwork.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 强制刷新用key值
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
@@ -49,7 +51,7 @@ FefferyNetwork.propTypes = {
     rtt: PropTypes.number,
 
     /**
-     * 设备使用与所述网络进行通信的连接的类型，可选项有'bluetooth'、'cellular'、'ethernet'、'none'、'wifi'、'wimax'、'other'、'unknown'
+     * 设备使用与所述网络进行通信的连接的类型，可选项有`'bluetooth'`、`'cellular'`、`'ethernet'`、`'none'`、`'wifi'`、`'wimax'`、`'other'`、`'unknown'`
      */
     type: PropTypes.oneOf(['bluetooth', 'cellular', 'ethernet', 'none', 'wifi', 'wimax', 'other', 'unknown']),
 
@@ -69,7 +71,7 @@ FefferyNetwork.propTypes = {
     saveData: PropTypes.bool,
 
     /**
-     * 网络连接的类型，可选的值有'slow-2g'、'2g'、'3g'、'4g'
+     * 网络连接的类型，可选项有`'slow-2g'`、`'2g'`、`'3g'`、`'4g'`
      */
     effectiveType: PropTypes.oneOf(['slow-2g', '2g', '3g', '4g']),
 
@@ -95,7 +97,6 @@ FefferyNetwork.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyNetwork.defaultProps = {
 }
 
