@@ -5,15 +5,15 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyReload(Component):
     """A FefferyReload component.
-
+页面重载组件FefferyReload
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - reload (boolean; optional):
-    执行页面重载操作的标志，当设置为True时会进行页面重载.
+    执行页面重载操作的标志，当设置为`True`时会进行页面重载.
 
 - delay (number; optional):
     设置重载执行的延时时长（单位：毫秒）.

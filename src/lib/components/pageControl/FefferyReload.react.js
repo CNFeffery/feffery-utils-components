@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-// 定义页面重载组件FefferyReload
+/**
+ * 页面重载组件FefferyReload
+ */
 const FefferyReload = (props) => {
     const {
         id,
@@ -30,16 +32,14 @@ const FefferyReload = (props) => {
     return <></>;
 }
 
-
-// 定义参数或属性
 FefferyReload.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 执行页面重载操作的标志，当设置为true时会进行页面重载
+     * 执行页面重载操作的标志，当设置为`true`时会进行页面重载
      */
     reload: PropTypes.bool,
 

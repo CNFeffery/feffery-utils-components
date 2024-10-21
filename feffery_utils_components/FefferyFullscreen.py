@@ -5,18 +5,18 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyFullscreen(Component):
     """A FefferyFullscreen component.
-
+全屏化组件FefferyFullscreen
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - targetId (string; optional):
     设置要全屏化的目标元素id，缺省时会以整个页面作为全屏化目标.
 
 - isFullscreen (boolean; default False):
-    设置或监听目标元素的全屏化状态，默认为False.
+    设置或监听目标元素的全屏化状态  默认值：`False`.
 
 - loading_state (dict; optional)
 

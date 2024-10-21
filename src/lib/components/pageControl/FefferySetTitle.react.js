@@ -29,20 +29,19 @@ const FefferySetTitle = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferySetTitle.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 用于设置要更新的title信息
+     * 用于设置要更新的`title`信息
      */
     title: PropTypes.string,
 
     /**
-     * 当title参数为空，或当前组件从页面中卸载后应当还原的title
+     * 当`title`参数为空，或当前组件从页面中卸载后应当还原的`title`
      */
     originTitle: PropTypes.string,
 
