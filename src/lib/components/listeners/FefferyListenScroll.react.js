@@ -1,6 +1,8 @@
+// react核心
 import { useEffect } from 'react';
-import { useScroll } from '@reactuses/core';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useScroll } from '@reactuses/core';
 
 /**
  * 滚动条监听组件FefferyListenScroll
@@ -53,17 +55,17 @@ const FefferyListenScroll = (props) => {
 
 FefferyListenScroll.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 强制刷新用key值
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 设置滚动条监听目标元素id，默认为整个页面
+     * 设置滚动条监听目标元素`id`，默认为整个页面
      */
     target: PropTypes.string,
 
@@ -89,13 +91,13 @@ FefferyListenScroll.propTypes = {
 
     /**
      * 滚动事件监听节流时长，单位：毫秒
-     * 默认：`0`
+     * 默认值：`0`
      */
     throttle: PropTypes.number,
 
     /**
      * 滚动结束行为的检查时长，单位：毫秒，当`throttle>0`时，检查时长将为`throttle+idle`
-     * 默认：`0`
+     * 默认值：`0`
      */
     idle: PropTypes.number,
 
@@ -143,7 +145,6 @@ FefferyListenScroll.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyListenScroll.defaultProps = {
 }
 
