@@ -7,16 +7,6 @@ import PropTypes from 'prop-types';
  */
 const FefferyNetwork = (props) => {
     const {
-        id,
-        key,
-        online,
-        since,
-        rtt,
-        type,
-        downlink,
-        downlinkMax,
-        saveData,
-        effectiveType,
         setProps,
         loading_state
     } = props;
