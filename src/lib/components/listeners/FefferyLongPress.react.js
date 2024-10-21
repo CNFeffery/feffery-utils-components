@@ -1,10 +1,13 @@
+// react核心
 import React from 'react';
-import { useLongPress } from 'ahooks';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useLongPress } from 'ahooks';
 
-// 定义长按事件监听组件FefferyLongPress
+/**
+ * 长按事件监听组件FefferyLongPress
+ */
 const FefferyLongPress = (props) => {
-
     const {
         targetId,
         pressCounts,
@@ -28,27 +31,26 @@ const FefferyLongPress = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyLongPress.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 设置当前长按监听组件的监听目标元素id
+     * 设置当前长按监听组件的监听目标元素`id`
      */
     targetId: PropTypes.string,
 
     /**
      * 监听目标组件累计被长按次数
-     * 默认：0
+     * 默认值：`0`
      */
     pressCounts: PropTypes.number,
 
     /**
      * 设置符合长按行为的持续时长，单位：毫秒
-     * 默认：300
+     * 默认值：`300`
      */
     delay: PropTypes.number,
 
@@ -74,7 +76,6 @@ FefferyLongPress.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyLongPress.defaultProps = {
     pressCounts: 0,
     delay: 300
