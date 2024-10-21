@@ -1,8 +1,12 @@
+// react核心
 import { useEffect } from 'react';
-import { useWindowSize } from 'react-use';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useWindowSize } from 'react-use';
 
-// 定义浏览器窗口尺寸监听组件FefferyWindowSize
+/**
+ * 浏览器窗口尺寸监听组件FefferyWindowSize
+ */
 const FefferyWindowSize = (props) => {
     const {
         setProps,
@@ -21,12 +25,16 @@ const FefferyWindowSize = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyWindowSize.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
+
+    /**
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
 
     /**
      * 监听当前浏览器窗口像素宽度
@@ -34,7 +42,7 @@ FefferyWindowSize.propTypes = {
     _width: PropTypes.number,
 
     /**
-     * 监听当前浏览器窗口高度
+     * 监听当前浏览器窗口像素高度
      */
     _height: PropTypes.number,
 
@@ -60,7 +68,6 @@ FefferyWindowSize.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferyWindowSize.defaultProps = {
 }
 
