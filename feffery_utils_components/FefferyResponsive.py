@@ -5,12 +5,12 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyResponsive(Component):
     """A FefferyResponsive component.
-
+页面响应式监听组件FefferyResponsive
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - responsive (dict; optional):
     监听当前页面尺寸下对应各断点像素宽度的满足情况.
