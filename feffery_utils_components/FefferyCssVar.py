@@ -5,15 +5,15 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyCssVar(Component):
     """A FefferyCssVar component.
-
+Css变量更新组件FefferyCssVar
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - cssVars (dict; optional):
-    定义要更新的css变量键值对信息.
+    定义要更新的`css`变量键值对信息.
 
 - loading_state (dict; optional)
 

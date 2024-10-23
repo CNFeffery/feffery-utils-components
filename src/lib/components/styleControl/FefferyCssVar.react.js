@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-// 定义Css变量更新组件FefferyCssVar
+/**
+ * Css变量更新组件FefferyCssVar
+ */
 const FefferyCssVar = (props) => {
     // 取得必要属性或参数
     const {
@@ -24,16 +26,14 @@ const FefferyCssVar = (props) => {
     return <></>;
 }
 
-
-// 定义参数或属性
 FefferyCssVar.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 定义要更新的css变量键值对信息
+     * 定义要更新的`css`变量键值对信息
      */
     cssVars: PropTypes.object,
 
