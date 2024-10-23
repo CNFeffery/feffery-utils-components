@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferyExcelPreview = React.lazy(() => import(/* webpackChunkName: "feffery_excel_preview" */ '../../fragments/filePreview/FefferyExcelPreview.react'));
 
+/**
+ * excel文件预览组件FefferyExcelPreview
+ */
 const FefferyExcelPreview = (props) => {
     return (
         <Suspense fallback={null}>
@@ -11,35 +14,34 @@ const FefferyExcelPreview = (props) => {
     );
 }
 
-// 定义参数或属性
 FefferyExcelPreview.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * css样式
+     * 当前组件css样式
      */
     style: PropTypes.object,
 
     /**
-     * css类名
+     * 当前组件css类名，支持[动态css](/advanced-classname)
      */
     className: PropTypes.string,
 
     /**
-     * 必填，设置目标excel文件资源地址
+     * 必填，设置目标`excel`文件资源地址
      */
     src: PropTypes.string.isRequired,
 
     /**
-     * 至少渲染的列数，当设置为0时会自动根据数据列数进行渲染
+     * 至少渲染的列数，当设置为`0`时会自动根据数据列数进行渲染
      */
     minColLength: PropTypes.number,
 
     /**
-     * 至少渲染的行数，当设置为0时会自动根据数据行数进行渲染
+     * 至少渲染的行数，当设置为`0`时会自动根据数据行数进行渲染
      */
     minRowLength: PropTypes.number,
 
