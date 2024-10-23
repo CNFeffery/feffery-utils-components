@@ -5,7 +5,9 @@ import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
 import { propTypes, defaultProps } from '../../components/filePreview/FefferyWordPreview.react';
 
-// 定义word文件预览组件FefferyWordPreview
+/**
+ * word文件预览组件FefferyWordPreview
+ */
 const FefferyWordPreview = (props) => {
     // 取得必要属性或参数
     const {

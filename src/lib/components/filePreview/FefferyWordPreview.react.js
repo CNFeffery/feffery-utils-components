@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferyWordPreview = React.lazy(() => import(/* webpackChunkName: "feffery_word_preview" */ '../../fragments/filePreview/FefferyWordPreview.react'));
 
+/**
+ * word文件预览组件FefferyWordPreview
+ */
 const FefferyWordPreview = (props) => {
     return (
         <Suspense fallback={null}>
@@ -11,25 +14,24 @@ const FefferyWordPreview = (props) => {
     );
 }
 
-// 定义参数或属性
 FefferyWordPreview.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * css样式
+     * 当前组件css样式
      */
     style: PropTypes.object,
 
     /**
-     * css类名
+     * 当前组件css类名，支持[动态css](/advanced-classname)
      */
     className: PropTypes.string,
 
     /**
-     * 必填，设置目标excel文件资源地址
+     * 必填，设置目标`word`文件资源地址
      */
     src: PropTypes.string.isRequired,
 
