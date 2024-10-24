@@ -5,18 +5,18 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyStyle(Component):
     """A FefferyStyle component.
-
+动态样式组件FefferyStyle
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - key (string; optional):
-    辅助刷新用唯一标识key值.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - rawStyle (string; optional):
-    设置要添加到文档中的原生css字符.
+    设置要添加到文档中的原生`css`字符.
 
 - loading_state (dict; optional)
 

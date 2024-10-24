@@ -5,21 +5,21 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyWordPreview(Component):
     """A FefferyWordPreview component.
-
+word文件预览组件FefferyWordPreview
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - style (dict; optional):
-    css样式.
+    当前组件css样式.
 
 - className (string; optional):
-    css类名.
+    当前组件css类名，支持[动态css](/advanced-classname).
 
 - src (string; required):
-    必填，设置目标excel文件资源地址.
+    必填，设置目标`word`文件资源地址.
 
 - loading_state (dict; optional)
 

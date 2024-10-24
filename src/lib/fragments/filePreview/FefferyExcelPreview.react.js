@@ -5,7 +5,9 @@ import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
 import { propTypes, defaultProps } from '../../components/filePreview/FefferyExcelPreview.react';
 
-// 定义excel文件预览组件FefferyExcelPreview
+/**
+ * excel文件预览组件FefferyExcelPreview
+ */
 const FefferyExcelPreview = (props) => {
     // 取得必要属性或参数
     const {
