@@ -2,7 +2,9 @@ import { useEffect } from "react";
 import autofit from "autofit.js";
 import { propTypes, defaultProps } from '../../components/resizable/FefferyAutoFit.react';
 
-// 定义自适应组件FefferyAutoFit
+/**
+ * 自适应组件FefferyAutoFit
+ */
 const FefferyAutoFit = (props) => {
     // 取得必要属性或参数
     const {
