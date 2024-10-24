@@ -10,17 +10,17 @@ class FefferyDebugGuardian(Component):
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - detectInterval (number; default 1000):
-    设置后台轮询检测的间隔时长，单位：毫秒  默认：1000.
+    设置后台轮询检测的间隔时长，单位：毫秒  默认值：`1000`.
 
 - strategy (a value equal to: 'infinite-debugger', 'debugger-then-auto-close', 'debugger-then-execute-js'; default 'infinite-debugger'):
-    设置当检测到开发者工具被打开时的应对策略，可选的有'infinite-debugger'（无限debugger）、'debugger-then-auto-close'（激活debugger后自动关闭）、'debugger-then-execute-js'（激活debugger后执行js）
-    默认：'infinite-debugger'.
+    设置当检测到开发者工具被打开时的应对策略，可选的有`'infinite-debugger'`（无限debugger）、`'debugger-then-auto-close'`（激活debugger后自动关闭）、`'debugger-then-execute-js'`（激活debugger后执行js）
+    默认值：`'infinite-debugger'`.
 
 - jsString (string; optional):
-    当strategy为'debugger-then-execute-js'时，设置要执行的js代码.
+    当`strategy`为`'debugger-then-execute-js'`时，设置要执行的js代码.
 
 - loading_state (dict; optional)
 

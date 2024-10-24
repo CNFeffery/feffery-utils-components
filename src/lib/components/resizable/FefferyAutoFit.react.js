@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferyAutoFit = React.lazy(() => import(/* webpackChunkName: "feffery_auto_fit" */ '../../fragments/resizable/FefferyAutoFit.react'));
 
+/**
+ * 自适应组件FefferyAutoFit
+ */
 const FefferyAutoFit = (props) => {
     return (
         <Suspense fallback={null}>
@@ -11,15 +14,15 @@ const FefferyAutoFit = (props) => {
     );
 }
 
-// 定义参数或属性
 FefferyAutoFit.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 要进行自适应的目标元素id，默认为'body'
+     * 要进行自适应的目标元素id
+     * 默认值：`'body'`
      */
     containerId: PropTypes.string,
 
@@ -28,11 +31,13 @@ FefferyAutoFit.propTypes = {
          */
     dw: PropTypes.number,
     /**
-     * 设计稿的高度，默认是1080
+     * 设计稿的高度
+     * 默认值：`1080`
      */
     dh: PropTypes.number,
     /**
-     * 是否监听resize事件，默认是true
+     * 是否监听resize事件
+     * 默认值：`true`
      */
     resize: PropTypes.bool,
     /**
@@ -45,20 +50,24 @@ FefferyAutoFit.propTypes = {
         el: PropTypes.string
     })),
     /**
-     * 过渡时间，默认是0
+     * 过渡时间
+     * 默认值：`0`
      */
     transition: PropTypes.number,
     /**
-     * 延迟时间，默认是0
+     * 延迟时间
+     * 默认值：`0`
      */
     delay: PropTypes.number,
     /**
-     * 默认是 0.1,当缩放阈值不大于此值时不缩放，比如设置为0.1时，0.9-1.1的范围会被重置为1
+     * 不缩放的临界值，当缩放阈值不大于此值时不缩放，比如设置为`0.1`时，`0.9-1.1`的范围会被重置为`1`
+     * 默认值：`0.1`
      */
     limit: PropTypes.number,
 
     /**
-     * 关闭自适应，设置为true执行完相应操作后会自动重置为false，默认为false
+     * 关闭自适应，设置为`true`执行完相应操作后会自动重置为`false`
+     * 默认为`false`
      */
     close: PropTypes.bool,
 

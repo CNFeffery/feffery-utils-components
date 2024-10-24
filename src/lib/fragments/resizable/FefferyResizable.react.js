@@ -3,7 +3,9 @@ import { Resizable } from 're-resizable';
 import { propTypes, defaultProps } from '../../components/resizable/FefferyResizable.react';
 import { clone } from 'lodash';
 
-// 定义尺寸调整组件FefferyResizable
+/**
+ * 尺寸调整组件FefferyResizable
+ */
 const FefferyResizable = (props) => {
     // 取得必要属性或参数
     const {

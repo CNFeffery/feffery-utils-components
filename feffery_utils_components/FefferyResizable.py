@@ -5,26 +5,27 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyResizable(Component):
     """A FefferyResizable component.
-
+尺寸调整组件FefferyResizable
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
-- key (string; optional)
+- key (string; optional):
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - children (a list of or a singular dash component, string or number; optional):
-    设置内部嵌套的子元素.
-
-- className (string; optional):
-    设置css类名.
+    组件型，设置内部嵌套的子元素.
 
 - style (dict; optional):
-    设置css样式.
+    当前组件css样式.
+
+- className (string | dict; optional):
+    当前组件css类名，支持[动态css](/advanced-classname).
 
 - defaultSize (dict; optional):
-    设置尺寸调整组件初始化时的宽度、高度，可传入如300、'300px'、'50%'、'50vh'等形式.
+    设置尺寸调整组件初始化时的宽度和高度，可传入如`300`、`'300px'`、`'50%'`、`'50vh'`等形式.
 
     `defaultSize` is a dict with keys:
 
@@ -35,7 +36,7 @@ Keyword arguments:
         设置高度.
 
 - size (dict; optional):
-    监听或设置尺寸调整组件的宽度、高度，可传入如300、'300px'、'50%'、'50vh'等形式.
+    监听或设置尺寸调整组件的宽度和高度，可传入如`300`、`'300px'`、`'50%'`、`'50vh'`等形式.
 
     `size` is a dict with keys:
 
@@ -46,10 +47,10 @@ Keyword arguments:
         设置高度.
 
 - minWidth (number | string; default 10):
-    设置尺寸调整组件的最小宽度，默认为10.
+    设置尺寸调整组件的最小宽度  默认值：`10`.
 
 - minHeight (number | string; default 10):
-    设置尺寸调整组件的最小高度，默认为10.
+    设置尺寸调整组件的最小高度  默认值：`10`.
 
 - maxWidth (number | string; optional):
     设置尺寸调整组件的最大宽度.
@@ -58,21 +59,21 @@ Keyword arguments:
     设置尺寸调整组件的最大高度.
 
 - direction (list of a value equal to: 'top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft's; default ['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft']):
-    设置允许进行尺寸调整的方向，多选，可选项有'top'、'right'、'bottom'、'left'、'topRight'、'bottomRight'、'bottomLeft'、'topLeft'
-    默认为['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight',
-    'bottomLeft', 'topLeft'].
+    设置允许进行尺寸调整的方向，多选，可选项有`'top'`、`'right'`、`'bottom'`、`'left'`、`'topRight'`、`'bottomRight'`、`'bottomLeft'`、`'topLeft'`
+    默认值：`['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight',
+    'bottomLeft', 'topLeft']`.
 
 - grid (list of numbers; default [1, 1]):
-    设置尺寸调整在水平和竖直方向上的最小调整像素步长，默认为[1, 1].
+    设置尺寸调整在水平和竖直方向上的最小调整像素步长  默认值：`[1, 1]`.
 
 - bounds (a value equal to: 'window', 'parent'; default 'window'):
-    设置尺寸调整组件的外边界类型，可选的有'window'、'parent'  默认为'window'.
+    设置尺寸调整组件的外边界类型，可选的有`'window'`、`'parent'`  默认值：`'window'`.
 
 - boundsSelector (string; optional):
-    用于指定边界元素的css选择器，优先级高于bounds.
+    用于指定边界元素的`css`选择器，优先级高于`bounds`.
 
 - handleStyles (dict; optional):
-    用于分别设置不同方向上拖拽控件部分的css样式.
+    用于分别设置不同方向上拖拽控件部分的`css`样式.
 
     `handleStyles` is a dict with keys:
 
@@ -93,7 +94,7 @@ Keyword arguments:
     - topLeft (dict; optional)
 
 - handleClassNames (dict; optional):
-    用于分别设置不同方向上拖拽控件部分的css类名.
+    用于分别设置不同方向上拖拽控件部分的`css`类名.
 
     `handleClassNames` is a dict with keys:
 
@@ -130,10 +131,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyResizable'
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, defaultSize=Component.UNDEFINED, size=Component.UNDEFINED, minWidth=Component.UNDEFINED, minHeight=Component.UNDEFINED, maxWidth=Component.UNDEFINED, maxHeight=Component.UNDEFINED, direction=Component.UNDEFINED, grid=Component.UNDEFINED, bounds=Component.UNDEFINED, boundsSelector=Component.UNDEFINED, handleStyles=Component.UNDEFINED, handleClassNames=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'children', 'className', 'style', 'defaultSize', 'size', 'minWidth', 'minHeight', 'maxWidth', 'maxHeight', 'direction', 'grid', 'bounds', 'boundsSelector', 'handleStyles', 'handleClassNames', 'loading_state']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, defaultSize=Component.UNDEFINED, size=Component.UNDEFINED, minWidth=Component.UNDEFINED, minHeight=Component.UNDEFINED, maxWidth=Component.UNDEFINED, maxHeight=Component.UNDEFINED, direction=Component.UNDEFINED, grid=Component.UNDEFINED, bounds=Component.UNDEFINED, boundsSelector=Component.UNDEFINED, handleStyles=Component.UNDEFINED, handleClassNames=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'defaultSize', 'size', 'minWidth', 'minHeight', 'maxWidth', 'maxHeight', 'direction', 'grid', 'bounds', 'boundsSelector', 'handleStyles', 'handleClassNames', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'className', 'style', 'defaultSize', 'size', 'minWidth', 'minHeight', 'maxWidth', 'maxHeight', 'direction', 'grid', 'bounds', 'boundsSelector', 'handleStyles', 'handleClassNames', 'loading_state']
+        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'defaultSize', 'size', 'minWidth', 'minHeight', 'maxWidth', 'maxHeight', 'direction', 'grid', 'bounds', 'boundsSelector', 'handleStyles', 'handleClassNames', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
