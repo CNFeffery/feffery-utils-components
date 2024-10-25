@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { isUndefined } from 'lodash';
 
-// 定义localStorage状态管理组件
+/**
+ * localStorage状态管理组件
+ */
 const FefferyLocalStorage = (props) => {
     // 取得必要属性或参数
     const {
@@ -55,22 +57,20 @@ const FefferyLocalStorage = (props) => {
     return <></>;
 }
 
-
-// 定义参数或属性
 FefferyLocalStorage.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string.isRequired,
 
     /**
-     * 设置或监听当前id对应的localStorage数据
+     * 设置或监听当前`id`对应的`localStorage`数据
      */
     data: PropTypes.any,
 
     /**
-     * 设置初始化时是否从localStorage中尝试读取id对应的值并更新到data中
-     * 默认：false
+     * 设置初始化时是否从`localStorage`中尝试读取id对应的值并更新到`data`中
+     * 默认值：`false`
      */
     initialSync: PropTypes.bool,
 
