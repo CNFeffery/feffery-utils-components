@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyLocalLargeStorage(Component):
     """A FefferyLocalLargeStorage component.
-
+客户端大容量存储器FefferyLocalLargeStorage
 
 Keyword arguments:
 
@@ -16,7 +16,7 @@ Keyword arguments:
     定义当前存储器对应存储在浏览器本地的数据.
 
 - initialSync (boolean; default False):
-    设置初始化时是否从浏览器本地存储中尝试读取id对应的值并更新到data中  默认：False.
+    设置初始化时是否从浏览器本地存储中尝试读取`id`对应的值并更新到`data`中  默认值：`False`.
 
 - loading_state (dict; optional)
 

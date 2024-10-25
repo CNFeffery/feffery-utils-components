@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferyLocalLargeStorage = React.lazy(() => import(/* webpackChunkName: "feffery_local_large_storage" */ '../../fragments/store/FefferyLocalLargeStorage.react'));
 
+/**
+ * 客户端大容量存储器FefferyLocalLargeStorage
+ */
 const FefferyLocalLargeStorage = (props) => {
     return (
         <Suspense fallback={null}>
@@ -11,8 +14,6 @@ const FefferyLocalLargeStorage = (props) => {
     );
 }
 
-
-// 定义参数或属性
 FefferyLocalLargeStorage.propTypes = {
     /**
      * 用于定义当前存储器的唯一识别id
@@ -25,8 +26,8 @@ FefferyLocalLargeStorage.propTypes = {
     data: PropTypes.any,
 
     /**
-     * 设置初始化时是否从浏览器本地存储中尝试读取id对应的值并更新到data中
-     * 默认：false
+     * 设置初始化时是否从浏览器本地存储中尝试读取`id`对应的值并更新到`data`中
+     * 默认值：`false`
      */
     initialSync: PropTypes.bool,
 
