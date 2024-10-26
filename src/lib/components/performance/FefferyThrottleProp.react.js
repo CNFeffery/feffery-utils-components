@@ -2,7 +2,9 @@ import { useEffect } from 'react';
 import { useRequest } from 'ahooks';
 import PropTypes from 'prop-types';
 
-// 定义节流属性组件FefferyThrottleProp
+/**
+ * 节流属性组件FefferyThrottleProp
+ */
 const FefferyThrottleProp = (props) => {
     // 取得必要属性或参数
     const {
@@ -31,10 +33,9 @@ const FefferyThrottleProp = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyThrottleProp.propTypes = {
     /**
-     * 组件唯一id，用于编排回调角色等
+     * 组件唯一id
      */
     id: PropTypes.string,
 
@@ -44,13 +45,13 @@ FefferyThrottleProp.propTypes = {
     sourceProp: PropTypes.any,
 
     /**
-     * 对应sourceProp的节流控制状态
+     * 对应`sourceProp`的节流控制状态
      */
     throttleProp: PropTypes.any,
 
     /**
      * 设置节流延时时长，单位：毫秒
-     * 默认：200
+     * 默认值：`200`
      */
     throttleWait: PropTypes.number,
 

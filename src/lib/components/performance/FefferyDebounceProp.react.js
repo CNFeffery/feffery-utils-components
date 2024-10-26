@@ -2,7 +2,9 @@ import { useEffect } from 'react';
 import { useRequest } from 'ahooks';
 import PropTypes from 'prop-types';
 
-// 定义防抖属性组件FefferyDebounceProp
+/**
+ * 防抖属性组件FefferyDebounceProp
+ */
 const FefferyDebounceProp = (props) => {
     // 取得必要属性或参数
     const {
@@ -31,10 +33,9 @@ const FefferyDebounceProp = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyDebounceProp.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
@@ -44,13 +45,13 @@ FefferyDebounceProp.propTypes = {
     sourceProp: PropTypes.any,
 
     /**
-     * 对应sourceProp的防抖控制状态
+     * 对应`sourceProp`的防抖控制状态
      */
     debounceProp: PropTypes.any,
 
     /**
      * 设置防抖延时时长，单位：毫秒
-     * 默认：200
+     * 默认值：`200`
      */
     debounceWait: PropTypes.number,
 

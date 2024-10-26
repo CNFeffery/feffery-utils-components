@@ -5,21 +5,21 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyThrottleProp(Component):
     """A FefferyThrottleProp component.
-
+节流属性组件FefferyThrottleProp
 
 Keyword arguments:
 
 - id (string; optional):
-    组件唯一id，用于编排回调角色等.
+    组件唯一id.
 
 - sourceProp (boolean | number | string | dict | list; optional):
     用于同步目标属性，请通过回调函数更新.
 
 - throttleProp (boolean | number | string | dict | list; optional):
-    对应sourceProp的节流控制状态.
+    对应`sourceProp`的节流控制状态.
 
 - throttleWait (number; default 200):
-    设置节流延时时长，单位：毫秒  默认：200.
+    设置节流延时时长，单位：毫秒  默认值：`200`.
 
 - loading_state (dict; optional)
 

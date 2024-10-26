@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import LazyLoad from 'react-lazy-load';
 
-// 定义懒加载容器组件FefferyLazyLoad
+/**
+ * 懒加载容器组件FefferyLazyLoad
+ */
 const FefferyLazyLoad = (props) => {
     // 取得必要属性或参数
     const {
@@ -40,32 +42,34 @@ const FefferyLazyLoad = (props) => {
     </ LazyLoad>);
 }
 
-// 定义参数或属性
 FefferyLazyLoad.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 组件子元素
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
+     * 组件型，设置内嵌元素内容
      */
     children: PropTypes.node,
 
     /**
-     * 自定义css字典
+     * 当前组件css样式
      */
     style: PropTypes.object,
 
     /**
-     * 设置css类名
+     * 当前组件css类名，支持[动态css](/advanced-classname)
      */
-    className: PropTypes.string,
-
-    /**
-     * 辅助刷新用唯一标识key值
-     */
-    key: PropTypes.string,
+    className: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ]),
 
     /**
      * 设置默认高度
@@ -84,7 +88,8 @@ FefferyLazyLoad.propTypes = {
     ]),
 
     /**
-     * 设置元素距离浏览器下边界若干像素距离时开始预加载，默认为0
+     * 设置元素距离浏览器下边界若干像素距离时开始预加载
+     * 默认值：`0`
      */
     offset: PropTypes.number,
 
@@ -94,7 +99,8 @@ FefferyLazyLoad.propTypes = {
     visible: PropTypes.bool,
 
     /**
-     * 设置节流所需的延时加载时长（单位：毫秒），默认为250
+     * 设置节流所需的延时加载时长（单位：毫秒）
+     * 默认值：`250`
      */
     throttle: PropTypes.number,
 
