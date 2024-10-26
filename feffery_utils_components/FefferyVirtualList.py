@@ -5,24 +5,24 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyVirtualList(Component):
     """A FefferyVirtualList component.
-
+虚拟滚动组件FefferyVirtualList
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
-
-- children (a list of or a singular dash component, string or number; optional):
-    组件子元素.
-
-- style (dict; optional):
-    设置css样式.
-
-- className (string; optional):
-    设置css类名.
+    组件唯一id.
 
 - key (string; optional):
-    辅助刷新用唯一标识key值.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
+
+- children (a list of or a singular dash component, string or number; optional):
+    组件型，设置内嵌元素内容.
+
+- style (dict; optional):
+    当前组件css样式.
+
+- className (string | dict; optional):
+    当前组件css类名，支持[动态css](/advanced-classname).
 
 - height (number; required):
     虚拟化区域像素高度.
@@ -47,10 +47,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyVirtualList'
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, key=Component.UNDEFINED, height=Component.REQUIRED, itemHeight=Component.REQUIRED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'children', 'style', 'className', 'key', 'height', 'itemHeight', 'loading_state']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, height=Component.REQUIRED, itemHeight=Component.REQUIRED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'height', 'itemHeight', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'children', 'style', 'className', 'key', 'height', 'itemHeight', 'loading_state']
+        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'height', 'itemHeight', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

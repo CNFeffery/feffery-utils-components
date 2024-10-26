@@ -9,7 +9,9 @@ const parseChildrenToArray = children => {
     return children;
 };
 
-// 定义虚拟滚动组件FefferyVirtualList
+/**
+ * 虚拟滚动组件FefferyVirtualList
+ */
 const FefferyVirtualList = (props) => {
     // 取得必要属性或参数
     let {
@@ -43,32 +45,34 @@ const FefferyVirtualList = (props) => {
         } />);
 }
 
-// 定义参数或属性
 FefferyVirtualList.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 组件子元素
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
+     * 组件型，设置内嵌元素内容
      */
     children: PropTypes.node,
 
     /**
-     * 设置css样式
+     * 当前组件css样式
      */
     style: PropTypes.object,
 
     /**
-     * 设置css类名
+     * 当前组件css类名，支持[动态css](/advanced-classname)
      */
-    className: PropTypes.string,
-
-    /**
-     * 辅助刷新用唯一标识key值
-     */
-    key: PropTypes.string,
+    className: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ]),
 
     /**
      * 虚拟化区域像素高度
