@@ -5,18 +5,18 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyLocalStorage(Component):
     """A FefferyLocalStorage component.
-
+localStorage状态管理组件
 
 Keyword arguments:
 
 - id (string; required):
-    组件id.
+    组件唯一id.
 
 - data (boolean | number | string | dict | list; optional):
-    设置或监听当前id对应的localStorage数据.
+    设置或监听当前`id`对应的`localStorage`数据.
 
 - initialSync (boolean; default False):
-    设置初始化时是否从localStorage中尝试读取id对应的值并更新到data中  默认：False.
+    设置初始化时是否从`localStorage`中尝试读取id对应的值并更新到`data`中  默认值：`False`.
 
 - loading_state (dict; optional)
 

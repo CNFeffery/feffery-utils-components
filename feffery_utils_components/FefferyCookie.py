@@ -5,30 +5,30 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyCookie(Component):
     """A FefferyCookie component.
-
+Cookie控制组件FefferyCookie
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - cookieKey (string; required):
-    必填，设置要绑定的cookie键名.
+    必填，设置要绑定的`cookie`键名.
 
 - defaultValue (string; optional):
-    为当前所绑定的cookie设定缺省时的默认值，当所绑定的cookie本身有值时，该值将不会影响原本的cookie值.
+    为当前所绑定的`cookie`设定缺省时的默认值，当所绑定的`cookie`本身有值时，该值将不会影响原本的`cookie`值.
 
 - value (string; optional):
-    用于更新当前绑定的cookie值.
+    用于更新当前绑定的`cookie`值.
 
 - expires (number; optional):
-    设置当前cookie值的有效存储时间，单位：秒.
+    设置当前`cookie`值的有效存储时间，单位：秒.
 
 - pathname (string; default '/'):
-    设置当前cookie值可用的pathname  默认：'/'.
+    设置当前`cookie`值可用的`pathname`  默认值：`'/'`.
 
 - secure (boolean; default False):
-    设置当前cookie是否仅允许通过https安全传输  默认：False.
+    设置当前`cookie`是否仅允许通过`https`安全传输  默认值：`False`.
 
 - loading_state (dict; optional)
 

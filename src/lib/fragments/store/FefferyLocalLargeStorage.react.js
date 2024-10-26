@@ -3,7 +3,9 @@ import { propTypes, defaultProps } from '../../components/store/FefferyLocalLarg
 import localforage from 'localforage';
 import { isUndefined } from 'lodash';
 
-// 定义客户端大容量存储器FefferyLocalLargeStorage
+/**
+ * 客户端大容量存储器FefferyLocalLargeStorage
+ */
 const FefferyLocalLargeStorage = (props) => {
     // 取得必要属性或参数
     const {

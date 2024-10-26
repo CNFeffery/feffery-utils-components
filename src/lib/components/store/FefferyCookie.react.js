@@ -2,7 +2,9 @@ import { useEffect } from 'react';
 import { useCookieState } from 'ahooks';
 import PropTypes from 'prop-types';
 
-// 定义cookie控制组件FefferyCookie
+/**
+ * Cookie控制组件FefferyCookie
+ */
 const FefferyCookie = (props) => {
     const {
         cookieKey,
@@ -42,42 +44,41 @@ const FefferyCookie = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyCookie.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 必填，设置要绑定的cookie键名
+     * 必填，设置要绑定的`cookie`键名
      */
     cookieKey: PropTypes.string.isRequired,
 
     /**
-     * 为当前所绑定的cookie设定缺省时的默认值，当所绑定的cookie本身有值时，该值将不会影响原本的cookie值
+     * 为当前所绑定的`cookie`设定缺省时的默认值，当所绑定的`cookie`本身有值时，该值将不会影响原本的`cookie`值
      */
     defaultValue: PropTypes.string,
 
     /**
-     * 用于更新当前绑定的cookie值
+     * 用于更新当前绑定的`cookie`值
      */
     value: PropTypes.string,
 
     /**
-     * 设置当前cookie值的有效存储时间，单位：秒
+     * 设置当前`cookie`值的有效存储时间，单位：秒
      */
     expires: PropTypes.number,
 
     /**
-     * 设置当前cookie值可用的pathname
-     * 默认：'/'
+     * 设置当前`cookie`值可用的`pathname`
+     * 默认值：`'/'`
      */
     pathname: PropTypes.string,
 
     /**
-     * 设置当前cookie是否仅允许通过https安全传输
-     * 默认：false
+     * 设置当前`cookie`是否仅允许通过`https`安全传输
+     * 默认值：`false`
      */
     secure: PropTypes.bool,
 
