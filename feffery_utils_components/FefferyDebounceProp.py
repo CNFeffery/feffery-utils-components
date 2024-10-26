@@ -5,21 +5,21 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyDebounceProp(Component):
     """A FefferyDebounceProp component.
-
+防抖属性组件FefferyDebounceProp
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - sourceProp (boolean | number | string | dict | list; optional):
     用于同步目标属性，请通过回调函数更新.
 
 - debounceProp (boolean | number | string | dict | list; optional):
-    对应sourceProp的防抖控制状态.
+    对应`sourceProp`的防抖控制状态.
 
 - debounceWait (number; default 200):
-    设置防抖延时时长，单位：毫秒  默认：200.
+    设置防抖延时时长，单位：毫秒  默认值：`200`.
 
 - loading_state (dict; optional)
 
