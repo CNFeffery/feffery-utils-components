@@ -9,6 +9,7 @@ import { propTypes, defaultProps } from '../../components/verification/FefferySl
 const FefferySliderCaptcha = (props) => {
     let {
         id,
+        key,
         style,
         className,
         imgSrc,
@@ -42,6 +43,7 @@ const FefferySliderCaptcha = (props) => {
     return (
         <SliderCaptcha
             id={id}
+            key={key}
             style={style}
             className={className}
             actionRef={actionRef}

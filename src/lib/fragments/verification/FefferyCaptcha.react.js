@@ -2,13 +2,16 @@ import React, { useCallback, useEffect, useRef } from 'react';
 import Captcha from 'react-captcha-code';
 import { propTypes, defaultProps } from '../../components/verification/FefferyCaptcha.react';
 
-// 定义验证码部件FefferyCaptcha，api参数参考https://github.com/WebEngineerLi/react-captcha
+/**
+ * 验证码组件FefferyCaptcha
+ */
 const FefferyCaptcha = (props) => {
     // 取得必要属性或参数
     let {
         id,
-        className,
+        key,
         style,
+        className,
         charNum,
         height,
         width,
@@ -36,6 +39,7 @@ const FefferyCaptcha = (props) => {
 
     return (
         <Captcha id={id}
+            key={key}
             className={className}
             style={style}
             ref={captchaRef}

@@ -5,18 +5,21 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyCaptcha(Component):
     """A FefferyCaptcha component.
-
+验证码组件FefferyCaptcha
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
-- className (string; optional):
-    css类名.
+- key (string; optional):
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - style (dict; optional):
-    自定义css字典.
+    当前组件css样式.
+
+- className (string | dict; optional):
+    当前组件css类名，支持[动态css](/advanced-classname).
 
 - captcha (string; optional):
     对应当前的验证码字符串.
@@ -25,19 +28,19 @@ Keyword arguments:
     设置验证码字符数量.
 
 - height (number; optional):
-    设置验证码的像素高度，默认为40.
+    设置验证码的像素高度  默认值：`40`.
 
 - width (number; optional):
-    设置验证码的像素宽度，默认为100.
+    设置验证码的像素宽度  默认值：`100`.
 
 - bgColor (string; optional):
-    设置验证码图片背景色，默认为'#DFF0D8'.
+    设置验证码图片背景色  默认值：`'#DFF0D8'`.
 
 - fontSize (number; optional):
-    设置验证码字体像素大小，默认为25.
+    设置验证码字体像素大小  默认值：`25`.
 
 - refresh (boolean; optional):
-    用于手动刷新验证码，当传入True时会强制刷新验证码，再自动重置为False.
+    用于手动刷新验证码，当传入`True`时会强制刷新验证码，再自动重置为`False`.
 
 - loading_state (dict; optional)
 
@@ -56,10 +59,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyCaptcha'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, className=Component.UNDEFINED, style=Component.UNDEFINED, captcha=Component.UNDEFINED, charNum=Component.UNDEFINED, height=Component.UNDEFINED, width=Component.UNDEFINED, bgColor=Component.UNDEFINED, fontSize=Component.UNDEFINED, refresh=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'style', 'captcha', 'charNum', 'height', 'width', 'bgColor', 'fontSize', 'refresh', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, captcha=Component.UNDEFINED, charNum=Component.UNDEFINED, height=Component.UNDEFINED, width=Component.UNDEFINED, bgColor=Component.UNDEFINED, fontSize=Component.UNDEFINED, refresh=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'style', 'className', 'captcha', 'charNum', 'height', 'width', 'bgColor', 'fontSize', 'refresh', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'style', 'captcha', 'charNum', 'height', 'width', 'bgColor', 'fontSize', 'refresh', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'captcha', 'charNum', 'height', 'width', 'bgColor', 'fontSize', 'refresh', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

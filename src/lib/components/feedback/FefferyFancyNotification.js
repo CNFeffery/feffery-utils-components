@@ -3,7 +3,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import 'react-toastify/dist/ReactToastify.css';
 
-// 定义美观通知提示组件FefferyFancyNotification
+/**
+ * 美观通知提示组件FefferyFancyNotification
+ */
 const FefferyFancyNotification = (props) => {
 
     const {
@@ -88,55 +90,57 @@ const FefferyFancyNotification = (props) => {
     );
 }
 
-// 定义参数或属性
 FefferyFancyNotification.propTypes = {
-
     /**
-     * 组件子元素
-     */
-    children: PropTypes.node,
-
-    /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 辅助刷新用唯一标识key值
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 设置容器的css类名
+     * 组件型，设置内嵌元素内容
      */
-    className: PropTypes.string,
+    children: PropTypes.node,
 
     /**
-     * 设置容器的css样式
+     * 当前组件css样式
      */
     style: PropTypes.object,
 
     /**
-     * 设置信息类型，可选的有'info', 'success', 'warning', 'error'
+     * 当前组件css类名，支持[动态css](/advanced-classname)
+     */
+    className: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ]),
+
+    /**
+     * 设置信息类型，可选的有`'info'`、`'success'`、`'warning'`、`'error'`
      */
     type: PropTypes.oneOf(['info', 'success', 'warning', 'error']),
 
     /**
-     * 主动设置是否可见，默认为false
+     * 主动设置是否可见
+     * 默认值：`false`
      */
     visible: PropTypes.bool,
 
     /**
-     * 设置通知提示弹出方位，可选的有'top-right'、'top-center'、'top-left'、'bottom-right'、'bottom-cente'、'bottom-left'
-     * 默认为'top-right'
+     * 设置通知提示弹出方位，可选的有`'top-right'`、`'top-center'`、`'top-left'`、`'bottom-right'`、`'bottom-cente'`、`'bottom-left'`
+     * 默认值：`'top-right'`
      */
     position: PropTypes.oneOf([
         'top-right', 'top-center', 'top-left', 'bottom-right', 'bottom-cente', 'bottom-left'
     ]),
 
     /**
-     * 配置自动关闭延时（单位：毫秒），默认为5000
-     * 当设置为false时不会自动关闭
+     * 配置自动关闭延时（单位：毫秒），当设置为`false`时不会自动关闭
+     * 默认值：`5000`
      */
     autoClose: PropTypes.oneOfType([
         PropTypes.bool,
@@ -144,64 +148,69 @@ FefferyFancyNotification.propTypes = {
     ]),
 
     /**
-     * 设置是否可关闭，默认为true
+     * 设置是否可关闭
+     * 默认值：`true`
      */
     closable: PropTypes.bool,
 
     /**
-     * 设置是否显示关闭倒计时进度条，默认为false
+     * 设置是否显示关闭倒计时进度条
+     * 默认值：`false`
      */
     hideProgressBar: PropTypes.bool,
 
     /**
      * 设置当鼠标悬浮于通知框上时，是否暂停倒计时
-     * 默认为true
+     * 默认值：`true`
      */
     pauseOnHover: PropTypes.bool,
 
     /**
-     * 设置是否允许通知框在被点击后自动关闭，默认为true
+     * 设置是否允许通知框在被点击后自动关闭
+     * 默认值：`true`
      */
     closeOnClick: PropTypes.bool,
 
     /**
-     * 设置是否将新的通知框显示在更顶端的位置，默认为false
+     * 设置是否将新的通知框显示在更顶端的位置
+     * 默认值：`false`
      */
     newestOnTop: PropTypes.bool,
 
     /**
-     * 设置通知框的css类
+     * 设置通知框的`css`类
      */
     toastClassName: PropTypes.string,
 
     /**
-     * 设置通知框内容区的css类
+     * 设置通知框内容区的`css`类
      */
     bodyClassName: PropTypes.string,
 
     /**
-     * 设置通知框进度条的css类
+     * 设置通知框进度条的`css`类
      */
     progressClassName: PropTypes.string,
 
     /**
-     * 设置通知框进度条的css样式
+     * 设置通知框进度条的`css`样式
      */
     progressStyle: PropTypes.object,
 
     /**
-     * 设置通知框是否可拖拽，默认为true
+     * 设置通知框是否可拖拽
+     * 默认值：`true`
      */
     draggable: PropTypes.bool,
 
     /**
-     * 设置通知框被拖拽距离占自身宽度的百分比阈值
-     * 拖拽距离超出此阈值时通知框会被关闭，默认为80
+     * 设置通知框被拖拽距离占自身宽度的百分比阈值，拖拽距离超出此阈值时通知框会被关闭
+     * 默认值：`80`
      */
     draggablePercent: PropTypes.number,
 
     /**
-     * 可选，设置局部目标容器的id
+     * 可选，设置局部目标容器的`id`
      */
     containerId: PropTypes.string,
 
@@ -211,8 +220,8 @@ FefferyFancyNotification.propTypes = {
     limit: PropTypes.number,
 
     /**
-     * 设置主题，可选的有'light'、'dark'、'colored'
-     * 默认为'light'
+     * 设置主题，可选的有`'light'`、`'dark'`、`'colored'`
+     * 默认值：`'light'`
      */
     theme: PropTypes.oneOf([
         'light', 'dark', 'colored'
