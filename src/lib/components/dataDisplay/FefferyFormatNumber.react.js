@@ -1,4 +1,6 @@
+// react核心
 import PropTypes from 'prop-types';
+// 组件核心
 import SlFormatNumber from '@shoelace-style/shoelace/dist/react/format-number';
 
 /**
