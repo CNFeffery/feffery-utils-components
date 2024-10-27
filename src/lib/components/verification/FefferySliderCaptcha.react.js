@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferySliderCaptcha = React.lazy(() => import(/* webpackChunkName: "feffery_slider_captcha" */ '../../fragments/verification/FefferySliderCaptcha.react'));
 
+/**
+ * 滑块验证码组件FefferySliderCaptcha
+ */
 const FefferySliderCaptcha = (props) => {
     return (
         <Suspense fallback={null}>
@@ -13,19 +16,27 @@ const FefferySliderCaptcha = (props) => {
 
 FefferySliderCaptcha.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * css类名
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
-    className: PropTypes.string,
+    key: PropTypes.string,
 
     /**
-     * css样式
+     * 当前组件css样式
      */
     style: PropTypes.object,
+
+    /**
+     * 当前组件css类名，支持[动态css](/advanced-classname)
+     */
+    className: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ]),
 
     /**
      * 用于生成拼图的完整图片地址
