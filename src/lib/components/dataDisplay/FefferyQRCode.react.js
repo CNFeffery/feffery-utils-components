@@ -1,10 +1,13 @@
+// react核心
 import React from 'react';
-import { QRCodeSVG, QRCodeCanvas } from 'qrcode.react';
 import PropTypes from 'prop-types';
+// 组件核心
+import { QRCodeSVG, QRCodeCanvas } from 'qrcode.react';
 
-// 定义二维码生成组件FefferyQRCode
+/**
+ * 二维码生成组件FefferyQRCode
+ */
 const FefferyQRCode = (props) => {
-    // 取得必要属性或参数
     const {
         id,
         key,
@@ -57,15 +60,14 @@ const FefferyQRCode = (props) => {
         } />;
 }
 
-// 定义参数或属性
 FefferyQRCode.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 辅助刷新用唯一标识key值
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
@@ -75,28 +77,32 @@ FefferyQRCode.propTypes = {
     value: PropTypes.string.isRequired,
 
     /**
-     * 设置像素边长，默认为128
+     * 二维码像素边长
+     * 默认值：`128`
      */
     size: PropTypes.number,
 
     /**
-     * 设置背景色，默认为'#FFFFFF'
+     * 背景色
+     * 默认值：`'#FFFFFF'`
      */
     bgColor: PropTypes.string,
 
     /**
-     * 设置前景色，默认为'#000000'
+     * 前景色
+     * 默认值：`'#000000'`
      */
     fgColor: PropTypes.string,
 
     /**
-     * 设置解析精度，可选的有'L'、'M'、'Q'、'H'
-     * 默认为'L'
+     * 解析精度，可选项有`'L'`、'M'、'Q'、'H'
+     * 默认值：`'L'`
      */
     level: PropTypes.oneOf(['L', 'M', 'Q', 'H']),
 
     /**
-     * 设置是否添加外边距，默认为false
+     * 是否添加外边距
+     * 默认值：`false`
      */
     includeMargin: PropTypes.bool,
 
@@ -105,28 +111,30 @@ FefferyQRCode.propTypes = {
      */
     imageSettings: PropTypes.exact({
         /**
-         * 设置图片src
+         * 图片地址
          */
         src: PropTypes.string,
 
         /**
-         * 设置图片像素高度，默认为二维码size的10%
+         * 图片像素高度，默认为二维码`size`的`10%`
          */
         height: PropTypes.number,
 
         /**
-         * 设置图片像素宽度，默认为二维码size的10%
+         * 图片像素宽度，默认为二维码`size`的`10%`
          */
         width: PropTypes.number,
 
         /**
-         * 设置图片四周是否添加环绕白边，默认为true
+         * 图片四周是否添加环绕白边
+         * 默认值：`true`
          */
         excavate: PropTypes.bool
     }),
 
     /**
-     * 指定渲染引擎，可选的有'svg'、'canvas'，默认为'svg'
+     * 指定渲染引擎，可选项有`'svg'`、`'canvas'`
+     * 默认值：`'svg'`
      */
     renderer: PropTypes.oneOf(['svg', 'canvas']),
 
@@ -152,7 +160,6 @@ FefferyQRCode.propTypes = {
     setProps: PropTypes.func,
 };
 
-// 设置默认参数
 FefferyQRCode.defaultProps = {
     renderer: 'svg',
     size: 128,

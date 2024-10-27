@@ -5,33 +5,33 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyQRCode(Component):
     """A FefferyQRCode component.
-
+二维码生成组件FefferyQRCode
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - key (string; optional):
-    辅助刷新用唯一标识key值.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - value (string; required):
     设置二维码所表达的信息值.
 
 - size (number; default 128):
-    设置像素边长，默认为128.
+    二维码像素边长  默认值：`128`.
 
 - bgColor (string; default '#FFFFFF'):
-    设置背景色，默认为'#FFFFFF'.
+    背景色  默认值：`'#FFFFFF'`.
 
 - fgColor (string; default '#000000'):
-    设置前景色，默认为'#000000'.
+    前景色  默认值：`'#000000'`.
 
 - level (a value equal to: 'L', 'M', 'Q', 'H'; default 'L'):
-    设置解析精度，可选的有'L'、'M'、'Q'、'H'  默认为'L'.
+    解析精度，可选项有`'L'`、'M'、'Q'、'H'  默认值：`'L'`.
 
 - includeMargin (boolean; default False):
-    设置是否添加外边距，默认为False.
+    是否添加外边距  默认值：`False`.
 
 - imageSettings (dict; optional):
     配置二维码中心图片信息.
@@ -39,19 +39,19 @@ Keyword arguments:
     `imageSettings` is a dict with keys:
 
     - src (string; optional):
-        设置图片src.
+        图片地址.
 
     - height (number; optional):
-        设置图片像素高度，默认为二维码size的10%.
+        图片像素高度，默认为二维码`size`的`10%`.
 
     - width (number; optional):
-        设置图片像素宽度，默认为二维码size的10%.
+        图片像素宽度，默认为二维码`size`的`10%`.
 
     - excavate (boolean; optional):
-        设置图片四周是否添加环绕白边，默认为True.
+        图片四周是否添加环绕白边  默认值：`True`.
 
 - renderer (a value equal to: 'svg', 'canvas'; default 'svg'):
-    指定渲染引擎，可选的有'svg'、'canvas'，默认为'svg'.
+    指定渲染引擎，可选项有`'svg'`、`'canvas'`  默认值：`'svg'`.
 
 - loading_state (dict; optional)
 
