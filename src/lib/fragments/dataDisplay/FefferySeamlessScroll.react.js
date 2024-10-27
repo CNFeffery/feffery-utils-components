@@ -1,5 +1,8 @@
+// react核心
 import React, { useState, useMemo, useEffect, useRef } from 'react';
+// 组件核心
 import copyObj from 'comutils/copyObj';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/dataDisplay/FefferySeamlessScroll.react';
 
 require('comutils/animationFrame')();
@@ -12,7 +15,9 @@ const useDidUpdateEffect = (fn, inputs) => {
     }, inputs);
 };
 
-// 定义无缝滚动组件组件FefferySeamlessScroll
+/**
+ * 无缝滚动组件FefferySeamlessScroll
+ */
 const FefferySeamlessScroll = (props) => {
     const {
         id,

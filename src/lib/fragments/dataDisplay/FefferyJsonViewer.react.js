@@ -1,11 +1,16 @@
-import useCss from '../../hooks/useCss';
-import { isString } from 'lodash';
+// 组件核心
 import ReactJson from '../../utils/react-json-view/dist/main'
+// 辅助库
+import { isString } from 'lodash';
+// 自定义hooks
+import useCss from '../../hooks/useCss';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/dataDisplay/FefferyJsonViewer.react';
 
-// 定义json数据展示组件FefferyJsonViewer，api参考：https://github.com/mac-s-g/react-json-view
+/**
+ * json数据展示组件FefferyJsonViewer
+ */
 const FefferyJsonViewer = (props) => {
-    // 取得必要属性或参数
     const {
         id,
         key,

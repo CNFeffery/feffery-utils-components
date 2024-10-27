@@ -5,18 +5,18 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyRawHTML(Component):
     """A FefferyRawHTML component.
-
+HTML字符渲染组件FefferyRawHTML
 
 Keyword arguments:
 
 - id (string; optional):
-    组件id.
+    组件唯一id.
 
 - key (string; optional):
-    辅助刷新用唯一标识key值.
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - htmlString (string; optional):
-    要渲染的原始HTML内容字符串.
+    原始`HTML`字符串.
 
 - loading_state (dict; optional)
 

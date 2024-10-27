@@ -1,10 +1,13 @@
+// react核心
 import React from 'react';
-import { ReactCompareSlider, ReactCompareSliderHandle } from 'react-compare-slider';
 import PropTypes from 'prop-types';
+// 组件核心
+import { ReactCompareSlider, ReactCompareSliderHandle } from 'react-compare-slider';
 
-// 定义卷帘比较组件FefferyCompare
+/**
+ * 卷帘比较组件FefferyCompareSlider
+ */
 const FefferyCompareSlider = (props) => {
-    // 取得必要属性或参数
     const {
         id,
         style,
@@ -49,46 +52,72 @@ const FefferyCompareSlider = (props) => {
 
 // 定义参数或属性
 FefferyCompareSlider.propTypes = {
-    // 组件id
+    /**
+     * 组件唯一id
+     */
     id: PropTypes.string,
 
-    // css样式
+    /**
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
+     * 当前组件css样式
+     */
     style: PropTypes.object,
 
-    // css类名
+    /**
+     * 当前组件css类名
+     */
     className: PropTypes.string,
 
-    // 设置进行比较的第一个元素
+    /**
+     * 组件型，设置进行比较的第一个元素
+     */
     firstItem: PropTypes.node,
 
-    // 设置进行比较的第二个元素
+    /**
+     * 组件型，设置进行比较的第二个元素
+     */
     secondItem: PropTypes.node,
 
-    // 设置或监听当前卷帘比较组件的卷帘位置百分比，取值应在0到100之间，默认为50
+    /**
+     * 设置或监听当前卷帘比较组件的卷帘位置百分比，取值在`0`到`100`之间
+     * 默认值：`50`
+     */
     position: PropTypes.number,
 
-    // 设置是否仅拖拽控件部分可用于调整卷帘，默认为true
+    /**
+     * 是否仅拖拽控件部分可用于调整卷帘
+     * 默认值：`true`
+     */
     onlyHandleDraggable: PropTypes.bool,
 
-    // 设置卷帘移动到两侧时，进行留白的像素距离，默认为0
+    /**
+     * 设置卷帘移动到两侧时，进行留白的像素距离
+     * 默认值：`0`
+     */
     boundsPadding: PropTypes.number,
 
-    // 设置卷帘方向，可选的有'horizontal'和'vertical'，默认为'horizontal'
+    /**
+     * 设置卷帘方向，可选项有`'horizontal'`、`'vertical'`
+     * 默认值：`'horizontal'`
+     */
     direction: PropTypes.oneOf(['horizontal', 'vertical']),
 
-    // 针对拖拽控件设置相关样式参数
     /**
-     * 设置拖拽控件按钮部分的css样式
+     * 拖拽控件按钮部分`css`样式
      */
     buttonStyle: PropTypes.object,
 
     /**
-     * 设置拖拽控件线条部分的css样式
+     * 拖拽控件线条部分`css`样式
      */
     linesStyle: PropTypes.object,
 
     /**
-     * 设置拖拽控件根元素部分的css样式
+     * 拖拽控件根元素部分`css`样式
      */
     rootStyle: PropTypes.object,
 
@@ -114,7 +143,6 @@ FefferyCompareSlider.propTypes = {
     setProps: PropTypes.func,
 };
 
-// 设置默认参数
 FefferyCompareSlider.defaultProps = {
     position: 50,
     onlyHandleDraggable: true,

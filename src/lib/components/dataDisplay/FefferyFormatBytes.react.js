@@ -1,4 +1,6 @@
+// react核心
 import PropTypes from 'prop-types';
+// 组件核心
 import SlFormatBytes from '@shoelace-style/shoelace/dist/react/format-bytes';
 
 /**
