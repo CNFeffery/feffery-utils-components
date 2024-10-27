@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferySeamlessScroll = React.lazy(() => import(/* webpackChunkName: "feffery_seamless_scroll" */ '../../fragments/dataDisplay/FefferySeamlessScroll.react'));
 
+/**
+ * 无缝滚动组件FefferySeamlessScroll
+ */
 const FefferySeamlessScroll = (props) => {
     return (
         <Suspense fallback={null}>
@@ -11,25 +14,29 @@ const FefferySeamlessScroll = (props) => {
     );
 }
 
-// 定义参数或属性
 FefferySeamlessScroll.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 辅助刷新用唯一标识key值
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 需要滚动展示的内容
+     * 组件型，设置需要滚动展示的内容
      */
     children: PropTypes.node,
 
     /**
-     * css类名
+     * 当前组件css样式
+     */
+    style: PropTypes.object,
+
+    /**
+     * 当前组件css类名
      */
     className: PropTypes.oneOfType([
         PropTypes.string,
@@ -37,104 +44,97 @@ FefferySeamlessScroll.propTypes = {
     ]),
 
     /**
-     * 自定义css字典
-     */
-    style: PropTypes.object,
-
-    /**
-     * 左右切换时左切换区域内容
+     * 组件型，左右切换时左切换区域内容
      */
     leftSwitchChildren: PropTypes.node,
 
     /**
-     * 左右切换时右切换区域内容
+     * 组件型，左右切换时右切换区域内容
      */
     rightSwitchChildren: PropTypes.node,
 
     /**
-     * 无缝滚动list数据，组件内部只关注 data 数组的 length
+     * 无缝滚动对应列表数据
      */
     data: PropTypes.array.isRequired,
 
     /**
-     * 设置配置项
+     * 配置功能
      */
     classOption: PropTypes.exact({
         /**
-         * 设置滚动速度，数值越大速度滚动越快，默认为1。
-         * step 值不建议太小,不然会有卡顿效果(如果设置了单步滚动,step需是单步大小的约数,否则无法保证单步滚动结束的位置是否准确。
-         * 比如单步设置的 30,step 不能为 4)。
+         * 滚动速度，数值越大速度滚动越快
+         * 默认值：`1`
          */
         step: PropTypes.number,
-
         /**
-         * 设置开启无缝滚动的数据量，默认为5
-         * 默认：false
+         * 开启无缝滚动的数据量
+         * 默认值：`5`
          */
         limitMoveNum: PropTypes.number,
-
         /**
-         * 设置是否启用鼠标hover控制，默认为true
+         * 是否启用鼠标移入控制
+         * 默认值：`true`
          */
         hoverStop: PropTypes.bool,
-
         /**
-         * 设置方向: 0往下，1往上，2向左，3向右，默认为1
+         * 方向，可选项有`0`（向下）、`1`（向上）、`2`（向左）、`3`（向右）
+         * 默认值：`1`
          */
         direction: PropTypes.number,
-
         /**
-         * 设置移动端是否开启touch滑动，默认为true
+         * 移动端是否开启触碰滑动
+         * 默认值：`true`
          */
         openTouch: PropTypes.bool,
-
         /**
-         * 设置单步运动停止的高度(默认值0是无缝不停止的滚动)，direction为0|1时生效，默认为0
+         * 单步运动停止的高度，`direction`为`0`、`1`时生效
+         * 默认值：`0`
          */
         singleHeight: PropTypes.number,
-
         /**
-         * 设置单步运动停止的宽度(默认值0是无缝不停止的滚动)，direction为2|3时生效，默认为0
+         * 单步运动停止的宽度，`direction`为`2`、`3`时生效
+         * 默认值：`0`
          */
         singleWidth: PropTypes.number,
-
         /**
-         * 设置单步停止等待时间(默认值 1000ms)
+         * 单步停止等待时间，单位：毫秒
+         * 默认值：`1000`
          */
         waitTime: PropTypes.number,
-
         /**
-         * 设置左右切换按钮距离左右边界的边距(px)，默认为30
+         * 左右切换按钮距离左右边界的像素边距
+         * 默认值：`30`
          */
         switchOffset: PropTypes.number,
-
         /**
-         * 是否开启自动滚动，默认为true
+         * 是否开启自动滚动
+         * 默认值：`true`
          */
         autoPlay: PropTypes.bool,
-
         /**
-         * 设置手动单步切换step值(px)，默认为134
+         * 手动单步切换像素`step`值
+         * 默认值：`134`
          */
         switchSingleStep: PropTypes.number,
-
         /**
-         * 设置单步切换的动画时间(ms)，默认为400
+         * 单步切换的动画时间，单位：毫秒
+         * 默认值：`400`
          */
         switchDelay: PropTypes.number,
-
         /**
-         * 设置不可以点击状态的switch按钮父元素的类名，默认为'disabled'
+         * 不可点击状态对应控件父元素`css`类名
+         * 默认值：`'disabled'`
          */
         switchDisabledClass: PropTypes.string,
-
         /**
-         * 设置singleHeight and singleWidth 是否开启rem度量，默认为false
+         * `singleHeight`、`singleWidth`是否开启`rem`度量
+         * 默认值：`false`
          */
         isSingleRemUnit: PropTypes.bool,
-
         /**
-         * 设置左右方向的滚动是否显示控制器按钮，true的时候autoPlay自动变为false，默认为false
+         * 左右方向的滚动是否显示控制器按钮，传入`true`时`autoPlay`将自动变为`false`
+         * 默认值：`false`
          */
         navigation: PropTypes.bool,
     }),
@@ -161,7 +161,6 @@ FefferySeamlessScroll.propTypes = {
     })
 };
 
-// 设置默认参数
 FefferySeamlessScroll.defaultProps = {
     classOption: {
         step: 1,
