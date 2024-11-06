@@ -25,7 +25,7 @@ const FefferyEventListener = (props) => {
         },
         {
             target: () => document.querySelector(targetSelector),
-            enabled: enable
+            enable: enable
         }
     )
 

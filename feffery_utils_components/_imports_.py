@@ -24,6 +24,7 @@ from .FefferyWheelColorPicker import FefferyWheelColorPicker
 from .FefferyEventSource import FefferyEventSource
 from .FefferyHttpRequests import FefferyHttpRequests
 from .FefferyIframeMessenger import FefferyIframeMessenger
+from .FefferyPostEventSource import FefferyPostEventSource
 from .FefferyTabMessenger import FefferyTabMessenger
 from .FefferyWebSocket import FefferyWebSocket
 from .FefferyDiv import FefferyDiv
@@ -146,6 +147,7 @@ __all__ = [
     "FefferyEventSource",
     "FefferyHttpRequests",
     "FefferyIframeMessenger",
+    "FefferyPostEventSource",
     "FefferyTabMessenger",
     "FefferyWebSocket",
     "FefferyDiv",

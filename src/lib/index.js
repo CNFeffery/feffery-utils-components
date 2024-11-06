@@ -100,6 +100,7 @@ import FefferyCssVar from "./components/styleControl/FefferyCssVar.react.js";
 import FefferyStyle from "./components/styleControl/FefferyStyle.react.js";
 // 通信
 import FefferyEventSource from "./components/communication/FefferyEventSource.react.js";
+import FefferyPostEventSource from './components/communication/FefferyPostEventSource.react.js';
 import FefferyHttpRequests from "./components/communication/FefferyHttpRequests.react.js";
 import FefferyIframeMessenger from "./components/communication/FefferyIframeMessenger.react.js";
 import FefferyTabMessenger from "./components/communication/FefferyTabMessenger.react.js";
@@ -271,6 +272,7 @@ export {
     FefferyStyle,
     // 通信
     FefferyEventSource,
+    FefferyPostEventSource,
     FefferyHttpRequests,
     FefferyIframeMessenger,
     FefferyTabMessenger,
