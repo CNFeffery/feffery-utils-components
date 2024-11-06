@@ -7,7 +7,9 @@ import { Editor, Toolbar } from '@wangeditor/editor-for-react';
 import toast, { Toaster } from 'react-hot-toast';
 import { propTypes, defaultProps } from '../../components/editor/FefferyRichTextEditor.react';
 
-// 定义富文本编辑器组件FefferyRichTextEditor
+/**
+ * 富文本编辑器组件FefferyRichTextEditor
+ */
 const FefferyRichTextEditor = (props) => {
     // 取得必要属性或参数
     const {
