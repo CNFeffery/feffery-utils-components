@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 const LazyFefferyVditor = React.lazy(() => import(/* webpackChunkName: "feffery_vditor" */ '../../fragments/editor/FefferyVditor.react'));
 
+/**
+ * 类Typora的markdown编辑器组件FefferyVditor
+ */
 const FefferyVditor = (props) => {
     return (
         <Suspense fallback={null}>
@@ -29,12 +32,12 @@ const PropTreeNodeShape = {
     tip: PropTypes.string,
 
     /**
-     * 提示位置，可选的有'n', 'ne', 'nw', 's', 'se', 'sw', 'w', 'e'
+     * 提示位置，可选的有`'n'`、`'ne'`、`'nw'`、`'s'`、`'se'`、`'sw'`、`'w'`、`'e'`
      */
     tipPosition: PropTypes.oneOf(['n', 'ne', 'nw', 's', 'se', 'sw', 'w', 'e']),
 
     /**
-     * 快捷键，格式为⇧⌘/⌘/⌥⌘
+     * 快捷键，格式为`⇧⌘/⌘/⌥⌘`
      */
     hotkey: PropTypes.string,
 
@@ -74,30 +77,33 @@ const toolbarPropTypes = PropTypes.arrayOf(PropTypes.oneOfType([
     PropTreeNode
 ]));
 
-// 定义参数或属性
 FefferyVditor.propTypes = {
     /**
-     * 组件id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 组件类名
-     */
-    className: PropTypes.string,
-
-    /**
-     * 设置组件的样式
-     */
-    style: PropTypes.object,
-
-    /**
-     * 辅助刷新用唯一标识key值
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 用于配置value变化更新的防抖等待时长（单位：毫秒），默认为200
+     * 当前组件css样式
+     */
+    style: PropTypes.object,
+
+    /**
+     * 当前组件css类名，支持[动态css](/advanced-classname)
+     */
+    className: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ]),
+
+    /**
+     * 用于配置`value`变化更新的防抖等待时长（单位：毫秒）
+     * 默认值：`200`
      */
     debounceWait: PropTypes.number,
 
@@ -107,7 +113,8 @@ FefferyVditor.propTypes = {
     undoDelay: PropTypes.number,
 
     /**
-     * 设置编辑器总高度，默认为'auto'
+     * 设置编辑器总高度
+     * 默认值：`'auto'`
      */
     height: PropTypes.oneOfType([
         PropTypes.string,
@@ -120,7 +127,8 @@ FefferyVditor.propTypes = {
     minHeight: PropTypes.number,
 
     /**
-     * 设置编辑器总宽度，支持%，，默认为'auto'
+     * 设置编辑器总宽度，支持`%`
+     * 默认值：`'auto'`
      */
     width: PropTypes.oneOfType([
         PropTypes.string,
@@ -133,25 +141,24 @@ FefferyVditor.propTypes = {
     placeholder: PropTypes.string,
 
     /**
-     * 设置语言，可选的有：'en_US'、'fr_FR'、'pt_BR'、'ja_JP'、'ko_KR'、'ru_RU'、'sv_SE'、'zh_CN'和'zh_TW'，默认为'zh_CN'
+     * 设置语言，可选的有`'en_US'`、`'fr_FR'`、`'pt_BR'`、`'ja_JP'`、`'ko_KR'`、`'ru_RU'`、`'sv_SE'`、`'zh_CN'`、`'zh_TW'`
+     * 默认值：`'zh_CN'`
      */
     lang: PropTypes.oneOf(['en_US', 'fr_FR', 'pt_BR', 'ja_JP', 'ko_KR', 'ru_RU', 'sv_SE', 'zh_CN', 'zh_TW']),
 
     /**
-     * 设置tab键操作字符串，支持\t及任意字符串
+     * 设置`tab`键操作字符串，支持`\t`及任意字符串
      */
     tab: PropTypes.string,
 
     /**
-     * 是否启用打字机模式，默认为false
+     * 是否启用打字机模式
+     * 默认值：`false`
      */
     typewriterMode: PropTypes.bool,
 
     /**
-     * 配置CDN地址，
-     * 可选的有`https://unpkg.com/vditor@${VDITOR_VERSION}`、`https://registry.npmmirror.com/vditor/${VDITOR_VERSION}/files`，
-     * VDITOR_VERSION是vditor版本号，可通过不设置此参数从浏览器请求信息中获取版本号信息，默认使用的是`https://unpkg.com/vditor@${VDITOR_VERSION}`，
-     * 也可使用自行搭建的cdn地址
+     * 配置`CDN`地址，可选的有`https://unpkg.com/vditor@${VDITOR_VERSION}`、`https://registry.npmmirror.com/vditor/${VDITOR_VERSION}/files`，VDITOR_VERSION是vditor版本号，可通过不设置此参数从浏览器请求信息中获取版本号信息，默认使用的是`https://unpkg.com/vditor@${VDITOR_VERSION}`，也可使用自行搭建的`CDN`地址
      */
     cdn: PropTypes.oneOfType([
         PropTypes.string,
@@ -162,28 +169,32 @@ FefferyVditor.propTypes = {
     ]),
 
     /**
-     * 设置模式，可选的有：'sv'(分屏预览)、'ir'(即时渲染)和'wysiwyg'(所见即所得)，默认为'ir'(所见即所得)
+     * 设置模式，可选的有：`'sv'`(分屏预览)、`'ir'`(即时渲染)、`'wysiwyg'`(所见即所得)
+     * 默认值：`'ir'`(所见即所得)
      */
     mode: PropTypes.oneOf(['wysiwyg', 'ir', 'sv']),
 
 
     /**
-     * 是否显示日志，默认为false
+     * 是否显示日志
+     * 默认值：`false`
      */
     debuggerMode: PropTypes.bool,
 
     /**
-     * 编辑器md内容
+     * 编辑器`md`内容
      */
     value: PropTypes.string,
 
     /**
-     * 设置编辑器主题，可选的有：'classic'和'dark'，默认为'classic'
+     * 设置编辑器主题，可选的有：`'classic'`、`'dark'`
+     * 默认值：`'classic'`
      */
     theme: PropTypes.oneOf(['classic', 'dark']),
 
     /**
-     * 设置图标风格，可选的有：'ant'和'material'，默认为'ant'
+     * 设置图标风格，可选的有：`'ant'`、`'material'`
+     * 默认值：`'ant'`
      */
     icon: PropTypes.oneOf(['ant', 'material']),
 
@@ -197,12 +208,14 @@ FefferyVditor.propTypes = {
      */
     toolbarConfig: PropTypes.exact({
         /**
-         * 是否隐藏工具栏，默认为false
+         * 是否隐藏工具栏
+         * 默认值：`false`
         */
         hide: PropTypes.bool,
 
         /**
-         * 是否固定工具栏，默认为false
+         * 是否固定工具栏
+         * 默认值：`false`
          */
         pin: PropTypes.bool,
     }),
@@ -212,7 +225,8 @@ FefferyVditor.propTypes = {
      */
     counter: PropTypes.shape({
         /**
-         * 是否启用计数器，默认为false
+         * 是否启用计数器
+         * 默认值：`false`
          */
         enable: PropTypes.bool,
 
@@ -222,7 +236,8 @@ FefferyVditor.propTypes = {
         max: PropTypes.number,
 
         /**
-         * 设置统计类型，可选的有：'markdown'和'text'，默认为'markdown'
+         * 设置统计类型，可选的有：`'markdown'`、`'text'`
+         * 默认值：`'markdown'`
          */
         type: PropTypes.oneOf(['markdown', 'text'])
     }),
@@ -232,12 +247,13 @@ FefferyVditor.propTypes = {
      */
     cache: PropTypes.shape({
         /**
-         * 是否使用localStorage进行缓存，默认为true
+         * 是否使用`localStorage`进行缓存
+         * 默认值：`true`
          */
         enable: PropTypes.bool,
 
         /**
-         * 缓存key
+         * 缓存`key`
          */
         id: PropTypes.string
     }),
@@ -247,7 +263,7 @@ FefferyVditor.propTypes = {
      */
     preview: PropTypes.shape({
         /**
-         * 配置预览debounce毫秒间隔
+         * 配置预览`debounce`毫秒间隔
          */
         delay: PropTypes.number,
 
@@ -257,7 +273,8 @@ FefferyVditor.propTypes = {
         maxWidth: PropTypes.number,
 
         /**
-         * 配置显示模式，可选的有：'both'和'editor'，默认为'both'
+         * 配置显示模式，可选的有：`'both'`、`'editor'`
+         * 默认值：`'both'`
          */
         mode: PropTypes.oneOf(['both', 'editor']),
 
@@ -276,12 +293,14 @@ FefferyVditor.propTypes = {
             defaultLang: PropTypes.string,
 
             /**
-             * 是否启用代码高亮，默认为true
+             * 是否启用代码高亮
+             * 默认值：`true`
              */
             enable: PropTypes.bool,
 
             /**
-             * 配置菜单字号选项，默认为'github'
+             * 配置菜单字号选项
+             * 默认值：`'github'`
              */
             style: PropTypes.oneOf([
                 'abap', 'algol', 'algol_nu', 'api', 'arduino', 'autumn', 'average', 'base16-snazzy', 'borland', 'bw',
@@ -296,7 +315,8 @@ FefferyVditor.propTypes = {
             ]),
 
             /**
-             * 是否启用行号，默认为false
+             * 是否启用行号
+             * 默认值：`false`
              */
             lineNumber: PropTypes.bool,
 
@@ -307,26 +327,30 @@ FefferyVditor.propTypes = {
         }),
 
         /**
-         * markdown配置
+         * `markdown`配置
          */
         markdown: PropTypes.shape({
             /**
-             * 是否开启自动空格，默认为false
+             * 是否开启自动空格
+             * 默认值：`false`
              */
             autoSpace: PropTypes.bool,
 
             /**
-             * 是否开启自动链接，默认为true
+             * 是否开启自动链接
+             * 默认值：`true`
              */
             gfmAutoLink: PropTypes.bool,
 
             /**
-             * 是否开启自动矫正术语，默认为false
+             * 是否开启自动矫正术语
+             * 默认值：`false`
              */
             fixTermTypo: PropTypes.bool,
 
             /**
-             * 是否开启插入目录，默认为false
+             * 是否开启插入目录
+             * 默认值：`false`
              */
             toc: PropTypes.bool,
 
@@ -336,27 +360,32 @@ FefferyVditor.propTypes = {
             footnotes: PropTypes.bool,
 
             /**
-             * wysiwyg 和 ir 模式下是否对代码块进行渲染，默认为true
+             * `'wysiwyg'`和`'ir'`模式下是否对代码块进行渲染
+             * 默认值：`true`
              */
             codeBlockPreview: PropTypes.bool,
 
             /**
-             * wysiwyg 和 ir 模式下是否对数学公式进行渲染，默认为true
+             * `'wysiwyg'`和`'ir'`模式下是否对数学公式进行渲染
+             * 默认值：`true`
              */
             mathBlockPreview: PropTypes.bool,
 
             /**
-             * 段落开头是否空两格，默认为false
+             * 段落开头是否空两格
+             * 默认值：`false`
              */
             paragraphBeginningSpace: PropTypes.bool,
 
             /**
-             * 是否启用过滤 XSS，默认为true
+             * 是否启用过滤`XSS`
+             * 默认值：`true`
              */
             sanitize: PropTypes.bool,
 
             /**
-             * 是否为列表添加data-style属性，默认为false
+             * 是否为列表添加`data-style`属性
+             * 默认值：`false`
              */
             listStyle: PropTypes.bool,
 
@@ -371,7 +400,8 @@ FefferyVditor.propTypes = {
             linkPrefix: PropTypes.string,
 
             /**
-             * 是否启用 mark 标记，默认为false
+             * 是否启用`mark`标记
+             * 默认值：`false`
              */
             mark: PropTypes.bool
         }),
@@ -381,17 +411,20 @@ FefferyVditor.propTypes = {
          */
         theme: PropTypes.shape({
             /**
-             * 当前主题，默认为'light'
+             * 当前主题
+             * 默认值：`'light'`
              */
             current: PropTypes.string,
 
             /**
-             * 可选主题列表，默认为{ "ant-design": "Ant Design", dark: "Dark", light: "Light", wechat: "WeChat" }
+             * 可选主题列表
+             * 默认值：`{"ant-design": "Ant Design", dark: "Dark", light: "Light", wechat: "WeChat"}`
              */
             list: PropTypes.object,
 
             /**
-             * 主题样式地址，默认为https://unpkg.com/vditor@${VDITOR_VERSION}/dist/css/content-theme
+             * 主题样式地址
+             * 默认值：`https://unpkg.com/vditor@${VDITOR_VERSION}/dist/css/content-theme`
              */
             path: PropTypes.string
         }),
@@ -401,22 +434,24 @@ FefferyVditor.propTypes = {
          */
         math: PropTypes.shape({
             /**
-             * 内联数学公式起始 $ 后是否允许数字，默认为false
+             * 内联数学公式起始`$`后是否允许数字
+             * 默认值：`false`
              */
             inlineDigit: PropTypes.bool,
 
             /**
-             * 使用 MathJax 渲染时传入的宏定义
+             * 使用`MathJax`渲染时传入的宏定义
              */
             macros: PropTypes.object,
 
             /**
-             * 配置数学公式渲染引擎，可选的值有'KaTeX'和'MathJax'，默认为'KaTeX'
+             * 配置数学公式渲染引擎，可选的值有`'KaTeX'`、`'MathJax'`
+             * 默认值：`'KaTeX'`
              */
             engine: PropTypes.oneOf(['KaTeX', 'MathJax']),
 
             /**
-             * 数学公式渲染引擎为MathJax时的参数
+             * 数学公式渲染引擎为`MathJax`时的参数
              */
             mathJaxOptions: PropTypes.any
         }),
@@ -438,7 +473,7 @@ FefferyVditor.propTypes = {
                  */
                 text: PropTypes.string,
                 /** 
-                 * 按钮className 值 
+                 * 按钮`className`值 
                  */
                 className: PropTypes.string,
                 /** 
@@ -454,7 +489,8 @@ FefferyVditor.propTypes = {
         render: PropTypes.shape({
             media: PropTypes.shape({
                 /**
-                 * 是否启用多媒体渲染，默认为true
+                 * 是否启用多媒体渲染
+                 * 默认值：`true`
                  */
                 enable: PropTypes.bool
             })
@@ -466,7 +502,8 @@ FefferyVditor.propTypes = {
      */
     image: PropTypes.shape({
         /**
-         * 是否预览图片，默认为true
+         * 是否预览图片
+         * 默认值：`true`
          */
         isPreview: PropTypes.bool
     }),
@@ -476,28 +513,31 @@ FefferyVditor.propTypes = {
      */
     link: PropTypes.shape({
         /**
-         * 是否打开链接地址，默认为true
+         * 是否打开链接地址
+         * 默认值：`true`
          */
         isOpen: PropTypes.bool
     }),
 
     /**
-     * 
+     * hint配置
      */
     hint: PropTypes.shape({
         /**
-         * 是否进行 md 解析，默认为true
+         * 是否进行`md`解析
+         * 默认值：`true`
          */
         parse: PropTypes.bool,
 
         /**
-         * 提示 debounce 毫秒间隔，默认为200
+         * 提示`debounce`毫秒间隔
+         * 默认值：`200`
          */
         delay: PropTypes.number,
 
         /**
-         * 默认表情，可从https://github.com/88250/lute/blob/master/parse/emoji_map.go中选取，也可自定义，
-         * 默认为{ '+1': '👍', '-1': '👎', 'heart': '❤️', 'cold_sweat': '😰' }
+         * 默认表情，可从`https://github.com/88250/lute/blob/master/parse/emoji_map.go`中选取，也可自定义
+         * 默认值：`{'+1': '👍', '-1': '👎', 'heart': '❤️', 'cold_sweat': '😰'}`
          */
         emoji: PropTypes.object,
 
@@ -507,7 +547,8 @@ FefferyVditor.propTypes = {
         emojiTail: PropTypes.string,
 
         /**
-         * 表情图片地址，默认为https://unpkg.com/vditor@${VDITOR_VERSION}/dist/images/emoji
+         * 表情图片地址
+         * 默认值：`https://unpkg.com/vditor@${VDITOR_VERSION}/dist/images/emoji`
          */
         emojiPath: PropTypes.string
     }),
@@ -517,27 +558,29 @@ FefferyVditor.propTypes = {
      */
     upload: PropTypes.shape({
         /**
-         * 上传 url，为空则不会触发上传相关事件
+         * 上传`url`，为空则不会触发上传相关事件
          */
         url: PropTypes.string,
 
         /**
-         * 上传文件最大 Byte，默认为10 * 1024 * 1024
+         * 上传文件最大`Byte`
+         * 默认值：`10 * 1024 * 1024`
          */
         max: PropTypes.number,
 
         /**
-         * 剪切板中包含图片地址时，使用此 url 重新上传
+         * 剪切板中包含图片地址时，使用此`url`重新上传
          */
         linkToImgUrl: PropTypes.string,
 
         /**
-         * CORS 上传验证，头为 X-Upload-Token
+         * `CORS`上传验证，头为`X-Upload-Token`
          */
         token: PropTypes.any,
 
         /**
-         * 跨站点访问控制，默认为false
+         * 跨站点访问控制
+         * 默认值：`false`
          */
         withCredentials: PropTypes.bool,
 
@@ -547,7 +590,7 @@ FefferyVditor.propTypes = {
         headers: PropTypes.object,
 
         /**
-         * 文件上传类型，同https://www.w3schools.com/tags/att_input_accept.asp
+         * 文件上传类型，同`https://www.w3schools.com/tags/att_input_accept.asp`
          */
         accept: PropTypes.string,
 
@@ -557,12 +600,14 @@ FefferyVditor.propTypes = {
         extraData: PropTypes.object,
 
         /**
-         * 是否允许多文件上传，默认值：true
+         * 是否允许多文件上传
+         * 默认值：`true`
          */
         multiple: PropTypes.bool,
 
         /**
-         * 上传字段名称，默认值：file[]
+         * 上传字段名称
+         * 默认值：`file[]`
          */
         fieldName: PropTypes.string
     }),
@@ -572,12 +617,14 @@ FefferyVditor.propTypes = {
      */
     resize: PropTypes.shape({
         /**
-         * 是否支持大小拖拽，默认为false
+         * 是否支持大小拖拽
+         * 默认值：`false`
          */
         enable: PropTypes.bool,
 
         /**
-         * 设置拖拽栏位置，可选的值有'top'和'bottom'，默认为'bottom'
+         * 设置拖拽栏位置，可选的值有`'top'`、`'bottom'`
+         * 默认值：`'bottom'`
          */
         position: PropTypes.oneOf(['top', 'bottom']),
     }),
@@ -587,7 +634,7 @@ FefferyVditor.propTypes = {
      */
     classes: PropTypes.shape({
         /**
-         * 预览元素上的className
+         * 预览元素上的`className`
          */
         preview: PropTypes.string
     }),
@@ -597,7 +644,8 @@ FefferyVditor.propTypes = {
      */
     fullscreen: PropTypes.shape({
         /**
-         * 全屏层级，默认为90
+         * 全屏层级
+         * 默认值：`90`
          */
         index: PropTypes.number
     }),
@@ -607,18 +655,20 @@ FefferyVditor.propTypes = {
      */
     outline: PropTypes.shape({
         /**
-         * 初始化是否展现大纲，默认值为false
+         * 初始化是否展现大纲
+         * 默认值：`false`
          */
         enable: PropTypes.bool,
 
         /**
-         * 大纲位置，可选的值有'left'和'right'，默认值为'left'
+         * 大纲位置，可选的值有`'left'`、`'right'`
+         * 默认值：`'left'`
          */
         position: PropTypes.oneOf(['left', 'right'])
     }),
 
     /**
-     * 编辑器HTML内容
+     * 编辑器`HTML`内容
      */
     htmlValue: PropTypes.string,
 

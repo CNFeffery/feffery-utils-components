@@ -21,8 +21,9 @@ if (window.mermaid) {
     })
 }
 
-
-// 定义markdown编辑器组件FefferyMarkdownEditor，api参数参考https://github.com/Tencent/cherry-markdown/wiki/%E9%85%8D%E7%BD%AE%E9%A1%B9%E5%85%A8%E8%A7%A3
+/**
+ * markdown编辑器组件FefferyMarkdownEditor
+ */
 const FefferyMarkdownEditor = (props) => {
     // 取得必要属性或参数
     let {

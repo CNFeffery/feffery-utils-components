@@ -7,8 +7,9 @@ import { useRequest } from 'ahooks';
 import { v4 as uuidv4 } from 'uuid';
 import { propTypes, defaultProps } from '../../components/editor/FefferyVditor.react';
 
-
-// 定义类Typora的markdown编辑器组件FefferyVditor，api参数参考https://github.com/Vanessa219/vditor?tab=readme-ov-file#api
+/**
+ * 类Typora的markdown编辑器组件FefferyVditor
+ */
 const FefferyVditor = (props) => {
     // 取得必要属性或参数
     let {
