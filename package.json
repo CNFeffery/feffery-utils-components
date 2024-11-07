@@ -54,6 +54,7 @@
     "hamburger-react": "^2.5.1",
     "hls.js": "1.4.12",
     "interweave": "^13.0.0",
+    "jsbarcode": "^3.11.6",
     "katex": "^0.16.9",
     "localforage": "^1.10.0",
     "lodash": "^4.17.21",
