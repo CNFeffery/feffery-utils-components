@@ -119,6 +119,7 @@ import FefferyLazyLoad from "./components/performance/FefferyLazyLoad.react.js";
 import FefferyThrottleProp from "./components/performance/FefferyThrottleProp.react.js";
 import FefferyVirtualList from "./components/performance/FefferyVirtualList.react.js";
 // 数据展示
+import FefferyBarcode from './components/dataDisplay/FefferyBarcode.react.js';
 import FefferyCompareSlider from "./components/dataDisplay/FefferyCompareSlider.react.js";
 import FefferyCountUp from "./components/dataDisplay/FefferyCountUp.react.js";
 import FefferyFormatBytes from './components/dataDisplay/FefferyFormatBytes.react.js';
@@ -291,6 +292,7 @@ export {
     FefferyThrottleProp,
     FefferyVirtualList,
     // 数据展示
+    FefferyBarcode,
     FefferyCompareSlider,
     FefferyCountUp,
     FefferyJsonViewer,

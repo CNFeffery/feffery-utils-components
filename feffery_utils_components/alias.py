@@ -33,6 +33,7 @@ from .FefferyPortal import FefferyPortal as Portal
 from .FefferyScrollbars import FefferyScrollbars as Scrollbars
 from .FefferyShadowDom import FefferyShadowDom as ShadowDom
 from .FefferySticky import FefferySticky as Sticky
+from .FefferyBarcode import FefferyBarcode as Barcode
 from .FefferyCompareSlider import FefferyCompareSlider as CompareSlider
 from .FefferyCountUp import FefferyCountUp as CountUp
 from .FefferyFormatBytes import FefferyFormatBytes as FormatBytes
@@ -155,6 +156,7 @@ __all__ = [
     "Scrollbars",
     "ShadowDom",
     "Sticky",
+    "Barcode",
     "CompareSlider",
     "CountUp",
     "FormatBytes",

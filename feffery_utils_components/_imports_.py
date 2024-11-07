@@ -34,6 +34,7 @@ from .FefferyPortal import FefferyPortal
 from .FefferyScrollbars import FefferyScrollbars
 from .FefferyShadowDom import FefferyShadowDom
 from .FefferySticky import FefferySticky
+from .FefferyBarcode import FefferyBarcode
 from .FefferyCompareSlider import FefferyCompareSlider
 from .FefferyCountUp import FefferyCountUp
 from .FefferyFormatBytes import FefferyFormatBytes
@@ -157,6 +158,7 @@ __all__ = [
     "FefferyScrollbars",
     "FefferyShadowDom",
     "FefferySticky",
+    "FefferyBarcode",
     "FefferyCompareSlider",
     "FefferyCountUp",
     "FefferyFormatBytes",
