@@ -12,6 +12,9 @@ Keyword arguments:
 - id (string; optional):
     组件唯一id.
 
+- key (string; optional):
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
+
 - cookieKey (string; required):
     必填，设置要绑定的`cookie`键名.
 
@@ -47,10 +50,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyCookie'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, cookieKey=Component.REQUIRED, defaultValue=Component.UNDEFINED, value=Component.UNDEFINED, expires=Component.UNDEFINED, pathname=Component.UNDEFINED, secure=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'cookieKey', 'defaultValue', 'value', 'expires', 'pathname', 'secure', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, cookieKey=Component.REQUIRED, defaultValue=Component.UNDEFINED, value=Component.UNDEFINED, expires=Component.UNDEFINED, pathname=Component.UNDEFINED, secure=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'cookieKey', 'defaultValue', 'value', 'expires', 'pathname', 'secure', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'cookieKey', 'defaultValue', 'value', 'expires', 'pathname', 'secure', 'loading_state']
+        self.available_properties = ['id', 'key', 'cookieKey', 'defaultValue', 'value', 'expires', 'pathname', 'secure', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

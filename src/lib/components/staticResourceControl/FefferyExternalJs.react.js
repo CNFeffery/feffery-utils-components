@@ -37,6 +37,11 @@ FefferyExternalJs.propTypes = {
     id: PropTypes.string,
 
     /**
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
      * 设置对应绑定的js静态文件资源`url`
      * 默认值：`''`
      */

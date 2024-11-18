@@ -21,6 +21,11 @@ FefferyAutoFit.propTypes = {
     id: PropTypes.string,
 
     /**
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
      * 要进行自适应的目标元素id
      * 默认值：`'body'`
      */

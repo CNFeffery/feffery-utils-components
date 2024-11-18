@@ -39,6 +39,11 @@ FefferyReload.propTypes = {
     id: PropTypes.string,
 
     /**
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
      * 执行页面重载操作的标志，当设置为`true`时会进行页面重载
      */
     reload: PropTypes.bool,

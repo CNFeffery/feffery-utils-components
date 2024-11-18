@@ -64,6 +64,11 @@ FefferySessionStorage.propTypes = {
     id: PropTypes.string.isRequired,
 
     /**
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
      * 设置或监听当前`id`对应的`sessionStorage`数据
      */
     data: PropTypes.any,

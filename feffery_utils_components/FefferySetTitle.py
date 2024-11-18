@@ -12,6 +12,9 @@ Keyword arguments:
 - id (string; optional):
     组件唯一id.
 
+- key (string; optional):
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
+
 - title (string; optional):
     用于设置要更新的`title`信息.
 
@@ -35,10 +38,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferySetTitle'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, title=Component.UNDEFINED, originTitle=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'title', 'originTitle', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, title=Component.UNDEFINED, originTitle=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'title', 'originTitle', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'title', 'originTitle', 'loading_state']
+        self.available_properties = ['id', 'key', 'title', 'originTitle', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

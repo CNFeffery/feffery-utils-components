@@ -12,6 +12,9 @@ Keyword arguments:
 - id (string; optional):
     组件唯一id.
 
+- key (string; optional):
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
+
 - containerId (string; default 'body'):
     要进行自适应的目标元素id  默认值：`'body'`.
 
@@ -62,10 +65,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyAutoFit'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, containerId=Component.UNDEFINED, dw=Component.UNDEFINED, dh=Component.UNDEFINED, resize=Component.UNDEFINED, ignore=Component.UNDEFINED, transition=Component.UNDEFINED, delay=Component.UNDEFINED, limit=Component.UNDEFINED, close=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'containerId', 'dw', 'dh', 'resize', 'ignore', 'transition', 'delay', 'limit', 'close', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, containerId=Component.UNDEFINED, dw=Component.UNDEFINED, dh=Component.UNDEFINED, resize=Component.UNDEFINED, ignore=Component.UNDEFINED, transition=Component.UNDEFINED, delay=Component.UNDEFINED, limit=Component.UNDEFINED, close=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'containerId', 'dw', 'dh', 'resize', 'ignore', 'transition', 'delay', 'limit', 'close', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'containerId', 'dw', 'dh', 'resize', 'ignore', 'transition', 'delay', 'limit', 'close', 'loading_state']
+        self.available_properties = ['id', 'key', 'containerId', 'dw', 'dh', 'resize', 'ignore', 'transition', 'delay', 'limit', 'close', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

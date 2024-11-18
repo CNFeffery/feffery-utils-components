@@ -21,6 +21,11 @@ FefferyLocalLargeStorage.propTypes = {
     id: PropTypes.string.isRequired,
 
     /**
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
      * 定义当前存储器对应存储在浏览器本地的数据
      */
     data: PropTypes.any,

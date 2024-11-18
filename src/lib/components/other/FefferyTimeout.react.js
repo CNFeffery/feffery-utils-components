@@ -32,6 +32,11 @@ FefferyTimeout.propTypes = {
     id: PropTypes.string,
 
     /**
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
      * 监听超时事件完成次数
      * 默认值：`0`
      */

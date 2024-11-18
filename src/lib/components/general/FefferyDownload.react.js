@@ -42,7 +42,7 @@ FefferyDownload.propTypes = {
     key: PropTypes.string,
 
     /**
-     * 设置新的下载任务对应文件信息，每次触发下载后都会重置为空置
+     * 设置新的下载任务对应文件信息，每次触发下载后都会重置为空值
      */
     file: PropTypes.exact({
         /**

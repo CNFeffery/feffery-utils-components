@@ -14,7 +14,6 @@ const FefferyGuide = (props) => {
         id,
         className,
         style,
-        key,
         locale,
         steps,
         localKey,
@@ -38,7 +37,6 @@ const FefferyGuide = (props) => {
         <Guide id={id}
             className={className}
             style={style}
-            key={key}
             lang={locale}
             steps={steps}
             localKey={localKey}

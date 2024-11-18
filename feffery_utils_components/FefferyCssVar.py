@@ -5,12 +5,15 @@ from dash.development.base_component import Component, _explicitize_args
 
 class FefferyCssVar(Component):
     """A FefferyCssVar component.
-Css变量更新组件FefferyCssVar
+CSS变量更新组件FefferyCssVar
 
 Keyword arguments:
 
 - id (string; optional):
     组件唯一id.
+
+- key (string; optional):
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - cssVars (dict; optional):
     定义要更新的`css`变量键值对信息.
@@ -32,10 +35,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyCssVar'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, cssVars=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'cssVars', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, cssVars=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'cssVars', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'cssVars', 'loading_state']
+        self.available_properties = ['id', 'key', 'cssVars', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

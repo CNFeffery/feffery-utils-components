@@ -16,7 +16,7 @@ Keyword arguments:
     对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - file (dict; optional):
-    设置新的下载任务对应文件信息，每次触发下载后都会重置为空置.
+    设置新的下载任务对应文件信息，每次触发下载后都会重置为空值.
 
     `file` is a dict with keys:
 

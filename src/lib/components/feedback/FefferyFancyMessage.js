@@ -10,7 +10,6 @@ const FefferyFancyMessage = (props) => {
     const {
         id,
         children,
-        key,
         className,
         style,
         visible,
@@ -70,7 +69,6 @@ const FefferyFancyMessage = (props) => {
 
     return (<Toaster
         id={id}
-        key={key}
         reverseOrder={reverseOrder}
         containerClassName={containerClassName}
         containerStyle={containerStyle}

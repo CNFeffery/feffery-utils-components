@@ -12,6 +12,9 @@ Keyword arguments:
 - id (string; optional):
     组件唯一id.
 
+- key (string; optional):
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
+
 - sourceProp (boolean | number | string | dict | list; optional):
     用于同步目标属性，请通过回调函数更新.
 
@@ -38,10 +41,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyDebounceProp'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, sourceProp=Component.UNDEFINED, debounceProp=Component.UNDEFINED, debounceWait=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'sourceProp', 'debounceProp', 'debounceWait', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, sourceProp=Component.UNDEFINED, debounceProp=Component.UNDEFINED, debounceWait=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'sourceProp', 'debounceProp', 'debounceWait', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'sourceProp', 'debounceProp', 'debounceWait', 'loading_state']
+        self.available_properties = ['id', 'key', 'sourceProp', 'debounceProp', 'debounceWait', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

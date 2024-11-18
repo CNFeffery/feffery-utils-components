@@ -40,6 +40,11 @@ FefferyThrottleProp.propTypes = {
     id: PropTypes.string,
 
     /**
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
+
+    /**
      * 用于同步目标属性，请通过回调函数更新
      */
     sourceProp: PropTypes.any,

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * Css变量更新组件FefferyCssVar
+ * CSS变量更新组件FefferyCssVar
  */
 const FefferyCssVar = (props) => {
     // 取得必要属性或参数
@@ -31,6 +31,11 @@ FefferyCssVar.propTypes = {
      * 组件唯一id
      */
     id: PropTypes.string,
+
+    /**
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
+     */
+    key: PropTypes.string,
 
     /**
      * 定义要更新的`css`变量键值对信息

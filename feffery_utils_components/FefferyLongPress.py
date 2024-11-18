@@ -12,6 +12,9 @@ Keyword arguments:
 - id (string; optional):
     组件唯一id.
 
+- key (string; optional):
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
+
 - targetId (string; optional):
     设置当前长按监听组件的监听目标元素`id`.
 
@@ -38,10 +41,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyLongPress'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, targetId=Component.UNDEFINED, pressCounts=Component.UNDEFINED, delay=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'targetId', 'pressCounts', 'delay', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, targetId=Component.UNDEFINED, pressCounts=Component.UNDEFINED, delay=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'targetId', 'pressCounts', 'delay', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'targetId', 'pressCounts', 'delay', 'loading_state']
+        self.available_properties = ['id', 'key', 'targetId', 'pressCounts', 'delay', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

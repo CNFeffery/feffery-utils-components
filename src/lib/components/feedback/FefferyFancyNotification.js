@@ -11,7 +11,6 @@ const FefferyFancyNotification = (props) => {
     const {
         id,
         children,
-        key,
         className,
         style,
         type,
@@ -64,7 +63,6 @@ const FefferyFancyNotification = (props) => {
     return (
         <ToastContainer
             id={id}
-            key={key}
             className={className}
             style={style}
             position={position}

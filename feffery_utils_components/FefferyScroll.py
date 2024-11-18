@@ -12,6 +12,9 @@ Keyword arguments:
 - id (string; optional):
     组件唯一id.
 
+- key (string; optional):
+    对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
+
 - scrollMode (a value equal to: 'to-top', 'to-bottom', 'top-offset', 'relative-offset', 'target'; default 'to-top'):
     设置页面滚动模式，可选的有`'to-top'`、`'to-bottom'`、`'top-offset'`、`'relative-offset'`、`'target'`
     默认值：`'to-top'`.
@@ -61,10 +64,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyScroll'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, scrollMode=Component.UNDEFINED, executeScroll=Component.UNDEFINED, scrollTopOffset=Component.UNDEFINED, scrollRelativeOffset=Component.UNDEFINED, scrollTargetId=Component.UNDEFINED, duration=Component.UNDEFINED, smooth=Component.UNDEFINED, delay=Component.UNDEFINED, containerId=Component.UNDEFINED, offset=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'scrollMode', 'executeScroll', 'scrollTopOffset', 'scrollRelativeOffset', 'scrollTargetId', 'duration', 'smooth', 'delay', 'containerId', 'offset', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, scrollMode=Component.UNDEFINED, executeScroll=Component.UNDEFINED, scrollTopOffset=Component.UNDEFINED, scrollRelativeOffset=Component.UNDEFINED, scrollTargetId=Component.UNDEFINED, duration=Component.UNDEFINED, smooth=Component.UNDEFINED, delay=Component.UNDEFINED, containerId=Component.UNDEFINED, offset=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'scrollMode', 'executeScroll', 'scrollTopOffset', 'scrollRelativeOffset', 'scrollTargetId', 'duration', 'smooth', 'delay', 'containerId', 'offset', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'scrollMode', 'executeScroll', 'scrollTopOffset', 'scrollRelativeOffset', 'scrollTargetId', 'duration', 'smooth', 'delay', 'containerId', 'offset', 'loading_state']
+        self.available_properties = ['id', 'key', 'scrollMode', 'executeScroll', 'scrollTopOffset', 'scrollRelativeOffset', 'scrollTargetId', 'duration', 'smooth', 'delay', 'containerId', 'offset', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
