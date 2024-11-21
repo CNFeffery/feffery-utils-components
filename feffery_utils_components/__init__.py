@@ -63,7 +63,8 @@ async_resources = [
     'feffery_vditor',
     'feffery_http_requests',
     'feffery_burger',
-    'feffery_barcode'
+    'feffery_barcode',
+    'feffery_oceanbase'
 ]
 
 _js_dist = []

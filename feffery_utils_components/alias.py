@@ -90,6 +90,7 @@ from .FefferyWindowSize import FefferyWindowSize as WindowSize
 from .FefferyExtraSpinner import FefferyExtraSpinner as ExtraSpinner
 from .FefferyTopProgress import FefferyTopProgress as TopProgress
 from .FefferyCountDown import FefferyCountDown as CountDown
+from .FefferyDocDialog import FefferyDocDialog as DocDialog
 from .FefferyExecuteJs import FefferyExecuteJs as ExecuteJs
 from .FefferyGuide import FefferyGuide as Guide
 from .FefferyShortcutPanel import FefferyShortcutPanel as ShortcutPanel
@@ -213,6 +214,7 @@ __all__ = [
     "ExtraSpinner",
     "TopProgress",
     "CountDown",
+    "DocDialog",
     "ExecuteJs",
     "Guide",
     "ShortcutPanel",
