@@ -19,12 +19,14 @@ const FefferyLongPress = (props) => {
     useLongPress(
         () => {
             setProps({
-                pressCounts: pressCounts + 1
+                pressCounts: pressCounts + 1,
+                isLongPressing: true
             })
         },
         () => document.getElementById(targetId),
         {
-            delay: delay
+            delay: delay,
+            onLongPressEnd: () => setProps({ isLongPressing: false })
         }
     )
 
@@ -52,6 +54,11 @@ FefferyLongPress.propTypes = {
      * 默认值：`0`
      */
     pressCounts: PropTypes.number,
+
+    /**
+     * 监听目标组件是否正处于长按状态
+     */
+    isLongPressing: PropTypes.bool,
 
     /**
      * 设置符合长按行为的持续时长，单位：毫秒
