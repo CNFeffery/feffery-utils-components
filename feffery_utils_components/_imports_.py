@@ -91,7 +91,6 @@ from .FefferyWindowSize import FefferyWindowSize
 from .FefferyExtraSpinner import FefferyExtraSpinner
 from .FefferyTopProgress import FefferyTopProgress
 from .FefferyCountDown import FefferyCountDown
-from .FefferyDocDialog import FefferyDocDialog
 from .FefferyExecuteJs import FefferyExecuteJs
 from .FefferyGuide import FefferyGuide
 from .FefferyShortcutPanel import FefferyShortcutPanel
@@ -216,7 +215,6 @@ __all__ = [
     "FefferyExtraSpinner",
     "FefferyTopProgress",
     "FefferyCountDown",
-    "FefferyDocDialog",
     "FefferyExecuteJs",
     "FefferyGuide",
     "FefferyShortcutPanel",

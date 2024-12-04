@@ -141,7 +141,6 @@ import FefferyCaptcha from "./components/verification/FefferyCaptcha.react.js";
 import FefferySliderCaptcha from "./components/verification/FefferySliderCaptcha.react.js";
 // 其他
 import FefferyCountDown from "./components/other/FefferyCountDown.react.js";
-import FefferyDocDialog from './components/other/FefferyDocDialog.react.js';
 import FefferyExecuteJs from "./components/other/FefferyExecuteJs.react.js";
 import FefferyGuide from "./components/other/FefferyGuide.react.js";
 import FefferyShortcutPanel from "./components/other/FefferyShortcutPanel.react.js";
@@ -313,7 +312,6 @@ export {
     FefferySliderCaptcha,
     // 其他
     FefferyCountDown,
-    FefferyDocDialog,
     FefferyExecuteJs,
     FefferyGuide,
     FefferyShortcutPanel,

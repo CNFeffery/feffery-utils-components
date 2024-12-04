@@ -1,6 +1,6 @@
 {
   "name": "feffery_utils_components",
-  "version": "0.2.0",
+  "version": "0.2.0-rc26",
   "description": "Build more utility components for Plotly Dash.",
   "repository": {
     "type": "git",
@@ -31,7 +31,6 @@
     "@formkit/auto-animate": "1.0.0-beta.5",
     "@js-preview/docx": "^1.6.0",
     "@js-preview/excel": "^1.6.0",
-    "@oceanbase/ui": "^0.4.1",
     "@photo-sphere-viewer/autorotate-plugin": "^5.7.3",
     "@reactuses/core": "^5.0.23",
     "@shoelace-style/shoelace": "^2.14.0",

@@ -88,9 +88,6 @@ module.exports = (env, argv) => {
                         path.resolve('node_modules', '@shoelace-style'),
                         path.resolve('node_modules', 'emoji-mart'),
                         path.resolve('node_modules', '@photo-sphere-viewer'),
-                        path.resolve('node_modules', 'query-string'),
-                        path.resolve('node_modules', 'filter-obj'),
-                        path.resolve('node_modules', 'screenfull'),
                     ],
                     use: {
                         loader: 'babel-loader',
