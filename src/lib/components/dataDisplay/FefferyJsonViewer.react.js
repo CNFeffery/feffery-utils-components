@@ -44,6 +44,12 @@ FefferyJsonViewer.propTypes = {
     data: PropTypes.object,
 
     /**
+     * 配置根节点键名，设置为`false`时不显示
+     * 默认值：`false`
+     */
+    rootName: PropTypes.string,
+
+    /**
      * 风格主题，可选项有`'apathy'`、`'apathy:inverted'`、`'ashes'`、`'bespin'`、`'brewer'`、
      * `'bright:inverted'`、`'bright'`、`'chalk'`、`'codeschool'`、`'colors'`、
      * `'eighties'`、`'embers'`、`'flat'`、`'google'`、`'grayscale'`、`'grayscale:inverted'`、
@@ -178,6 +184,7 @@ FefferyJsonViewer.propTypes = {
 };
 
 FefferyJsonViewer.defaultProps = {
+    rootName: false,
     indent: 4,
     theme: 'summerfruit:inverted',
     iconStyle: 'circle',

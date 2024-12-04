@@ -31,6 +31,7 @@
     "@formkit/auto-animate": "1.0.0-beta.5",
     "@js-preview/docx": "^1.6.0",
     "@js-preview/excel": "^1.6.0",
+    "@microlink/react-json-view": "^1.23.4",
     "@photo-sphere-viewer/autorotate-plugin": "^5.7.3",
     "@reactuses/core": "^5.0.23",
     "@shoelace-style/shoelace": "^2.14.0",

@@ -24,6 +24,9 @@ Keyword arguments:
 - data (dict; optional):
     `json`数据源.
 
+- rootName (string; default False):
+    配置根节点键名，设置为`False`时不显示  默认值：`False`.
+
 - theme (a value equal to: 'apathy', 'apathy:inverted', 'ashes', 'bespin', 'brewer', 'bright:inverted', 'bright', 'chalk', 'codeschool', 'colors', 'eighties', 'embers', 'flat', 'google', 'grayscale', 'grayscale:inverted', 'greenscreen', 'harmonic', 'hopscotch', 'isotope', 'marrakesh', 'mocha', 'monokai', 'ocean', 'paraiso', 'pop', 'railscasts', 'rjv-default', 'shapeshifter', 'shapeshifter:inverted', 'solarized', 'summerfruit', 'summerfruit:inverted', 'threezerotwofour', 'tomorrow', 'tube', 'twilight'; default 'summerfruit:inverted'):
     风格主题，可选项有`'apathy'`、`'apathy:inverted'`、`'ashes'`、`'bespin'`、`'brewer'`、
     `'bright:inverted'`、`'bright'`、`'chalk'`、`'codeschool'`、`'colors'`、
@@ -94,10 +97,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyJsonViewer'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, data=Component.UNDEFINED, theme=Component.UNDEFINED, indent=Component.UNDEFINED, iconStyle=Component.UNDEFINED, collapsed=Component.UNDEFINED, collapseStringsAfterLength=Component.UNDEFINED, groupArraysAfterLength=Component.UNDEFINED, enableClipboard=Component.UNDEFINED, displayObjectSize=Component.UNDEFINED, displayDataTypes=Component.UNDEFINED, editable=Component.UNDEFINED, addible=Component.UNDEFINED, deletable=Component.UNDEFINED, sortKeys=Component.UNDEFINED, quotesOnKeys=Component.UNDEFINED, displayArrayKey=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'data', 'theme', 'indent', 'iconStyle', 'collapsed', 'collapseStringsAfterLength', 'groupArraysAfterLength', 'enableClipboard', 'displayObjectSize', 'displayDataTypes', 'editable', 'addible', 'deletable', 'sortKeys', 'quotesOnKeys', 'displayArrayKey', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, data=Component.UNDEFINED, rootName=Component.UNDEFINED, theme=Component.UNDEFINED, indent=Component.UNDEFINED, iconStyle=Component.UNDEFINED, collapsed=Component.UNDEFINED, collapseStringsAfterLength=Component.UNDEFINED, groupArraysAfterLength=Component.UNDEFINED, enableClipboard=Component.UNDEFINED, displayObjectSize=Component.UNDEFINED, displayDataTypes=Component.UNDEFINED, editable=Component.UNDEFINED, addible=Component.UNDEFINED, deletable=Component.UNDEFINED, sortKeys=Component.UNDEFINED, quotesOnKeys=Component.UNDEFINED, displayArrayKey=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'style', 'className', 'data', 'rootName', 'theme', 'indent', 'iconStyle', 'collapsed', 'collapseStringsAfterLength', 'groupArraysAfterLength', 'enableClipboard', 'displayObjectSize', 'displayDataTypes', 'editable', 'addible', 'deletable', 'sortKeys', 'quotesOnKeys', 'displayArrayKey', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'data', 'theme', 'indent', 'iconStyle', 'collapsed', 'collapseStringsAfterLength', 'groupArraysAfterLength', 'enableClipboard', 'displayObjectSize', 'displayDataTypes', 'editable', 'addible', 'deletable', 'sortKeys', 'quotesOnKeys', 'displayArrayKey', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'data', 'rootName', 'theme', 'indent', 'iconStyle', 'collapsed', 'collapseStringsAfterLength', 'groupArraysAfterLength', 'enableClipboard', 'displayObjectSize', 'displayDataTypes', 'editable', 'addible', 'deletable', 'sortKeys', 'quotesOnKeys', 'displayArrayKey', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

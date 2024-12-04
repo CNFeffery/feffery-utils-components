@@ -243,10 +243,6 @@ body {
     transition: background 0.15s ease;
 }
 
-.react-json-view svg {
-    vertical-align: middle !important;
-}
-
 /* firefox */
 ninja-keys::part(actions-list) {
     scrollbar-width: thin;

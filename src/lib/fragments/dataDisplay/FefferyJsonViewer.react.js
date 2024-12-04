@@ -1,5 +1,5 @@
 // 组件核心
-import ReactJson from '../../utils/react-json-view/dist/main'
+import ReactJsonView from '@microlink/react-json-view'
 // 辅助库
 import { isString } from 'lodash';
 // 自定义hooks
@@ -17,6 +17,7 @@ const FefferyJsonViewer = (props) => {
         style,
         className,
         data,
+        rootName,
         theme,
         indent,
         iconStyle,
@@ -37,7 +38,7 @@ const FefferyJsonViewer = (props) => {
     } = props;
 
     return (
-        <ReactJson
+        <ReactJsonView
             id={id}
             key={key}
             style={style}
@@ -48,6 +49,7 @@ const FefferyJsonViewer = (props) => {
             }
             theme={theme}
             src={data}
+            name={rootName}
             indentWidth={indent}
             iconStyle={iconStyle}
             collapsed={collapsed}
