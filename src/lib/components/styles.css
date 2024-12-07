@@ -256,3 +256,8 @@ ninja-keys {
 [data-rcs="handle-container"] {
     z-index: 500;
 }
+
+.react-json-view .expanded-icon,
+.react-json-view .collapsed-icon {
+    vertical-align: text-bottom;
+}
