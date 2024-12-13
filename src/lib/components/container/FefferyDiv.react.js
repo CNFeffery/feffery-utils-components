@@ -358,6 +358,19 @@ const FefferyDiv = (props) => {
                 () => setProps({ isTouching: false }) :
                 undefined
         }
+        // 监听容器内文本粘贴事件
+        onPaste={
+            enableEvents?.includes('paste') ?
+                (e) => {
+                    setProps({
+                        pasteEvent: {
+                            text: e.clipboardData.getData('text'),
+                            timestamp: Date.now()
+                        }
+                    })
+                } :
+                undefined
+        }
         tabIndex={enableFocus || enableEvents?.includes('focus') ? 0 : undefined}
         data-dash-is-loading={
             (loading_state && loading_state.is_loading) || undefined
@@ -399,7 +412,7 @@ FefferyDiv.propTypes = {
      * 控制要开启的事件监听类型数组，可选项有`'click'`（单击事件）、`'dbclick'`（双击事件）、`'size'`（尺寸变化事件）、
      * `'mouseenter'`（鼠标移入事件），`'mouseleave'`（鼠标移出事件）、`'contextmenu'`（鼠标右键点击事件）、
      * `'hover'`（鼠标悬停事件）、`'touch'`（移动端触碰事件）、`'clickaway'`（元素外点击事件）、`'position'`（左上角坐标位置变化事件）、
-     * `'focus'`（聚焦状态切换事件）
+     * `'focus'`（聚焦状态切换事件）、`'paste'`（文本粘贴事件）
      * 默认值：`['click', 'dbclick']`
      */
     enableEvents: PropTypes.arrayOf(
@@ -414,7 +427,8 @@ FefferyDiv.propTypes = {
             'touch',
             'clickaway',
             'position',
-            'focus'
+            'focus',
+            'paste'
         ])
     ),
 
@@ -612,6 +626,20 @@ FefferyDiv.propTypes = {
      * 监听或设置当前元素是否聚焦中
      */
     isFocused: PropTypes.bool,
+
+    /**
+     * 监听文本粘贴事件
+     */
+    pasteEvent: PropTypes.exact({
+        /**
+         * 已粘贴文本内容
+         */
+        text: PropTypes.string,
+        /**
+         * 粘贴事件对应的时间戳
+         */
+        timestamp: PropTypes.number
+    }),
 
     /**
      * 设置当前组件内部处理鼠标滑轮事件的策略，可选项有`'default'`、`'internally-only'`（不向外传递）
