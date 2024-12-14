@@ -54,6 +54,7 @@ from .FefferyRichTextEditor import FefferyRichTextEditor as RichTextEditor
 from .FefferyVditor import FefferyVditor as Vditor
 from .FefferyFancyMessage import FefferyFancyMessage as FancyMessage
 from .FefferyFancyNotification import FefferyFancyNotification as FancyNotification
+from .FefferyWebNotification import FefferyWebNotification as WebNotification
 from .FefferyExcelPreview import FefferyExcelPreview as ExcelPreview
 from .FefferyWordPreview import FefferyWordPreview as WordPreview
 from .FefferyBurger import FefferyBurger as Burger
@@ -177,6 +178,7 @@ __all__ = [
     "Vditor",
     "FancyMessage",
     "FancyNotification",
+    "WebNotification",
     "ExcelPreview",
     "WordPreview",
     "Burger",

@@ -131,6 +131,7 @@ import FefferySeamlessScroll from "./components/dataDisplay/FefferySeamlessScrol
 // 反馈
 import FefferyFancyMessage from "./components/feedback/FefferyFancyMessage.js";
 import FefferyFancyNotification from "./components/feedback/FefferyFancyNotification.js";
+import FefferyWebNotification from './components/feedback/FefferyWebNotification.react.js';
 // 存储
 import FefferyCookie from "./components/store/FefferyCookie.react";
 import FefferyLocalLargeStorage from "./components/store/FefferyLocalLargeStorage.react";
@@ -302,6 +303,7 @@ export {
     // 反馈
     FefferyFancyMessage,
     FefferyFancyNotification,
+    FefferyWebNotification,
     // 存储
     FefferyCookie,
     FefferyLocalLargeStorage,
