@@ -28,7 +28,8 @@ const FefferyPostEventSource = (props) => {
             headers,
             body,
             withCredentials,
-            method: 'POST'
+            method: 'POST',
+            openWhenHidden: true
         }
     );
 

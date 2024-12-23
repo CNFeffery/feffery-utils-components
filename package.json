@@ -33,7 +33,7 @@
     "@js-preview/excel": "^1.6.0",
     "@microlink/react-json-view": "^1.23.4",
     "@photo-sphere-viewer/autorotate-plugin": "^5.7.3",
-    "@reactuses/core": "^5.0.23",
+    "@reactuses/core": "^6.0.0",
     "@shoelace-style/shoelace": "^2.14.0",
     "@uiw/color-convert": "^1.1.0",
     "@uiw/react-color-wheel": "^1.1.0",
