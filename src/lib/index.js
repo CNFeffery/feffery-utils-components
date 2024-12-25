@@ -93,6 +93,7 @@ import FefferyExternalJs from "./components/staticResourceControl/FefferyExterna
 import FefferyFullscreen from "./components/pageControl/FefferyFullscreen.react.js";
 import FefferyReload from "./components/pageControl/FefferyReload.react.js";
 import FefferyScroll from "./components/pageControl/FefferyScroll.react.js";
+import FefferyScrollLock from './components/pageControl/FefferyScrollLock.react.js';
 import FefferySetFavicon from "./components/pageControl/FefferySetFavicon.react.js";
 import FefferySetTitle from "./components/pageControl/FefferySetTitle.react.js";
 // 样式控制
@@ -267,6 +268,7 @@ export {
     FefferyFullscreen,
     FefferyReload,
     FefferyScroll,
+    FefferyScrollLock,
     FefferySetFavicon,
     FefferySetTitle,
     // 快捷样式控制

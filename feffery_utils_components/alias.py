@@ -24,6 +24,7 @@ from .FefferyWheelColorPicker import FefferyWheelColorPicker as WheelColorPicker
 from .FefferyEventSource import FefferyEventSource as EventSource
 from .FefferyHttpRequests import FefferyHttpRequests as HttpRequests
 from .FefferyIframeMessenger import FefferyIframeMessenger as IframeMessenger
+from .FefferyPostEventSource import FefferyPostEventSource as PostEventSource
 from .FefferyTabMessenger import FefferyTabMessenger as TabMessenger
 from .FefferyWebSocket import FefferyWebSocket as WebSocket
 from .FefferyDiv import FefferyDiv as Div
@@ -98,6 +99,7 @@ from .FefferyTimeout import FefferyTimeout as Timeout
 from .FefferyFullscreen import FefferyFullscreen as Fullscreen
 from .FefferyReload import FefferyReload as Reload
 from .FefferyScroll import FefferyScroll as Scroll
+from .FefferyScrollLock import FefferyScrollLock as ScrollLock
 from .FefferySetFavicon import FefferySetFavicon as SetFavicon
 from .FefferySetTitle import FefferySetTitle as SetTitle
 from .FefferyDebounceProp import FefferyDebounceProp as DebounceProp
@@ -148,6 +150,7 @@ __all__ = [
     "EventSource",
     "HttpRequests",
     "IframeMessenger",
+    "PostEventSource",
     "TabMessenger",
     "WebSocket",
     "Div",
@@ -222,6 +225,7 @@ __all__ = [
     "Fullscreen",
     "Reload",
     "Scroll",
+    "ScrollLock",
     "SetFavicon",
     "SetTitle",
     "DebounceProp",

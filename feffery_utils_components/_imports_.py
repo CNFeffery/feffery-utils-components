@@ -99,6 +99,7 @@ from .FefferyTimeout import FefferyTimeout
 from .FefferyFullscreen import FefferyFullscreen
 from .FefferyReload import FefferyReload
 from .FefferyScroll import FefferyScroll
+from .FefferyScrollLock import FefferyScrollLock
 from .FefferySetFavicon import FefferySetFavicon
 from .FefferySetTitle import FefferySetTitle
 from .FefferyDebounceProp import FefferyDebounceProp
@@ -224,6 +225,7 @@ __all__ = [
     "FefferyFullscreen",
     "FefferyReload",
     "FefferyScroll",
+    "FefferyScrollLock",
     "FefferySetFavicon",
     "FefferySetTitle",
     "FefferyDebounceProp",
