@@ -10,6 +10,7 @@ const FefferyFullscreen = (props) => {
     const {
         targetId,
         isFullscreen,
+        pageFullscreen,
         setProps,
         loading_state
     } = props;
@@ -21,7 +22,10 @@ const FefferyFullscreen = (props) => {
             exitFullscreen
         }
     ] = useFullscreen(
-        () => document.getElementById(targetId)
+        () => document.getElementById(targetId),
+        {
+            pageFullscreen: pageFullscreen
+        }
     );
 
     useEffect(() => {
@@ -95,6 +99,24 @@ FefferyFullscreen.propTypes = {
      */
     isFullscreen: PropTypes.bool,
 
+    /**
+     * 配置是否启用页面全屏，可进一步设置页面全屏根元素对应的css类名及`z-index`值
+     * 默认值：`false`
+     */
+    pageFullscreen: PropTypes.oneOfType([
+        PropTypes.bool,
+        PropTypes.exact({
+            /**
+             * 设置页面全屏根元素对应的css类名
+             */
+            className: PropTypes.string,
+            /**
+             * 设置页面全屏根元素对应的`z-index`值
+             */
+            zIndex: PropTypes.number
+        })
+    ]),
+
     loading_state: PropTypes.shape({
         /**
          * Determines if the component is loading or not
@@ -119,7 +141,8 @@ FefferyFullscreen.propTypes = {
 
 // 设置默认参数
 FefferyFullscreen.defaultProps = {
-    isFullscreen: false
+    isFullscreen: false,
+    pageFullscreen: false
 }
 
 export default FefferyFullscreen;

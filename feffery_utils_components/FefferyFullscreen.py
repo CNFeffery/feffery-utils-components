@@ -21,6 +21,17 @@ Keyword arguments:
 - isFullscreen (boolean; default False):
     设置或监听目标元素的全屏化状态  默认值：`False`.
 
+- pageFullscreen (dict; default False):
+    配置是否启用页面全屏，可进一步设置页面全屏根元素对应的css类名及`z-index`值  默认值：`False`.
+
+    `pageFullscreen` is a boolean | dict with keys:
+
+    - className (string; optional):
+        设置页面全屏根元素对应的css类名.
+
+    - zIndex (number; optional):
+        设置页面全屏根元素对应的`z-index`值.
+
 - loading_state (dict; optional)
 
     `loading_state` is a dict with keys:
@@ -38,10 +49,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyFullscreen'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, targetId=Component.UNDEFINED, isFullscreen=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'targetId', 'isFullscreen', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, targetId=Component.UNDEFINED, isFullscreen=Component.UNDEFINED, pageFullscreen=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'targetId', 'isFullscreen', 'pageFullscreen', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'targetId', 'isFullscreen', 'loading_state']
+        self.available_properties = ['id', 'key', 'targetId', 'isFullscreen', 'pageFullscreen', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
