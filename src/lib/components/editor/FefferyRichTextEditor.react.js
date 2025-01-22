@@ -81,6 +81,11 @@ FefferyRichTextEditor.propTypes = {
     textValue: PropTypes.string,
 
     /**
+     * 编辑器选中文本内容
+     */
+    selectionTextValue: PropTypes.string,
+
+    /**
      * 工具栏配置
      */
     toolbarConfig: PropTypes.shape({
