@@ -25,6 +25,7 @@ const FefferyRichTextEditor = (props) => {
         mode,
         htmlValue,
         textValue,
+        selectionTextValue,
         toolbarConfig,
         editorConfig,
         uploadImage,
@@ -148,7 +149,8 @@ const FefferyRichTextEditor = (props) => {
     const onChange = (editor) => {
         setProps({
             htmlValue: editor.getHtml(),
-            textValue: editor.getText()
+            textValue: editor.getText(),
+            selectionTextValue: editor.getSelectionText()
         })
     }
 

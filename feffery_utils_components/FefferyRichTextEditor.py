@@ -46,6 +46,9 @@ Keyword arguments:
 - textValue (string; optional):
     编辑器纯文本内容.
 
+- selectionTextValue (string; optional):
+    编辑器选中文本内容.
+
 - toolbarConfig (dict; default {    modalAppendToBody: False}):
     工具栏配置.
 
@@ -447,10 +450,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyRichTextEditor'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, toolbarClassName=Component.UNDEFINED, toolbarStyle=Component.UNDEFINED, editorClassName=Component.UNDEFINED, editorStyle=Component.UNDEFINED, locale=Component.UNDEFINED, mode=Component.UNDEFINED, htmlValue=Component.UNDEFINED, textValue=Component.UNDEFINED, toolbarConfig=Component.UNDEFINED, editorConfig=Component.UNDEFINED, uploadImage=Component.UNDEFINED, uploadVideo=Component.UNDEFINED, successMessage=Component.UNDEFINED, errorMessage=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'toolbarClassName', 'toolbarStyle', 'editorClassName', 'editorStyle', 'locale', 'mode', 'htmlValue', 'textValue', 'toolbarConfig', 'editorConfig', 'uploadImage', 'uploadVideo', 'successMessage', 'errorMessage', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, toolbarClassName=Component.UNDEFINED, toolbarStyle=Component.UNDEFINED, editorClassName=Component.UNDEFINED, editorStyle=Component.UNDEFINED, locale=Component.UNDEFINED, mode=Component.UNDEFINED, htmlValue=Component.UNDEFINED, textValue=Component.UNDEFINED, selectionTextValue=Component.UNDEFINED, toolbarConfig=Component.UNDEFINED, editorConfig=Component.UNDEFINED, uploadImage=Component.UNDEFINED, uploadVideo=Component.UNDEFINED, successMessage=Component.UNDEFINED, errorMessage=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'style', 'className', 'toolbarClassName', 'toolbarStyle', 'editorClassName', 'editorStyle', 'locale', 'mode', 'htmlValue', 'textValue', 'selectionTextValue', 'toolbarConfig', 'editorConfig', 'uploadImage', 'uploadVideo', 'successMessage', 'errorMessage', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'toolbarClassName', 'toolbarStyle', 'editorClassName', 'editorStyle', 'locale', 'mode', 'htmlValue', 'textValue', 'toolbarConfig', 'editorConfig', 'uploadImage', 'uploadVideo', 'successMessage', 'errorMessage', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'toolbarClassName', 'toolbarStyle', 'editorClassName', 'editorStyle', 'locale', 'mode', 'htmlValue', 'textValue', 'selectionTextValue', 'toolbarConfig', 'editorConfig', 'uploadImage', 'uploadVideo', 'successMessage', 'errorMessage', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
