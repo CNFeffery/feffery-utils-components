@@ -6,10 +6,20 @@ const LazyFefferyRND = React.lazy(() => import(/* webpackChunkName: "feffery_rnd
 /**
  * 尺寸可调可拖拽组件FefferyRND
  */
-const FefferyRND = (props) => {
+const FefferyRND = ({
+    direction = ['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft'],
+    selected = false,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyRND {...props} />
+            <LazyFefferyRND {
+                ...{
+                    direction,
+                    selected,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -211,28 +221,8 @@ FefferyRND.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-FefferyRND.defaultProps = {
-    direction: ['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft'],
-    selected: false
-}
 
 export default FefferyRND;
 

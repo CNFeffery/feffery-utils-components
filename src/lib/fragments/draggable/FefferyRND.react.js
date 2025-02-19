@@ -4,40 +4,39 @@ import { useEffect, useState } from 'react';
 import { Rnd } from 'react-rnd';
 // 辅助库
 import { clone } from 'lodash';
+import { useLoading } from '../../components/utils';
 // 参数类型
 import { propTypes, defaultProps } from '../../components/draggable/FefferyRND.react';
 
 /**
  * 尺寸可调可拖拽组件FefferyRND
  */
-const FefferyRND = (props) => {
-    const {
-        id,
-        style,
-        className,
-        children,
-        defaultState,
-        size,
-        position,
-        minWidth,
-        minHeight,
-        maxWidth,
-        maxHeight,
-        resizeGrid,
-        dragGrid,
-        lockAspectRatio,
-        lockAspectRatioExtraWidth,
-        lockAspectRatioExtraHeight,
-        direction,
-        disableDragging,
-        dragAxis,
-        bounds,
-        selected,
-        selectedStyle,
-        selectedClassName,
-        setProps,
-        loading_state
-    } = props;
+const FefferyRND = ({
+    id,
+    style,
+    className,
+    children,
+    defaultState,
+    size,
+    position,
+    minWidth,
+    minHeight,
+    maxWidth,
+    maxHeight,
+    resizeGrid,
+    dragGrid,
+    lockAspectRatio,
+    lockAspectRatioExtraWidth,
+    lockAspectRatioExtraHeight,
+    direction,
+    disableDragging,
+    dragAxis,
+    bounds,
+    selected,
+    selectedStyle,
+    selectedClassName,
+    setProps
+}) => {
 
     // 记录拖拽或尺寸调整结束事件时间戳
     const [dragOrResizeStopTimestamp, setDragOrResizeStopTimestamp] = useState(0);
@@ -129,9 +128,7 @@ const FefferyRND = (props) => {
                     setProps({ selected: !selected })
                 }
             }}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }>
+            data-dash-is-loading={useLoading()}>
             {children}
         </Rnd>
     );

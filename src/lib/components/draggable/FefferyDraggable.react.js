@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { useDraggable } from '@reactuses/core';
 // 辅助库
 import { useSize, useHover, useFocusWithin } from 'ahooks';
+import { useLoading } from '../utils';
 
 const DragLine = (props) => {
     // 局部容器模式
@@ -49,25 +50,25 @@ const DragLine = (props) => {
 /**
  * 可拖拽组件FefferyDraggable
  */
-const FefferyDraggable = (props) => {
-    const {
-        id,
-        key,
-        style,
-        className,
-        children,
-        draggable,
-        showDragLine,
-        dragLineColors,
-        focusWithinStyle,
-        boundsSelector,
-        initialX,
-        initialY,
-        x,
-        y,
-        setProps,
-        loading_state
-    } = props;
+const FefferyDraggable = ({
+    id,
+    key,
+    style,
+    className,
+    children,
+    draggable = true,
+    showDragLine = false,
+    dragLineColors = ['#d9d9d9', '#8c8c8c'],
+    focusWithinStyle = {
+        boxShadow: 'rgba(0, 0, 0, 0.08) 0px 6px 16px -8px, rgba(0, 0, 0, 0.05) 0px 9px 28px, rgba(0, 0, 0, 0.03) 0px 12px 48px 16px'
+    },
+    boundsSelector,
+    initialX,
+    initialY,
+    x,
+    y,
+    setProps
+}) => {
 
     const ref = useRef(null);
     const handleRef = useRef(null);
@@ -121,9 +122,7 @@ const FefferyDraggable = (props) => {
                 ...(_isFocusWithin ? focusWithinStyle : {}),
             }}
             className={className}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }>
+            data-dash-is-loading={useLoading()}>
             <button ref={handleRef}
                 style={{
                     position: 'absolute',
@@ -227,35 +226,11 @@ FefferyDraggable.propTypes = {
      */
     isFocusWithin: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-FefferyDraggable.defaultProps = {
-    draggable: true,
-    showDragLine: false,
-    dragLineColors: ['#d9d9d9', '#8c8c8c'],
-    focusWithinStyle: {
-        boxShadow: 'rgba(0, 0, 0, 0.08) 0px 6px 16px -8px, rgba(0, 0, 0, 0.05) 0px 9px 28px, rgba(0, 0, 0, 0.03) 0px 12px 48px 16px'
-    }
-}
 
 export default FefferyDraggable;

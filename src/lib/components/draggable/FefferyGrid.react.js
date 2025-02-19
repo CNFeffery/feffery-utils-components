@@ -6,10 +6,47 @@ const LazyFefferyGrid = React.lazy(() => import(/* webpackChunkName: "feffery_gr
 /**
  * 可拖拽网格组件FefferyGrid
  */
-const FefferyGrid = (props) => {
+const FefferyGrid = ({
+    autoSize = true,
+    cols = 12,
+    margin = [10, 10],
+    rowHeight = 150,
+    isDraggable = true,
+    isResizable = true,
+    isBounded = false,
+    allowOverlap = false,
+    placeholderBackground = '#3b3a39',
+    placeholderOpacity = 0.2,
+    placeholderBorder = 'none',
+    placeholderBorderRadius = '0px',
+    breakpoints = { lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 },
+    compactType = 'vertical',
+    debug = false,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyGrid {...props} />
+            <LazyFefferyGrid {
+                ...{
+                    autoSize,
+                    cols,
+                    compactType,
+                    margin,
+                    rowHeight,
+                    isDraggable,
+                    isResizable,
+                    isBounded,
+                    allowOverlap,
+                    placeholderBackground,
+                    placeholderOpacity,
+                    placeholderBorder,
+                    placeholderBorderRadius,
+                    breakpoints,
+                    compactType,
+                    debug,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -292,46 +329,12 @@ FefferyGrid.propTypes = {
      */
     debug: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func
 };
-
-FefferyGrid.defaultProps = {
-    autoSize: true,
-    cols: 12,
-    compactType: 'vertical',
-    margin: [10, 10],
-    rowHeight: 150,
-    isDraggable: true,
-    isResizable: true,
-    isBounded: false,
-    allowOverlap: false,
-    placeholderBackground: '#3b3a39',
-    placeholderOpacity: 0.2,
-    placeholderBorder: 'none',
-    placeholderBorderRadius: '0px',
-    breakpoints: { lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 },
-    compactType: 'vertical',
-    debug: false
-}
 
 export default FefferyGrid;
 
