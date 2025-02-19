@@ -6,14 +6,39 @@ const LazyFefferyRingsBackground = React.lazy(() => import(/* webpackChunkName: 
 /**
  * 3D-Rings背景组件FefferyRingsBackground
  */
-const FefferyRingsBackground = (props) => {
+const FefferyRingsBackground = ({
+    mouseControls = true,
+    touchControls = true,
+    gyroControls = false,
+    minHeight = 200.00,
+    minWidth = 200.00,
+    scale = 1.00,
+    scaleMobile = 1.00,
+    color = '#88ff00',
+    backgroundColor = '#202428',
+    backgroundAlpha = 1,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyRingsBackground {...props} />
+            <LazyFefferyRingsBackground {
+                ...{
+                    mouseControls,
+                    touchControls,
+                    gyroControls,
+                    minHeight,
+                    minWidth,
+                    scale,
+                    scaleMobile,
+                    color,
+                    backgroundColor,
+                    backgroundAlpha,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
-
 
 FefferyRingsBackground.propTypes = {
     /**
@@ -104,41 +129,12 @@ FefferyRingsBackground.propTypes = {
      */
     backgroundAlpha: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyRingsBackground.defaultProps = {
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    color: '#88ff00',
-    backgroundColor: '#202428',
-    backgroundAlpha: 1
-}
 
 export default FefferyRingsBackground;
 

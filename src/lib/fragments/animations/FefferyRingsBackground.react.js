@@ -1,34 +1,36 @@
+// react核心
 import React, { useState, useEffect, useRef } from 'react';
+// 组件核心
 import RINGS from 'vanta/dist/vanta.rings.min';
 import * as THREE from 'three';
+// 辅助库
 import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/animations/FefferyRingsBackground.react';
+import { useLoading } from '../../components/utils';
 
 /**
  * 3D-Rings背景组件FefferyRingsBackground
  */
-const FefferyRingsBackground = (props) => {
-    // 取得必要属性或参数
-    let {
-        id,
-        children,
-        className,
-        style,
-        key,
-        mouseControls,
-        touchControls,
-        gyroControls,
-        minHeight,
-        minWidth,
-        scale,
-        scaleMobile,
-        color,
-        backgroundColor,
-        backgroundAlpha,
-        setProps,
-        loading_state
-    } = props;
+const FefferyRingsBackground = ({
+    id,
+    children,
+    className,
+    style,
+    key,
+    mouseControls,
+    touchControls,
+    gyroControls,
+    minHeight,
+    minWidth,
+    scale,
+    scaleMobile,
+    color,
+    backgroundColor,
+    backgroundAlpha,
+    setProps
+}) => {
 
     const [ringsEffect, setRingsEffect] = useState(null);
     const ringsRef = useRef(null);
@@ -67,9 +69,7 @@ const FefferyRingsBackground = (props) => {
             style={style}
             key={key}
             ref={ringsRef}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={useLoading()}
         >
             {children}
         </div>

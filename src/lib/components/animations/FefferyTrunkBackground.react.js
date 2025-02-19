@@ -6,14 +6,41 @@ const LazyFefferyTrunkBackground = React.lazy(() => import(/* webpackChunkName: 
 /**
  * 3D-Trunk背景组件FefferyTrunkBackground
  */
-const FefferyTrunkBackground = (props) => {
+const FefferyTrunkBackground = ({
+    mouseControls = true,
+    touchControls = true,
+    gyroControls = false,
+    minHeight = 200.00,
+    minWidth = 200.00,
+    scale = 1.00,
+    scaleMobile = 1.00,
+    backgroundColor = '#222426',
+    color = '#98465f',
+    spacing = 0,
+    chaos = 1,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyTrunkBackground {...props} />
+            <LazyFefferyTrunkBackground {
+                ...{
+                    mouseControls,
+                    touchControls,
+                    gyroControls,
+                    minHeight,
+                    minWidth,
+                    scale,
+                    scaleMobile,
+                    backgroundColor,
+                    color,
+                    spacing,
+                    chaos,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
-
 
 FefferyTrunkBackground.propTypes = {
     /**
@@ -110,42 +137,12 @@ FefferyTrunkBackground.propTypes = {
      */
     chaos: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyTrunkBackground.defaultProps = {
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    backgroundColor: '#222426',
-    color: '#98465f',
-    spacing: 0,
-    chaos: 1
-}
 
 export default FefferyTrunkBackground;
 

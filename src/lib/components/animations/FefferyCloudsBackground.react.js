@@ -6,14 +6,45 @@ const LazyFefferyCloudsBackground = React.lazy(() => import(/* webpackChunkName:
 /**
  * 3D-Clouds背景组件FefferyCloudsBackground
  */
-const FefferyCloudsBackground = (props) => {
+const FefferyCloudsBackground = ({
+    mouseControls = true,
+    touchControls = true,
+    gyroControls = false,
+    minHeight = 200.00,
+    minWidth = 200.00,
+    backgroundColor = '#ffffff',
+    skyColor = '#68b8d7',
+    cloudColor = '#adc1de',
+    cloudShadowColor = '#183550',
+    sunColor = '#ff9919',
+    sunGlareColor = '#ff6633',
+    sunlightColor = '#ff9933',
+    speed = 1,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyCloudsBackground {...props} />
+            <LazyFefferyCloudsBackground {
+                ...{
+                    mouseControls,
+                    touchControls,
+                    gyroControls,
+                    minHeight,
+                    minWidth,
+                    backgroundColor,
+                    skyColor,
+                    cloudColor,
+                    cloudShadowColor,
+                    sunColor,
+                    sunGlareColor,
+                    sunlightColor,
+                    speed,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
-
 
 FefferyCloudsBackground.propTypes = {
     /**
@@ -122,44 +153,12 @@ FefferyCloudsBackground.propTypes = {
      */
     speed: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyCloudsBackground.defaultProps = {
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    backgroundColor: '#ffffff',
-    skyColor: '#68b8d7',
-    cloudColor: '#adc1de',
-    cloudShadowColor: '#183550',
-    sunColor: '#ff9919',
-    sunGlareColor: '#ff6633',
-    sunlightColor: '#ff9933',
-    speed: 1
-}
 
 export default FefferyCloudsBackground;
 

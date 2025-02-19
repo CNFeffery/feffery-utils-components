@@ -1,24 +1,24 @@
+// 组件核心
 import { useAutoAnimate } from '@formkit/auto-animate/react';
+// 辅助库
 import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
+import { useLoading } from '../../components/utils';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/animations/FefferyAutoAnimate.react';
 
 /**
  * 自动动画组件FefferyAutoAnimate
  */
-const FefferyAutoAnimate = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        key,
-        children,
-        style,
-        className,
-        duration,
-        easing,
-        setProps,
-        loading_state
-    } = props;
+const FefferyAutoAnimate = ({
+    id,
+    children,
+    style,
+    className,
+    duration,
+    easing,
+    setProps
+}) => {
 
     const [parent, enableAnimations] = useAutoAnimate({
         duration: duration * 1000,
@@ -28,7 +28,6 @@ const FefferyAutoAnimate = (props) => {
     return (
         <div
             id={id}
-            key={key}
             className={
                 isString(className) ?
                     className :
@@ -36,9 +35,7 @@ const FefferyAutoAnimate = (props) => {
             }
             style={style}
             ref={parent}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } >
+            data-dash-is-loading={useLoading()} >
             {children}
         </div>
     );

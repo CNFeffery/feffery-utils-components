@@ -6,14 +6,43 @@ const LazyFefferyFogBackground = React.lazy(() => import(/* webpackChunkName: "f
 /**
  * 3D-Fog背景组件FefferyFogBackground
  */
-const FefferyFogBackground = (props) => {
+const FefferyFogBackground = ({
+    mouseControls = true,
+    touchControls = true,
+    gyroControls = false,
+    minHeight = 200.00,
+    minWidth = 200.00,
+    highlightColor = '#ffc300',
+    midtoneColor = '#ff1f00',
+    lowlightColor = '#2d00ff',
+    baseColor = '#ffebeb',
+    blurFactor = 0.6,
+    zoom = 1,
+    speed = 1,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyFogBackground {...props} />
+            <LazyFefferyFogBackground {
+                ...{
+                    mouseControls,
+                    touchControls,
+                    gyroControls,
+                    minHeight,
+                    minWidth,
+                    highlightColor,
+                    midtoneColor,
+                    lowlightColor,
+                    baseColor,
+                    blurFactor,
+                    zoom,
+                    speed,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
-
 
 FefferyFogBackground.propTypes = {
     /**
@@ -116,43 +145,12 @@ FefferyFogBackground.propTypes = {
      */
     speed: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyFogBackground.defaultProps = {
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    highlightColor: '#ffc300',
-    midtoneColor: '#ff1f00',
-    lowlightColor: '#2d00ff',
-    baseColor: '#ffebeb',
-    blurFactor: 0.6,
-    zoom: 1,
-    speed: 1
-}
 
 export default FefferyFogBackground;
 
