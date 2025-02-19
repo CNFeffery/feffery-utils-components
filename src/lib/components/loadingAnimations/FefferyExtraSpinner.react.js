@@ -6,10 +6,26 @@ const LazyFefferyExtraSpinner = React.lazy(() => import(/* webpackChunkName: "fe
 /**
  * 额外加载动画组件FefferyExtraSpinner
  */
-const FefferyExtraSpinner = (props) => {
+const FefferyExtraSpinner = ({
+    sizeUnit = 'px',
+    type = 'ball',
+    color = '#1890ff',
+    frontColor = '#def6ff',
+    backColor = '#1890ff',
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyExtraSpinner {...props} />
+            <LazyFefferyExtraSpinner {
+                ...{
+                    sizeUnit,
+                    type,
+                    color,
+                    frontColor,
+                    backColor,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -74,31 +90,8 @@ FefferyExtraSpinner.propTypes = {
     /**
      * 图标背景色
      */
-    backColor: PropTypes.string,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    backColor: PropTypes.string
 };
-
-FefferyExtraSpinner.defaultProps = {
-    sizeUnit: 'px',
-    type: 'ball',
-    color: '#1890ff',
-    frontColor: '#def6ff',
-    backColor: '#1890ff'
-}
 
 export default FefferyExtraSpinner;
 

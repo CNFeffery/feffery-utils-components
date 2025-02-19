@@ -35,25 +35,25 @@ import {
     WhisperSpinner,
     MetroSpinner
 } from "react-spinners-kit";
+// 辅助库
+import { useLoading } from "../../components/utils";
 // 参数类型
 import { propTypes, defaultProps } from '../../components/loadingAnimations/FefferyExtraSpinner.react';
 
 /**
  * 额外加载动画组件FefferyExtraSpinner
  */
-const FefferyExtraSpinner = (props) => {
-    const {
-        id,
-        style,
-        className,
-        key,
-        type,
-        size,
-        color,
-        frontColor,
-        backColor,
-        loading_state
-    } = props;
+const FefferyExtraSpinner = ({
+    id,
+    style,
+    className,
+    key,
+    type,
+    size,
+    color,
+    frontColor,
+    backColor
+}) => {
 
     let spinner;
 
@@ -308,9 +308,7 @@ const FefferyExtraSpinner = (props) => {
         }}
         className={className}
         key={key}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }>
+        data-dash-is-loading={useLoading()}>
         {spinner}
     </div>;
 }

@@ -4,33 +4,36 @@ import PropTypes from 'prop-types';
 // 组件核心
 import NProgress from 'nprogress';
 // 辅助库
+import { equals } from 'ramda';
 import FefferyStyle from '../styleControl/FefferyStyle.react';
-import { parseChildrenToArray } from '../utils';
+import { parseChildrenToArray, useLoading, loadingSelector } from '../utils';
 
 /**
  * 顶端加载进度条组件FefferyTopProgress
  */
-const FefferyTopProgress = (props) => {
-    let {
-        id,
-        className,
-        style,
-        key,
-        children,
-        minimum,
-        easing,
-        speed,
-        showSpinner,
-        spinning,
-        listenPropsMode,
-        excludeProps,
-        includeProps,
-        debug,
-        color,
-        zIndex,
-        setProps,
-        loading_state
-    } = props;
+const FefferyTopProgress = ({
+    id,
+    className,
+    style,
+    key,
+    children,
+    minimum,
+    easing,
+    speed,
+    showSpinner,
+    spinning = false,
+    listenPropsMode = 'default',
+    excludeProps = [],
+    includeProps = [],
+    debug = false,
+    color = '#29d',
+    zIndex = 99999,
+    setProps
+}) => {
+
+    const ctx = window.dash_component_api.useDashContext();
+    // 获取内部加载中组件信息
+    const loading_info = ctx.useSelector(loadingSelector(ctx.componentPath), equals);
 
     // 配置NProgress参数信息
     NProgress.configure({
@@ -46,57 +49,55 @@ const FefferyTopProgress = (props) => {
     const timer = useRef();
 
     useEffect(() => {
-        if (loading_state) {
+        if (loading_info) {
             if (timer.current) {
                 clearTimeout(timer.current);
             }
-            if (loading_state.is_loading && !showSpinning) {
+            if (loading_info.length > 0 && !showSpinning) {
                 // 当listenPropsMode为'default'时
                 if (listenPropsMode === 'default') {
                     if (debug) {
-                        console.log(loading_state.component_name + '.' + loading_state.prop_name.split('@')[0])
+                        loading_info.forEach(item => console.log(item.id + '.' + item.property))
                     }
                     setShowSpinning(true);
                     NProgress.start();
                 } else if (listenPropsMode === 'exclude') {
                     // 当listenPropsMode为'exclude'模式时
-                    // 当前触发loading_state的组件+属性组合不在排除列表中时，激活动画
-                    if (excludeProps.indexOf(loading_state.component_name + '.' + loading_state.prop_name.split('@')[0]) === -1) {
+                    // 当前触发加载状态的组件+属性组合均不在排除列表中时，激活动画
+                    if (loading_info.every(item => excludeProps.indexOf(item.id + '.' + item.property) === -1)) {
                         if (debug) {
-                            console.log(loading_state.component_name + '.' + loading_state.prop_name.split('@')[0])
+                            loading_info.forEach(item => console.log(item.id + '.' + item.property))
                         }
                         setShowSpinning(true);
                         NProgress.start();
                     }
                 } else if (listenPropsMode === 'include') {
                     // 当listenPropsMode为'include'模式时
-                    // 当前触发loading_state的组件+属性组合在包含列表中时，激活动画
-                    if (includeProps.indexOf(loading_state.component_name + '.' + loading_state.prop_name.split('@')[0]) !== -1) {
+                    // 当前触发加载状态的组件+属性组合至少有一个在包含列表中时，激活动画
+                    if (loading_info.some(item => includeProps.indexOf(item.id + '.' + item.property) !== -1)) {
                         if (debug) {
-                            console.log(loading_state.component_name + '.' + loading_state.prop_name.split('@')[0])
+                            loading_info.forEach(item => console.log(item.id + '.' + item.property))
                         }
                         setShowSpinning(true);
                         NProgress.start();
                     }
                 }
 
-            } else if (!loading_state.is_loading && showSpinning) {
+            } else if (loading_info.length === 0 && showSpinning) {
                 timer.current = setTimeout(() => {
                     setShowSpinning(false);
                     NProgress.done();
                 });
             }
         }
-    }, [loading_state]);
+    }, [loading_info]);
 
     // 返回定制化的前端组件
     return (<div id={id}
         className={className}
         style={style}
         key={key}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        } >
+        data-dash-is-loading={useLoading()} >
         <FefferyStyle
             rawStyle={
                 `
@@ -191,8 +192,6 @@ const FefferyTopProgress = (props) => {
     );
 }
 
-FefferyTopProgress._dashprivate_isLoadingComponent = true;
-
 FefferyTopProgress.propTypes = {
     /**
      * 组件唯一id
@@ -282,36 +281,11 @@ FefferyTopProgress.propTypes = {
      */
     zIndex: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func
 };
-
-FefferyTopProgress.defaultProps = {
-    spinning: false,
-    listenPropsMode: 'default',
-    excludeProps: [],
-    includeProps: [],
-    debug: false,
-    color: '#29d',
-    zIndex: 99999
-}
 
 export default FefferyTopProgress;
