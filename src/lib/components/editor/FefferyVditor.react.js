@@ -6,10 +6,81 @@ const LazyFefferyVditor = React.lazy(() => import(/* webpackChunkName: "feffery_
 /**
  * 类Typora的markdown编辑器组件FefferyVditor
  */
-const FefferyVditor = (props) => {
+const FefferyVditor = ({
+    debounceWait = 200,
+    lang = 'zh_CN',
+    typewriterMode = false,
+    mode = 'ir',
+    debuggerMode = false,
+    theme = 'classic',
+    icon = 'ant',
+    ...others
+}) => {
+
+    let defaultProps = {
+        toolbar: [
+            "emoji",
+            "headings",
+            "bold",
+            "italic",
+            "strike",
+            "link",
+            "|",
+            "list",
+            "ordered-list",
+            "check",
+            "outdent",
+            "indent",
+            "|",
+            "quote",
+            "line",
+            "code",
+            "inline-code",
+            "insert-before",
+            "insert-after",
+            "|",
+            "upload",
+            "record",
+            "table",
+            "|",
+            "undo",
+            "redo",
+            "|",
+            "fullscreen",
+            "edit-mode",
+            {
+                name: "more",
+                toolbar: [
+                    "both",
+                    "code-theme",
+                    "content-theme",
+                    "export",
+                    "outline",
+                    "preview"
+                ],
+            },
+        ],
+        toolbarConfig: {
+            hide: false,
+            pin: false
+        }
+    }
+
     return (
         <Suspense fallback={null}>
-            <LazyFefferyVditor {...props} />
+            <LazyFefferyVditor {
+                ...{
+                    debounceWait,
+                    lang,
+                    typewriterMode,
+                    mode,
+                    debuggerMode,
+                    theme,
+                    icon,
+                    ...defaultProps,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -687,84 +758,12 @@ FefferyVditor.propTypes = {
      */
     resizeHeight: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyVditor.defaultProps = {
-    debounceWait: 200,
-    lang: 'zh_CN',
-    typewriterMode: false,
-    mode: 'ir',
-    debuggerMode: false,
-    theme: 'classic',
-    icon: 'ant',
-    toolbar: [
-        "emoji",
-        "headings",
-        "bold",
-        "italic",
-        "strike",
-        "link",
-        "|",
-        "list",
-        "ordered-list",
-        "check",
-        "outdent",
-        "indent",
-        "|",
-        "quote",
-        "line",
-        "code",
-        "inline-code",
-        "insert-before",
-        "insert-after",
-        "|",
-        "upload",
-        "record",
-        "table",
-        "|",
-        "undo",
-        "redo",
-        "|",
-        "fullscreen",
-        "edit-mode",
-        {
-            name: "more",
-            toolbar: [
-                "both",
-                "code-theme",
-                "content-theme",
-                "export",
-                "outline",
-                "preview"
-            ],
-        },
-    ],
-    toolbarConfig: {
-        hide: false,
-        pin: false
-    }
-}
 
 export default FefferyVditor;
 

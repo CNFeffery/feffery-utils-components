@@ -1,18 +1,23 @@
+// react核心
 import React, { useEffect, useMemo, useCallback, useState } from 'react';
-import "cherry-markdown/dist/cherry-markdown.css";
+// 组件核心
 import Cherry from 'cherry-markdown/dist/cherry-markdown.core';
 import mermaidPlugin from 'cherry-markdown/dist/addons/cherry-code-block-mermaid-plugin';
 import { pinyin } from 'pinyin_js';
-import { v4 as uuidv4 } from 'uuid';
 import upload from '../../utils/upload';
 import MathJax from 'mathjax/es5/tex-svg';
 import katex from 'katex';
+// 样式
+import "cherry-markdown/dist/cherry-markdown.css";
 import 'katex/dist/katex.css';
+// 辅助库
+import { v4 as uuidv4 } from 'uuid';
 import useCss from '../../hooks/useCss';
 import { isString, isUndefined } from 'lodash';
 import { useRequest } from 'ahooks';
-import { propTypes, defaultProps } from '../../components/editor/FefferyMarkdownEditor.react';
 import FefferyStyle from '../../components/styleControl/FefferyStyle.react';
+// 参数类型
+import { propTypes, defaultProps } from '../../components/editor/FefferyMarkdownEditor.react';
 
 
 if (window.mermaid) {
@@ -24,34 +29,31 @@ if (window.mermaid) {
 /**
  * markdown编辑器组件FefferyMarkdownEditor
  */
-const FefferyMarkdownEditor = (props) => {
-    // 取得必要属性或参数
-    let {
-        id,
-        className,
-        style,
-        key,
-        debounceWait,
-        value,
-        html,
-        engine,
-        editor,
-        toolbars,
-        drawioIframeUrl,
-        fileTypeLimitMap,
-        uploadConfig,
-        fineControl,
-        previewer,
-        theme,
-        isPreviewOnly,
-        autoScrollByCursor,
-        forceAppend,
-        locale,
-        autoScrollByHashAfterInit,
-        customSyntax,
-        setProps,
-        loading_state
-    } = props;
+const FefferyMarkdownEditor = ({
+    id,
+    className,
+    style,
+    key,
+    debounceWait,
+    value,
+    html,
+    engine,
+    editor,
+    toolbars,
+    drawioIframeUrl,
+    fileTypeLimitMap,
+    uploadConfig,
+    fineControl,
+    previewer,
+    theme,
+    isPreviewOnly,
+    autoScrollByCursor,
+    forceAppend,
+    locale,
+    autoScrollByHashAfterInit,
+    customSyntax,
+    setProps
+}) => {
 
     const [cherry, setCherry] = useState();
     const [valueTrigger, setValueTrigger] = useState('initial');
@@ -274,7 +276,7 @@ const FefferyMarkdownEditor = (props) => {
             setValueTrigger('initial');
         };
     }, [cherry, value]);
-    
+
     useEffect(() => {
         let externals = {
             katex: katex,
