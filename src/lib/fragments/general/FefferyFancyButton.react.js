@@ -3,6 +3,7 @@ import { AwesomeButton } from 'react-awesome-button';
 // 辅助库
 import { isString } from 'lodash';
 import { useRequest } from 'ahooks';
+import { useLoading } from '../../components/utils';
 // 自定义hooks
 import useCss from '../../hooks/useCss';
 // 样式
@@ -13,25 +14,23 @@ import { propTypes, defaultProps } from '../../components/general/FefferyFancyBu
 /**
  * 美观按钮组件FefferyFancyButton
  */
-const FefferyFancyButton = (props) => {
-    let {
-        id,
-        children,
-        className,
-        style,
-        key,
-        nClicks,
-        debounceWait,
-        type,
-        disabled,
-        href,
-        target,
-        before,
-        after,
-        ripple,
-        setProps,
-        loading_state
-    } = props;
+const FefferyFancyButton = ({
+    id,
+    children,
+    className,
+    style,
+    key,
+    nClicks,
+    debounceWait,
+    type,
+    disabled,
+    href,
+    target,
+    before,
+    after,
+    ripple,
+    setProps
+}) => {
 
     const { run: onClick } = useRequest(
         () => {
@@ -66,9 +65,9 @@ const FefferyFancyButton = (props) => {
             onPress={onClick}
             cssModule={AwesomeButtonStyles}
             ripple={ripple}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } >{children}</AwesomeButton>
+            data-dash-is-loading={useLoading()} >
+            {children}
+        </AwesomeButton>
     );
 }
 

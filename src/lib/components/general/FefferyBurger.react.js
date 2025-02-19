@@ -6,10 +6,40 @@ const LazyFefferyBurger = React.lazy(() => import(/* webpackChunkName: "feffery_
 /**
  * 动态菜单图标组件FefferyBurger
  */
-const FefferyBurger = (props) => {
+const FefferyBurger = ({
+    id,
+    className,
+    style,
+    type = 'default',
+    toggled,
+    size = 32,
+    direction = 'left',
+    duration = 0.3,
+    distance = 'md',
+    color,
+    rounded = false,
+    setProps,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyBurger {...props} />
+            <LazyFefferyBurger {
+                ...{
+                    id,
+                    className,
+                    style,
+                    type,
+                    toggled,
+                    size,
+                    direction,
+                    duration,
+                    distance,
+                    color,
+                    rounded,
+                    setProps,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -81,36 +111,12 @@ FefferyBurger.propTypes = {
      */
     rounded: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func
 };
-
-FefferyBurger.defaultProps = {
-    type: 'default',
-    size: 32,
-    direction: 'left',
-    duration: 0.3,
-    distance: 'md',
-    rounded: false
-}
 
 export default FefferyBurger;
 

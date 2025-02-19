@@ -6,10 +6,46 @@ const LazyFefferyFancyButton = React.lazy(() => import(/* webpackChunkName: "fef
 /**
  * 美观按钮组件FefferyFancyButton
  */
-const FefferyFancyButton = (props) => {
+const FefferyFancyButton = ({
+    id,
+    children,
+    className,
+    style,
+    key,
+    nClicks = 0,
+    debounceWait = 0,
+    type,
+    disabled,
+    href,
+    target = '_blank',
+    before,
+    after,
+    ripple,
+    setProps,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyFancyButton {...props} />
+            <LazyFefferyFancyButton {
+                ...{
+                    id,
+                    children,
+                    className,
+                    style,
+                    key,
+                    nClicks,
+                    debounceWait,
+                    type,
+                    disabled,
+                    href,
+                    target,
+                    before,
+                    after,
+                    ripple,
+                    setProps,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -94,33 +130,12 @@ FefferyFancyButton.propTypes = {
      */
     ripple: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-FefferyFancyButton.defaultProps = {
-    nClicks: 0,
-    debounceWait: 0,
-    target: '_blank'
-}
 
 export default FefferyFancyButton;
 
