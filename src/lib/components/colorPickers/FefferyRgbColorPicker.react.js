@@ -6,10 +6,28 @@ import PropTypes from 'prop-types';
  */
 const LazyFefferyRgbColorPicker = React.lazy(() => import(/* webpackChunkName: "feffery_color_pickers" */ '../../fragments/colorPickers/FefferyRgbColorPicker.react'));
 
-const FefferyRgbColorPicker = (props) => {
+const FefferyRgbColorPicker = ({
+    id,
+    className,
+    style,
+    color = 'rgb(68, 206, 246)',
+    showAlpha = false,
+    setProps,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyRgbColorPicker {...props} />
+            <LazyFefferyRgbColorPicker {
+                ...{
+                    id,
+                    className,
+                    style,
+                    color,
+                    showAlpha,
+                    setProps,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -45,28 +63,8 @@ FefferyRgbColorPicker.propTypes = {
      * 是否显示透明度选择控件
      * 默认值：`false`
      */
-    showAlpha: PropTypes.bool,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    showAlpha: PropTypes.bool
 };
-
-FefferyRgbColorPicker.defaultProps = {
-    showAlpha: false,
-    color: 'rgb(68, 206, 246)'
-}
 
 export default FefferyRgbColorPicker;
 

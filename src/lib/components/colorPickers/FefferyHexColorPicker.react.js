@@ -6,10 +6,28 @@ const LazyFefferyHexColorPicker = React.lazy(() => import(/* webpackChunkName: "
 /**
  * 16进制色彩选择器FefferyHexColorPicker
  */
-const FefferyHexColorPicker = (props) => {
+const FefferyHexColorPicker = ({
+    id,
+    className,
+    style,
+    color = '#44cef6',
+    showAlpha = false,
+    setProps,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyHexColorPicker {...props} />
+            <LazyFefferyHexColorPicker {
+                ...{
+                    id,
+                    className,
+                    style,
+                    color,
+                    showAlpha,
+                    setProps,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -45,28 +63,8 @@ FefferyHexColorPicker.propTypes = {
      * 是否显示透明度选择控件
      * 默认值：`false`
      */
-    showAlpha: PropTypes.bool,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    showAlpha: PropTypes.bool
 };
-
-FefferyHexColorPicker.defaultProps = {
-    showAlpha: false,
-    color: '#44cef6'
-}
 
 export default FefferyHexColorPicker;
 

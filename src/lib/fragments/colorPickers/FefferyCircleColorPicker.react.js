@@ -2,25 +2,25 @@
 import React, { useEffect } from 'react';
 // 组件核心
 import CirclePicker from 'react-color/es/Circle';
+// 辅助库
+import { useLoading } from '../../components/utils';
 // 参数类型
 import { propTypes, defaultProps } from '../../components/colorPickers/FefferyCircleColorPicker.react';
 
 /**
  * Circle风格色彩选择器
  */
-const FefferyCircleColorPicker = (props) => {
-    const {
-        id,
-        className,
-        style,
-        width,
-        circleSize,
-        circleSpacing,
-        color,
-        colors,
-        setProps,
-        loading_state
-    } = props;
+const FefferyCircleColorPicker = ({
+    id,
+    className,
+    style,
+    width,
+    circleSize,
+    circleSpacing,
+    color,
+    colors,
+    setProps
+}) => {
 
     useEffect(() => {
         if (colors && !color) {
@@ -41,9 +41,7 @@ const FefferyCircleColorPicker = (props) => {
             color={color}
             colors={colors}
             onChangeComplete={(c, e) => setProps({ color: c.hex })}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
+            data-dash-is-loading={useLoading()} />
     );
 }
 

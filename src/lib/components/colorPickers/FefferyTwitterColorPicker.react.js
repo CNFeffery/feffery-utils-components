@@ -6,10 +6,32 @@ const LazyFefferyTwitterColorPicker = React.lazy(() => import(/* webpackChunkNam
 /**
  * Twitter风格色彩选择器FefferyGithubColorPicker
  */
-const FefferyTwitterColorPicker = (props) => {
+const FefferyTwitterColorPicker = ({
+    id,
+    className,
+    style,
+    width = '276px',
+    color,
+    colors = ['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3', '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF'],
+    triangle = 'top-left',
+    setProps,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyTwitterColorPicker {...props} />
+            <LazyFefferyTwitterColorPicker {
+                ...{
+                    id,
+                    className,
+                    style,
+                    width,
+                    color,
+                    colors,
+                    triangle,
+                    setProps,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -56,29 +78,8 @@ FefferyTwitterColorPicker.propTypes = {
      * 顶部箭头方位，可选项有`'hide'`、`'top-left'`、`'top-right'`
      * 默认值：`'top-left'`
      */
-    triangle: PropTypes.oneOf(['hide', 'top-left', 'top-right']),
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    triangle: PropTypes.oneOf(['hide', 'top-left', 'top-right'])
 };
-
-FefferyTwitterColorPicker.defaultProps = {
-    triangle: 'top-left',
-    width: '276px',
-    colors: ['#FF6900', '#FCB900', '#7BDCB5', '#00D084', '#8ED1FC', '#0693E3', '#ABB8C3', '#EB144C', '#F78DA7', '#9900EF']
-}
 
 export default FefferyTwitterColorPicker;
 

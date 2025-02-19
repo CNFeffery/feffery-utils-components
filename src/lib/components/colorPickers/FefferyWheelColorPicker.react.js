@@ -6,10 +6,26 @@ const LazyFefferyWheelColorPicker = React.lazy(() => import(/* webpackChunkName:
 /**
  * Wheel风格色彩选择器FefferyWheelColorPicker
  */
-const FefferyWheelColorPicker = (props) => {
+const FefferyWheelColorPicker = ({
+    id,
+    className,
+    style,
+    color,
+    setProps,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyWheelColorPicker {...props} />
+            <LazyFefferyWheelColorPicker {
+                ...{
+                    id,
+                    className,
+                    style,
+                    color,
+                    setProps,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -38,26 +54,8 @@ FefferyWheelColorPicker.propTypes = {
     /**
      * 监听或设置当前选中色彩对应16进制颜色值
      */
-    color: PropTypes.string,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    color: PropTypes.string
 };
-
-FefferyWheelColorPicker.defaultProps = {
-}
 
 export default FefferyWheelColorPicker;
 

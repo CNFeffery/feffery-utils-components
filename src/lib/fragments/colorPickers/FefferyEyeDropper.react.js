@@ -2,19 +2,19 @@
 import { useEffect } from 'react';
 // 组件核心
 import useEyeDropper from 'use-eye-dropper';
+// 辅助库
+import { useLoading } from '../../components/utils';
 // 参数类型
 import { propTypes, defaultProps } from '../../components/colorPickers/FefferyEyeDropper.react';
 
 /**
  * 色彩拾取组件FefferyEyeDropper
  */
-const FefferyEyeDropper = (props) => {
-    const {
-        id,
-        enable,
-        setProps,
-        loading_state
-    } = props;
+const FefferyEyeDropper = ({
+    id,
+    enable,
+    setProps,
+}) => {
 
     const { open, close, isSupported } = useEyeDropper()
 
@@ -45,13 +45,7 @@ const FefferyEyeDropper = (props) => {
         }
     }, [enable])
 
-    return (
-        <div
-            id={id}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
-    );
+    return <></>;
 }
 
 export default FefferyEyeDropper;
