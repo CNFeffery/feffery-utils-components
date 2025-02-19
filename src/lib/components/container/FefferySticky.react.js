@@ -3,22 +3,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // 组件核心
 import Sticky from 'react-stickynode';
+// 辅助库
+import { useLoading } from '../utils';
 
 /**
  * 粘性布局组件FefferySticky
  */
-const FefferySticky = (props) => {
-    const {
-        id,
-        key,
-        children,
-        enabled,
-        top,
-        bottomBoundary,
-        zIndex,
-        setProps,
-        loading_state
-    } = props;
+const FefferySticky = ({
+    id,
+    key,
+    children,
+    enabled = true,
+    top = 0,
+    bottomBoundary,
+    zIndex,
+    setProps
+}) => {
 
     return <Sticky
         id={id}
@@ -27,9 +27,7 @@ const FefferySticky = (props) => {
         top={top}
         bottomBoundary={bottomBoundary}
         innerZ={zIndex}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        } >
+        data-dash-is-loading={useLoading()} >
         {children}
     </ Sticky>;
 }
@@ -81,31 +79,11 @@ FefferySticky.propTypes = {
      */
     zIndex: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-FefferySticky.defaultProps = {
-    enabled: true,
-    top: 0
-}
 
 export default FefferySticky;

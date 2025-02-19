@@ -3,20 +3,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // 组件核心
 import root from 'react-shadow';
+// 辅助库
+import { useLoading } from '../utils';
 
 /**
  * Shadow DOM组件FefferyShadowDom
  */
-const FefferyShadowDom = (props) => {
-    const {
-        id,
-        key,
-        children,
-        className,
-        style,
-        setProps,
-        loading_state
-    } = props;
+const FefferyShadowDom = ({
+    id,
+    key,
+    children,
+    className,
+    style,
+    setProps
+}) => {
 
     return (
         <root.div
@@ -24,9 +24,7 @@ const FefferyShadowDom = (props) => {
             key={key}
             className={className}
             style={style}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } >
+            data-dash-is-loading={useLoading()} >
             {children}
         </ root.div>
     );
@@ -58,29 +56,11 @@ FefferyShadowDom.propTypes = {
      */
     className: PropTypes.string,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-FefferyShadowDom.defaultProps = {
-}
 
 export default FefferyShadowDom;

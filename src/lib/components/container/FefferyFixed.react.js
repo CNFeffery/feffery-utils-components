@@ -3,26 +3,25 @@ import PropTypes from 'prop-types';
 // 辅助库
 import { isString } from 'lodash';
 import { useWindowSize } from '@reactuses/core';
+import { useLoading } from '../utils';
 // 自定义hooks
 import useCss from '../../hooks/useCss';
 
 /**
  * 固定布局组件FefferyFixed
  */
-const FefferyFixed = (props) => {
-    const {
-        id,
-        style,
-        className,
-        children,
-        mode,
-        followImageWidth,
-        followImageHeight,
-        followImageContainerPosition,
-        followImageContainerSize,
-        setProps,
-        loading_state
-    } = props;
+const FefferyFixed = ({
+    id,
+    style,
+    className,
+    children,
+    mode,
+    followImageWidth,
+    followImageHeight,
+    followImageContainerPosition,
+    followImageContainerSize,
+    setProps
+}) => {
 
     // 视口尺寸监听
     const { width: windowWidth, height: windowHeight } = useWindowSize();
@@ -66,9 +65,7 @@ const FefferyFixed = (props) => {
                         className :
                         (className ? useCss(className) : undefined)
                 }
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }>{children}</div>
+                data-dash-is-loading={useLoading()}>{children}</div>
         );
     }
     return <></>;
@@ -128,29 +125,11 @@ FefferyFixed.propTypes = {
      */
     followImageContainerSize: PropTypes.arrayOf(PropTypes.number),
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-FefferyFixed.defaultProps = {
-}
 
 export default FefferyFixed;
