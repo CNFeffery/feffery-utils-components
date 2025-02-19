@@ -158,19 +158,19 @@ FefferyVditor.propTypes = {
     typewriterMode: PropTypes.bool,
 
     /**
-     * 配置`CDN`地址，可选的有`https://unpkg.com/vditor@${VDITOR_VERSION}`、`https://registry.npmmirror.com/vditor/${VDITOR_VERSION}/files`，VDITOR_VERSION是vditor版本号，可通过不设置此参数从浏览器请求信息中获取版本号信息，默认使用的是`https://unpkg.com/vditor@${VDITOR_VERSION}`，也可使用自行搭建的`CDN`地址
+     * 配置`CDN`地址，可选的内置推荐地址有`'https://unpkg.com/vditor@3.10.9'`、`'https://registry.npmmirror.com/vditor/3.10.9/files'`，也可使用其他自定义`CDN`地址
      */
     cdn: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.oneOf([
-            `https://unpkg.com/vditor@${VDITOR_VERSION}`,
-            `https://registry.npmmirror.com/vditor/${VDITOR_VERSION}/files`
+            'https://unpkg.com/vditor@3.10.9',
+            'https://registry.npmmirror.com/vditor/3.10.9/files'
         ])
     ]),
 
     /**
      * 设置模式，可选的有：`'sv'`(分屏预览)、`'ir'`(即时渲染)、`'wysiwyg'`(所见即所得)
-     * 默认值：`'ir'`(所见即所得)
+     * 默认值：`'ir'`
      */
     mode: PropTypes.oneOf(['wysiwyg', 'ir', 'sv']),
 
@@ -424,7 +424,7 @@ FefferyVditor.propTypes = {
 
             /**
              * 主题样式地址
-             * 默认值：`https://unpkg.com/vditor@${VDITOR_VERSION}/dist/css/content-theme`
+             * 默认值：`https://unpkg.com/vditor@3.10.9/dist/css/content-theme`
              */
             path: PropTypes.string
         }),
@@ -548,7 +548,7 @@ FefferyVditor.propTypes = {
 
         /**
          * 表情图片地址
-         * 默认值：`https://unpkg.com/vditor@${VDITOR_VERSION}/dist/images/emoji`
+         * 默认值：`https://unpkg.com/vditor@3.10.9/dist/images/emoji`
          */
         emojiPath: PropTypes.string
     }),

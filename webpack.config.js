@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const WebpackDashDynamicImport = require('@plotly/webpack-dash-dynamic-import');
 const packagejson = require('./package.json');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const vditorPkg = require('vditor/package.json');
 
 const dashLibraryName = packagejson.name.replace(/-/g, '_');
 
@@ -175,9 +174,6 @@ module.exports = (env, argv) => {
             new webpack.SourceMapDevToolPlugin({
                 filename: '[file].map',
                 exclude: ['async-plotlyjs']
-            }),
-            new webpack.DefinePlugin({
-                VDITOR_VERSION: JSON.stringify(vditorPkg.version),
             }),
         ]
     }
