@@ -6,10 +6,96 @@ const LazyFefferyMusicPlayer = React.lazy(() => import(/* webpackChunkName: "fef
 /**
  * 音乐播放组件FefferyMusicPlayer
  */
-const FefferyMusicPlayer = (props) => {
+const FefferyMusicPlayer = ({
+    theme = 'dark',
+    customizeThemeColor = '#31c27c',
+    customizeLightThemeHoverColor = '#3ece89',
+    locale = 'zh_CN',
+    defaultPosition = { top: 0, left: 0 },
+    playModeShowTime = 600,
+    bounds = 'body',
+    preload = false,
+    remember = false,
+    glassBg = false,
+    remove = true,
+    defaultPlayIndex = 0,
+    playIndex = 0,
+    defaultPlayMode = 'order',
+    mode = 'mini',
+    once = false,
+    autoplay = true,
+    toggleMode = true,
+    drag = true,
+    seeked = true,
+    showMiniModeCover = true,
+    showMiniProcessBar = false,
+    showProgressLoadBar = true,
+    showPlay = true,
+    showReload = true,
+    showDownload = true,
+    showPlayMode = true,
+    showThemeSwitch = true,
+    showLyric = false,
+    showMediaSession = false,
+    defaultVolume = 1,
+    loadAudioErrorPlayNext = true,
+    responsive = true,
+    autoHiddenCover = false,
+    clearPriorAudioLists = false,
+    autoPlayInitLoadPlayList = false,
+    spaceBar = false,
+    showDestroy = false,
+    quietUpdate = false,
+    restartCurrentOnPrev = false,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyMusicPlayer {...props} />
+            <LazyFefferyMusicPlayer {
+                ...{
+                    theme,
+                    customizeThemeColor,
+                    customizeLightThemeHoverColor,
+                    locale,
+                    defaultPosition,
+                    playModeShowTime,
+                    bounds,
+                    preload,
+                    remember,
+                    glassBg,
+                    remove,
+                    defaultPlayIndex,
+                    playIndex,
+                    defaultPlayMode,
+                    mode,
+                    once,
+                    autoplay,
+                    toggleMode,
+                    drag,
+                    seeked,
+                    showMiniModeCover,
+                    showMiniProcessBar,
+                    showProgressLoadBar,
+                    showPlay,
+                    showReload,
+                    showDownload,
+                    showPlayMode,
+                    showThemeSwitch,
+                    showLyric,
+                    showMediaSession,
+                    defaultVolume,
+                    loadAudioErrorPlayNext,
+                    responsive,
+                    autoHiddenCover,
+                    clearPriorAudioLists,
+                    autoPlayInitLoadPlayList,
+                    spaceBar,
+                    showDestroy,
+                    quietUpdate,
+                    restartCurrentOnPrev,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -524,74 +610,12 @@ FefferyMusicPlayer.propTypes = {
      */
     customizeContainerId: PropTypes.string,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyMusicPlayer.defaultProps = {
-    theme: 'dark',
-    customizeThemeColor: '#31c27c',
-    customizeLightThemeHoverColor: '#3ece89',
-    locale: 'zh_CN',
-    defaultPosition: {
-        top: 0,
-        left: 0
-    },
-    playModeShowTime: 600,
-    bounds: 'body',
-    preload: false,
-    remember: false,
-    glassBg: false,
-    remove: true,
-    defaultPlayIndex: 0,
-    playIndex: 0,
-    defaultPlayMode: 'order',
-    mode: 'mini',
-    once: false,
-    autoplay: true,
-    toggleMode: true,
-    drag: true,
-    seeked: true,
-    showMiniModeCover: true,
-    showMiniProcessBar: false,
-    showProgressLoadBar: true,
-    showPlay: true,
-    showReload: true,
-    showDownload: true,
-    showPlayMode: true,
-    showThemeSwitch: true,
-    showLyric: false,
-    showMediaSession: false,
-    defaultVolume: 1,
-    loadAudioErrorPlayNext: true,
-    responsive: true,
-    autoHiddenCover: false,
-    clearPriorAudioLists: false,
-    autoPlayInitLoadPlayList: false,
-    spaceBar: false,
-    showDestroy: false,
-    quietUpdate: false,
-    restartCurrentOnPrev: false
-}
 
 export default FefferyMusicPlayer;
 

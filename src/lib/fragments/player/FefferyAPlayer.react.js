@@ -1,76 +1,78 @@
+// react核心
 import React, { useRef, useEffect } from 'react';
+// 组件核心
 import ReactAplayer from 'react-aplayer';
 import Hls from 'hls.js';
+// 辅助库
 import { v4 as uuidv4 } from 'uuid';
 import { isString } from 'lodash';
 import useCss from '../../hooks/useCss';
+import { useLoading } from '../../components/utils';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/player/FefferyAPlayer.react';
 
 /**
  * 音频播放组件FefferyAPlayer
  */
-const FefferyAPlayer = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        className,
-        style,
-        key,
-        fixed,
-        mini,
-        autoplay,
-        theme,
-        loop,
-        order,
-        preload,
-        volume,
-        audio,
-        mutex,
-        lrcType,
-        listFolded,
-        listMaxHeight,
-        storageName,
-        play,
-        pause,
-        seek,
-        skipBack,
-        skipForward,
-        showLrc,
-        hideLrc,
-        notice,
-        showList,
-        hideList,
-        addList,
-        removeList,
-        switchList,
-        clearList,
-        destroy,
-        playClicks,
-        pauseClicks,
-        seekClicks,
-        skipBackClicks,
-        skipForwardClicks,
-        showLrcClicks,
-        hideLrcClicks,
-        showNoticeClicks,
-        hideNoticeClicks,
-        listShowClicks,
-        listHideClicks,
-        listAddClicks,
-        listRemoveClicks,
-        listSwitchClicks,
-        listClearClicks,
-        destroyClicks,
-        currentPlayAudioInfo,
-        currentPauseAudioInfo,
-        currentSeekAudioInfo,
-        currentNoticeInfo,
-        currentListAddAudioInfo,
-        currentListRemoveAudioInfo,
-        currentListSwitchAudioInfo,
-        setProps,
-        loading_state
-    } = props;
+const FefferyAPlayer = ({
+    id,
+    className,
+    style,
+    key,
+    fixed,
+    mini,
+    autoplay,
+    theme,
+    loop,
+    order,
+    preload,
+    volume,
+    audio,
+    mutex,
+    lrcType,
+    listFolded,
+    listMaxHeight,
+    storageName,
+    play,
+    pause,
+    seek,
+    skipBack,
+    skipForward,
+    showLrc,
+    hideLrc,
+    notice,
+    showList,
+    hideList,
+    addList,
+    removeList,
+    switchList,
+    clearList,
+    destroy,
+    playClicks,
+    pauseClicks,
+    seekClicks,
+    skipBackClicks,
+    skipForwardClicks,
+    showLrcClicks,
+    hideLrcClicks,
+    showNoticeClicks,
+    hideNoticeClicks,
+    listShowClicks,
+    listHideClicks,
+    listAddClicks,
+    listRemoveClicks,
+    listSwitchClicks,
+    listClearClicks,
+    destroyClicks,
+    currentPlayAudioInfo,
+    currentPauseAudioInfo,
+    currentSeekAudioInfo,
+    currentNoticeInfo,
+    currentListAddAudioInfo,
+    currentListRemoveAudioInfo,
+    currentListSwitchAudioInfo,
+    setProps
+}) => {
 
     const containerId = uuidv4();
 
@@ -308,7 +310,7 @@ const FefferyAPlayer = (props) => {
                 onListswitch={onListSwitch}
                 onListclear={onListClear}
                 onDestroy={onDestroy}
-                loading_state={loading_state}
+                data-dash-is-loading={useLoading()}
             />
         </div>
     )

@@ -1,65 +1,68 @@
+// react核心
 import React, { useEffect } from 'react';
-import ReactJkMusicPlayer from 'react-jinke-music-player'
-import 'react-jinke-music-player/assets/index.css'
+// 组件核心
+import ReactJkMusicPlayer from 'react-jinke-music-player';
+// 样式
+import 'react-jinke-music-player/assets/index.css';
+// 辅助库
+import { useLoading } from '../../components/utils';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/player/FefferyMusicPlayer.react';
 
 /**
  * 音乐播放组件FefferyMusicPlayer
  */
-const FefferyMusicPlayer = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        className,
-        style,
-        key,
-        audioLists,
-        theme,
-        customizeThemeColor,
-        customizeLightThemeHoverColor,
-        locale,
-        icon,
-        defaultPosition,
-        playModeShowTime,
-        bounds,
-        preload,
-        remember,
-        glassBg,
-        remove,
-        defaultPlayIndex,
-        playIndex,
-        mode,
-        once,
-        autoplay,
-        toggleMode,
-        drag,
-        seeked,
-        showMiniModeCover,
-        showMiniProcessBar,
-        showProgressLoadBar,
-        showPlay,
-        showReload,
-        showDownload,
-        showPlayMode,
-        showThemeSwitch,
-        showLyric,
-        showMediaSession,
-        lyricClassName,
-        extendsContent,
-        defaultVolume,
-        loadAudioErrorPlayNext,
-        responsive,
-        autoHiddenCover,
-        clearPriorAudioLists,
-        autoPlayInitLoadPlayList,
-        spaceBar,
-        showDestroy,
-        quietUpdate,
-        restartCurrentOnPrev,
-        customizeContainerId,
-        setProps,
-        loading_state
-    } = props;
+const FefferyMusicPlayer = ({
+    id,
+    className,
+    style,
+    key,
+    audioLists,
+    theme,
+    customizeThemeColor,
+    customizeLightThemeHoverColor,
+    locale,
+    icon,
+    defaultPosition,
+    playModeShowTime,
+    bounds,
+    preload,
+    remember,
+    glassBg,
+    remove,
+    defaultPlayIndex,
+    playIndex,
+    mode,
+    once,
+    autoplay,
+    toggleMode,
+    drag,
+    seeked,
+    showMiniModeCover,
+    showMiniProcessBar,
+    showProgressLoadBar,
+    showPlay,
+    showReload,
+    showDownload,
+    showPlayMode,
+    showThemeSwitch,
+    showLyric,
+    showMediaSession,
+    lyricClassName,
+    extendsContent,
+    defaultVolume,
+    loadAudioErrorPlayNext,
+    responsive,
+    autoHiddenCover,
+    clearPriorAudioLists,
+    autoPlayInitLoadPlayList,
+    spaceBar,
+    showDestroy,
+    quietUpdate,
+    restartCurrentOnPrev,
+    customizeContainerId,
+    setProps
+}) => {
 
     useEffect(() => {
         const style = document.createElement('style');
@@ -199,9 +202,7 @@ const FefferyMusicPlayer = (props) => {
             showDestroy={showDestroy}
             quietUpdate={quietUpdate}
             restartCurrentOnPrev={restartCurrentOnPrev}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } >
+            data-dash-is-loading={useLoading()} >
         </ReactJkMusicPlayer>
     )
 }
