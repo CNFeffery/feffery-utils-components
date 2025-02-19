@@ -1,21 +1,24 @@
+// react核心
 import React from 'react';
+// 组件核心
 import SlAnimatedImage from '@shoelace-style/shoelace/dist/react/animated-image';
+// 辅助库
+import { useLoading } from '../../components/utils';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/images/FefferyAnimatedImage.react';
 
 /**
  * 动图组件FefferyAnimatedImage
  */
-const FefferyAnimatedImage = (props) => {
-    let {
-        id,
-        className,
-        style,
-        src,
-        alt,
-        play,
-        setProps,
-        loading_state
-    } = props;
+const FefferyAnimatedImage = ({
+    id,
+    className,
+    style,
+    src,
+    alt,
+    play,
+    setProps
+}) => {
 
     return (
         <SlAnimatedImage id={id}
@@ -24,9 +27,7 @@ const FefferyAnimatedImage = (props) => {
             src={src}
             alt={alt}
             play={play}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
+            data-dash-is-loading={useLoading()} />
     );
 }
 

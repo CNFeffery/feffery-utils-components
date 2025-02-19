@@ -6,10 +6,108 @@ const LazyFefferyImageCropper = React.lazy(() => import(/* webpackChunkName: "fe
 /**
  * 图片裁剪组件FefferyImageCropper
  */
-const FefferyImageCropper = (props) => {
+const FefferyImageCropper = ({
+    alt = 'picture',
+    viewMode = 0,
+    dragMode = 'crop',
+    preview = '',
+    responsive = true,
+    restore = true,
+    checkCrossOrigin = true,
+    checkOrientation = true,
+    modal = true,
+    guides = true,
+    center = true,
+    highlight = true,
+    background = true,
+    autoCrop = true,
+    autoCropArea = 0.8,
+    movable = true,
+    rotatable = true,
+    scalable = true,
+    zoomable = true,
+    zoomOnTouch = true,
+    zoomOnWheel = true,
+    wheelZoomRatio = 0.1,
+    cropBoxMovable = true,
+    cropBoxResizable = true,
+    toggleDragModeOnDblclick = true,
+    minContainerWidth = 200,
+    minContainerHeight = 100,
+    minCanvasWidth = 0,
+    minCanvasHeight = 0,
+    minCropBoxWidth = 0,
+    minCropBoxHeight = 0,
+    reset = false,
+    clear = false,
+    replace = { isReplace: false, hasSameSize: false },
+    enable = false,
+    disable = false,
+    destroy = false,
+    move = { isMove: false },
+    moveTo = { isMoveTo: false },
+    zoom = { isZoom: false },
+    zoomTo = { isZoomTo: false },
+    rotate = { isRotate: false },
+    rotateTo = { isRotateTo: false },
+    scale = { isScale: false },
+    scaleX = { isScaleX: false },
+    scaleY = { isScaleY: false },
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyImageCropper {...props} />
+            <LazyFefferyImageCropper {
+                ...{
+                    alt,
+                    viewMode,
+                    dragMode,
+                    preview,
+                    responsive,
+                    restore,
+                    checkCrossOrigin,
+                    checkOrientation,
+                    modal,
+                    guides,
+                    center,
+                    highlight,
+                    background,
+                    autoCrop,
+                    autoCropArea,
+                    movable,
+                    rotatable,
+                    scalable,
+                    zoomable,
+                    zoomOnTouch,
+                    zoomOnWheel,
+                    wheelZoomRatio,
+                    cropBoxMovable,
+                    cropBoxResizable,
+                    toggleDragModeOnDblclick,
+                    minContainerWidth,
+                    minContainerHeight,
+                    minCanvasWidth,
+                    minCanvasHeight,
+                    minCropBoxWidth,
+                    minCropBoxHeight,
+                    reset,
+                    clear,
+                    replace,
+                    enable,
+                    disable,
+                    destroy,
+                    move,
+                    moveTo,
+                    zoom,
+                    zoomTo,
+                    rotate,
+                    rotateTo,
+                    scale,
+                    scaleX,
+                    scaleY,
+                    ...others,
+                }
+            } />
         </Suspense>
     );
 }
@@ -610,97 +708,12 @@ FefferyImageCropper.propTypes = {
         height: PropTypes.number
     }),
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-FefferyImageCropper.defaultProps = {
-    alt: 'picture',
-    viewMode: 0,
-    dragMode: 'crop',
-    preview: '',
-    responsive: true,
-    restore: true,
-    checkCrossOrigin: true,
-    checkOrientation: true,
-    modal: true,
-    guides: true,
-    center: true,
-    highlight: true,
-    background: true,
-    autoCrop: true,
-    autoCropArea: 0.8,
-    movable: true,
-    rotatable: true,
-    scalable: true,
-    zoomable: true,
-    zoomOnTouch: true,
-    zoomOnWheel: true,
-    wheelZoomRatio: 0.1,
-    cropBoxMovable: true,
-    cropBoxResizable: true,
-    toggleDragModeOnDblclick: true,
-    minContainerWidth: 200,
-    minContainerHeight: 100,
-    minCanvasWidth: 0,
-    minCanvasHeight: 0,
-    minCropBoxWidth: 0,
-    minCropBoxHeight: 0,
-    reset: false,
-    clear: false,
-    replace: {
-        isReplace: false,
-        hasSameSize: false
-    },
-    enable: false,
-    disable: false,
-    destroy: false,
-    move: {
-        isMove: false
-    },
-    moveTo: {
-        isMoveTo: false
-    },
-    zoom: {
-        isZoom: false
-    },
-    zoomTo: {
-        isZoomTo: false
-    },
-    rotate: {
-        isRotate: false
-    },
-    rotateTo: {
-        isRotateTo: false
-    },
-    scale: {
-        isScale: false
-    },
-    scaleX: {
-        isScaleX: false
-    },
-    scaleY: {
-        isScaleY: false
-    }
-}
 
 export default FefferyImageCropper;
 

@@ -6,10 +6,18 @@ const LazyFefferyDom2Image = React.lazy(() => import(/* webpackChunkName: "feffe
 /**
  * 元素转图片组件FefferyDom2Image
  */
-const FefferyDom2Image = (props) => {
+const FefferyDom2Image = ({
+    scale = 1,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyDom2Image {...props} />
+            <LazyFefferyDom2Image {
+                ...{
+                    scale,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -62,27 +70,8 @@ FefferyDom2Image.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-FefferyDom2Image.defaultProps = {
-    scale: 1
-}
 
 export default FefferyDom2Image;
 

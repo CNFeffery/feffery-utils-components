@@ -6,10 +6,32 @@ const LazyFefferyPhotoSphereViewer = React.lazy(() => import(/* webpackChunkName
 /**
  * 全景图片查看器组件FefferyPhotoSphereViewer
  */
-const FefferyPhotoSphereViewer = (props) => {
+const FefferyPhotoSphereViewer = ({
+    littlePlanet = false,
+    navbar = ['caption'],
+    mousewheel = true,
+    mousemove = true,
+    moveSpeed = 1,
+    zoomSpeed = 1,
+    fisheye = false,
+    hideNavbarButton = false,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyPhotoSphereViewer {...props} />
+            <LazyFefferyPhotoSphereViewer {
+                ...{
+                    littlePlanet,
+                    navbar,
+                    mousewheel,
+                    mousemove,
+                    moveSpeed,
+                    zoomSpeed,
+                    fisheye,
+                    hideNavbarButton,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -201,34 +223,8 @@ FefferyPhotoSphereViewer.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-FefferyPhotoSphereViewer.defaultProps = {
-    littlePlanet: false,
-    navbar: ['caption'],
-    mousewheel: true,
-    mousemove: true,
-    moveSpeed: 1,
-    zoomSpeed: 1,
-    fisheye: false,
-    hideNavbarButton: false
-}
 
 export default FefferyPhotoSphereViewer;
 

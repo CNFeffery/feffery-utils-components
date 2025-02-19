@@ -3,6 +3,7 @@ import { ReactPhotoSphereViewer } from 'react-photo-sphere-viewer';
 import { AutorotatePlugin } from '@photo-sphere-viewer/autorotate-plugin';
 // 辅助库
 import { omit } from 'ramda';
+import { useLoading } from '../../components/utils';
 // 参数类型
 import { propTypes, defaultProps } from '../../components/images/FefferyPhotoSphereViewer.react';
 
@@ -14,31 +15,29 @@ const type2plugins = {
 /**
  * 全景图片查看器组件FefferyPhotoSphereViewer
  */
-const FefferyPhotoSphereViewer = (props) => {
-    const {
-        id,
-        key,
-        src,
-        width,
-        height,
-        littlePlanet,
-        containerClass,
-        navbar,
-        caption,
-        downloadUrl,
-        loadingImg,
-        loadingTxt,
-        mousewheel,
-        mousemove,
-        moveSpeed,
-        zoomSpeed,
-        fisheye,
-        lang,
-        hideNavbarButton,
-        plugins,
-        setProps,
-        loading_state
-    } = props;
+const FefferyPhotoSphereViewer = ({
+    id,
+    key,
+    src,
+    width,
+    height,
+    littlePlanet,
+    containerClass,
+    navbar,
+    caption,
+    downloadUrl,
+    loadingImg,
+    loadingTxt,
+    mousewheel,
+    mousemove,
+    moveSpeed,
+    zoomSpeed,
+    fisheye,
+    lang,
+    hideNavbarButton,
+    plugins,
+    setProps
+}) => {
 
     return (
         <ReactPhotoSphereViewer
@@ -69,9 +68,7 @@ const FefferyPhotoSphereViewer = (props) => {
                     ])
                 )
             }
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
+            data-dash-is-loading={useLoading()} />
     );
 }
 

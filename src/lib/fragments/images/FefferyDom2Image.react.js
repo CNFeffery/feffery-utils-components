@@ -8,13 +8,11 @@ import { propTypes, defaultProps } from '../../components/images/FefferyDom2Imag
 /**
  * 元素转图片组件FefferyDom2Image
  */
-const FefferyDom2Image = (props) => {
-    const {
-        targetSelector,
-        scale,
-        setProps,
-        loading_state
-    } = props;
+const FefferyDom2Image = ({
+    targetSelector,
+    scale,
+    setProps
+}) => {
 
     // 每次targetSelector更新时，异步进行目标元素转图片操作
     useAsyncEffect(async () => {

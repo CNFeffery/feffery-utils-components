@@ -2,34 +2,36 @@
 import PropTypes from 'prop-types';
 // 组件核心
 import ImageGallery from "react-image-gallery";
+// 辅助库
+import { useLoading } from '../utils';
 // 样式
 import "react-image-gallery/styles/css/image-gallery.css";
 
 /**
  * 相册组件FefferyImageGallery
  */
-const FefferyImageGallery = (props) => {
-    const {
-        id,
-        style,
-        className,
-        images,
-        infinite,
-        lazyLoad,
-        showNav,
-        showThumbnails,
-        thumbnailPosition,
-        showFullscreenButton,
-        useBrowserFullscreen,
-        showPlayButton,
-        showBullets,
-        showIndex,
-        slideDuration,
-        slideInterval,
-        startIndex,
-        setProps,
-        loading_state
-    } = props;
+const FefferyImageGallery = ({
+    id,
+    style,
+    className,
+    images,
+    infinite = true,
+    lazyLoad = false,
+    showNav = true,
+    showThumbnails = true,
+    thumbnailPosition = 'bottom',
+    showFullscreenButton = true,
+    useBrowserFullscreen = true,
+    showPlayButton = true,
+    showBullets = false,
+    showIndex = false,
+    autoPlay = false,
+    slideDuration = 450,
+    slideInterval = 3000,
+    startIndex = 0,
+    isFullscreen = false,
+    setProps
+}) => {
 
     return (
         <div style={style}
@@ -47,13 +49,13 @@ const FefferyImageGallery = (props) => {
                 showPlayButton={showPlayButton}
                 showBullets={showBullets}
                 showIndex={showIndex}
+                autoPlay={autoPlay}
                 slideDuration={slideDuration}
                 slideInterval={slideInterval}
                 startIndex={startIndex}
+                isFullscreen={isFullscreen}
                 onScreenChange={(e) => setProps({ isFullscreen: e })}
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }
+                data-dash-is-loading={useLoading()}
             />
         </div>
     );
@@ -196,23 +198,5 @@ FefferyImageGallery.propTypes = {
      */
     setProps: PropTypes.func,
 };
-
-FefferyImageGallery.defaultProps = {
-    infinite: true,
-    lazyLoad: false,
-    showNav: true,
-    showThumbnails: true,
-    thumbnailPosition: 'bottom',
-    showFullscreenButton: true,
-    useBrowserFullscreen: true,
-    showPlayButton: true,
-    showBullets: false,
-    showIndex: false,
-    autoPlay: false,
-    slideDuration: 450,
-    slideInterval: 3000,
-    startIndex: 0,
-    isFullscreen: false
-}
 
 export default FefferyImageGallery;
