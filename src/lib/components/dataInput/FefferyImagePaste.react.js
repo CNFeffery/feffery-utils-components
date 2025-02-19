@@ -1,6 +1,10 @@
+// react核心
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
+// 组件核心
 import { Gluejar } from '../../utils/gluejar/dist'
+// 辅助库
+import { useLoading } from '../utils';
 
 const urlToBase64 = (url) => {
     return new Promise((resolve, reject) => {
@@ -29,15 +33,12 @@ const urlToBase64 = (url) => {
 /**
  * 粘贴板图片获取组件FefferyImagePaste
  */
-const FefferyImagePaste = (props) => {
-    // 取得必要属性或参数
-    let {
-        id,
-        key,
-        disabled,
-        setProps,
-        loading_state
-    } = props;
+const FefferyImagePaste = ({
+    id,
+    key,
+    disabled = false,
+    setProps
+}) => {
 
     // 监听图片粘贴事件
     const handlePaste = useCallback(async (files) => {
@@ -55,9 +56,7 @@ const FefferyImagePaste = (props) => {
     return (
         <div id={id}
             key={key}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={useLoading()}
         >
             <Gluejar onPaste={(files) => {
                 if (!disabled) {
@@ -101,31 +100,11 @@ FefferyImagePaste.propTypes = {
      */
     disabled: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func
 };
-
-// 设置默认参数
-FefferyImagePaste.defaultProps = {
-    disabled: false
-}
 
 export default FefferyImagePaste;

@@ -6,15 +6,64 @@ const LazyFefferyEmojiPicker = React.lazy(() => import(/* webpackChunkName: "fef
 /**
  * emoji选择器组件FefferyEmojiPicker
  */
-const FefferyEmojiPicker = (props) => {
+const FefferyEmojiPicker = ({
+    locale = 'zh',
+    categories = ['frequent', 'people', 'nature', 'foods', 'activity', 'places', 'objects', 'symbols', 'flags'],
+    autoFocus = false,
+    dynamicWidth = false,
+    perLine = 9,
+    emojiButtonColors = [],
+    emojiButtonRadius = '100%',
+    emojiButtonSize = 36,
+    emojiSize = 24,
+    emojiVersion = 14,
+    exceptEmojis = [],
+    icons = 'auto',
+    maxFrequentRows = 0,
+    navPosition = 'top',
+    noResultsEmoji = 'cry',
+    previewPosition = 'bottom',
+    searchPosition = 'sticky',
+    set = 'native',
+    skin = 1,
+    skinTonePosition = 'preview',
+    theme = 'auto',
+    clickOutsideNums = 0,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyEmojiPicker {...props} />
+            <LazyFefferyEmojiPicker {
+                ...{
+                    locale,
+                    categories,
+                    autoFocus,
+                    dynamicWidth,
+                    perLine,
+                    emojiButtonColors,
+                    emojiButtonRadius,
+                    emojiButtonSize,
+                    emojiSize,
+                    emojiVersion,
+                    exceptEmojis,
+                    icons,
+                    maxFrequentRows,
+                    navPosition,
+                    noResultsEmoji,
+                    previewPosition,
+                    searchPosition,
+                    set,
+                    skin,
+                    skinTonePosition,
+                    theme,
+                    clickOutsideNums,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
 
-// 定义参数或属性
 FefferyEmojiPicker.propTypes = {
     /**
      * 组件唯一id
@@ -328,53 +377,12 @@ FefferyEmojiPicker.propTypes = {
      */
     clickOutsideNums: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func
 };
-
-// 设置默认参数
-FefferyEmojiPicker.defaultProps = {
-    locale: 'zh',
-    categories: ['frequent', 'people', 'nature', 'foods', 'activity', 'places', 'objects', 'symbols', 'flags'],
-    autoFocus: false,
-    dynamicWidth: false,
-    perLine: 9,
-    emojiButtonColors: [],
-    emojiButtonRadius: '100%',
-    emojiButtonSize: 36,
-    emojiSize: 24,
-    emojiVersion: 14,
-    exceptEmojis: [],
-    icons: 'auto',
-    maxFrequentRows: 0,
-    navPosition: 'top',
-    noResultsEmoji: 'cry',
-    previewPosition: 'bottom',
-    searchPosition: 'sticky',
-    set: 'native',
-    skin: 1,
-    skinTonePosition: 'preview',
-    theme: 'auto',
-    clickOutsideNums: 0
-}
 
 export default FefferyEmojiPicker;
 
