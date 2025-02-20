@@ -6,10 +6,26 @@ const LazyFefferyResizable = React.lazy(() => import(/* webpackChunkName: "feffe
 /**
  * 尺寸调整组件FefferyResizable
  */
-const FefferyResizable = (props) => {
+const FefferyResizable = ({
+    direction = ['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft'],
+    minWidth = 10,
+    minHeight = 10,
+    grid = [1, 1],
+    bounds = 'window',
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyResizable {...props} />
+            <LazyFefferyResizable {
+                ...{
+                    direction,
+                    minWidth,
+                    minHeight,
+                    grid,
+                    bounds,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -170,36 +186,12 @@ FefferyResizable.propTypes = {
         topLeft: PropTypes.string
     }),
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyResizable.defaultProps = {
-    direction: ['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft'],
-    minWidth: 10,
-    minHeight: 10,
-    grid: [1, 1],
-    bounds: 'window'
-}
 
 export default FefferyResizable;
 
