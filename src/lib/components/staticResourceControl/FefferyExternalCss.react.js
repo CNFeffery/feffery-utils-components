@@ -1,18 +1,16 @@
+// react核心
 import React, { useEffect } from 'react';
-import { useExternal } from 'ahooks';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useExternal } from 'ahooks';
 
 /**
  * 外部css资源动态注入组件FefferyExternalCss
  */
-const FefferyExternalCss = (props) => {
-
-    const {
-        id,
-        cssUrl,
-        setProps,
-        loading_state
-    } = props;
+const FefferyExternalCss = ({
+    cssUrl = '',
+    setProps
+}) => {
 
     const status = useExternal(cssUrl, {
         type: 'css'
@@ -58,27 +56,7 @@ FefferyExternalCss.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-// 设置默认参数
-FefferyExternalCss.defaultProps = {
-    cssUrl: ''
-}
 
 export default FefferyExternalCss;
