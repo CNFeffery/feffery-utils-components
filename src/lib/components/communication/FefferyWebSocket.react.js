@@ -1,6 +1,8 @@
+// react核心
 import { useEffect } from 'react';
-import { useWebSocket } from 'ahooks';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useWebSocket } from 'ahooks';
 
 const num2state = new Map([
     [0, 'connecting'],
@@ -12,18 +14,14 @@ const num2state = new Map([
 /**
  * WebSocket通信组件FefferyWebSocket
  */
-const FefferyWebSocket = (props) => {
-
-    const {
-        id,
-        socketUrl,
-        reconnectLimit,
-        reconnectInterval,
-        operation,
-        message,
-        setProps,
-        loading_state
-    } = props;
+const FefferyWebSocket = ({
+    socketUrl,
+    reconnectLimit,
+    reconnectInterval,
+    operation,
+    message,
+    setProps
+}) => {
 
     const { readyState: _readyState, sendMessage, latestMessage: _latestMessage, disconnect, connect } = useWebSocket(
         socketUrl,
@@ -70,7 +68,6 @@ const FefferyWebSocket = (props) => {
     return <></>;
 }
 
-// 定义参数或属性
 FefferyWebSocket.propTypes = {
     /**
      * 组件唯一id
@@ -123,26 +120,7 @@ FefferyWebSocket.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-// 设置默认参数
-FefferyWebSocket.defaultProps = {
-}
 
 export default FefferyWebSocket;

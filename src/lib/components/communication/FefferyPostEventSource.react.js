@@ -7,18 +7,16 @@ import { useFetchEventSource } from '@reactuses/core';
 /**
  * POST请求EventSource通信组件FefferyPostEventSource
  */
-const FefferyPostEventSource = (props) => {
-    const {
-        url,
-        headers,
-        body,
-        withCredentials,
-        immediate,
-        autoReconnect,
-        operation,
-        setProps,
-        loading_state
-    } = props;
+const FefferyPostEventSource = ({
+    url,
+    headers,
+    body,
+    withCredentials,
+    immediate = true,
+    autoReconnect = false,
+    operation,
+    setProps
+}) => {
 
     const { status: _status, data: _data, event: _event, close, open, error: _error } = useFetchEventSource(
         url,
@@ -162,27 +160,7 @@ FefferyPostEventSource.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-FefferyPostEventSource.defaultProps = {
-    immediate: true,
-    autoReconnect: false
-}
 
 export default FefferyPostEventSource;

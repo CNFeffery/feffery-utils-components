@@ -5,13 +5,11 @@ import { propTypes, defaultProps } from '../../components/communication/FefferyH
 /**
  * http请求组件FefferyHttpRequests
  */
-const FefferyHttpRequests = (props) => {
-    let {
-        requestConfig,
-        status,
-        setProps,
-        loading_state
-    } = props;
+const FefferyHttpRequests = ({
+    requestConfig,
+    status,
+    setProps
+}) => {
 
     // 处理新的请求任务
     useEffect(() => {

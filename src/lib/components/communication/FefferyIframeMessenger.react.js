@@ -1,19 +1,17 @@
+// react核心
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 /**
  * 跨iframe通信组件FefferyIframeMessenger
  */
-const FefferyIframeMessenger = (props) => {
-    // 取得必要属性或参数
-    const {
-        role,
-        mode,
-        targetIframeId,
-        toSendMessage,
-        setProps,
-        loading_state
-    } = props;
+const FefferyIframeMessenger = ({
+    role,
+    mode,
+    targetIframeId,
+    toSendMessage,
+    setProps
+}) => {
 
     // 处理不同模式下的收信行为
     useEffect(() => {
@@ -75,8 +73,6 @@ const FefferyIframeMessenger = (props) => {
     return <></>;
 }
 
-
-// 定义参数或属性
 FefferyIframeMessenger.propTypes = {
     /**
      * 组件唯一id
@@ -113,30 +109,11 @@ FefferyIframeMessenger.propTypes = {
      */
     recivedMessage: PropTypes.any,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyIframeMessenger.defaultProps = {
-}
 
 export default FefferyIframeMessenger;

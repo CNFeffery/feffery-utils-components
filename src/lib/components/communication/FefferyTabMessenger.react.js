@@ -1,19 +1,17 @@
+// react核心
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 /**
  * 跨标签页通信组件FefferyTabMessenger
  */
-const FefferyTabMessenger = (props) => {
-    // 取得必要属性或参数
-    const {
-        role,
-        targetUrl,
-        toSendMessage,
-        targetWindowFeatures,
-        setProps,
-        loading_state
-    } = props;
+const FefferyTabMessenger = ({
+    role,
+    targetUrl,
+    toSendMessage,
+    targetWindowFeatures,
+    setProps
+}) => {
 
     const targetWindowRef = useRef(null);
 
@@ -68,8 +66,6 @@ const FefferyTabMessenger = (props) => {
     return <></>;
 }
 
-
-// 定义参数或属性
 FefferyTabMessenger.propTypes = {
     /**
      * 组件唯一id
@@ -106,30 +102,11 @@ FefferyTabMessenger.propTypes = {
      */
     recivedMessage: PropTypes.any,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyTabMessenger.defaultProps = {
-}
 
 export default FefferyTabMessenger;
