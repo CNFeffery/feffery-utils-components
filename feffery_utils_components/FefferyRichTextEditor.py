@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyRichTextEditor(Component):
@@ -49,7 +56,7 @@ Keyword arguments:
 - selectionTextValue (string; optional):
     编辑器选中文本内容.
 
-- toolbarConfig (dict; default {    modalAppendToBody: False}):
+- toolbarConfig (dict; optional):
     工具栏配置.
 
     `toolbarConfig` is a dict with keys:
@@ -149,7 +156,7 @@ Keyword arguments:
     - modalAppendToBody (boolean; optional):
         是否将菜单弹出的`modal`添加到`body`下  默认值：`False`.
 
-- editorConfig (dict; default {    readOnly: False,    autoFocus: True,    scroll: True}):
+- editorConfig (dict; optional):
     编辑器配置.
 
     `editorConfig` is a dict with keys:
@@ -303,7 +310,7 @@ Keyword arguments:
 
     - value (string; optional)
 
-- uploadImage (dict; default {    fieldName: 'wangeditor-uploaded-image',    maxFileSize: 2 * 1024 * 1024,    maxNumberOfFiles: 100,    allowedFileTypes: ['image/*'],    metaWithUrl: False,    withCredentials: False,    timeout: 10,    base64LimitSize: 0}):
+- uploadImage (dict; optional):
     配置菜单图片上传.
 
     `uploadImage` is a dict with keys:
@@ -349,7 +356,7 @@ Keyword arguments:
     - base64LimitSize (number; optional):
         配置小于该值就插入`base64`格式（而不上传）  默认值：`0`.
 
-- uploadVideo (dict; default {    fieldName: 'wangeditor-uploaded-video',    maxFileSize: 10 * 1024 * 1024,    maxNumberOfFiles: 5,    allowedFileTypes: ['video/*'],    metaWithUrl: False,    withCredentials: False,    timeout: 10}):
+- uploadVideo (dict; optional):
     配置菜单视频上传.
 
     `uploadVideo` is a dict with keys:
@@ -431,29 +438,185 @@ Keyword arguments:
 
     - position (a value equal to: 'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'; optional):
         设置消息提示的弹出方位，可选的有`'top-left'`、`'top-center'`、`'top-right'`、`'bottom-left'`、`'bottom-center'`、`'bottom-right'`
-        默认值：`'top-center'`.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+        默认值：`'top-center'`."""
     _children_props = ['successMessage.icon', 'errorMessage.icon']
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyRichTextEditor'
+    ToolbarConfig = TypedDict(
+        "ToolbarConfig",
+            {
+            "toolbarKeys": NotRequired[typing.Sequence],
+            "modalAppendToBody": NotRequired[bool]
+        }
+    )
+
+    EditorConfig_MENU_CONFFontSizeFontSizeList = TypedDict(
+        "EditorConfig_MENU_CONFFontSizeFontSizeList",
+            {
+            "name": NotRequired[str],
+            "value": NotRequired[str]
+        }
+    )
+
+    EditorConfig_MENU_CONFFontSize = TypedDict(
+        "EditorConfig_MENU_CONFFontSize",
+            {
+            "fontSizeList": NotRequired[typing.Sequence[typing.Union[str, "EditorConfig_MENU_CONFFontSizeFontSizeList"]]]
+        }
+    )
+
+    EditorConfig_MENU_CONFFontFamilyFontFamilyList = TypedDict(
+        "EditorConfig_MENU_CONFFontFamilyFontFamilyList",
+            {
+            "name": NotRequired[str],
+            "value": NotRequired[str]
+        }
+    )
+
+    EditorConfig_MENU_CONFFontFamily = TypedDict(
+        "EditorConfig_MENU_CONFFontFamily",
+            {
+            "fontFamilyList": NotRequired[typing.Sequence[typing.Union[str, "EditorConfig_MENU_CONFFontFamilyFontFamilyList"]]]
+        }
+    )
+
+    EditorConfig_MENU_CONFLineHeight = TypedDict(
+        "EditorConfig_MENU_CONFLineHeight",
+            {
+            "lineHeightList": NotRequired[typing.Sequence[str]]
+        }
+    )
+
+    EditorConfig_MENU_CONFEmotions = TypedDict(
+        "EditorConfig_MENU_CONFEmotions",
+            {
+            "emotions": NotRequired[typing.Sequence[str]]
+        }
+    )
+
+    EditorConfig_MENU_CONFCodeSelectLangCodeLangs = TypedDict(
+        "EditorConfig_MENU_CONFCodeSelectLangCodeLangs",
+            {
+            "text": NotRequired[str],
+            "value": NotRequired[str]
+        }
+    )
+
+    EditorConfig_MENU_CONFCodeSelectLang = TypedDict(
+        "EditorConfig_MENU_CONFCodeSelectLang",
+            {
+            "codeLangs": NotRequired[typing.Sequence["EditorConfig_MENU_CONFCodeSelectLangCodeLangs"]]
+        }
+    )
+
+    EditorConfig_MENU_CONF = TypedDict(
+        "EditorConfig_MENU_CONF",
+            {
+            "color": NotRequired[typing.Sequence],
+            "bgColor": NotRequired[typing.Sequence],
+            "fontSize": NotRequired["EditorConfig_MENU_CONFFontSize"],
+            "fontFamily": NotRequired["EditorConfig_MENU_CONFFontFamily"],
+            "lineHeight": NotRequired["EditorConfig_MENU_CONFLineHeight"],
+            "emotions": NotRequired["EditorConfig_MENU_CONFEmotions"],
+            "codeSelectLang": NotRequired["EditorConfig_MENU_CONFCodeSelectLang"]
+        }
+    )
+
+    EditorConfig = TypedDict(
+        "EditorConfig",
+            {
+            "placeholder": NotRequired[str],
+            "readOnly": NotRequired[bool],
+            "autoFocus": NotRequired[bool],
+            "scroll": NotRequired[bool],
+            "maxLength": NotRequired[typing.Union[int, float, numbers.Number]],
+            "MENU_CONF": NotRequired["EditorConfig_MENU_CONF"]
+        }
+    )
+
+    UploadImage = TypedDict(
+        "UploadImage",
+            {
+            "server": NotRequired[str],
+            "fieldName": NotRequired[str],
+            "maxFileSize": NotRequired[typing.Union[int, float, numbers.Number]],
+            "maxNumberOfFiles": NotRequired[typing.Union[int, float, numbers.Number]],
+            "allowedFileTypes": NotRequired[typing.Sequence],
+            "meta": NotRequired[dict],
+            "metaWithUrl": NotRequired[bool],
+            "headers": NotRequired[dict],
+            "withCredentials": NotRequired[bool],
+            "timeout": NotRequired[typing.Union[int, float, numbers.Number]],
+            "base64LimitSize": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    UploadVideo = TypedDict(
+        "UploadVideo",
+            {
+            "server": NotRequired[str],
+            "fieldName": NotRequired[str],
+            "maxFileSize": NotRequired[typing.Union[int, float, numbers.Number]],
+            "maxNumberOfFiles": NotRequired[typing.Union[int, float, numbers.Number]],
+            "allowedFileTypes": NotRequired[typing.Sequence],
+            "meta": NotRequired[dict],
+            "metaWithUrl": NotRequired[bool],
+            "headers": NotRequired[dict],
+            "withCredentials": NotRequired[bool],
+            "timeout": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    SuccessMessage = TypedDict(
+        "SuccessMessage",
+            {
+            "className": NotRequired[str],
+            "style": NotRequired[dict],
+            "duration": NotRequired[typing.Union[int, float, numbers.Number]],
+            "icon": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "position": NotRequired[Literal["top-left", "top-center", "top-right", "bottom-left", "bottom-center", "bottom-right"]]
+        }
+    )
+
+    ErrorMessage = TypedDict(
+        "ErrorMessage",
+            {
+            "className": NotRequired[str],
+            "style": NotRequired[dict],
+            "duration": NotRequired[typing.Union[int, float, numbers.Number]],
+            "icon": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "position": NotRequired[Literal["top-left", "top-center", "top-right", "bottom-left", "bottom-center", "bottom-right"]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, toolbarClassName=Component.UNDEFINED, toolbarStyle=Component.UNDEFINED, editorClassName=Component.UNDEFINED, editorStyle=Component.UNDEFINED, locale=Component.UNDEFINED, mode=Component.UNDEFINED, htmlValue=Component.UNDEFINED, textValue=Component.UNDEFINED, selectionTextValue=Component.UNDEFINED, toolbarConfig=Component.UNDEFINED, editorConfig=Component.UNDEFINED, uploadImage=Component.UNDEFINED, uploadVideo=Component.UNDEFINED, successMessage=Component.UNDEFINED, errorMessage=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'toolbarClassName', 'toolbarStyle', 'editorClassName', 'editorStyle', 'locale', 'mode', 'htmlValue', 'textValue', 'selectionTextValue', 'toolbarConfig', 'editorConfig', 'uploadImage', 'uploadVideo', 'successMessage', 'errorMessage', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        toolbarClassName: typing.Optional[str] = None,
+        toolbarStyle: typing.Optional[dict] = None,
+        editorClassName: typing.Optional[str] = None,
+        editorStyle: typing.Optional[dict] = None,
+        locale: typing.Optional[Literal["zh-CN", "en"]] = None,
+        mode: typing.Optional[Literal["default", "simple"]] = None,
+        htmlValue: typing.Optional[str] = None,
+        textValue: typing.Optional[str] = None,
+        selectionTextValue: typing.Optional[str] = None,
+        toolbarConfig: typing.Optional["ToolbarConfig"] = None,
+        editorConfig: typing.Optional["EditorConfig"] = None,
+        uploadImage: typing.Optional["UploadImage"] = None,
+        uploadVideo: typing.Optional["UploadVideo"] = None,
+        successMessage: typing.Optional["SuccessMessage"] = None,
+        errorMessage: typing.Optional["ErrorMessage"] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'toolbarClassName', 'toolbarStyle', 'editorClassName', 'editorStyle', 'locale', 'mode', 'htmlValue', 'textValue', 'selectionTextValue', 'toolbarConfig', 'editorConfig', 'uploadImage', 'uploadVideo', 'successMessage', 'errorMessage']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'toolbarClassName', 'toolbarStyle', 'editorClassName', 'editorStyle', 'locale', 'mode', 'htmlValue', 'textValue', 'selectionTextValue', 'toolbarConfig', 'editorConfig', 'uploadImage', 'uploadVideo', 'successMessage', 'errorMessage', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'toolbarClassName', 'toolbarStyle', 'editorClassName', 'editorStyle', 'locale', 'mode', 'htmlValue', 'textValue', 'selectionTextValue', 'toolbarConfig', 'editorConfig', 'uploadImage', 'uploadVideo', 'successMessage', 'errorMessage']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

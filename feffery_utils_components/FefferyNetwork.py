@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyNetwork(Component):
@@ -37,29 +44,30 @@ Keyword arguments:
     用户代理是否设置了减少数据使用的选项.
 
 - effectiveType (a value equal to: 'slow-2g', '2g', '3g', '4g'; optional):
-    网络连接的类型，可选项有`'slow-2g'`、`'2g'`、`'3g'`、`'4g'`.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    网络连接的类型，可选项有`'slow-2g'`、`'2g'`、`'3g'`、`'4g'`."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyNetwork'
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, online=Component.UNDEFINED, since=Component.UNDEFINED, rtt=Component.UNDEFINED, type=Component.UNDEFINED, downlink=Component.UNDEFINED, downlinkMax=Component.UNDEFINED, saveData=Component.UNDEFINED, effectiveType=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'online', 'since', 'rtt', 'type', 'downlink', 'downlinkMax', 'saveData', 'effectiveType', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        online: typing.Optional[bool] = None,
+        since: typing.Optional[str] = None,
+        rtt: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        type: typing.Optional[Literal["bluetooth", "cellular", "ethernet", "none", "wifi", "wimax", "other", "unknown"]] = None,
+        downlink: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        downlinkMax: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        saveData: typing.Optional[bool] = None,
+        effectiveType: typing.Optional[Literal["slow-2g", "2g", "3g", "4g"]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'online', 'since', 'rtt', 'type', 'downlink', 'downlinkMax', 'saveData', 'effectiveType']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'online', 'since', 'rtt', 'type', 'downlink', 'downlinkMax', 'saveData', 'effectiveType', 'loading_state']
+        self.available_properties = ['id', 'key', 'online', 'since', 'rtt', 'type', 'downlink', 'downlinkMax', 'saveData', 'effectiveType']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

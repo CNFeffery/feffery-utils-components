@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyDPlayer(Component):
@@ -63,7 +70,7 @@ Keyword arguments:
 - preventClickToggle (boolean; default False):
     是否阻止点击播放器时候自动切换播放/暂停  默认值：`False`.
 
-- video (dict; default {    type: 'auto'}):
+- video (dict; default { type: 'auto' }):
     设置视频信息.
 
     `video` is a dict with keys:
@@ -103,7 +110,7 @@ Keyword arguments:
         设置视频类型，可选的有`'auto'`、`'hls'`、`'flv'`、`'dash'`、`'normal'`
         默认值：`'auto'`.
 
-- subtitle (dict; default {    isOpen: False,    type: 'webvtt',    fontSize: '20px',    bottom: '40px',    color: '#fff'}):
+- subtitle (dict; default { isOpen: False, type: 'webvtt', fontSize: '20px', bottom: '40px', color: '#fff' }):
     设置外挂字幕.
 
     `subtitle` is a dict with keys:
@@ -126,7 +133,7 @@ Keyword arguments:
     - color (string; optional):
         设置字幕颜色.
 
-- danmaku (dict; default {    isOpen: False,    unlimited: False,    speedRate: 1}):
+- danmaku (dict; default { isOpen: False, unlimited: False, speedRate: 1 }):
     设置弹幕.
 
     `danmaku` is a dict with keys:
@@ -192,7 +199,7 @@ Keyword arguments:
 - pause (boolean; default False):
     暂停视频，每次设置为`True`后执行完相应操作后会自动置为`False`.
 
-- seek (dict; default {    isSeek: False}):
+- seek (dict; default { isSeek: False }):
     跳转到特定时间，时间的单位为秒，每次`isSeek`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `seek` is a dict with keys:
@@ -203,7 +210,7 @@ Keyword arguments:
     - time (number; optional):
         跳转到的时间.
 
-- notice (dict; default {    isShow: False,    time: 2000,    opacity: 0.8}):
+- notice (dict; default { isShow: False, time: 2000, opacity: 0.8 }):
     显示通知信息，每次`isShow`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `notice` is a dict with keys:
@@ -220,7 +227,7 @@ Keyword arguments:
     - opacity (number; optional):
         通知透明度.
 
-- speed (dict; default {    isSpeed: False}):
+- speed (dict; default { isSpeed: False }):
     设置视频速度，每次`isSpeed`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `speed` is a dict with keys:
@@ -231,7 +238,7 @@ Keyword arguments:
     - rate (number; optional):
         视频速度.
 
-- volumeSet (dict; default {    isVolume: False,    nostorage: True,    nonotice: False}):
+- volumeSet (dict; default { isVolume: False, nostorage: True, nonotice: False }):
     设置音量，每次`isVolume`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `volumeSet` is a dict with keys:
@@ -248,7 +255,7 @@ Keyword arguments:
     - nonotice (boolean; optional):
         是否不显示通知.
 
-- fullScreen (dict; default {    isFullScreen: False,    type: 'browser'}):
+- fullScreen (dict; default { isFullScreen: False, type: 'browser' }):
     设置全屏，每次`isFullScreen`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `fullScreen` is a dict with keys:
@@ -262,7 +269,7 @@ Keyword arguments:
     - operate (a value equal to: 'request', 'cancel'; optional):
         全屏操作类型，可选的有`'request'`、`'cancel'`.
 
-- switchQuality (dict; default {    isSwitch: False}):
+- switchQuality (dict; default { isSwitch: False }):
     切换清晰度，每次`isSwitch`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `switchQuality` is a dict with keys:
@@ -273,7 +280,7 @@ Keyword arguments:
     - index (number; optional):
         切换的清晰度`index`.
 
-- switchVideo (dict; default {    isSwitch: False}):
+- switchVideo (dict; default { isSwitch: False }):
     切换视频，每次`isSwitch`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `switchVideo` is a dict with keys:
@@ -356,7 +363,7 @@ Keyword arguments:
         - speedRate (number; optional):
             设置弹幕速度倍率，越大速度越快  默认值：`1`.
 
-- sendDanmaku (dict; default {    isSend: False}):
+- sendDanmaku (dict; default { isSend: False }):
     发送弹幕，每次`isSend`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `sendDanmaku` is a dict with keys:
@@ -378,7 +385,7 @@ Keyword arguments:
         - type (a value equal to: 'top', 'bottom', 'right'; optional):
             弹幕位置.
 
-- drawDanmaku (dict; default {    isDraw: False}):
+- drawDanmaku (dict; default { isDraw: False }):
     绘制弹幕，每次`isDraw`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `drawDanmaku` is a dict with keys:
@@ -400,7 +407,7 @@ Keyword arguments:
         - type (a value equal to: 'top', 'bottom', 'right'; optional):
             弹幕位置.
 
-- opacityDanmaku (dict; default {    isOpacity: False}):
+- opacityDanmaku (dict; default { isOpacity: False }):
     设置弹幕透明度，每次`isOpacity`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `opacityDanmaku` is a dict with keys:
@@ -450,7 +457,7 @@ Keyword arguments:
 - cancelFullScreenClicks (number; default 0):
     监听参数，退出网页全屏的次数.
 
-- sendDanmakuCallback (dict; default {    sendDanmakuClicks: 0}):
+- sendDanmakuCallback (dict; default { sendDanmakuClicks: 0 }):
     监听参数，发送弹幕的次数和信息.
 
     `sendDanmakuCallback` is a dict with keys:
@@ -467,7 +474,7 @@ Keyword arguments:
 - clearDanmakuClicks (number; default 0):
     监听参数，清空弹幕的次数.
 
-- opacityDanmakuCallback (dict; default {    opacityDanmakuClicks: 0}):
+- opacityDanmakuCallback (dict; default { opacityDanmakuClicks: 0 }):
     监听参数，设置弹幕透明度的次数和透明度.
 
     `opacityDanmakuCallback` is a dict with keys:
@@ -512,29 +519,307 @@ Keyword arguments:
     监听参数，当前通知信息.
 
 - currentVideoInfo (dict; optional):
-    监听参数，当前视频的信息.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    监听参数，当前视频的信息."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyDPlayer'
+    VideoQuality = TypedDict(
+        "VideoQuality",
+            {
+            "name": NotRequired[str],
+            "url": NotRequired[str],
+            "type": NotRequired[Literal["auto", "hls", "flv", "dash", "normal"]]
+        }
+    )
+
+    Video = TypedDict(
+        "Video",
+            {
+            "quality": NotRequired[typing.Sequence["VideoQuality"]],
+            "defaultQuality": NotRequired[typing.Union[int, float, numbers.Number]],
+            "url": NotRequired[str],
+            "pic": NotRequired[str],
+            "thumbnails": NotRequired[str],
+            "type": NotRequired[Literal["auto", "hls", "flv", "dash", "normal"]]
+        }
+    )
+
+    Subtitle = TypedDict(
+        "Subtitle",
+            {
+            "isOpen": NotRequired[bool],
+            "url": NotRequired[str],
+            "type": NotRequired[Literal["webvtt", "ass"]],
+            "fontSize": NotRequired[str],
+            "bottom": NotRequired[str],
+            "color": NotRequired[str]
+        }
+    )
+
+    Danmaku = TypedDict(
+        "Danmaku",
+            {
+            "isOpen": NotRequired[bool],
+            "id": NotRequired[str],
+            "api": NotRequired[str],
+            "token": NotRequired[str],
+            "maximum": NotRequired[typing.Union[int, float, numbers.Number]],
+            "addition": NotRequired[typing.Sequence[str]],
+            "user": NotRequired[str],
+            "bottom": NotRequired[str],
+            "unlimited": NotRequired[bool],
+            "speedRate": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    Contextmenu = TypedDict(
+        "Contextmenu",
+            {
+            "text": NotRequired[str],
+            "extraInfo": NotRequired[dict]
+        }
+    )
+
+    Highlight = TypedDict(
+        "Highlight",
+            {
+            "time": NotRequired[typing.Union[int, float, numbers.Number]],
+            "text": NotRequired[str]
+        }
+    )
+
+    Seek = TypedDict(
+        "Seek",
+            {
+            "isSeek": NotRequired[bool],
+            "time": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    Notice = TypedDict(
+        "Notice",
+            {
+            "isShow": NotRequired[bool],
+            "text": NotRequired[str],
+            "time": NotRequired[typing.Union[int, float, numbers.Number]],
+            "opacity": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    Speed = TypedDict(
+        "Speed",
+            {
+            "isSpeed": NotRequired[bool],
+            "rate": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    VolumeSet = TypedDict(
+        "VolumeSet",
+            {
+            "isVolume": NotRequired[bool],
+            "percentage": NotRequired[typing.Union[int, float, numbers.Number]],
+            "nostorage": NotRequired[bool],
+            "nonotice": NotRequired[bool]
+        }
+    )
+
+    FullScreen = TypedDict(
+        "FullScreen",
+            {
+            "isFullScreen": NotRequired[bool],
+            "type": NotRequired[Literal["web", "browser"]],
+            "operate": NotRequired[Literal["request", "cancel"]]
+        }
+    )
+
+    SwitchQuality = TypedDict(
+        "SwitchQuality",
+            {
+            "isSwitch": NotRequired[bool],
+            "index": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    SwitchVideoVideoQuality = TypedDict(
+        "SwitchVideoVideoQuality",
+            {
+            "name": NotRequired[str],
+            "url": NotRequired[str],
+            "type": NotRequired[Literal["auto", "hls", "flv", "dash", "normal"]]
+        }
+    )
+
+    SwitchVideoVideo = TypedDict(
+        "SwitchVideoVideo",
+            {
+            "quality": NotRequired[typing.Sequence["SwitchVideoVideoQuality"]],
+            "defaultQuality": NotRequired[typing.Union[int, float, numbers.Number]],
+            "url": NotRequired[str],
+            "pic": NotRequired[str],
+            "thumbnails": NotRequired[str],
+            "type": NotRequired[Literal["auto", "hls", "flv", "dash", "normal"]],
+            "customType": NotRequired[dict]
+        }
+    )
+
+    SwitchVideoDanmaku = TypedDict(
+        "SwitchVideoDanmaku",
+            {
+            "isOpen": NotRequired[bool],
+            "id": NotRequired[str],
+            "api": NotRequired[str],
+            "token": NotRequired[str],
+            "maximum": NotRequired[typing.Union[int, float, numbers.Number]],
+            "addition": NotRequired[typing.Sequence[str]],
+            "user": NotRequired[str],
+            "bottom": NotRequired[str],
+            "unlimited": NotRequired[bool],
+            "speedRate": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    SwitchVideo = TypedDict(
+        "SwitchVideo",
+            {
+            "isSwitch": NotRequired[bool],
+            "video": NotRequired["SwitchVideoVideo"],
+            "danmaku": NotRequired["SwitchVideoDanmaku"]
+        }
+    )
+
+    SendDanmakuContent = TypedDict(
+        "SendDanmakuContent",
+            {
+            "text": NotRequired[str],
+            "color": NotRequired[str],
+            "type": NotRequired[Literal["top", "bottom", "right"]]
+        }
+    )
+
+    SendDanmaku = TypedDict(
+        "SendDanmaku",
+            {
+            "isSend": NotRequired[bool],
+            "content": NotRequired["SendDanmakuContent"]
+        }
+    )
+
+    DrawDanmakuContent = TypedDict(
+        "DrawDanmakuContent",
+            {
+            "text": NotRequired[str],
+            "color": NotRequired[str],
+            "type": NotRequired[Literal["top", "bottom", "right"]]
+        }
+    )
+
+    DrawDanmaku = TypedDict(
+        "DrawDanmaku",
+            {
+            "isDraw": NotRequired[bool],
+            "content": NotRequired["DrawDanmakuContent"]
+        }
+    )
+
+    OpacityDanmaku = TypedDict(
+        "OpacityDanmaku",
+            {
+            "isOpacity": NotRequired[bool],
+            "opacity": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    SendDanmakuCallback = TypedDict(
+        "SendDanmakuCallback",
+            {
+            "sendDanmakuClicks": NotRequired[typing.Union[int, float, numbers.Number]],
+            "sendInfo": NotRequired[dict]
+        }
+    )
+
+    OpacityDanmakuCallback = TypedDict(
+        "OpacityDanmakuCallback",
+            {
+            "opacityDanmakuClicks": NotRequired[typing.Union[int, float, numbers.Number]],
+            "opacity": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, live=Component.UNDEFINED, autoplay=Component.UNDEFINED, theme=Component.UNDEFINED, loop=Component.UNDEFINED, lang=Component.UNDEFINED, screenshot=Component.UNDEFINED, airplay=Component.UNDEFINED, hotkey=Component.UNDEFINED, chromecast=Component.UNDEFINED, preload=Component.UNDEFINED, volume=Component.UNDEFINED, playbackSpeed=Component.UNDEFINED, logo=Component.UNDEFINED, preventClickToggle=Component.UNDEFINED, video=Component.UNDEFINED, subtitle=Component.UNDEFINED, danmaku=Component.UNDEFINED, contextmenu=Component.UNDEFINED, highlight=Component.UNDEFINED, mutex=Component.UNDEFINED, play=Component.UNDEFINED, pause=Component.UNDEFINED, seek=Component.UNDEFINED, notice=Component.UNDEFINED, speed=Component.UNDEFINED, volumeSet=Component.UNDEFINED, fullScreen=Component.UNDEFINED, switchQuality=Component.UNDEFINED, switchVideo=Component.UNDEFINED, sendDanmaku=Component.UNDEFINED, drawDanmaku=Component.UNDEFINED, opacityDanmaku=Component.UNDEFINED, clearDanmaku=Component.UNDEFINED, hideDanmaku=Component.UNDEFINED, showDanmaku=Component.UNDEFINED, destroy=Component.UNDEFINED, playClicks=Component.UNDEFINED, pauseClicks=Component.UNDEFINED, seekClicks=Component.UNDEFINED, showNoticeClicks=Component.UNDEFINED, hideNoticeClicks=Component.UNDEFINED, speedClicks=Component.UNDEFINED, volumeSetClicks=Component.UNDEFINED, fullScreenClicks=Component.UNDEFINED, cancelFullScreenClicks=Component.UNDEFINED, sendDanmakuCallback=Component.UNDEFINED, drawDanmakuClicks=Component.UNDEFINED, clearDanmakuClicks=Component.UNDEFINED, opacityDanmakuCallback=Component.UNDEFINED, showDanmakuClicks=Component.UNDEFINED, hideDanmakuClicks=Component.UNDEFINED, subtitleShowClicks=Component.UNDEFINED, subtitleHideClicks=Component.UNDEFINED, subtitleChangeClicks=Component.UNDEFINED, screenshotClicks=Component.UNDEFINED, contextmenuShowClicks=Component.UNDEFINED, contextmenuHideClicks=Component.UNDEFINED, currentClickContextmenu=Component.UNDEFINED, destroyClicks=Component.UNDEFINED, currentNoticeInfo=Component.UNDEFINED, currentVideoInfo=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'live', 'autoplay', 'theme', 'loop', 'lang', 'screenshot', 'airplay', 'hotkey', 'chromecast', 'preload', 'volume', 'playbackSpeed', 'logo', 'preventClickToggle', 'video', 'subtitle', 'danmaku', 'contextmenu', 'highlight', 'mutex', 'play', 'pause', 'seek', 'notice', 'speed', 'volumeSet', 'fullScreen', 'switchQuality', 'switchVideo', 'sendDanmaku', 'drawDanmaku', 'opacityDanmaku', 'clearDanmaku', 'hideDanmaku', 'showDanmaku', 'destroy', 'playClicks', 'pauseClicks', 'seekClicks', 'showNoticeClicks', 'hideNoticeClicks', 'speedClicks', 'volumeSetClicks', 'fullScreenClicks', 'cancelFullScreenClicks', 'sendDanmakuCallback', 'drawDanmakuClicks', 'clearDanmakuClicks', 'opacityDanmakuCallback', 'showDanmakuClicks', 'hideDanmakuClicks', 'subtitleShowClicks', 'subtitleHideClicks', 'subtitleChangeClicks', 'screenshotClicks', 'contextmenuShowClicks', 'contextmenuHideClicks', 'currentClickContextmenu', 'destroyClicks', 'currentNoticeInfo', 'currentVideoInfo', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        live: typing.Optional[bool] = None,
+        autoplay: typing.Optional[bool] = None,
+        theme: typing.Optional[str] = None,
+        loop: typing.Optional[bool] = None,
+        lang: typing.Optional[Literal["en", "zh-cn", "zh-tw"]] = None,
+        screenshot: typing.Optional[bool] = None,
+        airplay: typing.Optional[bool] = None,
+        hotkey: typing.Optional[bool] = None,
+        chromecast: typing.Optional[bool] = None,
+        preload: typing.Optional[Literal["none", "metadata", "auto"]] = None,
+        volume: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        playbackSpeed: typing.Optional[typing.Sequence[typing.Union[int, float, numbers.Number]]] = None,
+        logo: typing.Optional[str] = None,
+        preventClickToggle: typing.Optional[bool] = None,
+        video: typing.Optional["Video"] = None,
+        subtitle: typing.Optional["Subtitle"] = None,
+        danmaku: typing.Optional["Danmaku"] = None,
+        contextmenu: typing.Optional[typing.Sequence["Contextmenu"]] = None,
+        highlight: typing.Optional[typing.Sequence["Highlight"]] = None,
+        mutex: typing.Optional[bool] = None,
+        play: typing.Optional[bool] = None,
+        pause: typing.Optional[bool] = None,
+        seek: typing.Optional["Seek"] = None,
+        notice: typing.Optional["Notice"] = None,
+        speed: typing.Optional["Speed"] = None,
+        volumeSet: typing.Optional["VolumeSet"] = None,
+        fullScreen: typing.Optional["FullScreen"] = None,
+        switchQuality: typing.Optional["SwitchQuality"] = None,
+        switchVideo: typing.Optional["SwitchVideo"] = None,
+        sendDanmaku: typing.Optional["SendDanmaku"] = None,
+        drawDanmaku: typing.Optional["DrawDanmaku"] = None,
+        opacityDanmaku: typing.Optional["OpacityDanmaku"] = None,
+        clearDanmaku: typing.Optional[bool] = None,
+        hideDanmaku: typing.Optional[bool] = None,
+        showDanmaku: typing.Optional[bool] = None,
+        destroy: typing.Optional[bool] = None,
+        playClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        pauseClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        seekClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        showNoticeClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        hideNoticeClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        speedClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        volumeSetClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        fullScreenClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        cancelFullScreenClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        sendDanmakuCallback: typing.Optional["SendDanmakuCallback"] = None,
+        drawDanmakuClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        clearDanmakuClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        opacityDanmakuCallback: typing.Optional["OpacityDanmakuCallback"] = None,
+        showDanmakuClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        hideDanmakuClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        subtitleShowClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        subtitleHideClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        subtitleChangeClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        screenshotClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        contextmenuShowClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        contextmenuHideClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        currentClickContextmenu: typing.Optional[dict] = None,
+        destroyClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        currentNoticeInfo: typing.Optional[dict] = None,
+        currentVideoInfo: typing.Optional[dict] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'live', 'autoplay', 'theme', 'loop', 'lang', 'screenshot', 'airplay', 'hotkey', 'chromecast', 'preload', 'volume', 'playbackSpeed', 'logo', 'preventClickToggle', 'video', 'subtitle', 'danmaku', 'contextmenu', 'highlight', 'mutex', 'play', 'pause', 'seek', 'notice', 'speed', 'volumeSet', 'fullScreen', 'switchQuality', 'switchVideo', 'sendDanmaku', 'drawDanmaku', 'opacityDanmaku', 'clearDanmaku', 'hideDanmaku', 'showDanmaku', 'destroy', 'playClicks', 'pauseClicks', 'seekClicks', 'showNoticeClicks', 'hideNoticeClicks', 'speedClicks', 'volumeSetClicks', 'fullScreenClicks', 'cancelFullScreenClicks', 'sendDanmakuCallback', 'drawDanmakuClicks', 'clearDanmakuClicks', 'opacityDanmakuCallback', 'showDanmakuClicks', 'hideDanmakuClicks', 'subtitleShowClicks', 'subtitleHideClicks', 'subtitleChangeClicks', 'screenshotClicks', 'contextmenuShowClicks', 'contextmenuHideClicks', 'currentClickContextmenu', 'destroyClicks', 'currentNoticeInfo', 'currentVideoInfo']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'live', 'autoplay', 'theme', 'loop', 'lang', 'screenshot', 'airplay', 'hotkey', 'chromecast', 'preload', 'volume', 'playbackSpeed', 'logo', 'preventClickToggle', 'video', 'subtitle', 'danmaku', 'contextmenu', 'highlight', 'mutex', 'play', 'pause', 'seek', 'notice', 'speed', 'volumeSet', 'fullScreen', 'switchQuality', 'switchVideo', 'sendDanmaku', 'drawDanmaku', 'opacityDanmaku', 'clearDanmaku', 'hideDanmaku', 'showDanmaku', 'destroy', 'playClicks', 'pauseClicks', 'seekClicks', 'showNoticeClicks', 'hideNoticeClicks', 'speedClicks', 'volumeSetClicks', 'fullScreenClicks', 'cancelFullScreenClicks', 'sendDanmakuCallback', 'drawDanmakuClicks', 'clearDanmakuClicks', 'opacityDanmakuCallback', 'showDanmakuClicks', 'hideDanmakuClicks', 'subtitleShowClicks', 'subtitleHideClicks', 'subtitleChangeClicks', 'screenshotClicks', 'contextmenuShowClicks', 'contextmenuHideClicks', 'currentClickContextmenu', 'destroyClicks', 'currentNoticeInfo', 'currentVideoInfo', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'live', 'autoplay', 'theme', 'loop', 'lang', 'screenshot', 'airplay', 'hotkey', 'chromecast', 'preload', 'volume', 'playbackSpeed', 'logo', 'preventClickToggle', 'video', 'subtitle', 'danmaku', 'contextmenu', 'highlight', 'mutex', 'play', 'pause', 'seek', 'notice', 'speed', 'volumeSet', 'fullScreen', 'switchQuality', 'switchVideo', 'sendDanmaku', 'drawDanmaku', 'opacityDanmaku', 'clearDanmaku', 'hideDanmaku', 'showDanmaku', 'destroy', 'playClicks', 'pauseClicks', 'seekClicks', 'showNoticeClicks', 'hideNoticeClicks', 'speedClicks', 'volumeSetClicks', 'fullScreenClicks', 'cancelFullScreenClicks', 'sendDanmakuCallback', 'drawDanmakuClicks', 'clearDanmakuClicks', 'opacityDanmakuCallback', 'showDanmakuClicks', 'hideDanmakuClicks', 'subtitleShowClicks', 'subtitleHideClicks', 'subtitleChangeClicks', 'screenshotClicks', 'contextmenuShowClicks', 'contextmenuHideClicks', 'currentClickContextmenu', 'destroyClicks', 'currentNoticeInfo', 'currentVideoInfo']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

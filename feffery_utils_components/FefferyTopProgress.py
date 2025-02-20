@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyTopProgress(Component):
@@ -57,29 +64,36 @@ Keyword arguments:
     顶部进度条色彩  默认值：`'#29d'`.
 
 - zIndex (number; default 99999):
-    顶部进度条`z-index`值  默认值：`99999`.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    顶部进度条`z-index`值  默认值：`99999`."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyTopProgress'
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, spinning=Component.UNDEFINED, minimum=Component.UNDEFINED, easing=Component.UNDEFINED, speed=Component.UNDEFINED, showSpinner=Component.UNDEFINED, debug=Component.UNDEFINED, listenPropsMode=Component.UNDEFINED, excludeProps=Component.UNDEFINED, includeProps=Component.UNDEFINED, color=Component.UNDEFINED, zIndex=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'spinning', 'minimum', 'easing', 'speed', 'showSpinner', 'debug', 'listenPropsMode', 'excludeProps', 'includeProps', 'color', 'zIndex', 'loading_state']
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        spinning: typing.Optional[bool] = None,
+        minimum: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        easing: typing.Optional[str] = None,
+        speed: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        showSpinner: typing.Optional[bool] = None,
+        debug: typing.Optional[bool] = None,
+        listenPropsMode: typing.Optional[Literal["default", "exclude", "include"]] = None,
+        excludeProps: typing.Optional[typing.Sequence[str]] = None,
+        includeProps: typing.Optional[typing.Sequence[str]] = None,
+        color: typing.Optional[str] = None,
+        zIndex: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'spinning', 'minimum', 'easing', 'speed', 'showSpinner', 'debug', 'listenPropsMode', 'excludeProps', 'includeProps', 'color', 'zIndex']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'spinning', 'minimum', 'easing', 'speed', 'showSpinner', 'debug', 'listenPropsMode', 'excludeProps', 'includeProps', 'color', 'zIndex', 'loading_state']
+        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'spinning', 'minimum', 'easing', 'speed', 'showSpinner', 'debug', 'listenPropsMode', 'excludeProps', 'includeProps', 'color', 'zIndex']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

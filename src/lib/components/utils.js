@@ -1,4 +1,4 @@
-import { isNil, toPairs, flatten } from 'ramda';
+import { toPairs, flatten } from 'ramda';
 
 const parseChildrenToArray = children => {
     if (children && !Array.isArray(children)) {

@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyFancyButton(Component):
@@ -49,29 +56,34 @@ Keyword arguments:
     组件型，按钮后缀元素.
 
 - ripple (boolean; optional):
-    是否开启点击涟漪效果  默认值：`False`.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    是否开启点击涟漪效果  默认值：`False`."""
     _children_props = ['before', 'after']
     _base_nodes = ['before', 'after', 'children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyFancyButton'
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, nClicks=Component.UNDEFINED, debounceWait=Component.UNDEFINED, type=Component.UNDEFINED, disabled=Component.UNDEFINED, href=Component.UNDEFINED, target=Component.UNDEFINED, before=Component.UNDEFINED, after=Component.UNDEFINED, ripple=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'nClicks', 'debounceWait', 'type', 'disabled', 'href', 'target', 'before', 'after', 'ripple', 'loading_state']
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        nClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        debounceWait: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        type: typing.Optional[Literal["primary", "secondary", "danger"]] = None,
+        disabled: typing.Optional[bool] = None,
+        href: typing.Optional[str] = None,
+        target: typing.Optional[str] = None,
+        before: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        after: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        ripple: typing.Optional[bool] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'nClicks', 'debounceWait', 'type', 'disabled', 'href', 'target', 'before', 'after', 'ripple']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'nClicks', 'debounceWait', 'type', 'disabled', 'href', 'target', 'before', 'after', 'ripple', 'loading_state']
+        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'nClicks', 'debounceWait', 'type', 'disabled', 'href', 'target', 'before', 'after', 'ripple']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

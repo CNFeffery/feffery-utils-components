@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyMarkdownEditor(Component):
@@ -21,7 +28,7 @@ Keyword arguments:
 - className (string | dict; optional):
     当前组件css类名，支持[动态css](/advanced-classname).
 
-- debounceWait (number; default 200):
+- debounceWait (number; optional):
     用于配置value变化更新的防抖等待时长（单位：毫秒）  默认值：`200`.
 
 - value (string; optional):
@@ -30,7 +37,7 @@ Keyword arguments:
 - html (string; optional):
     编辑器`html`格式内容.
 
-- engine (dict; default {    global: {        classicBr: False,        htmlWhiteList: '',    },    syntax: {        link: {            target: '',            rel: '',        },        autoLink: {            target: '',            rel: '',            enableShortLink: True,            shortLinkLength: 20,        },        list: {            listNested: False,            indentSpace: 2,        },        inlineCode: {            theme: 'red',        },        codeBlock: {            theme: 'dark',            wrap: True,            lineNumber: True,            copyCode: True,            editCode: True,            changeLang: True,            indentedCodeBlock: True,        },        emoji: {            useUnicode: True,        },        fontEmphasis: {            allowWhitespace: False,        },        strikethrough: {            needWhitespace: False,        },        mathBlock: {            engine: 'MathJax',            src: '',            plugins: True,        },        inlineMath: {            engine: 'MathJax',            src: '',        },        toc: {            allowMultiToc: False,        },        header: {            anchorStyle: 'default',        },    },}):
+- engine (dict; optional):
     解析引擎配置.
 
     `engine` is a dict with keys:
@@ -214,7 +221,7 @@ Keyword arguments:
         标题的样式：`'default'`默认样式，标题前面有锚点，`'autonumber'`标题前面有自增序号锚点，`'none'`标题没有锚点
         默认值：`'default'`.
 
-- editor (dict; default {    id: 'code',    name: 'code',    autoSave2Textarea: False,    theme: 'default',    height: '100%',    defaultModel: 'edit&preview',    convertWhenPaste: True,    codemirror: {        autofocus: True,    },    writingStyle: 'normal',    keepDocumentScrollAfterInit: False,}):
+- editor (dict; optional):
     编辑器配置.
 
     `editor` is a dict with keys:
@@ -258,7 +265,7 @@ Keyword arguments:
         在初始化后是否保持网页的滚动，`True`：保持滚动；`False`：网页自动滚动到编辑器初始化的位置
         默认值：`False`.
 
-- toolbars (dict; default {    theme: 'dark',    showToolbar: True,    toolbar: [        'bold',        'italic',        'strikethrough',        '|',        'color',        'header',        'ruby',        '|',        'list',        'panel',        'detail',        {            insert: ['image', 'audio', 'video', 'link', 'hr', 'br', 'code', 'formula', 'toc', 'table', 'pdf', 'word']        },        'settings',    ],    toolbarRight: [],    sidebar: [],    bubble: ['bold', 'italic', 'underline', 'strikethrough', 'sub', 'sup', 'quote', '|', 'size', 'color'],    float: ['h1', 'h2', 'h3', '|', 'checklist', 'quote', 'table', 'code'],    shortcutKey: {},    config: {        formula: {            showLatexLive: True,            templateConfig: False,        },    },}):
+- toolbars (dict; optional):
     工具栏配置.
 
     `toolbars` is a dict with keys:
@@ -318,10 +325,10 @@ Keyword arguments:
             - templateConfig (boolean; optional):
                 `False`: 使用默认模板  默认值：`False`.
 
-- drawioIframeUrl (string; default ''):
+- drawioIframeUrl (string; optional):
     打开`draw.io`编辑页的`url`，如果为空则`drawio`按钮失效.
 
-- fileTypeLimitMap (dict; default {    video: 'video/*',    audio: 'audio/*',    image: 'image/*',    word: '.doc,.docx',    pdf: '.pdf',    file: '*',}):
+- fileTypeLimitMap (dict; optional):
     上传文件的时候用来指定文件类型.
 
     `fileTypeLimitMap` is a dict with keys:
@@ -338,7 +345,7 @@ Keyword arguments:
 
     - file (string; optional)
 
-- uploadConfig (dict; default {    headers: {},    data: {},    withCredentials: False,    filename: 'file',    responseUrl: 'data.url',}):
+- uploadConfig (dict; optional):
     设置文件上传相关信息.
 
     `uploadConfig` is a dict with keys:
@@ -362,7 +369,7 @@ Keyword arguments:
         设置上传接口响应中`url`的层级，如响应结果格式为`{data: {url:
         'xxx'}}`，则配置为`'data.url'`  默认值：`'data.url'`.
 
-- fineControl (dict; default {    isOpen: False,    videoFineControlOptions: {        isPoster: False,        isBorder: False,        isShadow: False,        isRadius: False    },    imageFineControlOptions: {        isBorder: False,        isShadow: False,        isRadius: False,        width: '100%',        height: 'auto'    }}):
+- fineControl (dict; optional):
     配置文件展示精细化控制，此功能只在配置了上传接口的情况下生效.
 
     `fineControl` is a dict with keys:
@@ -416,7 +423,7 @@ Keyword arguments:
         - height (string; optional):
             图片的高度  默认`'auto'`.
 
-- previewer (dict; default {    dom: False,    className: 'cherry-markdown',    enablePreviewerBubble: True,    lazyLoadImg: {        loadingImgPath: '',        maxNumPerTime: 2,        noLoadImgNum: 5,        autoLoadImgNum: 5,        maxTryTimesPerSrc: 2,        beforeLoadOneImgCallback: (img) => {            return True;        },        failLoadOneImgCallback: (img) => { },        afterLoadOneImgCallback: (img) => { },        afterLoadAllImgCallback: () => { },    },}):
+- previewer (dict; optional):
     预览区域配置.
 
     `previewer` is a dict with keys:
@@ -453,7 +460,7 @@ Keyword arguments:
         - maxTryTimesPerSrc (number; optional):
             针对加载失败的图片或`beforeLoadOneImgCallback`返回`False`的图片，最多尝试加载几次，为了防止死循环，最多`5`次，以图片的`src`为纬度统计重试次数.
 
-- theme (list of dicts; default [    { className: 'default', label: '默认' },    { className: 'dark', label: '暗黑' },    { className: 'light', label: '明亮' },    { className: 'green', label: '清新' },    { className: 'red', label: '热情' },    { className: 'violet', label: '淡雅' },    { className: 'blue', label: '清幽' },]):
+- theme (list of dicts; optional):
     配置主题，第三方可以自行扩展主题.
 
     `theme` is a list of dicts with keys:
@@ -462,19 +469,19 @@ Keyword arguments:
 
     - label (a value equal to: '默认', '暗黑', '明亮', '清新', '热情', '淡雅', '清幽'; optional)
 
-- isPreviewOnly (boolean; default False):
+- isPreviewOnly (boolean; optional):
     预览页面是否需要绑定事件  默认值：`False`.
 
-- autoScrollByCursor (boolean; default True):
+- autoScrollByCursor (boolean; optional):
     预览区域是否跟随编辑器光标自动滚动  默认值：`True`.
 
-- forceAppend (boolean; default True):
+- forceAppend (boolean; optional):
     外层容器不存在时，是否强制输出到`body`上  默认值：`True`.
 
-- locale (a value equal to: 'zh_CN', 'en_US'; default 'zh_CN'):
+- locale (a value equal to: 'zh_CN', 'en_US'; optional):
     语言设置，可选的有`'zh_CN'`、`'en_US'`  默认值：`'zh_CN'`.
 
-- autoScrollByHashAfterInit (boolean; default False):
+- autoScrollByHashAfterInit (boolean; optional):
     编辑器初始化后是否检查`location.hash`尝试滚动到对应位置  默认值：`False`.
 
 - customSyntax (list of dicts; optional):
@@ -498,29 +505,339 @@ Keyword arguments:
         自定义语法的正则表达式.
 
     - result (string; optional):
-        自定义语法的渲染结果.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+        自定义语法的渲染结果."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyMarkdownEditor'
+    EngineGlobal = TypedDict(
+        "EngineGlobal",
+            {
+            "classicBr": NotRequired[bool],
+            "htmlWhiteList": NotRequired[str]
+        }
+    )
+
+    EngineSyntaxLink = TypedDict(
+        "EngineSyntaxLink",
+            {
+            "target": NotRequired[Literal["", "_blank"]],
+            "rel": NotRequired[Literal["", "nofollow"]]
+        }
+    )
+
+    EngineSyntaxAutoLink = TypedDict(
+        "EngineSyntaxAutoLink",
+            {
+            "target": NotRequired[Literal["", "_blank"]],
+            "rel": NotRequired[Literal["", "nofollow"]],
+            "enableShortLink": NotRequired[bool],
+            "shortLinkLength": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    EngineSyntaxList = TypedDict(
+        "EngineSyntaxList",
+            {
+            "listNested": NotRequired[bool],
+            "indentSpace": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    EngineSyntaxTable = TypedDict(
+        "EngineSyntaxTable",
+            {
+            "enableChart": NotRequired[bool]
+        }
+    )
+
+    EngineSyntaxInlineCode = TypedDict(
+        "EngineSyntaxInlineCode",
+            {
+            "theme": NotRequired[str]
+        }
+    )
+
+    EngineSyntaxCodeBlock = TypedDict(
+        "EngineSyntaxCodeBlock",
+            {
+            "theme": NotRequired[str],
+            "wrap": NotRequired[bool],
+            "lineNumber": NotRequired[bool],
+            "copyCode": NotRequired[bool],
+            "editCode": NotRequired[bool],
+            "changeLang": NotRequired[bool],
+            "indentedCodeBlock": NotRequired[bool]
+        }
+    )
+
+    EngineSyntaxEmoji = TypedDict(
+        "EngineSyntaxEmoji",
+            {
+            "useUnicode": NotRequired[bool]
+        }
+    )
+
+    EngineSyntaxFontEmphasis = TypedDict(
+        "EngineSyntaxFontEmphasis",
+            {
+            "allowWhitespace": NotRequired[bool]
+        }
+    )
+
+    EngineSyntaxStrikethrough = TypedDict(
+        "EngineSyntaxStrikethrough",
+            {
+            "needWhitespace": NotRequired[bool]
+        }
+    )
+
+    EngineSyntaxMathBlock = TypedDict(
+        "EngineSyntaxMathBlock",
+            {
+            "engine": NotRequired[Literal["katex", "MathJax"]],
+            "src": NotRequired[str],
+            "plugins": NotRequired[bool]
+        }
+    )
+
+    EngineSyntaxInlineMath = TypedDict(
+        "EngineSyntaxInlineMath",
+            {
+            "engine": NotRequired[Literal["katex", "MathJax"]],
+            "src": NotRequired[str]
+        }
+    )
+
+    EngineSyntaxToc = TypedDict(
+        "EngineSyntaxToc",
+            {
+            "allowMultiToc": NotRequired[bool]
+        }
+    )
+
+    EngineSyntaxHeader = TypedDict(
+        "EngineSyntaxHeader",
+            {
+            "anchorStyle": NotRequired[Literal["default", "autonumber", "none"]]
+        }
+    )
+
+    EngineSyntax = TypedDict(
+        "EngineSyntax",
+            {
+            "link": NotRequired[typing.Union[bool, "EngineSyntaxLink"]],
+            "autoLink": NotRequired[typing.Union[bool, "EngineSyntaxAutoLink"]],
+            "list": NotRequired[typing.Union[bool, "EngineSyntaxList"]],
+            "table": NotRequired[typing.Union[bool, "EngineSyntaxTable"]],
+            "inlineCode": NotRequired[typing.Union[bool, "EngineSyntaxInlineCode"]],
+            "codeBlock": NotRequired[typing.Union[bool, "EngineSyntaxCodeBlock"]],
+            "emoji": NotRequired[typing.Union[bool, "EngineSyntaxEmoji"]],
+            "fontEmphasis": NotRequired[typing.Union[bool, "EngineSyntaxFontEmphasis"]],
+            "strikethrough": NotRequired[typing.Union[bool, "EngineSyntaxStrikethrough"]],
+            "mathBlock": NotRequired[typing.Union[bool, "EngineSyntaxMathBlock"]],
+            "inlineMath": NotRequired[typing.Union[bool, "EngineSyntaxInlineMath"]],
+            "toc": NotRequired[typing.Union[bool, "EngineSyntaxToc"]],
+            "header": NotRequired[typing.Union[bool, "EngineSyntaxHeader"]]
+        }
+    )
+
+    Engine = TypedDict(
+        "Engine",
+            {
+            "global": NotRequired["EngineGlobal"],
+            "syntax": NotRequired["EngineSyntax"]
+        }
+    )
+
+    EditorCodemirror = TypedDict(
+        "EditorCodemirror",
+            {
+            "autofocus": NotRequired[bool]
+        }
+    )
+
+    Editor = TypedDict(
+        "Editor",
+            {
+            "id": NotRequired[str],
+            "name": NotRequired[str],
+            "autoSave2Textarea": NotRequired[bool],
+            "theme": NotRequired[str],
+            "height": NotRequired[str],
+            "defaultModel": NotRequired[Literal["edit&preview", "editOnly", "previewOnly"]],
+            "convertWhenPaste": NotRequired[bool],
+            "codemirror": NotRequired["EditorCodemirror"],
+            "writingStyle": NotRequired[Literal["normal", "typewriter", "focus"]],
+            "keepDocumentScrollAfterInit": NotRequired[bool]
+        }
+    )
+
+    ToolbarsToolbar = TypedDict(
+        "ToolbarsToolbar",
+            {
+            "insert": NotRequired[typing.Sequence[Literal["bold", "italic", "underline", "strikethrough", "sub", "sup", "ruby", "quote", "detail", "h1", "h2", "h3", "ul", "ol", "checklist", "image", "audio", "video", "pdf", "word", "file", "link", "hr", "br", "code", "formula", "toc", "table", "drawIo", "undo", "redo", "mobilePreview", "togglePreview", "switchModel", "copy", "fullScreen"]]]
+        }
+    )
+
+    ToolbarsConfigFormula = TypedDict(
+        "ToolbarsConfigFormula",
+            {
+            "showLatexLive": NotRequired[bool],
+            "templateConfig": NotRequired[bool]
+        }
+    )
+
+    ToolbarsConfig = TypedDict(
+        "ToolbarsConfig",
+            {
+            "formula": NotRequired["ToolbarsConfigFormula"]
+        }
+    )
+
+    Toolbars = TypedDict(
+        "Toolbars",
+            {
+            "theme": NotRequired[Literal["light", "dark"]],
+            "showToolbar": NotRequired[bool],
+            "toolbar": NotRequired[typing.Sequence[typing.Union[Literal["|", "bold", "italic", "underline", "strikethrough", "sub", "sup", "ruby", "size", "color", "quote", "detail", "h1", "h2", "h3", "header", "ul", "ol", "checklist", "list", "justify", "panel", "image", "audio", "video", "pdf", "word", "file", "link", "hr", "br", "code", "formula", "toc", "table", "drawIo", "graph", "undo", "redo", "theme", "codeTheme", "mobilePreview", "togglePreview", "switchModel", "copy", "export", "fullScreen", "settings"], "ToolbarsToolbar"]]],
+            "toolbarRight": NotRequired[typing.Sequence],
+            "sidebar": NotRequired[typing.Sequence],
+            "bubble": NotRequired[typing.Union[bool, typing.Sequence[Literal["|", "bold", "italic", "underline", "strikethrough", "sub", "sup", "ruby", "size", "color", "quote", "detail", "h1", "h2", "h3", "header", "ul", "ol", "checklist", "list", "justify", "panel", "image", "audio", "video", "pdf", "word", "file", "link", "hr", "br", "code", "formula", "toc", "table", "drawIo", "graph", "undo", "redo", "theme", "codeTheme", "mobilePreview", "togglePreview", "switchModel", "copy", "export", "fullScreen", "settings"]]]],
+            "float": NotRequired[typing.Union[bool, typing.Sequence[Literal["|", "bold", "italic", "underline", "strikethrough", "sub", "sup", "ruby", "size", "color", "quote", "detail", "h1", "h2", "h3", "header", "ul", "ol", "checklist", "list", "justify", "panel", "image", "audio", "video", "pdf", "word", "file", "link", "hr", "br", "code", "formula", "toc", "table", "drawIo", "graph", "undo", "redo", "theme", "codeTheme", "mobilePreview", "togglePreview", "switchModel", "copy", "export", "fullScreen", "settings"]]]],
+            "shortcutKey": NotRequired[dict],
+            "config": NotRequired["ToolbarsConfig"]
+        }
+    )
+
+    FileTypeLimitMap = TypedDict(
+        "FileTypeLimitMap",
+            {
+            "video": NotRequired[str],
+            "audio": NotRequired[str],
+            "image": NotRequired[str],
+            "word": NotRequired[str],
+            "pdf": NotRequired[str],
+            "file": NotRequired[str]
+        }
+    )
+
+    UploadConfig = TypedDict(
+        "UploadConfig",
+            {
+            "action": NotRequired[str],
+            "headers": NotRequired[dict],
+            "data": NotRequired[dict],
+            "withCredentials": NotRequired[bool],
+            "filename": NotRequired[str],
+            "responseUrl": NotRequired[str]
+        }
+    )
+
+    FineControlVideoFineControlOptions = TypedDict(
+        "FineControlVideoFineControlOptions",
+            {
+            "name": NotRequired[str],
+            "isPoster": NotRequired[bool],
+            "posterUrl": NotRequired[str],
+            "isBorder": NotRequired[bool],
+            "isShadow": NotRequired[bool],
+            "isRadius": NotRequired[bool]
+        }
+    )
+
+    FineControlImageFineControlOptions = TypedDict(
+        "FineControlImageFineControlOptions",
+            {
+            "name": NotRequired[str],
+            "isBorder": NotRequired[bool],
+            "isShadow": NotRequired[bool],
+            "isRadius": NotRequired[bool],
+            "width": NotRequired[str],
+            "height": NotRequired[str]
+        }
+    )
+
+    FineControl = TypedDict(
+        "FineControl",
+            {
+            "isOpen": NotRequired[bool],
+            "videoFineControlOptions": NotRequired["FineControlVideoFineControlOptions"],
+            "imageFineControlOptions": NotRequired["FineControlImageFineControlOptions"]
+        }
+    )
+
+    PreviewerLazyLoadImg = TypedDict(
+        "PreviewerLazyLoadImg",
+            {
+            "loadingImgPath": NotRequired[str],
+            "maxNumPerTime": NotRequired[typing.Union[int, float, numbers.Number]],
+            "noLoadImgNum": NotRequired[typing.Union[int, float, numbers.Number]],
+            "autoLoadImgNum": NotRequired[typing.Union[int, float, numbers.Number]],
+            "maxTryTimesPerSrc": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    Previewer = TypedDict(
+        "Previewer",
+            {
+            "dom": NotRequired[bool],
+            "className": NotRequired[str],
+            "enablePreviewerBubble": NotRequired[bool],
+            "lazyLoadImg": NotRequired["PreviewerLazyLoadImg"]
+        }
+    )
+
+    Theme = TypedDict(
+        "Theme",
+            {
+            "className": NotRequired[Literal["default", "dark", "light", "green", "red", "violet", "blue"]],
+            "label": NotRequired[Literal["\u9ed8\u8ba4", "\u6697\u9ed1", "\u660e\u4eae", "\u6e05\u65b0", "\u70ed\u60c5", "\u6de1\u96c5", "\u6e05\u5e7d"]]
+        }
+    )
+
+    CustomSyntax = TypedDict(
+        "CustomSyntax",
+            {
+            "syntaxName": NotRequired[str],
+            "force": NotRequired[bool],
+            "before": NotRequired[str],
+            "syntaxType": NotRequired[Literal["inline", "block"]],
+            "reg": NotRequired[str],
+            "result": NotRequired[str]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, debounceWait=Component.UNDEFINED, value=Component.UNDEFINED, html=Component.UNDEFINED, engine=Component.UNDEFINED, editor=Component.UNDEFINED, toolbars=Component.UNDEFINED, drawioIframeUrl=Component.UNDEFINED, fileTypeLimitMap=Component.UNDEFINED, uploadConfig=Component.UNDEFINED, fineControl=Component.UNDEFINED, previewer=Component.UNDEFINED, theme=Component.UNDEFINED, isPreviewOnly=Component.UNDEFINED, autoScrollByCursor=Component.UNDEFINED, forceAppend=Component.UNDEFINED, locale=Component.UNDEFINED, autoScrollByHashAfterInit=Component.UNDEFINED, customSyntax=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'debounceWait', 'value', 'html', 'engine', 'editor', 'toolbars', 'drawioIframeUrl', 'fileTypeLimitMap', 'uploadConfig', 'fineControl', 'previewer', 'theme', 'isPreviewOnly', 'autoScrollByCursor', 'forceAppend', 'locale', 'autoScrollByHashAfterInit', 'customSyntax', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        debounceWait: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        value: typing.Optional[str] = None,
+        html: typing.Optional[str] = None,
+        engine: typing.Optional["Engine"] = None,
+        editor: typing.Optional["Editor"] = None,
+        toolbars: typing.Optional["Toolbars"] = None,
+        drawioIframeUrl: typing.Optional[str] = None,
+        fileTypeLimitMap: typing.Optional["FileTypeLimitMap"] = None,
+        uploadConfig: typing.Optional["UploadConfig"] = None,
+        fineControl: typing.Optional["FineControl"] = None,
+        previewer: typing.Optional["Previewer"] = None,
+        theme: typing.Optional[typing.Sequence["Theme"]] = None,
+        isPreviewOnly: typing.Optional[bool] = None,
+        autoScrollByCursor: typing.Optional[bool] = None,
+        forceAppend: typing.Optional[bool] = None,
+        locale: typing.Optional[Literal["zh_CN", "en_US"]] = None,
+        autoScrollByHashAfterInit: typing.Optional[bool] = None,
+        customSyntax: typing.Optional[typing.Sequence["CustomSyntax"]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'debounceWait', 'value', 'html', 'engine', 'editor', 'toolbars', 'drawioIframeUrl', 'fileTypeLimitMap', 'uploadConfig', 'fineControl', 'previewer', 'theme', 'isPreviewOnly', 'autoScrollByCursor', 'forceAppend', 'locale', 'autoScrollByHashAfterInit', 'customSyntax']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'debounceWait', 'value', 'html', 'engine', 'editor', 'toolbars', 'drawioIframeUrl', 'fileTypeLimitMap', 'uploadConfig', 'fineControl', 'previewer', 'theme', 'isPreviewOnly', 'autoScrollByCursor', 'forceAppend', 'locale', 'autoScrollByHashAfterInit', 'customSyntax', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'debounceWait', 'value', 'html', 'engine', 'editor', 'toolbars', 'drawioIframeUrl', 'fileTypeLimitMap', 'uploadConfig', 'fineControl', 'previewer', 'theme', 'isPreviewOnly', 'autoScrollByCursor', 'forceAppend', 'locale', 'autoScrollByHashAfterInit', 'customSyntax']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

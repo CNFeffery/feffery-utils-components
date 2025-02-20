@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyPhotoSphereViewer(Component):
@@ -117,29 +124,66 @@ Keyword arguments:
         `Autorotate`模式下，是否在用户无操作一段时间后恢复自动旋转  默认值：`True`.
 
     - autorotateSpeed (string; optional):
-        `Autorotate`模式下，自动旋转速度  默认值：`2rpm`.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+        `Autorotate`模式下，自动旋转速度  默认值：`2rpm`."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyPhotoSphereViewer'
+    Lang = TypedDict(
+        "Lang",
+            {
+            "littlePlanetButton": NotRequired[str],
+            "zoomOut": NotRequired[str],
+            "zoomIn": NotRequired[str],
+            "moveLeft": NotRequired[str],
+            "moveRight": NotRequired[str],
+            "moveUp": NotRequired[str],
+            "moveDown": NotRequired[str],
+            "download": NotRequired[str],
+            "fullscreen": NotRequired[str],
+            "loadError": NotRequired[str],
+            "autorotate": NotRequired[str]
+        }
+    )
+
+    Plugins = TypedDict(
+        "Plugins",
+            {
+            "type": Literal["Autorotate"],
+            "autostartDelay": NotRequired[typing.Union[int, float, numbers.Number]],
+            "autostartOnIdle": NotRequired[bool],
+            "autorotateSpeed": NotRequired[str]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, src=Component.UNDEFINED, width=Component.UNDEFINED, height=Component.UNDEFINED, littlePlanet=Component.UNDEFINED, containerClass=Component.UNDEFINED, navbar=Component.UNDEFINED, caption=Component.UNDEFINED, downloadUrl=Component.UNDEFINED, loadingImg=Component.UNDEFINED, loadingTxt=Component.UNDEFINED, mousewheel=Component.UNDEFINED, mousemove=Component.UNDEFINED, moveSpeed=Component.UNDEFINED, zoomSpeed=Component.UNDEFINED, fisheye=Component.UNDEFINED, lang=Component.UNDEFINED, hideNavbarButton=Component.UNDEFINED, plugins=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'src', 'width', 'height', 'littlePlanet', 'containerClass', 'navbar', 'caption', 'downloadUrl', 'loadingImg', 'loadingTxt', 'mousewheel', 'mousemove', 'moveSpeed', 'zoomSpeed', 'fisheye', 'lang', 'hideNavbarButton', 'plugins', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        src: typing.Optional[str] = None,
+        width: typing.Optional[str] = None,
+        height: typing.Optional[str] = None,
+        littlePlanet: typing.Optional[bool] = None,
+        containerClass: typing.Optional[str] = None,
+        navbar: typing.Optional[typing.Union[typing.Sequence[Literal["zoom", "move", "download", "caption", "fullscreen", "autorotate"]], bool]] = None,
+        caption: typing.Optional[str] = None,
+        downloadUrl: typing.Optional[str] = None,
+        loadingImg: typing.Optional[str] = None,
+        loadingTxt: typing.Optional[str] = None,
+        mousewheel: typing.Optional[bool] = None,
+        mousemove: typing.Optional[bool] = None,
+        moveSpeed: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        zoomSpeed: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        fisheye: typing.Optional[bool] = None,
+        lang: typing.Optional["Lang"] = None,
+        hideNavbarButton: typing.Optional[bool] = None,
+        plugins: typing.Optional[typing.Sequence["Plugins"]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'src', 'width', 'height', 'littlePlanet', 'containerClass', 'navbar', 'caption', 'downloadUrl', 'loadingImg', 'loadingTxt', 'mousewheel', 'mousemove', 'moveSpeed', 'zoomSpeed', 'fisheye', 'lang', 'hideNavbarButton', 'plugins']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'src', 'width', 'height', 'littlePlanet', 'containerClass', 'navbar', 'caption', 'downloadUrl', 'loadingImg', 'loadingTxt', 'mousewheel', 'mousemove', 'moveSpeed', 'zoomSpeed', 'fisheye', 'lang', 'hideNavbarButton', 'plugins', 'loading_state']
+        self.available_properties = ['id', 'key', 'src', 'width', 'height', 'littlePlanet', 'containerClass', 'navbar', 'caption', 'downloadUrl', 'loadingImg', 'loadingTxt', 'mousewheel', 'mousemove', 'moveSpeed', 'zoomSpeed', 'fisheye', 'lang', 'hideNavbarButton', 'plugins']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

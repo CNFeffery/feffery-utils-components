@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyExtraSpinner(Component):
@@ -41,29 +48,30 @@ Keyword arguments:
     图标前景色.
 
 - backColor (string; default '#1890ff'):
-    图标背景色.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    图标背景色."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyExtraSpinner'
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, type=Component.UNDEFINED, size=Component.UNDEFINED, sizeUnit=Component.UNDEFINED, color=Component.UNDEFINED, frontColor=Component.UNDEFINED, backColor=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'type', 'size', 'sizeUnit', 'color', 'frontColor', 'backColor', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        type: typing.Optional[Literal["ball", "swap", "bars", "grid", "wave", "push", "firework", "stage", "ring", "heart", "guard", "rotate", "spiral", "pulse", "swish", "sequence", "impulse", "cube", "magic", "flag", "fill", "sphere", "domino", "goo", "comb", "pong", "rainbow", "hoop", "flapper", "jellyfish", "trace", "classic", "whisper", "metro"]] = None,
+        size: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        sizeUnit: typing.Optional[str] = None,
+        color: typing.Optional[str] = None,
+        frontColor: typing.Optional[str] = None,
+        backColor: typing.Optional[str] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'type', 'size', 'sizeUnit', 'color', 'frontColor', 'backColor']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'type', 'size', 'sizeUnit', 'color', 'frontColor', 'backColor', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'type', 'size', 'sizeUnit', 'color', 'frontColor', 'backColor']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

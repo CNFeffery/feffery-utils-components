@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyRND(Component):
@@ -111,29 +118,69 @@ Keyword arguments:
     设置当前组件在选中状态下的`css`样式.
 
 - selectedClassName (string; optional):
-    配置当前组件在选中状态下的`css`类名.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    配置当前组件在选中状态下的`css`类名."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyRND'
+    DefaultState = TypedDict(
+        "DefaultState",
+            {
+            "x": NotRequired[typing.Union[int, float, numbers.Number]],
+            "y": NotRequired[typing.Union[int, float, numbers.Number]],
+            "width": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], str]],
+            "height": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], str]]
+        }
+    )
+
+    Size = TypedDict(
+        "Size",
+            {
+            "width": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], str]],
+            "height": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], str]]
+        }
+    )
+
+    Position = TypedDict(
+        "Position",
+            {
+            "x": NotRequired[typing.Union[int, float, numbers.Number]],
+            "y": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, defaultState=Component.UNDEFINED, size=Component.UNDEFINED, position=Component.UNDEFINED, minWidth=Component.UNDEFINED, minHeight=Component.UNDEFINED, maxWidth=Component.UNDEFINED, maxHeight=Component.UNDEFINED, resizeGrid=Component.UNDEFINED, dragGrid=Component.UNDEFINED, lockAspectRatio=Component.UNDEFINED, lockAspectRatioExtraWidth=Component.UNDEFINED, lockAspectRatioExtraHeight=Component.UNDEFINED, direction=Component.UNDEFINED, disableDragging=Component.UNDEFINED, dragAxis=Component.UNDEFINED, bounds=Component.UNDEFINED, selected=Component.UNDEFINED, selectedStyle=Component.UNDEFINED, selectedClassName=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'defaultState', 'size', 'position', 'minWidth', 'minHeight', 'maxWidth', 'maxHeight', 'resizeGrid', 'dragGrid', 'lockAspectRatio', 'lockAspectRatioExtraWidth', 'lockAspectRatioExtraHeight', 'direction', 'disableDragging', 'dragAxis', 'bounds', 'selected', 'selectedStyle', 'selectedClassName', 'loading_state']
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        defaultState: typing.Optional["DefaultState"] = None,
+        size: typing.Optional["Size"] = None,
+        position: typing.Optional["Position"] = None,
+        minWidth: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
+        minHeight: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
+        maxWidth: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
+        maxHeight: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
+        resizeGrid: typing.Optional[typing.Sequence[typing.Union[int, float, numbers.Number]]] = None,
+        dragGrid: typing.Optional[typing.Sequence[typing.Union[int, float, numbers.Number]]] = None,
+        lockAspectRatio: typing.Optional[typing.Union[bool, typing.Union[int, float, numbers.Number]]] = None,
+        lockAspectRatioExtraWidth: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        lockAspectRatioExtraHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        direction: typing.Optional[typing.Sequence[Literal["top", "right", "bottom", "left", "topRight", "bottomRight", "bottomLeft", "topLeft"]]] = None,
+        disableDragging: typing.Optional[bool] = None,
+        dragAxis: typing.Optional[Literal["x", "y", "both", "none"]] = None,
+        bounds: typing.Optional[Literal["window", "parent"]] = None,
+        selected: typing.Optional[bool] = None,
+        selectedStyle: typing.Optional[dict] = None,
+        selectedClassName: typing.Optional[str] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'defaultState', 'size', 'position', 'minWidth', 'minHeight', 'maxWidth', 'maxHeight', 'resizeGrid', 'dragGrid', 'lockAspectRatio', 'lockAspectRatioExtraWidth', 'lockAspectRatioExtraHeight', 'direction', 'disableDragging', 'dragAxis', 'bounds', 'selected', 'selectedStyle', 'selectedClassName']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'defaultState', 'size', 'position', 'minWidth', 'minHeight', 'maxWidth', 'maxHeight', 'resizeGrid', 'dragGrid', 'lockAspectRatio', 'lockAspectRatioExtraWidth', 'lockAspectRatioExtraHeight', 'direction', 'disableDragging', 'dragAxis', 'bounds', 'selected', 'selectedStyle', 'selectedClassName', 'loading_state']
+        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'defaultState', 'size', 'position', 'minWidth', 'minHeight', 'maxWidth', 'maxHeight', 'resizeGrid', 'dragGrid', 'lockAspectRatio', 'lockAspectRatioExtraWidth', 'lockAspectRatioExtraHeight', 'direction', 'disableDragging', 'dragAxis', 'bounds', 'selected', 'selectedStyle', 'selectedClassName']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

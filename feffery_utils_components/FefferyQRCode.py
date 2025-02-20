@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyQRCode(Component):
@@ -51,29 +58,39 @@ Keyword arguments:
         图片四周是否添加环绕白边  默认值：`True`.
 
 - renderer (a value equal to: 'svg', 'canvas'; default 'svg'):
-    指定渲染引擎，可选项有`'svg'`、`'canvas'`  默认值：`'svg'`.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    指定渲染引擎，可选项有`'svg'`、`'canvas'`  默认值：`'svg'`."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyQRCode'
+    ImageSettings = TypedDict(
+        "ImageSettings",
+            {
+            "src": NotRequired[str],
+            "height": NotRequired[typing.Union[int, float, numbers.Number]],
+            "width": NotRequired[typing.Union[int, float, numbers.Number]],
+            "excavate": NotRequired[bool]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, value=Component.REQUIRED, size=Component.UNDEFINED, bgColor=Component.UNDEFINED, fgColor=Component.UNDEFINED, level=Component.UNDEFINED, includeMargin=Component.UNDEFINED, imageSettings=Component.UNDEFINED, renderer=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'value', 'size', 'bgColor', 'fgColor', 'level', 'includeMargin', 'imageSettings', 'renderer', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        value: typing.Optional[str] = None,
+        size: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        bgColor: typing.Optional[str] = None,
+        fgColor: typing.Optional[str] = None,
+        level: typing.Optional[Literal["L", "M", "Q", "H"]] = None,
+        includeMargin: typing.Optional[bool] = None,
+        imageSettings: typing.Optional["ImageSettings"] = None,
+        renderer: typing.Optional[Literal["svg", "canvas"]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'value', 'size', 'bgColor', 'fgColor', 'level', 'includeMargin', 'imageSettings', 'renderer']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'value', 'size', 'bgColor', 'fgColor', 'level', 'includeMargin', 'imageSettings', 'renderer', 'loading_state']
+        self.available_properties = ['id', 'key', 'value', 'size', 'bgColor', 'fgColor', 'level', 'includeMargin', 'imageSettings', 'renderer']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

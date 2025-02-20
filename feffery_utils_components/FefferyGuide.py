@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyGuide(Component):
@@ -108,29 +115,68 @@ Keyword arguments:
     确认按钮的文案信息.
 
 - step (number; optional):
-    设置初始化时的起始步骤，为`-1`时则不显示引导组件  默认值：`0`.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    设置初始化时的起始步骤，为`-1`时则不显示引导组件  默认值：`0`."""
     _children_props = ['steps[].title', 'steps[].content']
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyGuide'
+    StepsTargetPos = TypedDict(
+        "StepsTargetPos",
+            {
+            "top": NotRequired[typing.Union[int, float, numbers.Number]],
+            "left": NotRequired[typing.Union[int, float, numbers.Number]],
+            "width": NotRequired[typing.Union[int, float, numbers.Number]],
+            "height": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    StepsOffset = TypedDict(
+        "StepsOffset",
+            {
+            "x": NotRequired[typing.Union[int, float, numbers.Number]],
+            "y": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    Steps = TypedDict(
+        "Steps",
+            {
+            "selector": NotRequired[str],
+            "targetPos": NotRequired["StepsTargetPos"],
+            "title": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "content": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "placement": NotRequired[Literal["top", "bottom", "left", "right", "top-left", "top-right", "bottom-left", "bottom-right", "left-top", "left-bottom", "right-top", "right-bottom"]],
+            "offset": NotRequired["StepsOffset"]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, locale=Component.UNDEFINED, steps=Component.REQUIRED, localKey=Component.REQUIRED, closable=Component.UNDEFINED, modalClassName=Component.UNDEFINED, maskClassName=Component.UNDEFINED, mask=Component.UNDEFINED, arrow=Component.UNDEFINED, hotspot=Component.UNDEFINED, stepText=Component.UNDEFINED, nextText=Component.UNDEFINED, prevText=Component.UNDEFINED, showPreviousBtn=Component.UNDEFINED, okText=Component.UNDEFINED, step=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'locale', 'steps', 'localKey', 'closable', 'modalClassName', 'maskClassName', 'mask', 'arrow', 'hotspot', 'stepText', 'nextText', 'prevText', 'showPreviousBtn', 'okText', 'step', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        locale: typing.Optional[Literal["zh", "en"]] = None,
+        steps: typing.Optional[typing.Sequence["Steps"]] = None,
+        localKey: typing.Optional[str] = None,
+        closable: typing.Optional[bool] = None,
+        modalClassName: typing.Optional[str] = None,
+        maskClassName: typing.Optional[str] = None,
+        mask: typing.Optional[bool] = None,
+        arrow: typing.Optional[bool] = None,
+        hotspot: typing.Optional[bool] = None,
+        stepText: typing.Optional[str] = None,
+        nextText: typing.Optional[str] = None,
+        prevText: typing.Optional[str] = None,
+        showPreviousBtn: typing.Optional[bool] = None,
+        okText: typing.Optional[str] = None,
+        step: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'locale', 'steps', 'localKey', 'closable', 'modalClassName', 'maskClassName', 'mask', 'arrow', 'hotspot', 'stepText', 'nextText', 'prevText', 'showPreviousBtn', 'okText', 'step']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'locale', 'steps', 'localKey', 'closable', 'modalClassName', 'maskClassName', 'mask', 'arrow', 'hotspot', 'stepText', 'nextText', 'prevText', 'showPreviousBtn', 'okText', 'step', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'locale', 'steps', 'localKey', 'closable', 'modalClassName', 'maskClassName', 'mask', 'arrow', 'hotspot', 'stepText', 'nextText', 'prevText', 'showPreviousBtn', 'okText', 'step']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
