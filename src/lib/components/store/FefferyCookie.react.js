@@ -1,21 +1,21 @@
+// react核心
 import { useEffect } from 'react';
-import { useCookieState } from 'ahooks';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useCookieState } from 'ahooks';
 
 /**
  * Cookie控制组件FefferyCookie
  */
-const FefferyCookie = (props) => {
-    const {
-        cookieKey,
-        defaultValue,
-        value,
-        expires,
-        pathname,
-        secure,
-        setProps,
-        loading_state
-    } = props;
+const FefferyCookie = ({
+    cookieKey,
+    defaultValue,
+    value,
+    expires,
+    pathname = '/',
+    secure = false,
+    setProps
+}) => {
 
     const [value_, setValue_] = useCookieState(
         cookieKey,
@@ -87,32 +87,11 @@ FefferyCookie.propTypes = {
      */
     secure: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyCookie.defaultProps = {
-    pathname: '/',
-    secure: false
-}
 
 export default FefferyCookie;

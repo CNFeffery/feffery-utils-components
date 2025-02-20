@@ -1,20 +1,21 @@
+// react核心
 import React, { useEffect } from 'react';
-import { propTypes, defaultProps } from '../../components/store/FefferyLocalLargeStorage.react';
+// 组件核心
 import localforage from 'localforage';
+// 辅助库
 import { isUndefined } from 'lodash';
+// 参数类型
+import { propTypes, defaultProps } from '../../components/store/FefferyLocalLargeStorage.react';
 
 /**
  * 客户端大容量存储器FefferyLocalLargeStorage
  */
-const FefferyLocalLargeStorage = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        data,
-        initialSync,
-        setProps,
-        loading_state
-    } = props;
+const FefferyLocalLargeStorage = ({
+    id,
+    data,
+    initialSync,
+    setProps
+}) => {
 
     useEffect(() => {
         (async () => {
