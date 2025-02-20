@@ -29,6 +29,8 @@ const FefferyGrid = ({
     containerPadding,
     rowHeight,
     isDraggable,
+    draggerStyle,
+    draggerClassName,
     isResizable,
     isBounded,
     allowOverlap,
@@ -56,7 +58,7 @@ const FefferyGrid = ({
                         ['setProps', 'persistence', 'persistence_type', 'persisted_props', 'id', 'className', 'style'],
                         childProps
                     )}>
-                    <button className={"feffery-grid-item-dragger"}>
+                    <button style={draggerStyle} className={draggerClassName ? `feffery-grid-item-dragger ${draggerClassName}` : "feffery-grid-item-dragger"}>
                         <svg viewBox={"0 0 20 20"} style={{ width: 16, fill: '#919eab' }}>
                             <path d={"M7 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 2zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 7 14zm6-8a2 2 0 1 0-.001-4.001A2 2 0 0 0 13 6zm0 2a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 8zm0 6a2 2 0 1 0 .001 4.001A2 2 0 0 0 13 14z"}>
                             </path>

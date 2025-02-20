@@ -12,6 +12,8 @@ const FefferyGrid = ({
     margin = [10, 10],
     rowHeight = 150,
     isDraggable = true,
+    draggerStyle,
+    draggerClassName,
     isResizable = true,
     isBounded = false,
     allowOverlap = false,
@@ -34,6 +36,8 @@ const FefferyGrid = ({
                     margin,
                     rowHeight,
                     isDraggable,
+                    draggerStyle,
+                    draggerClassName,
                     isResizable,
                     isBounded,
                     allowOverlap,
@@ -132,6 +136,16 @@ FefferyGrid.propTypes = {
      * 默认值：`true`
      */
     isDraggable: PropTypes.bool,
+
+    /**
+     * 网格项拖拽控件额外css样式
+     */
+    draggerStyle: PropTypes.object,
+
+    /**
+     * 网格项拖拽控件额外css类名
+     */
+    draggerClassName: PropTypes.string,
 
     /**
      * 内部网格项尺寸是否可调整
