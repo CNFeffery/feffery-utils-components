@@ -1,27 +1,30 @@
-import jsPreviewExcel from '@js-preview/excel';
+// react核心
 import { useRef, useEffect } from 'react';
+// 组件核心
+import jsPreviewExcel from '@js-preview/excel';
+// 样式
 import '@js-preview/excel/lib/index.css';
+// 辅助库
 import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
+import { useLoading } from '../../components/utils';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/filePreview/FefferyExcelPreview.react';
 
 /**
  * excel文件预览组件FefferyExcelPreview
  */
-const FefferyExcelPreview = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        style,
-        className,
-        src,
-        minColLength,
-        minRowLength,
-        widthOffset,
-        heightOffset,
-        setProps,
-        loading_state
-    } = props;
+const FefferyExcelPreview = ({
+    id,
+    style,
+    className,
+    src,
+    minColLength,
+    minRowLength,
+    widthOffset,
+    heightOffset,
+    setProps
+}) => {
 
     const containerRef = useRef(null);
 
@@ -64,9 +67,7 @@ const FefferyExcelPreview = (props) => {
             }
             style={style}
             ref={containerRef}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
+            data-dash-is-loading={useLoading()} />
     );
 }
 
