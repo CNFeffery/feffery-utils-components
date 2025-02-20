@@ -28,6 +28,8 @@ const FefferyGrid = ({
     margin,
     containerPadding,
     rowHeight,
+    closable,
+    closeEvent,
     isDraggable,
     draggerStyle,
     draggerClassName,
@@ -64,6 +66,28 @@ const FefferyGrid = ({
                             </path>
                         </svg>
                     </button>
+                    {
+                        closable ?
+                            <span style={{
+                                alignItems: 'center',
+                                background: 'url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEwIDEuMjVhOC43NSA4Ljc1IDAgMSAxIDAgMTcuNSA4Ljc1IDguNzUgMCAwIDEgMC0xNy41WiIgZmlsbD0iIzgwODM4QSIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMTIuNzA3IDYuNjk2LjYxOC42MThhLjUuNSAwIDAgMSAwIC43MDhsLTEuOTg5IDEuOTg5TDEzLjMyNiAxMmEuNS41IDAgMCAxIDAgLjcwN2wtLjYyLjYxOWEuNS41IDAgMCAxLS43MDYgMGwtMS45OS0xLjk5LTEuOTg4IDEuOTg5YS41LjUgMCAwIDEtLjcwNyAwbC0uNjE5LS42MTlhLjUuNSAwIDAgMSAwLS43MDdsMS45ODgtMS45ODgtMS45ODgtMS45ODlhLjUuNSAwIDAgMSAwLS43MDdsLjYxOS0uNjE5YS41LjUgMCAwIDEgLjcwNyAwbDEuOTg4IDEuOTg4TDEyIDYuNjk2YS41LjUgMCAwIDEgLjcwNyAwWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==) no-repeat 50%',
+                                backgroundSize: 'cover',
+                                borderRadius: '50%',
+                                cursor: 'pointer',
+                                display: 'flex',
+                                height: '20px',
+                                justifyContent: 'center',
+                                pointerEvents: 'auto',
+                                position: 'absolute',
+                                right: '-10px',
+                                top: '-10px',
+                                width: '20px',
+                                zIndex: 100
+                            }}
+                                onClick={() => setProps({ closeEvent: { key: childProps.key, timestamp: Date.now() } })}
+                            /> :
+                            null
+                    }
                     {child}
                 </div>
             );

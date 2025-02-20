@@ -11,6 +11,7 @@ const FefferyGrid = ({
     cols = 12,
     margin = [10, 10],
     rowHeight = 150,
+    closable = false,
     isDraggable = true,
     draggerStyle,
     draggerClassName,
@@ -35,6 +36,7 @@ const FefferyGrid = ({
                     compactType,
                     margin,
                     rowHeight,
+                    closable,
                     isDraggable,
                     draggerStyle,
                     draggerClassName,
@@ -130,6 +132,26 @@ FefferyGrid.propTypes = {
      * 默认值：`150`
      */
     rowHeight: PropTypes.number,
+
+    /**
+     * 内部网格项是否可关闭
+     * 默认值：`false`
+     */
+    closable: PropTypes.bool,
+
+    /**
+     * 监听最近一次内部网格项关闭事件
+     */
+    closeEvent: PropTypes.shape({
+        /**
+         * 对应网格项`key`值
+         */
+        key: PropTypes.string,
+        /**
+         * 事件时间戳
+         */
+        timestamp: PropTypes.number
+    }),
 
     /**
      * 内部网格项是否可拖拽

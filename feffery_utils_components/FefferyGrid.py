@@ -53,8 +53,28 @@ Keyword arguments:
 - rowHeight (number; default 150):
     网格中每行像素高度  默认值：`150`.
 
+- closable (boolean; default False):
+    内部网格项是否可关闭  默认值：`False`.
+
+- closeEvent (dict; optional):
+    监听最近一次内部网格项关闭事件.
+
+    `closeEvent` is a dict with keys:
+
+    - key (string; optional):
+        对应网格项`key`值.
+
+    - timestamp (number; optional):
+        事件时间戳.
+
 - isDraggable (boolean; default True):
     内部网格项是否可拖拽  默认值：`True`.
+
+- draggerStyle (dict; optional):
+    网格项拖拽控件额外css样式.
+
+- draggerClassName (string; optional):
+    网格项拖拽控件额外css类名.
 
 - isResizable (boolean; default True):
     内部网格项尺寸是否可调整  默认值：`True`.
@@ -174,6 +194,14 @@ Keyword arguments:
     _base_nodes = ['placeholder', 'children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyGrid'
+    CloseEvent = TypedDict(
+        "CloseEvent",
+            {
+            "key": NotRequired[str],
+            "timestamp": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
     Layouts = TypedDict(
         "Layouts",
             {
@@ -208,7 +236,11 @@ Keyword arguments:
         margin: typing.Optional[typing.Union[typing.Sequence[typing.Union[int, float, numbers.Number]], typing.Dict[typing.Union[str, float, int], typing.Sequence[typing.Union[int, float, numbers.Number]]]]] = None,
         containerPadding: typing.Optional[typing.Union[typing.Sequence[typing.Union[int, float, numbers.Number]], typing.Dict[typing.Union[str, float, int], typing.Sequence[typing.Union[int, float, numbers.Number]]]]] = None,
         rowHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        closable: typing.Optional[bool] = None,
+        closeEvent: typing.Optional["CloseEvent"] = None,
         isDraggable: typing.Optional[bool] = None,
+        draggerStyle: typing.Optional[dict] = None,
+        draggerClassName: typing.Optional[str] = None,
         isResizable: typing.Optional[bool] = None,
         isBounded: typing.Optional[bool] = None,
         allowOverlap: typing.Optional[bool] = None,
@@ -222,9 +254,9 @@ Keyword arguments:
         debug: typing.Optional[bool] = None,
         **kwargs
     ):
-        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'placeholder', 'height', 'autoSize', 'compactType', 'margin', 'containerPadding', 'rowHeight', 'isDraggable', 'isResizable', 'isBounded', 'allowOverlap', 'breakpoints', 'cols', 'layouts', 'placeholderBackground', 'placeholderOpacity', 'placeholderBorder', 'placeholderBorderRadius', 'debug']
+        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'placeholder', 'height', 'autoSize', 'compactType', 'margin', 'containerPadding', 'rowHeight', 'closable', 'closeEvent', 'isDraggable', 'draggerStyle', 'draggerClassName', 'isResizable', 'isBounded', 'allowOverlap', 'breakpoints', 'cols', 'layouts', 'placeholderBackground', 'placeholderOpacity', 'placeholderBorder', 'placeholderBorderRadius', 'debug']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'placeholder', 'height', 'autoSize', 'compactType', 'margin', 'containerPadding', 'rowHeight', 'isDraggable', 'isResizable', 'isBounded', 'allowOverlap', 'breakpoints', 'cols', 'layouts', 'placeholderBackground', 'placeholderOpacity', 'placeholderBorder', 'placeholderBorderRadius', 'debug']
+        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'placeholder', 'height', 'autoSize', 'compactType', 'margin', 'containerPadding', 'rowHeight', 'closable', 'closeEvent', 'isDraggable', 'draggerStyle', 'draggerClassName', 'isResizable', 'isBounded', 'allowOverlap', 'breakpoints', 'cols', 'layouts', 'placeholderBackground', 'placeholderOpacity', 'placeholderBorder', 'placeholderBorderRadius', 'debug']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
