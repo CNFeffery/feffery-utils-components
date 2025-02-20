@@ -1,31 +1,34 @@
+// react核心
 import React, { useRef, useEffect } from 'react';
+// 组件核心
 import SliderCaptcha from 'rc-slider-captcha';
 import createPuzzle from 'create-puzzle';
+// 辅助库
+import { useLoading } from '../../components/utils';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/verification/FefferySliderCaptcha.react';
 
 /**
  * 滑块验证码组件FefferySliderCaptcha
  */
-const FefferySliderCaptcha = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        imgSrc,
-        xOffset,
-        imgWidth,
-        imgHeight,
-        mode,
-        tipText,
-        showRefreshIcon,
-        autoRefreshOnError,
-        errorHoldDuration,
-        placement,
-        refresh,
-        setProps,
-        loading_state
-    } = props;
+const FefferySliderCaptcha = ({
+    id,
+    key,
+    style,
+    className,
+    imgSrc,
+    xOffset,
+    imgWidth,
+    imgHeight,
+    mode,
+    tipText,
+    showRefreshIcon,
+    autoRefreshOnError,
+    errorHoldDuration,
+    placement,
+    refresh,
+    setProps
+}) => {
 
     // 记录x轴动态偏移量
     const offsetXRef = useRef(0);
@@ -94,9 +97,7 @@ const FefferySliderCaptcha = (props) => {
             autoRefreshOnError={autoRefreshOnError}
             errorHoldDuration={errorHoldDuration}
             placement={placement}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
+            data-dash-is-loading={useLoading()} />
     );
 }
 
