@@ -2,27 +2,29 @@
 import PropTypes from 'prop-types';
 // 组件核心
 import CountUp from 'react-countup';
+// 辅助库
+import { useLoading } from '../utils';
 
 /**
  * 数字递增组件FefferyCountUp
  */
-const FefferyCountUp = (props) => {
-    const {
-        id,
-        className,
-        style,
-        key,
-        end,
-        start,
-        duration,
-        decimals,
-        enableScrollSpy,
-        scrollSpyDelay,
-        scrollSpyOnce,
-        separator,
-        setProps,
-        loading_state
-    } = props;
+const FefferyCountUp = ({
+    id,
+    className,
+    style,
+    key,
+    end,
+    start = 0,
+    duration = 2,
+    decimals = 0,
+    enableScrollSpy = true,
+    scrollSpyDelay = 0,
+    scrollSpyOnce = true,
+    separator = ',',
+    setProps
+}) => {
+
+    const componnet_loading = useLoading();
 
     if (enableScrollSpy) {
         // #70 
@@ -38,9 +40,7 @@ const FefferyCountUp = (props) => {
                 scrollSpyDelay={scrollSpyDelay}
                 scrollSpyOnce={scrollSpyOnce}
                 separator={separator}
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                } >
+                data-dash-is-loading={componnet_loading} >
                 {
                     ({ countUpRef }) => (
                         <span id={id}
@@ -65,9 +65,7 @@ const FefferyCountUp = (props) => {
             duration={duration}
             decimals={decimals}
             separator={separator}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={componnet_loading}
         />
     )
 }
@@ -140,36 +138,11 @@ FefferyCountUp.propTypes = {
      */
     separator: PropTypes.string,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-FefferyCountUp.defaultProps = {
-    start: 0,
-    duration: 2,
-    decimals: 0,
-    enableScrollSpy: true,
-    scrollSpyDelay: 0,
-    scrollSpyOnce: true,
-    separator: ','
-}
 
 export default FefferyCountUp;

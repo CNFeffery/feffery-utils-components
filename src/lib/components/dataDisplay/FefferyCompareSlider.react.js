@@ -3,27 +3,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // 组件核心
 import { ReactCompareSlider, ReactCompareSliderHandle } from 'react-compare-slider';
+// 辅助库
+import { useLoading } from '../utils';
 
 /**
  * 卷帘比较组件FefferyCompareSlider
  */
-const FefferyCompareSlider = (props) => {
-    const {
-        id,
-        style,
-        className,
-        firstItem,
-        secondItem,
-        position,
-        onlyHandleDraggable,
-        boundsPadding,
-        direction,
-        buttonStyle,
-        linesStyle,
-        rootStyle,
-        setProps,
-        loading_state
-    } = props;
+const FefferyCompareSlider = ({
+    id,
+    style,
+    className,
+    firstItem,
+    secondItem,
+    position = 50,
+    onlyHandleDraggable = true,
+    boundsPadding = 0,
+    direction = 'horizontal',
+    buttonStyle,
+    linesStyle,
+    rootStyle,
+    setProps
+}) => {
 
     return (
         <ReactCompareSlider
@@ -44,13 +44,10 @@ const FefferyCompareSlider = (props) => {
                     style={rootStyle}
                     portrait={direction === 'vertical'} />
             }
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
+            data-dash-is-loading={useLoading()} />
     );
 }
 
-// 定义参数或属性
 FefferyCompareSlider.propTypes = {
     /**
      * 组件唯一id
@@ -121,33 +118,11 @@ FefferyCompareSlider.propTypes = {
      */
     rootStyle: PropTypes.object,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-FefferyCompareSlider.defaultProps = {
-    position: 50,
-    onlyHandleDraggable: true,
-    boundsPadding: 0,
-    direction: 'horizontal',
-}
 
 export default React.memo(FefferyCompareSlider);

@@ -1,17 +1,17 @@
+// react核心
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
+// 组件核心
 import devtoolsDetector from 'devtools-detector';
 
 /**
  * 调试守护组件FefferyDebugGuardian
  */
-const FefferyDebugGuardian = (props) => {
-
-    const {
-        detectInterval,
-        strategy,
-        jsString
-    } = props;
+const FefferyDebugGuardian = ({
+    detectInterval = 1000,
+    strategy = 'infinite-debugger',
+    jsString
+}) => {
 
     // 组件挂载时开始每隔500毫秒检查一次debugger是否激活
     useEffect(() => {
@@ -82,28 +82,7 @@ FefferyDebugGuardian.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-// 设置默认参数
-FefferyDebugGuardian.defaultProps = {
-    detectInterval: 1000,
-    strategy: 'infinite-debugger'
-}
 
 export default FefferyDebugGuardian;

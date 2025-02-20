@@ -1,6 +1,10 @@
+// react核心
 import React from 'react';
-import List from 'rc-virtual-list';
 import PropTypes from 'prop-types';
+// 组件核心
+import List from 'rc-virtual-list';
+// 辅助库
+import { useLoading } from '../utils';
 
 const parseChildrenToArray = children => {
     if (children && !Array.isArray(children)) {
@@ -12,19 +16,16 @@ const parseChildrenToArray = children => {
 /**
  * 虚拟滚动组件FefferyVirtualList
  */
-const FefferyVirtualList = (props) => {
-    // 取得必要属性或参数
-    let {
-        id,
-        children,
-        style,
-        className,
-        key,
-        height,
-        itemHeight,
-        setProps,
-        loading_state
-    } = props;
+const FefferyVirtualList = ({
+    id,
+    children,
+    style,
+    className,
+    key,
+    height,
+    itemHeight,
+    setProps
+}) => {
 
     children = parseChildrenToArray(children);
 
@@ -40,9 +41,7 @@ const FefferyVirtualList = (props) => {
         itemHeight={itemHeight}
         data={children.map((_, index) => index)}
         children={(index) => children[index]}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        } />);
+        data-dash-is-loading={useLoading()} />);
 }
 
 FefferyVirtualList.propTypes = {
@@ -88,26 +87,7 @@ FefferyVirtualList.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-// 设置默认参数
-FefferyVirtualList.defaultProps = {
-}
 
 export default FefferyVirtualList;

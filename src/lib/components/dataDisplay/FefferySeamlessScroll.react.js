@@ -7,9 +7,35 @@ const LazyFefferySeamlessScroll = React.lazy(() => import(/* webpackChunkName: "
  * 无缝滚动组件FefferySeamlessScroll
  */
 const FefferySeamlessScroll = (props) => {
+
+    let defaultProps = {
+        classOption: {
+            step: 1,
+            limitMoveNum: 5,
+            hoverStop: true,
+            direction: 1,
+            openTouch: true,
+            singleHeight: 0,
+            singleWidth: 0,
+            waitTime: 1000,
+            switchOffset: 30,
+            autoPlay: true,
+            switchSingleStep: 134,
+            switchDelay: 400,
+            switchDisabledClass: 'disabled',
+            isSingleRemUnit: false,
+            navigation: false
+        }
+    }
+
     return (
         <Suspense fallback={null}>
-            <LazyFefferySeamlessScroll {...props} />
+            <LazyFefferySeamlessScroll {
+                ...{
+                    ...defaultProps,
+                    ...props
+                }
+            } />
         </Suspense>
     );
 }
@@ -143,43 +169,8 @@ FefferySeamlessScroll.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-FefferySeamlessScroll.defaultProps = {
-    classOption: {
-        step: 1,
-        limitMoveNum: 5,
-        hoverStop: true,
-        direction: 1,
-        openTouch: true,
-        singleHeight: 0,
-        singleWidth: 0,
-        waitTime: 1000,
-        switchOffset: 30,
-        autoPlay: true,
-        switchSingleStep: 134,
-        switchDelay: 400,
-        switchDisabledClass: 'disabled',
-        isSingleRemUnit: false,
-        navigation: false
-    }
-}
 
 export default FefferySeamlessScroll;
 

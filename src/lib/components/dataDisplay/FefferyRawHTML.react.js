@@ -2,26 +2,24 @@
 import PropTypes from 'prop-types';
 // 组件核心
 import { Interweave } from 'interweave';
+// 辅助库
+import { useLoading } from '../utils';
 
 /**
  * HTML字符渲染组件FefferyRawHTML
  */
-const FefferyRawHTML = (props) => {
-    const {
-        id,
-        key,
-        htmlString,
-        setProps,
-        loading_state
-    } = props;
+const FefferyRawHTML = ({
+    id,
+    key,
+    htmlString,
+    setProps
+}) => {
 
     return (<Interweave
         id={id}
         key={key}
         content={htmlString}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        } />);
+        data-dash-is-loading={useLoading()} />);
 }
 
 FefferyRawHTML.propTypes = {
@@ -44,25 +42,7 @@ FefferyRawHTML.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-FefferyRawHTML.defaultProps = {
-}
 
 export default FefferyRawHTML;

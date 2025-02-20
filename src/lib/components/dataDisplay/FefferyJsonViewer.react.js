@@ -6,10 +6,48 @@ const LazyFefferyJsonViewer = React.lazy(() => import(/* webpackChunkName: "feff
 /**
  * json数据展示组件FefferyJsonViewer
  */
-const FefferyJsonViewer = (props) => {
+const FefferyJsonViewer = ({
+    rootName = false,
+    indent = 4,
+    theme = 'summerfruit:inverted',
+    iconStyle = 'circle',
+    collapsed = false,
+    collapseStringsAfterLength = false,
+    groupArraysAfterLength = 100,
+    enableClipboard = true,
+    displayObjectSize = true,
+    displayDataTypes = true,
+    editable = false,
+    addible = false,
+    deletable = false,
+    sortKeys = false,
+    quotesOnKeys = true,
+    displayArrayKey = true,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyJsonViewer {...props} />
+            <LazyFefferyJsonViewer {
+                ...{
+                    rootName,
+                    indent,
+                    theme,
+                    iconStyle,
+                    collapsed,
+                    collapseStringsAfterLength,
+                    groupArraysAfterLength,
+                    enableClipboard,
+                    displayObjectSize,
+                    displayDataTypes,
+                    editable,
+                    addible,
+                    deletable,
+                    sortKeys,
+                    quotesOnKeys,
+                    displayArrayKey,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -161,46 +199,12 @@ FefferyJsonViewer.propTypes = {
      */
     displayArrayKey: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-FefferyJsonViewer.defaultProps = {
-    rootName: false,
-    indent: 4,
-    theme: 'summerfruit:inverted',
-    iconStyle: 'circle',
-    collapsed: false,
-    collapseStringsAfterLength: false,
-    groupArraysAfterLength: 100,
-    enableClipboard: true,
-    displayObjectSize: true,
-    displayDataTypes: true,
-    editable: false,
-    addible: false,
-    deletable: false,
-    sortKeys: false,
-    quotesOnKeys: true,
-    displayArrayKey: true
-}
 
 export default FefferyJsonViewer;
 
