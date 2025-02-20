@@ -7,12 +7,10 @@ import { useIdle } from 'react-use';
 /**
  * 闲置状态监听组件FefferyIdle
  */
-const FefferyIdle = (props) => {
-    const {
-        waitDuration,
-        setProps,
-        loading_state
-    } = props;
+const FefferyIdle = ({
+    waitDuration = 3000,
+    setProps
+}) => {
 
     const _isIdle = useIdle(waitDuration);
 
@@ -49,26 +47,7 @@ FefferyIdle.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-FefferyIdle.defaultProps = {
-    waitDuration: 3000
-}
 
 export default FefferyIdle;

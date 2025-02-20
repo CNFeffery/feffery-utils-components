@@ -5,21 +5,20 @@ import PropTypes from 'prop-types';
 import { useInViewport } from 'ahooks';
 // 辅助库
 import { isUndefined } from 'lodash';
+import { useLoading } from '../utils';
 
 /**
  * 元素可见性检查组件FefferyInViewport
  */
-const FefferyInViewport = (props) => {
-    const {
-        id,
-        inViewport,
-        threshold,
-        children,
-        style,
-        className,
-        setProps,
-        loading_state
-    } = props;
+const FefferyInViewport = ({
+    id,
+    inViewport,
+    threshold,
+    children,
+    style,
+    className,
+    setProps
+}) => {
 
     const ref = useRef(null);
 
@@ -55,9 +54,7 @@ const FefferyInViewport = (props) => {
         className={className}
         children={children}
         ref={ref}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        } />);
+        data-dash-is-loading={useLoading()} />);
 }
 
 FefferyInViewport.propTypes = {
@@ -90,25 +87,7 @@ FefferyInViewport.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-FefferyInViewport.defaultProps = {
-}
 
 export default FefferyInViewport;

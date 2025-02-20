@@ -7,14 +7,12 @@ import { useLongPress } from 'ahooks';
 /**
  * 长按事件监听组件FefferyLongPress
  */
-const FefferyLongPress = (props) => {
-    const {
-        targetId,
-        pressCounts,
-        delay,
-        setProps,
-        loading_state
-    } = props;
+const FefferyLongPress = ({
+    targetId,
+    pressCounts = 0,
+    delay = 300,
+    setProps
+}) => {
 
     useLongPress(
         () => {
@@ -87,10 +85,5 @@ FefferyLongPress.propTypes = {
         component_name: PropTypes.string
     })
 };
-
-FefferyLongPress.defaultProps = {
-    pressCounts: 0,
-    delay: 300
-}
 
 export default React.memo(FefferyLongPress);

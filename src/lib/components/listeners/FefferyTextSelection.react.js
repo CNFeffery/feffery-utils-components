@@ -7,13 +7,12 @@ import { useTextSelection } from 'ahooks';
 /**
  * 文字选中监听组件FefferyTextSelection
  */
-const FefferyTextSelection = (props) => {
-    const {
-        targetId,
-        targetSelector,
-        targetType,
-        setProps
-    } = props;
+const FefferyTextSelection = ({
+    targetId,
+    targetSelector,
+    targetType = 'id',
+    setProps
+}) => {
 
     // 根据不同的定位目标规则类型进行目标容器的绑定
     const selection = useTextSelection(
@@ -72,26 +71,7 @@ FefferyTextSelection.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-FefferyTextSelection.defaultProps = {
-    targetType: 'id'
-}
 
 export default FefferyTextSelection;
