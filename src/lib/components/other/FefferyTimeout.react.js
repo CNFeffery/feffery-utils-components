@@ -6,14 +6,11 @@ import { useTimeout } from 'ahooks';
 /**
  * 定时执行组件FefferyTimeout
  */
-const FefferyTimeout = (props) => {
-    const {
-        id,
-        delay,
-        timeoutCount,
-        setProps,
-        loading_state
-    } = props;
+const FefferyTimeout = ({
+    delay,
+    timeoutCount = 0,
+    setProps
+}) => {
 
     useTimeout(() => {
         setProps({
@@ -51,26 +48,7 @@ FefferyTimeout.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-FefferyTimeout.defaultProps = {
-    timeoutCount: 0
-}
 
 export default FefferyTimeout;

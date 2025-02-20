@@ -7,14 +7,11 @@ import { useCountDown } from 'ahooks';
 /**
  * 倒计时组件FefferyCountDown
  */
-const FefferyCountDown = (props) => {
-    const {
-        id,
-        delay,
-        interval,
-        setProps,
-        loading_state
-    } = props;
+const FefferyCountDown = ({
+    delay,
+    interval = 1,
+    setProps
+}) => {
 
     const [targetDate, setTargetDate] = useState(null);
 
@@ -77,26 +74,7 @@ FefferyCountDown.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-FefferyCountDown.defaultProps = {
-    interval: 1
-}
 
 export default FefferyCountDown;

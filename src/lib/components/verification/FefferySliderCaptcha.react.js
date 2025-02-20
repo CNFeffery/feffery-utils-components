@@ -6,10 +6,32 @@ const LazyFefferySliderCaptcha = React.lazy(() => import(/* webpackChunkName: "f
 /**
  * 滑块验证码组件FefferySliderCaptcha
  */
-const FefferySliderCaptcha = (props) => {
+const FefferySliderCaptcha = ({
+    xOffset = 5,
+    imgWidth = 320,
+    imgHeight = 160,
+    mode = 'embed',
+    showRefreshIcon = true,
+    autoRefreshOnError = true,
+    errorHoldDuration = 500,
+    placement = 'top',
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferySliderCaptcha {...props} />
+            <LazyFefferySliderCaptcha {
+                ...{
+                    xOffset,
+                    imgWidth,
+                    imgHeight,
+                    mode,
+                    showRefreshIcon,
+                    autoRefreshOnError,
+                    errorHoldDuration,
+                    placement,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -146,18 +168,6 @@ FefferySliderCaptcha.propTypes = {
      */
     setProps: PropTypes.func
 };
-
-// 设置默认参数
-FefferySliderCaptcha.defaultProps = {
-    xOffset: 5,
-    imgWidth: 320,
-    imgHeight: 160,
-    mode: 'embed',
-    showRefreshIcon: true,
-    autoRefreshOnError: true,
-    errorHoldDuration: 500,
-    placement: 'top'
-}
 
 export default FefferySliderCaptcha;
 
