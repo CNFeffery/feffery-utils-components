@@ -1,19 +1,18 @@
+// react核心
 import { useEffect } from 'react';
-import { useFullscreen } from 'ahooks';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useFullscreen } from 'ahooks';
 
 /**
  * 全屏化组件FefferyFullscreen
  */
-const FefferyFullscreen = (props) => {
-    // 取得必要属性或参数
-    const {
-        targetId,
-        isFullscreen,
-        pageFullscreen,
-        setProps,
-        loading_state
-    } = props;
+const FefferyFullscreen = ({
+    targetId,
+    isFullscreen = false,
+    pageFullscreen = false,
+    setProps
+}) => {
 
     const [
         _isFullscreen,
@@ -117,32 +116,11 @@ FefferyFullscreen.propTypes = {
         })
     ]),
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyFullscreen.defaultProps = {
-    isFullscreen: false,
-    pageFullscreen: false
-}
 
 export default FefferyFullscreen;

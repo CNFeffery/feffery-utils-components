@@ -1,27 +1,25 @@
+// react核心
 import React from 'react';
 import PropTypes from 'prop-types';
+// 组件核心
 import { animateScroll as scroll, scroller } from 'react-scroll'
 
 /**
  * 滚动操作组件FefferyScroll
  */
-const FefferyScroll = (props) => {
-    // 取得必要属性或参数
-    let {
-        id,
-        scrollMode,
-        executeScroll,
-        scrollTopOffset,
-        scrollRelativeOffset,
-        scrollTargetId,
-        duration,
-        smooth,
-        delay,
-        containerId,
-        offset,
-        setProps,
-        loading_state
-    } = props;
+const FefferyScroll = ({
+    scrollMode = 'to-top',
+    executeScroll = false,
+    scrollTopOffset,
+    scrollRelativeOffset,
+    scrollTargetId,
+    duration = 500,
+    smooth = true,
+    delay = 0,
+    containerId,
+    offset,
+    setProps
+}) => {
 
     if (executeScroll && scrollMode) {
         if (scrollMode === 'to-top') {
@@ -169,35 +167,11 @@ FefferyScroll.propTypes = {
      */
     offset: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func
 };
-
-// 设置默认参数
-FefferyScroll.defaultProps = {
-    executeScroll: false,
-    scrollMode: 'to-top',
-    duration: 500,
-    delay: 0,
-    smooth: true
-}
 
 export default FefferyScroll;

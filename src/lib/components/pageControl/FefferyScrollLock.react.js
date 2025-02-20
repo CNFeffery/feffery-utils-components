@@ -1,18 +1,19 @@
+// react核心
 import { useEffect } from 'react';
-import { useScrollLock } from '@reactuses/core';
-import { isUndefined } from 'lodash';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useScrollLock } from '@reactuses/core';
+// 辅助库
+import { isUndefined } from 'lodash';
 
 /**
  * 滚动锁定组件FefferyScrollLock
  */
-const FefferyScrollLock = (props) => {
-    const {
-        target,
-        locked,
-        setProps,
-        loading_state
-    } = props;
+const FefferyScrollLock = ({
+    target,
+    locked = false,
+    setProps
+}) => {
 
     const [_locked, setLocked] = useScrollLock(target ? document.getElementById(target) : document.body);
 
@@ -48,31 +49,11 @@ FefferyScrollLock.propTypes = {
      */
     locked: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyScrollLock.defaultProps = {
-    locked: false
-}
 
 export default FefferyScrollLock;
