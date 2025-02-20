@@ -6,10 +6,42 @@ const LazyFefferyNetBackground = React.lazy(() => import(/* webpackChunkName: "f
 /**
  * 3D-Net背景组件FefferyNetBackground
  */
-const FefferyNetBackground = (props) => {
+const FefferyNetBackground = ({
+    mouseControls = true,
+    touchControls = true,
+    gyroControls = false,
+    minHeight = 200.00,
+    minWidth = 200.00,
+    scale = 1.00,
+    scaleMobile = 1.00,
+    color = '#ff3f81',
+    backgroundColor = '#23153c',
+    points = 10,
+    maxDistance = 20,
+    spacing = 15,
+    showDots = true,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyNetBackground {...props} />
+            <LazyFefferyNetBackground {
+                ...{
+                    mouseControls,
+                    touchControls,
+                    gyroControls,
+                    minHeight,
+                    minWidth,
+                    scale,
+                    scaleMobile,
+                    color,
+                    backgroundColor,
+                    points,
+                    maxDistance,
+                    spacing,
+                    showDots,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -122,44 +154,12 @@ FefferyNetBackground.propTypes = {
      */
     showDots: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyNetBackground.defaultProps = {
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    color: '#ff3f81',
-    backgroundColor: '#23153c',
-    points: 10,
-    maxDistance: 20,
-    spacing: 15,
-    showDots: true
-}
 
 export default FefferyNetBackground;
 

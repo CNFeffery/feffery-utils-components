@@ -6,10 +6,32 @@ const LazyFefferyBlockColorPicker = React.lazy(() => import(/* webpackChunkName:
 /**
  * Block风格色彩选择器
  */
-const FefferyBlockColorPicker = (props) => {
+const FefferyBlockColorPicker = ({
+    id,
+    className,
+    style,
+    width = '170px',
+    color,
+    colors = ['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555', '#dce775', '#ff8a65', '#ba68c8'],
+    triangle = 'top',
+    setProps,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyBlockColorPicker {...props} />
+            <LazyFefferyBlockColorPicker {
+                ...{
+                    id,
+                    className,
+                    style,
+                    width,
+                    color,
+                    colors,
+                    triangle,
+                    setProps,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -56,29 +78,8 @@ FefferyBlockColorPicker.propTypes = {
      * 顶部箭头方位，可选项有`'hide'`、`'top'`
      * 默认值：`'top'`
      */
-    triangle: PropTypes.oneOf(['hide', 'top']),
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    triangle: PropTypes.oneOf(['hide', 'top'])
 };
-
-FefferyBlockColorPicker.defaultProps = {
-    triangle: 'top',
-    width: '170px',
-    colors: ['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555', '#dce775', '#ff8a65', '#ba68c8']
-}
 
 export default FefferyBlockColorPicker;
 

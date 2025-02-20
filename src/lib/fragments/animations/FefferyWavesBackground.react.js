@@ -1,36 +1,38 @@
+// react核心
 import React, { useState, useEffect, useRef } from 'react';
+// 组件核心
 import WAVES from 'vanta/dist/vanta.waves.min';
 import * as THREE from 'three';
+// 辅助库
 import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
+import { useLoading } from '../../components/utils';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/animations/FefferyWavesBackground.react';
 
 /**
  * 3D-Waves背景组件FefferyWavesBackground
  */
-const FefferyWavesBackground = (props) => {
-    // 取得必要属性或参数
-    let {
-        id,
-        children,
-        className,
-        style,
-        key,
-        mouseControls,
-        touchControls,
-        gyroControls,
-        minHeight,
-        minWidth,
-        scale,
-        scaleMobile,
-        color,
-        shininess,
-        waveHeight,
-        waveSpeed,
-        zoom,
-        setProps,
-        loading_state
-    } = props;
+const FefferyWavesBackground = ({
+    id,
+    children,
+    className,
+    style,
+    key,
+    mouseControls,
+    touchControls,
+    gyroControls,
+    minHeight,
+    minWidth,
+    scale,
+    scaleMobile,
+    color,
+    shininess,
+    waveHeight,
+    waveSpeed,
+    zoom,
+    setProps
+}) => {
 
     const [wavesEffect, setWavesEffect] = useState(null);
     const wavesRef = useRef(null);
@@ -71,9 +73,7 @@ const FefferyWavesBackground = (props) => {
             style={style}
             key={key}
             ref={wavesRef}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={useLoading()}
         >
             {children}
         </div>

@@ -1,87 +1,89 @@
+// react核心
 import React, { useMemo, useEffect, useRef } from 'react';
+// 组件核心
 import DPlayer from "react-dplayer";
 import Hls from 'hls.js';
 import flvjs from 'flv.js';
 import dashjs from 'dashjs';
+// 辅助库
 import { v4 as uuidv4 } from 'uuid';
 import { isString } from 'lodash';
 import useCss from '../../hooks/useCss';
+import { useLoading } from '../../components/utils';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/player/FefferyDPlayer.react';
 
 /**
  * 视频播放组件FefferyDPlayer
  */
-const FefferyDPlayer = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        className,
-        style,
-        key,
-        live,
-        autoplay,
-        theme,
-        loop,
-        lang,
-        screenshot,
-        airplay,
-        hotkey,
-        chromecast,
-        preload,
-        volume,
-        playbackSpeed,
-        logo,
-        preventClickToggle,
-        video,
-        subtitle,
-        danmaku,
-        contextmenu,
-        highlight,
-        mutex,
-        play,
-        pause,
-        seek,
-        notice,
-        speed,
-        volumeSet,
-        fullScreen,
-        switchQuality,
-        switchVideo,
-        sendDanmaku,
-        drawDanmaku,
-        opacityDanmaku,
-        clearDanmaku,
-        hideDanmaku,
-        showDanmaku,
-        destroy,
-        playClicks,
-        pauseClicks,
-        seekClicks,
-        showNoticeClicks,
-        hideNoticeClicks,
-        speedClicks,
-        volumeSetClicks,
-        screenshotClicks,
-        contextmenuShowClicks,
-        contextmenuHideClicks,
-        currentClickContextmenu,
-        fullScreenClicks,
-        cancelFullScreenClicks,
-        sendDanmakuCallback,
-        drawDanmakuClicks,
-        opacityDanmakuCallback,
-        clearDanmakuClicks,
-        hideDanmakuClicks,
-        showDanmakuClicks,
-        subtitleShowClicks,
-        subtitleHideClicks,
-        subtitleChangeClicks,
-        destroyClicks,
-        currentNoticeInfo,
-        currentVideoInfo,
-        setProps,
-        loading_state
-    } = props;
+const FefferyDPlayer = ({
+    id,
+    className,
+    style,
+    key,
+    live,
+    autoplay,
+    theme,
+    loop,
+    lang,
+    screenshot,
+    airplay,
+    hotkey,
+    chromecast,
+    preload,
+    volume,
+    playbackSpeed,
+    logo,
+    preventClickToggle,
+    video,
+    subtitle,
+    danmaku,
+    contextmenu,
+    highlight,
+    mutex,
+    play,
+    pause,
+    seek,
+    notice,
+    speed,
+    volumeSet,
+    fullScreen,
+    switchQuality,
+    switchVideo,
+    sendDanmaku,
+    drawDanmaku,
+    opacityDanmaku,
+    clearDanmaku,
+    hideDanmaku,
+    showDanmaku,
+    destroy,
+    playClicks,
+    pauseClicks,
+    seekClicks,
+    showNoticeClicks,
+    hideNoticeClicks,
+    speedClicks,
+    volumeSetClicks,
+    screenshotClicks,
+    contextmenuShowClicks,
+    contextmenuHideClicks,
+    currentClickContextmenu,
+    fullScreenClicks,
+    cancelFullScreenClicks,
+    sendDanmakuCallback,
+    drawDanmakuClicks,
+    opacityDanmakuCallback,
+    clearDanmakuClicks,
+    hideDanmakuClicks,
+    showDanmakuClicks,
+    subtitleShowClicks,
+    subtitleHideClicks,
+    subtitleChangeClicks,
+    destroyClicks,
+    currentNoticeInfo,
+    currentVideoInfo,
+    setProps
+}) => {
 
     const containerId = uuidv4();
 
@@ -448,7 +450,7 @@ const FefferyDPlayer = (props) => {
                 onSubtitleHide={onSubtitleHide}
                 onSubtitleChange={onSubtitleChange}
                 onDestroy={onDestroy}
-                loading_state={loading_state}
+                data-dash-is-loading={useLoading()}
             />
         </div>
     )

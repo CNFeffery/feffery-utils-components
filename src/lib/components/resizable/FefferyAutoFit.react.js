@@ -6,10 +6,34 @@ const LazyFefferyAutoFit = React.lazy(() => import(/* webpackChunkName: "feffery
 /**
  * 自适应组件FefferyAutoFit
  */
-const FefferyAutoFit = (props) => {
+const FefferyAutoFit = ({
+    containerId = 'body',
+    dw = 1920,
+    dh = 1080,
+    resize = true,
+    ignore = [],
+    transition = 0,
+    delay = 0,
+    limit = 0.1,
+    close = false,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyAutoFit {...props} />
+            <LazyFefferyAutoFit {
+                ...{
+                    containerId,
+                    dw,
+                    dh,
+                    resize,
+                    ignore,
+                    transition,
+                    delay,
+                    limit,
+                    close,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -32,8 +56,8 @@ FefferyAutoFit.propTypes = {
     containerId: PropTypes.string,
 
     /**
-         * 设计稿的宽度，默认是1920
-         */
+     * 设计稿的宽度，默认是1920
+     */
     dw: PropTypes.number,
     /**
      * 设计稿的高度
@@ -76,40 +100,12 @@ FefferyAutoFit.propTypes = {
      */
     close: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyAutoFit.defaultProps = {
-    containerId: 'body',
-    dw: 1920,
-    dh: 1080,
-    resize: true,
-    ignore: [],
-    transition: 0,
-    delay: 0,
-    limit: 0.1,
-    close: false
-}
 
 export default FefferyAutoFit;
 

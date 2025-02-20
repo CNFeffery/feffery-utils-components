@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyResizable(Component):
@@ -112,29 +119,80 @@ Keyword arguments:
 
     - bottomLeft (string; optional)
 
-    - topLeft (string; optional)
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    - topLeft (string; optional)"""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyResizable'
+    DefaultSize = TypedDict(
+        "DefaultSize",
+            {
+            "width": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], str]],
+            "height": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], str]]
+        }
+    )
+
+    Size = TypedDict(
+        "Size",
+            {
+            "width": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], str]],
+            "height": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], str]]
+        }
+    )
+
+    HandleStyles = TypedDict(
+        "HandleStyles",
+            {
+            "top": NotRequired[dict],
+            "right": NotRequired[dict],
+            "bottom": NotRequired[dict],
+            "left": NotRequired[dict],
+            "topRight": NotRequired[dict],
+            "bottomRight": NotRequired[dict],
+            "bottomLeft": NotRequired[dict],
+            "topLeft": NotRequired[dict]
+        }
+    )
+
+    HandleClassNames = TypedDict(
+        "HandleClassNames",
+            {
+            "top": NotRequired[str],
+            "right": NotRequired[str],
+            "bottom": NotRequired[str],
+            "left": NotRequired[str],
+            "topRight": NotRequired[str],
+            "bottomRight": NotRequired[str],
+            "bottomLeft": NotRequired[str],
+            "topLeft": NotRequired[str]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, defaultSize=Component.UNDEFINED, size=Component.UNDEFINED, minWidth=Component.UNDEFINED, minHeight=Component.UNDEFINED, maxWidth=Component.UNDEFINED, maxHeight=Component.UNDEFINED, direction=Component.UNDEFINED, grid=Component.UNDEFINED, bounds=Component.UNDEFINED, boundsSelector=Component.UNDEFINED, handleStyles=Component.UNDEFINED, handleClassNames=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'defaultSize', 'size', 'minWidth', 'minHeight', 'maxWidth', 'maxHeight', 'direction', 'grid', 'bounds', 'boundsSelector', 'handleStyles', 'handleClassNames', 'loading_state']
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        defaultSize: typing.Optional["DefaultSize"] = None,
+        size: typing.Optional["Size"] = None,
+        minWidth: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
+        minHeight: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
+        maxWidth: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
+        maxHeight: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
+        direction: typing.Optional[typing.Sequence[Literal["top", "right", "bottom", "left", "topRight", "bottomRight", "bottomLeft", "topLeft"]]] = None,
+        grid: typing.Optional[typing.Sequence[typing.Union[int, float, numbers.Number]]] = None,
+        bounds: typing.Optional[Literal["window", "parent"]] = None,
+        boundsSelector: typing.Optional[str] = None,
+        handleStyles: typing.Optional["HandleStyles"] = None,
+        handleClassNames: typing.Optional["HandleClassNames"] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'defaultSize', 'size', 'minWidth', 'minHeight', 'maxWidth', 'maxHeight', 'direction', 'grid', 'bounds', 'boundsSelector', 'handleStyles', 'handleClassNames']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'defaultSize', 'size', 'minWidth', 'minHeight', 'maxWidth', 'maxHeight', 'direction', 'grid', 'bounds', 'boundsSelector', 'handleStyles', 'handleClassNames', 'loading_state']
+        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'defaultSize', 'size', 'minWidth', 'minHeight', 'maxWidth', 'maxHeight', 'direction', 'grid', 'bounds', 'boundsSelector', 'handleStyles', 'handleClassNames']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

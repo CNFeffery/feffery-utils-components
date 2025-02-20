@@ -6,10 +6,34 @@ const LazyFefferyCircleColorPicker = React.lazy(() => import(/* webpackChunkName
 /**
  * Circle风格色彩选择器
  */
-const FefferyCircleColorPicker = (props) => {
+const FefferyCircleColorPicker = ({
+    id,
+    className,
+    style,
+    width = '252px',
+    circleSize = 28,
+    circleSpacing = 14,
+    color,
+    colors = ["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#607d8b"],
+    setProps,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyCircleColorPicker {...props} />
+            <LazyFefferyCircleColorPicker {
+                ...{
+                    id,
+                    className,
+                    style,
+                    width,
+                    circleSize,
+                    circleSpacing,
+                    color,
+                    colors,
+                    setProps,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -62,30 +86,8 @@ FefferyCircleColorPicker.propTypes = {
      * 设置可选色彩对应16进制颜色值数组
      * 默认值：`["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#607d8b"]`
      */
-    colors: PropTypes.arrayOf(PropTypes.string),
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    colors: PropTypes.arrayOf(PropTypes.string)
 };
-
-FefferyCircleColorPicker.defaultProps = {
-    circleSpacing: 14,
-    circleSize: 28,
-    width: '252px',
-    colors: ["#f44336", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#2196f3", "#03a9f4", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#607d8b"]
-}
 
 export default FefferyCircleColorPicker;
 

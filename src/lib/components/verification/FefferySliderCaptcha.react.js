@@ -6,10 +6,32 @@ const LazyFefferySliderCaptcha = React.lazy(() => import(/* webpackChunkName: "f
 /**
  * 滑块验证码组件FefferySliderCaptcha
  */
-const FefferySliderCaptcha = (props) => {
+const FefferySliderCaptcha = ({
+    xOffset = 5,
+    imgWidth = 320,
+    imgHeight = 160,
+    mode = 'embed',
+    showRefreshIcon = true,
+    autoRefreshOnError = true,
+    errorHoldDuration = 500,
+    placement = 'top',
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferySliderCaptcha {...props} />
+            <LazyFefferySliderCaptcha {
+                ...{
+                    xOffset,
+                    imgWidth,
+                    imgHeight,
+                    mode,
+                    showRefreshIcon,
+                    autoRefreshOnError,
+                    errorHoldDuration,
+                    placement,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -140,39 +162,12 @@ FefferySliderCaptcha.propTypes = {
         timestamp: PropTypes.number
     }),
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func
 };
-
-// 设置默认参数
-FefferySliderCaptcha.defaultProps = {
-    xOffset: 5,
-    imgWidth: 320,
-    imgHeight: 160,
-    mode: 'embed',
-    showRefreshIcon: true,
-    autoRefreshOnError: true,
-    errorHoldDuration: 500,
-    placement: 'top'
-}
 
 export default FefferySliderCaptcha;
 

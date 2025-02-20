@@ -6,14 +6,53 @@ const LazyFefferyMotion = React.lazy(() => import(/* webpackChunkName: "feffery_
 /**
  * 动画编排组件FefferyMotion
  */
-const FefferyMotion = (props) => {
+const FefferyMotion = ({
+    id,
+    children,
+    style,
+    className,
+    key,
+    initial,
+    animate,
+    exit,
+    whileHover,
+    whileTap,
+    transition,
+    whileInView,
+    viewport,
+    variants,
+    animated,
+    destroyWhenAnimated = false,
+    setProps,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyMotion {...props} />
+            <LazyFefferyMotion {
+                ...{
+                    id,
+                    children,
+                    style,
+                    className,
+                    key,
+                    initial,
+                    animate,
+                    exit,
+                    whileHover,
+                    whileTap,
+                    transition,
+                    whileInView,
+                    viewport,
+                    variants,
+                    animated,
+                    destroyWhenAnimated,
+                    setProps,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
-
 
 FefferyMotion.propTypes = {
     /**
@@ -186,32 +225,12 @@ FefferyMotion.propTypes = {
      */
     destroyWhenAnimated: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyMotion.defaultProps = {
-    destroyWhenAnimated: false
-}
 
 export default FefferyMotion;
 

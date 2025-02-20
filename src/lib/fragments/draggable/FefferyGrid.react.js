@@ -5,7 +5,7 @@ import { Responsive, WidthProvider } from "react-grid-layout";
 // 辅助库
 import { omit } from 'ramda';
 import { isNumber, isEmpty, cloneDeep } from 'lodash';
-import { parseChildrenToArray, resolveChildProps } from '../../components/utils';
+import { parseChildrenToArray, resolveChildProps, useLoading } from '../../components/utils';
 import FefferyStyle from '../../components/styleControl/FefferyStyle.react';
 // 参数类型
 import { propTypes, defaultProps } from '../../components/draggable/FefferyGrid.react';
@@ -15,35 +15,33 @@ const ResponsiveReactGridLayout = WidthProvider(Responsive);
 /**
  * 可拖拽网格组件FefferyGrid
  */
-const FefferyGrid = (props) => {
-    let {
-        id,
-        children,
-        placeholder,
-        key,
-        style,
-        className,
-        height,
-        autoSize,
-        compactType,
-        margin,
-        containerPadding,
-        rowHeight,
-        isDraggable,
-        isResizable,
-        isBounded,
-        allowOverlap,
-        breakpoints,
-        cols,
-        layouts,
-        placeholderBackground,
-        placeholderOpacity,
-        placeholderBorder,
-        placeholderBorderRadius,
-        debug,
-        setProps,
-        loading_state
-    } = props;
+const FefferyGrid = ({
+    id,
+    children,
+    placeholder,
+    key,
+    style,
+    className,
+    height,
+    autoSize,
+    compactType,
+    margin,
+    containerPadding,
+    rowHeight,
+    isDraggable,
+    isResizable,
+    isBounded,
+    allowOverlap,
+    breakpoints,
+    cols,
+    layouts,
+    placeholderBackground,
+    placeholderOpacity,
+    placeholderBorder,
+    placeholderBorderRadius,
+    debug,
+    setProps
+}) => {
 
     children = parseChildrenToArray(children)
 
@@ -244,9 +242,7 @@ const FefferyGrid = (props) => {
                         }}
                         setProps={setProps}
                         useCSSTransforms={true}
-                        data-dash-is-loading={
-                            (loading_state && loading_state.is_loading) || undefined
-                        } >{gridItems}</ResponsiveReactGridLayout> :
+                        data-dash-is-loading={useLoading()} >{gridItems}</ResponsiveReactGridLayout> :
                     placeholder
             }
         </>

@@ -1,23 +1,26 @@
-import jsPreviewDocx from "@js-preview/docx";
+// react核心
 import { useRef, useEffect } from 'react';
+// 组件核心
+import jsPreviewDocx from "@js-preview/docx";
+// 样式
 import '@js-preview/docx/lib/index.css';
+// 辅助库
 import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
+import { useLoading } from '../../components/utils';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/filePreview/FefferyWordPreview.react';
 
 /**
  * word文件预览组件FefferyWordPreview
  */
-const FefferyWordPreview = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        style,
-        className,
-        src,
-        setProps,
-        loading_state
-    } = props;
+const FefferyWordPreview = ({
+    id,
+    style,
+    className,
+    src,
+    setProps
+}) => {
 
     const containerRef = useRef(null);
 
@@ -56,9 +59,7 @@ const FefferyWordPreview = (props) => {
             }
             style={style}
             ref={containerRef}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
+            data-dash-is-loading={useLoading()} />
     );
 }
 

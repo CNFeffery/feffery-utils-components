@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyFancyMessage(Component):
@@ -50,29 +57,34 @@ Keyword arguments:
     设置消息提示显示时长（单位：毫秒）  默认值：`4000`.
 
 - icon (a list of or a singular dash component, string or number; optional):
-    自定义消息提示图标.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    自定义消息提示图标."""
     _children_props = ['icon']
     _base_nodes = ['icon', 'children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyFancyMessage'
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, visible=Component.UNDEFINED, position=Component.UNDEFINED, reverseOrder=Component.UNDEFINED, containerClassName=Component.UNDEFINED, containerStyle=Component.UNDEFINED, gutter=Component.UNDEFINED, type=Component.UNDEFINED, duration=Component.UNDEFINED, icon=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'visible', 'position', 'reverseOrder', 'containerClassName', 'containerStyle', 'gutter', 'type', 'duration', 'icon', 'loading_state']
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        visible: typing.Optional[bool] = None,
+        position: typing.Optional[Literal["top-left", "top-center", "top-right", "bottom-left", "bottom-center", "bottom-right"]] = None,
+        reverseOrder: typing.Optional[bool] = None,
+        containerClassName: typing.Optional[str] = None,
+        containerStyle: typing.Optional[dict] = None,
+        gutter: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        type: typing.Optional[Literal["blank", "success", "error"]] = None,
+        duration: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        icon: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'visible', 'position', 'reverseOrder', 'containerClassName', 'containerStyle', 'gutter', 'type', 'duration', 'icon']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'visible', 'position', 'reverseOrder', 'containerClassName', 'containerStyle', 'gutter', 'type', 'duration', 'icon', 'loading_state']
+        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'visible', 'position', 'reverseOrder', 'containerClassName', 'containerStyle', 'gutter', 'type', 'duration', 'icon']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

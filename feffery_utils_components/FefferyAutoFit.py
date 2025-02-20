@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyAutoFit(Component):
@@ -46,29 +53,37 @@ Keyword arguments:
     默认值：`0.1`.
 
 - close (boolean; default False):
-    关闭自适应，设置为`True`执行完相应操作后会自动重置为`False`  默认为`False`.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    关闭自适应，设置为`True`执行完相应操作后会自动重置为`False`  默认为`False`."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyAutoFit'
+    Ignore = TypedDict(
+        "Ignore",
+            {
+            "el": NotRequired[str]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, containerId=Component.UNDEFINED, dw=Component.UNDEFINED, dh=Component.UNDEFINED, resize=Component.UNDEFINED, ignore=Component.UNDEFINED, transition=Component.UNDEFINED, delay=Component.UNDEFINED, limit=Component.UNDEFINED, close=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'containerId', 'dw', 'dh', 'resize', 'ignore', 'transition', 'delay', 'limit', 'close', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        containerId: typing.Optional[str] = None,
+        dw: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        dh: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        resize: typing.Optional[bool] = None,
+        ignore: typing.Optional[typing.Sequence["Ignore"]] = None,
+        transition: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        delay: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        limit: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        close: typing.Optional[bool] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'containerId', 'dw', 'dh', 'resize', 'ignore', 'transition', 'delay', 'limit', 'close']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'containerId', 'dw', 'dh', 'resize', 'ignore', 'transition', 'delay', 'limit', 'close', 'loading_state']
+        self.available_properties = ['id', 'key', 'containerId', 'dw', 'dh', 'resize', 'ignore', 'transition', 'delay', 'limit', 'close']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

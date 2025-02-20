@@ -5,33 +5,32 @@ import PropTypes from 'prop-types';
 import Guide from 'byte-guide'
 // 辅助库
 import { isString } from 'lodash';
+import { useLoading } from '../utils';
 
 /**
  * 引导部件FefferyGuide
  */
-const FefferyGuide = (props) => {
-    let {
-        id,
-        className,
-        style,
-        locale,
-        steps,
-        localKey,
-        closable,
-        modalClassName,
-        maskClassName,
-        mask,
-        arrow,
-        hotspot,
-        stepText,
-        nextText,
-        prevText,
-        showPreviousBtn,
-        okText,
-        step,
-        setProps,
-        loading_state
-    } = props;
+const FefferyGuide = ({
+    id,
+    className,
+    style,
+    locale = 'zh',
+    steps,
+    localKey,
+    closable,
+    modalClassName,
+    maskClassName,
+    mask = true,
+    arrow,
+    hotspot,
+    stepText,
+    nextText,
+    prevText,
+    showPreviousBtn = true,
+    okText,
+    step,
+    setProps
+}) => {
 
     return (
         <Guide id={id}
@@ -57,14 +56,11 @@ const FefferyGuide = (props) => {
                 // 修复引导结束后页面整体无法滚动的问题
                 document.documentElement.style.overflow = 'auto'
             }}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
+            data-dash-is-loading={useLoading()} />
     );
 }
 
 FefferyGuide.propTypes = {
-
     /**
      * 组件唯一id
      */
@@ -231,32 +227,11 @@ FefferyGuide.propTypes = {
      */
     step: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func
 };
-
-FefferyGuide.defaultProps = {
-    locale: 'zh',
-    showPreviousBtn: true,
-    mask: true
-}
 
 export default FefferyGuide;

@@ -6,14 +6,43 @@ const LazyFefferyWavesBackground = React.lazy(() => import(/* webpackChunkName: 
 /**
  * 3D-Waves背景组件FefferyWavesBackground
  */
-const FefferyWavesBackground = (props) => {
+const FefferyWavesBackground = ({
+    mouseControls = true,
+    touchControls = true,
+    gyroControls = false,
+    minHeight = 200.00,
+    minWidth = 200.00,
+    scale = 1.00,
+    scaleMobile = 1.00,
+    color = '#11619a',
+    shininess = 30,
+    waveHeight = 15,
+    waveSpeed = 1,
+    zoom = 1,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyWavesBackground {...props} />
+            <LazyFefferyWavesBackground {
+                ...{
+                    mouseControls,
+                    touchControls,
+                    gyroControls,
+                    minHeight,
+                    minWidth,
+                    scale,
+                    scaleMobile,
+                    color,
+                    shininess,
+                    waveHeight,
+                    waveSpeed,
+                    zoom,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
-
 
 FefferyWavesBackground.propTypes = {
     /**
@@ -116,43 +145,12 @@ FefferyWavesBackground.propTypes = {
      */
     zoom: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyWavesBackground.defaultProps = {
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    color: '#11619a',
-    shininess: 30,
-    waveHeight: 15,
-    waveSpeed: 1,
-    zoom: 1
-}
 
 export default FefferyWavesBackground;
 

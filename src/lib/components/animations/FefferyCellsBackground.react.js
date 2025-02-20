@@ -6,14 +6,39 @@ const LazyFefferyCellsBackground = React.lazy(() => import(/* webpackChunkName: 
 /**
  * 3D-Cells背景组件FefferyCellsBackground
  */
-const FefferyCellsBackground = (props) => {
+const FefferyCellsBackground = ({
+    mouseControls = true,
+    touchControls = true,
+    gyroControls = false,
+    minHeight = 200.00,
+    minWidth = 200.00,
+    scale = 1.00,
+    color1 = '#109090',
+    color2 = '#f2e735',
+    size = 1.5,
+    speed = 1,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyCellsBackground {...props} />
+            <LazyFefferyCellsBackground {
+                ...{
+                    mouseControls,
+                    touchControls,
+                    gyroControls,
+                    minHeight,
+                    minWidth,
+                    scale,
+                    color1,
+                    color2,
+                    size,
+                    speed,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
-
 
 FefferyCellsBackground.propTypes = {
     /**
@@ -104,41 +129,12 @@ FefferyCellsBackground.propTypes = {
      */
     speed: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyCellsBackground.defaultProps = {
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    color1: '#109090',
-    color2: '#f2e735',
-    size: 1.5,
-    speed: 1
-}
 
 export default FefferyCellsBackground;
 

@@ -1,34 +1,36 @@
+// react核心
 import React, { useState, useEffect, useRef } from 'react';
+// 组件核心
 import CELLS from 'vanta/dist/vanta.cells.min';
 import * as THREE from 'three';
+// 辅助库
 import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
+import { useLoading } from '../../components/utils';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/animations/FefferyCellsBackground.react';
 
 /**
  * 3D-Cells背景组件FefferyCellsBackground
  */
-const FefferyCellsBackground = (props) => {
-    // 取得必要属性或参数
-    let {
-        id,
-        children,
-        className,
-        style,
-        key,
-        mouseControls,
-        touchControls,
-        gyroControls,
-        minHeight,
-        minWidth,
-        scale,
-        color1,
-        color2,
-        size,
-        speed,
-        setProps,
-        loading_state
-    } = props;
+const FefferyCellsBackground = ({
+    id,
+    children,
+    className,
+    style,
+    key,
+    mouseControls,
+    touchControls,
+    gyroControls,
+    minHeight,
+    minWidth,
+    scale,
+    color1,
+    color2,
+    size,
+    speed,
+    setProps
+}) => {
 
     const [cellsEffect, setCellsEffect] = useState(null);
     const cellsRef = useRef(null);
@@ -67,9 +69,7 @@ const FefferyCellsBackground = (props) => {
             style={style}
             key={key}
             ref={cellsRef}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={useLoading()}
         >
             {children}
         </div>

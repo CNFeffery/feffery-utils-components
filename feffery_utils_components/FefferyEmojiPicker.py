@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyEmojiPicker(Component):
@@ -234,29 +241,169 @@ Keyword arguments:
     监听当前选择的emoji信息.
 
 - clickOutsideNums (number; default 0):
-    监听点击选择器外区域的次数.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    监听点击选择器外区域的次数."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyEmojiPicker'
+    CustomEmojisSkins = TypedDict(
+        "CustomEmojisSkins",
+            {
+            "src": NotRequired[str]
+        }
+    )
+
+    CustomEmojis = TypedDict(
+        "CustomEmojis",
+            {
+            "id": NotRequired[str],
+            "name": NotRequired[str],
+            "keywords": NotRequired[typing.Sequence],
+            "skins": NotRequired[typing.Sequence["CustomEmojisSkins"]]
+        }
+    )
+
+    Custom = TypedDict(
+        "Custom",
+            {
+            "id": NotRequired[str],
+            "name": NotRequired[str],
+            "emojis": NotRequired[typing.Sequence["CustomEmojis"]]
+        }
+    )
+
+    CustomCategoryIconsCategoryIconsFrequent = TypedDict(
+        "CustomCategoryIconsCategoryIconsFrequent",
+            {
+            "svg": NotRequired[str],
+            "src": NotRequired[str]
+        }
+    )
+
+    CustomCategoryIconsCategoryIconsPeople = TypedDict(
+        "CustomCategoryIconsCategoryIconsPeople",
+            {
+            "svg": NotRequired[str],
+            "src": NotRequired[str]
+        }
+    )
+
+    CustomCategoryIconsCategoryIconsNature = TypedDict(
+        "CustomCategoryIconsCategoryIconsNature",
+            {
+            "svg": NotRequired[str],
+            "src": NotRequired[str]
+        }
+    )
+
+    CustomCategoryIconsCategoryIconsFoods = TypedDict(
+        "CustomCategoryIconsCategoryIconsFoods",
+            {
+            "svg": NotRequired[str],
+            "src": NotRequired[str]
+        }
+    )
+
+    CustomCategoryIconsCategoryIconsActivity = TypedDict(
+        "CustomCategoryIconsCategoryIconsActivity",
+            {
+            "svg": NotRequired[str],
+            "src": NotRequired[str]
+        }
+    )
+
+    CustomCategoryIconsCategoryIconsPlaces = TypedDict(
+        "CustomCategoryIconsCategoryIconsPlaces",
+            {
+            "svg": NotRequired[str],
+            "src": NotRequired[str]
+        }
+    )
+
+    CustomCategoryIconsCategoryIconsObjects = TypedDict(
+        "CustomCategoryIconsCategoryIconsObjects",
+            {
+            "svg": NotRequired[str],
+            "src": NotRequired[str]
+        }
+    )
+
+    CustomCategoryIconsCategoryIconsSymbols = TypedDict(
+        "CustomCategoryIconsCategoryIconsSymbols",
+            {
+            "svg": NotRequired[str],
+            "src": NotRequired[str]
+        }
+    )
+
+    CustomCategoryIconsCategoryIconsFlags = TypedDict(
+        "CustomCategoryIconsCategoryIconsFlags",
+            {
+            "svg": NotRequired[str],
+            "src": NotRequired[str]
+        }
+    )
+
+    CustomCategoryIconsCategoryIcons = TypedDict(
+        "CustomCategoryIconsCategoryIcons",
+            {
+            "frequent": NotRequired["CustomCategoryIconsCategoryIconsFrequent"],
+            "people": NotRequired["CustomCategoryIconsCategoryIconsPeople"],
+            "nature": NotRequired["CustomCategoryIconsCategoryIconsNature"],
+            "foods": NotRequired["CustomCategoryIconsCategoryIconsFoods"],
+            "activity": NotRequired["CustomCategoryIconsCategoryIconsActivity"],
+            "places": NotRequired["CustomCategoryIconsCategoryIconsPlaces"],
+            "objects": NotRequired["CustomCategoryIconsCategoryIconsObjects"],
+            "symbols": NotRequired["CustomCategoryIconsCategoryIconsSymbols"],
+            "flags": NotRequired["CustomCategoryIconsCategoryIconsFlags"]
+        }
+    )
+
+    CustomCategoryIcons = TypedDict(
+        "CustomCategoryIcons",
+            {
+            "categoryIcons": NotRequired["CustomCategoryIconsCategoryIcons"]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, locale=Component.UNDEFINED, categories=Component.UNDEFINED, custom=Component.UNDEFINED, customCategoryIcons=Component.UNDEFINED, autoFocus=Component.UNDEFINED, dynamicWidth=Component.UNDEFINED, perLine=Component.UNDEFINED, emojiButtonColors=Component.UNDEFINED, emojiButtonRadius=Component.UNDEFINED, emojiButtonSize=Component.UNDEFINED, emojiSize=Component.UNDEFINED, emojiVersion=Component.UNDEFINED, exceptEmojis=Component.UNDEFINED, icons=Component.UNDEFINED, maxFrequentRows=Component.UNDEFINED, navPosition=Component.UNDEFINED, noResultsEmoji=Component.UNDEFINED, previewEmoji=Component.UNDEFINED, previewPosition=Component.UNDEFINED, searchPosition=Component.UNDEFINED, set=Component.UNDEFINED, skin=Component.UNDEFINED, skinTonePosition=Component.UNDEFINED, theme=Component.UNDEFINED, value=Component.UNDEFINED, clickOutsideNums=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'locale', 'categories', 'custom', 'customCategoryIcons', 'autoFocus', 'dynamicWidth', 'perLine', 'emojiButtonColors', 'emojiButtonRadius', 'emojiButtonSize', 'emojiSize', 'emojiVersion', 'exceptEmojis', 'icons', 'maxFrequentRows', 'navPosition', 'noResultsEmoji', 'previewEmoji', 'previewPosition', 'searchPosition', 'set', 'skin', 'skinTonePosition', 'theme', 'value', 'clickOutsideNums', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        locale: typing.Optional[Literal["en", "zh"]] = None,
+        categories: typing.Optional[typing.Sequence[Literal["frequent", "people", "nature", "foods", "activity", "places", "objects", "symbols", "flags"]]] = None,
+        custom: typing.Optional[typing.Sequence["Custom"]] = None,
+        customCategoryIcons: typing.Optional["CustomCategoryIcons"] = None,
+        autoFocus: typing.Optional[bool] = None,
+        dynamicWidth: typing.Optional[bool] = None,
+        perLine: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        emojiButtonColors: typing.Optional[typing.Sequence] = None,
+        emojiButtonRadius: typing.Optional[str] = None,
+        emojiButtonSize: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        emojiSize: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        emojiVersion: typing.Optional[Literal[1, 2, 3, 4, 5, 11, 12, 12.1, 13, 13.1, 14]] = None,
+        exceptEmojis: typing.Optional[typing.Sequence] = None,
+        icons: typing.Optional[Literal["auto", "outline", "solid"]] = None,
+        maxFrequentRows: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        navPosition: typing.Optional[Literal["top", "bottom", "none"]] = None,
+        noResultsEmoji: typing.Optional[str] = None,
+        previewEmoji: typing.Optional[str] = None,
+        previewPosition: typing.Optional[Literal["top", "bottom", "none"]] = None,
+        searchPosition: typing.Optional[Literal["sticky", "static", "none"]] = None,
+        set: typing.Optional[Literal["native", "apple", "facebook", "google", "twitter"]] = None,
+        skin: typing.Optional[Literal[1, 2, 3, 4, 5, 6]] = None,
+        skinTonePosition: typing.Optional[Literal["preview", "search", "none"]] = None,
+        theme: typing.Optional[Literal["auto", "light", "dark"]] = None,
+        value: typing.Optional[dict] = None,
+        clickOutsideNums: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'locale', 'categories', 'custom', 'customCategoryIcons', 'autoFocus', 'dynamicWidth', 'perLine', 'emojiButtonColors', 'emojiButtonRadius', 'emojiButtonSize', 'emojiSize', 'emojiVersion', 'exceptEmojis', 'icons', 'maxFrequentRows', 'navPosition', 'noResultsEmoji', 'previewEmoji', 'previewPosition', 'searchPosition', 'set', 'skin', 'skinTonePosition', 'theme', 'value', 'clickOutsideNums']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'locale', 'categories', 'custom', 'customCategoryIcons', 'autoFocus', 'dynamicWidth', 'perLine', 'emojiButtonColors', 'emojiButtonRadius', 'emojiButtonSize', 'emojiSize', 'emojiVersion', 'exceptEmojis', 'icons', 'maxFrequentRows', 'navPosition', 'noResultsEmoji', 'previewEmoji', 'previewPosition', 'searchPosition', 'set', 'skin', 'skinTonePosition', 'theme', 'value', 'clickOutsideNums', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'locale', 'categories', 'custom', 'customCategoryIcons', 'autoFocus', 'dynamicWidth', 'perLine', 'emojiButtonColors', 'emojiButtonRadius', 'emojiButtonSize', 'emojiSize', 'emojiVersion', 'exceptEmojis', 'icons', 'maxFrequentRows', 'navPosition', 'noResultsEmoji', 'previewEmoji', 'previewPosition', 'searchPosition', 'set', 'skin', 'skinTonePosition', 'theme', 'value', 'clickOutsideNums']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

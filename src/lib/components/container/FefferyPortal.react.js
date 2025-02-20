@@ -1,17 +1,17 @@
 // react核心
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
+// 辅助库
+import { useLoading } from '../utils';
 
 /**
  * 传送门组件FefferyPortal
  */
-const FefferyPortal = (props) => {
-    const {
-        children,
-        targetSelector,
-        setProps,
-        loading_state
-    } = props;
+const FefferyPortal = ({
+    children,
+    targetSelector,
+    setProps
+}) => {
 
     if (children && targetSelector) {
         return createPortal(children, document.querySelector(targetSelector));
@@ -40,29 +40,11 @@ FefferyPortal.propTypes = {
      */
     targetSelector: PropTypes.string,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-FefferyPortal.defaultProps = {
-}
 
 export default FefferyPortal;

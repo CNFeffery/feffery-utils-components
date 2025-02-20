@@ -6,19 +6,17 @@ import SlFormatNumber from '@shoelace-style/shoelace/dist/react/format-number';
 /**
  * 数值格式化组件FefferyFormatNumber
  */
-const FefferyFormatNumber = (props) => {
-    const {
-        id,
-        style,
-        className,
-        value,
-        type,
-        noGrouping,
-        minimumFractionDigits,
-        maximumFractionDigits,
-        setProps,
-        loading_state
-    } = props;
+const FefferyFormatNumber = ({
+    id,
+    style,
+    className,
+    value = 0,
+    type = 'decimal',
+    noGrouping = false,
+    minimumFractionDigits,
+    maximumFractionDigits,
+    setProps
+}) => {
 
     return <SlFormatNumber id={id}
         style={style}
@@ -83,28 +81,7 @@ FefferyFormatNumber.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-FefferyFormatNumber.defaultProps = {
-    value: 0,
-    type: 'decimal',
-    noGrouping: false
-}
 
 export default FefferyFormatNumber;

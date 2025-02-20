@@ -5,17 +5,15 @@ import PropTypes from 'prop-types';
 /**
  * js执行组件FefferyExecuteJs
  */
-const FefferyExecuteJs = (props) => {
-    const {
-        jsString,
-        mode,
-        delay,
-        interval,
-        targetSelector,
-        targetWaitTimeout,
-        setProps,
-        loading_state
-    } = props;
+const FefferyExecuteJs = ({
+    jsString,
+    mode = 'default',
+    delay,
+    interval,
+    targetSelector,
+    targetWaitTimeout,
+    setProps
+}) => {
 
     useEffect(() => {
         // delay模式
@@ -142,30 +140,11 @@ FefferyExecuteJs.propTypes = {
      */
     targetWaitTimeout: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-FefferyExecuteJs.defaultProps = {
-    mode: 'default'
-}
 
 export default FefferyExecuteJs;

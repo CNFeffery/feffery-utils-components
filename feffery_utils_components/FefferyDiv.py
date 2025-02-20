@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyDiv(Component):
@@ -203,29 +210,109 @@ Keyword arguments:
     `css`对应`border`属性快捷设置.
 
 - borderRadius (string | number; optional):
-    `css`对应`border-radius`属性快捷设置.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    `css`对应`border-radius`属性快捷设置."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyDiv'
+    ClickEvent = TypedDict(
+        "ClickEvent",
+            {
+            "pageX": NotRequired[typing.Union[int, float, numbers.Number]],
+            "pageY": NotRequired[typing.Union[int, float, numbers.Number]],
+            "clientX": NotRequired[typing.Union[int, float, numbers.Number]],
+            "clientY": NotRequired[typing.Union[int, float, numbers.Number]],
+            "screenX": NotRequired[typing.Union[int, float, numbers.Number]],
+            "screenY": NotRequired[typing.Union[int, float, numbers.Number]],
+            "timestamp": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    DoubleClickEvent = TypedDict(
+        "DoubleClickEvent",
+            {
+            "pageX": NotRequired[typing.Union[int, float, numbers.Number]],
+            "pageY": NotRequired[typing.Union[int, float, numbers.Number]],
+            "clientX": NotRequired[typing.Union[int, float, numbers.Number]],
+            "clientY": NotRequired[typing.Union[int, float, numbers.Number]],
+            "screenX": NotRequired[typing.Union[int, float, numbers.Number]],
+            "screenY": NotRequired[typing.Union[int, float, numbers.Number]],
+            "timestamp": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    ContextMenuEvent = TypedDict(
+        "ContextMenuEvent",
+            {
+            "pageX": NotRequired[typing.Union[int, float, numbers.Number]],
+            "pageY": NotRequired[typing.Union[int, float, numbers.Number]],
+            "clientX": NotRequired[typing.Union[int, float, numbers.Number]],
+            "clientY": NotRequired[typing.Union[int, float, numbers.Number]],
+            "screenX": NotRequired[typing.Union[int, float, numbers.Number]],
+            "screenY": NotRequired[typing.Union[int, float, numbers.Number]],
+            "timestamp": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    Position = TypedDict(
+        "Position",
+            {
+            "x": NotRequired[typing.Union[int, float, numbers.Number]],
+            "y": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    PasteEvent = TypedDict(
+        "PasteEvent",
+            {
+            "text": NotRequired[str],
+            "timestamp": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, enableEvents=Component.UNDEFINED, _width=Component.UNDEFINED, _height=Component.UNDEFINED, debounceWait=Component.UNDEFINED, mouseEnterCount=Component.UNDEFINED, mouseLeaveCount=Component.UNDEFINED, nClicks=Component.UNDEFINED, clickEvent=Component.UNDEFINED, nDoubleClicks=Component.UNDEFINED, doubleClickEvent=Component.UNDEFINED, enableListenContextMenu=Component.UNDEFINED, contextMenuEvent=Component.UNDEFINED, isHovering=Component.UNDEFINED, isTouching=Component.UNDEFINED, enableClickAway=Component.UNDEFINED, clickAwayCount=Component.UNDEFINED, position=Component.UNDEFINED, enableFocus=Component.UNDEFINED, isFocused=Component.UNDEFINED, pasteEvent=Component.UNDEFINED, wheelEventStrategy=Component.UNDEFINED, shadow=Component.UNDEFINED, scrollbar=Component.UNDEFINED, textAlign=Component.UNDEFINED, justify=Component.UNDEFINED, align=Component.UNDEFINED, padding=Component.UNDEFINED, margin=Component.UNDEFINED, border=Component.UNDEFINED, borderRadius=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'enableEvents', '_width', '_height', 'debounceWait', 'mouseEnterCount', 'mouseLeaveCount', 'nClicks', 'clickEvent', 'nDoubleClicks', 'doubleClickEvent', 'enableListenContextMenu', 'contextMenuEvent', 'isHovering', 'isTouching', 'enableClickAway', 'clickAwayCount', 'position', 'enableFocus', 'isFocused', 'pasteEvent', 'wheelEventStrategy', 'shadow', 'scrollbar', 'textAlign', 'justify', 'align', 'padding', 'margin', 'border', 'borderRadius', 'loading_state']
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        enableEvents: typing.Optional[typing.Sequence[Literal["click", "dbclick", "size", "mouseenter", "mouseleave", "contextmenu", "hover", "touch", "clickaway", "position", "focus", "paste"]]] = None,
+        _width: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        _height: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        debounceWait: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        mouseEnterCount: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        mouseLeaveCount: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        nClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        clickEvent: typing.Optional["ClickEvent"] = None,
+        nDoubleClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        doubleClickEvent: typing.Optional["DoubleClickEvent"] = None,
+        enableListenContextMenu: typing.Optional[bool] = None,
+        contextMenuEvent: typing.Optional["ContextMenuEvent"] = None,
+        isHovering: typing.Optional[bool] = None,
+        isTouching: typing.Optional[bool] = None,
+        enableClickAway: typing.Optional[bool] = None,
+        clickAwayCount: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        position: typing.Optional["Position"] = None,
+        enableFocus: typing.Optional[bool] = None,
+        isFocused: typing.Optional[bool] = None,
+        pasteEvent: typing.Optional["PasteEvent"] = None,
+        wheelEventStrategy: typing.Optional[Literal["default", "internally-only"]] = None,
+        shadow: typing.Optional[Literal["no-shadow", "hover-shadow", "always-shadow", "hover-shadow-light", "always-shadow-light"]] = None,
+        scrollbar: typing.Optional[Literal["default", "simple", "hidden"]] = None,
+        textAlign: typing.Optional[Literal["left", "center", "right"]] = None,
+        justify: typing.Optional[str] = None,
+        align: typing.Optional[str] = None,
+        padding: typing.Optional[typing.Union[str, typing.Union[int, float, numbers.Number]]] = None,
+        margin: typing.Optional[typing.Union[str, typing.Union[int, float, numbers.Number]]] = None,
+        border: typing.Optional[str] = None,
+        borderRadius: typing.Optional[typing.Union[str, typing.Union[int, float, numbers.Number]]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'enableEvents', '_width', '_height', 'debounceWait', 'mouseEnterCount', 'mouseLeaveCount', 'nClicks', 'clickEvent', 'nDoubleClicks', 'doubleClickEvent', 'enableListenContextMenu', 'contextMenuEvent', 'isHovering', 'isTouching', 'enableClickAway', 'clickAwayCount', 'position', 'enableFocus', 'isFocused', 'pasteEvent', 'wheelEventStrategy', 'shadow', 'scrollbar', 'textAlign', 'justify', 'align', 'padding', 'margin', 'border', 'borderRadius']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'enableEvents', '_width', '_height', 'debounceWait', 'mouseEnterCount', 'mouseLeaveCount', 'nClicks', 'clickEvent', 'nDoubleClicks', 'doubleClickEvent', 'enableListenContextMenu', 'contextMenuEvent', 'isHovering', 'isTouching', 'enableClickAway', 'clickAwayCount', 'position', 'enableFocus', 'isFocused', 'pasteEvent', 'wheelEventStrategy', 'shadow', 'scrollbar', 'textAlign', 'justify', 'align', 'padding', 'margin', 'border', 'borderRadius', 'loading_state']
+        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'enableEvents', '_width', '_height', 'debounceWait', 'mouseEnterCount', 'mouseLeaveCount', 'nClicks', 'clickEvent', 'nDoubleClicks', 'doubleClickEvent', 'enableListenContextMenu', 'contextMenuEvent', 'isHovering', 'isTouching', 'enableClickAway', 'clickAwayCount', 'position', 'enableFocus', 'isFocused', 'pasteEvent', 'wheelEventStrategy', 'shadow', 'scrollbar', 'textAlign', 'justify', 'align', 'padding', 'margin', 'border', 'borderRadius']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

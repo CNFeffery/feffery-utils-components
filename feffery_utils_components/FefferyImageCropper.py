@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyImageCropper(Component):
@@ -154,7 +161,7 @@ Keyword arguments:
 - clear (boolean; default False):
     清除裁剪框，每次设置为`True`后执行完相应操作后会自动置为`False`.
 
-- replace (dict; default {    isReplace: False,    hasSameSize: False}):
+- replace (dict; default { isReplace: False, hasSameSize: False }):
     替换图片的`src`并重新构建裁剪器，每次`isReplace`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `replace` is a dict with keys:
@@ -177,7 +184,7 @@ Keyword arguments:
 - destroy (boolean; default False):
     销毁裁剪器并从图片中删除实例，每次设置为`True`后执行完相应操作后会自动置为`False`.
 
-- move (dict; default {    isMove: False}):
+- move (dict; default { isMove: False }):
     使用相对偏移量移动画布，每次`isMove`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `move` is a dict with keys:
@@ -191,7 +198,7 @@ Keyword arguments:
     - offsetY (number; optional):
         在垂直方向上移动像素大小，如果不存在，则其默认值为`offsetX`.
 
-- moveTo (dict; default {    isMoveTo: False}):
+- moveTo (dict; default { isMoveTo: False }):
     将画布移动到绝对点，每次`isMoveTo`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `moveTo` is a dict with keys:
@@ -205,7 +212,7 @@ Keyword arguments:
     - y (number; optional):
         画布`top`的值，如果不存在，则其默认值为`x`.
 
-- zoom (dict; default {    isZoom: False}):
+- zoom (dict; default { isZoom: False }):
     使用相对比例缩放画布，每次`isZoom`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `zoom` is a dict with keys:
@@ -216,7 +223,7 @@ Keyword arguments:
     - ratio (number; optional):
         放大：需要一个正数（比率 > 0）；  缩小：需要负数（比率 < 0）.
 
-- zoomTo (dict; default {    isZoomTo: False}):
+- zoomTo (dict; default { isZoomTo: False }):
     将画布缩放到绝对比例，每次`isZoomTo`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `zoomTo` is a dict with keys:
@@ -236,7 +243,7 @@ Keyword arguments:
 
         - y (number; optional)
 
-- rotate (dict; default {    isRotate: False}):
+- rotate (dict; default { isRotate: False }):
     将图片旋转到相对角度，每次`isRotate`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `rotate` is a dict with keys:
@@ -247,7 +254,7 @@ Keyword arguments:
     - degree (number; optional):
         向右旋转：需要正数（度数 > 0）；  向左旋转：需要负数（度数 < 0）.
 
-- rotateTo (dict; default {    isRotateTo: False}):
+- rotateTo (dict; default { isRotateTo: False }):
     将图片旋转到绝对角度，每次`isRotateTo`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `rotateTo` is a dict with keys:
@@ -258,7 +265,7 @@ Keyword arguments:
     - degree (number; optional):
         绝对角度的度数.
 
-- scale (dict; default {    isScale: False}):
+- scale (dict; default { isScale: False }):
     缩放图片，每次`isScale`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `scale` is a dict with keys:
@@ -272,7 +279,7 @@ Keyword arguments:
     - scaleY (number; optional):
         要应用于图片纵坐标的比例因子，如果不存在，则其默认值为scaleX.
 
-- scaleX (dict; default {    isScaleX: False}):
+- scaleX (dict; default { isScaleX: False }):
     缩放图片的横坐标，每次`isScaleX`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `scaleX` is a dict with keys:
@@ -283,7 +290,7 @@ Keyword arguments:
     - scaleX (number; optional):
         要应用于图片横坐标的比例因子，当等于1时，图片保持不变.
 
-- scaleY (dict; default {    isScaleY: False}):
+- scaleY (dict; default { isScaleY: False }):
     缩放图片的纵坐标，每次`isScaleY`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `scaleY` is a dict with keys:
@@ -404,29 +411,232 @@ Keyword arguments:
         裁剪框的宽度.
 
     - height (number; optional):
-        裁剪框的高度.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+        裁剪框的高度."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyImageCropper'
+    Replace = TypedDict(
+        "Replace",
+            {
+            "isReplace": NotRequired[bool],
+            "url": NotRequired[str],
+            "hasSameSize": NotRequired[bool]
+        }
+    )
+
+    Move = TypedDict(
+        "Move",
+            {
+            "isMove": NotRequired[bool],
+            "offsetX": NotRequired[typing.Union[int, float, numbers.Number]],
+            "offsetY": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    MoveTo = TypedDict(
+        "MoveTo",
+            {
+            "isMoveTo": NotRequired[bool],
+            "x": NotRequired[typing.Union[int, float, numbers.Number]],
+            "y": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    Zoom = TypedDict(
+        "Zoom",
+            {
+            "isZoom": NotRequired[bool],
+            "ratio": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    ZoomToPivot = TypedDict(
+        "ZoomToPivot",
+            {
+            "x": NotRequired[typing.Union[int, float, numbers.Number]],
+            "y": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    ZoomTo = TypedDict(
+        "ZoomTo",
+            {
+            "isZoomTo": NotRequired[bool],
+            "ratio": NotRequired[typing.Union[int, float, numbers.Number]],
+            "pivot": NotRequired["ZoomToPivot"]
+        }
+    )
+
+    Rotate = TypedDict(
+        "Rotate",
+            {
+            "isRotate": NotRequired[bool],
+            "degree": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    RotateTo = TypedDict(
+        "RotateTo",
+            {
+            "isRotateTo": NotRequired[bool],
+            "degree": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    Scale = TypedDict(
+        "Scale",
+            {
+            "isScale": NotRequired[bool],
+            "scaleX": NotRequired[typing.Union[int, float, numbers.Number]],
+            "scaleY": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    ScaleX = TypedDict(
+        "ScaleX",
+            {
+            "isScaleX": NotRequired[bool],
+            "scaleX": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    ScaleY = TypedDict(
+        "ScaleY",
+            {
+            "isScaleY": NotRequired[bool],
+            "scaleY": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    OutputData = TypedDict(
+        "OutputData",
+            {
+            "x": NotRequired[typing.Union[int, float, numbers.Number]],
+            "y": NotRequired[typing.Union[int, float, numbers.Number]],
+            "width": NotRequired[typing.Union[int, float, numbers.Number]],
+            "height": NotRequired[typing.Union[int, float, numbers.Number]],
+            "rotate": NotRequired[typing.Union[int, float, numbers.Number]],
+            "scaleX": NotRequired[typing.Union[int, float, numbers.Number]],
+            "scaleY": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    ContainerData = TypedDict(
+        "ContainerData",
+            {
+            "width": NotRequired[typing.Union[int, float, numbers.Number]],
+            "height": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    ImageData = TypedDict(
+        "ImageData",
+            {
+            "left": NotRequired[typing.Union[int, float, numbers.Number]],
+            "top": NotRequired[typing.Union[int, float, numbers.Number]],
+            "width": NotRequired[typing.Union[int, float, numbers.Number]],
+            "height": NotRequired[typing.Union[int, float, numbers.Number]],
+            "naturalWidth": NotRequired[typing.Union[int, float, numbers.Number]],
+            "naturalHeight": NotRequired[typing.Union[int, float, numbers.Number]],
+            "aspectRatio": NotRequired[typing.Union[int, float, numbers.Number]],
+            "rotate": NotRequired[typing.Union[int, float, numbers.Number]],
+            "scaleX": NotRequired[typing.Union[int, float, numbers.Number]],
+            "scaleY": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    CanvasData = TypedDict(
+        "CanvasData",
+            {
+            "left": NotRequired[typing.Union[int, float, numbers.Number]],
+            "top": NotRequired[typing.Union[int, float, numbers.Number]],
+            "width": NotRequired[typing.Union[int, float, numbers.Number]],
+            "height": NotRequired[typing.Union[int, float, numbers.Number]],
+            "naturalWidth": NotRequired[typing.Union[int, float, numbers.Number]],
+            "naturalHeight": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    CropBoxData = TypedDict(
+        "CropBoxData",
+            {
+            "left": NotRequired[typing.Union[int, float, numbers.Number]],
+            "top": NotRequired[typing.Union[int, float, numbers.Number]],
+            "width": NotRequired[typing.Union[int, float, numbers.Number]],
+            "height": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, croppedImageData=Component.UNDEFINED, src=Component.UNDEFINED, alt=Component.UNDEFINED, crossOrigin=Component.UNDEFINED, viewMode=Component.UNDEFINED, dragMode=Component.UNDEFINED, initialAspectRatio=Component.UNDEFINED, aspectRatio=Component.UNDEFINED, data=Component.UNDEFINED, preview=Component.UNDEFINED, responsive=Component.UNDEFINED, restore=Component.UNDEFINED, checkCrossOrigin=Component.UNDEFINED, checkOrientation=Component.UNDEFINED, modal=Component.UNDEFINED, guides=Component.UNDEFINED, center=Component.UNDEFINED, highlight=Component.UNDEFINED, background=Component.UNDEFINED, autoCrop=Component.UNDEFINED, autoCropArea=Component.UNDEFINED, movable=Component.UNDEFINED, rotatable=Component.UNDEFINED, scalable=Component.UNDEFINED, zoomable=Component.UNDEFINED, zoomOnTouch=Component.UNDEFINED, zoomOnWheel=Component.UNDEFINED, wheelZoomRatio=Component.UNDEFINED, cropBoxMovable=Component.UNDEFINED, cropBoxResizable=Component.UNDEFINED, toggleDragModeOnDblclick=Component.UNDEFINED, minContainerWidth=Component.UNDEFINED, minContainerHeight=Component.UNDEFINED, minCanvasWidth=Component.UNDEFINED, minCanvasHeight=Component.UNDEFINED, minCropBoxWidth=Component.UNDEFINED, minCropBoxHeight=Component.UNDEFINED, reset=Component.UNDEFINED, clear=Component.UNDEFINED, replace=Component.UNDEFINED, enable=Component.UNDEFINED, disable=Component.UNDEFINED, destroy=Component.UNDEFINED, move=Component.UNDEFINED, moveTo=Component.UNDEFINED, zoom=Component.UNDEFINED, zoomTo=Component.UNDEFINED, rotate=Component.UNDEFINED, rotateTo=Component.UNDEFINED, scale=Component.UNDEFINED, scaleX=Component.UNDEFINED, scaleY=Component.UNDEFINED, outputData=Component.UNDEFINED, containerData=Component.UNDEFINED, imageData=Component.UNDEFINED, canvasData=Component.UNDEFINED, cropBoxData=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'croppedImageData', 'src', 'alt', 'crossOrigin', 'viewMode', 'dragMode', 'initialAspectRatio', 'aspectRatio', 'data', 'preview', 'responsive', 'restore', 'checkCrossOrigin', 'checkOrientation', 'modal', 'guides', 'center', 'highlight', 'background', 'autoCrop', 'autoCropArea', 'movable', 'rotatable', 'scalable', 'zoomable', 'zoomOnTouch', 'zoomOnWheel', 'wheelZoomRatio', 'cropBoxMovable', 'cropBoxResizable', 'toggleDragModeOnDblclick', 'minContainerWidth', 'minContainerHeight', 'minCanvasWidth', 'minCanvasHeight', 'minCropBoxWidth', 'minCropBoxHeight', 'reset', 'clear', 'replace', 'enable', 'disable', 'destroy', 'move', 'moveTo', 'zoom', 'zoomTo', 'rotate', 'rotateTo', 'scale', 'scaleX', 'scaleY', 'outputData', 'containerData', 'imageData', 'canvasData', 'cropBoxData', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        croppedImageData: typing.Optional[str] = None,
+        src: typing.Optional[str] = None,
+        alt: typing.Optional[str] = None,
+        crossOrigin: typing.Optional[str] = None,
+        viewMode: typing.Optional[Literal[0, 1, 2, 3]] = None,
+        dragMode: typing.Optional[Literal["crop", "move", "none"]] = None,
+        initialAspectRatio: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        aspectRatio: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        data: typing.Optional[dict] = None,
+        preview: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
+        responsive: typing.Optional[bool] = None,
+        restore: typing.Optional[bool] = None,
+        checkCrossOrigin: typing.Optional[bool] = None,
+        checkOrientation: typing.Optional[bool] = None,
+        modal: typing.Optional[bool] = None,
+        guides: typing.Optional[bool] = None,
+        center: typing.Optional[bool] = None,
+        highlight: typing.Optional[bool] = None,
+        background: typing.Optional[bool] = None,
+        autoCrop: typing.Optional[bool] = None,
+        autoCropArea: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        movable: typing.Optional[bool] = None,
+        rotatable: typing.Optional[bool] = None,
+        scalable: typing.Optional[bool] = None,
+        zoomable: typing.Optional[bool] = None,
+        zoomOnTouch: typing.Optional[bool] = None,
+        zoomOnWheel: typing.Optional[bool] = None,
+        wheelZoomRatio: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        cropBoxMovable: typing.Optional[bool] = None,
+        cropBoxResizable: typing.Optional[bool] = None,
+        toggleDragModeOnDblclick: typing.Optional[bool] = None,
+        minContainerWidth: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        minContainerHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        minCanvasWidth: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        minCanvasHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        minCropBoxWidth: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        minCropBoxHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        reset: typing.Optional[bool] = None,
+        clear: typing.Optional[bool] = None,
+        replace: typing.Optional["Replace"] = None,
+        enable: typing.Optional[bool] = None,
+        disable: typing.Optional[bool] = None,
+        destroy: typing.Optional[bool] = None,
+        move: typing.Optional["Move"] = None,
+        moveTo: typing.Optional["MoveTo"] = None,
+        zoom: typing.Optional["Zoom"] = None,
+        zoomTo: typing.Optional["ZoomTo"] = None,
+        rotate: typing.Optional["Rotate"] = None,
+        rotateTo: typing.Optional["RotateTo"] = None,
+        scale: typing.Optional["Scale"] = None,
+        scaleX: typing.Optional["ScaleX"] = None,
+        scaleY: typing.Optional["ScaleY"] = None,
+        outputData: typing.Optional["OutputData"] = None,
+        containerData: typing.Optional["ContainerData"] = None,
+        imageData: typing.Optional["ImageData"] = None,
+        canvasData: typing.Optional["CanvasData"] = None,
+        cropBoxData: typing.Optional["CropBoxData"] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'croppedImageData', 'src', 'alt', 'crossOrigin', 'viewMode', 'dragMode', 'initialAspectRatio', 'aspectRatio', 'data', 'preview', 'responsive', 'restore', 'checkCrossOrigin', 'checkOrientation', 'modal', 'guides', 'center', 'highlight', 'background', 'autoCrop', 'autoCropArea', 'movable', 'rotatable', 'scalable', 'zoomable', 'zoomOnTouch', 'zoomOnWheel', 'wheelZoomRatio', 'cropBoxMovable', 'cropBoxResizable', 'toggleDragModeOnDblclick', 'minContainerWidth', 'minContainerHeight', 'minCanvasWidth', 'minCanvasHeight', 'minCropBoxWidth', 'minCropBoxHeight', 'reset', 'clear', 'replace', 'enable', 'disable', 'destroy', 'move', 'moveTo', 'zoom', 'zoomTo', 'rotate', 'rotateTo', 'scale', 'scaleX', 'scaleY', 'outputData', 'containerData', 'imageData', 'canvasData', 'cropBoxData']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'croppedImageData', 'src', 'alt', 'crossOrigin', 'viewMode', 'dragMode', 'initialAspectRatio', 'aspectRatio', 'data', 'preview', 'responsive', 'restore', 'checkCrossOrigin', 'checkOrientation', 'modal', 'guides', 'center', 'highlight', 'background', 'autoCrop', 'autoCropArea', 'movable', 'rotatable', 'scalable', 'zoomable', 'zoomOnTouch', 'zoomOnWheel', 'wheelZoomRatio', 'cropBoxMovable', 'cropBoxResizable', 'toggleDragModeOnDblclick', 'minContainerWidth', 'minContainerHeight', 'minCanvasWidth', 'minCanvasHeight', 'minCropBoxWidth', 'minCropBoxHeight', 'reset', 'clear', 'replace', 'enable', 'disable', 'destroy', 'move', 'moveTo', 'zoom', 'zoomTo', 'rotate', 'rotateTo', 'scale', 'scaleX', 'scaleY', 'outputData', 'containerData', 'imageData', 'canvasData', 'cropBoxData', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'croppedImageData', 'src', 'alt', 'crossOrigin', 'viewMode', 'dragMode', 'initialAspectRatio', 'aspectRatio', 'data', 'preview', 'responsive', 'restore', 'checkCrossOrigin', 'checkOrientation', 'modal', 'guides', 'center', 'highlight', 'background', 'autoCrop', 'autoCropArea', 'movable', 'rotatable', 'scalable', 'zoomable', 'zoomOnTouch', 'zoomOnWheel', 'wheelZoomRatio', 'cropBoxMovable', 'cropBoxResizable', 'toggleDragModeOnDblclick', 'minContainerWidth', 'minContainerHeight', 'minCanvasWidth', 'minCanvasHeight', 'minCropBoxWidth', 'minCropBoxHeight', 'reset', 'clear', 'replace', 'enable', 'disable', 'destroy', 'move', 'moveTo', 'zoom', 'zoomTo', 'rotate', 'rotateTo', 'scale', 'scaleX', 'scaleY', 'outputData', 'containerData', 'imageData', 'canvasData', 'cropBoxData']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

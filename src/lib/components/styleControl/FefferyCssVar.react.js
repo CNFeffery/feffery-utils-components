@@ -1,17 +1,15 @@
+// react核心
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 /**
  * CSS变量更新组件FefferyCssVar
  */
-const FefferyCssVar = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        cssVars,
-        setProps,
-        loading_state
-    } = props;
+const FefferyCssVar = ({
+    id,
+    cssVars,
+    setProps
+}) => {
 
     useEffect(() => {
         // 更新css变量
@@ -42,30 +40,11 @@ FefferyCssVar.propTypes = {
      */
     cssVars: PropTypes.object,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyCssVar.defaultProps = {
-}
 
 export default FefferyCssVar;

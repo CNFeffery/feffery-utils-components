@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { isString, isNull } from 'lodash';
 import { useElementBounding, useFocus } from '@reactuses/core';
 import { useSize, useRequest, useHover, useClickAway } from 'ahooks';
+import { useLoading } from '../utils';
 // 自定义hooks
 import useCss from '../../hooks/useCss';
 
@@ -80,37 +81,35 @@ const scrollbarVirtualClassName = new Map(
 /**
  * 进阶div容器组件FefferyDiv
  */
-const FefferyDiv = (props) => {
-    let {
-        id,
-        key,
-        children,
-        style,
-        className,
-        enableEvents,
-        mouseEnterCount,
-        mouseLeaveCount,
-        nClicks,
-        nDoubleClicks,
-        enableListenContextMenu,
-        debounceWait,
-        clickAwayCount,
-        enableFocus,
-        isFocused,
-        shadow,
-        scrollbar,
-        textAlign,
-        justify,
-        align,
-        padding,
-        margin,
-        border,
-        borderRadius,
-        enableClickAway,
-        wheelEventStrategy,
-        setProps,
-        loading_state
-    } = props;
+const FefferyDiv = ({
+    id,
+    key,
+    children,
+    style,
+    className,
+    enableEvents = ['click', 'dbclick'],
+    mouseEnterCount = 0,
+    mouseLeaveCount = 0,
+    nClicks = 0,
+    nDoubleClicks = 0,
+    enableListenContextMenu = false,
+    debounceWait = 150,
+    clickAwayCount = 0,
+    enableFocus = false,
+    isFocused,
+    shadow = 'no-shadow',
+    scrollbar = 'default',
+    textAlign,
+    justify,
+    align,
+    padding,
+    margin,
+    border,
+    borderRadius,
+    enableClickAway = false,
+    wheelEventStrategy = 'default',
+    setProps
+}) => {
 
     const ref = useRef(null);
     const size = useSize(enableEvents?.includes('size') ? ref : null);
@@ -372,9 +371,7 @@ const FefferyDiv = (props) => {
                 undefined
         }
         tabIndex={enableFocus || enableEvents?.includes('focus') ? 0 : undefined}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        } >
+        data-dash-is-loading={useLoading()} >
         {children}
     </ div>;
 }
@@ -713,38 +710,7 @@ FefferyDiv.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-FefferyDiv.defaultProps = {
-    enableEvents: ['click', 'dbclick'],
-    mouseEnterCount: 0,
-    mouseLeaveCount: 0,
-    nClicks: 0,
-    nDoubleClicks: 0,
-    enableListenContextMenu: false,
-    debounceWait: 150,
-    clickAwayCount: 0,
-    shadow: 'no-shadow',
-    scrollbar: 'default',
-    enableClickAway: false,
-    enableFocus: false,
-    wheelEventStrategy: 'default'
-}
 
 export default FefferyDiv;

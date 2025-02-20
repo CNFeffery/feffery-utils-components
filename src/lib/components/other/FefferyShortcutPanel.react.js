@@ -6,10 +6,26 @@ const LazyFefferyShortcutPanel = React.lazy(() => import(/* webpackChunkName: "f
 /**
  * 快捷指令面板部件FefferyShortcutPanel
  */
-const FefferyShortcutPanel = (props) => {
+const FefferyShortcutPanel = ({
+    locale = 'zh',
+    theme = 'light',
+    openHotkey = 'cmd+k,ctrl+k',
+    open = false,
+    close = false,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyShortcutPanel {...props} />
+            <LazyFefferyShortcutPanel {
+                ...{
+                    locale,
+                    theme,
+                    openHotkey,
+                    open,
+                    close,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -236,35 +252,12 @@ FefferyShortcutPanel.propTypes = {
      */
     searchValue: PropTypes.string,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func
 };
-
-FefferyShortcutPanel.defaultProps = {
-    locale: 'zh',
-    theme: 'light',
-    openHotkey: 'cmd+k,ctrl+k',
-    open: false,
-    close: false
-}
 
 export default FefferyShortcutPanel;
 

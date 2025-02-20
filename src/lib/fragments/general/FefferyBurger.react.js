@@ -20,22 +20,20 @@ import { propTypes, defaultProps } from '../../components/general/FefferyBurger.
 /**
  * 动态菜单图标组件FefferyBurger
  */
-const FefferyBurger = (props) => {
-    let {
-        id,
-        className,
-        style,
-        type,
-        toggled,
-        size,
-        direction,
-        duration,
-        distance,
-        color,
-        rounded,
-        setProps,
-        loading_state
-    } = props;
+const FefferyBurger = ({
+    id,
+    className,
+    style,
+    type,
+    toggled,
+    size,
+    direction,
+    duration,
+    distance,
+    color,
+    rounded,
+    setProps
+}) => {
 
     // 构建参数
     let config = {

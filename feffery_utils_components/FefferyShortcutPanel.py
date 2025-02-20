@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyShortcutPanel(Component):
@@ -130,29 +137,71 @@ Keyword arguments:
         面板`z-index`  默认值：`1`.
 
 - searchValue (string; optional):
-    监听用户当前已输入搜索内容.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    监听用户当前已输入搜索内容."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyShortcutPanel'
+    Data = TypedDict(
+        "Data",
+            {
+            "id": str,
+            "title": str,
+            "hotkey": NotRequired[str],
+            "handler": NotRequired[typing.Union[str, typing.Any]],
+            "parent": NotRequired[str],
+            "keywords": NotRequired[str],
+            "children": NotRequired[typing.Sequence[str]],
+            "section": NotRequired[str]
+        }
+    )
+
+    TriggeredHotkey = TypedDict(
+        "TriggeredHotkey",
+            {
+            "id": NotRequired[str],
+            "timestamp": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    PanelStyles = TypedDict(
+        "PanelStyles",
+            {
+            "width": NotRequired[str],
+            "overflowBackground": NotRequired[str],
+            "textColor": NotRequired[str],
+            "fontSize": NotRequired[str],
+            "top": NotRequired[str],
+            "accentColor": NotRequired[str],
+            "secondaryBackgroundColor": NotRequired[str],
+            "secondaryTextColor": NotRequired[str],
+            "selectedBackground": NotRequired[str],
+            "actionsHeight": NotRequired[str],
+            "groupTextColor": NotRequired[str],
+            "zIndex": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, locale=Component.UNDEFINED, data=Component.REQUIRED, triggeredHotkey=Component.UNDEFINED, placeholder=Component.UNDEFINED, openHotkey=Component.UNDEFINED, theme=Component.UNDEFINED, open=Component.UNDEFINED, close=Component.UNDEFINED, panelStyles=Component.UNDEFINED, searchValue=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'locale', 'data', 'triggeredHotkey', 'placeholder', 'openHotkey', 'theme', 'open', 'close', 'panelStyles', 'searchValue', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        locale: typing.Optional[Literal["en", "zh"]] = None,
+        data: typing.Optional[typing.Sequence["Data"]] = None,
+        triggeredHotkey: typing.Optional["TriggeredHotkey"] = None,
+        placeholder: typing.Optional[str] = None,
+        openHotkey: typing.Optional[str] = None,
+        theme: typing.Optional[Literal["light", "dark"]] = None,
+        open: typing.Optional[bool] = None,
+        close: typing.Optional[bool] = None,
+        panelStyles: typing.Optional["PanelStyles"] = None,
+        searchValue: typing.Optional[str] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'locale', 'data', 'triggeredHotkey', 'placeholder', 'openHotkey', 'theme', 'open', 'close', 'panelStyles', 'searchValue']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'locale', 'data', 'triggeredHotkey', 'placeholder', 'openHotkey', 'theme', 'open', 'close', 'panelStyles', 'searchValue', 'loading_state']
+        self.available_properties = ['id', 'key', 'locale', 'data', 'triggeredHotkey', 'placeholder', 'openHotkey', 'theme', 'open', 'close', 'panelStyles', 'searchValue']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

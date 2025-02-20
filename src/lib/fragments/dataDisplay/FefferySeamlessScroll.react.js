@@ -18,20 +18,18 @@ const useDidUpdateEffect = (fn, inputs) => {
 /**
  * 无缝滚动组件FefferySeamlessScroll
  */
-const FefferySeamlessScroll = (props) => {
-    const {
-        id,
-        key,
-        leftSwitchChildren,
-        rightSwitchChildren,
-        children,
-        className,
-        style,
-        data,
-        classOption,
-        setProps,
-        loading_state
-    } = props;
+const FefferySeamlessScroll = ({
+    id,
+    key,
+    leftSwitchChildren,
+    rightSwitchChildren,
+    children,
+    className,
+    style,
+    data,
+    classOption,
+    setProps
+}) => {
 
     const wrapRef = useRef(null);
     const realBoxRef = useRef(null);

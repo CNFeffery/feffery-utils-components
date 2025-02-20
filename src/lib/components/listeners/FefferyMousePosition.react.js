@@ -7,11 +7,9 @@ import { useMouse } from 'ahooks';
 /**
  * 鼠标位置监听组件FefferyMousePosition
  */
-const FefferyMousePosition = (props) => {
-    let {
-        setProps,
-        loading_state
-    } = props;
+const FefferyMousePosition = ({
+    setProps
+}) => {
 
     const mouse = useMouse();
 
@@ -53,25 +51,7 @@ FefferyMousePosition.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-FefferyMousePosition.defaultProps = {
-}
 
 export default FefferyMousePosition;

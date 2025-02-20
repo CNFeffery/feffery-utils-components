@@ -1,20 +1,20 @@
+// react核心
 import { useEffect } from 'react';
-import { useEventSource } from '@reactuses/core';
 import PropTypes from 'prop-types';
+// 组件核心
+import { useEventSource } from '@reactuses/core';
 
 /**
  * EventSource通信组件FefferyEventSource
  */
-const FefferyEventSource = (props) => {
-    const {
-        url,
-        events,
-        immediate,
-        autoReconnect,
-        operation,
-        setProps,
-        loading_state
-    } = props;
+const FefferyEventSource = ({
+    url,
+    events = [],
+    immediate = true,
+    autoReconnect = false,
+    operation,
+    setProps
+}) => {
 
     const { status: _status, data: _data, event: _event, close, open, error: _error } = useEventSource(
         url,
@@ -144,29 +144,7 @@ FefferyEventSource.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-// 设置默认参数
-FefferyEventSource.defaultProps = {
-    immediate: true,
-    autoReconnect: false,
-    events: []
-}
 
 export default FefferyEventSource;

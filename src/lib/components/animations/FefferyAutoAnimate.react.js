@@ -6,10 +6,30 @@ const LazyFefferyAutoAnimate = React.lazy(() => import(/* webpackChunkName: "fef
 /**
  * 自动动画组件FefferyAutoAnimate
  */
-const FefferyAutoAnimate = (props) => {
+const FefferyAutoAnimate = ({
+    id,
+    children,
+    style,
+    className,
+    duration = 0.25,
+    easing = 'ease-in-out',
+    setProps,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyAutoAnimate {...props} />
+            <LazyFefferyAutoAnimate {
+                ...{
+                    id,
+                    children,
+                    style,
+                    className,
+                    duration,
+                    easing,
+                    setProps,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -55,33 +75,12 @@ FefferyAutoAnimate.propTypes = {
      */
     easing: PropTypes.string,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyAutoAnimate.defaultProps = {
-    duration: 0.25,
-    easing: 'ease-in-out'
-}
 
 export default FefferyAutoAnimate;
 

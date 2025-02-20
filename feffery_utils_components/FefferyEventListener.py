@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyEventListener(Component):
@@ -28,29 +35,27 @@ Keyword arguments:
     控制是否开启监听  默认值：`True`.
 
 - result (boolean | number | string | dict | list; optional):
-    监听`handler`对应函数的返回值，作为事件监听的结果.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    监听`handler`对应函数的返回值，作为事件监听的结果."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyEventListener'
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, eventName=Component.REQUIRED, handler=Component.UNDEFINED, targetSelector=Component.UNDEFINED, enable=Component.UNDEFINED, result=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'eventName', 'handler', 'targetSelector', 'enable', 'result', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        eventName: typing.Optional[str] = None,
+        handler: typing.Optional[str] = None,
+        targetSelector: typing.Optional[str] = None,
+        enable: typing.Optional[bool] = None,
+        result: typing.Optional[typing.Any] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'eventName', 'handler', 'targetSelector', 'enable', 'result']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'eventName', 'handler', 'targetSelector', 'enable', 'result', 'loading_state']
+        self.available_properties = ['id', 'key', 'eventName', 'handler', 'targetSelector', 'enable', 'result']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyTiltHover(Component):
@@ -104,29 +111,52 @@ Keyword arguments:
     监听用户进入组件时触发的事件数据.
 
 - listenLeave (dict; optional):
-    监听用户离开组件时触发的事件数据.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    监听用户离开组件时触发的事件数据."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyTiltHover'
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, tiltEnable=Component.UNDEFINED, tiltReverse=Component.UNDEFINED, tiltAngleXInitial=Component.UNDEFINED, tiltAngleYInitial=Component.UNDEFINED, tiltMaxAngleX=Component.UNDEFINED, tiltMaxAngleY=Component.UNDEFINED, tiltAxis=Component.UNDEFINED, tiltAngleXManual=Component.UNDEFINED, tiltAngleYManual=Component.UNDEFINED, glareEnable=Component.UNDEFINED, glareMaxOpacity=Component.UNDEFINED, glareColor=Component.UNDEFINED, glareBorderRadius=Component.UNDEFINED, glarePosition=Component.UNDEFINED, glareReverse=Component.UNDEFINED, scale=Component.UNDEFINED, perspective=Component.UNDEFINED, flipVertically=Component.UNDEFINED, flipHorizontally=Component.UNDEFINED, reset=Component.UNDEFINED, transitionEasing=Component.UNDEFINED, transitionSpeed=Component.UNDEFINED, trackOnWindow=Component.UNDEFINED, gyroscope=Component.UNDEFINED, listenMove=Component.UNDEFINED, listenEnter=Component.UNDEFINED, listenLeave=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'tiltEnable', 'tiltReverse', 'tiltAngleXInitial', 'tiltAngleYInitial', 'tiltMaxAngleX', 'tiltMaxAngleY', 'tiltAxis', 'tiltAngleXManual', 'tiltAngleYManual', 'glareEnable', 'glareMaxOpacity', 'glareColor', 'glareBorderRadius', 'glarePosition', 'glareReverse', 'scale', 'perspective', 'flipVertically', 'flipHorizontally', 'reset', 'transitionEasing', 'transitionSpeed', 'trackOnWindow', 'gyroscope', 'listenMove', 'listenEnter', 'listenLeave', 'loading_state']
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        tiltEnable: typing.Optional[bool] = None,
+        tiltReverse: typing.Optional[bool] = None,
+        tiltAngleXInitial: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        tiltAngleYInitial: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        tiltMaxAngleX: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        tiltMaxAngleY: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        tiltAxis: typing.Optional[Literal["x", "y"]] = None,
+        tiltAngleXManual: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        tiltAngleYManual: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        glareEnable: typing.Optional[bool] = None,
+        glareMaxOpacity: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        glareColor: typing.Optional[str] = None,
+        glareBorderRadius: typing.Optional[str] = None,
+        glarePosition: typing.Optional[Literal["top", "right", "bottom", "left", "all"]] = None,
+        glareReverse: typing.Optional[bool] = None,
+        scale: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        perspective: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        flipVertically: typing.Optional[bool] = None,
+        flipHorizontally: typing.Optional[bool] = None,
+        reset: typing.Optional[bool] = None,
+        transitionEasing: typing.Optional[str] = None,
+        transitionSpeed: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        trackOnWindow: typing.Optional[bool] = None,
+        gyroscope: typing.Optional[bool] = None,
+        listenMove: typing.Optional[dict] = None,
+        listenEnter: typing.Optional[dict] = None,
+        listenLeave: typing.Optional[dict] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'tiltEnable', 'tiltReverse', 'tiltAngleXInitial', 'tiltAngleYInitial', 'tiltMaxAngleX', 'tiltMaxAngleY', 'tiltAxis', 'tiltAngleXManual', 'tiltAngleYManual', 'glareEnable', 'glareMaxOpacity', 'glareColor', 'glareBorderRadius', 'glarePosition', 'glareReverse', 'scale', 'perspective', 'flipVertically', 'flipHorizontally', 'reset', 'transitionEasing', 'transitionSpeed', 'trackOnWindow', 'gyroscope', 'listenMove', 'listenEnter', 'listenLeave']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'tiltEnable', 'tiltReverse', 'tiltAngleXInitial', 'tiltAngleYInitial', 'tiltMaxAngleX', 'tiltMaxAngleY', 'tiltAxis', 'tiltAngleXManual', 'tiltAngleYManual', 'glareEnable', 'glareMaxOpacity', 'glareColor', 'glareBorderRadius', 'glarePosition', 'glareReverse', 'scale', 'perspective', 'flipVertically', 'flipHorizontally', 'reset', 'transitionEasing', 'transitionSpeed', 'trackOnWindow', 'gyroscope', 'listenMove', 'listenEnter', 'listenLeave', 'loading_state']
+        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'tiltEnable', 'tiltReverse', 'tiltAngleXInitial', 'tiltAngleYInitial', 'tiltMaxAngleX', 'tiltMaxAngleY', 'tiltAxis', 'tiltAngleXManual', 'tiltAngleYManual', 'glareEnable', 'glareMaxOpacity', 'glareColor', 'glareBorderRadius', 'glarePosition', 'glareReverse', 'scale', 'perspective', 'flipVertically', 'flipHorizontally', 'reset', 'transitionEasing', 'transitionSpeed', 'trackOnWindow', 'gyroscope', 'listenMove', 'listenEnter', 'listenLeave']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

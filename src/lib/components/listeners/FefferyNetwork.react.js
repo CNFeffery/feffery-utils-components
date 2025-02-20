@@ -7,11 +7,9 @@ import { useNetwork } from 'ahooks';
 /**
  * 网络状态信息监听组件FefferyNetwork
  */
-const FefferyNetwork = (props) => {
-    const {
-        setProps,
-        loading_state
-    } = props;
+const FefferyNetwork = ({
+    setProps
+}) => {
 
     const networkState = useNetwork();
 
@@ -79,25 +77,7 @@ FefferyNetwork.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-FefferyNetwork.defaultProps = {
-}
 
 export default FefferyNetwork;

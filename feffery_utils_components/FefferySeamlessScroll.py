@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferySeamlessScroll(Component):
@@ -33,7 +40,7 @@ Keyword arguments:
 - data (list; required):
     无缝滚动对应列表数据.
 
-- classOption (dict; default {    step: 1,    limitMoveNum: 5,    hoverStop: True,    direction: 1,    openTouch: True,    singleHeight: 0,    singleWidth: 0,    waitTime: 1000,    switchOffset: 30,    autoPlay: True,    switchSingleStep: 134,    switchDelay: 400,    switchDisabledClass: 'disabled',    isSingleRemUnit: False,    navigation: False}):
+- classOption (dict; optional):
     配置功能.
 
     `classOption` is a dict with keys:
@@ -81,29 +88,49 @@ Keyword arguments:
         `singleHeight`、`singleWidth`是否开启`rem`度量  默认值：`False`.
 
     - navigation (boolean; optional):
-        左右方向的滚动是否显示控制器按钮，传入`True`时`autoPlay`将自动变为`False`  默认值：`False`.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+        左右方向的滚动是否显示控制器按钮，传入`True`时`autoPlay`将自动变为`False`  默认值：`False`."""
     _children_props = ['leftSwitchChildren', 'rightSwitchChildren']
     _base_nodes = ['leftSwitchChildren', 'rightSwitchChildren', 'children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferySeamlessScroll'
+    ClassOption = TypedDict(
+        "ClassOption",
+            {
+            "step": NotRequired[typing.Union[int, float, numbers.Number]],
+            "limitMoveNum": NotRequired[typing.Union[int, float, numbers.Number]],
+            "hoverStop": NotRequired[bool],
+            "direction": NotRequired[typing.Union[int, float, numbers.Number]],
+            "openTouch": NotRequired[bool],
+            "singleHeight": NotRequired[typing.Union[int, float, numbers.Number]],
+            "singleWidth": NotRequired[typing.Union[int, float, numbers.Number]],
+            "waitTime": NotRequired[typing.Union[int, float, numbers.Number]],
+            "switchOffset": NotRequired[typing.Union[int, float, numbers.Number]],
+            "autoPlay": NotRequired[bool],
+            "switchSingleStep": NotRequired[typing.Union[int, float, numbers.Number]],
+            "switchDelay": NotRequired[typing.Union[int, float, numbers.Number]],
+            "switchDisabledClass": NotRequired[str],
+            "isSingleRemUnit": NotRequired[bool],
+            "navigation": NotRequired[bool]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, leftSwitchChildren=Component.UNDEFINED, rightSwitchChildren=Component.UNDEFINED, data=Component.REQUIRED, classOption=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'leftSwitchChildren', 'rightSwitchChildren', 'data', 'classOption', 'loading_state']
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        leftSwitchChildren: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        rightSwitchChildren: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        data: typing.Optional[typing.Sequence] = None,
+        classOption: typing.Optional["ClassOption"] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'leftSwitchChildren', 'rightSwitchChildren', 'data', 'classOption']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'leftSwitchChildren', 'rightSwitchChildren', 'data', 'classOption', 'loading_state']
+        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'leftSwitchChildren', 'rightSwitchChildren', 'data', 'classOption']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

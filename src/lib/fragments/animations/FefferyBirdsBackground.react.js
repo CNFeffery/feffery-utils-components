@@ -1,43 +1,45 @@
+// react核心
 import React, { useState, useEffect, useRef } from 'react';
+// 组件核心
 import BIRDS from 'vanta/dist/vanta.birds.min';
 import * as THREE from 'three';
+// 辅助库
 import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
+import { useLoading } from '../../components/utils';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/animations/FefferyBirdsBackground.react';
 
 /**
  * 3D-Birds背景组件FefferyBirdsBackground
  */
-const FefferyBirdsBackground = (props) => {
-    // 取得必要属性或参数
-    let {
-        id,
-        children,
-        className,
-        style,
-        key,
-        mouseControls,
-        touchControls,
-        gyroControls,
-        minHeight,
-        minWidth,
-        scale,
-        scaleMobile,
-        backgroundColor,
-        backgroundAlpha,
-        color1,
-        color2,
-        colorMode,
-        quantity,
-        birdSize,
-        wingSpan,
-        speedLimit,
-        separation,
-        alignment,
-        cohesion,
-        setProps,
-        loading_state
-    } = props;
+const FefferyBirdsBackground = ({
+    id,
+    children,
+    className,
+    style,
+    key,
+    mouseControls,
+    touchControls,
+    gyroControls,
+    minHeight,
+    minWidth,
+    scale,
+    scaleMobile,
+    backgroundColor,
+    backgroundAlpha,
+    color1,
+    color2,
+    colorMode,
+    quantity,
+    birdSize,
+    wingSpan,
+    speedLimit,
+    separation,
+    alignment,
+    cohesion,
+    setProps
+}) => {
 
     const [birdsEffect, setBirdsEffect] = useState(null);
     const birdsRef = useRef(null);
@@ -85,12 +87,8 @@ const FefferyBirdsBackground = (props) => {
             style={style}
             key={key}
             ref={birdsRef}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
-        >
-            {children}
-        </div>
+            data-dash-is-loading={useLoading()}
+        >{children}</div>
     );
 }
 

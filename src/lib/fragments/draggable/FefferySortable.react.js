@@ -19,6 +19,7 @@ import { CSS } from "@dnd-kit/utilities";
 // 辅助库
 import { HolderOutlined, MenuOutlined, DragOutlined } from "@ant-design/icons";
 import { isString, isEqual } from 'lodash';
+import { useLoading } from "../../components/utils";
 // 自定义hooks
 import useCss from "../../hooks/useCss";
 // 参数类型
@@ -220,28 +221,26 @@ const SortableItem = React.memo(
 /**
  * 排序列表组件FefferySortable
  */
-const FefferySortable = (props) => {
-    const {
-        id,
-        style,
-        handleStyle,
-        className,
-        handleClassName,
-        items,
-        currentOrder,
-        direction,
-        itemDraggingScale,
-        handlePosition,
-        handleType,
-        maxTranslateX,
-        maxTranslateY,
-        value,
-        multiple,
-        allowNoValue,
-        selectedStyle,
-        setProps,
-        loading_state
-    } = props;
+const FefferySortable = ({
+    id,
+    style,
+    handleStyle,
+    className,
+    handleClassName,
+    items,
+    currentOrder,
+    direction,
+    itemDraggingScale,
+    handlePosition,
+    handleType,
+    maxTranslateX,
+    maxTranslateY,
+    value,
+    multiple,
+    allowNoValue,
+    selectedStyle,
+    setProps
+}) => {
 
     // 初始化currentOrder
     useEffect(() => {
@@ -297,9 +296,7 @@ const FefferySortable = (props) => {
                             className :
                             (className ? useCss(className) : undefined)
                     }
-                    data-dash-is-loading={
-                        (loading_state && loading_state.is_loading) || undefined
-                    }>
+                    data-dash-is-loading={useLoading()}>
                     {reorderItems.map((item) => (
                         <SortableItem id={item.key}
                             key={item.key}

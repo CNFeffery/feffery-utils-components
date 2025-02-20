@@ -6,12 +6,10 @@ import { useHover } from 'ahooks';
 /**
  * 鼠标悬停监听组件FefferyListenHover
  */
-const FefferyListenHover = (props) => {
-    const {
-        targetSelector,
-        setProps,
-        loading_state
-    } = props;
+const FefferyListenHover = ({
+    targetSelector,
+    setProps
+}) => {
 
     useHover(
         () => document.querySelector(targetSelector),
@@ -52,25 +50,7 @@ FefferyListenHover.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-FefferyListenHover.defaultProps = {
-}
 
 export default FefferyListenHover;

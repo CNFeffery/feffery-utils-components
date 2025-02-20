@@ -6,14 +6,37 @@ const LazyFefferyTopologyBackground = React.lazy(() => import(/* webpackChunkNam
 /**
  * 3D-Topology背景组件FefferyTopologyBackground
  */
-const FefferyTopologyBackground = (props) => {
+const FefferyTopologyBackground = ({
+    mouseControls = true,
+    touchControls = true,
+    gyroControls = false,
+    minHeight = 200.00,
+    minWidth = 200.00,
+    scale = 1.00,
+    scaleMobile = 1.00,
+    backgroundColor = '#102d2d',
+    color = '#89964e',
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyTopologyBackground {...props} />
+            <LazyFefferyTopologyBackground {
+                ...{
+                    mouseControls,
+                    touchControls,
+                    gyroControls,
+                    minHeight,
+                    minWidth,
+                    scale,
+                    scaleMobile,
+                    backgroundColor,
+                    color,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
-
 
 FefferyTopologyBackground.propTypes = {
     /**
@@ -98,40 +121,12 @@ FefferyTopologyBackground.propTypes = {
      */
     color: PropTypes.string,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyTopologyBackground.defaultProps = {
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    backgroundColor: '#102d2d',
-    color: '#89964e'
-}
 
 export default FefferyTopologyBackground;
 

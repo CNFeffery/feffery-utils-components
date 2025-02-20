@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyLongPress(Component):
@@ -25,29 +32,26 @@ Keyword arguments:
     监听目标组件是否正处于长按状态.
 
 - delay (number; default 300):
-    设置符合长按行为的持续时长，单位：毫秒  默认值：`300`.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    设置符合长按行为的持续时长，单位：毫秒  默认值：`300`."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyLongPress'
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, targetId=Component.UNDEFINED, pressCounts=Component.UNDEFINED, isLongPressing=Component.UNDEFINED, delay=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'targetId', 'pressCounts', 'isLongPressing', 'delay', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        targetId: typing.Optional[str] = None,
+        pressCounts: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        isLongPressing: typing.Optional[bool] = None,
+        delay: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'targetId', 'pressCounts', 'isLongPressing', 'delay']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'targetId', 'pressCounts', 'isLongPressing', 'delay', 'loading_state']
+        self.available_properties = ['id', 'key', 'targetId', 'pressCounts', 'isLongPressing', 'delay']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

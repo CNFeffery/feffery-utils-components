@@ -1,25 +1,16 @@
+// react核心
 import PropTypes from 'prop-types';
 
 /**
  * 动态样式组件FefferyStyle
  */
-const FefferyStyle = (props) => {
-
-    const {
-        id,
-        key,
-        rawStyle,
-        setProps,
-        loading_state
-    } = props;
-
-    return (<style
-        jsx="true"
-        id={id}
-        key={key}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        } >{rawStyle}</style>);
+const FefferyStyle = ({
+    id,
+    key,
+    rawStyle,
+    setProps
+}) => {
+    return (<style jsx="true" id={id} key={key} >{rawStyle}</style>);
 }
 
 FefferyStyle.propTypes = {
@@ -42,26 +33,7 @@ FefferyStyle.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-// 设置默认参数
-FefferyStyle.defaultProps = {
-}
 
 export default FefferyStyle;

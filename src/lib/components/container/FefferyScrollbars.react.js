@@ -2,27 +2,27 @@
 import PropTypes from 'prop-types';
 // 组件核心
 import SimpleBarReact from "simplebar-react";
+// 辅助库
+import { useLoading } from '../utils';
 // 样式
 import "simplebar/src/simplebar.css";
 
 /**
  * 滚动条容器组件FefferyScrollbars
  */
-const FefferyScrollbars = (props) => {
-    const {
-        id,
-        children,
-        style,
-        className,
-        key,
-        autoHide,
-        classNames,
-        forceVisible,
-        timeout,
-        scrollbarMinSize,
-        scrollbarMaxSize,
-        loading_state
-    } = props;
+const FefferyScrollbars = ({
+    id,
+    children,
+    style,
+    className,
+    key,
+    autoHide = true,
+    classNames,
+    forceVisible = false,
+    timeout = 1000,
+    scrollbarMinSize = 25,
+    scrollbarMaxSize
+}) => {
 
     return <SimpleBarReact
         id={id}
@@ -35,9 +35,7 @@ const FefferyScrollbars = (props) => {
         timeout={timeout}
         scrollbarMinSize={scrollbarMinSize}
         scrollbarMaxSize={scrollbarMaxSize}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        } >
+        data-dash-is-loading={useLoading()} >
         {children}
     </ SimpleBarReact>;
 }
@@ -120,29 +118,7 @@ FefferyScrollbars.propTypes = {
     /**
      * 滚动条最大像素长度
      */
-    scrollbarMaxSize: PropTypes.number,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    scrollbarMaxSize: PropTypes.number
 };
-
-FefferyScrollbars.defaultProps = {
-    autoHide: true,
-    timeout: 1000,
-    scrollbarMinSize: 25,
-    forceVisible: false
-}
 
 export default FefferyScrollbars;

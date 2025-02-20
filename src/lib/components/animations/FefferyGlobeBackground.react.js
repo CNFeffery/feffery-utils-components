@@ -6,10 +6,38 @@ const LazyFefferyGlobeBackground = React.lazy(() => import(/* webpackChunkName: 
 /**
  * 3D-Globe背景组件FefferyGlobeBackground
  */
-const FefferyGlobeBackground = (props) => {
+const FefferyGlobeBackground = ({
+    mouseControls = true,
+    touchControls = true,
+    gyroControls = false,
+    minHeight = 200.00,
+    minWidth = 200.00,
+    scale = 1.00,
+    scaleMobile = 1.00,
+    backgroundColor = '#23153c',
+    color = '#ff3f81',
+    color2 = '#ffffff',
+    size = 1,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyGlobeBackground {...props} />
+            <LazyFefferyGlobeBackground {
+                ...{
+                    mouseControls,
+                    touchControls,
+                    gyroControls,
+                    minHeight,
+                    minWidth,
+                    scale,
+                    scaleMobile,
+                    backgroundColor,
+                    color,
+                    color2,
+                    size,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -110,42 +138,12 @@ FefferyGlobeBackground.propTypes = {
      */
     size: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyGlobeBackground.defaultProps = {
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    backgroundColor: '#23153c',
-    color: '#ff3f81',
-    color2: '#ffffff',
-    size: 1
-}
 
 export default FefferyGlobeBackground;
 

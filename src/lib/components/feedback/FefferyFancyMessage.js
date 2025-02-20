@@ -1,29 +1,30 @@
+// react核心
 import { useEffect } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
 import PropTypes from 'prop-types';
+// 组件核心
+import toast, { Toaster } from 'react-hot-toast';
+// 辅助库
+import { useLoading } from '../utils';
 
 /**
  * 美观消息提示组件FefferyFancyMessage
  */
-const FefferyFancyMessage = (props) => {
-
-    const {
-        id,
-        children,
-        className,
-        style,
-        visible,
-        position,
-        reverseOrder,
-        containerClassName,
-        containerStyle,
-        gutter,
-        type,
-        duration,
-        icon,
-        setProps,
-        loading_state
-    } = props;
+const FefferyFancyMessage = ({
+    id,
+    children,
+    className,
+    style,
+    visible = true,
+    position = 'top-center',
+    reverseOrder = true,
+    containerClassName,
+    containerStyle,
+    gutter = 8,
+    type = 'blank',
+    duration = 4000,
+    icon,
+    setProps
+}) => {
 
     useEffect(() => {
         if (visible) {
@@ -73,9 +74,7 @@ const FefferyFancyMessage = (props) => {
         containerClassName={containerClassName}
         containerStyle={containerStyle}
         gutter={gutter}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        } />);
+        data-dash-is-loading={useLoading()} />);
 }
 
 FefferyFancyMessage.propTypes = {
@@ -165,31 +164,6 @@ FefferyFancyMessage.propTypes = {
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
 };
-
-// 设置默认参数
-FefferyFancyMessage.defaultProps = {
-    visible: true,
-    position: 'top-center',
-    reverseOrder: true,
-    gutter: 8,
-    duration: 4000,
-    type: 'blank'
-}
 
 export default FefferyFancyMessage;

@@ -6,6 +6,8 @@ import "ninja-keys";
 // 辅助库
 import { isString } from 'lodash';
 import FefferyStyle from '../../components/styleControl/FefferyStyle.react';
+import { useLoading } from '../../components/utils';
+
 
 const footerHtmlEn = <div class="modal-footer" slot="footer">
     <span class="help">
@@ -93,20 +95,18 @@ const locale2placeholder = new Map([
 /**
  * 快捷指令面板部件FefferyShortcutPanel
  */
-const FefferyShortcutPanel = (props) => {
-    let {
-        id,
-        data,
-        placeholder,
-        openHotkey,
-        theme,
-        locale,
-        open,
-        close,
-        panelStyles,
-        setProps,
-        loading_state
-    } = props;
+const FefferyShortcutPanel = ({
+    id,
+    data,
+    placeholder,
+    openHotkey,
+    theme,
+    locale,
+    open,
+    close,
+    panelStyles,
+    setProps
+}) => {
 
     // 填充handler缺省时的默认逻辑
     data = data.map(
@@ -223,9 +223,7 @@ ninja-keys {
                 openHotkey={openHotkey}
                 hotKeysJoinedView={true}
                 hideBreadcrumbs={true}
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                } >
+                data-dash-is-loading={useLoading()} >
                 {locale2footer.get(locale)}
             </ ninja-keys>
         </>

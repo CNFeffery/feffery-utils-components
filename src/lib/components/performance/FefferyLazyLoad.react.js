@@ -1,25 +1,27 @@
+// react核心
 import React from 'react';
 import PropTypes from 'prop-types';
+// 组件核心
 import LazyLoad from 'react-lazy-load';
+// 辅助库
+import { useLoading } from '../utils';
 
 /**
  * 懒加载容器组件FefferyLazyLoad
  */
-const FefferyLazyLoad = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        children,
-        style,
-        className,
-        key,
-        height,
-        width,
-        offset,
-        throttle,
-        setProps,
-        loading_state
-    } = props;
+const FefferyLazyLoad = ({
+    id,
+    children,
+    style,
+    className,
+    key,
+    height,
+    width,
+    offset,
+    throttle,
+    visible = false,
+    setProps
+}) => {
 
     return (<LazyLoad
         id={id}
@@ -35,9 +37,7 @@ const FefferyLazyLoad = (props) => {
                 visible: true
             })
         }}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        } >
+        data-dash-is-loading={useLoading()} >
         {children}
     </ LazyLoad>);
 }
@@ -108,27 +108,7 @@ FefferyLazyLoad.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-// 设置默认参数
-FefferyLazyLoad.defaultProps = {
-    visible: false
-}
 
 export default FefferyLazyLoad;

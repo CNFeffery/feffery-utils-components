@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyListenUnload(Component):
@@ -19,29 +26,24 @@ Keyword arguments:
     监听页面重载或关闭事件，每次页面关闭时会触发更新为`True`.
 
 - confirmBeforeUnload (boolean; default False):
-    是否在用户重载或关闭当前页面时，添加二次确认  默认值：`False`.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    是否在用户重载或关闭当前页面时，添加二次确认  默认值：`False`."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyListenUnload'
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, unloaded=Component.UNDEFINED, confirmBeforeUnload=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'unloaded', 'confirmBeforeUnload', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        unloaded: typing.Optional[bool] = None,
+        confirmBeforeUnload: typing.Optional[bool] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'unloaded', 'confirmBeforeUnload']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'unloaded', 'confirmBeforeUnload', 'loading_state']
+        self.available_properties = ['id', 'key', 'unloaded', 'confirmBeforeUnload']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

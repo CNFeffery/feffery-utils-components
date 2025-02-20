@@ -6,10 +6,130 @@ const LazyFefferyDPlayer = React.lazy(() => import(/* webpackChunkName: "feffery
 /**
  * 视频播放组件FefferyDPlayer
  */
-const FefferyDPlayer = (props) => {
+const FefferyDPlayer = ({
+    live = false,
+    autoplay = false,
+    theme = '#b7daff',
+    loop = false,
+    lang = 'zh-cn',
+    screenshot = false,
+    hotkey = true,
+    airplay = false,
+    chromecast = false,
+    preload = 'auto',
+    volume = 0.7,
+    playbackSpeed = [0.5, 0.75, 1, 1.25, 1.5, 2],
+    preventClickToggle = false,
+    video = { type: 'auto' },
+    subtitle = { isOpen: false, type: 'webvtt', fontSize: '20px', bottom: '40px', color: '#fff' },
+    danmaku = { isOpen: false, unlimited: false, speedRate: 1 },
+    contextmenu = [],
+    highlight = [],
+    mutex = true,
+    play = false,
+    pause = false,
+    seek = { isSeek: false },
+    notice = { isShow: false, time: 2000, opacity: 0.8 },
+    speed = { isSpeed: false },
+    volumeSet = { isVolume: false, nostorage: true, nonotice: false },
+    fullScreen = { isFullScreen: false, type: 'browser' },
+    switchQuality = { isSwitch: false },
+    switchVideo = { isSwitch: false },
+    sendDanmaku = { isSend: false },
+    drawDanmaku = { isDraw: false },
+    opacityDanmaku = { isOpacity: false },
+    clearDanmaku = false,
+    hideDanmaku = false,
+    showDanmaku = false,
+    destroy = false,
+    playClicks = 0,
+    pauseClicks = 0,
+    seekClicks = 0,
+    showNoticeClicks = 0,
+    hideNoticeClicks = 0,
+    speedClicks = 0,
+    volumeSetClicks = 0,
+    screenshotClicks = 0,
+    contextmenuShowClicks = 0,
+    contextmenuHideClicks = 0,
+    fullScreenClicks = 0,
+    cancelFullScreenClicks = 0,
+    sendDanmakuCallback = { sendDanmakuClicks: 0 },
+    drawDanmakuClicks = 0,
+    opacityDanmakuCallback = { opacityDanmakuClicks: 0 },
+    clearDanmakuClicks = 0,
+    showDanmakuClicks = 0,
+    hideDanmakuClicks = 0,
+    subtitleShowClicks = 0,
+    subtitleHideClicks = 0,
+    subtitleChangeClicks = 0,
+    destroyClicks = 0,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyDPlayer {...props} />
+            <LazyFefferyDPlayer {
+                ...{
+                    live,
+                    autoplay,
+                    theme,
+                    loop,
+                    lang,
+                    screenshot,
+                    hotkey,
+                    airplay,
+                    chromecast,
+                    preload,
+                    volume,
+                    playbackSpeed,
+                    preventClickToggle,
+                    video,
+                    subtitle,
+                    danmaku,
+                    contextmenu,
+                    highlight,
+                    mutex,
+                    play,
+                    pause,
+                    seek,
+                    notice,
+                    speed,
+                    volumeSet,
+                    fullScreen,
+                    switchQuality,
+                    switchVideo,
+                    sendDanmaku,
+                    drawDanmaku,
+                    opacityDanmaku,
+                    clearDanmaku,
+                    hideDanmaku,
+                    showDanmaku,
+                    destroy,
+                    playClicks,
+                    pauseClicks,
+                    seekClicks,
+                    showNoticeClicks,
+                    hideNoticeClicks,
+                    speedClicks,
+                    volumeSetClicks,
+                    screenshotClicks,
+                    contextmenuShowClicks,
+                    contextmenuHideClicks,
+                    fullScreenClicks,
+                    cancelFullScreenClicks,
+                    sendDanmakuCallback,
+                    drawDanmakuClicks,
+                    opacityDanmakuCallback,
+                    clearDanmakuClicks,
+                    showDanmakuClicks,
+                    hideDanmakuClicks,
+                    subtitleShowClicks,
+                    subtitleHideClicks,
+                    subtitleChangeClicks,
+                    destroyClicks,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -731,129 +851,12 @@ FefferyDPlayer.propTypes = {
      */
     currentVideoInfo: PropTypes.object,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyDPlayer.defaultProps = {
-    live: false,
-    autoplay: false,
-    theme: '#b7daff',
-    loop: false,
-    lang: 'zh-cn',
-    screenshot: false,
-    hotkey: true,
-    airplay: false,
-    chromecast: false,
-    preload: 'auto',
-    volume: 0.7,
-    playbackSpeed: [0.5, 0.75, 1, 1.25, 1.5, 2],
-    preventClickToggle: false,
-    video: {
-        type: 'auto'
-    },
-    subtitle: {
-        isOpen: false,
-        type: 'webvtt',
-        fontSize: '20px',
-        bottom: '40px',
-        color: '#fff'
-    },
-    danmaku: {
-        isOpen: false,
-        unlimited: false,
-        speedRate: 1
-    },
-    contextmenu: [],
-    highlight: [],
-    mutex: true,
-    play: false,
-    pause: false,
-    seek: {
-        isSeek: false
-    },
-    notice: {
-        isShow: false,
-        time: 2000,
-        opacity: 0.8
-    },
-    speed: {
-        isSpeed: false
-    },
-    volumeSet: {
-        isVolume: false,
-        nostorage: true,
-        nonotice: false
-    },
-    fullScreen: {
-        isFullScreen: false,
-        type: 'browser'
-    },
-    switchQuality: {
-        isSwitch: false
-    },
-    switchVideo: {
-        isSwitch: false
-    },
-    sendDanmaku: {
-        isSend: false
-    },
-    drawDanmaku: {
-        isDraw: false
-    },
-    opacityDanmaku: {
-        isOpacity: false
-    },
-    clearDanmaku: false,
-    hideDanmaku: false,
-    showDanmaku: false,
-    destroy: false,
-    playClicks: 0,
-    pauseClicks: 0,
-    seekClicks: 0,
-    showNoticeClicks: 0,
-    hideNoticeClicks: 0,
-    speedClicks: 0,
-    volumeSetClicks: 0,
-    screenshotClicks: 0,
-    contextmenuShowClicks: 0,
-    contextmenuHideClicks: 0,
-    fullScreenClicks: 0,
-    cancelFullScreenClicks: 0,
-    sendDanmakuCallback: {
-        sendDanmakuClicks: 0
-    },
-    drawDanmakuClicks: 0,
-    opacityDanmakuCallback: {
-        opacityDanmakuClicks: 0
-    },
-    clearDanmakuClicks: 0,
-    showDanmakuClicks: 0,
-    hideDanmakuClicks: 0,
-    subtitleShowClicks: 0,
-    subtitleHideClicks: 0,
-    subtitleChangeClicks: 0,
-    destroyClicks: 0
-}
 
 export default FefferyDPlayer;
 

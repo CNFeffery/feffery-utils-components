@@ -6,10 +6,52 @@ const LazyFefferyRichTextEditor = React.lazy(() => import(/* webpackChunkName: "
 /**
  * 富文本编辑器组件FefferyRichTextEditor
  */
-const FefferyRichTextEditor = (props) => {
+const FefferyRichTextEditor = ({
+    locale = 'zh-CN',
+    mode = 'default',
+    ...others
+}) => {
+
+    let defaultProps = {
+        toolbarConfig: {
+            modalAppendToBody: false
+        },
+        editorConfig: {
+            readOnly: false,
+            autoFocus: true,
+            scroll: true
+        },
+        uploadImage: {
+            fieldName: 'wangeditor-uploaded-image',
+            maxFileSize: 2 * 1024 * 1024,
+            maxNumberOfFiles: 100,
+            allowedFileTypes: ['image/*'],
+            metaWithUrl: false,
+            withCredentials: false,
+            timeout: 10,
+            base64LimitSize: 0
+        },
+        uploadVideo: {
+            fieldName: 'wangeditor-uploaded-video',
+            maxFileSize: 10 * 1024 * 1024,
+            maxNumberOfFiles: 5,
+            allowedFileTypes: ['video/*'],
+            metaWithUrl: false,
+            withCredentials: false,
+            timeout: 10
+        }
+    }
+
     return (
         <Suspense fallback={null}>
-            <LazyFefferyRichTextEditor {...props} />
+            <LazyFefferyRichTextEditor {
+                ...{
+                    locale,
+                    mode,
+                    ...defaultProps,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -589,60 +631,12 @@ FefferyRichTextEditor.propTypes = {
         ]),
     }),
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyRichTextEditor.defaultProps = {
-    locale: 'zh-CN',
-    mode: 'default',
-    toolbarConfig: {
-        modalAppendToBody: false
-    },
-    editorConfig: {
-        readOnly: false,
-        autoFocus: true,
-        scroll: true
-    },
-    uploadImage: {
-        fieldName: 'wangeditor-uploaded-image',
-        maxFileSize: 2 * 1024 * 1024,
-        maxNumberOfFiles: 100,
-        allowedFileTypes: ['image/*'],
-        metaWithUrl: false,
-        withCredentials: false,
-        timeout: 10,
-        base64LimitSize: 0
-    },
-    uploadVideo: {
-        fieldName: 'wangeditor-uploaded-video',
-        maxFileSize: 10 * 1024 * 1024,
-        maxNumberOfFiles: 5,
-        allowedFileTypes: ['video/*'],
-        metaWithUrl: false,
-        withCredentials: false,
-        timeout: 10
-    }
-}
 
 export default FefferyRichTextEditor;
 

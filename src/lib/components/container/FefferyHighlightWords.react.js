@@ -2,26 +2,26 @@
 import PropTypes from 'prop-types';
 // 组件核心
 import Highlighter from "react-highlight-words";
+// 辅助库
+import { useLoading } from '../utils';
 
 /**
  * 关键词高亮组件FefferyHighlightWords
  */
-const FefferyHighlightWords = (props) => {
-    const {
-        id,
-        className,
-        style,
-        caseSensitive,
-        highlightClassName,
-        highlightStyle,
-        useRegex,
-        searchWords,
-        textToHighlight,
-        unhighlightClassName,
-        unhighlightStyle,
-        setProps,
-        loading_state
-    } = props;
+const FefferyHighlightWords = ({
+    id,
+    className,
+    style,
+    caseSensitive = false,
+    highlightClassName = 'feffery-highlight-words-highlight',
+    highlightStyle,
+    useRegex = false,
+    searchWords,
+    textToHighlight,
+    unhighlightClassName,
+    unhighlightStyle,
+    setProps
+}) => {
 
     return (
         <Highlighter id={id}
@@ -35,11 +35,7 @@ const FefferyHighlightWords = (props) => {
             unhighlightClassName={unhighlightClassName}
             unhighlightStyle={unhighlightStyle}
             autoEscape={!useRegex}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } >
-            { }
-        </Highlighter>
+            data-dash-is-loading={useLoading()} />
     );
 }
 
@@ -108,28 +104,7 @@ FefferyHighlightWords.propTypes = {
     /**
      * 非高亮部分元素css类名
      */
-    unhighlightClassName: PropTypes.string,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    unhighlightClassName: PropTypes.string
 };
-
-FefferyHighlightWords.defaultProps = {
-    caseSensitive: false,
-    useRegex: false,
-    highlightClassName: 'feffery-highlight-words-highlight'
-}
 
 export default FefferyHighlightWords;

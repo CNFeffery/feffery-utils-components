@@ -3,25 +3,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // 组件核心
 import { QRCodeSVG, QRCodeCanvas } from 'qrcode.react';
+// 辅助库
+import { useLoading } from '../utils';
 
 /**
  * 二维码生成组件FefferyQRCode
  */
-const FefferyQRCode = (props) => {
-    const {
-        id,
-        key,
-        renderer,
-        value,
-        size,
-        bgColor,
-        fgColor,
-        level,
-        includeMargin,
-        imageSettings,
-        setProps,
-        loading_state
-    } = props;
+const FefferyQRCode = ({
+    id,
+    key,
+    renderer = 'svg',
+    value,
+    size = 128,
+    bgColor = '#FFFFFF',
+    fgColor = '#000000',
+    level = 'L',
+    includeMargin = false,
+    imageSettings,
+    setProps
+}) => {
+
+    const component_loading = useLoading();
 
     if (renderer === 'canvas') {
         return (<QRCodeCanvas
@@ -37,9 +39,7 @@ const FefferyQRCode = (props) => {
                 excavate: true,
                 ...imageSettings
             }}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={component_loading}
         />);
     }
 
@@ -55,9 +55,7 @@ const FefferyQRCode = (props) => {
             excavate: true,
             ...imageSettings
         }}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        } />;
+        data-dash-is-loading={component_loading} />;
 }
 
 FefferyQRCode.propTypes = {
@@ -138,35 +136,11 @@ FefferyQRCode.propTypes = {
      */
     renderer: PropTypes.oneOf(['svg', 'canvas']),
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-FefferyQRCode.defaultProps = {
-    renderer: 'svg',
-    size: 128,
-    bgColor: '#FFFFFF',
-    fgColor: '#000000',
-    level: 'L',
-    includeMargin: false
-}
 
 export default FefferyQRCode;

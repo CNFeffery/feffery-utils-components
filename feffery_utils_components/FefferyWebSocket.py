@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyWebSocket(Component):
@@ -34,29 +41,29 @@ Keyword arguments:
     监听从服务器传来的最新信息.
 
 - state (a value equal to: 'connecting', 'open', 'closing', 'closed'; optional):
-    用于监听当前此连接的状态，有`'connecting'`、`'open'`、`'closing'`、`'closed'`四种状态.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    用于监听当前此连接的状态，有`'connecting'`、`'open'`、`'closing'`、`'closed'`四种状态."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyWebSocket'
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, socketUrl=Component.REQUIRED, reconnectLimit=Component.UNDEFINED, reconnectInterval=Component.UNDEFINED, operation=Component.UNDEFINED, message=Component.UNDEFINED, latestMessage=Component.UNDEFINED, state=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'socketUrl', 'reconnectLimit', 'reconnectInterval', 'operation', 'message', 'latestMessage', 'state', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        socketUrl: typing.Optional[str] = None,
+        reconnectLimit: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        reconnectInterval: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        operation: typing.Optional[Literal["connect", "disconnect", "send"]] = None,
+        message: typing.Optional[str] = None,
+        latestMessage: typing.Optional[str] = None,
+        state: typing.Optional[Literal["connecting", "open", "closing", "closed"]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'socketUrl', 'reconnectLimit', 'reconnectInterval', 'operation', 'message', 'latestMessage', 'state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'socketUrl', 'reconnectLimit', 'reconnectInterval', 'operation', 'message', 'latestMessage', 'state', 'loading_state']
+        self.available_properties = ['id', 'key', 'socketUrl', 'reconnectLimit', 'reconnectInterval', 'operation', 'message', 'latestMessage', 'state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

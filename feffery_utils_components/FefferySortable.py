@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferySortable(Component):
@@ -81,29 +88,49 @@ Keyword arguments:
     是否允许无选中项  默认值：`True`.
 
 - selectedStyle (dict; optional):
-    针对已选中项设置额外的`css`样式.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    针对已选中项设置额外的`css`样式."""
     _children_props = ['items[].content']
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferySortable'
+    Items = TypedDict(
+        "Items",
+            {
+            "key": typing.Union[typing.Union[int, float, numbers.Number], str],
+            "content": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "style": NotRequired[dict],
+            "className": NotRequired[typing.Union[str, dict]],
+            "draggingStyle": NotRequired[dict],
+            "draggingClassName": NotRequired[typing.Union[str, dict]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, handleStyle=Component.UNDEFINED, handleClassName=Component.UNDEFINED, className=Component.UNDEFINED, items=Component.REQUIRED, direction=Component.UNDEFINED, itemDraggingScale=Component.UNDEFINED, handlePosition=Component.UNDEFINED, handleType=Component.UNDEFINED, maxTranslateX=Component.UNDEFINED, maxTranslateY=Component.UNDEFINED, currentOrder=Component.UNDEFINED, value=Component.UNDEFINED, multiple=Component.UNDEFINED, allowNoValue=Component.UNDEFINED, selectedStyle=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'handleStyle', 'handleClassName', 'className', 'items', 'direction', 'itemDraggingScale', 'handlePosition', 'handleType', 'maxTranslateX', 'maxTranslateY', 'currentOrder', 'value', 'multiple', 'allowNoValue', 'selectedStyle', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        handleStyle: typing.Optional[dict] = None,
+        handleClassName: typing.Optional[typing.Union[str, dict]] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        items: typing.Optional[typing.Sequence["Items"]] = None,
+        direction: typing.Optional[Literal["vertical", "horizontal"]] = None,
+        itemDraggingScale: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        handlePosition: typing.Optional[Literal["start", "end"]] = None,
+        handleType: typing.Optional[Literal["holder", "menu", "drag"]] = None,
+        maxTranslateX: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        maxTranslateY: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        currentOrder: typing.Optional[typing.Sequence[typing.Union[typing.Union[int, float, numbers.Number], str]]] = None,
+        value: typing.Optional[typing.Union[typing.Union[typing.Union[int, float, numbers.Number], str], typing.Sequence[typing.Union[typing.Union[int, float, numbers.Number], str]]]] = None,
+        multiple: typing.Optional[bool] = None,
+        allowNoValue: typing.Optional[bool] = None,
+        selectedStyle: typing.Optional[dict] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'handleStyle', 'handleClassName', 'className', 'items', 'direction', 'itemDraggingScale', 'handlePosition', 'handleType', 'maxTranslateX', 'maxTranslateY', 'currentOrder', 'value', 'multiple', 'allowNoValue', 'selectedStyle']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'handleStyle', 'handleClassName', 'className', 'items', 'direction', 'itemDraggingScale', 'handlePosition', 'handleType', 'maxTranslateX', 'maxTranslateY', 'currentOrder', 'value', 'multiple', 'allowNoValue', 'selectedStyle', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'handleStyle', 'handleClassName', 'className', 'items', 'direction', 'itemDraggingScale', 'handlePosition', 'handleType', 'maxTranslateX', 'maxTranslateY', 'currentOrder', 'value', 'multiple', 'allowNoValue', 'selectedStyle']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

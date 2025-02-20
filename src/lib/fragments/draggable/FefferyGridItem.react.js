@@ -1,19 +1,21 @@
+// react核心
 import React from 'react';
+// 辅助库
+import { useLoading } from '../../components/utils';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/draggable/FefferyGridItem.react';
 
 /**
  * 可拖拽网格项组件FefferyGridItem
  */
-const FefferyGridItem = (props) => {
-    const {
-        id,
-        children,
-        style,
-        className,
-        key,
-        setProps,
-        loading_state
-    } = props;
+const FefferyGridItem = ({
+    id,
+    children,
+    style,
+    className,
+    key,
+    setProps
+}) => {
 
     return (
         <div
@@ -21,9 +23,7 @@ const FefferyGridItem = (props) => {
             key={key}
             style={style}
             className={className}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } >{children}</div>
+            data-dash-is-loading={useLoading()} >{children}</div>
     );
 }
 

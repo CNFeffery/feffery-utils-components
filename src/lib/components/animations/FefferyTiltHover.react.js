@@ -1,50 +1,52 @@
+// react核心
 import React from 'react';
+// 组件核心
 import Tilt from 'react-parallax-tilt';
+// 辅助库
 import useCss from '../../hooks/useCss'
 import { isString } from 'lodash';
+import { useLoading } from '../utils';
+// 参数类型
 import PropTypes from 'prop-types';
 
 /**
  * 倾斜悬浮组件FefferyTiltHover
  */
-const FefferyTiltHover = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        children,
-        className,
-        style,
-        key,
-        tiltEnable,
-        tiltReverse,
-        tiltAngleXInitial,
-        tiltAngleYInitial,
-        tiltMaxAngleX,
-        tiltMaxAngleY,
-        tiltAxis,
-        tiltAngleXManual,
-        tiltAngleYManual,
-        glareEnable,
-        glareMaxOpacity,
-        glareColor,
-        glareBorderRadius,
-        glarePosition,
-        glareReverse,
-        scale,
-        perspective,
-        flipVertically,
-        flipHorizontally,
-        reset,
-        transitionEasing,
-        transitionSpeed,
-        trackOnWindow,
-        gyroscope,
-        listenMove,
-        listenEnter,
-        listenLeave,
-        setProps,
-        loading_state
-    } = props;
+const FefferyTiltHover = ({
+    id,
+    children,
+    className,
+    style,
+    key,
+    listenMove,
+    listenEnter,
+    listenLeave,
+    tiltEnable = true,
+    tiltReverse = false,
+    tiltAngleXInitial = 0,
+    tiltAngleYInitial = 0,
+    tiltMaxAngleX = 20,
+    tiltMaxAngleY = 20,
+    tiltAxis = undefined,
+    tiltAngleXManual = null,
+    tiltAngleYManual = null,
+    glareEnable = false,
+    glareMaxOpacity = 0.7,
+    glareColor = '#ffffff',
+    glareBorderRadius = '0',
+    glarePosition = 'bottom',
+    glareReverse = false,
+    scale = 1,
+    perspective = 1000,
+    flipVertically = false,
+    flipHorizontally = false,
+    reset = true,
+    transitionEasing = 'cubic-bezier(.03,.98,.52,.99)',
+    transitionSpeed = 400,
+    trackOnWindow = false,
+    gyroscope = false,
+    setProps
+}) => {
 
     const onMove = ({ tiltAngleX, tiltAngleY, tiltAngleXPercentage, tiltAngleYPercentage, glareAngle, glareOpacity, eventType }) => {
         setProps({ listenMove: { tiltAngleX: tiltAngleX, tiltAngleY: tiltAngleY, tiltAngleXPercentage: tiltAngleXPercentage, tiltAngleYPercentage: tiltAngleYPercentage, glareAngle: glareAngle, glareOpacity: glareOpacity, eventType: eventType } })
@@ -95,14 +97,11 @@ const FefferyTiltHover = (props) => {
             onMove={onMove}
             onEnter={onEnter}
             onLeave={onLeave}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } >
+            data-dash-is-loading={useLoading()} >
             {children}
         </Tilt>
     );
 }
-
 
 FefferyTiltHover.propTypes = {
     /**
@@ -289,55 +288,11 @@ FefferyTiltHover.propTypes = {
      */
     listenLeave: PropTypes.object,
 
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyTiltHover.defaultProps = {
-    tiltEnable: true,
-    tiltReverse: false,
-    tiltAngleXInitial: 0,
-    tiltAngleYInitial: 0,
-    tiltMaxAngleX: 20,
-    tiltMaxAngleY: 20,
-    tiltAxis: undefined,
-    tiltAngleXManual: null,
-    tiltAngleYManual: null,
-    glareEnable: false,
-    glareMaxOpacity: 0.7,
-    glareColor: '#ffffff',
-    glareBorderRadius: '0',
-    glarePosition: 'bottom',
-    glareReverse: false,
-    scale: 1,
-    perspective: 1000,
-    flipVertically: false,
-    flipHorizontally: false,
-    reset: true,
-    transitionEasing: 'cubic-bezier(.03,.98,.52,.99)',
-    transitionSpeed: 400,
-    trackOnWindow: false,
-    gyroscope: false
-}
 
 export default FefferyTiltHover;

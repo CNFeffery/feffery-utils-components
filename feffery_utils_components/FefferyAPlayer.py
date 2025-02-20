@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyAPlayer(Component):
@@ -45,7 +52,7 @@ Keyword arguments:
 - volume (number; default 0.7):
     默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效.
 
-- audio (list of dicts; default [{    type: 'auto'}]):
+- audio (list of dicts; default [{ type: 'auto' }]):
     设置音频信息.
 
     `audio` is a list of dicts with keys:
@@ -96,7 +103,7 @@ Keyword arguments:
 - pause (boolean; default False):
     暂停音频，每次设置为`True`后执行完相应操作后会自动置为`False`.
 
-- seek (dict; default {    isSeek: False}):
+- seek (dict; default { isSeek: False }):
     跳转到特定时间，时间的单位为秒，每次`isSeek`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `seek` is a dict with keys:
@@ -119,7 +126,7 @@ Keyword arguments:
 - hideLrc (boolean; default False):
     隐藏歌词，每次设置为`True`后执行完相应操作后会自动置为`False`.
 
-- notice (dict; default {    isShow: False,    time: 2000,    opacity: 0.8}):
+- notice (dict; default { isShow: False, time: 2000, opacity: 0.8 }):
     显示通知信息，每次`isShow`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `notice` is a dict with keys:
@@ -142,7 +149,7 @@ Keyword arguments:
 - hideList (boolean; default False):
     隐藏播放列表，每次设置为`True`后执行完相应操作后会自动置为`False`.
 
-- addList (dict; default {    isAdd: False}):
+- addList (dict; default { isAdd: False }):
     增加音频到播放列表，每次`isAdd`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `addList` is a dict with keys:
@@ -183,7 +190,7 @@ Keyword arguments:
 
             设置音频类型，可选的有`'auto'`、`'hls'`、`'normal'`  默认值：`'auto'`.
 
-- removeList (dict; default {    isRemove: False}):
+- removeList (dict; default { isRemove: False }):
     删除播放列表中的音频，每次`isRemove`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `removeList` is a dict with keys:
@@ -194,7 +201,7 @@ Keyword arguments:
     - index (number; optional):
         音频索引.
 
-- switchList (dict; default {    isSwitch: False}):
+- switchList (dict; default { isSwitch: False }):
     切换播放列表，每次`isSwitch`设置为`True`后执行完相应操作后会自动置为`False`.
 
     `switchList` is a dict with keys:
@@ -278,29 +285,143 @@ Keyword arguments:
     监听参数，当前列表执行移除操作的音频信息.
 
 - currentListSwitchAudioInfo (dict; optional):
-    监听参数，当前列表切换到的音频信息.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    监听参数，当前列表切换到的音频信息."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyAPlayer'
+    Audio = TypedDict(
+        "Audio",
+            {
+            "name": NotRequired[str],
+            "artist": NotRequired[str],
+            "url": NotRequired[str],
+            "cover": NotRequired[str],
+            "lrc": NotRequired[str],
+            "theme": NotRequired[str],
+            "type": NotRequired[Literal["auto", "hls", "normal"]]
+        }
+    )
+
+    Seek = TypedDict(
+        "Seek",
+            {
+            "isSeek": NotRequired[bool],
+            "time": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    Notice = TypedDict(
+        "Notice",
+            {
+            "isShow": NotRequired[bool],
+            "text": NotRequired[str],
+            "time": NotRequired[typing.Union[int, float, numbers.Number]],
+            "opacity": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    AddListAudio = TypedDict(
+        "AddListAudio",
+            {
+            "name": NotRequired[str],
+            "artist": NotRequired[str],
+            "url": NotRequired[str],
+            "cover": NotRequired[str],
+            "lrc": NotRequired[str],
+            "theme": NotRequired[str],
+            "type": NotRequired[Literal["auto", "hls", "normal"]]
+        }
+    )
+
+    AddList = TypedDict(
+        "AddList",
+            {
+            "isAdd": NotRequired[bool],
+            "audio": NotRequired[typing.Sequence["AddListAudio"]]
+        }
+    )
+
+    RemoveList = TypedDict(
+        "RemoveList",
+            {
+            "isRemove": NotRequired[bool],
+            "index": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    SwitchList = TypedDict(
+        "SwitchList",
+            {
+            "isSwitch": NotRequired[bool],
+            "index": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, fixed=Component.UNDEFINED, mini=Component.UNDEFINED, autoplay=Component.UNDEFINED, theme=Component.UNDEFINED, loop=Component.UNDEFINED, order=Component.UNDEFINED, preload=Component.UNDEFINED, volume=Component.UNDEFINED, audio=Component.UNDEFINED, mutex=Component.UNDEFINED, lrcType=Component.UNDEFINED, listFolded=Component.UNDEFINED, listMaxHeight=Component.UNDEFINED, storageName=Component.UNDEFINED, play=Component.UNDEFINED, pause=Component.UNDEFINED, seek=Component.UNDEFINED, skipBack=Component.UNDEFINED, skipForward=Component.UNDEFINED, showLrc=Component.UNDEFINED, hideLrc=Component.UNDEFINED, notice=Component.UNDEFINED, showList=Component.UNDEFINED, hideList=Component.UNDEFINED, addList=Component.UNDEFINED, removeList=Component.UNDEFINED, switchList=Component.UNDEFINED, clearList=Component.UNDEFINED, destroy=Component.UNDEFINED, playClicks=Component.UNDEFINED, pauseClicks=Component.UNDEFINED, seekClicks=Component.UNDEFINED, skipBackClicks=Component.UNDEFINED, skipForwardClicks=Component.UNDEFINED, showLrcClicks=Component.UNDEFINED, hideLrcClicks=Component.UNDEFINED, showNoticeClicks=Component.UNDEFINED, hideNoticeClicks=Component.UNDEFINED, listShowClicks=Component.UNDEFINED, listHideClicks=Component.UNDEFINED, listAddClicks=Component.UNDEFINED, listRemoveClicks=Component.UNDEFINED, listSwitchClicks=Component.UNDEFINED, listClearClicks=Component.UNDEFINED, destroyClicks=Component.UNDEFINED, currentPlayAudioInfo=Component.UNDEFINED, currentPauseAudioInfo=Component.UNDEFINED, currentSeekAudioInfo=Component.UNDEFINED, currentNoticeInfo=Component.UNDEFINED, currentListAddAudioInfo=Component.UNDEFINED, currentListRemoveAudioInfo=Component.UNDEFINED, currentListSwitchAudioInfo=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'fixed', 'mini', 'autoplay', 'theme', 'loop', 'order', 'preload', 'volume', 'audio', 'mutex', 'lrcType', 'listFolded', 'listMaxHeight', 'storageName', 'play', 'pause', 'seek', 'skipBack', 'skipForward', 'showLrc', 'hideLrc', 'notice', 'showList', 'hideList', 'addList', 'removeList', 'switchList', 'clearList', 'destroy', 'playClicks', 'pauseClicks', 'seekClicks', 'skipBackClicks', 'skipForwardClicks', 'showLrcClicks', 'hideLrcClicks', 'showNoticeClicks', 'hideNoticeClicks', 'listShowClicks', 'listHideClicks', 'listAddClicks', 'listRemoveClicks', 'listSwitchClicks', 'listClearClicks', 'destroyClicks', 'currentPlayAudioInfo', 'currentPauseAudioInfo', 'currentSeekAudioInfo', 'currentNoticeInfo', 'currentListAddAudioInfo', 'currentListRemoveAudioInfo', 'currentListSwitchAudioInfo', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        fixed: typing.Optional[bool] = None,
+        mini: typing.Optional[bool] = None,
+        autoplay: typing.Optional[bool] = None,
+        theme: typing.Optional[str] = None,
+        loop: typing.Optional[Literal["all", "one", "none"]] = None,
+        order: typing.Optional[Literal["list", "random"]] = None,
+        preload: typing.Optional[Literal["none", "metadata", "auto"]] = None,
+        volume: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        audio: typing.Optional[typing.Sequence["Audio"]] = None,
+        mutex: typing.Optional[bool] = None,
+        lrcType: typing.Optional[Literal[0, 1, 2, 3]] = None,
+        listFolded: typing.Optional[bool] = None,
+        listMaxHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        storageName: typing.Optional[str] = None,
+        play: typing.Optional[bool] = None,
+        pause: typing.Optional[bool] = None,
+        seek: typing.Optional["Seek"] = None,
+        skipBack: typing.Optional[bool] = None,
+        skipForward: typing.Optional[bool] = None,
+        showLrc: typing.Optional[bool] = None,
+        hideLrc: typing.Optional[bool] = None,
+        notice: typing.Optional["Notice"] = None,
+        showList: typing.Optional[bool] = None,
+        hideList: typing.Optional[bool] = None,
+        addList: typing.Optional["AddList"] = None,
+        removeList: typing.Optional["RemoveList"] = None,
+        switchList: typing.Optional["SwitchList"] = None,
+        clearList: typing.Optional[bool] = None,
+        destroy: typing.Optional[bool] = None,
+        playClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        pauseClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        seekClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        skipBackClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        skipForwardClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        showLrcClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        hideLrcClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        showNoticeClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        hideNoticeClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        listShowClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        listHideClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        listAddClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        listRemoveClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        listSwitchClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        listClearClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        destroyClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        currentPlayAudioInfo: typing.Optional[dict] = None,
+        currentPauseAudioInfo: typing.Optional[dict] = None,
+        currentSeekAudioInfo: typing.Optional[dict] = None,
+        currentNoticeInfo: typing.Optional[dict] = None,
+        currentListAddAudioInfo: typing.Optional[dict] = None,
+        currentListRemoveAudioInfo: typing.Optional[dict] = None,
+        currentListSwitchAudioInfo: typing.Optional[dict] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'fixed', 'mini', 'autoplay', 'theme', 'loop', 'order', 'preload', 'volume', 'audio', 'mutex', 'lrcType', 'listFolded', 'listMaxHeight', 'storageName', 'play', 'pause', 'seek', 'skipBack', 'skipForward', 'showLrc', 'hideLrc', 'notice', 'showList', 'hideList', 'addList', 'removeList', 'switchList', 'clearList', 'destroy', 'playClicks', 'pauseClicks', 'seekClicks', 'skipBackClicks', 'skipForwardClicks', 'showLrcClicks', 'hideLrcClicks', 'showNoticeClicks', 'hideNoticeClicks', 'listShowClicks', 'listHideClicks', 'listAddClicks', 'listRemoveClicks', 'listSwitchClicks', 'listClearClicks', 'destroyClicks', 'currentPlayAudioInfo', 'currentPauseAudioInfo', 'currentSeekAudioInfo', 'currentNoticeInfo', 'currentListAddAudioInfo', 'currentListRemoveAudioInfo', 'currentListSwitchAudioInfo']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'fixed', 'mini', 'autoplay', 'theme', 'loop', 'order', 'preload', 'volume', 'audio', 'mutex', 'lrcType', 'listFolded', 'listMaxHeight', 'storageName', 'play', 'pause', 'seek', 'skipBack', 'skipForward', 'showLrc', 'hideLrc', 'notice', 'showList', 'hideList', 'addList', 'removeList', 'switchList', 'clearList', 'destroy', 'playClicks', 'pauseClicks', 'seekClicks', 'skipBackClicks', 'skipForwardClicks', 'showLrcClicks', 'hideLrcClicks', 'showNoticeClicks', 'hideNoticeClicks', 'listShowClicks', 'listHideClicks', 'listAddClicks', 'listRemoveClicks', 'listSwitchClicks', 'listClearClicks', 'destroyClicks', 'currentPlayAudioInfo', 'currentPauseAudioInfo', 'currentSeekAudioInfo', 'currentNoticeInfo', 'currentListAddAudioInfo', 'currentListRemoveAudioInfo', 'currentListSwitchAudioInfo', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'fixed', 'mini', 'autoplay', 'theme', 'loop', 'order', 'preload', 'volume', 'audio', 'mutex', 'lrcType', 'listFolded', 'listMaxHeight', 'storageName', 'play', 'pause', 'seek', 'skipBack', 'skipForward', 'showLrc', 'hideLrc', 'notice', 'showList', 'hideList', 'addList', 'removeList', 'switchList', 'clearList', 'destroy', 'playClicks', 'pauseClicks', 'seekClicks', 'skipBackClicks', 'skipForwardClicks', 'showLrcClicks', 'hideLrcClicks', 'showNoticeClicks', 'hideNoticeClicks', 'listShowClicks', 'listHideClicks', 'listAddClicks', 'listRemoveClicks', 'listSwitchClicks', 'listClearClicks', 'destroyClicks', 'currentPlayAudioInfo', 'currentPauseAudioInfo', 'currentSeekAudioInfo', 'currentNoticeInfo', 'currentListAddAudioInfo', 'currentListRemoveAudioInfo', 'currentListSwitchAudioInfo']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

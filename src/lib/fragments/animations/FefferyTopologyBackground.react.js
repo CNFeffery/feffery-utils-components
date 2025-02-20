@@ -1,33 +1,35 @@
+// react核心
 import React, { useState, useEffect, useRef } from 'react';
+// 组件核心
 import TOPOLOGY from 'vanta/dist/vanta.topology.min';
 import p5 from 'p5';
+// 辅助库
 import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
+import { useLoading } from '../../components/utils';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/animations/FefferyTopologyBackground.react';
 
 /**
  * 3D-Topology背景组件FefferyTopologyBackground
  */
-const FefferyTopologyBackground = (props) => {
-    // 取得必要属性或参数
-    let {
-        id,
-        children,
-        className,
-        style,
-        key,
-        mouseControls,
-        touchControls,
-        gyroControls,
-        minHeight,
-        minWidth,
-        scale,
-        scaleMobile,
-        backgroundColor,
-        color,
-        setProps,
-        loading_state
-    } = props;
+const FefferyTopologyBackground = ({
+    id,
+    children,
+    className,
+    style,
+    key,
+    mouseControls,
+    touchControls,
+    gyroControls,
+    minHeight,
+    minWidth,
+    scale,
+    scaleMobile,
+    backgroundColor,
+    color,
+    setProps
+}) => {
 
     const [topologyEffect, setTopologyEffect] = useState(null);
     const topologyRef = useRef(null);
@@ -65,9 +67,7 @@ const FefferyTopologyBackground = (props) => {
             style={style}
             key={key}
             ref={topologyRef}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={useLoading()}
         >
             {children}
         </div>

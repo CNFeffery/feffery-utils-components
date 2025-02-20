@@ -6,14 +6,41 @@ const LazyFefferyCloudsTwoBackground = React.lazy(() => import(/* webpackChunkNa
 /**
  * 3D-CloudsTwo背景组件FefferyCloudsTwoBackground
  */
-const FefferyCloudsTwoBackground = (props) => {
+const FefferyCloudsTwoBackground = ({
+    mouseControls = true,
+    touchControls = true,
+    gyroControls = false,
+    minHeight = 200.00,
+    minWidth = 200.00,
+    scale = 1.00,
+    backgroundColor = '#000000',
+    skyColor = '#5ca6ca',
+    cloudColor = '#334d80',
+    lightColor = '#ffffff',
+    speed = 1,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyCloudsTwoBackground {...props} />
+            <LazyFefferyCloudsTwoBackground {
+                ...{
+                    mouseControls,
+                    touchControls,
+                    gyroControls,
+                    minHeight,
+                    minWidth,
+                    scale,
+                    backgroundColor,
+                    skyColor,
+                    cloudColor,
+                    lightColor,
+                    speed,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
-
 
 FefferyCloudsTwoBackground.propTypes = {
     /**
@@ -115,42 +142,12 @@ FefferyCloudsTwoBackground.propTypes = {
      */
     speed: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyCloudsTwoBackground.defaultProps = {
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    backgroundColor: '#000000',
-    skyColor: '#5ca6ca',
-    cloudColor: '#334d80',
-    lightColor: '#ffffff',
-    speed: 1
-}
 
 export default FefferyCloudsTwoBackground;
 

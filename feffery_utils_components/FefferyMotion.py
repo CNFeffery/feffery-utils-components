@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyMotion(Component):
@@ -94,29 +101,58 @@ Keyword arguments:
     监听当前组件的`animate`目标动画过程是否已完成.
 
 - destroyWhenAnimated (boolean; default False):
-    是否在动画完成后销毁当前组件  默认值：`False`.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    是否在动画完成后销毁当前组件  默认值：`False`."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyMotion'
+    Transition = TypedDict(
+        "Transition",
+            {
+            "delay": NotRequired[typing.Union[int, float, numbers.Number]],
+            "repeat": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], Literal["infinity"]]],
+            "repeatType": NotRequired[Literal["loop", "reverse", "mirror"]],
+            "repeatDelay": NotRequired[typing.Union[int, float, numbers.Number]],
+            "type": NotRequired[Literal["spring", "tween"]],
+            "duration": NotRequired[typing.Union[int, float, numbers.Number]],
+            "ease": NotRequired[Literal["linear", "easeIn", "easeOut", "easeInOut", "circIn", "circOut", "circInOut", "backIn", "backOut", "backInOut", "anticipate"]],
+            "times": NotRequired[typing.Sequence[typing.Union[int, float, numbers.Number]]]
+        }
+    )
+
+    Viewport = TypedDict(
+        "Viewport",
+            {
+            "once": NotRequired[bool],
+            "margin": NotRequired[str],
+            "amount": NotRequired[Literal["some", "all"]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, initial=Component.UNDEFINED, animate=Component.UNDEFINED, exit=Component.UNDEFINED, whileHover=Component.UNDEFINED, whileTap=Component.UNDEFINED, transition=Component.UNDEFINED, whileInView=Component.UNDEFINED, viewport=Component.UNDEFINED, variants=Component.UNDEFINED, animated=Component.UNDEFINED, destroyWhenAnimated=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'initial', 'animate', 'exit', 'whileHover', 'whileTap', 'transition', 'whileInView', 'viewport', 'variants', 'animated', 'destroyWhenAnimated', 'loading_state']
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        initial: typing.Optional[typing.Union[dict, bool, str]] = None,
+        animate: typing.Optional[typing.Union[dict, str]] = None,
+        exit: typing.Optional[typing.Union[dict, str]] = None,
+        whileHover: typing.Optional[typing.Union[dict, str]] = None,
+        whileTap: typing.Optional[typing.Union[dict, str]] = None,
+        transition: typing.Optional["Transition"] = None,
+        whileInView: typing.Optional[typing.Union[dict, str]] = None,
+        viewport: typing.Optional["Viewport"] = None,
+        variants: typing.Optional[typing.Dict[typing.Union[str, float, int], dict]] = None,
+        animated: typing.Optional[bool] = None,
+        destroyWhenAnimated: typing.Optional[bool] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'initial', 'animate', 'exit', 'whileHover', 'whileTap', 'transition', 'whileInView', 'viewport', 'variants', 'animated', 'destroyWhenAnimated']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'initial', 'animate', 'exit', 'whileHover', 'whileTap', 'transition', 'whileInView', 'viewport', 'variants', 'animated', 'destroyWhenAnimated', 'loading_state']
+        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'initial', 'animate', 'exit', 'whileHover', 'whileTap', 'transition', 'whileInView', 'viewport', 'variants', 'animated', 'destroyWhenAnimated']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

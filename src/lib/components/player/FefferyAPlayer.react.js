@@ -6,10 +6,104 @@ const LazyFefferyAPlayer = React.lazy(() => import(/* webpackChunkName: "feffery
 /**
  * 音频播放组件FefferyAPlayer
  */
-const FefferyAPlayer = (props) => {
+const FefferyAPlayer = ({
+    fixed = false,
+    mini = false,
+    autoplay = false,
+    theme = '#b7daff',
+    loop = 'all',
+    order = 'list',
+    preload = 'auto',
+    volume = 0.7,
+    audio = [{ type: 'auto' }],
+    mutex = true,
+    lrcType = 0,
+    listFolded = false,
+    storageName = 'aplayer-setting',
+    play = false,
+    pause = false,
+    seek = { isSeek: false },
+    skipBack = false,
+    skipForward = false,
+    showLrc = false,
+    hideLrc = false,
+    notice = { isShow: false, time: 2000, opacity: 0.8 },
+    showList = false,
+    hideList = false,
+    addList = { isAdd: false },
+    removeList = { isRemove: false },
+    switchList = { isSwitch: false },
+    clearList = false,
+    destroy = false,
+    playClicks = 0,
+    pauseClicks = 0,
+    seekClicks = 0,
+    skipBackClicks = 0,
+    skipForwardClicks = 0,
+    showLrcClicks = 0,
+    hideLrcClicks = 0,
+    showNoticeClicks = 0,
+    hideNoticeClicks = 0,
+    listShowClicks = 0,
+    listHideClicks = 0,
+    listAddClicks = 0,
+    listRemoveClicks = 0,
+    listSwitchClicks = 0,
+    listClearClicks = 0,
+    destroyClicks = 0,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyAPlayer {...props} />
+            <LazyFefferyAPlayer {
+                ...{
+                    fixed,
+                    mini,
+                    autoplay,
+                    theme,
+                    loop,
+                    order,
+                    preload,
+                    volume,
+                    audio,
+                    mutex,
+                    lrcType,
+                    listFolded,
+                    storageName,
+                    play,
+                    pause,
+                    seek,
+                    skipBack,
+                    skipForward,
+                    showLrc,
+                    hideLrc,
+                    notice,
+                    showList,
+                    hideList,
+                    addList,
+                    removeList,
+                    switchList,
+                    clearList,
+                    destroy,
+                    playClicks,
+                    pauseClicks,
+                    seekClicks,
+                    skipBackClicks,
+                    skipForwardClicks,
+                    showLrcClicks,
+                    hideLrcClicks,
+                    showNoticeClicks,
+                    hideNoticeClicks,
+                    listShowClicks,
+                    listHideClicks,
+                    listAddClicks,
+                    listRemoveClicks,
+                    listSwitchClicks,
+                    listClearClicks,
+                    destroyClicks,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -428,89 +522,12 @@ FefferyAPlayer.propTypes = {
      */
     currentListSwitchAudioInfo: PropTypes.object,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyAPlayer.defaultProps = {
-    fixed: false,
-    mini: false,
-    autoplay: false,
-    theme: '#b7daff',
-    loop: 'all',
-    order: 'list',
-    preload: 'auto',
-    volume: 0.7,
-    audio: [{
-        type: 'auto'
-    }],
-    mutex: true,
-    lrcType: 0,
-    listFolded: false,
-    storageName: 'aplayer-setting',
-    play: false,
-    pause: false,
-    seek: {
-        isSeek: false
-    },
-    skipBack: false,
-    skipForward: false,
-    showLrc: false,
-    hideLrc: false,
-    notice: {
-        isShow: false,
-        time: 2000,
-        opacity: 0.8
-    },
-    showList: false,
-    hideList: false,
-    addList: {
-        isAdd: false
-    },
-    removeList: {
-        isRemove: false
-    },
-    switchList: {
-        isSwitch: false
-    },
-    clearList: false,
-    destroy: false,
-    playClicks: 0,
-    pauseClicks: 0,
-    seekClicks: 0,
-    skipBackClicks: 0,
-    skipForwardClicks: 0,
-    showLrcClicks: 0,
-    hideLrcClicks: 0,
-    showNoticeClicks: 0,
-    hideNoticeClicks: 0,
-    listShowClicks: 0,
-    listHideClicks: 0,
-    listAddClicks: 0,
-    listRemoveClicks: 0,
-    listSwitchClicks: 0,
-    listClearClicks: 0,
-    destroyClicks: 0
-}
 
 export default FefferyAPlayer;
 

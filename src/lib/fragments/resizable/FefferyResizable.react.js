@@ -1,34 +1,36 @@
+// react核心
 import { useEffect } from 'react';
+// 组件核心
 import { Resizable } from 're-resizable';
-import { propTypes, defaultProps } from '../../components/resizable/FefferyResizable.react';
+// 辅助库
 import { clone } from 'lodash';
+import { useLoading } from '../../components/utils';
+// 参数类型
+import { propTypes, defaultProps } from '../../components/resizable/FefferyResizable.react';
 
 /**
  * 尺寸调整组件FefferyResizable
  */
-const FefferyResizable = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        key,
-        children,
-        className,
-        style,
-        size,
-        defaultSize,
-        minWidth,
-        minHeight,
-        maxWidth,
-        maxHeight,
-        direction,
-        grid,
-        bounds,
-        boundsSelector,
-        handleStyles,
-        handleClassNames,
-        setProps,
-        loading_state
-    } = props;
+const FefferyResizable = ({
+    id,
+    key,
+    children,
+    className,
+    style,
+    size,
+    defaultSize,
+    minWidth,
+    minHeight,
+    maxWidth,
+    maxHeight,
+    direction,
+    grid,
+    bounds,
+    boundsSelector,
+    handleStyles,
+    handleClassNames,
+    setProps
+}) => {
 
     useEffect(() => {
         // size缺省且defaultSize有效时，进行赋值
@@ -108,9 +110,7 @@ const FefferyResizable = (props) => {
                     });
                 }
             }}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={useLoading()}
         >
             {children}
         </Resizable>

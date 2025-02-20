@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferySliderCaptcha(Component):
@@ -83,29 +90,55 @@ Keyword arguments:
         验证状态，`'success'`表示验证成功，`'error'`表示验证失败.
 
     - timestamp (number; optional):
-        事件发生时间戳.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+        事件发生时间戳."""
     _children_props = ['tipText.default', 'tipText.loading', 'tipText.moving', 'tipText.verifying', 'tipText.success', 'tipText.error']
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferySliderCaptcha'
+    TipText = TypedDict(
+        "TipText",
+            {
+            "default": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "loading": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "moving": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "verifying": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "success": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "error": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]
+        }
+    )
+
+    VerifyResult = TypedDict(
+        "VerifyResult",
+            {
+            "status": NotRequired[Literal["success", "error"]],
+            "timestamp": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, imgSrc=Component.UNDEFINED, imgWidth=Component.UNDEFINED, imgHeight=Component.UNDEFINED, xOffset=Component.UNDEFINED, mode=Component.UNDEFINED, tipText=Component.UNDEFINED, showRefreshIcon=Component.UNDEFINED, autoRefreshOnError=Component.UNDEFINED, errorHoldDuration=Component.UNDEFINED, placement=Component.UNDEFINED, refresh=Component.UNDEFINED, verifyResult=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'imgSrc', 'imgWidth', 'imgHeight', 'xOffset', 'mode', 'tipText', 'showRefreshIcon', 'autoRefreshOnError', 'errorHoldDuration', 'placement', 'refresh', 'verifyResult', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        imgSrc: typing.Optional[str] = None,
+        imgWidth: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        imgHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        xOffset: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        mode: typing.Optional[Literal["embed", "float", "slider"]] = None,
+        tipText: typing.Optional["TipText"] = None,
+        showRefreshIcon: typing.Optional[bool] = None,
+        autoRefreshOnError: typing.Optional[bool] = None,
+        errorHoldDuration: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        placement: typing.Optional[Literal["top", "bottom"]] = None,
+        refresh: typing.Optional[bool] = None,
+        verifyResult: typing.Optional["VerifyResult"] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'imgSrc', 'imgWidth', 'imgHeight', 'xOffset', 'mode', 'tipText', 'showRefreshIcon', 'autoRefreshOnError', 'errorHoldDuration', 'placement', 'refresh', 'verifyResult']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'imgSrc', 'imgWidth', 'imgHeight', 'xOffset', 'mode', 'tipText', 'showRefreshIcon', 'autoRefreshOnError', 'errorHoldDuration', 'placement', 'refresh', 'verifyResult', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'imgSrc', 'imgWidth', 'imgHeight', 'xOffset', 'mode', 'tipText', 'showRefreshIcon', 'autoRefreshOnError', 'errorHoldDuration', 'placement', 'refresh', 'verifyResult']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

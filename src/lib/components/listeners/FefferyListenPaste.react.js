@@ -7,14 +7,12 @@ import { useHover } from 'ahooks';
 /**
  * 全局粘贴监听组件FefferyListenPaste
  */
-const FefferyListenPaste = (props) => {
-    let {
-        pasteCount,
-        enableListenPaste,
-        targetContainerId,
-        setProps,
-        loading_state
-    } = props;
+const FefferyListenPaste = ({
+    pasteCount = 0,
+    enableListenPaste = false,
+    targetContainerId,
+    setProps
+}) => {
 
     const isHovering = useHover(() => document.getElementById(targetContainerId));
 
@@ -83,27 +81,7 @@ FefferyListenPaste.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func,
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    setProps: PropTypes.func
 };
-
-FefferyListenPaste.defaultProps = {
-    pasteCount: 0,
-    enableListenPaste: false
-}
 
 export default FefferyListenPaste;

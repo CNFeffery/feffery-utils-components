@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
+import { prop } from 'ramda';
 
 const LazyFefferyMarkdownEditor = React.lazy(() => import(/* webpackChunkName: "feffery_markdown_editor" */ '../../fragments/editor/FefferyMarkdownEditor.react'));
 
@@ -7,9 +8,187 @@ const LazyFefferyMarkdownEditor = React.lazy(() => import(/* webpackChunkName: "
  * markdown编辑器组件FefferyMarkdownEditor
  */
 const FefferyMarkdownEditor = (props) => {
+
+    let defaultProps = {
+        debounceWait: 200,
+        engine: {
+            global: {
+                classicBr: false,
+                htmlWhiteList: '',
+            },
+            syntax: {
+                link: {
+                    target: '',
+                    rel: '',
+                },
+                autoLink: {
+                    target: '',
+                    rel: '',
+                    enableShortLink: true,
+                    shortLinkLength: 20,
+                },
+                list: {
+                    listNested: false,
+                    indentSpace: 2,
+                },
+                inlineCode: {
+                    theme: 'red',
+                },
+                codeBlock: {
+                    theme: 'dark',
+                    wrap: true,
+                    lineNumber: true,
+                    copyCode: true,
+                    editCode: true,
+                    changeLang: true,
+                    indentedCodeBlock: true,
+                },
+                emoji: {
+                    useUnicode: true,
+                },
+                fontEmphasis: {
+                    allowWhitespace: false,
+                },
+                strikethrough: {
+                    needWhitespace: false,
+                },
+                mathBlock: {
+                    engine: 'MathJax',
+                    src: '',
+                    plugins: true,
+                },
+                inlineMath: {
+                    engine: 'MathJax',
+                    src: '',
+                },
+                toc: {
+                    allowMultiToc: false,
+                },
+                header: {
+                    anchorStyle: 'default',
+                },
+            },
+        },
+        editor: {
+            id: 'code',
+            name: 'code',
+            autoSave2Textarea: false,
+            theme: 'default',
+            height: '100%',
+            defaultModel: 'edit&preview',
+            convertWhenPaste: true,
+            codemirror: {
+                autofocus: true,
+            },
+            writingStyle: 'normal',
+            keepDocumentScrollAfterInit: false,
+        },
+        toolbars: {
+            theme: 'dark',
+            showToolbar: true,
+            toolbar: [
+                'bold',
+                'italic',
+                'strikethrough',
+                '|',
+                'color',
+                'header',
+                'ruby',
+                '|',
+                'list',
+                'panel',
+                'detail',
+                {
+                    insert: ['image', 'audio', 'video', 'link', 'hr', 'br', 'code', 'formula', 'toc', 'table', 'pdf', 'word']
+                },
+                'settings',
+            ],
+            toolbarRight: [],
+            sidebar: [],
+            bubble: ['bold', 'italic', 'underline', 'strikethrough', 'sub', 'sup', 'quote', '|', 'size', 'color'],
+            float: ['h1', 'h2', 'h3', '|', 'checklist', 'quote', 'table', 'code'],
+            shortcutKey: {},
+            config: {
+                formula: {
+                    showLatexLive: true,
+                    templateConfig: false,
+                },
+            },
+        },
+        drawioIframeUrl: '',
+        fileTypeLimitMap: {
+            video: 'video/*',
+            audio: 'audio/*',
+            image: 'image/*',
+            word: '.doc,.docx',
+            pdf: '.pdf',
+            file: '*',
+        },
+        uploadConfig: {
+            headers: {},
+            data: {},
+            withCredentials: false,
+            filename: 'file',
+            responseUrl: 'data.url',
+        },
+        fineControl: {
+            isOpen: false,
+            videoFineControlOptions: {
+                isPoster: false,
+                isBorder: false,
+                isShadow: false,
+                isRadius: false
+            },
+            imageFineControlOptions: {
+                isBorder: false,
+                isShadow: false,
+                isRadius: false,
+                width: '100%',
+                height: 'auto'
+            }
+        },
+        previewer: {
+            dom: false,
+            className: 'cherry-markdown',
+            enablePreviewerBubble: true,
+            lazyLoadImg: {
+                loadingImgPath: '',
+                maxNumPerTime: 2,
+                noLoadImgNum: 5,
+                autoLoadImgNum: 5,
+                maxTryTimesPerSrc: 2,
+                beforeLoadOneImgCallback: (img) => {
+                    return true;
+                },
+                failLoadOneImgCallback: (img) => { },
+                afterLoadOneImgCallback: (img) => { },
+                afterLoadAllImgCallback: () => { },
+            },
+        },
+        theme: [
+            { className: 'default', label: '默认' },
+            { className: 'dark', label: '暗黑' },
+            { className: 'light', label: '明亮' },
+            { className: 'green', label: '清新' },
+            { className: 'red', label: '热情' },
+            { className: 'violet', label: '淡雅' },
+            { className: 'blue', label: '清幽' },
+        ],
+        isPreviewOnly: false,
+        autoScrollByCursor: true,
+        forceAppend: true,
+        locale: 'zh_CN',
+        autoScrollByHashAfterInit: false
+    }
+
     return (
         <Suspense fallback={null}>
-            <LazyFefferyMarkdownEditor {...props} />
+            <LazyFefferyMarkdownEditor {
+                ...{
+                    ...defaultProps,
+                    ...props
+                }
+            } />
         </Suspense>
     );
 }
@@ -758,200 +937,12 @@ FefferyMarkdownEditor.propTypes = {
         })
     ),
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func
 };
-
-// 设置默认参数
-FefferyMarkdownEditor.defaultProps = {
-    debounceWait: 200,
-    engine: {
-        global: {
-            classicBr: false,
-            htmlWhiteList: '',
-        },
-        syntax: {
-            link: {
-                target: '',
-                rel: '',
-            },
-            autoLink: {
-                target: '',
-                rel: '',
-                enableShortLink: true,
-                shortLinkLength: 20,
-            },
-            list: {
-                listNested: false,
-                indentSpace: 2,
-            },
-            inlineCode: {
-                theme: 'red',
-            },
-            codeBlock: {
-                theme: 'dark',
-                wrap: true,
-                lineNumber: true,
-                copyCode: true,
-                editCode: true,
-                changeLang: true,
-                indentedCodeBlock: true,
-            },
-            emoji: {
-                useUnicode: true,
-            },
-            fontEmphasis: {
-                allowWhitespace: false,
-            },
-            strikethrough: {
-                needWhitespace: false,
-            },
-            mathBlock: {
-                engine: 'MathJax',
-                src: '',
-                plugins: true,
-            },
-            inlineMath: {
-                engine: 'MathJax',
-                src: '',
-            },
-            toc: {
-                allowMultiToc: false,
-            },
-            header: {
-                anchorStyle: 'default',
-            },
-        },
-    },
-    editor: {
-        id: 'code',
-        name: 'code',
-        autoSave2Textarea: false,
-        theme: 'default',
-        height: '100%',
-        defaultModel: 'edit&preview',
-        convertWhenPaste: true,
-        codemirror: {
-            autofocus: true,
-        },
-        writingStyle: 'normal',
-        keepDocumentScrollAfterInit: false,
-    },
-    toolbars: {
-        theme: 'dark',
-        showToolbar: true,
-        toolbar: [
-            'bold',
-            'italic',
-            'strikethrough',
-            '|',
-            'color',
-            'header',
-            'ruby',
-            '|',
-            'list',
-            'panel',
-            'detail',
-            {
-                insert: ['image', 'audio', 'video', 'link', 'hr', 'br', 'code', 'formula', 'toc', 'table', 'pdf', 'word']
-            },
-            'settings',
-        ],
-        toolbarRight: [],
-        sidebar: [],
-        bubble: ['bold', 'italic', 'underline', 'strikethrough', 'sub', 'sup', 'quote', '|', 'size', 'color'],
-        float: ['h1', 'h2', 'h3', '|', 'checklist', 'quote', 'table', 'code'],
-        shortcutKey: {},
-        config: {
-            formula: {
-                showLatexLive: true,
-                templateConfig: false,
-            },
-        },
-    },
-    drawioIframeUrl: '',
-    fileTypeLimitMap: {
-        video: 'video/*',
-        audio: 'audio/*',
-        image: 'image/*',
-        word: '.doc,.docx',
-        pdf: '.pdf',
-        file: '*',
-    },
-    uploadConfig: {
-        headers: {},
-        data: {},
-        withCredentials: false,
-        filename: 'file',
-        responseUrl: 'data.url',
-    },
-    fineControl: {
-        isOpen: false,
-        videoFineControlOptions: {
-            isPoster: false,
-            isBorder: false,
-            isShadow: false,
-            isRadius: false
-        },
-        imageFineControlOptions: {
-            isBorder: false,
-            isShadow: false,
-            isRadius: false,
-            width: '100%',
-            height: 'auto'
-        }
-    },
-    previewer: {
-        dom: false,
-        className: 'cherry-markdown',
-        enablePreviewerBubble: true,
-        lazyLoadImg: {
-            loadingImgPath: '',
-            maxNumPerTime: 2,
-            noLoadImgNum: 5,
-            autoLoadImgNum: 5,
-            maxTryTimesPerSrc: 2,
-            beforeLoadOneImgCallback: (img) => {
-                return true;
-            },
-            failLoadOneImgCallback: (img) => { },
-            afterLoadOneImgCallback: (img) => { },
-            afterLoadAllImgCallback: () => { },
-        },
-    },
-    theme: [
-        { className: 'default', label: '默认' },
-        { className: 'dark', label: '暗黑' },
-        { className: 'light', label: '明亮' },
-        { className: 'green', label: '清新' },
-        { className: 'red', label: '热情' },
-        { className: 'violet', label: '淡雅' },
-        { className: 'blue', label: '清幽' },
-    ],
-    isPreviewOnly: false,
-    autoScrollByCursor: true,
-    forceAppend: true,
-    locale: 'zh_CN',
-    autoScrollByHashAfterInit: false
-}
 
 export default FefferyMarkdownEditor;
 

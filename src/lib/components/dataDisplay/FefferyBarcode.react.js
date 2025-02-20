@@ -6,10 +6,46 @@ const LazyFefferyBarcode = React.lazy(() => import(/* webpackChunkName: "feffery
 /**
  * 条形码组件FefferyBarcode
  */
-const FefferyBarcode = (props) => {
+const FefferyBarcode = ({
+    renderer = 'canvas',
+    format = 'CODE128',
+    width = 2,
+    height = 100,
+    displayValue = true,
+    fontOptions = '',
+    font = 'monospace',
+    fontSize = 20,
+    textAlign = 'center',
+    textPosition = 'bottom',
+    textMargin = 2,
+    background = '#ffffff',
+    lineColor = '#000000',
+    margin = 10,
+    flat = false,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyBarcode {...props} />
+            <LazyFefferyBarcode {
+                ...{
+                    renderer,
+                    format,
+                    width,
+                    height,
+                    displayValue,
+                    fontOptions,
+                    font,
+                    fontSize,
+                    textAlign,
+                    textPosition,
+                    textMargin,
+                    background,
+                    lineColor,
+                    margin,
+                    flat,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -158,46 +194,12 @@ FefferyBarcode.propTypes = {
      */
     flat: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyBarcode.defaultProps = {
-    renderer: 'canvas',
-    format: 'CODE128',
-    width: 2,
-    height: 100,
-    displayValue: true,
-    fontOptions: '',
-    font: 'monospace',
-    fontSize: 20,
-    textAlign: 'center',
-    textPosition: 'bottom',
-    textMargin: 2,
-    background: '#ffffff',
-    lineColor: '#000000',
-    margin: 10,
-    flat: false
-}
 
 export default FefferyBarcode;
 

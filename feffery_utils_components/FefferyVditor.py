@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyVditor(Component):
@@ -49,12 +56,12 @@ Keyword arguments:
 - typewriterMode (boolean; default False):
     是否启用打字机模式  默认值：`False`.
 
-- cdn (string | a value equal to: `https://unpkg.com/vditor@${VDITOR_VERSION}`, `https://registry.npmmirror.com/vditor/${VDITOR_VERSION}/files`; optional):
-    配置`CDN`地址，可选的有`https://unpkg.com/vditor@${VDITOR_VERSION}`、`https://registry.npmmirror.com/vditor/${VDITOR_VERSION}/files`，VDITOR_VERSION是vditor版本号，可通过不设置此参数从浏览器请求信息中获取版本号信息，默认使用的是`https://unpkg.com/vditor@${VDITOR_VERSION}`，也可使用自行搭建的`CDN`地址.
+- cdn (string | a value equal to: 'https://unpkg.com/vditor@3.10.9', 'https://registry.npmmirror.com/vditor/3.10.9/files'; optional):
+    配置`CDN`地址，可选的内置推荐地址有`'https://unpkg.com/vditor@3.10.9'`、`'https://registry.npmmirror.com/vditor/3.10.9/files'`，也可使用其他自定义`CDN`地址.
 
 - mode (a value equal to: 'wysiwyg', 'ir', 'sv'; default 'ir'):
     设置模式，可选的有：`'sv'`(分屏预览)、`'ir'`(即时渲染)、`'wysiwyg'`(所见即所得)
-    默认值：`'ir'`(所见即所得).
+    默认值：`'ir'`.
 
 - debuggerMode (boolean; default False):
     是否显示日志  默认值：`False`.
@@ -68,10 +75,10 @@ Keyword arguments:
 - icon (a value equal to: 'ant', 'material'; default 'ant'):
     设置图标风格，可选的有：`'ant'`、`'material'`  默认值：`'ant'`.
 
-- toolbar (default [    "emoji",    "headings",    "bold",    "italic",    "strike",    "link",    "|",    "list",    "ordered-list",    "check",    "outdent",    "indent",    "|",    "quote",    "line",    "code",    "inline-code",    "insert-before",    "insert-after",    "|",    "upload",    "record",    "table",    "|",    "undo",    "redo",    "|",    "fullscreen",    "edit-mode",    {        name: "more",        toolbar: [            "both",            "code-theme",            "content-theme",            "export",            "outline",            "preview"        ],    },]):
+- toolbar (optional):
     设置工具栏.
 
-- toolbarConfig (dict; default {    hide: False,    pin: False}):
+- toolbarConfig (dict; optional):
     工具栏配置.
 
     `toolbarConfig` is a dict with keys:
@@ -202,7 +209,7 @@ Keyword arguments:
 
         - path (string; optional):
             主题样式地址
-            默认值：`https://unpkg.com/vditor@${VDITOR_VERSION}/dist/css/content-theme`.
+            默认值：`https://unpkg.com/vditor@3.10.9/dist/css/content-theme`.
 
     - math (dict; optional):
         数学公式配置.
@@ -294,7 +301,7 @@ Keyword arguments:
 
     - emojiPath (string; optional):
         表情图片地址
-        默认值：`https://unpkg.com/vditor@${VDITOR_VERSION}/dist/images/emoji`.
+        默认值：`https://unpkg.com/vditor@3.10.9/dist/images/emoji`.
 
 - upload (dict; optional):
     上传配置.
@@ -379,29 +386,240 @@ Keyword arguments:
     字数统计.
 
 - resizeHeight (number; optional):
-    开启大小拖拽后监听拖拽后的高度.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    开启大小拖拽后监听拖拽后的高度."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyVditor'
+    ToolbarConfig = TypedDict(
+        "ToolbarConfig",
+            {
+            "hide": NotRequired[bool],
+            "pin": NotRequired[bool]
+        }
+    )
+
+    Counter = TypedDict(
+        "Counter",
+            {
+            "enable": NotRequired[bool],
+            "max": NotRequired[typing.Union[int, float, numbers.Number]],
+            "type": NotRequired[Literal["markdown", "text"]]
+        }
+    )
+
+    Cache = TypedDict(
+        "Cache",
+            {
+            "enable": NotRequired[bool],
+            "id": NotRequired[str]
+        }
+    )
+
+    PreviewHljs = TypedDict(
+        "PreviewHljs",
+            {
+            "defaultLang": NotRequired[str],
+            "enable": NotRequired[bool],
+            "style": NotRequired[Literal["abap", "algol", "algol_nu", "api", "arduino", "autumn", "average", "base16-snazzy", "borland", "bw", "catppuccin-frappe", "catppuccin-latte", "catppuccin-macchiato", "catppuccin-mocha", "colorful", "compat", "doom-one", "doom-one2", "dracula", "emacs", "friendly", "fruity", "github-dark", "github", "gruvbox-light", "gruvbox", "hr_high_contrast", "hrdark", "igor", "lovelace", "manni", "modus-operandi", "modus-vivendi", "monokai", "monokailight", "murphy", "native", "nord", "onedark", "onesenterprise", "paraiso-dark", "paraiso-light", "pastie", "perldoc", "pygments", "rainbow_dash", "rose-pine-dawn", "rose-pine-moon", "rose-pine", "rrt", "solarized-dark", "solarized-dark256", "solarized-light", "swapoff", "tango", "tokyonight-day", "tokyonight-moon", "tokyonight-night", "tokyonight-storm", "trac", "vim", "vs", "vulcan", "witchhazel", "xcode-dark", "xcode"]],
+            "lineNumber": NotRequired[bool],
+            "langs": NotRequired[typing.Sequence[str]]
+        }
+    )
+
+    PreviewMarkdown = TypedDict(
+        "PreviewMarkdown",
+            {
+            "autoSpace": NotRequired[bool],
+            "gfmAutoLink": NotRequired[bool],
+            "fixTermTypo": NotRequired[bool],
+            "toc": NotRequired[bool],
+            "footnotes": NotRequired[bool],
+            "codeBlockPreview": NotRequired[bool],
+            "mathBlockPreview": NotRequired[bool],
+            "paragraphBeginningSpace": NotRequired[bool],
+            "sanitize": NotRequired[bool],
+            "listStyle": NotRequired[bool],
+            "linkBase": NotRequired[str],
+            "linkPrefix": NotRequired[str],
+            "mark": NotRequired[bool]
+        }
+    )
+
+    PreviewTheme = TypedDict(
+        "PreviewTheme",
+            {
+            "current": NotRequired[str],
+            "list": NotRequired[dict],
+            "path": NotRequired[str]
+        }
+    )
+
+    PreviewMath = TypedDict(
+        "PreviewMath",
+            {
+            "inlineDigit": NotRequired[bool],
+            "macros": NotRequired[dict],
+            "engine": NotRequired[Literal["KaTeX", "MathJax"]],
+            "mathJaxOptions": NotRequired[typing.Any]
+        }
+    )
+
+    PreviewActions = TypedDict(
+        "PreviewActions",
+            {
+            "key": NotRequired[str],
+            "text": NotRequired[str],
+            "className": NotRequired[str],
+            "tooltip": NotRequired[str]
+        }
+    )
+
+    PreviewRenderMedia = TypedDict(
+        "PreviewRenderMedia",
+            {
+            "enable": NotRequired[bool]
+        }
+    )
+
+    PreviewRender = TypedDict(
+        "PreviewRender",
+            {
+            "media": NotRequired["PreviewRenderMedia"]
+        }
+    )
+
+    Preview = TypedDict(
+        "Preview",
+            {
+            "delay": NotRequired[typing.Union[int, float, numbers.Number]],
+            "maxWidth": NotRequired[typing.Union[int, float, numbers.Number]],
+            "mode": NotRequired[Literal["both", "editor"]],
+            "url": NotRequired[str],
+            "hljs": NotRequired["PreviewHljs"],
+            "markdown": NotRequired["PreviewMarkdown"],
+            "theme": NotRequired["PreviewTheme"],
+            "math": NotRequired["PreviewMath"],
+            "actions": NotRequired[typing.Sequence[typing.Union[Literal["desktop", "tablet", "mobile", "mp-wechat", "zhihu"], "PreviewActions"]]],
+            "render": NotRequired["PreviewRender"]
+        }
+    )
+
+    Image = TypedDict(
+        "Image",
+            {
+            "isPreview": NotRequired[bool]
+        }
+    )
+
+    Link = TypedDict(
+        "Link",
+            {
+            "isOpen": NotRequired[bool]
+        }
+    )
+
+    Hint = TypedDict(
+        "Hint",
+            {
+            "parse": NotRequired[bool],
+            "delay": NotRequired[typing.Union[int, float, numbers.Number]],
+            "emoji": NotRequired[dict],
+            "emojiTail": NotRequired[str],
+            "emojiPath": NotRequired[str]
+        }
+    )
+
+    Upload = TypedDict(
+        "Upload",
+            {
+            "url": NotRequired[str],
+            "max": NotRequired[typing.Union[int, float, numbers.Number]],
+            "linkToImgUrl": NotRequired[str],
+            "token": NotRequired[typing.Any],
+            "withCredentials": NotRequired[bool],
+            "headers": NotRequired[dict],
+            "accept": NotRequired[str],
+            "extraData": NotRequired[dict],
+            "multiple": NotRequired[bool],
+            "fieldName": NotRequired[str]
+        }
+    )
+
+    Resize = TypedDict(
+        "Resize",
+            {
+            "enable": NotRequired[bool],
+            "position": NotRequired[Literal["top", "bottom"]]
+        }
+    )
+
+    Classes = TypedDict(
+        "Classes",
+            {
+            "preview": NotRequired[str]
+        }
+    )
+
+    Fullscreen = TypedDict(
+        "Fullscreen",
+            {
+            "index": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    Outline = TypedDict(
+        "Outline",
+            {
+            "enable": NotRequired[bool],
+            "position": NotRequired[Literal["left", "right"]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, debounceWait=Component.UNDEFINED, undoDelay=Component.UNDEFINED, height=Component.UNDEFINED, minHeight=Component.UNDEFINED, width=Component.UNDEFINED, placeholder=Component.UNDEFINED, lang=Component.UNDEFINED, tab=Component.UNDEFINED, typewriterMode=Component.UNDEFINED, cdn=Component.UNDEFINED, mode=Component.UNDEFINED, debuggerMode=Component.UNDEFINED, value=Component.UNDEFINED, theme=Component.UNDEFINED, icon=Component.UNDEFINED, toolbar=Component.UNDEFINED, toolbarConfig=Component.UNDEFINED, counter=Component.UNDEFINED, cache=Component.UNDEFINED, preview=Component.UNDEFINED, image=Component.UNDEFINED, link=Component.UNDEFINED, hint=Component.UNDEFINED, upload=Component.UNDEFINED, resize=Component.UNDEFINED, classes=Component.UNDEFINED, fullscreen=Component.UNDEFINED, outline=Component.UNDEFINED, htmlValue=Component.UNDEFINED, selectedValue=Component.UNDEFINED, wordCount=Component.UNDEFINED, resizeHeight=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'debounceWait', 'undoDelay', 'height', 'minHeight', 'width', 'placeholder', 'lang', 'tab', 'typewriterMode', 'cdn', 'mode', 'debuggerMode', 'value', 'theme', 'icon', 'toolbar', 'toolbarConfig', 'counter', 'cache', 'preview', 'image', 'link', 'hint', 'upload', 'resize', 'classes', 'fullscreen', 'outline', 'htmlValue', 'selectedValue', 'wordCount', 'resizeHeight', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        debounceWait: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        undoDelay: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        height: typing.Optional[typing.Union[str, typing.Union[int, float, numbers.Number]]] = None,
+        minHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        width: typing.Optional[typing.Union[str, typing.Union[int, float, numbers.Number]]] = None,
+        placeholder: typing.Optional[str] = None,
+        lang: typing.Optional[Literal["en_US", "fr_FR", "pt_BR", "ja_JP", "ko_KR", "ru_RU", "sv_SE", "zh_CN", "zh_TW"]] = None,
+        tab: typing.Optional[str] = None,
+        typewriterMode: typing.Optional[bool] = None,
+        cdn: typing.Optional[typing.Union[str, Literal["https://unpkg.com/vditor@3.10.9", "https://registry.npmmirror.com/vditor/3.10.9/files"]]] = None,
+        mode: typing.Optional[Literal["wysiwyg", "ir", "sv"]] = None,
+        debuggerMode: typing.Optional[bool] = None,
+        value: typing.Optional[str] = None,
+        theme: typing.Optional[Literal["classic", "dark"]] = None,
+        icon: typing.Optional[Literal["ant", "material"]] = None,
+        toolbar: typing.Optional[typing.Any] = None,
+        toolbarConfig: typing.Optional["ToolbarConfig"] = None,
+        counter: typing.Optional["Counter"] = None,
+        cache: typing.Optional["Cache"] = None,
+        preview: typing.Optional["Preview"] = None,
+        image: typing.Optional["Image"] = None,
+        link: typing.Optional["Link"] = None,
+        hint: typing.Optional["Hint"] = None,
+        upload: typing.Optional["Upload"] = None,
+        resize: typing.Optional["Resize"] = None,
+        classes: typing.Optional["Classes"] = None,
+        fullscreen: typing.Optional["Fullscreen"] = None,
+        outline: typing.Optional["Outline"] = None,
+        htmlValue: typing.Optional[str] = None,
+        selectedValue: typing.Optional[str] = None,
+        wordCount: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        resizeHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'debounceWait', 'undoDelay', 'height', 'minHeight', 'width', 'placeholder', 'lang', 'tab', 'typewriterMode', 'cdn', 'mode', 'debuggerMode', 'value', 'theme', 'icon', 'toolbar', 'toolbarConfig', 'counter', 'cache', 'preview', 'image', 'link', 'hint', 'upload', 'resize', 'classes', 'fullscreen', 'outline', 'htmlValue', 'selectedValue', 'wordCount', 'resizeHeight']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'debounceWait', 'undoDelay', 'height', 'minHeight', 'width', 'placeholder', 'lang', 'tab', 'typewriterMode', 'cdn', 'mode', 'debuggerMode', 'value', 'theme', 'icon', 'toolbar', 'toolbarConfig', 'counter', 'cache', 'preview', 'image', 'link', 'hint', 'upload', 'resize', 'classes', 'fullscreen', 'outline', 'htmlValue', 'selectedValue', 'wordCount', 'resizeHeight', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'debounceWait', 'undoDelay', 'height', 'minHeight', 'width', 'placeholder', 'lang', 'tab', 'typewriterMode', 'cdn', 'mode', 'debuggerMode', 'value', 'theme', 'icon', 'toolbar', 'toolbarConfig', 'counter', 'cache', 'preview', 'image', 'link', 'hint', 'upload', 'resize', 'classes', 'fullscreen', 'outline', 'htmlValue', 'selectedValue', 'wordCount', 'resizeHeight']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

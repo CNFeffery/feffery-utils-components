@@ -1,19 +1,18 @@
+// react核心
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+// 辅助库
 import { isUndefined } from 'lodash';
 
 /**
  * sessionStorage状态管理组件
  */
-const FefferySessionStorage = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        data,
-        initialSync,
-        setProps,
-        loading_state
-    } = props;
+const FefferySessionStorage = ({
+    id,
+    data,
+    initialSync = false,
+    setProps
+}) => {
 
     useEffect(() => {
         const syncStorage = (e) => {
@@ -79,31 +78,11 @@ FefferySessionStorage.propTypes = {
      */
     initialSync: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferySessionStorage.defaultProps = {
-    initialSync: false
-}
 
 export default FefferySessionStorage;

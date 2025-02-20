@@ -1,26 +1,26 @@
+// react核心
 import { useEffect } from "react";
+// 组件核心
 import autofit from "autofit.js";
+// 参数类型
 import { propTypes, defaultProps } from '../../components/resizable/FefferyAutoFit.react';
 
 /**
  * 自适应组件FefferyAutoFit
  */
-const FefferyAutoFit = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        containerId,
-        dw,
-        dh,
-        resize,
-        ignore,
-        transition,
-        delay,
-        limit,
-        close,
-        setProps,
-        loading_state
-    } = props;
+const FefferyAutoFit = ({
+    id,
+    containerId,
+    dw,
+    dh,
+    resize,
+    ignore,
+    transition,
+    delay,
+    limit,
+    close,
+    setProps
+}) => {
 
     useEffect(() => {
         autofit.init({

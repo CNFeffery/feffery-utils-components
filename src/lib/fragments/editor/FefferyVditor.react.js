@@ -1,64 +1,66 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+// react核心
+import React, { useState, useEffect, useMemo } from 'react';
+// 组件核心
 import Vditor from "vditor";
+// 样式
 import "vditor/dist/index.css";
+// 辅助库
 import useCss from '../../hooks/useCss';
 import { isString, isUndefined } from 'lodash';
 import { useRequest } from 'ahooks';
 import { v4 as uuidv4 } from 'uuid';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/editor/FefferyVditor.react';
 
 /**
  * 类Typora的markdown编辑器组件FefferyVditor
  */
-const FefferyVditor = (props) => {
-    // 取得必要属性或参数
-    let {
-        id,
-        className,
-        style,
-        key,
-        debounceWait,
-        undoDelay,
-        height,
-        minHeight,
-        width,
-        placeholder,
-        lang,
-        tab,
-        typewriterMode,
-        cdn,
-        mode,
-        debuggerMode,
-        value,
-        theme,
-        icon,
-        toolbar,
-        toolbarConfig,
-        counter,
-        cache,
-        preview,
-        image,
-        link,
-        hint,
-        upload,
-        resize,
-        classes,
-        fullscreen,
-        outline,
-        htmlValue,
-        selectedValue,
-        wordCount,
-        resizeHeight,
-        setProps,
-        loading_state
-    } = props;
+const FefferyVditor = ({
+    id,
+    className,
+    style,
+    key,
+    debounceWait,
+    undoDelay,
+    height,
+    minHeight,
+    width,
+    placeholder,
+    lang,
+    tab,
+    typewriterMode,
+    cdn,
+    mode,
+    debuggerMode,
+    value,
+    theme,
+    icon,
+    toolbar,
+    toolbarConfig,
+    counter,
+    cache,
+    preview,
+    image,
+    link,
+    hint,
+    upload,
+    resize,
+    classes,
+    fullscreen,
+    outline,
+    htmlValue,
+    selectedValue,
+    wordCount,
+    resizeHeight,
+    setProps
+}) => {
 
     const [vd, setVd] = useState();
     const [valueTrigger, setValueTrigger] = useState('initial');
 
     const { run: syncValue } = useRequest(
         (value) => {
-            setProps({ 
+            setProps({
                 value: value,
                 htmlValue: vd.getHTML()
             });

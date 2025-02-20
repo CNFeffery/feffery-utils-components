@@ -1,15 +1,19 @@
+// react核心
 import React, { useMemo } from 'react';
+// 组件核心
 import data from '@emoji-mart/data';
 import Picker from '@emoji-mart/react';
 import en from '@emoji-mart/data/i18n/en.json';
 import zh from '@emoji-mart/data/i18n/zh.json';
+// 辅助库
+import { useLoading } from '../../components/utils';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/dataInput/FefferyEmojiPicker.react';
 
 /**
  * emoji选择器组件FefferyEmojiPicker
  */
 const FefferyEmojiPicker = (props) => {
-    // 取得必要属性或参数
     let {
         id,
         key,
@@ -41,8 +45,7 @@ const FefferyEmojiPicker = (props) => {
         theme,
         value,
         clickOutsideNums,
-        setProps,
-        loading_state
+        setProps
     } = props;
 
     const i18n = useMemo(() => {
@@ -90,7 +93,7 @@ const FefferyEmojiPicker = (props) => {
                 theme={theme}
                 onEmojiSelect={e => setProps({ value: { ...e, timestamp: Date.parse(new Date()) } })}
                 onClickOutside={() => setProps({ clickOutsideNums: clickOutsideNums + 1 })}
-                loading_state={loading_state}
+                data-dash-is-loading={useLoading()}
             />
         </div>
     );

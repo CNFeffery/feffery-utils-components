@@ -2,23 +2,23 @@
 import React, { useEffect } from 'react';
 // 组件核心
 import GithubPicker from 'react-color/es/Github';
+// 辅助库
+import { useLoading } from '../../components/utils';
 // 参数类型
 import { propTypes, defaultProps } from '../../components/colorPickers/FefferyGithubColorPicker.react';
 
 /**
  * Github风格色彩选择器FefferyGithubColorPicker
  */
-const FefferyGithubColorPicker = (props) => {
-    const {
-        id,
-        className,
-        style,
-        color,
-        colors,
-        triangle,
-        setProps,
-        loading_state
-    } = props;
+const FefferyGithubColorPicker = ({
+    id,
+    className,
+    style,
+    color,
+    colors,
+    triangle,
+    setProps
+}) => {
 
     useEffect(() => {
         if (colors && !color) {
@@ -37,9 +37,7 @@ const FefferyGithubColorPicker = (props) => {
             colors={colors}
             triangle={triangle}
             onChangeComplete={(c, e) => setProps({ color: c.hex })}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
+            data-dash-is-loading={useLoading()} />
     );
 }
 

@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyCaptcha(Component):
@@ -40,29 +47,31 @@ Keyword arguments:
     设置验证码字体像素大小  默认值：`25`.
 
 - refresh (boolean; optional):
-    用于手动刷新验证码，当传入`True`时会强制刷新验证码，再自动重置为`False`.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    用于手动刷新验证码，当传入`True`时会强制刷新验证码，再自动重置为`False`."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyCaptcha'
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, captcha=Component.UNDEFINED, charNum=Component.UNDEFINED, height=Component.UNDEFINED, width=Component.UNDEFINED, bgColor=Component.UNDEFINED, fontSize=Component.UNDEFINED, refresh=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'captcha', 'charNum', 'height', 'width', 'bgColor', 'fontSize', 'refresh', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        captcha: typing.Optional[str] = None,
+        charNum: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        height: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        width: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        bgColor: typing.Optional[str] = None,
+        fontSize: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        refresh: typing.Optional[bool] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'captcha', 'charNum', 'height', 'width', 'bgColor', 'fontSize', 'refresh']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'captcha', 'charNum', 'height', 'width', 'bgColor', 'fontSize', 'refresh', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'captcha', 'charNum', 'height', 'width', 'bgColor', 'fontSize', 'refresh']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

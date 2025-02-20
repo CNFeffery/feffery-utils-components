@@ -6,10 +6,30 @@ const LazyFefferyGithubColorPicker = React.lazy(() => import(/* webpackChunkName
 /**
  * Github风格色彩选择器FefferyGithubColorPicker
  */
-const FefferyGithubColorPicker = (props) => {
+const FefferyGithubColorPicker = ({
+    id,
+    className,
+    style,
+    color,
+    colors = ['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB', '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB'],
+    triangle = 'top-left',
+    setProps,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyGithubColorPicker {...props} />
+            <LazyFefferyGithubColorPicker {
+                ...{
+                    id,
+                    className,
+                    style,
+                    color,
+                    colors,
+                    triangle,
+                    setProps,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
@@ -50,28 +70,8 @@ FefferyGithubColorPicker.propTypes = {
      * 顶部箭头方位，可选项有`'hide'`、`'top-left'`、`'top-right'`
      * 默认值：`'top-left'`
      */
-    triangle: PropTypes.oneOf(['hide', 'top-left', 'top-right']),
-
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    })
+    triangle: PropTypes.oneOf(['hide', 'top-left', 'top-right'])
 };
-
-FefferyGithubColorPicker.defaultProps = {
-    triangle: 'top-left',
-    colors: ['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB', '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB']
-}
 
 export default FefferyGithubColorPicker;
 

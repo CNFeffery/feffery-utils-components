@@ -1,35 +1,37 @@
+// react核心
 import React, { useState, useEffect, useRef } from 'react';
+// 组件核心
 import HALO from 'vanta/dist/vanta.halo.min';
 import * as THREE from 'three';
+// 辅助库
 import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
+import { useLoading } from '../../components/utils';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/animations/FefferyHaloBackground.react';
 
 /**
  * 3D-Halo背景组件FefferyHaloBackground
  */
-const FefferyHaloBackground = (props) => {
-    // 取得必要属性或参数
-    let {
-        id,
-        children,
-        className,
-        style,
-        key,
-        mouseControls,
-        touchControls,
-        gyroControls,
-        minHeight,
-        minWidth,
-        backgroundColor,
-        baseColor,
-        size,
-        amplitudeFactor,
-        xOffset,
-        yOffset,
-        setProps,
-        loading_state
-    } = props;
+const FefferyHaloBackground = ({
+    id,
+    children,
+    className,
+    style,
+    key,
+    mouseControls,
+    touchControls,
+    gyroControls,
+    minHeight,
+    minWidth,
+    backgroundColor,
+    baseColor,
+    size,
+    amplitudeFactor,
+    xOffset,
+    yOffset,
+    setProps
+}) => {
 
     const [haloEffect, setHaloEffect] = useState(null);
     const haloRef = useRef(null);
@@ -69,9 +71,7 @@ const FefferyHaloBackground = (props) => {
             style={style}
             key={key}
             ref={haloRef}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={useLoading()}
         >
             {children}
         </div>

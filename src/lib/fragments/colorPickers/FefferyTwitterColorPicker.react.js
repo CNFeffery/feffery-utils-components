@@ -2,24 +2,24 @@
 import React, { useEffect } from 'react';
 // 组件核心
 import TwitterPicker from 'react-color/es/Twitter';
+// 辅助库
+import { useLoading } from '../../components/utils';
 // 参数类型
 import { propTypes, defaultProps } from '../../components/colorPickers/FefferyTwitterColorPicker.react';
 
 /**
  * Twitter风格色彩选择器FefferyGithubColorPicker
  */
-const FefferyTwitterColorPicker = (props) => {
-    const {
-        id,
-        className,
-        style,
-        width,
-        color,
-        colors,
-        triangle,
-        setProps,
-        loading_state
-    } = props;
+const FefferyTwitterColorPicker = ({
+    id,
+    className,
+    style,
+    width,
+    color,
+    colors,
+    triangle,
+    setProps
+}) => {
 
     useEffect(() => {
         if (colors && !color) {
@@ -39,9 +39,7 @@ const FefferyTwitterColorPicker = (props) => {
             width={width}
             triangle={triangle}
             onChangeComplete={(c, e) => setProps({ color: c.hex })}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
+            data-dash-is-loading={useLoading()} />
     );
 }
 

@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyFancyNotification(Component):
@@ -77,29 +84,43 @@ Keyword arguments:
     设置屏幕中允许同时显示的通知框数量上限，默认无上限.
 
 - theme (a value equal to: 'light', 'dark', 'colored'; optional):
-    设置主题，可选的有`'light'`、`'dark'`、`'colored'`  默认值：`'light'`.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    设置主题，可选的有`'light'`、`'dark'`、`'colored'`  默认值：`'light'`."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyFancyNotification'
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, type=Component.UNDEFINED, visible=Component.UNDEFINED, position=Component.UNDEFINED, autoClose=Component.UNDEFINED, closable=Component.UNDEFINED, hideProgressBar=Component.UNDEFINED, pauseOnHover=Component.UNDEFINED, closeOnClick=Component.UNDEFINED, newestOnTop=Component.UNDEFINED, toastClassName=Component.UNDEFINED, bodyClassName=Component.UNDEFINED, progressClassName=Component.UNDEFINED, progressStyle=Component.UNDEFINED, draggable=Component.UNDEFINED, draggablePercent=Component.UNDEFINED, containerId=Component.UNDEFINED, limit=Component.UNDEFINED, theme=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'type', 'visible', 'position', 'autoClose', 'closable', 'hideProgressBar', 'pauseOnHover', 'closeOnClick', 'newestOnTop', 'toastClassName', 'bodyClassName', 'progressClassName', 'progressStyle', 'draggable', 'draggablePercent', 'containerId', 'limit', 'theme', 'loading_state']
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        type: typing.Optional[Literal["info", "success", "warning", "error"]] = None,
+        visible: typing.Optional[bool] = None,
+        position: typing.Optional[Literal["top-right", "top-center", "top-left", "bottom-right", "bottom-cente", "bottom-left"]] = None,
+        autoClose: typing.Optional[typing.Union[bool, typing.Union[int, float, numbers.Number]]] = None,
+        closable: typing.Optional[bool] = None,
+        hideProgressBar: typing.Optional[bool] = None,
+        pauseOnHover: typing.Optional[bool] = None,
+        closeOnClick: typing.Optional[bool] = None,
+        newestOnTop: typing.Optional[bool] = None,
+        toastClassName: typing.Optional[str] = None,
+        bodyClassName: typing.Optional[str] = None,
+        progressClassName: typing.Optional[str] = None,
+        progressStyle: typing.Optional[dict] = None,
+        draggable: typing.Optional[bool] = None,
+        draggablePercent: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        containerId: typing.Optional[str] = None,
+        limit: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        theme: typing.Optional[Literal["light", "dark", "colored"]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'type', 'visible', 'position', 'autoClose', 'closable', 'hideProgressBar', 'pauseOnHover', 'closeOnClick', 'newestOnTop', 'toastClassName', 'bodyClassName', 'progressClassName', 'progressStyle', 'draggable', 'draggablePercent', 'containerId', 'limit', 'theme']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'type', 'visible', 'position', 'autoClose', 'closable', 'hideProgressBar', 'pauseOnHover', 'closeOnClick', 'newestOnTop', 'toastClassName', 'bodyClassName', 'progressClassName', 'progressStyle', 'draggable', 'draggablePercent', 'containerId', 'limit', 'theme', 'loading_state']
+        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'type', 'visible', 'position', 'autoClose', 'closable', 'hideProgressBar', 'pauseOnHover', 'closeOnClick', 'newestOnTop', 'toastClassName', 'bodyClassName', 'progressClassName', 'progressStyle', 'draggable', 'draggablePercent', 'containerId', 'limit', 'theme']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

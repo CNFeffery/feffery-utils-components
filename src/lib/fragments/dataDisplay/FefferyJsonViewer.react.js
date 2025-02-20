@@ -2,6 +2,7 @@
 import ReactJsonView from '@microlink/react-json-view'
 // 辅助库
 import { isString } from 'lodash';
+import { useLoading } from '../../components/utils';
 // 自定义hooks
 import useCss from '../../hooks/useCss';
 // 参数类型
@@ -10,32 +11,30 @@ import { propTypes, defaultProps } from '../../components/dataDisplay/FefferyJso
 /**
  * json数据展示组件FefferyJsonViewer
  */
-const FefferyJsonViewer = (props) => {
-    const {
-        id,
-        key,
-        style,
-        className,
-        data,
-        rootName,
-        theme,
-        indent,
-        iconStyle,
-        collapsed,
-        collapseStringsAfterLength,
-        groupArraysAfterLength,
-        enableClipboard,
-        displayObjectSize,
-        displayDataTypes,
-        editable,
-        addible,
-        deletable,
-        sortKeys,
-        quotesOnKeys,
-        displayArrayKey,
-        setProps,
-        loading_state
-    } = props;
+const FefferyJsonViewer = ({
+    id,
+    key,
+    style,
+    className,
+    data,
+    rootName,
+    theme,
+    indent,
+    iconStyle,
+    collapsed,
+    collapseStringsAfterLength,
+    groupArraysAfterLength,
+    enableClipboard,
+    displayObjectSize,
+    displayDataTypes,
+    editable,
+    addible,
+    deletable,
+    sortKeys,
+    quotesOnKeys,
+    displayArrayKey,
+    setProps
+}) => {
 
     return (
         <ReactJsonView
@@ -70,9 +69,7 @@ const FefferyJsonViewer = (props) => {
             sortKeys={sortKeys}
             quotesOnKeys={quotesOnKeys}
             displayArrayKey={displayArrayKey}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
+            data-dash-is-loading={useLoading()} />
     );
 }
 

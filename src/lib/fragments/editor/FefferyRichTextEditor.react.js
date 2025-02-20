@@ -1,40 +1,42 @@
-import '@wangeditor/editor/dist/css/style.css' // 引入 css
-import React, { useState, useEffect } from 'react'
-import useCss from '../../hooks/useCss';
-import { isString } from 'lodash';
+// react核心
+import React, { useState, useEffect } from 'react';
+// 组件核心
 import { i18nChangeLanguage } from '@wangeditor/editor';
 import { Editor, Toolbar } from '@wangeditor/editor-for-react';
 import toast, { Toaster } from 'react-hot-toast';
+// 样式
+import '@wangeditor/editor/dist/css/style.css';
+// 辅助库
+import useCss from '../../hooks/useCss';
+import { isString } from 'lodash';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/editor/FefferyRichTextEditor.react';
 
 /**
  * 富文本编辑器组件FefferyRichTextEditor
  */
-const FefferyRichTextEditor = (props) => {
-    // 取得必要属性或参数
-    const {
-        id,
-        className,
-        style,
-        key,
-        toolbarClassName,
-        toolbarStyle,
-        editorClassName,
-        editorStyle,
-        locale,
-        mode,
-        htmlValue,
-        textValue,
-        selectionTextValue,
-        toolbarConfig,
-        editorConfig,
-        uploadImage,
-        uploadVideo,
-        successMessage,
-        errorMessage,
-        setProps,
-        loading_state
-    } = props;
+const FefferyRichTextEditor = ({
+    id,
+    className,
+    style,
+    key,
+    toolbarClassName,
+    toolbarStyle,
+    editorClassName,
+    editorStyle,
+    locale,
+    mode,
+    htmlValue,
+    textValue,
+    selectionTextValue,
+    toolbarConfig,
+    editorConfig,
+    uploadImage,
+    uploadVideo,
+    successMessage,
+    errorMessage,
+    setProps
+}) => {
 
     // editor 实例
     const [editor, setEditor] = useState(null)

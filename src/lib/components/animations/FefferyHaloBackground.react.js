@@ -6,14 +6,41 @@ const LazyFefferyHaloBackground = React.lazy(() => import(/* webpackChunkName: "
 /**
  * 3D-Halo背景组件FefferyHaloBackground
  */
-const FefferyHaloBackground = (props) => {
+const FefferyHaloBackground = ({
+    mouseControls = true,
+    touchControls = true,
+    gyroControls = false,
+    minHeight = 200.00,
+    minWidth = 200.00,
+    backgroundColor = '#131a43',
+    baseColor = '#112966',
+    size = 1,
+    amplitudeFactor = 1,
+    xOffset = 0,
+    yOffset = 0,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyHaloBackground {...props} />
+            <LazyFefferyHaloBackground {
+                ...{
+                    mouseControls,
+                    touchControls,
+                    gyroControls,
+                    minHeight,
+                    minWidth,
+                    backgroundColor,
+                    baseColor,
+                    size,
+                    amplitudeFactor,
+                    xOffset,
+                    yOffset,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
-
 
 FefferyHaloBackground.propTypes = {
     /**
@@ -110,42 +137,12 @@ FefferyHaloBackground.propTypes = {
      */
     yOffset: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyHaloBackground.defaultProps = {
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    backgroundColor: '#131a43',
-    baseColor: '#112966',
-    size: 1,
-    amplitudeFactor: 1,
-    xOffset: 0,
-    yOffset: 0
-}
 
 export default FefferyHaloBackground;
 

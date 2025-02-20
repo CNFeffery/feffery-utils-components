@@ -6,14 +6,57 @@ const LazyFefferyBirdsBackground = React.lazy(() => import(/* webpackChunkName: 
 /**
  * 3D-Birds背景组件FefferyBirdsBackground
  */
-const FefferyBirdsBackground = (props) => {
+const FefferyBirdsBackground = ({
+    mouseControls = true,
+    touchControls = true,
+    gyroControls = false,
+    minHeight = 200.00,
+    minWidth = 200.00,
+    scale = 1.00,
+    scaleMobile = 1.00,
+    backgroundColor = '#000000',
+    backgroundAlpha = 1,
+    color1 = '#ff0000',
+    color2 = '#13becf',
+    colorMode = 'varianceGradient',
+    quantity = 5,
+    birdSize = 1,
+    wingSpan = 30,
+    speedLimit = 5,
+    separation = 20,
+    alignment = 20,
+    cohesion = 20,
+    ...others
+}) => {
     return (
         <Suspense fallback={null}>
-            <LazyFefferyBirdsBackground {...props} />
+            <LazyFefferyBirdsBackground {
+                ...{
+                    mouseControls,
+                    touchControls,
+                    gyroControls,
+                    minHeight,
+                    minWidth,
+                    scale,
+                    scaleMobile,
+                    backgroundColor,
+                    backgroundAlpha,
+                    color1,
+                    color2,
+                    colorMode,
+                    quantity,
+                    birdSize,
+                    wingSpan,
+                    speedLimit,
+                    separation,
+                    alignment,
+                    cohesion,
+                    ...others
+                }
+            } />
         </Suspense>
     );
 }
-
 
 FefferyBirdsBackground.propTypes = {
     /**
@@ -158,50 +201,12 @@ FefferyBirdsBackground.propTypes = {
      */
     cohesion: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
 };
-
-// 设置默认参数
-FefferyBirdsBackground.defaultProps = {
-    mouseControls: true,
-    touchControls: true,
-    gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
-    scale: 1.00,
-    scaleMobile: 1.00,
-    backgroundColor: '#000000',
-    backgroundAlpha: 1,
-    color1: '#ff0000',
-    color2: '#13becf',
-    colorMode: 'varianceGradient',
-    quantity: 5,
-    birdSize: 1,
-    wingSpan: 30,
-    speedLimit: 5,
-    separation: 20,
-    alignment: 20,
-    cohesion: 20
-}
 
 export default FefferyBirdsBackground;
 

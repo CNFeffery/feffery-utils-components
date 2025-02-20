@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyGeolocation(Component):
@@ -16,29 +23,23 @@ Keyword arguments:
     对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - geoLocationInfo (dict; optional):
-    监听当前用户地理位置相关信息.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    监听当前用户地理位置相关信息."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyGeolocation'
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, geoLocationInfo=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'geoLocationInfo', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        geoLocationInfo: typing.Optional[dict] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'geoLocationInfo']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'geoLocationInfo', 'loading_state']
+        self.available_properties = ['id', 'key', 'geoLocationInfo']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

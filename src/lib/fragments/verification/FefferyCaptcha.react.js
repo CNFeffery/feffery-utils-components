@@ -1,26 +1,28 @@
+// react核心
 import React, { useCallback, useEffect, useRef } from 'react';
+// 组件核心
 import Captcha from 'react-captcha-code';
+// 辅助库
+import { useLoading } from '../../components/utils';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/verification/FefferyCaptcha.react';
 
 /**
  * 验证码组件FefferyCaptcha
  */
-const FefferyCaptcha = (props) => {
-    // 取得必要属性或参数
-    let {
-        id,
-        key,
-        style,
-        className,
-        charNum,
-        height,
-        width,
-        bgColor,
-        fontSize,
-        refresh,
-        setProps,
-        loading_state
-    } = props;
+const FefferyCaptcha = ({
+    id,
+    key,
+    style,
+    className,
+    charNum,
+    height,
+    width,
+    bgColor,
+    fontSize,
+    refresh,
+    setProps
+}) => {
 
     // 返回定制化的前端部件
     const handleChange = useCallback((captcha) => {
@@ -49,9 +51,7 @@ const FefferyCaptcha = (props) => {
             bgColor={bgColor}
             fontSize={fontSize}
             onChange={handleChange}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            } />
+            data-dash-is-loading={useLoading()} />
     );
 }
 

@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyDraggable(Component):
@@ -52,29 +59,35 @@ Keyword arguments:
     只读，用于监听当前可拖拽组件左上角距离页面左侧的像素距离.
 
 - isFocusWithin (boolean; optional):
-    只读，用于监听当前可拖拽组件是否处于聚焦状态.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    只读，用于监听当前可拖拽组件是否处于聚焦状态."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyDraggable'
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, draggable=Component.UNDEFINED, initialX=Component.REQUIRED, initialY=Component.REQUIRED, showDragLine=Component.UNDEFINED, dragLineColors=Component.UNDEFINED, focusWithinStyle=Component.UNDEFINED, boundsSelector=Component.UNDEFINED, x=Component.UNDEFINED, y=Component.UNDEFINED, isFocusWithin=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'draggable', 'initialX', 'initialY', 'showDragLine', 'dragLineColors', 'focusWithinStyle', 'boundsSelector', 'x', 'y', 'isFocusWithin', 'loading_state']
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        draggable: typing.Optional[bool] = None,
+        initialX: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        initialY: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        showDragLine: typing.Optional[bool] = None,
+        dragLineColors: typing.Optional[typing.Sequence[str]] = None,
+        focusWithinStyle: typing.Optional[dict] = None,
+        boundsSelector: typing.Optional[str] = None,
+        x: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        y: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        isFocusWithin: typing.Optional[bool] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'draggable', 'initialX', 'initialY', 'showDragLine', 'dragLineColors', 'focusWithinStyle', 'boundsSelector', 'x', 'y', 'isFocusWithin']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'draggable', 'initialX', 'initialY', 'showDragLine', 'dragLineColors', 'focusWithinStyle', 'boundsSelector', 'x', 'y', 'isFocusWithin', 'loading_state']
+        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'draggable', 'initialX', 'initialY', 'showDragLine', 'dragLineColors', 'focusWithinStyle', 'boundsSelector', 'x', 'y', 'isFocusWithin']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

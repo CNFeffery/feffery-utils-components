@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class FefferyMusicPlayer(Component):
@@ -121,7 +128,7 @@ Keyword arguments:
     - loading (a list of or a singular dash component, string or number | string; optional):
         设置`loading`图标.
 
-- defaultPosition (dict; default {    top: 0,    left: 0}):
+- defaultPosition (dict; default { top: 0, left: 0 }):
     设置音乐播放器`mini`模式的初始位置  默认值：`{'top': 0, 'left': 0}`.
 
     `defaultPosition` is a dict with keys:
@@ -261,29 +268,126 @@ Keyword arguments:
     尝试播放上一首歌曲时，如果歌曲的当前时间超过`1`秒，是否重新启动当前曲目  默认值：`False`.
 
 - customizeContainerId (string; optional):
-    自定义挂载容器类名.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    自定义挂载容器类名."""
     _children_props = ['audioLists[].singer', 'icon.pause', 'icon.play', 'icon.destroy', 'icon.close', 'icon.delete', 'icon.download', 'icon.toggle', 'icon.lyric', 'icon.volume', 'icon.mute', 'icon.next', 'icon.prev', 'icon.playLists', 'icon.reload', 'icon.loop', 'icon.order', 'icon.orderLoop', 'icon.shuffle', 'icon.loading', 'extendsContent']
     _base_nodes = ['extendsContent', 'children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyMusicPlayer'
+    AudioLists = TypedDict(
+        "AudioLists",
+            {
+            "name": NotRequired[str],
+            "musicSrc": NotRequired[str],
+            "cover": NotRequired[str],
+            "singer": NotRequired[typing.Union[str, typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]],
+            "duration": NotRequired[typing.Union[int, float, numbers.Number]],
+            "lyric": NotRequired[str],
+            "extraParams": NotRequired[dict]
+        }
+    )
+
+    Icon = TypedDict(
+        "Icon",
+            {
+            "pause": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
+            "play": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
+            "destroy": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
+            "close": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
+            "delete": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
+            "download": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
+            "toggle": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
+            "lyric": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
+            "volume": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
+            "mute": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
+            "next": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
+            "prev": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
+            "playLists": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
+            "reload": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
+            "loop": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
+            "order": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
+            "orderLoop": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
+            "shuffle": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
+            "loading": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]]
+        }
+    )
+
+    DefaultPosition = TypedDict(
+        "DefaultPosition",
+            {
+            "top": NotRequired[typing.Union[int, float, numbers.Number]],
+            "left": NotRequired[typing.Union[int, float, numbers.Number]],
+            "right": NotRequired[typing.Union[int, float, numbers.Number]],
+            "bottom": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
+    Bounds = TypedDict(
+        "Bounds",
+            {
+            "top": NotRequired[typing.Union[int, float, numbers.Number]],
+            "left": NotRequired[typing.Union[int, float, numbers.Number]],
+            "right": NotRequired[typing.Union[int, float, numbers.Number]],
+            "bottom": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, audioLists=Component.UNDEFINED, theme=Component.UNDEFINED, customizeThemeColor=Component.UNDEFINED, customizeLightThemeHoverColor=Component.UNDEFINED, locale=Component.UNDEFINED, icon=Component.UNDEFINED, defaultPosition=Component.UNDEFINED, playModeShowTime=Component.UNDEFINED, bounds=Component.UNDEFINED, preload=Component.UNDEFINED, remember=Component.UNDEFINED, glassBg=Component.UNDEFINED, remove=Component.UNDEFINED, defaultPlayIndex=Component.UNDEFINED, playIndex=Component.UNDEFINED, defaultPlayMode=Component.UNDEFINED, mode=Component.UNDEFINED, once=Component.UNDEFINED, autoplay=Component.UNDEFINED, toggleMode=Component.UNDEFINED, drag=Component.UNDEFINED, seeked=Component.UNDEFINED, showMiniModeCover=Component.UNDEFINED, showMiniProcessBar=Component.UNDEFINED, showProgressLoadBar=Component.UNDEFINED, showPlay=Component.UNDEFINED, showReload=Component.UNDEFINED, showDownload=Component.UNDEFINED, showPlayMode=Component.UNDEFINED, showThemeSwitch=Component.UNDEFINED, showLyric=Component.UNDEFINED, showMediaSession=Component.UNDEFINED, lyricClassName=Component.UNDEFINED, extendsContent=Component.UNDEFINED, defaultVolume=Component.UNDEFINED, loadAudioErrorPlayNext=Component.UNDEFINED, responsive=Component.UNDEFINED, autoHiddenCover=Component.UNDEFINED, clearPriorAudioLists=Component.UNDEFINED, autoPlayInitLoadPlayList=Component.UNDEFINED, spaceBar=Component.UNDEFINED, showDestroy=Component.UNDEFINED, quietUpdate=Component.UNDEFINED, restartCurrentOnPrev=Component.UNDEFINED, customizeContainerId=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'audioLists', 'theme', 'customizeThemeColor', 'customizeLightThemeHoverColor', 'locale', 'icon', 'defaultPosition', 'playModeShowTime', 'bounds', 'preload', 'remember', 'glassBg', 'remove', 'defaultPlayIndex', 'playIndex', 'defaultPlayMode', 'mode', 'once', 'autoplay', 'toggleMode', 'drag', 'seeked', 'showMiniModeCover', 'showMiniProcessBar', 'showProgressLoadBar', 'showPlay', 'showReload', 'showDownload', 'showPlayMode', 'showThemeSwitch', 'showLyric', 'showMediaSession', 'lyricClassName', 'extendsContent', 'defaultVolume', 'loadAudioErrorPlayNext', 'responsive', 'autoHiddenCover', 'clearPriorAudioLists', 'autoPlayInitLoadPlayList', 'spaceBar', 'showDestroy', 'quietUpdate', 'restartCurrentOnPrev', 'customizeContainerId', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[typing.Union[str, dict]] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[typing.Union[str, dict]] = None,
+        audioLists: typing.Optional[typing.Sequence["AudioLists"]] = None,
+        theme: typing.Optional[Literal["light", "dark", "auto"]] = None,
+        customizeThemeColor: typing.Optional[str] = None,
+        customizeLightThemeHoverColor: typing.Optional[str] = None,
+        locale: typing.Optional[Literal["zh_CN", "en_US"]] = None,
+        icon: typing.Optional["Icon"] = None,
+        defaultPosition: typing.Optional["DefaultPosition"] = None,
+        playModeShowTime: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        bounds: typing.Optional[typing.Union[Literal["body", "parent"], "Bounds"]] = None,
+        preload: typing.Optional[typing.Union[bool, Literal["auto"]]] = None,
+        remember: typing.Optional[bool] = None,
+        glassBg: typing.Optional[bool] = None,
+        remove: typing.Optional[bool] = None,
+        defaultPlayIndex: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        playIndex: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        defaultPlayMode: typing.Optional[Literal["order", "orderLoop", "singleLoop", "shufflePlay"]] = None,
+        mode: typing.Optional[Literal["mini", "full"]] = None,
+        once: typing.Optional[bool] = None,
+        autoplay: typing.Optional[bool] = None,
+        toggleMode: typing.Optional[bool] = None,
+        drag: typing.Optional[bool] = None,
+        seeked: typing.Optional[bool] = None,
+        showMiniModeCover: typing.Optional[bool] = None,
+        showMiniProcessBar: typing.Optional[bool] = None,
+        showProgressLoadBar: typing.Optional[bool] = None,
+        showPlay: typing.Optional[bool] = None,
+        showReload: typing.Optional[bool] = None,
+        showDownload: typing.Optional[bool] = None,
+        showPlayMode: typing.Optional[bool] = None,
+        showThemeSwitch: typing.Optional[bool] = None,
+        showLyric: typing.Optional[bool] = None,
+        showMediaSession: typing.Optional[bool] = None,
+        lyricClassName: typing.Optional[str] = None,
+        extendsContent: typing.Optional[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], bool, str]] = None,
+        defaultVolume: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        loadAudioErrorPlayNext: typing.Optional[bool] = None,
+        responsive: typing.Optional[bool] = None,
+        autoHiddenCover: typing.Optional[bool] = None,
+        clearPriorAudioLists: typing.Optional[bool] = None,
+        autoPlayInitLoadPlayList: typing.Optional[bool] = None,
+        spaceBar: typing.Optional[bool] = None,
+        showDestroy: typing.Optional[bool] = None,
+        quietUpdate: typing.Optional[bool] = None,
+        restartCurrentOnPrev: typing.Optional[bool] = None,
+        customizeContainerId: typing.Optional[str] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'audioLists', 'theme', 'customizeThemeColor', 'customizeLightThemeHoverColor', 'locale', 'icon', 'defaultPosition', 'playModeShowTime', 'bounds', 'preload', 'remember', 'glassBg', 'remove', 'defaultPlayIndex', 'playIndex', 'defaultPlayMode', 'mode', 'once', 'autoplay', 'toggleMode', 'drag', 'seeked', 'showMiniModeCover', 'showMiniProcessBar', 'showProgressLoadBar', 'showPlay', 'showReload', 'showDownload', 'showPlayMode', 'showThemeSwitch', 'showLyric', 'showMediaSession', 'lyricClassName', 'extendsContent', 'defaultVolume', 'loadAudioErrorPlayNext', 'responsive', 'autoHiddenCover', 'clearPriorAudioLists', 'autoPlayInitLoadPlayList', 'spaceBar', 'showDestroy', 'quietUpdate', 'restartCurrentOnPrev', 'customizeContainerId']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'audioLists', 'theme', 'customizeThemeColor', 'customizeLightThemeHoverColor', 'locale', 'icon', 'defaultPosition', 'playModeShowTime', 'bounds', 'preload', 'remember', 'glassBg', 'remove', 'defaultPlayIndex', 'playIndex', 'defaultPlayMode', 'mode', 'once', 'autoplay', 'toggleMode', 'drag', 'seeked', 'showMiniModeCover', 'showMiniProcessBar', 'showProgressLoadBar', 'showPlay', 'showReload', 'showDownload', 'showPlayMode', 'showThemeSwitch', 'showLyric', 'showMediaSession', 'lyricClassName', 'extendsContent', 'defaultVolume', 'loadAudioErrorPlayNext', 'responsive', 'autoHiddenCover', 'clearPriorAudioLists', 'autoPlayInitLoadPlayList', 'spaceBar', 'showDestroy', 'quietUpdate', 'restartCurrentOnPrev', 'customizeContainerId', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'audioLists', 'theme', 'customizeThemeColor', 'customizeLightThemeHoverColor', 'locale', 'icon', 'defaultPosition', 'playModeShowTime', 'bounds', 'preload', 'remember', 'glassBg', 'remove', 'defaultPlayIndex', 'playIndex', 'defaultPlayMode', 'mode', 'once', 'autoplay', 'toggleMode', 'drag', 'seeked', 'showMiniModeCover', 'showMiniProcessBar', 'showProgressLoadBar', 'showPlay', 'showReload', 'showDownload', 'showPlayMode', 'showThemeSwitch', 'showLyric', 'showMediaSession', 'lyricClassName', 'extendsContent', 'defaultVolume', 'loadAudioErrorPlayNext', 'responsive', 'autoHiddenCover', 'clearPriorAudioLists', 'autoPlayInitLoadPlayList', 'spaceBar', 'showDestroy', 'quietUpdate', 'restartCurrentOnPrev', 'customizeContainerId']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

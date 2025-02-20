@@ -1,36 +1,38 @@
+// react核心
 import React, { useState, useEffect, useRef } from 'react';
+// 组件核心
 import FOG from 'vanta/dist/vanta.fog.min';
 import * as THREE from 'three';
+// 辅助库
 import useCss from '../../hooks/useCss';
 import { isString } from 'lodash';
+import { useLoading } from '../../components/utils';
+// 参数类型
 import { propTypes, defaultProps } from '../../components/animations/FefferyFogBackground.react';
 
 /**
  * 3D-Fog背景组件FefferyFogBackground
  */
-const FefferyFogBackground = (props) => {
-    // 取得必要属性或参数
-    let {
-        id,
-        children,
-        className,
-        style,
-        key,
-        mouseControls,
-        touchControls,
-        gyroControls,
-        minHeight,
-        minWidth,
-        highlightColor,
-        midtoneColor,
-        lowlightColor,
-        baseColor,
-        blurFactor,
-        zoom,
-        speed,
-        setProps,
-        loading_state
-    } = props;
+const FefferyFogBackground = ({
+    id,
+    children,
+    className,
+    style,
+    key,
+    mouseControls,
+    touchControls,
+    gyroControls,
+    minHeight,
+    minWidth,
+    highlightColor,
+    midtoneColor,
+    lowlightColor,
+    baseColor,
+    blurFactor,
+    zoom,
+    speed,
+    setProps
+}) => {
 
     const [fogEffect, setFogEffect] = useState(null);
     const fogRef = useRef(null);
@@ -71,9 +73,7 @@ const FefferyFogBackground = (props) => {
             style={style}
             key={key}
             ref={fogRef}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }
+            data-dash-is-loading={useLoading()}
         >
             {children}
         </div>
