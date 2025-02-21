@@ -12,6 +12,7 @@ const FefferyGrid = ({
     margin = [10, 10],
     rowHeight = 150,
     closable = false,
+    autoClose = false,
     isDraggable = true,
     draggerStyle,
     draggerClassName,
@@ -37,6 +38,7 @@ const FefferyGrid = ({
                     margin,
                     rowHeight,
                     closable,
+                    autoClose,
                     isDraggable,
                     draggerStyle,
                     draggerClassName,
@@ -152,6 +154,12 @@ FefferyGrid.propTypes = {
          */
         timestamp: PropTypes.number
     }),
+
+    /**
+     * 是否在内部网格项关闭触发时进行自动关闭
+     * 默认值：`false`
+     */
+    autoClose: PropTypes.bool,
 
     /**
      * 内部网格项是否可拖拽

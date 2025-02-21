@@ -67,6 +67,9 @@ Keyword arguments:
     - timestamp (number; optional):
         事件时间戳.
 
+- autoClose (boolean; default False):
+    是否在内部网格项关闭触发时进行自动关闭  默认值：`False`.
+
 - isDraggable (boolean; default True):
     内部网格项是否可拖拽  默认值：`True`.
 
@@ -238,6 +241,7 @@ Keyword arguments:
         rowHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
         closable: typing.Optional[bool] = None,
         closeEvent: typing.Optional["CloseEvent"] = None,
+        autoClose: typing.Optional[bool] = None,
         isDraggable: typing.Optional[bool] = None,
         draggerStyle: typing.Optional[dict] = None,
         draggerClassName: typing.Optional[str] = None,
@@ -254,9 +258,9 @@ Keyword arguments:
         debug: typing.Optional[bool] = None,
         **kwargs
     ):
-        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'placeholder', 'height', 'autoSize', 'compactType', 'margin', 'containerPadding', 'rowHeight', 'closable', 'closeEvent', 'isDraggable', 'draggerStyle', 'draggerClassName', 'isResizable', 'isBounded', 'allowOverlap', 'breakpoints', 'cols', 'layouts', 'placeholderBackground', 'placeholderOpacity', 'placeholderBorder', 'placeholderBorderRadius', 'debug']
+        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'placeholder', 'height', 'autoSize', 'compactType', 'margin', 'containerPadding', 'rowHeight', 'closable', 'closeEvent', 'autoClose', 'isDraggable', 'draggerStyle', 'draggerClassName', 'isResizable', 'isBounded', 'allowOverlap', 'breakpoints', 'cols', 'layouts', 'placeholderBackground', 'placeholderOpacity', 'placeholderBorder', 'placeholderBorderRadius', 'debug']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'placeholder', 'height', 'autoSize', 'compactType', 'margin', 'containerPadding', 'rowHeight', 'closable', 'closeEvent', 'isDraggable', 'draggerStyle', 'draggerClassName', 'isResizable', 'isBounded', 'allowOverlap', 'breakpoints', 'cols', 'layouts', 'placeholderBackground', 'placeholderOpacity', 'placeholderBorder', 'placeholderBorderRadius', 'debug']
+        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'placeholder', 'height', 'autoSize', 'compactType', 'margin', 'containerPadding', 'rowHeight', 'closable', 'closeEvent', 'autoClose', 'isDraggable', 'draggerStyle', 'draggerClassName', 'isResizable', 'isBounded', 'allowOverlap', 'breakpoints', 'cols', 'layouts', 'placeholderBackground', 'placeholderOpacity', 'placeholderBorder', 'placeholderBorderRadius', 'debug']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

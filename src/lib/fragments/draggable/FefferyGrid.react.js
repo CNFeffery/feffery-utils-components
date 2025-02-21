@@ -29,7 +29,7 @@ const FefferyGrid = ({
     containerPadding,
     rowHeight,
     closable,
-    closeEvent,
+    autoClose,
     isDraggable,
     draggerStyle,
     draggerClassName,
@@ -46,6 +46,8 @@ const FefferyGrid = ({
     debug,
     setProps
 }) => {
+
+    const ctx = window.dash_component_api.useDashContext();
 
     children = parseChildrenToArray(children)
 
@@ -84,7 +86,18 @@ const FefferyGrid = ({
                                 width: '20px',
                                 zIndex: 100
                             }}
-                                onClick={() => setProps({ closeEvent: { key: childProps.key, timestamp: Date.now() } })}
+                                onClick={() => {
+                                    // 若开启自动关闭
+                                    if (autoClose) {
+                                        setProps({
+                                            closeEvent: { key: childProps.key, timestamp: Date.now() },
+                                            children: window.dash_component_api.getLayout(ctx.componentPath).props.children.filter(child => child.props.key !== childProps.key),
+                                            layouts: layouts.filter(layout => layout.i !== childProps.key)
+                                        })
+                                    } else {
+                                        setProps({ closeEvent: { key: childProps.key, timestamp: Date.now() } })
+                                    }
+                                }}
                             /> :
                             null
                     }
