@@ -210,7 +210,10 @@ Keyword arguments:
     `css`对应`border`属性快捷设置.
 
 - borderRadius (string | number; optional):
-    `css`对应`border-radius`属性快捷设置."""
+    `css`对应`border-radius`属性快捷设置.
+
+- printNow (boolean; optional):
+    是否立即执行打印功能调用，每次设置为`True`触发打印后都会重置为`False`."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
@@ -308,11 +311,12 @@ Keyword arguments:
         margin: typing.Optional[typing.Union[str, typing.Union[int, float, numbers.Number]]] = None,
         border: typing.Optional[str] = None,
         borderRadius: typing.Optional[typing.Union[str, typing.Union[int, float, numbers.Number]]] = None,
+        printNow: typing.Optional[bool] = None,
         **kwargs
     ):
-        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'enableEvents', '_width', '_height', 'debounceWait', 'mouseEnterCount', 'mouseLeaveCount', 'nClicks', 'clickEvent', 'nDoubleClicks', 'doubleClickEvent', 'enableListenContextMenu', 'contextMenuEvent', 'isHovering', 'isTouching', 'enableClickAway', 'clickAwayCount', 'position', 'enableFocus', 'isFocused', 'pasteEvent', 'wheelEventStrategy', 'shadow', 'scrollbar', 'textAlign', 'justify', 'align', 'padding', 'margin', 'border', 'borderRadius']
+        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'enableEvents', '_width', '_height', 'debounceWait', 'mouseEnterCount', 'mouseLeaveCount', 'nClicks', 'clickEvent', 'nDoubleClicks', 'doubleClickEvent', 'enableListenContextMenu', 'contextMenuEvent', 'isHovering', 'isTouching', 'enableClickAway', 'clickAwayCount', 'position', 'enableFocus', 'isFocused', 'pasteEvent', 'wheelEventStrategy', 'shadow', 'scrollbar', 'textAlign', 'justify', 'align', 'padding', 'margin', 'border', 'borderRadius', 'printNow']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'enableEvents', '_width', '_height', 'debounceWait', 'mouseEnterCount', 'mouseLeaveCount', 'nClicks', 'clickEvent', 'nDoubleClicks', 'doubleClickEvent', 'enableListenContextMenu', 'contextMenuEvent', 'isHovering', 'isTouching', 'enableClickAway', 'clickAwayCount', 'position', 'enableFocus', 'isFocused', 'pasteEvent', 'wheelEventStrategy', 'shadow', 'scrollbar', 'textAlign', 'justify', 'align', 'padding', 'margin', 'border', 'borderRadius']
+        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'enableEvents', '_width', '_height', 'debounceWait', 'mouseEnterCount', 'mouseLeaveCount', 'nClicks', 'clickEvent', 'nDoubleClicks', 'doubleClickEvent', 'enableListenContextMenu', 'contextMenuEvent', 'isHovering', 'isTouching', 'enableClickAway', 'clickAwayCount', 'position', 'enableFocus', 'isFocused', 'pasteEvent', 'wheelEventStrategy', 'shadow', 'scrollbar', 'textAlign', 'justify', 'align', 'padding', 'margin', 'border', 'borderRadius', 'printNow']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

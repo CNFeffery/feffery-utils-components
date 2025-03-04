@@ -98,6 +98,7 @@
     "react-spinners-kit": "^1.9.1",
     "react-stickynode": "^4.1.0",
     "react-syntax-highlighter": "^15.4.4",
+    "react-to-print": "^3.0.5",
     "react-toastify": "9.0.3",
     "react-use": "^17.4.0",
     "simplebar-react": "^2.3.7",

@@ -6,6 +6,7 @@ import { isString, isNull } from 'lodash';
 import { useElementBounding, useFocus } from '@reactuses/core';
 import { useSize, useRequest, useHover, useClickAway } from 'ahooks';
 import { useLoading } from '../utils';
+import { useReactToPrint } from "react-to-print";
 // 自定义hooks
 import useCss from '../../hooks/useCss';
 
@@ -108,6 +109,7 @@ const FefferyDiv = ({
     borderRadius,
     enableClickAway = false,
     wheelEventStrategy = 'default',
+    printNow,
     setProps
 }) => {
 
@@ -116,6 +118,7 @@ const FefferyDiv = ({
     const _bounding = useElementBounding(enableEvents?.includes('position') ? ref : null);
     const _isHovering = useHover(enableEvents?.includes('hover') ? ref : null);
     const [_focus, setFocus] = useFocus(enableEvents?.includes('focus') ? ref : null);
+    const reactToPrintFn = useReactToPrint({ contentRef: ref });
 
     useEffect(() => {
         setProps({
@@ -187,6 +190,15 @@ const FefferyDiv = ({
             isHovering: _isHovering
         })
     }, [_isHovering])
+
+    // printNow每次更新为true后，调用打印功能
+    useEffect(() => {
+        if (printNow) {
+            reactToPrintFn();
+            // 重置printNow
+            setProps({ printNow: false });
+        }
+    }, [printNow])
 
     // 监听元素外点击事件
     if (enableClickAway || enableEvents?.includes('clickaway')) {
@@ -705,6 +717,11 @@ FefferyDiv.propTypes = {
         PropTypes.string,
         PropTypes.number
     ]),
+
+    /**
+     * 是否立即执行打印功能调用，每次设置为`true`触发打印后都会重置为`false`
+     */
+    printNow: PropTypes.bool,
 
     /**
      * Dash-assigned callback that should be called to report property changes
