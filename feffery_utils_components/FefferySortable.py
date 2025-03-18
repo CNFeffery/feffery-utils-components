@@ -22,9 +22,6 @@ Keyword arguments:
 - key (string; optional):
     对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
-- style (dict; optional):
-    当前组件css样式.
-
 - handleStyle (dict; optional):
     拖拽手柄css样式.
 
@@ -110,7 +107,7 @@ Keyword arguments:
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
-        style: typing.Optional[dict] = None,
+        style: typing.Optional[typing.Any] = None,
         handleStyle: typing.Optional[dict] = None,
         handleClassName: typing.Optional[typing.Union[str, dict]] = None,
         className: typing.Optional[typing.Union[str, dict]] = None,
