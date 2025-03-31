@@ -1,32 +1,29 @@
 // react核心
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
+// 辅助库
+import { isNaN } from 'lodash';
 // 组件核心
-import { useElementSize } from '@reactuses/core';
+import { useSize } from 'ahooks';
 
 /**
  * 元素尺寸监听组件FefferyListenElementSize
  */
 const FefferyListenElementSize = ({
     target,
-    width,
-    height,
     setProps
 }) => {
 
-    const [_width, _height] = useElementSize(() => target ? document.getElementById(target) : document);
+    const size = useSize(() => document.getElementById(target));
 
     useEffect(() => {
-        if (width !== parseInt(_width)) {
-            setProps({ width: _width })
+        if (size) {
+            setProps({
+                width: size.width,
+                height: size.height
+            });
         }
-    }, [_width])
-
-    useEffect(() => {
-        if (height !== parseInt(_height)) {
-            setProps({ height: _height })
-        }
-    }, [_height])
+    }, [size]);
 
     return <></>;
 }
