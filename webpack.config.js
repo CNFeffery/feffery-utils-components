@@ -55,8 +55,8 @@ module.exports = (env, argv) => {
             library: dashLibraryName,
             libraryTarget: 'window',
         },
-        devtool: false, // 开发阶段使用，生成全量source-map
-        // devtool, // 发布阶段使用，生成最小化source-map
+        // devtool: false, // 开发阶段使用，生成全量source-map
+        devtool, // 发布阶段使用，生成最小化source-map
         externals,
         module: {
             rules: [
@@ -87,6 +87,8 @@ module.exports = (env, argv) => {
                         path.resolve('node_modules', '@shoelace-style'),
                         path.resolve('node_modules', 'emoji-mart'),
                         path.resolve('node_modules', '@photo-sphere-viewer'),
+                        path.resolve('node_modules', 'wouter'),
+                        path.resolve('node_modules', 'autofit.js'),
                     ],
                     use: {
                         loader: 'babel-loader',

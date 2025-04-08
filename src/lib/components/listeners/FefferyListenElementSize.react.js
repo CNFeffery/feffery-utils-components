@@ -1,8 +1,6 @@
 // react核心
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
-// 辅助库
-import { isNaN } from 'lodash';
 // 组件核心
 import { useSize } from 'ahooks';
 

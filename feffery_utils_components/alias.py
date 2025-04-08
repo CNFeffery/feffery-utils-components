@@ -87,6 +87,7 @@ from .FefferyMousePosition import FefferyMousePosition as MousePosition
 from .FefferyNetwork import FefferyNetwork as Network
 from .FefferyPageLeave import FefferyPageLeave as PageLeave
 from .FefferyResponsive import FefferyResponsive as Responsive
+from .FefferyRouteMatch import FefferyRouteMatch as RouteMatch
 from .FefferyTextSelection import FefferyTextSelection as TextSelection
 from .FefferyWindowSize import FefferyWindowSize as WindowSize
 from .FefferyExtraSpinner import FefferyExtraSpinner as ExtraSpinner
@@ -213,6 +214,7 @@ __all__ = [
     "Network",
     "PageLeave",
     "Responsive",
+    "RouteMatch",
     "TextSelection",
     "WindowSize",
     "ExtraSpinner",

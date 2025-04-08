@@ -84,6 +84,7 @@ import FefferyMousePosition from "./components/listeners/FefferyMousePosition.re
 import FefferyNetwork from './components/listeners/FefferyNetwork.react';
 import FefferyPageLeave from "./components/listeners/FefferyPageLeave.react";
 import FefferyResponsive from "./components/listeners/FefferyResponsive.react";
+import FefferyRouteMatch from "./components/listeners/FefferyRouteMatch.react";
 import FefferyTextSelection from "./components/listeners/FefferyTextSelection.react";
 import FefferyWindowSize from "./components/listeners/FefferyWindowSize.react";
 // 静态资源控制
@@ -259,6 +260,7 @@ export {
     FefferyNetwork,
     FefferyPageLeave,
     FefferyResponsive,
+    FefferyRouteMatch,
     FefferyTextSelection,
     FefferyWindowSize,
     // 静态资源控制
