@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyNetwork(Component):
@@ -50,17 +58,17 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyNetwork'
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         online: typing.Optional[bool] = None,
         since: typing.Optional[str] = None,
-        rtt: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        rtt: typing.Optional[NumberType] = None,
         type: typing.Optional[Literal["bluetooth", "cellular", "ethernet", "none", "wifi", "wimax", "other", "unknown"]] = None,
-        downlink: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        downlinkMax: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        downlink: typing.Optional[NumberType] = None,
+        downlinkMax: typing.Optional[NumberType] = None,
         saveData: typing.Optional[bool] = None,
         effectiveType: typing.Optional[Literal["slow-2g", "2g", "3g", "4g"]] = None,
         **kwargs
@@ -75,3 +83,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferyNetwork, self).__init__(**args)
+
+setattr(FefferyNetwork, "__init__", _explicitize_args(FefferyNetwork.__init__))

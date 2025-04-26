@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyListenDrop(Component):
@@ -89,31 +97,31 @@ Keyword arguments:
     DropEvent = TypedDict(
         "DropEvent",
             {
-            "time": NotRequired[typing.Union[int, float, numbers.Number]],
+            "time": NotRequired[NumberType],
             "data": NotRequired[typing.Any],
-            "pageX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "pageY": NotRequired[typing.Union[int, float, numbers.Number]],
-            "clientX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "clientY": NotRequired[typing.Union[int, float, numbers.Number]],
-            "screenX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "screenY": NotRequired[typing.Union[int, float, numbers.Number]]
+            "pageX": NotRequired[NumberType],
+            "pageY": NotRequired[NumberType],
+            "clientX": NotRequired[NumberType],
+            "clientY": NotRequired[NumberType],
+            "screenX": NotRequired[NumberType],
+            "screenY": NotRequired[NumberType]
         }
     )
 
     HoverEvent = TypedDict(
         "HoverEvent",
             {
-            "time": NotRequired[typing.Union[int, float, numbers.Number]],
-            "pageX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "pageY": NotRequired[typing.Union[int, float, numbers.Number]],
-            "clientX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "clientY": NotRequired[typing.Union[int, float, numbers.Number]],
-            "screenX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "screenY": NotRequired[typing.Union[int, float, numbers.Number]]
+            "time": NotRequired[NumberType],
+            "pageX": NotRequired[NumberType],
+            "pageY": NotRequired[NumberType],
+            "clientX": NotRequired[NumberType],
+            "clientY": NotRequired[NumberType],
+            "screenX": NotRequired[NumberType],
+            "screenY": NotRequired[NumberType]
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
@@ -134,3 +142,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferyListenDrop, self).__init__(**args)
+
+setattr(FefferyListenDrop, "__init__", _explicitize_args(FefferyListenDrop.__init__))

@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyDPlayer(Component):
@@ -534,7 +542,7 @@ Keyword arguments:
         "Video",
             {
             "quality": NotRequired[typing.Sequence["VideoQuality"]],
-            "defaultQuality": NotRequired[typing.Union[int, float, numbers.Number]],
+            "defaultQuality": NotRequired[NumberType],
             "url": NotRequired[str],
             "pic": NotRequired[str],
             "thumbnails": NotRequired[str],
@@ -561,12 +569,12 @@ Keyword arguments:
             "id": NotRequired[str],
             "api": NotRequired[str],
             "token": NotRequired[str],
-            "maximum": NotRequired[typing.Union[int, float, numbers.Number]],
+            "maximum": NotRequired[NumberType],
             "addition": NotRequired[typing.Sequence[str]],
             "user": NotRequired[str],
             "bottom": NotRequired[str],
             "unlimited": NotRequired[bool],
-            "speedRate": NotRequired[typing.Union[int, float, numbers.Number]]
+            "speedRate": NotRequired[NumberType]
         }
     )
 
@@ -581,7 +589,7 @@ Keyword arguments:
     Highlight = TypedDict(
         "Highlight",
             {
-            "time": NotRequired[typing.Union[int, float, numbers.Number]],
+            "time": NotRequired[NumberType],
             "text": NotRequired[str]
         }
     )
@@ -590,7 +598,7 @@ Keyword arguments:
         "Seek",
             {
             "isSeek": NotRequired[bool],
-            "time": NotRequired[typing.Union[int, float, numbers.Number]]
+            "time": NotRequired[NumberType]
         }
     )
 
@@ -599,8 +607,8 @@ Keyword arguments:
             {
             "isShow": NotRequired[bool],
             "text": NotRequired[str],
-            "time": NotRequired[typing.Union[int, float, numbers.Number]],
-            "opacity": NotRequired[typing.Union[int, float, numbers.Number]]
+            "time": NotRequired[NumberType],
+            "opacity": NotRequired[NumberType]
         }
     )
 
@@ -608,7 +616,7 @@ Keyword arguments:
         "Speed",
             {
             "isSpeed": NotRequired[bool],
-            "rate": NotRequired[typing.Union[int, float, numbers.Number]]
+            "rate": NotRequired[NumberType]
         }
     )
 
@@ -616,7 +624,7 @@ Keyword arguments:
         "VolumeSet",
             {
             "isVolume": NotRequired[bool],
-            "percentage": NotRequired[typing.Union[int, float, numbers.Number]],
+            "percentage": NotRequired[NumberType],
             "nostorage": NotRequired[bool],
             "nonotice": NotRequired[bool]
         }
@@ -635,7 +643,7 @@ Keyword arguments:
         "SwitchQuality",
             {
             "isSwitch": NotRequired[bool],
-            "index": NotRequired[typing.Union[int, float, numbers.Number]]
+            "index": NotRequired[NumberType]
         }
     )
 
@@ -652,7 +660,7 @@ Keyword arguments:
         "SwitchVideoVideo",
             {
             "quality": NotRequired[typing.Sequence["SwitchVideoVideoQuality"]],
-            "defaultQuality": NotRequired[typing.Union[int, float, numbers.Number]],
+            "defaultQuality": NotRequired[NumberType],
             "url": NotRequired[str],
             "pic": NotRequired[str],
             "thumbnails": NotRequired[str],
@@ -668,12 +676,12 @@ Keyword arguments:
             "id": NotRequired[str],
             "api": NotRequired[str],
             "token": NotRequired[str],
-            "maximum": NotRequired[typing.Union[int, float, numbers.Number]],
+            "maximum": NotRequired[NumberType],
             "addition": NotRequired[typing.Sequence[str]],
             "user": NotRequired[str],
             "bottom": NotRequired[str],
             "unlimited": NotRequired[bool],
-            "speedRate": NotRequired[typing.Union[int, float, numbers.Number]]
+            "speedRate": NotRequired[NumberType]
         }
     )
 
@@ -724,14 +732,14 @@ Keyword arguments:
         "OpacityDanmaku",
             {
             "isOpacity": NotRequired[bool],
-            "opacity": NotRequired[typing.Union[int, float, numbers.Number]]
+            "opacity": NotRequired[NumberType]
         }
     )
 
     SendDanmakuCallback = TypedDict(
         "SendDanmakuCallback",
             {
-            "sendDanmakuClicks": NotRequired[typing.Union[int, float, numbers.Number]],
+            "sendDanmakuClicks": NotRequired[NumberType],
             "sendInfo": NotRequired[dict]
         }
     )
@@ -739,12 +747,12 @@ Keyword arguments:
     OpacityDanmakuCallback = TypedDict(
         "OpacityDanmakuCallback",
             {
-            "opacityDanmakuClicks": NotRequired[typing.Union[int, float, numbers.Number]],
-            "opacity": NotRequired[typing.Union[int, float, numbers.Number]]
+            "opacityDanmakuClicks": NotRequired[NumberType],
+            "opacity": NotRequired[NumberType]
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
@@ -761,8 +769,8 @@ Keyword arguments:
         hotkey: typing.Optional[bool] = None,
         chromecast: typing.Optional[bool] = None,
         preload: typing.Optional[Literal["none", "metadata", "auto"]] = None,
-        volume: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        playbackSpeed: typing.Optional[typing.Sequence[typing.Union[int, float, numbers.Number]]] = None,
+        volume: typing.Optional[NumberType] = None,
+        playbackSpeed: typing.Optional[typing.Sequence[NumberType]] = None,
         logo: typing.Optional[str] = None,
         preventClickToggle: typing.Optional[bool] = None,
         video: typing.Optional["Video"] = None,
@@ -787,29 +795,29 @@ Keyword arguments:
         hideDanmaku: typing.Optional[bool] = None,
         showDanmaku: typing.Optional[bool] = None,
         destroy: typing.Optional[bool] = None,
-        playClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        pauseClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        seekClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        showNoticeClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        hideNoticeClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        speedClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        volumeSetClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        fullScreenClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        cancelFullScreenClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        playClicks: typing.Optional[NumberType] = None,
+        pauseClicks: typing.Optional[NumberType] = None,
+        seekClicks: typing.Optional[NumberType] = None,
+        showNoticeClicks: typing.Optional[NumberType] = None,
+        hideNoticeClicks: typing.Optional[NumberType] = None,
+        speedClicks: typing.Optional[NumberType] = None,
+        volumeSetClicks: typing.Optional[NumberType] = None,
+        fullScreenClicks: typing.Optional[NumberType] = None,
+        cancelFullScreenClicks: typing.Optional[NumberType] = None,
         sendDanmakuCallback: typing.Optional["SendDanmakuCallback"] = None,
-        drawDanmakuClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        clearDanmakuClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        drawDanmakuClicks: typing.Optional[NumberType] = None,
+        clearDanmakuClicks: typing.Optional[NumberType] = None,
         opacityDanmakuCallback: typing.Optional["OpacityDanmakuCallback"] = None,
-        showDanmakuClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        hideDanmakuClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        subtitleShowClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        subtitleHideClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        subtitleChangeClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        screenshotClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        contextmenuShowClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        contextmenuHideClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        showDanmakuClicks: typing.Optional[NumberType] = None,
+        hideDanmakuClicks: typing.Optional[NumberType] = None,
+        subtitleShowClicks: typing.Optional[NumberType] = None,
+        subtitleHideClicks: typing.Optional[NumberType] = None,
+        subtitleChangeClicks: typing.Optional[NumberType] = None,
+        screenshotClicks: typing.Optional[NumberType] = None,
+        contextmenuShowClicks: typing.Optional[NumberType] = None,
+        contextmenuHideClicks: typing.Optional[NumberType] = None,
         currentClickContextmenu: typing.Optional[dict] = None,
-        destroyClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        destroyClicks: typing.Optional[NumberType] = None,
         currentNoticeInfo: typing.Optional[dict] = None,
         currentVideoInfo: typing.Optional[dict] = None,
         **kwargs
@@ -824,3 +832,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferyDPlayer, self).__init__(**args)
+
+setattr(FefferyDPlayer, "__init__", _explicitize_args(FefferyDPlayer.__init__))

@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyPhotoSphereViewer(Component):
@@ -150,13 +158,13 @@ Keyword arguments:
         "Plugins",
             {
             "type": Literal["Autorotate"],
-            "autostartDelay": NotRequired[typing.Union[int, float, numbers.Number]],
+            "autostartDelay": NotRequired[NumberType],
             "autostartOnIdle": NotRequired[bool],
             "autorotateSpeed": NotRequired[str]
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
@@ -173,8 +181,8 @@ Keyword arguments:
         loadingTxt: typing.Optional[str] = None,
         mousewheel: typing.Optional[bool] = None,
         mousemove: typing.Optional[bool] = None,
-        moveSpeed: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        zoomSpeed: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        moveSpeed: typing.Optional[NumberType] = None,
+        zoomSpeed: typing.Optional[NumberType] = None,
         fisheye: typing.Optional[bool] = None,
         lang: typing.Optional["Lang"] = None,
         hideNavbarButton: typing.Optional[bool] = None,
@@ -191,3 +199,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferyPhotoSphereViewer, self).__init__(**args)
+
+setattr(FefferyPhotoSphereViewer, "__init__", _explicitize_args(FefferyPhotoSphereViewer.__init__))

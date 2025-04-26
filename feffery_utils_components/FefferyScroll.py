@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyScroll(Component):
@@ -58,21 +66,21 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyScroll'
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         scrollMode: typing.Optional[Literal["to-top", "to-bottom", "top-offset", "relative-offset", "target"]] = None,
         executeScroll: typing.Optional[bool] = None,
-        scrollTopOffset: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        scrollRelativeOffset: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        scrollTopOffset: typing.Optional[NumberType] = None,
+        scrollRelativeOffset: typing.Optional[NumberType] = None,
         scrollTargetId: typing.Optional[str] = None,
-        duration: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        duration: typing.Optional[NumberType] = None,
         smooth: typing.Optional[typing.Union[bool, Literal["linear", "easeInQuad", "easeOutQuad", "easeInOutQuad", "easeInCubic", "easeOutCubic", "easeInOutCubic", "easeInQuart", "easeOutQuart", "easeInOutQuart", "easeInQuint", "easeOutQuint", "easeInOutQuint"]]] = None,
-        delay: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        delay: typing.Optional[NumberType] = None,
         containerId: typing.Optional[str] = None,
-        offset: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        offset: typing.Optional[NumberType] = None,
         **kwargs
     ):
         self._prop_names = ['id', 'key', 'scrollMode', 'executeScroll', 'scrollTopOffset', 'scrollRelativeOffset', 'scrollTargetId', 'duration', 'smooth', 'delay', 'containerId', 'offset']
@@ -85,3 +93,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferyScroll, self).__init__(**args)
+
+setattr(FefferyScroll, "__init__", _explicitize_args(FefferyScroll.__init__))

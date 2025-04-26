@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyExecuteJs(Component):
@@ -45,17 +53,17 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyExecuteJs'
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         jsString: typing.Optional[str] = None,
         mode: typing.Optional[Literal["default", "delay", "interval", "wait-until-element-rendered"]] = None,
-        delay: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        interval: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        delay: typing.Optional[NumberType] = None,
+        interval: typing.Optional[NumberType] = None,
         targetSelector: typing.Optional[str] = None,
-        targetWaitTimeout: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        targetWaitTimeout: typing.Optional[NumberType] = None,
         **kwargs
     ):
         self._prop_names = ['id', 'key', 'jsString', 'mode', 'delay', 'interval', 'targetSelector', 'targetWaitTimeout']
@@ -68,3 +76,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferyExecuteJs, self).__init__(**args)
+
+setattr(FefferyExecuteJs, "__init__", _explicitize_args(FefferyExecuteJs.__init__))

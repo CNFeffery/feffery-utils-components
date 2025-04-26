@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferySeamlessScroll(Component):
@@ -93,34 +101,34 @@ Keyword arguments:
     ClassOption = TypedDict(
         "ClassOption",
             {
-            "step": NotRequired[typing.Union[int, float, numbers.Number]],
-            "limitMoveNum": NotRequired[typing.Union[int, float, numbers.Number]],
+            "step": NotRequired[NumberType],
+            "limitMoveNum": NotRequired[NumberType],
             "hoverStop": NotRequired[bool],
-            "direction": NotRequired[typing.Union[int, float, numbers.Number]],
+            "direction": NotRequired[NumberType],
             "openTouch": NotRequired[bool],
-            "singleHeight": NotRequired[typing.Union[int, float, numbers.Number]],
-            "singleWidth": NotRequired[typing.Union[int, float, numbers.Number]],
-            "waitTime": NotRequired[typing.Union[int, float, numbers.Number]],
-            "switchOffset": NotRequired[typing.Union[int, float, numbers.Number]],
+            "singleHeight": NotRequired[NumberType],
+            "singleWidth": NotRequired[NumberType],
+            "waitTime": NotRequired[NumberType],
+            "switchOffset": NotRequired[NumberType],
             "autoPlay": NotRequired[bool],
-            "switchSingleStep": NotRequired[typing.Union[int, float, numbers.Number]],
-            "switchDelay": NotRequired[typing.Union[int, float, numbers.Number]],
+            "switchSingleStep": NotRequired[NumberType],
+            "switchDelay": NotRequired[NumberType],
             "switchDisabledClass": NotRequired[str],
             "isSingleRemUnit": NotRequired[bool],
             "navigation": NotRequired[bool]
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
-        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        children: typing.Optional[ComponentType] = None,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         style: typing.Optional[typing.Any] = None,
         className: typing.Optional[typing.Union[str, dict]] = None,
-        leftSwitchChildren: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
-        rightSwitchChildren: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        leftSwitchChildren: typing.Optional[ComponentType] = None,
+        rightSwitchChildren: typing.Optional[ComponentType] = None,
         data: typing.Optional[typing.Sequence] = None,
         classOption: typing.Optional["ClassOption"] = None,
         **kwargs
@@ -140,3 +148,5 @@ Keyword arguments:
                     'Required argument `' + k + '` was not specified.')
 
         super(FefferySeamlessScroll, self).__init__(children=children, **args)
+
+setattr(FefferySeamlessScroll, "__init__", _explicitize_args(FefferySeamlessScroll.__init__))

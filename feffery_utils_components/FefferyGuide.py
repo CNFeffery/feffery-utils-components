@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyGuide(Component):
@@ -120,18 +128,18 @@ Keyword arguments:
     StepsTargetPos = TypedDict(
         "StepsTargetPos",
             {
-            "top": NotRequired[typing.Union[int, float, numbers.Number]],
-            "left": NotRequired[typing.Union[int, float, numbers.Number]],
-            "width": NotRequired[typing.Union[int, float, numbers.Number]],
-            "height": NotRequired[typing.Union[int, float, numbers.Number]]
+            "top": NotRequired[NumberType],
+            "left": NotRequired[NumberType],
+            "width": NotRequired[NumberType],
+            "height": NotRequired[NumberType]
         }
     )
 
     StepsOffset = TypedDict(
         "StepsOffset",
             {
-            "x": NotRequired[typing.Union[int, float, numbers.Number]],
-            "y": NotRequired[typing.Union[int, float, numbers.Number]]
+            "x": NotRequired[NumberType],
+            "y": NotRequired[NumberType]
         }
     )
 
@@ -140,14 +148,14 @@ Keyword arguments:
             {
             "selector": NotRequired[str],
             "targetPos": NotRequired["StepsTargetPos"],
-            "title": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
-            "content": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "title": NotRequired[ComponentType],
+            "content": NotRequired[ComponentType],
             "placement": NotRequired[Literal["top", "bottom", "left", "right", "top-left", "top-right", "bottom-left", "bottom-right", "left-top", "left-bottom", "right-top", "right-bottom"]],
             "offset": NotRequired["StepsOffset"]
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
@@ -168,7 +176,7 @@ Keyword arguments:
         prevText: typing.Optional[str] = None,
         showPreviousBtn: typing.Optional[bool] = None,
         okText: typing.Optional[str] = None,
-        step: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        step: typing.Optional[NumberType] = None,
         **kwargs
     ):
         self._prop_names = ['id', 'key', 'style', 'className', 'locale', 'steps', 'localKey', 'closable', 'modalClassName', 'maskClassName', 'mask', 'arrow', 'hotspot', 'stepText', 'nextText', 'prevText', 'showPreviousBtn', 'okText', 'step']
@@ -186,3 +194,5 @@ Keyword arguments:
                     'Required argument `' + k + '` was not specified.')
 
         super(FefferyGuide, self).__init__(**args)
+
+setattr(FefferyGuide, "__init__", _explicitize_args(FefferyGuide.__init__))

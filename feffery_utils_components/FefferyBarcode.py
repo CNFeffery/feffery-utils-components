@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyBarcode(Component):
@@ -95,7 +103,7 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyBarcode'
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
@@ -105,23 +113,23 @@ Keyword arguments:
         renderer: typing.Optional[Literal["img", "svg", "canvas"]] = None,
         value: typing.Optional[str] = None,
         format: typing.Optional[Literal["CODE128", "CODE128A", "CODE128B", "CODE128C", "EAN2", "EAN5", "EAN8", "EAN13", "UPC", "CODE39", "ITF14", "MSI", "MSI10", "MSI11", "MSI1010", "MSI1110", "pharmacode", "codabar"]] = None,
-        width: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        height: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        width: typing.Optional[NumberType] = None,
+        height: typing.Optional[NumberType] = None,
         displayValue: typing.Optional[bool] = None,
         text: typing.Optional[str] = None,
         fontOptions: typing.Optional[str] = None,
         font: typing.Optional[str] = None,
-        fontSize: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        fontSize: typing.Optional[NumberType] = None,
         textAlign: typing.Optional[Literal["left", "center", "right"]] = None,
         textPosition: typing.Optional[Literal["top", "bottom"]] = None,
-        textMargin: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        textMargin: typing.Optional[NumberType] = None,
         background: typing.Optional[str] = None,
         lineColor: typing.Optional[str] = None,
-        margin: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        marginTop: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        marginBottom: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        marginLeft: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        marginRight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        margin: typing.Optional[NumberType] = None,
+        marginTop: typing.Optional[NumberType] = None,
+        marginBottom: typing.Optional[NumberType] = None,
+        marginLeft: typing.Optional[NumberType] = None,
+        marginRight: typing.Optional[NumberType] = None,
         flat: typing.Optional[bool] = None,
         **kwargs
     ):
@@ -135,3 +143,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferyBarcode, self).__init__(**args)
+
+setattr(FefferyBarcode, "__init__", _explicitize_args(FefferyBarcode.__init__))

@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyDiv(Component):
@@ -218,47 +226,47 @@ Keyword arguments:
     ClickEvent = TypedDict(
         "ClickEvent",
             {
-            "pageX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "pageY": NotRequired[typing.Union[int, float, numbers.Number]],
-            "clientX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "clientY": NotRequired[typing.Union[int, float, numbers.Number]],
-            "screenX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "screenY": NotRequired[typing.Union[int, float, numbers.Number]],
-            "timestamp": NotRequired[typing.Union[int, float, numbers.Number]]
+            "pageX": NotRequired[NumberType],
+            "pageY": NotRequired[NumberType],
+            "clientX": NotRequired[NumberType],
+            "clientY": NotRequired[NumberType],
+            "screenX": NotRequired[NumberType],
+            "screenY": NotRequired[NumberType],
+            "timestamp": NotRequired[NumberType]
         }
     )
 
     DoubleClickEvent = TypedDict(
         "DoubleClickEvent",
             {
-            "pageX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "pageY": NotRequired[typing.Union[int, float, numbers.Number]],
-            "clientX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "clientY": NotRequired[typing.Union[int, float, numbers.Number]],
-            "screenX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "screenY": NotRequired[typing.Union[int, float, numbers.Number]],
-            "timestamp": NotRequired[typing.Union[int, float, numbers.Number]]
+            "pageX": NotRequired[NumberType],
+            "pageY": NotRequired[NumberType],
+            "clientX": NotRequired[NumberType],
+            "clientY": NotRequired[NumberType],
+            "screenX": NotRequired[NumberType],
+            "screenY": NotRequired[NumberType],
+            "timestamp": NotRequired[NumberType]
         }
     )
 
     ContextMenuEvent = TypedDict(
         "ContextMenuEvent",
             {
-            "pageX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "pageY": NotRequired[typing.Union[int, float, numbers.Number]],
-            "clientX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "clientY": NotRequired[typing.Union[int, float, numbers.Number]],
-            "screenX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "screenY": NotRequired[typing.Union[int, float, numbers.Number]],
-            "timestamp": NotRequired[typing.Union[int, float, numbers.Number]]
+            "pageX": NotRequired[NumberType],
+            "pageY": NotRequired[NumberType],
+            "clientX": NotRequired[NumberType],
+            "clientY": NotRequired[NumberType],
+            "screenX": NotRequired[NumberType],
+            "screenY": NotRequired[NumberType],
+            "timestamp": NotRequired[NumberType]
         }
     )
 
     Position = TypedDict(
         "Position",
             {
-            "x": NotRequired[typing.Union[int, float, numbers.Number]],
-            "y": NotRequired[typing.Union[int, float, numbers.Number]]
+            "x": NotRequired[NumberType],
+            "y": NotRequired[NumberType]
         }
     )
 
@@ -266,34 +274,34 @@ Keyword arguments:
         "PasteEvent",
             {
             "text": NotRequired[str],
-            "timestamp": NotRequired[typing.Union[int, float, numbers.Number]]
+            "timestamp": NotRequired[NumberType]
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
-        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        children: typing.Optional[ComponentType] = None,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         style: typing.Optional[typing.Any] = None,
         className: typing.Optional[typing.Union[str, dict]] = None,
         enableEvents: typing.Optional[typing.Sequence[Literal["click", "dbclick", "size", "mouseenter", "mouseleave", "contextmenu", "hover", "touch", "clickaway", "position", "focus", "paste"]]] = None,
-        _width: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        _height: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        debounceWait: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        mouseEnterCount: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        mouseLeaveCount: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        nClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        _width: typing.Optional[NumberType] = None,
+        _height: typing.Optional[NumberType] = None,
+        debounceWait: typing.Optional[NumberType] = None,
+        mouseEnterCount: typing.Optional[NumberType] = None,
+        mouseLeaveCount: typing.Optional[NumberType] = None,
+        nClicks: typing.Optional[NumberType] = None,
         clickEvent: typing.Optional["ClickEvent"] = None,
-        nDoubleClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        nDoubleClicks: typing.Optional[NumberType] = None,
         doubleClickEvent: typing.Optional["DoubleClickEvent"] = None,
         enableListenContextMenu: typing.Optional[bool] = None,
         contextMenuEvent: typing.Optional["ContextMenuEvent"] = None,
         isHovering: typing.Optional[bool] = None,
         isTouching: typing.Optional[bool] = None,
         enableClickAway: typing.Optional[bool] = None,
-        clickAwayCount: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        clickAwayCount: typing.Optional[NumberType] = None,
         position: typing.Optional["Position"] = None,
         enableFocus: typing.Optional[bool] = None,
         isFocused: typing.Optional[bool] = None,
@@ -304,10 +312,10 @@ Keyword arguments:
         textAlign: typing.Optional[Literal["left", "center", "right"]] = None,
         justify: typing.Optional[str] = None,
         align: typing.Optional[str] = None,
-        padding: typing.Optional[typing.Union[str, typing.Union[int, float, numbers.Number]]] = None,
-        margin: typing.Optional[typing.Union[str, typing.Union[int, float, numbers.Number]]] = None,
+        padding: typing.Optional[typing.Union[str, NumberType]] = None,
+        margin: typing.Optional[typing.Union[str, NumberType]] = None,
         border: typing.Optional[str] = None,
-        borderRadius: typing.Optional[typing.Union[str, typing.Union[int, float, numbers.Number]]] = None,
+        borderRadius: typing.Optional[typing.Union[str, NumberType]] = None,
         printNow: typing.Optional[bool] = None,
         **kwargs
     ):
@@ -321,3 +329,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
 
         super(FefferyDiv, self).__init__(children=children, **args)
+
+setattr(FefferyDiv, "__init__", _explicitize_args(FefferyDiv.__init__))

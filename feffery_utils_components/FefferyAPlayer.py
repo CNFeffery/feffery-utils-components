@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyAPlayer(Component):
@@ -304,7 +312,7 @@ Keyword arguments:
         "Seek",
             {
             "isSeek": NotRequired[bool],
-            "time": NotRequired[typing.Union[int, float, numbers.Number]]
+            "time": NotRequired[NumberType]
         }
     )
 
@@ -313,8 +321,8 @@ Keyword arguments:
             {
             "isShow": NotRequired[bool],
             "text": NotRequired[str],
-            "time": NotRequired[typing.Union[int, float, numbers.Number]],
-            "opacity": NotRequired[typing.Union[int, float, numbers.Number]]
+            "time": NotRequired[NumberType],
+            "opacity": NotRequired[NumberType]
         }
     )
 
@@ -343,7 +351,7 @@ Keyword arguments:
         "RemoveList",
             {
             "isRemove": NotRequired[bool],
-            "index": NotRequired[typing.Union[int, float, numbers.Number]]
+            "index": NotRequired[NumberType]
         }
     )
 
@@ -351,11 +359,11 @@ Keyword arguments:
         "SwitchList",
             {
             "isSwitch": NotRequired[bool],
-            "index": NotRequired[typing.Union[int, float, numbers.Number]]
+            "index": NotRequired[NumberType]
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
@@ -369,12 +377,12 @@ Keyword arguments:
         loop: typing.Optional[Literal["all", "one", "none"]] = None,
         order: typing.Optional[Literal["list", "random"]] = None,
         preload: typing.Optional[Literal["none", "metadata", "auto"]] = None,
-        volume: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        volume: typing.Optional[NumberType] = None,
         audio: typing.Optional[typing.Sequence["Audio"]] = None,
         mutex: typing.Optional[bool] = None,
         lrcType: typing.Optional[Literal[0, 1, 2, 3]] = None,
         listFolded: typing.Optional[bool] = None,
-        listMaxHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        listMaxHeight: typing.Optional[NumberType] = None,
         storageName: typing.Optional[str] = None,
         play: typing.Optional[bool] = None,
         pause: typing.Optional[bool] = None,
@@ -391,22 +399,22 @@ Keyword arguments:
         switchList: typing.Optional["SwitchList"] = None,
         clearList: typing.Optional[bool] = None,
         destroy: typing.Optional[bool] = None,
-        playClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        pauseClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        seekClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        skipBackClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        skipForwardClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        showLrcClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        hideLrcClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        showNoticeClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        hideNoticeClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        listShowClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        listHideClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        listAddClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        listRemoveClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        listSwitchClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        listClearClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        destroyClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        playClicks: typing.Optional[NumberType] = None,
+        pauseClicks: typing.Optional[NumberType] = None,
+        seekClicks: typing.Optional[NumberType] = None,
+        skipBackClicks: typing.Optional[NumberType] = None,
+        skipForwardClicks: typing.Optional[NumberType] = None,
+        showLrcClicks: typing.Optional[NumberType] = None,
+        hideLrcClicks: typing.Optional[NumberType] = None,
+        showNoticeClicks: typing.Optional[NumberType] = None,
+        hideNoticeClicks: typing.Optional[NumberType] = None,
+        listShowClicks: typing.Optional[NumberType] = None,
+        listHideClicks: typing.Optional[NumberType] = None,
+        listAddClicks: typing.Optional[NumberType] = None,
+        listRemoveClicks: typing.Optional[NumberType] = None,
+        listSwitchClicks: typing.Optional[NumberType] = None,
+        listClearClicks: typing.Optional[NumberType] = None,
+        destroyClicks: typing.Optional[NumberType] = None,
         currentPlayAudioInfo: typing.Optional[dict] = None,
         currentPauseAudioInfo: typing.Optional[dict] = None,
         currentSeekAudioInfo: typing.Optional[dict] = None,
@@ -426,3 +434,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferyAPlayer, self).__init__(**args)
+
+setattr(FefferyAPlayer, "__init__", _explicitize_args(FefferyAPlayer.__init__))

@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyAutoFit(Component):
@@ -65,19 +73,19 @@ Keyword arguments:
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         containerId: typing.Optional[str] = None,
-        dw: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        dh: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        dw: typing.Optional[NumberType] = None,
+        dh: typing.Optional[NumberType] = None,
         resize: typing.Optional[bool] = None,
         ignore: typing.Optional[typing.Sequence["Ignore"]] = None,
-        transition: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        delay: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        limit: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        transition: typing.Optional[NumberType] = None,
+        delay: typing.Optional[NumberType] = None,
+        limit: typing.Optional[NumberType] = None,
         close: typing.Optional[bool] = None,
         **kwargs
     ):
@@ -91,3 +99,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferyAutoFit, self).__init__(**args)
+
+setattr(FefferyAutoFit, "__init__", _explicitize_args(FefferyAutoFit.__init__))

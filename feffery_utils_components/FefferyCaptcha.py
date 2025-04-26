@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyCaptcha(Component):
@@ -50,7 +58,7 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyCaptcha'
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
@@ -58,11 +66,11 @@ Keyword arguments:
         style: typing.Optional[typing.Any] = None,
         className: typing.Optional[typing.Union[str, dict]] = None,
         captcha: typing.Optional[str] = None,
-        charNum: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        height: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        width: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        charNum: typing.Optional[NumberType] = None,
+        height: typing.Optional[NumberType] = None,
+        width: typing.Optional[NumberType] = None,
         bgColor: typing.Optional[str] = None,
-        fontSize: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        fontSize: typing.Optional[NumberType] = None,
         refresh: typing.Optional[bool] = None,
         **kwargs
     ):
@@ -76,3 +84,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferyCaptcha, self).__init__(**args)
+
+setattr(FefferyCaptcha, "__init__", _explicitize_args(FefferyCaptcha.__init__))

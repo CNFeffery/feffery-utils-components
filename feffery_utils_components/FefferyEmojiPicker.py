@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyEmojiPicker(Component):
@@ -363,7 +371,7 @@ Keyword arguments:
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
@@ -376,15 +384,15 @@ Keyword arguments:
         customCategoryIcons: typing.Optional["CustomCategoryIcons"] = None,
         autoFocus: typing.Optional[bool] = None,
         dynamicWidth: typing.Optional[bool] = None,
-        perLine: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        perLine: typing.Optional[NumberType] = None,
         emojiButtonColors: typing.Optional[typing.Sequence] = None,
         emojiButtonRadius: typing.Optional[str] = None,
-        emojiButtonSize: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        emojiSize: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        emojiButtonSize: typing.Optional[NumberType] = None,
+        emojiSize: typing.Optional[NumberType] = None,
         emojiVersion: typing.Optional[Literal[1, 2, 3, 4, 5, 11, 12, 12.1, 13, 13.1, 14]] = None,
         exceptEmojis: typing.Optional[typing.Sequence] = None,
         icons: typing.Optional[Literal["auto", "outline", "solid"]] = None,
-        maxFrequentRows: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        maxFrequentRows: typing.Optional[NumberType] = None,
         navPosition: typing.Optional[Literal["top", "bottom", "none"]] = None,
         noResultsEmoji: typing.Optional[str] = None,
         previewEmoji: typing.Optional[str] = None,
@@ -395,7 +403,7 @@ Keyword arguments:
         skinTonePosition: typing.Optional[Literal["preview", "search", "none"]] = None,
         theme: typing.Optional[Literal["auto", "light", "dark"]] = None,
         value: typing.Optional[dict] = None,
-        clickOutsideNums: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        clickOutsideNums: typing.Optional[NumberType] = None,
         **kwargs
     ):
         self._prop_names = ['id', 'key', 'style', 'className', 'locale', 'categories', 'custom', 'customCategoryIcons', 'autoFocus', 'dynamicWidth', 'perLine', 'emojiButtonColors', 'emojiButtonRadius', 'emojiButtonSize', 'emojiSize', 'emojiVersion', 'exceptEmojis', 'icons', 'maxFrequentRows', 'navPosition', 'noResultsEmoji', 'previewEmoji', 'previewPosition', 'searchPosition', 'set', 'skin', 'skinTonePosition', 'theme', 'value', 'clickOutsideNums']
@@ -408,3 +416,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferyEmojiPicker, self).__init__(**args)
+
+setattr(FefferyEmojiPicker, "__init__", _explicitize_args(FefferyEmojiPicker.__init__))

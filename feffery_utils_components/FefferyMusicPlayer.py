@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyMusicPlayer(Component):
@@ -276,8 +284,8 @@ Keyword arguments:
             "name": NotRequired[str],
             "musicSrc": NotRequired[str],
             "cover": NotRequired[str],
-            "singer": NotRequired[typing.Union[str, typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]],
-            "duration": NotRequired[typing.Union[int, float, numbers.Number]],
+            "singer": NotRequired[typing.Union[str, ComponentType]],
+            "duration": NotRequired[NumberType],
             "lyric": NotRequired[str],
             "extraParams": NotRequired[dict]
         }
@@ -286,49 +294,49 @@ Keyword arguments:
     Icon = TypedDict(
         "Icon",
             {
-            "pause": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
-            "play": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
-            "destroy": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
-            "close": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
-            "delete": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
-            "download": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
-            "toggle": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
-            "lyric": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
-            "volume": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
-            "mute": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
-            "next": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
-            "prev": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
-            "playLists": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
-            "reload": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
-            "loop": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
-            "order": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
-            "orderLoop": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
-            "shuffle": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]],
-            "loading": NotRequired[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], str]]
+            "pause": NotRequired[typing.Union[ComponentType, str]],
+            "play": NotRequired[typing.Union[ComponentType, str]],
+            "destroy": NotRequired[typing.Union[ComponentType, str]],
+            "close": NotRequired[typing.Union[ComponentType, str]],
+            "delete": NotRequired[typing.Union[ComponentType, str]],
+            "download": NotRequired[typing.Union[ComponentType, str]],
+            "toggle": NotRequired[typing.Union[ComponentType, str]],
+            "lyric": NotRequired[typing.Union[ComponentType, str]],
+            "volume": NotRequired[typing.Union[ComponentType, str]],
+            "mute": NotRequired[typing.Union[ComponentType, str]],
+            "next": NotRequired[typing.Union[ComponentType, str]],
+            "prev": NotRequired[typing.Union[ComponentType, str]],
+            "playLists": NotRequired[typing.Union[ComponentType, str]],
+            "reload": NotRequired[typing.Union[ComponentType, str]],
+            "loop": NotRequired[typing.Union[ComponentType, str]],
+            "order": NotRequired[typing.Union[ComponentType, str]],
+            "orderLoop": NotRequired[typing.Union[ComponentType, str]],
+            "shuffle": NotRequired[typing.Union[ComponentType, str]],
+            "loading": NotRequired[typing.Union[ComponentType, str]]
         }
     )
 
     DefaultPosition = TypedDict(
         "DefaultPosition",
             {
-            "top": NotRequired[typing.Union[int, float, numbers.Number]],
-            "left": NotRequired[typing.Union[int, float, numbers.Number]],
-            "right": NotRequired[typing.Union[int, float, numbers.Number]],
-            "bottom": NotRequired[typing.Union[int, float, numbers.Number]]
+            "top": NotRequired[NumberType],
+            "left": NotRequired[NumberType],
+            "right": NotRequired[NumberType],
+            "bottom": NotRequired[NumberType]
         }
     )
 
     Bounds = TypedDict(
         "Bounds",
             {
-            "top": NotRequired[typing.Union[int, float, numbers.Number]],
-            "left": NotRequired[typing.Union[int, float, numbers.Number]],
-            "right": NotRequired[typing.Union[int, float, numbers.Number]],
-            "bottom": NotRequired[typing.Union[int, float, numbers.Number]]
+            "top": NotRequired[NumberType],
+            "left": NotRequired[NumberType],
+            "right": NotRequired[NumberType],
+            "bottom": NotRequired[NumberType]
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
@@ -342,14 +350,14 @@ Keyword arguments:
         locale: typing.Optional[Literal["zh_CN", "en_US"]] = None,
         icon: typing.Optional["Icon"] = None,
         defaultPosition: typing.Optional["DefaultPosition"] = None,
-        playModeShowTime: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        playModeShowTime: typing.Optional[NumberType] = None,
         bounds: typing.Optional[typing.Union[Literal["body", "parent"], "Bounds"]] = None,
         preload: typing.Optional[typing.Union[bool, Literal["auto"]]] = None,
         remember: typing.Optional[bool] = None,
         glassBg: typing.Optional[bool] = None,
         remove: typing.Optional[bool] = None,
-        defaultPlayIndex: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        playIndex: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        defaultPlayIndex: typing.Optional[NumberType] = None,
+        playIndex: typing.Optional[NumberType] = None,
         defaultPlayMode: typing.Optional[Literal["order", "orderLoop", "singleLoop", "shufflePlay"]] = None,
         mode: typing.Optional[Literal["mini", "full"]] = None,
         once: typing.Optional[bool] = None,
@@ -368,8 +376,8 @@ Keyword arguments:
         showLyric: typing.Optional[bool] = None,
         showMediaSession: typing.Optional[bool] = None,
         lyricClassName: typing.Optional[str] = None,
-        extendsContent: typing.Optional[typing.Union[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]], bool, str]] = None,
-        defaultVolume: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        extendsContent: typing.Optional[typing.Union[ComponentType, bool, str]] = None,
+        defaultVolume: typing.Optional[NumberType] = None,
         loadAudioErrorPlayNext: typing.Optional[bool] = None,
         responsive: typing.Optional[bool] = None,
         autoHiddenCover: typing.Optional[bool] = None,
@@ -392,3 +400,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferyMusicPlayer, self).__init__(**args)
+
+setattr(FefferyMusicPlayer, "__init__", _explicitize_args(FefferyMusicPlayer.__init__))

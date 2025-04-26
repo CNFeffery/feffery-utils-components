@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyImageGallery(Component):
@@ -77,7 +85,7 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyImageGallery'
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
@@ -96,9 +104,9 @@ Keyword arguments:
         showBullets: typing.Optional[bool] = None,
         showIndex: typing.Optional[bool] = None,
         autoPlay: typing.Optional[bool] = None,
-        slideDuration: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        slideInterval: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        startIndex: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        slideDuration: typing.Optional[NumberType] = None,
+        slideInterval: typing.Optional[NumberType] = None,
+        startIndex: typing.Optional[NumberType] = None,
         isFullscreen: typing.Optional[bool] = None,
         **kwargs
     ):
@@ -112,3 +120,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferyImageGallery, self).__init__(**args)
+
+setattr(FefferyImageGallery, "__init__", _explicitize_args(FefferyImageGallery.__init__))

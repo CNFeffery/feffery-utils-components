@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyFancyNotification(Component):
@@ -87,10 +95,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyFancyNotification'
 
-    @_explicitize_args
+
     def __init__(
         self,
-        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        children: typing.Optional[ComponentType] = None,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         style: typing.Optional[typing.Any] = None,
@@ -98,7 +106,7 @@ Keyword arguments:
         type: typing.Optional[Literal["info", "success", "warning", "error"]] = None,
         visible: typing.Optional[bool] = None,
         position: typing.Optional[Literal["top-right", "top-center", "top-left", "bottom-right", "bottom-cente", "bottom-left"]] = None,
-        autoClose: typing.Optional[typing.Union[bool, typing.Union[int, float, numbers.Number]]] = None,
+        autoClose: typing.Optional[typing.Union[bool, NumberType]] = None,
         closable: typing.Optional[bool] = None,
         hideProgressBar: typing.Optional[bool] = None,
         pauseOnHover: typing.Optional[bool] = None,
@@ -109,9 +117,9 @@ Keyword arguments:
         progressClassName: typing.Optional[str] = None,
         progressStyle: typing.Optional[dict] = None,
         draggable: typing.Optional[bool] = None,
-        draggablePercent: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        draggablePercent: typing.Optional[NumberType] = None,
         containerId: typing.Optional[str] = None,
-        limit: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        limit: typing.Optional[NumberType] = None,
         theme: typing.Optional[Literal["light", "dark", "colored"]] = None,
         **kwargs
     ):
@@ -125,3 +133,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
 
         super(FefferyFancyNotification, self).__init__(children=children, **args)
+
+setattr(FefferyFancyNotification, "__init__", _explicitize_args(FefferyFancyNotification.__init__))

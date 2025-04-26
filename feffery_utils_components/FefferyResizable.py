@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyResizable(Component):
@@ -124,16 +132,16 @@ Keyword arguments:
     DefaultSize = TypedDict(
         "DefaultSize",
             {
-            "width": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], str]],
-            "height": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], str]]
+            "width": NotRequired[typing.Union[NumberType, str]],
+            "height": NotRequired[typing.Union[NumberType, str]]
         }
     )
 
     Size = TypedDict(
         "Size",
             {
-            "width": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], str]],
-            "height": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], str]]
+            "width": NotRequired[typing.Union[NumberType, str]],
+            "height": NotRequired[typing.Union[NumberType, str]]
         }
     )
 
@@ -165,22 +173,22 @@ Keyword arguments:
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
-        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        children: typing.Optional[ComponentType] = None,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         style: typing.Optional[typing.Any] = None,
         className: typing.Optional[typing.Union[str, dict]] = None,
         defaultSize: typing.Optional["DefaultSize"] = None,
         size: typing.Optional["Size"] = None,
-        minWidth: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
-        minHeight: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
-        maxWidth: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
-        maxHeight: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
+        minWidth: typing.Optional[typing.Union[NumberType, str]] = None,
+        minHeight: typing.Optional[typing.Union[NumberType, str]] = None,
+        maxWidth: typing.Optional[typing.Union[NumberType, str]] = None,
+        maxHeight: typing.Optional[typing.Union[NumberType, str]] = None,
         direction: typing.Optional[typing.Sequence[Literal["top", "right", "bottom", "left", "topRight", "bottomRight", "bottomLeft", "topLeft"]]] = None,
-        grid: typing.Optional[typing.Sequence[typing.Union[int, float, numbers.Number]]] = None,
+        grid: typing.Optional[typing.Sequence[NumberType]] = None,
         bounds: typing.Optional[Literal["window", "parent"]] = None,
         boundsSelector: typing.Optional[str] = None,
         handleStyles: typing.Optional["HandleStyles"] = None,
@@ -197,3 +205,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
 
         super(FefferyResizable, self).__init__(children=children, **args)
+
+setattr(FefferyResizable, "__init__", _explicitize_args(FefferyResizable.__init__))

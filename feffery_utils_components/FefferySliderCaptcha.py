@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferySliderCaptcha(Component):
@@ -95,12 +103,12 @@ Keyword arguments:
     TipText = TypedDict(
         "TipText",
             {
-            "default": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
-            "loading": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
-            "moving": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
-            "verifying": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
-            "success": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
-            "error": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]
+            "default": NotRequired[ComponentType],
+            "loading": NotRequired[ComponentType],
+            "moving": NotRequired[ComponentType],
+            "verifying": NotRequired[ComponentType],
+            "success": NotRequired[ComponentType],
+            "error": NotRequired[ComponentType]
         }
     )
 
@@ -108,11 +116,11 @@ Keyword arguments:
         "VerifyResult",
             {
             "status": NotRequired[Literal["success", "error"]],
-            "timestamp": NotRequired[typing.Union[int, float, numbers.Number]]
+            "timestamp": NotRequired[NumberType]
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
@@ -120,14 +128,14 @@ Keyword arguments:
         style: typing.Optional[typing.Any] = None,
         className: typing.Optional[typing.Union[str, dict]] = None,
         imgSrc: typing.Optional[str] = None,
-        imgWidth: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        imgHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        xOffset: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        imgWidth: typing.Optional[NumberType] = None,
+        imgHeight: typing.Optional[NumberType] = None,
+        xOffset: typing.Optional[NumberType] = None,
         mode: typing.Optional[Literal["embed", "float", "slider"]] = None,
         tipText: typing.Optional["TipText"] = None,
         showRefreshIcon: typing.Optional[bool] = None,
         autoRefreshOnError: typing.Optional[bool] = None,
-        errorHoldDuration: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        errorHoldDuration: typing.Optional[NumberType] = None,
         placement: typing.Optional[Literal["top", "bottom"]] = None,
         refresh: typing.Optional[bool] = None,
         verifyResult: typing.Optional["VerifyResult"] = None,
@@ -143,3 +151,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferySliderCaptcha, self).__init__(**args)
+
+setattr(FefferySliderCaptcha, "__init__", _explicitize_args(FefferySliderCaptcha.__init__))

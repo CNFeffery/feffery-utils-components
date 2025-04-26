@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyCountUp(Component):
@@ -53,19 +61,19 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyCountUp'
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         style: typing.Optional[typing.Any] = None,
         className: typing.Optional[str] = None,
-        end: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        start: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        duration: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        decimals: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        end: typing.Optional[NumberType] = None,
+        start: typing.Optional[NumberType] = None,
+        duration: typing.Optional[NumberType] = None,
+        decimals: typing.Optional[NumberType] = None,
         enableScrollSpy: typing.Optional[bool] = None,
-        scrollSpyDelay: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        scrollSpyDelay: typing.Optional[NumberType] = None,
         scrollSpyOnce: typing.Optional[bool] = None,
         separator: typing.Optional[str] = None,
         **kwargs
@@ -85,3 +93,5 @@ Keyword arguments:
                     'Required argument `' + k + '` was not specified.')
 
         super(FefferyCountUp, self).__init__(**args)
+
+setattr(FefferyCountUp, "__init__", _explicitize_args(FefferyCountUp.__init__))

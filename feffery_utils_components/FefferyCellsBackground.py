@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyCellsBackground(Component):
@@ -62,10 +70,10 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyCellsBackground'
 
-    @_explicitize_args
+
     def __init__(
         self,
-        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        children: typing.Optional[ComponentType] = None,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         style: typing.Optional[typing.Any] = None,
@@ -73,13 +81,13 @@ Keyword arguments:
         mouseControls: typing.Optional[bool] = None,
         touchControls: typing.Optional[bool] = None,
         gyroControls: typing.Optional[bool] = None,
-        minHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        minWidth: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        scale: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        minHeight: typing.Optional[NumberType] = None,
+        minWidth: typing.Optional[NumberType] = None,
+        scale: typing.Optional[NumberType] = None,
         color1: typing.Optional[str] = None,
         color2: typing.Optional[str] = None,
-        size: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        speed: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        size: typing.Optional[NumberType] = None,
+        speed: typing.Optional[NumberType] = None,
         **kwargs
     ):
         self._prop_names = ['id', 'key', 'children', 'style', 'className', 'mouseControls', 'touchControls', 'gyroControls', 'minHeight', 'minWidth', 'scale', 'color1', 'color2', 'size', 'speed']
@@ -92,3 +100,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
 
         super(FefferyCellsBackground, self).__init__(children=children, **args)
+
+setattr(FefferyCellsBackground, "__init__", _explicitize_args(FefferyCellsBackground.__init__))

@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyImageCropper(Component):
@@ -426,8 +434,8 @@ Keyword arguments:
         "Move",
             {
             "isMove": NotRequired[bool],
-            "offsetX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "offsetY": NotRequired[typing.Union[int, float, numbers.Number]]
+            "offsetX": NotRequired[NumberType],
+            "offsetY": NotRequired[NumberType]
         }
     )
 
@@ -435,8 +443,8 @@ Keyword arguments:
         "MoveTo",
             {
             "isMoveTo": NotRequired[bool],
-            "x": NotRequired[typing.Union[int, float, numbers.Number]],
-            "y": NotRequired[typing.Union[int, float, numbers.Number]]
+            "x": NotRequired[NumberType],
+            "y": NotRequired[NumberType]
         }
     )
 
@@ -444,15 +452,15 @@ Keyword arguments:
         "Zoom",
             {
             "isZoom": NotRequired[bool],
-            "ratio": NotRequired[typing.Union[int, float, numbers.Number]]
+            "ratio": NotRequired[NumberType]
         }
     )
 
     ZoomToPivot = TypedDict(
         "ZoomToPivot",
             {
-            "x": NotRequired[typing.Union[int, float, numbers.Number]],
-            "y": NotRequired[typing.Union[int, float, numbers.Number]]
+            "x": NotRequired[NumberType],
+            "y": NotRequired[NumberType]
         }
     )
 
@@ -460,7 +468,7 @@ Keyword arguments:
         "ZoomTo",
             {
             "isZoomTo": NotRequired[bool],
-            "ratio": NotRequired[typing.Union[int, float, numbers.Number]],
+            "ratio": NotRequired[NumberType],
             "pivot": NotRequired["ZoomToPivot"]
         }
     )
@@ -469,7 +477,7 @@ Keyword arguments:
         "Rotate",
             {
             "isRotate": NotRequired[bool],
-            "degree": NotRequired[typing.Union[int, float, numbers.Number]]
+            "degree": NotRequired[NumberType]
         }
     )
 
@@ -477,7 +485,7 @@ Keyword arguments:
         "RotateTo",
             {
             "isRotateTo": NotRequired[bool],
-            "degree": NotRequired[typing.Union[int, float, numbers.Number]]
+            "degree": NotRequired[NumberType]
         }
     )
 
@@ -485,8 +493,8 @@ Keyword arguments:
         "Scale",
             {
             "isScale": NotRequired[bool],
-            "scaleX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "scaleY": NotRequired[typing.Union[int, float, numbers.Number]]
+            "scaleX": NotRequired[NumberType],
+            "scaleY": NotRequired[NumberType]
         }
     )
 
@@ -494,7 +502,7 @@ Keyword arguments:
         "ScaleX",
             {
             "isScaleX": NotRequired[bool],
-            "scaleX": NotRequired[typing.Union[int, float, numbers.Number]]
+            "scaleX": NotRequired[NumberType]
         }
     )
 
@@ -502,70 +510,70 @@ Keyword arguments:
         "ScaleY",
             {
             "isScaleY": NotRequired[bool],
-            "scaleY": NotRequired[typing.Union[int, float, numbers.Number]]
+            "scaleY": NotRequired[NumberType]
         }
     )
 
     OutputData = TypedDict(
         "OutputData",
             {
-            "x": NotRequired[typing.Union[int, float, numbers.Number]],
-            "y": NotRequired[typing.Union[int, float, numbers.Number]],
-            "width": NotRequired[typing.Union[int, float, numbers.Number]],
-            "height": NotRequired[typing.Union[int, float, numbers.Number]],
-            "rotate": NotRequired[typing.Union[int, float, numbers.Number]],
-            "scaleX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "scaleY": NotRequired[typing.Union[int, float, numbers.Number]]
+            "x": NotRequired[NumberType],
+            "y": NotRequired[NumberType],
+            "width": NotRequired[NumberType],
+            "height": NotRequired[NumberType],
+            "rotate": NotRequired[NumberType],
+            "scaleX": NotRequired[NumberType],
+            "scaleY": NotRequired[NumberType]
         }
     )
 
     ContainerData = TypedDict(
         "ContainerData",
             {
-            "width": NotRequired[typing.Union[int, float, numbers.Number]],
-            "height": NotRequired[typing.Union[int, float, numbers.Number]]
+            "width": NotRequired[NumberType],
+            "height": NotRequired[NumberType]
         }
     )
 
     ImageData = TypedDict(
         "ImageData",
             {
-            "left": NotRequired[typing.Union[int, float, numbers.Number]],
-            "top": NotRequired[typing.Union[int, float, numbers.Number]],
-            "width": NotRequired[typing.Union[int, float, numbers.Number]],
-            "height": NotRequired[typing.Union[int, float, numbers.Number]],
-            "naturalWidth": NotRequired[typing.Union[int, float, numbers.Number]],
-            "naturalHeight": NotRequired[typing.Union[int, float, numbers.Number]],
-            "aspectRatio": NotRequired[typing.Union[int, float, numbers.Number]],
-            "rotate": NotRequired[typing.Union[int, float, numbers.Number]],
-            "scaleX": NotRequired[typing.Union[int, float, numbers.Number]],
-            "scaleY": NotRequired[typing.Union[int, float, numbers.Number]]
+            "left": NotRequired[NumberType],
+            "top": NotRequired[NumberType],
+            "width": NotRequired[NumberType],
+            "height": NotRequired[NumberType],
+            "naturalWidth": NotRequired[NumberType],
+            "naturalHeight": NotRequired[NumberType],
+            "aspectRatio": NotRequired[NumberType],
+            "rotate": NotRequired[NumberType],
+            "scaleX": NotRequired[NumberType],
+            "scaleY": NotRequired[NumberType]
         }
     )
 
     CanvasData = TypedDict(
         "CanvasData",
             {
-            "left": NotRequired[typing.Union[int, float, numbers.Number]],
-            "top": NotRequired[typing.Union[int, float, numbers.Number]],
-            "width": NotRequired[typing.Union[int, float, numbers.Number]],
-            "height": NotRequired[typing.Union[int, float, numbers.Number]],
-            "naturalWidth": NotRequired[typing.Union[int, float, numbers.Number]],
-            "naturalHeight": NotRequired[typing.Union[int, float, numbers.Number]]
+            "left": NotRequired[NumberType],
+            "top": NotRequired[NumberType],
+            "width": NotRequired[NumberType],
+            "height": NotRequired[NumberType],
+            "naturalWidth": NotRequired[NumberType],
+            "naturalHeight": NotRequired[NumberType]
         }
     )
 
     CropBoxData = TypedDict(
         "CropBoxData",
             {
-            "left": NotRequired[typing.Union[int, float, numbers.Number]],
-            "top": NotRequired[typing.Union[int, float, numbers.Number]],
-            "width": NotRequired[typing.Union[int, float, numbers.Number]],
-            "height": NotRequired[typing.Union[int, float, numbers.Number]]
+            "left": NotRequired[NumberType],
+            "top": NotRequired[NumberType],
+            "width": NotRequired[NumberType],
+            "height": NotRequired[NumberType]
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
@@ -578,8 +586,8 @@ Keyword arguments:
         crossOrigin: typing.Optional[str] = None,
         viewMode: typing.Optional[Literal[0, 1, 2, 3]] = None,
         dragMode: typing.Optional[Literal["crop", "move", "none"]] = None,
-        initialAspectRatio: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        aspectRatio: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        initialAspectRatio: typing.Optional[NumberType] = None,
+        aspectRatio: typing.Optional[NumberType] = None,
         data: typing.Optional[dict] = None,
         preview: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         responsive: typing.Optional[bool] = None,
@@ -592,23 +600,23 @@ Keyword arguments:
         highlight: typing.Optional[bool] = None,
         background: typing.Optional[bool] = None,
         autoCrop: typing.Optional[bool] = None,
-        autoCropArea: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        autoCropArea: typing.Optional[NumberType] = None,
         movable: typing.Optional[bool] = None,
         rotatable: typing.Optional[bool] = None,
         scalable: typing.Optional[bool] = None,
         zoomable: typing.Optional[bool] = None,
         zoomOnTouch: typing.Optional[bool] = None,
         zoomOnWheel: typing.Optional[bool] = None,
-        wheelZoomRatio: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        wheelZoomRatio: typing.Optional[NumberType] = None,
         cropBoxMovable: typing.Optional[bool] = None,
         cropBoxResizable: typing.Optional[bool] = None,
         toggleDragModeOnDblclick: typing.Optional[bool] = None,
-        minContainerWidth: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        minContainerHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        minCanvasWidth: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        minCanvasHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        minCropBoxWidth: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        minCropBoxHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        minContainerWidth: typing.Optional[NumberType] = None,
+        minContainerHeight: typing.Optional[NumberType] = None,
+        minCanvasWidth: typing.Optional[NumberType] = None,
+        minCanvasHeight: typing.Optional[NumberType] = None,
+        minCropBoxWidth: typing.Optional[NumberType] = None,
+        minCropBoxHeight: typing.Optional[NumberType] = None,
         reset: typing.Optional[bool] = None,
         clear: typing.Optional[bool] = None,
         replace: typing.Optional["Replace"] = None,
@@ -641,3 +649,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferyImageCropper, self).__init__(**args)
+
+setattr(FefferyImageCropper, "__init__", _explicitize_args(FefferyImageCropper.__init__))

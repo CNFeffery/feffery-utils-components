@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferySortable(Component):
@@ -93,8 +101,8 @@ Keyword arguments:
     Items = TypedDict(
         "Items",
             {
-            "key": typing.Union[typing.Union[int, float, numbers.Number], str],
-            "content": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "key": typing.Union[NumberType, str],
+            "content": NotRequired[ComponentType],
             "style": NotRequired[dict],
             "className": NotRequired[typing.Union[str, dict]],
             "draggingStyle": NotRequired[dict],
@@ -102,7 +110,7 @@ Keyword arguments:
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
@@ -113,13 +121,13 @@ Keyword arguments:
         className: typing.Optional[typing.Union[str, dict]] = None,
         items: typing.Optional[typing.Sequence["Items"]] = None,
         direction: typing.Optional[Literal["vertical", "horizontal"]] = None,
-        itemDraggingScale: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        itemDraggingScale: typing.Optional[NumberType] = None,
         handlePosition: typing.Optional[Literal["start", "end"]] = None,
         handleType: typing.Optional[Literal["holder", "menu", "drag"]] = None,
-        maxTranslateX: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        maxTranslateY: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        currentOrder: typing.Optional[typing.Sequence[typing.Union[typing.Union[int, float, numbers.Number], str]]] = None,
-        value: typing.Optional[typing.Union[typing.Union[typing.Union[int, float, numbers.Number], str], typing.Sequence[typing.Union[typing.Union[int, float, numbers.Number], str]]]] = None,
+        maxTranslateX: typing.Optional[NumberType] = None,
+        maxTranslateY: typing.Optional[NumberType] = None,
+        currentOrder: typing.Optional[typing.Sequence[typing.Union[NumberType, str]]] = None,
+        value: typing.Optional[typing.Union[typing.Union[NumberType, str], typing.Sequence[typing.Union[NumberType, str]]]] = None,
         multiple: typing.Optional[bool] = None,
         allowNoValue: typing.Optional[bool] = None,
         selectedStyle: typing.Optional[dict] = None,
@@ -140,3 +148,5 @@ Keyword arguments:
                     'Required argument `' + k + '` was not specified.')
 
         super(FefferySortable, self).__init__(**args)
+
+setattr(FefferySortable, "__init__", _explicitize_args(FefferySortable.__init__))

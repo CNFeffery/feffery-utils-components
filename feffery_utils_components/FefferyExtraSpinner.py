@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyExtraSpinner(Component):
@@ -51,7 +59,7 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyExtraSpinner'
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
@@ -59,7 +67,7 @@ Keyword arguments:
         style: typing.Optional[typing.Any] = None,
         className: typing.Optional[str] = None,
         type: typing.Optional[Literal["ball", "swap", "bars", "grid", "wave", "push", "firework", "stage", "ring", "heart", "guard", "rotate", "spiral", "pulse", "swish", "sequence", "impulse", "cube", "magic", "flag", "fill", "sphere", "domino", "goo", "comb", "pong", "rainbow", "hoop", "flapper", "jellyfish", "trace", "classic", "whisper", "metro"]] = None,
-        size: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        size: typing.Optional[NumberType] = None,
         sizeUnit: typing.Optional[str] = None,
         color: typing.Optional[str] = None,
         frontColor: typing.Optional[str] = None,
@@ -76,3 +84,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferyExtraSpinner, self).__init__(**args)
+
+setattr(FefferyExtraSpinner, "__init__", _explicitize_args(FefferyExtraSpinner.__init__))

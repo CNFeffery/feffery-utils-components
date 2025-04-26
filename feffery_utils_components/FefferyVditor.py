@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyVditor(Component):
@@ -400,7 +408,7 @@ Keyword arguments:
         "Counter",
             {
             "enable": NotRequired[bool],
-            "max": NotRequired[typing.Union[int, float, numbers.Number]],
+            "max": NotRequired[NumberType],
             "type": NotRequired[Literal["markdown", "text"]]
         }
     )
@@ -489,8 +497,8 @@ Keyword arguments:
     Preview = TypedDict(
         "Preview",
             {
-            "delay": NotRequired[typing.Union[int, float, numbers.Number]],
-            "maxWidth": NotRequired[typing.Union[int, float, numbers.Number]],
+            "delay": NotRequired[NumberType],
+            "maxWidth": NotRequired[NumberType],
             "mode": NotRequired[Literal["both", "editor"]],
             "url": NotRequired[str],
             "hljs": NotRequired["PreviewHljs"],
@@ -520,7 +528,7 @@ Keyword arguments:
         "Hint",
             {
             "parse": NotRequired[bool],
-            "delay": NotRequired[typing.Union[int, float, numbers.Number]],
+            "delay": NotRequired[NumberType],
             "emoji": NotRequired[dict],
             "emojiTail": NotRequired[str],
             "emojiPath": NotRequired[str]
@@ -531,7 +539,7 @@ Keyword arguments:
         "Upload",
             {
             "url": NotRequired[str],
-            "max": NotRequired[typing.Union[int, float, numbers.Number]],
+            "max": NotRequired[NumberType],
             "linkToImgUrl": NotRequired[str],
             "token": NotRequired[typing.Any],
             "withCredentials": NotRequired[bool],
@@ -561,7 +569,7 @@ Keyword arguments:
     Fullscreen = TypedDict(
         "Fullscreen",
             {
-            "index": NotRequired[typing.Union[int, float, numbers.Number]]
+            "index": NotRequired[NumberType]
         }
     )
 
@@ -573,18 +581,18 @@ Keyword arguments:
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         style: typing.Optional[typing.Any] = None,
         className: typing.Optional[typing.Union[str, dict]] = None,
-        debounceWait: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        undoDelay: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        height: typing.Optional[typing.Union[str, typing.Union[int, float, numbers.Number]]] = None,
-        minHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        width: typing.Optional[typing.Union[str, typing.Union[int, float, numbers.Number]]] = None,
+        debounceWait: typing.Optional[NumberType] = None,
+        undoDelay: typing.Optional[NumberType] = None,
+        height: typing.Optional[typing.Union[str, NumberType]] = None,
+        minHeight: typing.Optional[NumberType] = None,
+        width: typing.Optional[typing.Union[str, NumberType]] = None,
         placeholder: typing.Optional[str] = None,
         lang: typing.Optional[Literal["en_US", "fr_FR", "pt_BR", "ja_JP", "ko_KR", "ru_RU", "sv_SE", "zh_CN", "zh_TW"]] = None,
         tab: typing.Optional[str] = None,
@@ -610,8 +618,8 @@ Keyword arguments:
         outline: typing.Optional["Outline"] = None,
         htmlValue: typing.Optional[str] = None,
         selectedValue: typing.Optional[str] = None,
-        wordCount: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        resizeHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        wordCount: typing.Optional[NumberType] = None,
+        resizeHeight: typing.Optional[NumberType] = None,
         **kwargs
     ):
         self._prop_names = ['id', 'key', 'style', 'className', 'debounceWait', 'undoDelay', 'height', 'minHeight', 'width', 'placeholder', 'lang', 'tab', 'typewriterMode', 'cdn', 'mode', 'debuggerMode', 'value', 'theme', 'icon', 'toolbar', 'toolbarConfig', 'counter', 'cache', 'preview', 'image', 'link', 'hint', 'upload', 'resize', 'classes', 'fullscreen', 'outline', 'htmlValue', 'selectedValue', 'wordCount', 'resizeHeight']
@@ -624,3 +632,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferyVditor, self).__init__(**args)
+
+setattr(FefferyVditor, "__init__", _explicitize_args(FefferyVditor.__init__))

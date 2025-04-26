@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyRND(Component):
@@ -123,33 +131,33 @@ Keyword arguments:
     DefaultState = TypedDict(
         "DefaultState",
             {
-            "x": NotRequired[typing.Union[int, float, numbers.Number]],
-            "y": NotRequired[typing.Union[int, float, numbers.Number]],
-            "width": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], str]],
-            "height": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], str]]
+            "x": NotRequired[NumberType],
+            "y": NotRequired[NumberType],
+            "width": NotRequired[typing.Union[NumberType, str]],
+            "height": NotRequired[typing.Union[NumberType, str]]
         }
     )
 
     Size = TypedDict(
         "Size",
             {
-            "width": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], str]],
-            "height": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], str]]
+            "width": NotRequired[typing.Union[NumberType, str]],
+            "height": NotRequired[typing.Union[NumberType, str]]
         }
     )
 
     Position = TypedDict(
         "Position",
             {
-            "x": NotRequired[typing.Union[int, float, numbers.Number]],
-            "y": NotRequired[typing.Union[int, float, numbers.Number]]
+            "x": NotRequired[NumberType],
+            "y": NotRequired[NumberType]
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
-        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        children: typing.Optional[ComponentType] = None,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         style: typing.Optional[typing.Any] = None,
@@ -157,15 +165,15 @@ Keyword arguments:
         defaultState: typing.Optional["DefaultState"] = None,
         size: typing.Optional["Size"] = None,
         position: typing.Optional["Position"] = None,
-        minWidth: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
-        minHeight: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
-        maxWidth: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
-        maxHeight: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
-        resizeGrid: typing.Optional[typing.Sequence[typing.Union[int, float, numbers.Number]]] = None,
-        dragGrid: typing.Optional[typing.Sequence[typing.Union[int, float, numbers.Number]]] = None,
-        lockAspectRatio: typing.Optional[typing.Union[bool, typing.Union[int, float, numbers.Number]]] = None,
-        lockAspectRatioExtraWidth: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        lockAspectRatioExtraHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        minWidth: typing.Optional[typing.Union[NumberType, str]] = None,
+        minHeight: typing.Optional[typing.Union[NumberType, str]] = None,
+        maxWidth: typing.Optional[typing.Union[NumberType, str]] = None,
+        maxHeight: typing.Optional[typing.Union[NumberType, str]] = None,
+        resizeGrid: typing.Optional[typing.Sequence[NumberType]] = None,
+        dragGrid: typing.Optional[typing.Sequence[NumberType]] = None,
+        lockAspectRatio: typing.Optional[typing.Union[bool, NumberType]] = None,
+        lockAspectRatioExtraWidth: typing.Optional[NumberType] = None,
+        lockAspectRatioExtraHeight: typing.Optional[NumberType] = None,
         direction: typing.Optional[typing.Sequence[Literal["top", "right", "bottom", "left", "topRight", "bottomRight", "bottomLeft", "topLeft"]]] = None,
         disableDragging: typing.Optional[bool] = None,
         dragAxis: typing.Optional[Literal["x", "y", "both", "none"]] = None,
@@ -185,3 +193,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
 
         super(FefferyRND, self).__init__(children=children, **args)
+
+setattr(FefferyRND, "__init__", _explicitize_args(FefferyRND.__init__))

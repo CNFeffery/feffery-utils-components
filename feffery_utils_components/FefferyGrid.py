@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyGrid(Component):
@@ -198,7 +206,7 @@ Keyword arguments:
         "CloseEvent",
             {
             "key": NotRequired[str],
-            "timestamp": NotRequired[typing.Union[int, float, numbers.Number]]
+            "timestamp": NotRequired[NumberType]
         }
     )
 
@@ -206,14 +214,14 @@ Keyword arguments:
         "Layouts",
             {
             "i": NotRequired[str],
-            "x": NotRequired[typing.Union[int, float, numbers.Number]],
-            "y": NotRequired[typing.Union[int, float, numbers.Number]],
-            "w": NotRequired[typing.Union[int, float, numbers.Number]],
-            "h": NotRequired[typing.Union[int, float, numbers.Number]],
-            "minW": NotRequired[typing.Union[int, float, numbers.Number]],
-            "maxW": NotRequired[typing.Union[int, float, numbers.Number]],
-            "minH": NotRequired[typing.Union[int, float, numbers.Number]],
-            "maxH": NotRequired[typing.Union[int, float, numbers.Number]],
+            "x": NotRequired[NumberType],
+            "y": NotRequired[NumberType],
+            "w": NotRequired[NumberType],
+            "h": NotRequired[NumberType],
+            "minW": NotRequired[NumberType],
+            "maxW": NotRequired[NumberType],
+            "minH": NotRequired[NumberType],
+            "maxH": NotRequired[NumberType],
             "static": NotRequired[bool],
             "isDraggable": NotRequired[bool],
             "isResizable": NotRequired[bool],
@@ -221,21 +229,21 @@ Keyword arguments:
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
-        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        children: typing.Optional[ComponentType] = None,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         style: typing.Optional[typing.Any] = None,
         className: typing.Optional[str] = None,
-        placeholder: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
-        height: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        placeholder: typing.Optional[ComponentType] = None,
+        height: typing.Optional[NumberType] = None,
         autoSize: typing.Optional[bool] = None,
         compactType: typing.Optional[Literal["vertical", "horizontal"]] = None,
-        margin: typing.Optional[typing.Union[typing.Sequence[typing.Union[int, float, numbers.Number]], typing.Dict[typing.Union[str, float, int], typing.Sequence[typing.Union[int, float, numbers.Number]]]]] = None,
-        containerPadding: typing.Optional[typing.Union[typing.Sequence[typing.Union[int, float, numbers.Number]], typing.Dict[typing.Union[str, float, int], typing.Sequence[typing.Union[int, float, numbers.Number]]]]] = None,
-        rowHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        margin: typing.Optional[typing.Union[typing.Sequence[NumberType], typing.Dict[typing.Union[str, float, int], typing.Sequence[NumberType]]]] = None,
+        containerPadding: typing.Optional[typing.Union[typing.Sequence[NumberType], typing.Dict[typing.Union[str, float, int], typing.Sequence[NumberType]]]] = None,
+        rowHeight: typing.Optional[NumberType] = None,
         closable: typing.Optional[bool] = None,
         closeEvent: typing.Optional["CloseEvent"] = None,
         autoClose: typing.Optional[bool] = None,
@@ -245,11 +253,11 @@ Keyword arguments:
         isResizable: typing.Optional[bool] = None,
         isBounded: typing.Optional[bool] = None,
         allowOverlap: typing.Optional[bool] = None,
-        breakpoints: typing.Optional[typing.Dict[typing.Union[str, float, int], typing.Union[int, float, numbers.Number]]] = None,
-        cols: typing.Optional[typing.Union[typing.Dict[typing.Union[str, float, int], typing.Union[int, float, numbers.Number]], typing.Union[int, float, numbers.Number]]] = None,
+        breakpoints: typing.Optional[typing.Dict[typing.Union[str, float, int], NumberType]] = None,
+        cols: typing.Optional[typing.Union[typing.Dict[typing.Union[str, float, int], NumberType], NumberType]] = None,
         layouts: typing.Optional[typing.Union[typing.Dict[typing.Union[str, float, int], typing.Sequence["Layouts"]], typing.Sequence["Layouts"], typing.Any]] = None,
         placeholderBackground: typing.Optional[str] = None,
-        placeholderOpacity: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        placeholderOpacity: typing.Optional[NumberType] = None,
         placeholderBorder: typing.Optional[str] = None,
         placeholderBorderRadius: typing.Optional[str] = None,
         debug: typing.Optional[bool] = None,
@@ -265,3 +273,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
 
         super(FefferyGrid, self).__init__(children=children, **args)
+
+setattr(FefferyGrid, "__init__", _explicitize_args(FefferyGrid.__init__))

@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyTiltHover(Component):
@@ -114,36 +122,36 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyTiltHover'
 
-    @_explicitize_args
+
     def __init__(
         self,
-        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        children: typing.Optional[ComponentType] = None,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         style: typing.Optional[typing.Any] = None,
         className: typing.Optional[typing.Union[str, dict]] = None,
         tiltEnable: typing.Optional[bool] = None,
         tiltReverse: typing.Optional[bool] = None,
-        tiltAngleXInitial: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        tiltAngleYInitial: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        tiltMaxAngleX: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        tiltMaxAngleY: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        tiltAngleXInitial: typing.Optional[NumberType] = None,
+        tiltAngleYInitial: typing.Optional[NumberType] = None,
+        tiltMaxAngleX: typing.Optional[NumberType] = None,
+        tiltMaxAngleY: typing.Optional[NumberType] = None,
         tiltAxis: typing.Optional[Literal["x", "y"]] = None,
-        tiltAngleXManual: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        tiltAngleYManual: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        tiltAngleXManual: typing.Optional[NumberType] = None,
+        tiltAngleYManual: typing.Optional[NumberType] = None,
         glareEnable: typing.Optional[bool] = None,
-        glareMaxOpacity: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        glareMaxOpacity: typing.Optional[NumberType] = None,
         glareColor: typing.Optional[str] = None,
         glareBorderRadius: typing.Optional[str] = None,
         glarePosition: typing.Optional[Literal["top", "right", "bottom", "left", "all"]] = None,
         glareReverse: typing.Optional[bool] = None,
-        scale: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        perspective: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        scale: typing.Optional[NumberType] = None,
+        perspective: typing.Optional[NumberType] = None,
         flipVertically: typing.Optional[bool] = None,
         flipHorizontally: typing.Optional[bool] = None,
         reset: typing.Optional[bool] = None,
         transitionEasing: typing.Optional[str] = None,
-        transitionSpeed: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        transitionSpeed: typing.Optional[NumberType] = None,
         trackOnWindow: typing.Optional[bool] = None,
         gyroscope: typing.Optional[bool] = None,
         listenMove: typing.Optional[dict] = None,
@@ -161,3 +169,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
 
         super(FefferyTiltHover, self).__init__(children=children, **args)
+
+setattr(FefferyTiltHover, "__init__", _explicitize_args(FefferyTiltHover.__init__))

@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyMarkdownEditor(Component):
@@ -529,7 +537,7 @@ Keyword arguments:
             "target": NotRequired[Literal["", "_blank"]],
             "rel": NotRequired[Literal["", "nofollow"]],
             "enableShortLink": NotRequired[bool],
-            "shortLinkLength": NotRequired[typing.Union[int, float, numbers.Number]]
+            "shortLinkLength": NotRequired[NumberType]
         }
     )
 
@@ -537,7 +545,7 @@ Keyword arguments:
         "EngineSyntaxList",
             {
             "listNested": NotRequired[bool],
-            "indentSpace": NotRequired[typing.Union[int, float, numbers.Number]]
+            "indentSpace": NotRequired[NumberType]
         }
     )
 
@@ -768,10 +776,10 @@ Keyword arguments:
         "PreviewerLazyLoadImg",
             {
             "loadingImgPath": NotRequired[str],
-            "maxNumPerTime": NotRequired[typing.Union[int, float, numbers.Number]],
-            "noLoadImgNum": NotRequired[typing.Union[int, float, numbers.Number]],
-            "autoLoadImgNum": NotRequired[typing.Union[int, float, numbers.Number]],
-            "maxTryTimesPerSrc": NotRequired[typing.Union[int, float, numbers.Number]]
+            "maxNumPerTime": NotRequired[NumberType],
+            "noLoadImgNum": NotRequired[NumberType],
+            "autoLoadImgNum": NotRequired[NumberType],
+            "maxTryTimesPerSrc": NotRequired[NumberType]
         }
     )
 
@@ -805,14 +813,14 @@ Keyword arguments:
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         style: typing.Optional[typing.Any] = None,
         className: typing.Optional[typing.Union[str, dict]] = None,
-        debounceWait: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        debounceWait: typing.Optional[NumberType] = None,
         value: typing.Optional[str] = None,
         html: typing.Optional[str] = None,
         engine: typing.Optional["Engine"] = None,
@@ -842,3 +850,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferyMarkdownEditor, self).__init__(**args)
+
+setattr(FefferyMarkdownEditor, "__init__", _explicitize_args(FefferyMarkdownEditor.__init__))

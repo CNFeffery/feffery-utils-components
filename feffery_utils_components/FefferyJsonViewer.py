@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyJsonViewer(Component):
@@ -88,7 +96,7 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyJsonViewer'
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
@@ -98,11 +106,11 @@ Keyword arguments:
         data: typing.Optional[dict] = None,
         rootName: typing.Optional[str] = None,
         theme: typing.Optional[Literal["apathy", "apathy:inverted", "ashes", "bespin", "brewer", "bright:inverted", "bright", "chalk", "codeschool", "colors", "eighties", "embers", "flat", "google", "grayscale", "grayscale:inverted", "greenscreen", "harmonic", "hopscotch", "isotope", "marrakesh", "mocha", "monokai", "ocean", "paraiso", "pop", "railscasts", "rjv-default", "shapeshifter", "shapeshifter:inverted", "solarized", "summerfruit", "summerfruit:inverted", "threezerotwofour", "tomorrow", "tube", "twilight"]] = None,
-        indent: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        indent: typing.Optional[NumberType] = None,
         iconStyle: typing.Optional[Literal["circle", "triangle", "square"]] = None,
-        collapsed: typing.Optional[typing.Union[bool, typing.Union[int, float, numbers.Number]]] = None,
-        collapseStringsAfterLength: typing.Optional[typing.Union[bool, typing.Union[int, float, numbers.Number]]] = None,
-        groupArraysAfterLength: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        collapsed: typing.Optional[typing.Union[bool, NumberType]] = None,
+        collapseStringsAfterLength: typing.Optional[typing.Union[bool, NumberType]] = None,
+        groupArraysAfterLength: typing.Optional[NumberType] = None,
         enableClipboard: typing.Optional[bool] = None,
         displayObjectSize: typing.Optional[bool] = None,
         displayDataTypes: typing.Optional[bool] = None,
@@ -124,3 +132,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(FefferyJsonViewer, self).__init__(**args)
+
+setattr(FefferyJsonViewer, "__init__", _explicitize_args(FefferyJsonViewer.__init__))

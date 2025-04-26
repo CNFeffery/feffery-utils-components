@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyQRCode(Component):
@@ -67,19 +75,19 @@ Keyword arguments:
         "ImageSettings",
             {
             "src": NotRequired[str],
-            "height": NotRequired[typing.Union[int, float, numbers.Number]],
-            "width": NotRequired[typing.Union[int, float, numbers.Number]],
+            "height": NotRequired[NumberType],
+            "width": NotRequired[NumberType],
             "excavate": NotRequired[bool]
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         value: typing.Optional[str] = None,
-        size: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        size: typing.Optional[NumberType] = None,
         bgColor: typing.Optional[str] = None,
         fgColor: typing.Optional[str] = None,
         level: typing.Optional[Literal["L", "M", "Q", "H"]] = None,
@@ -103,3 +111,5 @@ Keyword arguments:
                     'Required argument `' + k + '` was not specified.')
 
         super(FefferyQRCode, self).__init__(**args)
+
+setattr(FefferyQRCode, "__init__", _explicitize_args(FefferyQRCode.__init__))

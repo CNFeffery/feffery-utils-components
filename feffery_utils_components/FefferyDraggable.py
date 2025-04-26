@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyDraggable(Component):
@@ -62,23 +70,23 @@ Keyword arguments:
     _namespace = 'feffery_utils_components'
     _type = 'FefferyDraggable'
 
-    @_explicitize_args
+
     def __init__(
         self,
-        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        children: typing.Optional[ComponentType] = None,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         style: typing.Optional[typing.Any] = None,
         className: typing.Optional[str] = None,
         draggable: typing.Optional[bool] = None,
-        initialX: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        initialY: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        initialX: typing.Optional[NumberType] = None,
+        initialY: typing.Optional[NumberType] = None,
         showDragLine: typing.Optional[bool] = None,
         dragLineColors: typing.Optional[typing.Sequence[str]] = None,
         focusWithinStyle: typing.Optional[dict] = None,
         boundsSelector: typing.Optional[str] = None,
-        x: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        y: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        x: typing.Optional[NumberType] = None,
+        y: typing.Optional[NumberType] = None,
         isFocusWithin: typing.Optional[bool] = None,
         **kwargs
     ):
@@ -97,3 +105,5 @@ Keyword arguments:
                     'Required argument `' + k + '` was not specified.')
 
         super(FefferyDraggable, self).__init__(children=children, **args)
+
+setattr(FefferyDraggable, "__init__", _explicitize_args(FefferyDraggable.__init__))

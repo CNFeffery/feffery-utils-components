@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class FefferyMotion(Component):
@@ -106,14 +114,14 @@ Keyword arguments:
     Transition = TypedDict(
         "Transition",
             {
-            "delay": NotRequired[typing.Union[int, float, numbers.Number]],
-            "repeat": NotRequired[typing.Union[typing.Union[int, float, numbers.Number], Literal["infinity"]]],
+            "delay": NotRequired[NumberType],
+            "repeat": NotRequired[typing.Union[NumberType, Literal["infinity"]]],
             "repeatType": NotRequired[Literal["loop", "reverse", "mirror"]],
-            "repeatDelay": NotRequired[typing.Union[int, float, numbers.Number]],
+            "repeatDelay": NotRequired[NumberType],
             "type": NotRequired[Literal["spring", "tween"]],
-            "duration": NotRequired[typing.Union[int, float, numbers.Number]],
+            "duration": NotRequired[NumberType],
             "ease": NotRequired[Literal["linear", "easeIn", "easeOut", "easeInOut", "circIn", "circOut", "circInOut", "backIn", "backOut", "backInOut", "anticipate"]],
-            "times": NotRequired[typing.Sequence[typing.Union[int, float, numbers.Number]]]
+            "times": NotRequired[typing.Sequence[NumberType]]
         }
     )
 
@@ -126,10 +134,10 @@ Keyword arguments:
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
-        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        children: typing.Optional[ComponentType] = None,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         style: typing.Optional[typing.Any] = None,
@@ -157,3 +165,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
 
         super(FefferyMotion, self).__init__(children=children, **args)
+
+setattr(FefferyMotion, "__init__", _explicitize_args(FefferyMotion.__init__))
