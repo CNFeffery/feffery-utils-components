@@ -11,6 +11,8 @@
 
 </div>
 
+[简体中文](./README.md) | English
+
 `feffery-components`计划子项目，`Plotly Dash`第三方组件库，将超多实用辅助功能组件引入`Dash`的世界 🥳，最新版本：`0.1.29`
 
 ## Dash版本兼容性说明
