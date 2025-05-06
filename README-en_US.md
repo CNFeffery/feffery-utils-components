@@ -11,45 +11,46 @@
 
 </div>
 
-简体中文 | [English](./README-en_US.md)
+[简体中文](./README.md) | English
 
-`feffery-components`计划子项目，`Plotly Dash`第三方组件库，将超多实用辅助功能组件引入`Dash`的世界 🥳，最新版本：`0.1.29`
+A sub-project of the `feffery-components` plan, this `Plotly Dash` third-party component library brings numerous practical utility components to the world of `Dash` 🥳, latest version: `0.1.29`
 
-## Dash版本兼容性说明
+## Dash Version Compatibility
 
-| fuc版本 | 适用Dash版本 |
+| fuc version | Compatible Dash version |
 | :-----: | :----------: |
 | >=0.3.0 |   >=3.0.0    |
 | <0.3.0  |    <3.0.0    |
 
-## 1 最新版本安装方式
+## 1 Installation Method for Latest Version
 
 ```bash
 pip install feffery-utils-components -U
 ```
 
-## 2 最新预发布版本安装方式
+## 2 Installation Method for Latest Pre-release Version
 
 > [!NOTE]  
-> 最新预发布版本（2025-04-26）：`0.3.0rc2`
+> Latest pre-release version (2025-04-26): `0.3.0rc2`
 
 ```bash
 pip install feffery-utils-components --pre -U
 ```
 
-## 3 静态资源 CDN 加速方法
+## 3 Static Resource CDN Acceleration Method
 
 ```Python
-# 非debug模式下对Dash()传入参数serve_locally=False会强制浏览器端从unpkg cdn加载各个依赖的
-# xxx.min.js等静态资源，从而避免占用服务器带宽，适合中小型站点加速访问
+# In non-debug mode, passing serve_locally=False to Dash() forces the browser to load
+# dependent xxx.min.js and other static resources from unpkg cdn, avoiding server bandwidth usage
+# and suitable for small to medium-sized sites to accelerate access
 app = dash.Dash(serve_locally=False)
 ```
 
-## 4 在线文档
+## 4 Online Documentation
 
-<a href='http://fuc.feffery.tech/' target='_blank'>文档地址</a>
+<a href='http://fuc.feffery.tech/' target='_blank'>Documentation Link</a>
 
-## 5 贡献者
+## 5 Contributors
 
 <a href = "https://github.com/CNFeffery/feffery-utils-components/graphs/contributors">
   <img src = "https://contrib.rocks/image?repo=CNFeffery/feffery-utils-components"/>
