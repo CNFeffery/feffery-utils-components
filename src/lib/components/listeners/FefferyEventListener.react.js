@@ -42,9 +42,12 @@ FefferyEventListener.propTypes = {
     key: PropTypes.string,
 
     /**
-     * 必填，目标事件名称
+     * 必填，目标事件名称，也可传入多种事件名构成的数组
      */
-    eventName: PropTypes.string.isRequired,
+    eventName: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.string)
+    ]).isRequired,
 
     /**
      * 必填，自定义事件处理`js`函数字符串，唯一入参为事件对象，返回值将用于更新`result`属性

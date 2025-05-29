@@ -30,8 +30,8 @@ Keyword arguments:
 - key (string; optional):
     对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
-- eventName (string; required):
-    必填，目标事件名称.
+- eventName (string | list of strings; required):
+    必填，目标事件名称，也可传入多种事件名构成的数组.
 
 - handler (string; optional):
     必填，自定义事件处理`js`函数字符串，唯一入参为事件对象，返回值将用于更新`result`属性.
@@ -54,7 +54,7 @@ Keyword arguments:
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
-        eventName: typing.Optional[str] = None,
+        eventName: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         handler: typing.Optional[str] = None,
         targetSelector: typing.Optional[str] = None,
         enable: typing.Optional[bool] = None,
