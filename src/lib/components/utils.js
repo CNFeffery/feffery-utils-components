@@ -18,7 +18,7 @@ const loadingSelector = (componentPath) => state => {
         (acc, [path, load]) => {
             if (path.startsWith(stringPath) && load.length) {
                 return [...acc, load];
-            }getLayout
+            }
             return acc;
         },
         []
