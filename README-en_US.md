@@ -31,7 +31,7 @@ pip install feffery-utils-components -U
 ## 2 Installation Method for Latest Pre-release Version
 
 > [!NOTE]  
-> Latest pre-release version (2025-05-30): `0.3.0rc3`
+> Latest pre-release version (2025-06-27): `0.3.0rc4`
 
 ```bash
 pip install feffery-utils-components --pre -U
