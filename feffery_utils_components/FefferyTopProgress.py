@@ -69,7 +69,11 @@ Keyword arguments:
     顶部进度条色彩  默认值：`'#29d'`.
 
 - zIndex (number; default 99999):
-    顶部进度条`z-index`值  默认值：`99999`."""
+    顶部进度条`z-index`值  默认值：`99999`.
+
+- manual (boolean; default False):
+    是否开启手动控制模式，开启后是否处于加载状态将由`spinning`参数控制，与内部元素参与的回调状态无关
+    默认值：`False`."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
@@ -94,11 +98,12 @@ Keyword arguments:
         includeProps: typing.Optional[typing.Sequence[str]] = None,
         color: typing.Optional[str] = None,
         zIndex: typing.Optional[NumberType] = None,
+        manual: typing.Optional[bool] = None,
         **kwargs
     ):
-        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'spinning', 'minimum', 'easing', 'speed', 'showSpinner', 'debug', 'listenPropsMode', 'excludeProps', 'includeProps', 'color', 'zIndex']
+        self._prop_names = ['id', 'key', 'children', 'style', 'className', 'spinning', 'minimum', 'easing', 'speed', 'showSpinner', 'debug', 'listenPropsMode', 'excludeProps', 'includeProps', 'color', 'zIndex', 'manual']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'spinning', 'minimum', 'easing', 'speed', 'showSpinner', 'debug', 'listenPropsMode', 'excludeProps', 'includeProps', 'color', 'zIndex']
+        self.available_properties = ['id', 'key', 'children', 'style', 'className', 'spinning', 'minimum', 'easing', 'speed', 'showSpinner', 'debug', 'listenPropsMode', 'excludeProps', 'includeProps', 'color', 'zIndex', 'manual']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

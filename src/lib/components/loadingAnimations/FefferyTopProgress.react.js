@@ -28,6 +28,7 @@ const FefferyTopProgress = ({
     debug = false,
     color = '#29d',
     zIndex = 99999,
+    manual = false,
     setProps
 }) => {
 
@@ -48,8 +49,20 @@ const FefferyTopProgress = ({
     const [showSpinning, setShowSpinning] = useState(spinning);
     const timer = useRef();
 
+    // manual模式下，根据spinning的实际值控制加载状态
     useEffect(() => {
-        if (loading_info) {
+        if (manual) {
+            if (spinning) {
+                NProgress.start();
+            } else {
+                NProgress.done();
+            }
+        }
+    }, [spinning])
+
+    useEffect(() => {
+        // 非手动控制模式下
+        if (!manual && loading_info) {
             if (timer.current) {
                 clearTimeout(timer.current);
             }
@@ -280,6 +293,12 @@ FefferyTopProgress.propTypes = {
      * 默认值：`99999`
      */
     zIndex: PropTypes.number,
+
+    /**
+     * 是否开启手动控制模式，开启后是否处于加载状态将由`spinning`参数控制，与内部元素参与的回调状态无关
+     * 默认值：`false`
+     */
+    manual: PropTypes.bool,
 
     /**
      * Dash-assigned callback that should be called to report property changes
