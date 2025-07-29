@@ -36,7 +36,7 @@ Keyword arguments:
 - className (string; optional):
     当前组件css类名.
 
-- spinning (boolean; default False):
+- spinning (boolean; optional):
     是否处于加载中状态.
 
 - minimum (number; optional):

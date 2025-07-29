@@ -1,10 +1,12 @@
 // react核心
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 // 组件核心
 import NProgress from 'nprogress';
 // 辅助库
 import { equals } from 'ramda';
+import { useRequest } from 'ahooks';
+import { isUndefined } from 'lodash';
 import FefferyStyle from '../styleControl/FefferyStyle.react';
 import { parseChildrenToArray, useLoading, loadingSelector } from '../utils';
 
@@ -21,7 +23,7 @@ const FefferyTopProgress = ({
     easing,
     speed,
     showSpinner,
-    spinning = false,
+    spinning,
     listenPropsMode = 'default',
     excludeProps = [],
     includeProps = [],
@@ -49,13 +51,26 @@ const FefferyTopProgress = ({
     const [showSpinning, setShowSpinning] = useState(spinning);
     const timer = useRef();
 
+    const { run: toggleStatus } = useRequest(
+        (e) => {
+            if (e) {
+                NProgress.start();
+            } else {
+                NProgress.done(true);
+            }
+        },
+        {
+            debounceWait: 200,
+            manual: true
+        }
+    )
+
     // manual模式下，根据spinning的实际值控制加载状态
     useEffect(() => {
         if (manual) {
-            if (spinning) {
-                NProgress.start();
-            } else {
-                NProgress.done();
+            if (!isUndefined(spinning)) {
+                // 状态防抖切换
+                toggleStatus(spinning)
             }
         }
     }, [spinning])
@@ -99,7 +114,7 @@ const FefferyTopProgress = ({
             } else if (loading_info.length === 0 && showSpinning) {
                 timer.current = setTimeout(() => {
                     setShowSpinning(false);
-                    NProgress.done();
+                    NProgress.done(true);
                 });
             }
         }
