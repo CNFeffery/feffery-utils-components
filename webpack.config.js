@@ -89,6 +89,7 @@ module.exports = (env, argv) => {
                         path.resolve('node_modules', '@photo-sphere-viewer'),
                         path.resolve('node_modules', 'wouter'),
                         path.resolve('node_modules', 'autofit.js'),
+                        path.resolve('node_modules', 'react-draggable'),
                     ],
                     use: {
                         loader: 'babel-loader',
