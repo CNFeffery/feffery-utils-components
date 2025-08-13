@@ -38,6 +38,8 @@ const FefferyDPlayer = ({
   playbackSpeed,
   logo,
   preventClickToggle,
+  intervalMonitor,
+  intervalMonitorDelay,
   video,
   subtitle,
   danmaku,
@@ -90,6 +92,7 @@ const FefferyDPlayer = ({
   const dplayerId = id || `feffery-dplayer-${uuidv4()}`;
   const dplayer = useRef();
   const dom = useRef();
+  const interval = useRef();
 
   const onPlay = () => {
     playClicks++;
@@ -252,6 +255,25 @@ const FefferyDPlayer = ({
     destroyClicks++;
     setProps({ destroyClicks: destroyClicks });
   };
+
+  useEffect(() => {
+    if (intervalMonitor) {
+      interval.current = setInterval(() => {
+        setProps({
+          currentVideoInfo: {
+            currentTime: dplayer.current.video.currentTime,
+            duration: dplayer.current.video.duration,
+            paused: dplayer.current.video.paused,
+            volume: dplayer.current.video.volume,
+            src: dplayer.current.video.src,
+            url: dplayer.current.video.currentSrc,
+          },
+        });
+      }, intervalMonitorDelay);
+    } else {
+      clearInterval(interval.current);
+    }
+  }, [intervalMonitor]);
 
   useEffect(() => {
     if (play) {

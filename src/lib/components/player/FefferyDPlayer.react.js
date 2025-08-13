@@ -20,6 +20,8 @@ const FefferyDPlayer = ({
     volume = 0.7,
     playbackSpeed = [0.5, 0.75, 1, 1.25, 1.5, 2],
     preventClickToggle = false,
+    intervalMonitor = false,
+    intervalMonitorDelay = 1000,
     video = { type: 'auto' },
     subtitle = { isOpen: false, type: 'webvtt', fontSize: '20px', bottom: '40px', color: '#fff' },
     danmaku = { isOpen: false, unlimited: false, speedRate: 1 },
@@ -83,6 +85,8 @@ const FefferyDPlayer = ({
                     volume,
                     playbackSpeed,
                     preventClickToggle,
+                    intervalMonitor,
+                    intervalMonitorDelay,
                     video,
                     subtitle,
                     danmaku,
@@ -238,6 +242,18 @@ FefferyDPlayer.propTypes = {
      * 默认值：`false`
      */
     preventClickToggle: PropTypes.bool,
+
+    /**
+     * 是否开启间隔监听当前视频信息
+     * 默认值：`false`
+     */
+    intervalMonitor: PropTypes.bool,
+
+    /**
+     * 间隔监听当前视频信息间隔时间，单位：ms
+     * 默认值：`1000`
+     */
+    intervalMonitorDelay: PropTypes.number,
 
     /**
      * 设置视频信息
