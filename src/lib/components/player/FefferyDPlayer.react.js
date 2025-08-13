@@ -525,7 +525,7 @@ FefferyDPlayer.propTypes = {
         /**
          * 切换的视频信息
          */
-        video: PropTypes.exact({
+        video: PropTypes.shape({
             /**
              * 设置清晰度切换
              */
@@ -565,10 +565,6 @@ FefferyDPlayer.propTypes = {
              * 默认值：`'auto'`
              */
             type: PropTypes.oneOf(['auto', 'hls', 'flv', 'dash', 'normal']),
-            /**
-             * 自定义视频类型，此参数无需设置，会根据设置的type参数自动接管
-             */
-            customType: PropTypes.object
         }),
         /**
          * 切换的视频弹幕信息
