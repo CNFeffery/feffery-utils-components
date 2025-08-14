@@ -13,7 +13,7 @@
 
 简体中文 | [English](./README-en_US.md)
 
-`feffery-components`计划子项目，`Plotly Dash`第三方组件库，将超多实用辅助功能组件引入`Dash`的世界 🥳，最新版本：`0.3.2`（2025-07-29）
+`feffery-components`计划子项目，`Plotly Dash`第三方组件库，将超多实用辅助功能组件引入`Dash`的世界 🥳，最新版本：`0.3.3`（2025-08-14）
 
 ## Dash版本兼容性说明
 
