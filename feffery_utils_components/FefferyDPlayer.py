@@ -75,6 +75,12 @@ Keyword arguments:
 - preventClickToggle (boolean; default False):
     是否阻止点击播放器时候自动切换播放/暂停  默认值：`False`.
 
+- intervalMonitor (boolean; default False):
+    是否开启间隔监听当前视频信息  默认值：`False`.
+
+- intervalMonitorDelay (number; default 1000):
+    间隔监听当前视频信息间隔时间，单位：ms  默认值：`1000`.
+
 - video (dict; default { type: 'auto' }):
     设置视频信息.
 
@@ -328,9 +334,6 @@ Keyword arguments:
         - type (a value equal to: 'auto', 'hls', 'flv', 'dash', 'normal'; optional):
             设置视频类型，可选的有`'auto'`、`'hls'`、`'flv'`、`'dash'`、`'normal'`
             默认值：`'auto'`.
-
-        - customType (dict; optional):
-            自定义视频类型，此参数无需设置，会根据设置的type参数自动接管.
 
     - danmaku (dict; optional):
         切换的视频弹幕信息.
@@ -664,8 +667,7 @@ Keyword arguments:
             "url": NotRequired[str],
             "pic": NotRequired[str],
             "thumbnails": NotRequired[str],
-            "type": NotRequired[Literal["auto", "hls", "flv", "dash", "normal"]],
-            "customType": NotRequired[dict]
+            "type": NotRequired[Literal["auto", "hls", "flv", "dash", "normal"]]
         }
     )
 
@@ -773,6 +775,8 @@ Keyword arguments:
         playbackSpeed: typing.Optional[typing.Sequence[NumberType]] = None,
         logo: typing.Optional[str] = None,
         preventClickToggle: typing.Optional[bool] = None,
+        intervalMonitor: typing.Optional[bool] = None,
+        intervalMonitorDelay: typing.Optional[NumberType] = None,
         video: typing.Optional["Video"] = None,
         subtitle: typing.Optional["Subtitle"] = None,
         danmaku: typing.Optional["Danmaku"] = None,
@@ -822,9 +826,9 @@ Keyword arguments:
         currentVideoInfo: typing.Optional[dict] = None,
         **kwargs
     ):
-        self._prop_names = ['id', 'key', 'style', 'className', 'live', 'autoplay', 'theme', 'loop', 'lang', 'screenshot', 'airplay', 'hotkey', 'chromecast', 'preload', 'volume', 'playbackSpeed', 'logo', 'preventClickToggle', 'video', 'subtitle', 'danmaku', 'contextmenu', 'highlight', 'mutex', 'play', 'pause', 'seek', 'notice', 'speed', 'volumeSet', 'fullScreen', 'switchQuality', 'switchVideo', 'sendDanmaku', 'drawDanmaku', 'opacityDanmaku', 'clearDanmaku', 'hideDanmaku', 'showDanmaku', 'destroy', 'playClicks', 'pauseClicks', 'seekClicks', 'showNoticeClicks', 'hideNoticeClicks', 'speedClicks', 'volumeSetClicks', 'fullScreenClicks', 'cancelFullScreenClicks', 'sendDanmakuCallback', 'drawDanmakuClicks', 'clearDanmakuClicks', 'opacityDanmakuCallback', 'showDanmakuClicks', 'hideDanmakuClicks', 'subtitleShowClicks', 'subtitleHideClicks', 'subtitleChangeClicks', 'screenshotClicks', 'contextmenuShowClicks', 'contextmenuHideClicks', 'currentClickContextmenu', 'destroyClicks', 'currentNoticeInfo', 'currentVideoInfo']
+        self._prop_names = ['id', 'key', 'style', 'className', 'live', 'autoplay', 'theme', 'loop', 'lang', 'screenshot', 'airplay', 'hotkey', 'chromecast', 'preload', 'volume', 'playbackSpeed', 'logo', 'preventClickToggle', 'intervalMonitor', 'intervalMonitorDelay', 'video', 'subtitle', 'danmaku', 'contextmenu', 'highlight', 'mutex', 'play', 'pause', 'seek', 'notice', 'speed', 'volumeSet', 'fullScreen', 'switchQuality', 'switchVideo', 'sendDanmaku', 'drawDanmaku', 'opacityDanmaku', 'clearDanmaku', 'hideDanmaku', 'showDanmaku', 'destroy', 'playClicks', 'pauseClicks', 'seekClicks', 'showNoticeClicks', 'hideNoticeClicks', 'speedClicks', 'volumeSetClicks', 'fullScreenClicks', 'cancelFullScreenClicks', 'sendDanmakuCallback', 'drawDanmakuClicks', 'clearDanmakuClicks', 'opacityDanmakuCallback', 'showDanmakuClicks', 'hideDanmakuClicks', 'subtitleShowClicks', 'subtitleHideClicks', 'subtitleChangeClicks', 'screenshotClicks', 'contextmenuShowClicks', 'contextmenuHideClicks', 'currentClickContextmenu', 'destroyClicks', 'currentNoticeInfo', 'currentVideoInfo']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'live', 'autoplay', 'theme', 'loop', 'lang', 'screenshot', 'airplay', 'hotkey', 'chromecast', 'preload', 'volume', 'playbackSpeed', 'logo', 'preventClickToggle', 'video', 'subtitle', 'danmaku', 'contextmenu', 'highlight', 'mutex', 'play', 'pause', 'seek', 'notice', 'speed', 'volumeSet', 'fullScreen', 'switchQuality', 'switchVideo', 'sendDanmaku', 'drawDanmaku', 'opacityDanmaku', 'clearDanmaku', 'hideDanmaku', 'showDanmaku', 'destroy', 'playClicks', 'pauseClicks', 'seekClicks', 'showNoticeClicks', 'hideNoticeClicks', 'speedClicks', 'volumeSetClicks', 'fullScreenClicks', 'cancelFullScreenClicks', 'sendDanmakuCallback', 'drawDanmakuClicks', 'clearDanmakuClicks', 'opacityDanmakuCallback', 'showDanmakuClicks', 'hideDanmakuClicks', 'subtitleShowClicks', 'subtitleHideClicks', 'subtitleChangeClicks', 'screenshotClicks', 'contextmenuShowClicks', 'contextmenuHideClicks', 'currentClickContextmenu', 'destroyClicks', 'currentNoticeInfo', 'currentVideoInfo']
+        self.available_properties = ['id', 'key', 'style', 'className', 'live', 'autoplay', 'theme', 'loop', 'lang', 'screenshot', 'airplay', 'hotkey', 'chromecast', 'preload', 'volume', 'playbackSpeed', 'logo', 'preventClickToggle', 'intervalMonitor', 'intervalMonitorDelay', 'video', 'subtitle', 'danmaku', 'contextmenu', 'highlight', 'mutex', 'play', 'pause', 'seek', 'notice', 'speed', 'volumeSet', 'fullScreen', 'switchQuality', 'switchVideo', 'sendDanmaku', 'drawDanmaku', 'opacityDanmaku', 'clearDanmaku', 'hideDanmaku', 'showDanmaku', 'destroy', 'playClicks', 'pauseClicks', 'seekClicks', 'showNoticeClicks', 'hideNoticeClicks', 'speedClicks', 'volumeSetClicks', 'fullScreenClicks', 'cancelFullScreenClicks', 'sendDanmakuCallback', 'drawDanmakuClicks', 'clearDanmakuClicks', 'opacityDanmakuCallback', 'showDanmakuClicks', 'hideDanmakuClicks', 'subtitleShowClicks', 'subtitleHideClicks', 'subtitleChangeClicks', 'screenshotClicks', 'contextmenuShowClicks', 'contextmenuHideClicks', 'currentClickContextmenu', 'destroyClicks', 'currentNoticeInfo', 'currentVideoInfo']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

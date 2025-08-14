@@ -1,6 +1,6 @@
 {
   "name": "feffery_utils_components",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Build more utility components for Plotly Dash.",
   "repository": {
     "type": "git",
@@ -49,6 +49,7 @@
     "create-puzzle": "^2.0.2",
     "dashjs": "4.7.2",
     "devtools-detector": "^2.0.15",
+    "dplayer": "^1.27.1",
     "emoji-mart": "^5.5.2",
     "flv.js": "1.6.2",
     "framer-motion": "^8.4.1",
