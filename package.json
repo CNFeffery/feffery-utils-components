@@ -88,7 +88,7 @@
     "react-hot-toast": "^2.4.0",
     "react-image-gallery": "^1.3.0",
     "react-jinke-music-player": "4.24.2",
-    "react-lazy-load": "^3.1.14",
+    "react-lazyload": "^3.2.1",
     "react-parallax-tilt": "^1.7.183",
     "react-photo-sphere-viewer": "^5.0.2-psv5.7.1",
     "react-resize-detector": "^7.1.2",
