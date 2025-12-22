@@ -12,7 +12,13 @@ const FefferyListenElementSize = ({
     setProps
 }) => {
 
-    const size = useSize(() => document.getElementById(target));
+    const size = useSize(() =>
+        document.getElementById(
+            typeof target === 'string'
+                ? target
+                : dash_component_api.stringifyId(target)
+        )
+    );
 
     useEffect(() => {
         if (size) {
@@ -40,7 +46,10 @@ FefferyListenElementSize.propTypes = {
     /**
      * 必填，设置尺寸监听目标元素`id`
      */
-    target: PropTypes.string.isRequired,
+    target: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object
+    ]),
 
     /**
      * 监听目标元素像素宽度
