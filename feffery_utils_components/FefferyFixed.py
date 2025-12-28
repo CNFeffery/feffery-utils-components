@@ -52,7 +52,7 @@ Keyword arguments:
 - followImageContainerSize (list of numbers; optional):
     当`mode='follow-image'`时，当前容器宽度、高度分别占目标图片对应宽度、高度的比例，格式如`[width_ratio,
     height_ratio]`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyFixed'

@@ -32,7 +32,7 @@ Keyword arguments:
 
 - rawStyle (string; optional):
     设置要添加到文档中的原生`css`字符."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyStyle'

@@ -91,7 +91,7 @@ Keyword arguments:
 
 - displayArrayKey (boolean; default True):
     是否针对数组元素展示元素下标  默认值：`True`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyJsonViewer'

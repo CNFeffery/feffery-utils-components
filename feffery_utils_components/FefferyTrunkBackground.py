@@ -68,7 +68,7 @@ Keyword arguments:
 
 - chaos (number; default 1):
     设置`trunk`混乱程度，范围`0`到`10`  默认为`1`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyTrunkBackground'

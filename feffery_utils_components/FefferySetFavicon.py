@@ -32,7 +32,7 @@ Keyword arguments:
 
 - favicon (string; optional):
     用于设置要更新的`favicon`图片文件地址，支持`svg`、`png`、`ico`、`gif`格式."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferySetFavicon'

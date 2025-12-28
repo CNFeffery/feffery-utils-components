@@ -41,7 +41,7 @@ Keyword arguments:
 
 - delay (number; default 300):
     设置符合长按行为的持续时长，单位：毫秒  默认值：`300`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyLongPress'

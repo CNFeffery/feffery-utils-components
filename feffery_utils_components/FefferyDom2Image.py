@@ -52,7 +52,7 @@ Keyword arguments:
 
     - timestamp (number; optional):
         对应当前任务完成的时间戳."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyDom2Image'

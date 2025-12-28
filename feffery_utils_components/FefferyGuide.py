@@ -121,7 +121,7 @@ Keyword arguments:
 
 - step (number; optional):
     设置初始化时的起始步骤，为`-1`时则不显示引导组件  默认值：`0`."""
-    _children_props = ['steps[].title', 'steps[].content']
+    _children_props: typing.List[str] = ['steps[].title', 'steps[].content']
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyGuide'

@@ -53,7 +53,7 @@ Keyword arguments:
 
 - effectiveType (a value equal to: 'slow-2g', '2g', '3g', '4g'; optional):
     网络连接的类型，可选项有`'slow-2g'`、`'2g'`、`'3g'`、`'4g'`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyNetwork'

@@ -35,7 +35,7 @@ Keyword arguments:
 
 - position (dict; optional):
     监听目标滚动条的水平及竖直方向上的像素偏移量."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyListenScroll'

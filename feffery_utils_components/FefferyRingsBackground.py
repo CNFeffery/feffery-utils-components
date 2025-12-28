@@ -65,7 +65,7 @@ Keyword arguments:
 
 - backgroundAlpha (number; default 1):
     设置背景颜色透明度，范围`0`到`1`  默认为`1`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyRingsBackground'

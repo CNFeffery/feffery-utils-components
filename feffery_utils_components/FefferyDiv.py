@@ -219,7 +219,7 @@ Keyword arguments:
 
 - printNow (boolean; optional):
     是否立即执行打印功能调用，每次设置为`True`触发打印后都会重置为`False`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyDiv'

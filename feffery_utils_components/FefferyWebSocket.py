@@ -50,7 +50,7 @@ Keyword arguments:
 
 - state (a value equal to: 'connecting', 'open', 'closing', 'closed'; optional):
     用于监听当前此连接的状态，有`'connecting'`、`'open'`、`'closing'`、`'closed'`四种状态."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyWebSocket'

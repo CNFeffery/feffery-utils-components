@@ -32,7 +32,7 @@ Keyword arguments:
 
 - cssVars (dict; optional):
     定义要更新的`css`变量键值对信息."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyCssVar'

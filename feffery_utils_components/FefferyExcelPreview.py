@@ -47,7 +47,7 @@ Keyword arguments:
 
 - heightOffset (number; optional):
     默认行高的基础上额外增加的像素行高."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyExcelPreview'

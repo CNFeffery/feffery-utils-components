@@ -59,7 +59,7 @@ Keyword arguments:
 
 - rootStyle (dict; optional):
     拖拽控件根元素部分`css`样式."""
-    _children_props = ['firstItem', 'secondItem']
+    _children_props: typing.List[str] = ['firstItem', 'secondItem']
     _base_nodes = ['firstItem', 'secondItem', 'children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyCompareSlider'

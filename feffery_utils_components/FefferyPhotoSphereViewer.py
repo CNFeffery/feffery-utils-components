@@ -133,7 +133,7 @@ Keyword arguments:
 
     - autorotateSpeed (string; optional):
         `Autorotate`模式下，自动旋转速度  默认值：`2rpm`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyPhotoSphereViewer'

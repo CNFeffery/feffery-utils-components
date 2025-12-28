@@ -35,7 +35,7 @@ Keyword arguments:
 
 - initialSync (boolean; default False):
     设置初始化时是否从`localStorage`中尝试读取id对应的值并更新到`data`中  默认值：`False`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyLocalStorage'

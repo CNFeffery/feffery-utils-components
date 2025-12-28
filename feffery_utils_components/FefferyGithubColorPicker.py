@@ -44,7 +44,7 @@ Keyword arguments:
 
 - triangle (a value equal to: 'hide', 'top-left', 'top-right'; default 'top-left'):
     顶部箭头方位，可选项有`'hide'`、`'top-left'`、`'top-right'`  默认值：`'top-left'`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyGithubColorPicker'

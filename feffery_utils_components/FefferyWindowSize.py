@@ -35,7 +35,7 @@ Keyword arguments:
 
 - _height (number; optional):
     监听当前浏览器窗口像素高度."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyWindowSize'

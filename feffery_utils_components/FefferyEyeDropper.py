@@ -35,7 +35,7 @@ Keyword arguments:
 
 - color (string; optional):
     监听最近一次色彩拾取操作对应16进制颜色值."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyEyeDropper'

@@ -247,7 +247,7 @@ Keyword arguments:
 
 - clickOutsideNums (number; default 0):
     监听点击选择器外区域的次数."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyEmojiPicker'

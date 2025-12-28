@@ -107,7 +107,7 @@ Keyword arguments:
 
 - destroyWhenAnimated (boolean; default False):
     是否在动画完成后销毁当前组件  默认值：`False`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyMotion'

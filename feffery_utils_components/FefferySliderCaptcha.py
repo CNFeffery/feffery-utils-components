@@ -96,7 +96,7 @@ Keyword arguments:
 
     - timestamp (number; optional):
         事件发生时间戳."""
-    _children_props = ['tipText.default', 'tipText.loading', 'tipText.moving', 'tipText.verifying', 'tipText.success', 'tipText.error']
+    _children_props: typing.List[str] = ['tipText.default', 'tipText.loading', 'tipText.moving', 'tipText.verifying', 'tipText.success', 'tipText.error']
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferySliderCaptcha'

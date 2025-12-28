@@ -198,7 +198,7 @@ Keyword arguments:
 
 - debug (boolean; default False):
     是否开启调试模式，开启后，每次布局参数更新，都会在浏览器开发者工具控制台打印相关参数  默认值：`False`."""
-    _children_props = ['placeholder']
+    _children_props: typing.List[str] = ['placeholder']
     _base_nodes = ['placeholder', 'children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyGrid'

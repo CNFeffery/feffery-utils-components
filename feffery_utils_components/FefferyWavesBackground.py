@@ -71,7 +71,7 @@ Keyword arguments:
 
 - zoom (number; default 1):
     设置缩放大小，范围`0.7`到`1.8`  默认为`1`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyWavesBackground'

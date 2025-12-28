@@ -56,7 +56,7 @@ Keyword arguments:
 
 - trigger (a value equal to: 'load', 'pushstate', 'popstate'; optional):
     监听最近一次地址更新行为触发类型，`'load'`表示页面重载行为，`'pushstate'`表示动态更新行为，`'popstate'`表示返回上一步地址."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyLocation'

@@ -124,7 +124,7 @@ Keyword arguments:
 
 - selectedClassName (string; optional):
     配置当前组件在选中状态下的`css`类名."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyRND'

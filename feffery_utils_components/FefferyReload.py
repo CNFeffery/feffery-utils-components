@@ -35,7 +35,7 @@ Keyword arguments:
 
 - delay (number; optional):
     设置重载执行的延时时长（单位：毫秒）."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyReload'

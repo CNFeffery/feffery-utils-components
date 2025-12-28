@@ -38,7 +38,7 @@ Keyword arguments:
 
 - throttleWait (number; default 200):
     设置节流延时时长，单位：毫秒  默认值：`200`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyThrottleProp'

@@ -32,7 +32,7 @@ Keyword arguments:
 
 - geoLocationInfo (dict; optional):
     监听当前用户地理位置相关信息."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyGeolocation'

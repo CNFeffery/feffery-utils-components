@@ -41,7 +41,7 @@ Keyword arguments:
 
 - play (boolean; default False):
     初始化是否自动播放动图  默认值：`False`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyAnimatedImage'

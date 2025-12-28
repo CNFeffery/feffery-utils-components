@@ -47,7 +47,7 @@ Keyword arguments:
 
 - zIndex (number; optional):
     粘性布局元素对应`z-index`属性."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferySticky'

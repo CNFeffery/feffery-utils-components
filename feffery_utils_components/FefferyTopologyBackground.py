@@ -62,7 +62,7 @@ Keyword arguments:
 
 - color (string; default '#89964e'):
     设置`topology`颜色  默认为`'#89964e'`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyTopologyBackground'

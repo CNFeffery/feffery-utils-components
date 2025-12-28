@@ -444,7 +444,7 @@ Keyword arguments:
     - position (a value equal to: 'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'; optional):
         设置消息提示的弹出方位，可选的有`'top-left'`、`'top-center'`、`'top-right'`、`'bottom-left'`、`'bottom-center'`、`'bottom-right'`
         默认值：`'top-center'`."""
-    _children_props = ['successMessage.icon', 'errorMessage.icon']
+    _children_props: typing.List[str] = ['successMessage.icon', 'errorMessage.icon']
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyRichTextEditor'

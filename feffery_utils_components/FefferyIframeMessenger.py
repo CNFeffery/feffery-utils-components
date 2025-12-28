@@ -44,7 +44,7 @@ Keyword arguments:
 
 - recivedMessage (boolean | number | string | dict | list; optional):
     当`role='receiver'`时，用于监听最近一次收到的信息内容."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyIframeMessenger'

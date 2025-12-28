@@ -35,7 +35,7 @@ Keyword arguments:
 
 - isMatch (boolean; optional):
     监听当前媒体查询是否满足."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyMediaQuery'

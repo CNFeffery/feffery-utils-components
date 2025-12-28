@@ -94,7 +94,7 @@ Keyword arguments:
 
 - selectedStyle (dict; optional):
     针对已选中项设置额外的`css`样式."""
-    _children_props = ['items[].content']
+    _children_props: typing.List[str] = ['items[].content']
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferySortable'

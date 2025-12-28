@@ -35,7 +35,7 @@ Keyword arguments:
 
 - confirmBeforeUnload (boolean; default False):
     是否在用户重载或关闭当前页面时，添加二次确认  默认值：`False`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyListenUnload'

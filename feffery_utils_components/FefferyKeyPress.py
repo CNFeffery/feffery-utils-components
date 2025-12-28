@@ -35,7 +35,7 @@ Keyword arguments:
 
 - pressedCounts (number; default 0):
     记录设置的按键或按键组合事件已被触发的次数  默认值：`0`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyKeyPress'

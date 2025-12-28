@@ -68,7 +68,7 @@ Keyword arguments:
 
 - size (number; default 1):
     设置globe大小，范围`0.5`到`2`  默认为`1`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyGlobeBackground'

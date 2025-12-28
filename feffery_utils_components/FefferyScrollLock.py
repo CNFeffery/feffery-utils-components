@@ -35,7 +35,7 @@ Keyword arguments:
 
 - locked (boolean; default False):
     设置针对目标是否开启滚动锁定  默认值：`False`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyScrollLock'

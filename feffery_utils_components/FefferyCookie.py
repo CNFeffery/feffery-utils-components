@@ -47,7 +47,7 @@ Keyword arguments:
 
 - secure (boolean; default False):
     设置当前`cookie`是否仅允许通过`https`安全传输  默认值：`False`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyCookie'

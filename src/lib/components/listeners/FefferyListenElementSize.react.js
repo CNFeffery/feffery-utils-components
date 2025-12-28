@@ -16,7 +16,7 @@ const FefferyListenElementSize = ({
         document.getElementById(
             typeof target === 'string'
                 ? target
-                : dash_component_api.stringifyId(target)
+                : window.dash_component_api.stringifyId(target)
         )
     );
 
@@ -49,7 +49,7 @@ FefferyListenElementSize.propTypes = {
     target: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.object
-    ]),
+    ]).isRequired,
 
     /**
      * 监听目标元素像素宽度

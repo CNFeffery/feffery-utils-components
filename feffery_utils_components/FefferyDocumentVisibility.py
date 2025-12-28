@@ -32,7 +32,7 @@ Keyword arguments:
 
 - documentVisibility (a value equal to: 'visible', 'hidden'; optional):
     监听页面是否可见，可选项有`'visible'`、`'hidden'`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyDocumentVisibility'

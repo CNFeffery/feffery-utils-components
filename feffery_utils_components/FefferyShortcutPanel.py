@@ -146,7 +146,7 @@ Keyword arguments:
 
 - searchValue (string; optional):
     监听用户当前已输入搜索内容."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyShortcutPanel'

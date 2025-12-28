@@ -38,7 +38,7 @@ Keyword arguments:
 
 - threshold (number; optional):
     触发元素可见性状态切换的比例阈值."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyInViewport'

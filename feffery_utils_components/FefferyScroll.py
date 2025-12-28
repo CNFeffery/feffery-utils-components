@@ -61,7 +61,7 @@ Keyword arguments:
 
 - offset (number; optional):
     设置滚动过程的额外偏移像素距离."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyScroll'

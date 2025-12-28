@@ -35,7 +35,7 @@ Keyword arguments:
 
 - originTitle (string; optional):
     当`title`参数为空，或当前组件从页面中卸载后应当还原的`title`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferySetTitle'

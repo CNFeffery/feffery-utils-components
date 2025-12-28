@@ -67,7 +67,7 @@ Keyword arguments:
 
 - scrollbarMaxSize (number; optional):
     滚动条最大像素长度."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyScrollbars'

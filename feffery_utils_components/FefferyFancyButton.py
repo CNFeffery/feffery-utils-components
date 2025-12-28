@@ -62,7 +62,7 @@ Keyword arguments:
 
 - ripple (boolean; optional):
     是否开启点击涟漪效果  默认值：`False`."""
-    _children_props = ['before', 'after']
+    _children_props: typing.List[str] = ['before', 'after']
     _base_nodes = ['before', 'after', 'children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyFancyButton'

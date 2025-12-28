@@ -38,7 +38,7 @@ Keyword arguments:
 
 - isDragging (boolean; optional):
     监听目标是否处于拖拽中状态."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyListenDrag'

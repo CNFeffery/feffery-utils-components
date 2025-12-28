@@ -58,7 +58,7 @@ Keyword arguments:
 
 - rounded (boolean; default False):
     是否渲染为圆角矩形  默认值：`False`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyBurger'

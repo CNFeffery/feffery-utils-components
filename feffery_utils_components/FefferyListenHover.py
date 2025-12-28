@@ -35,7 +35,7 @@ Keyword arguments:
 
 - isHovering (boolean; optional):
     监听目标元素是否处于鼠标悬停状态."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyListenHover'

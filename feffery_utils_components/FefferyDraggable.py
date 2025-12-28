@@ -65,7 +65,7 @@ Keyword arguments:
 
 - isFocusWithin (boolean; optional):
     只读，用于监听当前可拖拽组件是否处于聚焦状态."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyDraggable'

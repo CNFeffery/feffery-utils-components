@@ -291,7 +291,7 @@ Keyword arguments:
 
 - currentListSwitchAudioInfo (dict; optional):
     监听参数，当前列表切换到的音频信息."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyAPlayer'

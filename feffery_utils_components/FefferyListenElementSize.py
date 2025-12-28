@@ -30,7 +30,7 @@ Keyword arguments:
 - key (string; optional):
     对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
-- target (string; required):
+- target (string | dict; required):
     必填，设置尺寸监听目标元素`id`.
 
 - width (number; optional):
@@ -38,7 +38,7 @@ Keyword arguments:
 
 - height (number; optional):
     监听目标元素像素高度."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyListenElementSize'
@@ -48,7 +48,7 @@ Keyword arguments:
         self,
         id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
-        target: typing.Optional[str] = None,
+        target: typing.Optional[typing.Union[str, dict]] = None,
         width: typing.Optional[NumberType] = None,
         height: typing.Optional[NumberType] = None,
         **kwargs

@@ -93,7 +93,7 @@ Keyword arguments:
 
 - cohesion (number; default 20):
     设置birds内聚大小，范围`1`到`100`  默认为`20`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyBirdsBackground'

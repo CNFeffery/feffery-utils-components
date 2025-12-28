@@ -90,7 +90,7 @@ Keyword arguments:
 
     - screenY (number; optional):
         以屏幕左上角为原点，记录`y`坐标."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyListenDrop'

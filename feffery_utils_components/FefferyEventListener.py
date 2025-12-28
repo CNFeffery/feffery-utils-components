@@ -44,7 +44,7 @@ Keyword arguments:
 
 - result (boolean | number | string | dict | list; optional):
     监听`handler`对应函数的返回值，作为事件监听的结果."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyEventListener'

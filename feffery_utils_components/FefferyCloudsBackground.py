@@ -74,7 +74,7 @@ Keyword arguments:
 
 - speed (number; default 1):
     设置动画速度，范围`0`到`3`  默认为`1`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyCloudsBackground'

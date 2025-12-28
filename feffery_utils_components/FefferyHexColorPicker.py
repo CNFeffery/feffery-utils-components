@@ -38,7 +38,7 @@ Keyword arguments:
 
 - showAlpha (boolean; default False):
     是否显示透明度选择控件  默认值：`False`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyHexColorPicker'

@@ -125,7 +125,7 @@ Keyword arguments:
     - bottomLeft (string; optional)
 
     - topLeft (string; optional)"""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyResizable'

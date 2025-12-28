@@ -32,7 +32,7 @@ Keyword arguments:
 
 - responsive (dict; optional):
     监听当前页面尺寸下对应各断点像素宽度的满足情况."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyResponsive'

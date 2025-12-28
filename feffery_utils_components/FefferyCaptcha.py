@@ -53,7 +53,7 @@ Keyword arguments:
 
 - refresh (boolean; optional):
     用于手动刷新验证码，当传入`True`时会强制刷新验证码，再自动重置为`False`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyCaptcha'

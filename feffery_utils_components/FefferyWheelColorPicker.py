@@ -35,7 +35,7 @@ Keyword arguments:
 
 - color (string; optional):
     监听或设置当前选中色彩对应16进制颜色值."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyWheelColorPicker'

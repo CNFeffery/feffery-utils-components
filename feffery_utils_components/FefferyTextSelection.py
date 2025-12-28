@@ -41,7 +41,7 @@ Keyword arguments:
 
 - selectedTextInfo (dict; optional):
     监听最近一次目标容器内文本选中事件相关信息."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyTextSelection'

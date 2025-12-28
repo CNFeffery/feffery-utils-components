@@ -41,7 +41,7 @@ Keyword arguments:
 
 - itemHeight (number; required):
     每个子元素区域的像素高度."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyVirtualList'

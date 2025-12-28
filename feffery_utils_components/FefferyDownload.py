@@ -40,7 +40,7 @@ Keyword arguments:
 
     - name (string; optional):
         自定义文件下载后的文件名，可省略后缀名."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyDownload'

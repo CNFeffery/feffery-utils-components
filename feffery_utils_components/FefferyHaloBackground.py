@@ -68,7 +68,7 @@ Keyword arguments:
 
 - yOffset (number; default 0):
     设置y轴偏移量，范围为`-0.5`到`0.5`  默认为`0`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyHaloBackground'

@@ -80,7 +80,7 @@ Keyword arguments:
 
 - isFullscreen (boolean; default False):
     监听当前相册是否处于全屏化状态  默认值：`False`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyImageGallery'

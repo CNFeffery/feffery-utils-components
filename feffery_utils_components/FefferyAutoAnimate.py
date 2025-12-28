@@ -41,7 +41,7 @@ Keyword arguments:
 
 - easing (string; default 'ease-in-out'):
     设置过渡动画函数，同css中的`easing-function`  默认为`'ease-in-out'`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyAutoAnimate'

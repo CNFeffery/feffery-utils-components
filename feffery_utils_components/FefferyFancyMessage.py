@@ -63,7 +63,7 @@ Keyword arguments:
 
 - icon (a list of or a singular dash component, string or number; optional):
     自定义消息提示图标."""
-    _children_props = ['icon']
+    _children_props: typing.List[str] = ['icon']
     _base_nodes = ['icon', 'children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyFancyMessage'

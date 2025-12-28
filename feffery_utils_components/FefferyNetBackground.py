@@ -74,7 +74,7 @@ Keyword arguments:
 
 - showDots (boolean; default True):
     设置是否展示点  默认为`True`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyNetBackground'

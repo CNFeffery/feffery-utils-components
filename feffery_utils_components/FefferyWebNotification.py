@@ -35,7 +35,7 @@ Keyword arguments:
 
 - isSupported (boolean; optional):
     监听用户浏览器中是否支持web通知."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyWebNotification'

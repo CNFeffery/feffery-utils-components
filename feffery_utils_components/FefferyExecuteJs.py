@@ -48,7 +48,7 @@ Keyword arguments:
 
 - targetWaitTimeout (number; optional):
     `wait-until-element-rendered`模式下，设置目标元素渲染检测最大等待时长，单位：毫秒，默认无限制."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyExecuteJs'

@@ -43,7 +43,7 @@ Keyword arguments:
 
 - disabled (boolean; default False):
     设置是否禁用当前组件的图片粘贴行为监听功能  默认值：`False`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyImagePaste'

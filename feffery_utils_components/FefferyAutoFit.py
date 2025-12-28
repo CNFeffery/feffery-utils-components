@@ -62,7 +62,7 @@ Keyword arguments:
 
 - close (boolean; default False):
     关闭自适应，设置为`True`执行完相应操作后会自动重置为`False`  默认为`False`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyAutoFit'

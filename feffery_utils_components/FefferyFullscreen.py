@@ -46,7 +46,7 @@ Keyword arguments:
 
     - zIndex (number; optional):
         设置页面全屏根元素对应的`z-index`值."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyFullscreen'

@@ -35,7 +35,7 @@ Keyword arguments:
 
 - src (string; required):
     必填，设置目标`word`文件资源地址."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyWordPreview'

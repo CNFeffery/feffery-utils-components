@@ -67,7 +67,7 @@ Keyword arguments:
 
 - renderer (a value equal to: 'svg', 'canvas'; default 'svg'):
     指定渲染引擎，可选项有`'svg'`、`'canvas'`  默认值：`'svg'`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyQRCode'

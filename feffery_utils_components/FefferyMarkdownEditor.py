@@ -511,7 +511,7 @@ Keyword arguments:
 
     - result (string; optional):
         自定义语法的渲染结果."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyMarkdownEditor'

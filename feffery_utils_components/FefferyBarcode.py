@@ -98,7 +98,7 @@ Keyword arguments:
 
 - flat (boolean; default False):
     设置条形码是否保持平整，仅适用于`EAN8`和`EAN13`  默认值：`False`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyBarcode'

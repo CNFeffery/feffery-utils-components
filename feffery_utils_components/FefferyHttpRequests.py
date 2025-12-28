@@ -89,7 +89,7 @@ Keyword arguments:
 
 - status (a value equal to: 'pending', 'idle'; optional):
     监听当前组件的状态，`'pending'`表示请求中，`'idle'`表示空闲状态."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyHttpRequests'

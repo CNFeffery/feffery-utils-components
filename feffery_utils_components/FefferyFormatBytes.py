@@ -41,7 +41,7 @@ Keyword arguments:
 
 - display (a value equal to: 'long', 'short', 'narrow'; default 'short'):
     展示类型，可选项有`'long'`、`'short'`、`'narrow'`  默认值：`'short'`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyFormatBytes'

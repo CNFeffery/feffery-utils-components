@@ -94,7 +94,7 @@ Keyword arguments:
 
     - navigation (boolean; optional):
         左右方向的滚动是否显示控制器按钮，传入`True`时`autoPlay`将自动变为`False`  默认值：`False`."""
-    _children_props = ['leftSwitchChildren', 'rightSwitchChildren']
+    _children_props: typing.List[str] = ['leftSwitchChildren', 'rightSwitchChildren']
     _base_nodes = ['leftSwitchChildren', 'rightSwitchChildren', 'children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferySeamlessScroll'

@@ -39,7 +39,7 @@ Keyword arguments:
 
 - jsString (string; optional):
     当`strategy`为`'debugger-then-execute-js'`时，设置要执行的js代码."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyDebugGuardian'

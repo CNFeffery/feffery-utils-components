@@ -90,7 +90,7 @@ Keyword arguments:
 
 - theme (a value equal to: 'light', 'dark', 'colored'; optional):
     设置主题，可选的有`'light'`、`'dark'`、`'colored'`  默认值：`'light'`."""
-    _children_props = []
+    _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
     _type = 'FefferyFancyNotification'
