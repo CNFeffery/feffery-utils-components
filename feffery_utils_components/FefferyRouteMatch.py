@@ -40,7 +40,7 @@ Keyword arguments:
     当前地址匹配目标路由时，监听对应的相关参数信息.
 
 - updateParamsWhenMatch (boolean; default True):
-    是否仅在当前地址匹配目标路由时，对`params`进行更新  默认值：`True`."""
+    是否仅在当前地址匹配目标路由时，对`params`进行更新 默认值：`True`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

@@ -40,7 +40,7 @@ Keyword arguments:
     事件监听目标对应的选择器字符串，默认监听目标为整个页面.
 
 - enable (boolean; default True):
-    控制是否开启监听  默认值：`True`.
+    控制是否开启监听 默认值：`True`.
 
 - result (boolean | number | string | dict | list; optional):
     监听`handler`对应函数的返回值，作为事件监听的结果."""

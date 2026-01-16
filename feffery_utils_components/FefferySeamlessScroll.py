@@ -51,49 +51,49 @@ Keyword arguments:
     `classOption` is a dict with keys:
 
     - step (number; optional):
-        滚动速度，数值越大速度滚动越快  默认值：`1`.
+        滚动速度，数值越大速度滚动越快 默认值：`1`.
 
     - limitMoveNum (number; optional):
-        开启无缝滚动的数据量  默认值：`5`.
+        开启无缝滚动的数据量 默认值：`5`.
 
     - hoverStop (boolean; optional):
-        是否启用鼠标移入控制  默认值：`True`.
+        是否启用鼠标移入控制 默认值：`True`.
 
     - direction (number; optional):
-        方向，可选项有`0`（向下）、`1`（向上）、`2`（向左）、`3`（向右）  默认值：`1`.
+        方向，可选项有`0`（向下）、`1`（向上）、`2`（向左）、`3`（向右） 默认值：`1`.
 
     - openTouch (boolean; optional):
-        移动端是否开启触碰滑动  默认值：`True`.
+        移动端是否开启触碰滑动 默认值：`True`.
 
     - singleHeight (number; optional):
-        单步运动停止的高度，`direction`为`0`、`1`时生效  默认值：`0`.
+        单步运动停止的高度，`direction`为`0`、`1`时生效 默认值：`0`.
 
     - singleWidth (number; optional):
-        单步运动停止的宽度，`direction`为`2`、`3`时生效  默认值：`0`.
+        单步运动停止的宽度，`direction`为`2`、`3`时生效 默认值：`0`.
 
     - waitTime (number; optional):
-        单步停止等待时间，单位：毫秒  默认值：`1000`.
+        单步停止等待时间，单位：毫秒 默认值：`1000`.
 
     - switchOffset (number; optional):
-        左右切换按钮距离左右边界的像素边距  默认值：`30`.
+        左右切换按钮距离左右边界的像素边距 默认值：`30`.
 
     - autoPlay (boolean; optional):
-        是否开启自动滚动  默认值：`True`.
+        是否开启自动滚动 默认值：`True`.
 
     - switchSingleStep (number; optional):
-        手动单步切换像素`step`值  默认值：`134`.
+        手动单步切换像素`step`值 默认值：`134`.
 
     - switchDelay (number; optional):
-        单步切换的动画时间，单位：毫秒  默认值：`400`.
+        单步切换的动画时间，单位：毫秒 默认值：`400`.
 
     - switchDisabledClass (string; optional):
-        不可点击状态对应控件父元素`css`类名  默认值：`'disabled'`.
+        不可点击状态对应控件父元素`css`类名 默认值：`'disabled'`.
 
     - isSingleRemUnit (boolean; optional):
-        `singleHeight`、`singleWidth`是否开启`rem`度量  默认值：`False`.
+        `singleHeight`、`singleWidth`是否开启`rem`度量 默认值：`False`.
 
     - navigation (boolean; optional):
-        左右方向的滚动是否显示控制器按钮，传入`True`时`autoPlay`将自动变为`False`  默认值：`False`."""
+        左右方向的滚动是否显示控制器按钮，传入`True`时`autoPlay`将自动变为`False` 默认值：`False`."""
     _children_props: typing.List[str] = ['leftSwitchChildren', 'rightSwitchChildren']
     _base_nodes = ['leftSwitchChildren', 'rightSwitchChildren', 'children']
     _namespace = 'feffery_utils_components'

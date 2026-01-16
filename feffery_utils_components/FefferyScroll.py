@@ -48,13 +48,13 @@ Keyword arguments:
     当`scrollMode='target'`时，用于设置滚动目标元素的id信息.
 
 - duration (number; default 500):
-    用于设置滚动过程耗时（单位：毫秒）  默认值：`500`.
+    用于设置滚动过程耗时（单位：毫秒） 默认值：`500`.
 
 - smooth (boolean | a value equal to: 'linear', 'easeInQuad', 'easeOutQuad', 'easeInOutQuad', 'easeInCubic', 'easeOutCubic', 'easeInOutCubic', 'easeInQuart', 'easeOutQuart', 'easeInOutQuart', 'easeInQuint', 'easeOutQuint', 'easeInOutQuint'; default True):
-    用于设置滚动过程动画模式  默认值：True.
+    用于设置滚动过程动画模式 默认值：True.
 
 - delay (number; default 0):
-    用于设置滚动延时（单位：毫秒）  默认值：0.
+    用于设置滚动延时（单位：毫秒） 默认值：0.
 
 - containerId (string; optional):
     当滚动目标位于局部滚动条内时，用于设置局部滚动条所在的容器id信息.

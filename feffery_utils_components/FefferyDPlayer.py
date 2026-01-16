@@ -34,34 +34,34 @@ Keyword arguments:
     当前组件css类名，支持[动态css](/advanced-classname).
 
 - live (boolean; default False):
-    是否开启开启直播模式  默认值：`False`.
+    是否开启开启直播模式 默认值：`False`.
 
 - autoplay (boolean; default False):
-    视频是否自动播放  默认值：`False`.
+    视频是否自动播放 默认值：`False`.
 
 - theme (string; default '#b7daff'):
-    设置主题色  默认值：`'#b7daff'`.
+    设置主题色 默认值：`'#b7daff'`.
 
 - loop (boolean; default False):
-    视频是否循环播放  默认值：`False`.
+    视频是否循环播放 默认值：`False`.
 
 - lang (a value equal to: 'en', 'zh-cn', 'zh-tw'; default 'zh-cn'):
-    设置语言，可选值: `'en'`、`'zh-cn'`、`'zh-tw'`  默认值：`'zh-cn'`.
+    设置语言，可选值: `'en'`、`'zh-cn'`、`'zh-tw'` 默认值：`'zh-cn'`.
 
 - screenshot (boolean; default False):
-    是否开启截图，如果开启，视频和视频封面需要允许跨域  默认值：`False`.
+    是否开启截图，如果开启，视频和视频封面需要允许跨域 默认值：`False`.
 
 - airplay (boolean; default False):
-    在`Safari`中是否开启`AirPlay`  默认值：`False`.
+    在`Safari`中是否开启`AirPlay` 默认值：`False`.
 
 - hotkey (boolean; default True):
-    是否开启热键，支持快进、快退、音量控制、播放暂停  默认值：`True`.
+    是否开启热键，支持快进、快退、音量控制、播放暂停 默认值：`True`.
 
 - chromecast (boolean; default False):
-    是否启用`Chromecast`  默认值：`False`.
+    是否启用`Chromecast` 默认值：`False`.
 
 - preload (a value equal to: 'none', 'metadata', 'auto'; default 'auto'):
-    设置音频预加载，可选值: `'none'`、`'metadata'`、`'auto'`  默认值：`'auto'`.
+    设置音频预加载，可选值: `'none'`、`'metadata'`、`'auto'` 默认值：`'auto'`.
 
 - volume (number; default 0.7):
     默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效.
@@ -73,13 +73,13 @@ Keyword arguments:
     在左上角展示一个`logo`，你可以通过`CSS`调整它的大小和位置.
 
 - preventClickToggle (boolean; default False):
-    是否阻止点击播放器时候自动切换播放/暂停  默认值：`False`.
+    是否阻止点击播放器时候自动切换播放/暂停 默认值：`False`.
 
 - intervalMonitor (boolean; default False):
-    是否开启间隔监听当前视频信息  默认值：`False`.
+    是否开启间隔监听当前视频信息 默认值：`False`.
 
 - intervalMonitorDelay (number; default 1000):
-    间隔监听当前视频信息间隔时间，单位：ms  默认值：`1000`.
+    间隔监听当前视频信息间隔时间，单位：ms 默认值：`1000`.
 
 - video (dict; default { type: 'auto' }):
     设置视频信息.
@@ -127,13 +127,13 @@ Keyword arguments:
     `subtitle` is a dict with keys:
 
     - isOpen (boolean; optional):
-        是否开启外挂字幕  默认值：`False`.
+        是否开启外挂字幕 默认值：`False`.
 
     - url (string; optional):
         设置字幕链接.
 
     - type (a value equal to: 'webvtt', 'ass'; optional):
-        设置字幕类型，可选的有`'webvtt'`、`'ass'`，目前只支持`'webvtt'`  默认值：`'webvtt'`.
+        设置字幕类型，可选的有`'webvtt'`、`'ass'`，目前只支持`'webvtt'` 默认值：`'webvtt'`.
 
     - fontSize (string; optional):
         设置字幕字号.
@@ -150,7 +150,7 @@ Keyword arguments:
     `danmaku` is a dict with keys:
 
     - isOpen (boolean; optional):
-        是否开启弹幕  默认值：`False`.
+        是否开启弹幕 默认值：`False`.
 
     - id (string; optional):
         设置弹幕弹幕池`id`，必须唯一，设置弹幕时必选.
@@ -174,10 +174,10 @@ Keyword arguments:
         设置弹幕距离播放器底部的距离，防止遮挡字幕，取值形如: `'10px'`、`'10%'`.
 
     - unlimited (boolean; optional):
-        设置海量弹幕模式，即使重叠也展示全部弹幕，请注意播放器会记忆用户设置，用户手动设置后即失效  默认值：`False`.
+        设置海量弹幕模式，即使重叠也展示全部弹幕，请注意播放器会记忆用户设置，用户手动设置后即失效 默认值：`False`.
 
     - speedRate (number; optional):
-        设置弹幕速度倍率，越大速度越快  默认值：`1`.
+        设置弹幕速度倍率，越大速度越快 默认值：`1`.
 
 - contextmenu (list of dicts; optional):
     自定义右键菜单.
@@ -202,7 +202,7 @@ Keyword arguments:
         进度条提示点的文字.
 
 - mutex (boolean; default True):
-    是否互斥，阻止多个播放器同时播放，当前播放器播放时暂停其他播放器  默认值：`True`.
+    是否互斥，阻止多个播放器同时播放，当前播放器播放时暂停其他播放器 默认值：`True`.
 
 - play (boolean; default False):
     播放视频，每次设置为`True`后执行完相应操作后会自动置为`False`.
@@ -275,7 +275,7 @@ Keyword arguments:
         是否设置全屏.
 
     - type (a value equal to: 'web', 'browser'; optional):
-        全屏的类型，可选的有`'web'`、`'browser'`  默认值：`'browser'`.
+        全屏的类型，可选的有`'web'`、`'browser'` 默认值：`'browser'`.
 
     - operate (a value equal to: 'request', 'cancel'; optional):
         全屏操作类型，可选的有`'request'`、`'cancel'`.
@@ -341,7 +341,7 @@ Keyword arguments:
         `danmaku` is a dict with keys:
 
         - isOpen (boolean; optional):
-            是否开启弹幕  默认值：`False`.
+            是否开启弹幕 默认值：`False`.
 
         - id (string; optional):
             设置弹幕弹幕池`id`，必须唯一，设置弹幕时必选.
@@ -365,11 +365,10 @@ Keyword arguments:
             设置弹幕距离播放器底部的距离，防止遮挡字幕，取值形如: `'10px'`、`'10%'`.
 
         - unlimited (boolean; optional):
-            设置海量弹幕模式，即使重叠也展示全部弹幕，请注意播放器会记忆用户设置，用户手动设置后即失效
-            默认值：`False`.
+            设置海量弹幕模式，即使重叠也展示全部弹幕，请注意播放器会记忆用户设置，用户手动设置后即失效 默认值：`False`.
 
         - speedRate (number; optional):
-            设置弹幕速度倍率，越大速度越快  默认值：`1`.
+            设置弹幕速度倍率，越大速度越快 默认值：`1`.
 
 - sendDanmaku (dict; default { isSend: False }):
     发送弹幕，每次`isSend`设置为`True`后执行完相应操作后会自动置为`False`.

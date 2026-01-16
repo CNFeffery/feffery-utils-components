@@ -43,10 +43,10 @@ Keyword arguments:
     设置当前`cookie`值的有效存储时间，单位：秒.
 
 - pathname (string; default '/'):
-    设置当前`cookie`值可用的`pathname`  默认值：`'/'`.
+    设置当前`cookie`值可用的`pathname` 默认值：`'/'`.
 
 - secure (boolean; default False):
-    设置当前`cookie`是否仅允许通过`https`安全传输  默认值：`False`."""
+    设置当前`cookie`是否仅允许通过`https`安全传输 默认值：`False`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

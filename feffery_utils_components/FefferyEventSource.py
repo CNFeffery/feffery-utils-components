@@ -37,10 +37,10 @@ Keyword arguments:
     目标事件名称列表.
 
 - immediate (boolean; default True):
-    是否立即建立连接  默认：`True`.
+    是否立即建立连接 默认：`True`.
 
 - autoReconnect (dict; default False):
-    配置连接断开自动重连相关参数，设置为`False`时将不会自动重连  默认：`False`.
+    配置连接断开自动重连相关参数，设置为`False`时将不会自动重连 默认：`False`.
 
     `autoReconnect` is a dict with keys:
 

@@ -40,22 +40,22 @@ Keyword arguments:
     是否处于加载中状态.
 
 - minimum (number; optional):
-    顶端进度条初始进度值，取值在`0.33`到`1`之间  默认值：`0.33`.
+    顶端进度条初始进度值，取值在`0.33`到`1`之间 默认值：`0.33`.
 
 - easing (string; optional):
-    对应设置`css`中的`easing`属性  默认值：`'ease'`.
+    对应设置`css`中的`easing`属性 默认值：`'ease'`.
 
 - speed (number; optional):
-    进度条每步递增耗时，单位：毫秒  默认值：`200`.
+    进度条每步递增耗时，单位：毫秒 默认值：`200`.
 
 - showSpinner (boolean; optional):
-    是否在右上角渲染圆圈加载动画  默认值：`True`.
+    是否在右上角渲染圆圈加载动画 默认值：`True`.
 
 - debug (boolean; default False):
-    是否开启debug模式，开启后，每次动画加载都会在开发者工具的控制台打印相关`prop`信息  默认值：`False`.
+    是否开启debug模式，开启后，每次动画加载都会在开发者工具的控制台打印相关`prop`信息 默认值：`False`.
 
 - listenPropsMode (a value equal to: 'default', 'exclude', 'include'; default 'default'):
-    监听模式，可选项有`'default'`、`'exclude'`、`'include'`  默认值：`'default'`.
+    监听模式，可选项有`'default'`、`'exclude'`、`'include'` 默认值：`'default'`.
 
 - excludeProps (list of strings; optional):
     `listenPropsMode='exclude'`时，设置需要排除监听的回调目标列表，格式如`['组件id1.组件属性1',
@@ -66,14 +66,13 @@ Keyword arguments:
     '组件id2.组件属性2', ...]`.
 
 - color (string; default '#29d'):
-    顶部进度条色彩  默认值：`'#29d'`.
+    顶部进度条色彩 默认值：`'#29d'`.
 
 - zIndex (number; default 99999):
-    顶部进度条`z-index`值  默认值：`99999`.
+    顶部进度条`z-index`值 默认值：`99999`.
 
 - manual (boolean; default False):
-    是否开启手动控制模式，开启后是否处于加载状态将由`spinning`参数控制，与内部元素参与的回调状态无关
-    默认值：`False`."""
+    是否开启手动控制模式，开启后是否处于加载状态将由`spinning`参数控制，与内部元素参与的回调状态无关 默认值：`False`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

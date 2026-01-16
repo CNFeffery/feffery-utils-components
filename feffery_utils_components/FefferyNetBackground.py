@@ -37,43 +37,43 @@ Keyword arguments:
     当前组件css类名，支持[动态css](/advanced-classname).
 
 - mouseControls (boolean; default True):
-    设置是否开启鼠标控制  默认为`True`.
+    设置是否开启鼠标控制 默认为`True`.
 
 - touchControls (boolean; default True):
-    设置是否开启触摸控制  默认为`True`.
+    设置是否开启触摸控制 默认为`True`.
 
 - gyroControls (boolean; default False):
-    设置是否开启陀螺仪控制  默认为`False`.
+    设置是否开启陀螺仪控制 默认为`False`.
 
 - minHeight (number; default 200.00):
-    设置最小高度  默认为`200.00`.
+    设置最小高度 默认为`200.00`.
 
 - minWidth (number; default 200.00):
-    设置最小宽度  默认为`200.00`.
+    设置最小宽度 默认为`200.00`.
 
 - scale (number; default 1.00):
-    设置比例  默认为`1.00`.
+    设置比例 默认为`1.00`.
 
 - scaleMobile (number; default 1.00):
-    设置移动端比例  默认为`1.00`.
+    设置移动端比例 默认为`1.00`.
 
 - color (string; default '#ff3f81'):
-    设置`net`颜色  默认为`'#ff3f81'`.
+    设置`net`颜色 默认为`'#ff3f81'`.
 
 - backgroundColor (string; default '#23153c'):
-    设置背景颜色  默认为`'#23153c'`.
+    设置背景颜色 默认为`'#23153c'`.
 
 - points (number; default 10):
-    设置`net`点的数量，范围`1`到`20`  默认为`10`.
+    设置`net`点的数量，范围`1`到`20` 默认为`10`.
 
 - maxDistance (number; default 20):
-    设置最大距离，范围`10`到`40`  默认为`20`.
+    设置最大距离，范围`10`到`40` 默认为`20`.
 
 - spacing (number; default 15):
-    设置间距，范围`10`到`20`  默认为`15`.
+    设置间距，范围`10`到`20` 默认为`15`.
 
 - showDots (boolean; default True):
-    设置是否展示点  默认为`True`."""
+    设置是否展示点 默认为`True`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

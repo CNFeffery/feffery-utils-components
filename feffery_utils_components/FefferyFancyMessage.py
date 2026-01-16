@@ -37,14 +37,14 @@ Keyword arguments:
     当前组件css类名，支持[动态css](/advanced-classname).
 
 - visible (boolean; default True):
-    主动设置是否可见  默认值：`False`.
+    主动设置是否可见 默认值：`False`.
 
 - position (a value equal to: 'top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'; default 'top-center'):
     设置消息提示的弹出方位，可选的有`'top-left'`、`'top-center'`、`'top-right'`、`'bottom-left'`、`'bottom-center'`、`'bottom-right'`
     默认值：`'top-center'`.
 
 - reverseOrder (boolean; default True):
-    设置较新的消息提示是否从底部进行追加  默认值：`True`.
+    设置较新的消息提示是否从底部进行追加 默认值：`True`.
 
 - containerClassName (string; optional):
     设置容器的`css`类名.
@@ -53,13 +53,13 @@ Keyword arguments:
     设置容器的`css`样式.
 
 - gutter (number; default 8):
-    设置相邻消息提示之间的像素间距  默认值：`8`.
+    设置相邻消息提示之间的像素间距 默认值：`8`.
 
 - type (a value equal to: 'blank', 'success', 'error'; default 'blank'):
-    设置信息类型，可选的有`'blank'`、`'success'`、`'error'`  默认值：`'blank'`.
+    设置信息类型，可选的有`'blank'`、`'success'`、`'error'` 默认值：`'blank'`.
 
 - duration (number; default 4000):
-    设置消息提示显示时长（单位：毫秒）  默认值：`4000`.
+    设置消息提示显示时长（单位：毫秒） 默认值：`4000`.
 
 - icon (a list of or a singular dash component, string or number; optional):
     自定义消息提示图标."""

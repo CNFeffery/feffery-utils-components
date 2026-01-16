@@ -34,13 +34,13 @@ Keyword arguments:
     当前组件css类名.
 
 - value (number; default 0):
-    待格式化的原始字节数值  默认值：`0`.
+    待格式化的原始字节数值 默认值：`0`.
 
 - type (a value equal to: 'decimal', 'percent'; default 'decimal'):
-    格式化类型，可选项有`'decimal'`、`'percent'`  默认值：`'decimal'`.
+    格式化类型，可选项有`'decimal'`、`'percent'` 默认值：`'decimal'`.
 
 - noGrouping (boolean; default False):
-    是否关闭千分位符  默认值：`False`.
+    是否关闭千分位符 默认值：`False`.
 
 - minimumFractionDigits (number; optional):
     最小小数位数.

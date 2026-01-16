@@ -37,13 +37,13 @@ Keyword arguments:
     监听或设置当前选中色彩对应16进制颜色值.
 
 - colors (list of strings; default ['#B80000', '#DB3E00', '#FCCB00', '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB', '#EB9694', '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3', '#D4C4FB']):
-    设置可选色彩对应16进制颜色值数组  默认值：`['#B80000', '#DB3E00', '#FCCB00',
+    设置可选色彩对应16进制颜色值数组 默认值：`['#B80000', '#DB3E00', '#FCCB00',
     '#008B02', '#006B76', '#1273DE', '#004DCF', '#5300EB', '#EB9694',
     '#FAD0C3', '#FEF3BD', '#C1E1C5', '#BEDADC', '#C4DEF6', '#BED3F3',
     '#D4C4FB']`.
 
 - triangle (a value equal to: 'hide', 'top-left', 'top-right'; default 'top-left'):
-    顶部箭头方位，可选项有`'hide'`、`'top-left'`、`'top-right'`  默认值：`'top-left'`."""
+    顶部箭头方位，可选项有`'hide'`、`'top-left'`、`'top-right'` 默认值：`'top-left'`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

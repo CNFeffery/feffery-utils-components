@@ -40,16 +40,16 @@ Keyword arguments:
     组件型，设置进行比较的第二个元素.
 
 - position (number; default 50):
-    设置或监听当前卷帘比较组件的卷帘位置百分比，取值在`0`到`100`之间  默认值：`50`.
+    设置或监听当前卷帘比较组件的卷帘位置百分比，取值在`0`到`100`之间 默认值：`50`.
 
 - onlyHandleDraggable (boolean; default True):
-    是否仅拖拽控件部分可用于调整卷帘  默认值：`True`.
+    是否仅拖拽控件部分可用于调整卷帘 默认值：`True`.
 
 - boundsPadding (number; default 0):
-    设置卷帘移动到两侧时，进行留白的像素距离  默认值：`0`.
+    设置卷帘移动到两侧时，进行留白的像素距离 默认值：`0`.
 
 - direction (a value equal to: 'horizontal', 'vertical'; default 'horizontal'):
-    设置卷帘方向，可选项有`'horizontal'`、`'vertical'`  默认值：`'horizontal'`.
+    设置卷帘方向，可选项有`'horizontal'`、`'vertical'` 默认值：`'horizontal'`.
 
 - buttonStyle (dict; optional):
     拖拽控件按钮部分`css`样式.

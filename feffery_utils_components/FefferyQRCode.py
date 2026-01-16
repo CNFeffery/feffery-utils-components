@@ -34,19 +34,19 @@ Keyword arguments:
     设置二维码所表达的信息值.
 
 - size (number; default 128):
-    二维码像素边长  默认值：`128`.
+    二维码像素边长 默认值：`128`.
 
 - bgColor (string; default '#FFFFFF'):
-    背景色  默认值：`'#FFFFFF'`.
+    背景色 默认值：`'#FFFFFF'`.
 
 - fgColor (string; default '#000000'):
-    前景色  默认值：`'#000000'`.
+    前景色 默认值：`'#000000'`.
 
 - level (a value equal to: 'L', 'M', 'Q', 'H'; default 'L'):
-    解析精度，可选项有`'L'`、'M'、'Q'、'H'  默认值：`'L'`.
+    解析精度，可选项有`'L'`、'M'、'Q'、'H' 默认值：`'L'`.
 
 - includeMargin (boolean; default False):
-    是否添加外边距  默认值：`False`.
+    是否添加外边距 默认值：`False`.
 
 - imageSettings (dict; optional):
     配置二维码中心图片信息.
@@ -63,10 +63,10 @@ Keyword arguments:
         图片像素宽度，默认为二维码`size`的`10%`.
 
     - excavate (boolean; optional):
-        图片四周是否添加环绕白边  默认值：`True`.
+        图片四周是否添加环绕白边 默认值：`True`.
 
 - renderer (a value equal to: 'svg', 'canvas'; default 'svg'):
-    指定渲染引擎，可选项有`'svg'`、`'canvas'`  默认值：`'svg'`."""
+    指定渲染引擎，可选项有`'svg'`、`'canvas'` 默认值：`'svg'`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

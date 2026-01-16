@@ -37,25 +37,25 @@ Keyword arguments:
     必填，数字递增目标值，每次更新此参数后会重新触发递增动画.
 
 - start (number; default 0):
-    数字递增起始值，每次更新此参数后会重新触发递增动画  默认值：`0`.
+    数字递增起始值，每次更新此参数后会重新触发递增动画 默认值：`0`.
 
 - duration (number; default 2):
-    数字递增动画耗时，单位：秒，每次更新此参数后会重新触发递增动画  默认值：`2`.
+    数字递增动画耗时，单位：秒，每次更新此参数后会重新触发递增动画 默认值：`2`.
 
 - decimals (number; default 0):
-    小数精度  默认值：`0`.
+    小数精度 默认值：`0`.
 
 - enableScrollSpy (boolean; default True):
-    是否在当前元素进入视口后才开始执行递增动画  默认值：`True`.
+    是否在当前元素进入视口后才开始执行递增动画 默认值：`True`.
 
 - scrollSpyDelay (number; default 0):
-    当`enableScrollSpy=True`时，设置当前元素进入视口后延时多久开始执行递增动画，单位：毫秒  默认值：`0`.
+    当`enableScrollSpy=True`时，设置当前元素进入视口后延时多久开始执行递增动画，单位：毫秒 默认值：`0`.
 
 - scrollSpyOnce (boolean; default True):
-    是否仅进行一次视口出现后启用动画行为  默认值：`True`.
+    是否仅进行一次视口出现后启用动画行为 默认值：`True`.
 
 - separator (string; default ','):
-    自定义千分符  默认值：`','`."""
+    自定义千分符 默认值：`','`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

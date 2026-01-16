@@ -34,7 +34,7 @@ Keyword arguments:
     当前组件css类名.
 
 - locale (a value equal to: 'zh', 'en'; default 'zh'):
-    设置语言，可选项有`'zh'`、`'en'`  默认值：`'zh'`.
+    设置语言，可选项有`'zh'`、`'en'` 默认值：`'zh'`.
 
 - steps (list of dicts; required):
     必填，用于构造每一步锚定的页面元素.
@@ -86,7 +86,7 @@ Keyword arguments:
     用于设置本地缓存唯一标识`key`，从而辅助应用判断是否已展示过该引导页.
 
 - closable (boolean; optional):
-    设置是否允许跳过引导  默认值：`True`.
+    设置是否允许跳过引导 默认值：`True`.
 
 - modalClassName (string; optional):
     弹窗css类名.
@@ -95,16 +95,16 @@ Keyword arguments:
     蒙版层css类名.
 
 - mask (boolean; default True):
-    是否展示蒙版层  默认值：`True`.
+    是否展示蒙版层 默认值：`True`.
 
 - arrow (boolean; optional):
-    展示面板是否添加箭头  默认值：`True`.
+    展示面板是否添加箭头 默认值：`True`.
 
 - hotspot (boolean; optional):
-    展示面板是否展示热点标识  默认值：`False`.
+    展示面板是否展示热点标识 默认值：`False`.
 
 - stepText (string; optional):
-    自定义步骤信息展示内容的回调函数  默认值：`\"(stepIndex, stepCount) => { return
+    自定义步骤信息展示内容的回调函数 默认值：`\"(stepIndex, stepCount) => { return
     '第${stepIndex}步，共${stepCount}步'; }\"`.
 
 - nextText (string; optional):
@@ -114,13 +114,13 @@ Keyword arguments:
     “上一步”按钮文案信息.
 
 - showPreviousBtn (boolean; default True):
-    是否显示“上一步”按钮  默认值：`True`.
+    是否显示“上一步”按钮 默认值：`True`.
 
 - okText (string; optional):
     确认按钮的文案信息.
 
 - step (number; optional):
-    设置初始化时的起始步骤，为`-1`时则不显示引导组件  默认值：`0`."""
+    设置初始化时的起始步骤，为`-1`时则不显示引导组件 默认值：`0`."""
     _children_props: typing.List[str] = ['steps[].title', 'steps[].content']
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

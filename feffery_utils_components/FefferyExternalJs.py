@@ -31,7 +31,7 @@ Keyword arguments:
     对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - jsUrl (string; default ''):
-    设置对应绑定的js静态文件资源`url`  默认值：`''`.
+    设置对应绑定的js静态文件资源`url` 默认值：`''`.
 
 - recentlyStatus (a value equal to: 'unset', 'loading', 'ready', 'error'; optional):
     监听最近一次资源变更操作后对应的状态."""

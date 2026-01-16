@@ -37,37 +37,37 @@ Keyword arguments:
     当前组件css类名，支持[动态css](/advanced-classname).
 
 - mouseControls (boolean; default True):
-    设置是否开启鼠标控制  默认为`True`.
+    设置是否开启鼠标控制 默认为`True`.
 
 - touchControls (boolean; default True):
-    设置是否开启触摸控制  默认为`True`.
+    设置是否开启触摸控制 默认为`True`.
 
 - gyroControls (boolean; default False):
-    设置是否开启陀螺仪控制  默认为`False`.
+    设置是否开启陀螺仪控制 默认为`False`.
 
 - minHeight (number; default 200.00):
-    设置最小高度  默认为`200.00`.
+    设置最小高度 默认为`200.00`.
 
 - minWidth (number; default 200.00):
-    设置最小宽度  默认为`200.00`.
+    设置最小宽度 默认为`200.00`.
 
 - backgroundColor (string; default '#131a43'):
-    设置背景颜色  默认为`'#131a43'`.
+    设置背景颜色 默认为`'#131a43'`.
 
 - baseColor (string; default '#112966'):
-    设置基本颜色  默认为`'#112966'`.
+    设置基本颜色 默认为`'#112966'`.
 
 - size (number; default 1):
-    设置动画大小，范围`0.1`到`3`  默认为`1`.
+    设置动画大小，范围`0.1`到`3` 默认为`1`.
 
 - amplitudeFactor (number; default 1):
-    设置动画振幅因子，范围`0`到`3`  默认为`1`.
+    设置动画振幅因子，范围`0`到`3` 默认为`1`.
 
 - xOffset (number; default 0):
-    设置x轴偏移量，范围为`-0.5`到`0.5`  默认为`0`.
+    设置x轴偏移量，范围为`-0.5`到`0.5` 默认为`0`.
 
 - yOffset (number; default 0):
-    设置y轴偏移量，范围为`-0.5`到`0.5`  默认为`0`."""
+    设置y轴偏移量，范围为`-0.5`到`0.5` 默认为`0`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

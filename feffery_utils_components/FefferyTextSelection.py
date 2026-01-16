@@ -37,7 +37,7 @@ Keyword arguments:
     设置目标监听容器对应的`css`选择器.
 
 - targetType (a value equal to: 'id', 'selector'; default 'id'):
-    设置目标监听规则类型，可选项有`'id'`、`'selector'`  默认值：`'id'`.
+    设置目标监听规则类型，可选项有`'id'`、`'selector'` 默认值：`'id'`.
 
 - selectedTextInfo (dict; optional):
     监听最近一次目标容器内文本选中事件相关信息."""

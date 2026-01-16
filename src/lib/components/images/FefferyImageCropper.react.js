@@ -349,7 +349,7 @@ FefferyImageCropper.propTypes = {
     minContainerHeight: PropTypes.number,
 
     /**
-     * 设置画布的最小宽度\
+     * 设置画布的最小宽度
      * 默认值：`0`
      */
     minCanvasWidth: PropTypes.number,

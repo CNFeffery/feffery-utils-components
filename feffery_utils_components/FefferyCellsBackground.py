@@ -37,34 +37,34 @@ Keyword arguments:
     当前组件css类名，支持[动态css](/advanced-classname).
 
 - mouseControls (boolean; default True):
-    设置是否开启鼠标控制  默认为`True`.
+    设置是否开启鼠标控制 默认为`True`.
 
 - touchControls (boolean; default True):
-    设置是否开启触摸控制  默认为`True`.
+    设置是否开启触摸控制 默认为`True`.
 
 - gyroControls (boolean; default False):
-    设置是否开启陀螺仪控制  默认为`False`.
+    设置是否开启陀螺仪控制 默认为`False`.
 
 - minHeight (number; default 200.00):
-    设置最小高度  默认为`200.00`.
+    设置最小高度 默认为`200.00`.
 
 - minWidth (number; default 200.00):
-    设置最小宽度  默认为`200.00`.
+    设置最小宽度 默认为`200.00`.
 
 - scale (number; default 1.00):
-    设置比例  默认为`1.00`.
+    设置比例 默认为`1.00`.
 
 - color1 (string; default '#109090'):
-    设置cells颜色1  默认为`'#109090'`.
+    设置cells颜色1 默认为`'#109090'`.
 
 - color2 (string; default '#f2e735'):
-    设置cells颜色2  默认为`'#f2e735'`.
+    设置cells颜色2 默认为`'#f2e735'`.
 
 - size (number; default 1.5):
-    设置cells大小，范围`0.2`到`5`  默认为`1.5`.
+    设置cells大小，范围`0.2`到`5` 默认为`1.5`.
 
 - speed (number; default 1):
-    设置cells动画速度，范围`0`到`5`  默认为`1`."""
+    设置cells动画速度，范围`0`到`5` 默认为`1`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

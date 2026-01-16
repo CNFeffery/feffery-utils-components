@@ -34,13 +34,13 @@ Keyword arguments:
     设置当前长按监听组件的监听目标元素`id`.
 
 - pressCounts (number; default 0):
-    监听目标组件累计被长按次数  默认值：`0`.
+    监听目标组件累计被长按次数 默认值：`0`.
 
 - isLongPressing (boolean; optional):
     监听目标组件是否正处于长按状态.
 
 - delay (number; default 300):
-    设置符合长按行为的持续时长，单位：毫秒  默认值：`300`."""
+    设置符合长按行为的持续时长，单位：毫秒 默认值：`300`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

@@ -34,13 +34,13 @@ Keyword arguments:
     当前组件css类名.
 
 - value (number; default 0):
-    待格式化的原始字节数值  默认值：`0`.
+    待格式化的原始字节数值 默认值：`0`.
 
 - unit (a value equal to: 'byte', 'bit'; default 'byte'):
-    展示单位，可选项有`'byte'`、`'bit'`  默认值：`'byte'`.
+    展示单位，可选项有`'byte'`、`'bit'` 默认值：`'byte'`.
 
 - display (a value equal to: 'long', 'short', 'narrow'; default 'short'):
-    展示类型，可选项有`'long'`、`'short'`、`'narrow'`  默认值：`'short'`."""
+    展示类型，可选项有`'long'`、`'short'`、`'narrow'` 默认值：`'short'`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

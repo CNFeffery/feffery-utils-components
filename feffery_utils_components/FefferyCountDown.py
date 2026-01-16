@@ -34,7 +34,7 @@ Keyword arguments:
     用于设置距离下一次超时事件触发的倒计时间隔，单位：秒，每次有效的`delay`对应超时事件结束后都会被重置为空值.
 
 - interval (number; default 1):
-    设置倒计时时间间隔，单位：秒  默认值：`1`.
+    设置倒计时时间间隔，单位：秒 默认值：`1`.
 
 - countdown (number; optional):
     监听当前剩余时间秒数."""

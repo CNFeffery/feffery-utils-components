@@ -34,25 +34,25 @@ Keyword arguments:
     当前组件css类名，支持[动态css](/advanced-classname).
 
 - fixed (boolean; default False):
-    是否开启吸底模式  默认值：`False`.
+    是否开启吸底模式 默认值：`False`.
 
 - mini (boolean; default False):
-    是否开启迷你模式  默认值：`False`.
+    是否开启迷你模式 默认值：`False`.
 
 - autoplay (boolean; default False):
-    音频是否自动播放  默认值：`False`.
+    音频是否自动播放 默认值：`False`.
 
 - theme (string; default '#b7daff'):
-    设置主题色  默认值：`'#b7daff'`.
+    设置主题色 默认值：`'#b7daff'`.
 
 - loop (a value equal to: 'all', 'one', 'none'; default 'all'):
-    设置音频循环播放, 可选值: `'all'`、`'one'`、`'none'`  默认值：`'all'`.
+    设置音频循环播放, 可选值: `'all'`、`'one'`、`'none'` 默认值：`'all'`.
 
 - order (a value equal to: 'list', 'random'; default 'list'):
-    设置音频循环顺序, 可选值: `'list'`、`'random'`  默认值：`'list'`.
+    设置音频循环顺序, 可选值: `'list'`、`'random'` 默认值：`'list'`.
 
 - preload (a value equal to: 'none', 'metadata', 'auto'; default 'auto'):
-    设置音频预加载，可选值: `'none'`、`'metadata'`、`'auto'`  默认值：`'auto'`.
+    设置音频预加载，可选值: `'none'`、`'metadata'`、`'auto'` 默认值：`'auto'`.
 
 - volume (number; default 0.7):
     默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效.
@@ -81,26 +81,26 @@ Keyword arguments:
         设置切换到此音频时的主题色，比上面的`theme`优先级高.
 
     - type (a value equal to: 'auto', 'hls', 'normal'; optional):
-        设置音频类型，可选的有`'auto'`、`'hls'`、`'normal'`  默认值：`'auto'`.
+        设置音频类型，可选的有`'auto'`、`'hls'`、`'normal'` 默认值：`'auto'`.
 
 - mutex (boolean; default True):
-    是否互斥，阻止多个播放器同时播放，当前播放器播放时暂停其他播放器  默认值：`True`.
+    是否互斥，阻止多个播放器同时播放，当前播放器播放时暂停其他播放器 默认值：`True`.
 
 - lrcType (a value equal to: 0, 1, 2, 3; default 0):
     有三种方式来给`APlayer`传递歌词，使用`lrcType`参数指明使用哪种方式，然后把歌词放到`audio.lrc`参数或者`HTML`里
     `1`表示把歌词放到`JS`字符串里面，`2`表示把歌词放到`HTML`里面，`3`表示把歌词放到`LRC`文件里，音频播放时会加载对应的`LRC`文件
-    `audio.lrc`支持下面格式的歌词：  `[mm:ss]APlayer[mm:ss.xx]is`
-    `[mm:ss.xxx]amazing`  `[mm:ss.xx][mm:ss.xx]APlayer`
-    `[mm:ss.xx]<mm:ss.xx>is`  `[mm:ss.xx]amazing[mm:ss.xx]APlayer`.
+    `audio.lrc`支持下面格式的歌词： `[mm:ss]APlayer[mm:ss.xx]is`
+    `[mm:ss.xxx]amazing` `[mm:ss.xx][mm:ss.xx]APlayer`
+    `[mm:ss.xx]<mm:ss.xx>is` `[mm:ss.xx]amazing[mm:ss.xx]APlayer`.
 
 - listFolded (boolean; default False):
-    列表是否默认折叠  默认值：`False`.
+    列表是否默认折叠 默认值：`False`.
 
 - listMaxHeight (number; optional):
     设置列表最大高度.
 
 - storageName (string; default 'aplayer-setting'):
-    存储播放器设置的`localStorage key`  默认值：`'aplayer-setting'`.
+    存储播放器设置的`localStorage key` 默认值：`'aplayer-setting'`.
 
 - play (boolean; default False):
     播放音频，每次设置为`True`后执行完相应操作后会自动置为`False`.
@@ -193,7 +193,7 @@ Keyword arguments:
 
         - type (a value equal to: 'auto', 'hls', 'normal'; optional):
 
-            设置音频类型，可选的有`'auto'`、`'hls'`、`'normal'`  默认值：`'auto'`.
+            设置音频类型，可选的有`'auto'`、`'hls'`、`'normal'` 默认值：`'auto'`.
 
 - removeList (dict; default { isRemove: False }):
     删除播放列表中的音频，每次`isRemove`设置为`True`后执行完相应操作后会自动置为`False`.

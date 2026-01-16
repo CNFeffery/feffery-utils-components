@@ -31,7 +31,7 @@ Keyword arguments:
     对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
 
 - enable (boolean; default False):
-    控制激活新一次的色彩拾取，每次完成色彩拾取后都会自动被重置为`False`  默认值：`False`.
+    控制激活新一次的色彩拾取，每次完成色彩拾取后都会自动被重置为`False` 默认值：`False`.
 
 - color (string; optional):
     监听最近一次色彩拾取操作对应16进制颜色值."""

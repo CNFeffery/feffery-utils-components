@@ -40,7 +40,7 @@ Keyword arguments:
     裁切目标图片地址.
 
 - alt (string; default 'picture'):
-    图片占位名称  默认值：`'picture'`.
+    图片占位名称 默认值：`'picture'`.
 
 - crossOrigin (string; optional):
     图片跨域属性.
@@ -48,12 +48,12 @@ Keyword arguments:
 - viewMode (a value equal to: 0, 1, 2, 3; default 0):
     设置裁剪框的视图模式。
     如果将viewMode设置为0，裁剪框可以超出画布的范围，而设置为1、2或3的值将限制裁剪框的大小与画布一致。
-    viewMode为2或3还会额外限制画布适应容器的大小，当画布和容器的比例相同时，2和3没有区别。  0：无限制。
-    1：限制裁剪框不超过画布的大小。  2：限制最小画布尺寸适应容器。如果画布和容器的比例不同，最小画布将在一个维度上被额外空间包围。
-    3：限制最小画布尺寸填满容器。如果画布和容器的比例不同，容器将无法在一个维度上容纳整个画布。  默认值：`0`.
+    viewMode为2或3还会额外限制画布适应容器的大小，当画布和容器的比例相同时，2和3没有区别。 0：无限制。
+    1：限制裁剪框不超过画布的大小。 2：限制最小画布尺寸适应容器。如果画布和容器的比例不同，最小画布将在一个维度上被额外空间包围。
+    3：限制最小画布尺寸填满容器。如果画布和容器的比例不同，容器将无法在一个维度上容纳整个画布。 默认值：`0`.
 
 - dragMode (a value equal to: 'crop', 'move', 'none'; default 'crop'):
-    设置裁剪器的拖动模式。  'crop'：创建一个新的裁剪框。  'move'：移动画布。  'none'：无操作。
+    设置裁剪器的拖动模式。 'crop'：创建一个新的裁剪框。 'move'：移动画布。 'none'：无操作。
     默认值：`'crop'`.
 
 - initialAspectRatio (number; optional):
@@ -66,15 +66,15 @@ Keyword arguments:
     设置初始化时要传给setData方法的裁剪的数据，仅当autoCrop选项设置为True时才有效.
 
 - preview (string | list of strings; default ''):
-    设置预览的容器（选择器）。  注意：最大宽度是预览容器的初始宽度。  最大高度是预览容器的初始高度。
+    设置预览的容器（选择器）。 注意：最大宽度是预览容器的初始宽度。 最大高度是预览容器的初始高度。
     如果您设置了宽高比选项，请务必为预览容器设置相同的宽高比。
     如果预览无法正确显示，请将预览容器设置为overflow:hidden样式。.
 
 - responsive (boolean; default True):
-    调整窗口大小时是否重新渲染裁剪器  默认值：`True`.
+    调整窗口大小时是否重新渲染裁剪器 默认值：`True`.
 
 - restore (boolean; default True):
-    调整窗口大小后是否恢复裁剪区域  默认值：`True`.
+    调整窗口大小后是否恢复裁剪区域 默认值：`True`.
 
 - checkCrossOrigin (boolean; default True):
     检查当前图片是否为跨域图片。
@@ -88,77 +88,77 @@ Keyword arguments:
 - checkOrientation (boolean; default True):
     检查当前图片的Exif方向信息。请注意，只有JPEG图片可能包含Exif方向信息。
     具体来说，读取旋转或翻转图片的方向值，然后用1（默认值）覆盖方向值，以避免iOS设备上的某些问题。
-    需要同时将可旋转和可缩放选项设置为 True。  注意：不要总是相信这一点，因为某些 JPG
-    图片可能具有不正确（非标准）的方向值，需要类型化数组支持（IE 10+）。  默认值：`True`.
+    需要同时将可旋转和可缩放选项设置为 True。 注意：不要总是相信这一点，因为某些 JPG
+    图片可能具有不正确（非标准）的方向值，需要类型化数组支持（IE 10+）。 默认值：`True`.
 
 - modal (boolean; default True):
-    是否在图片上方和裁剪框下方显示黑色模态  默认值：`True`.
+    是否在图片上方和裁剪框下方显示黑色模态 默认值：`True`.
 
 - guides (boolean; default True):
-    是否显示裁剪框上方的虚线  默认值：`True`.
+    是否显示裁剪框上方的虚线 默认值：`True`.
 
 - center (boolean; default True):
-    是否在裁剪框上方显示中心指示器  默认值：`True`.
+    是否在裁剪框上方显示中心指示器 默认值：`True`.
 
 - highlight (boolean; default True):
-    是否在裁剪框上方显示白色模态（突出显示裁剪框）  默认值：`True`.
+    是否在裁剪框上方显示白色模态（突出显示裁剪框） 默认值：`True`.
 
 - background (boolean; default True):
-    是否显示容器的网格背景  默认值：`True`.
+    是否显示容器的网格背景 默认值：`True`.
 
 - autoCrop (boolean; default True):
-    是否在初始化时自动裁剪图片  默认值：`True`.
+    是否在初始化时自动裁剪图片 默认值：`True`.
 
 - autoCropArea (number; default 0.8):
-    设置自动裁剪区域大小，为0到1之间的值  默认值：`0.8`.
+    设置自动裁剪区域大小，为0到1之间的值 默认值：`0.8`.
 
 - movable (boolean; default True):
-    是否可以移动图片  默认值：`True`.
+    是否可以移动图片 默认值：`True`.
 
 - rotatable (boolean; default True):
-    是否可以旋转图片  默认值：`True`.
+    是否可以旋转图片 默认值：`True`.
 
 - scalable (boolean; default True):
-    是否可以缩放图片（居中缩放）  默认值：`True`.
+    是否可以缩放图片（居中缩放） 默认值：`True`.
 
 - zoomable (boolean; default True):
-    是否可以缩放图片（相对于左上角）  默认值：`True`.
+    是否可以缩放图片（相对于左上角） 默认值：`True`.
 
 - zoomOnTouch (boolean; default True):
-    是否可以通过拖动触摸来缩放图片  默认值：`True`.
+    是否可以通过拖动触摸来缩放图片 默认值：`True`.
 
 - zoomOnWheel (boolean; default True):
-    是否可以通过鼠标滚轮缩放图片  默认值：`True`.
+    是否可以通过鼠标滚轮缩放图片 默认值：`True`.
 
 - wheelZoomRatio (number; default 0.1):
-    设置通过鼠标滚轮缩放图片时的缩放比例  默认值：`0.1`.
+    设置通过鼠标滚轮缩放图片时的缩放比例 默认值：`0.1`.
 
 - cropBoxMovable (boolean; default True):
-    是否可以通过拖动来移动裁剪框  默认值：`True`.
+    是否可以通过拖动来移动裁剪框 默认值：`True`.
 
 - cropBoxResizable (boolean; default True):
-    是否可以通过拖动来调整裁剪框的大小  默认值：`True`.
+    是否可以通过拖动来调整裁剪框的大小 默认值：`True`.
 
 - toggleDragModeOnDblclick (boolean; default True):
     单击裁剪器两次时，是否可以在'crop'和'move'之间切换拖动模式，需要支持dbclick事件，需要默认为True.
 
 - minContainerWidth (number; default 200):
-    设置容器的最小像素宽度  默认值：`200`.
+    设置容器的最小像素宽度 默认值：`200`.
 
 - minContainerHeight (number; default 100):
-    设置容器的最小像素高度  默认值：`100`.
+    设置容器的最小像素高度 默认值：`100`.
 
 - minCanvasWidth (number; default 0):
-    设置画布的最小宽度\  默认值：`0`.
+    设置画布的最小宽度 默认值：`0`.
 
 - minCanvasHeight (number; default 0):
-    设置画布的最小高度  默认值：`0`.
+    设置画布的最小高度 默认值：`0`.
 
 - minCropBoxWidth (number; default 0):
-    设置裁剪框的最小宽度（这个尺寸是相对于页面的，而不是图片的）  默认值：`0`.
+    设置裁剪框的最小宽度（这个尺寸是相对于页面的，而不是图片的） 默认值：`0`.
 
 - minCropBoxHeight (number; default 0):
-    设置裁剪框的最小高度（这个尺寸是相对于页面的，而不是图片的）  默认值：`0`.
+    设置裁剪框的最小高度（这个尺寸是相对于页面的，而不是图片的） 默认值：`0`.
 
 - reset (boolean; default False):
     将图片和裁剪框重置为初始状态，每次设置为`True`后执行完相应操作后会自动置为`False`.
@@ -226,7 +226,7 @@ Keyword arguments:
         是否启用.
 
     - ratio (number; optional):
-        放大：需要一个正数（比率 > 0）；  缩小：需要负数（比率 < 0）.
+        放大：需要一个正数（比率 > 0）； 缩小：需要负数（比率 < 0）.
 
 - zoomTo (dict; default { isZoomTo: False }):
     将画布缩放到绝对比例，每次`isZoomTo`设置为`True`后执行完相应操作后会自动置为`False`.
@@ -257,7 +257,7 @@ Keyword arguments:
         是否启用.
 
     - degree (number; optional):
-        向右旋转：需要正数（度数 > 0）；  向左旋转：需要负数（度数 < 0）.
+        向右旋转：需要正数（度数 > 0）； 向左旋转：需要负数（度数 < 0）.
 
 - rotateTo (dict; default { isRotateTo: False }):
     将图片旋转到绝对角度，每次`isRotateTo`设置为`True`后执行完相应操作后会自动置为`False`.

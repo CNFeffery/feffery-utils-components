@@ -37,10 +37,10 @@ Keyword arguments:
     当前组件css类名，支持[动态css](/advanced-classname).
 
 - duration (number; default 0.25):
-    配置动画时长，单位：秒  默认为`0.25`.
+    配置动画时长，单位：秒 默认为`0.25`.
 
 - easing (string; default 'ease-in-out'):
-    设置过渡动画函数，同css中的`easing-function`  默认为`'ease-in-out'`."""
+    设置过渡动画函数，同css中的`easing-function` 默认为`'ease-in-out'`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

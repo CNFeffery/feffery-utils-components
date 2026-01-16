@@ -40,7 +40,7 @@ Keyword arguments:
     设置查看器高度，同`css`中的`height`属性.
 
 - littlePlanet (boolean; default False):
-    是否开启小星球模式  默认值：`False`.
+    是否开启小星球模式 默认值：`False`.
 
 - containerClass (string; optional):
     设置查看器所在容器`css`类名.
@@ -62,19 +62,19 @@ Keyword arguments:
     自定义载入阶段文字提示内容.
 
 - mousewheel (boolean; default True):
-    是否允许鼠标滚轮缩放  默认值：`True`.
+    是否允许鼠标滚轮缩放 默认值：`True`.
 
 - mousemove (boolean; default True):
-    是否允许鼠标拖拽平移  默认值：`True`.
+    是否允许鼠标拖拽平移 默认值：`True`.
 
 - moveSpeed (number; default 1):
-    设置鼠标平移速度  默认值：`1`.
+    设置鼠标平移速度 默认值：`1`.
 
 - zoomSpeed (number; default 1):
-    设置鼠标滚轮缩放速度  默认值：`1`.
+    设置鼠标滚轮缩放速度 默认值：`1`.
 
 - fisheye (boolean; default False):
-    是否开启鱼眼模式  默认值：`False`.
+    是否开启鱼眼模式 默认值：`False`.
 
 - lang (dict; optional):
     为相关功能控件或场景设置鼠标悬停提示信息文案.
@@ -115,7 +115,7 @@ Keyword arguments:
         自动旋转调节.
 
 - hideNavbarButton (boolean; default False):
-    是否渲染底部导航栏隐藏按钮  默认值：`False`.
+    是否渲染底部导航栏隐藏按钮 默认值：`False`.
 
 - plugins (list of dicts; optional):
     用于配置额外插件功能.
@@ -126,13 +126,13 @@ Keyword arguments:
         必填，插件类型，可选项有`'Autorotate'`.
 
     - autostartDelay (number; optional):
-        `Autorotate`模式下，从用户无操作到恢复自动旋转的延时，单位：毫秒  默认值：`2000`.
+        `Autorotate`模式下，从用户无操作到恢复自动旋转的延时，单位：毫秒 默认值：`2000`.
 
     - autostartOnIdle (boolean; optional):
-        `Autorotate`模式下，是否在用户无操作一段时间后恢复自动旋转  默认值：`True`.
+        `Autorotate`模式下，是否在用户无操作一段时间后恢复自动旋转 默认值：`True`.
 
     - autorotateSpeed (string; optional):
-        `Autorotate`模式下，自动旋转速度  默认值：`2rpm`."""
+        `Autorotate`模式下，自动旋转速度 默认值：`2rpm`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

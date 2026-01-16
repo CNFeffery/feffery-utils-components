@@ -40,16 +40,16 @@ Keyword arguments:
     设置验证码字符数量.
 
 - height (number; optional):
-    设置验证码的像素高度  默认值：`40`.
+    设置验证码的像素高度 默认值：`40`.
 
 - width (number; optional):
-    设置验证码的像素宽度  默认值：`100`.
+    设置验证码的像素宽度 默认值：`100`.
 
 - bgColor (string; optional):
-    设置验证码图片背景色  默认值：`'#DFF0D8'`.
+    设置验证码图片背景色 默认值：`'#DFF0D8'`.
 
 - fontSize (number; optional):
-    设置验证码字体像素大小  默认值：`25`.
+    设置验证码字体像素大小 默认值：`25`.
 
 - refresh (boolean; optional):
     用于手动刷新验证码，当传入`True`时会强制刷新验证码，再自动重置为`False`."""

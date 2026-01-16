@@ -34,16 +34,16 @@ Keyword arguments:
     当前组件css类名.
 
 - caseSensitive (boolean; default False):
-    是否启用大小写敏感  默认值：`False`.
+    是否启用大小写敏感 默认值：`False`.
 
 - highlightStyle (dict; optional):
     高亮部分元素css样式.
 
 - highlightClassName (string; default 'feffery-highlight-words-highlight'):
-    高亮部分元素css类名  默认值：`'feffery-highlight-words-highlight'`.
+    高亮部分元素css类名 默认值：`'feffery-highlight-words-highlight'`.
 
 - useRegex (boolean; default False):
-    是否开启正则表达式模式  默认值：`False`.
+    是否开启正则表达式模式 默认值：`False`.
 
 - searchWords (list of strings; optional):
     设置要进行高亮的目标字符或正则表达式数组.

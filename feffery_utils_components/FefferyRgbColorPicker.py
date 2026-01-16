@@ -34,10 +34,10 @@ Keyword arguments:
     当前组件css类名.
 
 - color (string; default 'rgb(68, 206, 246)'):
-    监听或设置当前选中色彩对应rgb格式颜色值  默认值：`'rgb(68, 206, 246)'`.
+    监听或设置当前选中色彩对应rgb格式颜色值 默认值：`'rgb(68, 206, 246)'`.
 
 - showAlpha (boolean; default False):
-    是否显示透明度选择控件  默认值：`False`."""
+    是否显示透明度选择控件 默认值：`False`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

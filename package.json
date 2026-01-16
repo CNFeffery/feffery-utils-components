@@ -1,6 +1,6 @@
 {
   "name": "feffery_utils_components",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Build more utility components for Plotly Dash.",
   "repository": {
     "type": "git",
@@ -141,7 +141,7 @@
     "sass": "1.77.6",
     "sass-loader": "^10.0.0",
     "style-loader": "^0.23.1",
-    "styled-jsx": "^3.4.7",
+    "styled-jsx": "^4.0.0",
     "terser-webpack-plugin": "^2.3.0",
     "url-loader": "^4.1.1",
     "webpack": "4.36.1",

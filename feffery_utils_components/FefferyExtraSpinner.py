@@ -44,7 +44,7 @@ Keyword arguments:
     图标尺寸值.
 
 - sizeUnit (string; default 'px'):
-    图标尺寸值单位  默认值：`'px'`.
+    图标尺寸值单位 默认值：`'px'`.
 
 - color (string; default '#1890ff'):
     图标颜色.

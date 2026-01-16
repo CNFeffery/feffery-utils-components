@@ -37,40 +37,40 @@ Keyword arguments:
     当前组件css类名，支持[动态css](/advanced-classname).
 
 - mouseControls (boolean; default True):
-    设置是否开启鼠标控制  默认为`True`.
+    设置是否开启鼠标控制 默认为`True`.
 
 - touchControls (boolean; default True):
-    设置是否开启触摸控制  默认为`True`.
+    设置是否开启触摸控制 默认为`True`.
 
 - gyroControls (boolean; default False):
-    设置是否开启陀螺仪控制  默认为`False`.
+    设置是否开启陀螺仪控制 默认为`False`.
 
 - minHeight (number; default 200.00):
-    设置最小高度  默认为`200.00`.
+    设置最小高度 默认为`200.00`.
 
 - minWidth (number; default 200.00):
-    设置最小宽度  默认为`200.00`.
+    设置最小宽度 默认为`200.00`.
 
 - scale (number; default 1.00):
-    设置比例  默认为`1.00`.
+    设置比例 默认为`1.00`.
 
 - scaleMobile (number; default 1.00):
-    设置移动端比例  默认为`1.00`.
+    设置移动端比例 默认为`1.00`.
 
 - color (string; default '#11619a'):
-    设置wave颜色  默认为`'#11619a'`.
+    设置wave颜色 默认为`'#11619a'`.
 
 - shininess (number; default 30):
-    设置光泽度，范围`0`到`150`  默认为`30`.
+    设置光泽度，范围`0`到`150` 默认为`30`.
 
 - waveHeight (number; default 15):
-    设置wave高度，范围`0`到`40`  默认为`15`.
+    设置wave高度，范围`0`到`40` 默认为`15`.
 
 - waveSpeed (number; default 1):
-    设置wave速度，范围`0`到`2`  默认为`1`.
+    设置wave速度，范围`0`到`2` 默认为`1`.
 
 - zoom (number; default 1):
-    设置缩放大小，范围`0.7`到`1.8`  默认为`1`."""
+    设置缩放大小，范围`0.7`到`1.8` 默认为`1`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

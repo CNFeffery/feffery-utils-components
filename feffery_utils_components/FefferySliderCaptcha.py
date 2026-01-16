@@ -37,16 +37,16 @@ Keyword arguments:
     用于生成拼图的完整图片地址.
 
 - imgWidth (number; default 320):
-    声明用于生成拼图的完整图片像素宽度值  默认值：`320`.
+    声明用于生成拼图的完整图片像素宽度值 默认值：`320`.
 
 - imgHeight (number; default 160):
-    声明用于生成拼图的完整图片像素高度值  默认值：`160`.
+    声明用于生成拼图的完整图片像素高度值 默认值：`160`.
 
 - xOffset (number; default 5):
-    拼图合法验证像素偏移量  默认值：`5`.
+    拼图合法验证像素偏移量 默认值：`5`.
 
 - mode (a value equal to: 'embed', 'float', 'slider'; default 'embed'):
-    显示模式，可选项有`'embed'`、`'float'`、`'slider'`  默认值：`'embed'`.
+    显示模式，可选项有`'embed'`、`'float'`、`'slider'` 默认值：`'embed'`.
 
 - tipText (dict; optional):
     配置相关文案提示内容.
@@ -72,16 +72,16 @@ Keyword arguments:
         验证失败提示内容.
 
 - showRefreshIcon (boolean; default True):
-    显示右上角刷新按钮  默认值：`True`.
+    显示右上角刷新按钮 默认值：`True`.
 
 - autoRefreshOnError (boolean; default True):
-    验证失败后是否自动刷新  默认值：`True`.
+    验证失败后是否自动刷新 默认值：`True`.
 
 - errorHoldDuration (number; default 500):
-    当`autoRefreshOnError=True`时，每次验证失败后停顿多少毫秒自动刷新  默认值：`500`.
+    当`autoRefreshOnError=True`时，每次验证失败后停顿多少毫秒自动刷新 默认值：`500`.
 
 - placement (a value equal to: 'top', 'bottom'; default 'top'):
-    拼图图片显示方位，可选项有`'top'`、`'bottom'`  默认值：`'top'`.
+    拼图图片显示方位，可选项有`'top'`、`'bottom'` 默认值：`'top'`.
 
 - refresh (boolean; optional):
     手动刷新用，每次更新为`True`时会主动触发刷新，每次成功刷新后会重置为`False`.
