@@ -149,7 +149,7 @@ Keyword arguments:
     设置容器的最小像素高度  默认值：`100`.
 
 - minCanvasWidth (number; default 0):
-    设置画布的最小宽度\  默认值：`0`.
+    设置画布的最小宽度  默认值：`0`.
 
 - minCanvasHeight (number; default 0):
     设置画布的最小高度  默认值：`0`.
