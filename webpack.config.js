@@ -90,6 +90,7 @@ module.exports = (env, argv) => {
                         path.resolve('node_modules', 'wouter'),
                         path.resolve('node_modules', 'autofit.js'),
                         path.resolve('node_modules', 'react-draggable'),
+                        path.resolve('node_modules', 'react-resizable'),
                     ],
                     use: {
                         loader: 'babel-loader',
