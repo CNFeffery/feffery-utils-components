@@ -149,6 +149,20 @@
     "webpack-cli": "3.3.6",
     "webpack-serve": "3.1.0"
   },
+  "overrides": {
+    "react-captcha-code": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "react-lazy-load": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    },
+    "react-shadow": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
+  },
   "babel": {
     "presets": [
       "@babel/preset-react",

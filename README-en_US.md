@@ -13,7 +13,7 @@
 
 [简体中文](./README.md) | English
 
-A sub-project of the `feffery-components` plan, this `Plotly Dash` third-party component library brings numerous practical utility components to the world of `Dash` 🥳, latest version: `0.3.4`(2025-12-28)
+A sub-project of the `feffery-components` plan, this `Plotly Dash` third-party component library brings numerous practical utility components to the world of `Dash` 🥳, latest version: `0.3.5`(2026-01-16)
 
 ## Dash Version Compatibility
 
