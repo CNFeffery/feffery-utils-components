@@ -52,12 +52,12 @@ Keyword arguments:
     设置鼠标点按时的目标样式，传入字符串时用于设置样式组别名.
 
 - transition (dict; optional):
-    配置过渡动画相关参数  默认为：`{type: \"spring\", damping: 10, stiffness: 100}`.
+    配置过渡动画相关参数 默认为：`{type: \"spring\", damping: 10, stiffness: 100}`.
 
     `transition` is a dict with keys:
 
     - delay (number; optional):
-        设置过渡动画的开始延时时长，单位：秒  默认：`0`.
+        设置过渡动画的开始延时时长，单位：秒 默认：`0`.
 
     - repeat (number | a value equal to: 'infinity'; optional):
         设置动画重复次数，特殊的，`'infinity'`表示无限循环.
@@ -69,7 +69,7 @@ Keyword arguments:
         设置动画每次重复的延时，单位：秒.
 
     - type (a value equal to: 'spring', 'tween'; optional):
-        动画过渡类型，可选的有`'spring'`（弹簧运动型）、`'tween'`（补间型）  默认：'tween'.
+        动画过渡类型，可选的有`'spring'`（弹簧运动型）、`'tween'`（补间型） 默认：'tween'.
 
     - duration (number; optional):
         设置过渡动画时长，单位：秒.
@@ -94,7 +94,7 @@ Keyword arguments:
 
     - margin (string; optional):
         设置用于辅助进行目标元素视口检测的外边界提前量，可设置例如`'200px'`统一为上右下左添加外边界，也可设置例如`'0px
-        -20px 0px 100px'`分别控制不同方向  默认：`'0px'`.
+        -20px 0px 100px'`分别控制不同方向 默认：`'0px'`.
 
     - amount (a value equal to: 'some', 'all'; optional):
         设置元素移入视口检测策略，设置为`'some'`时表示元素部分进入视口则视作进入，设置为`'all'`时表示元素全部进入视口才视作进入.
@@ -106,7 +106,7 @@ Keyword arguments:
     监听当前组件的`animate`目标动画过程是否已完成.
 
 - destroyWhenAnimated (boolean; default False):
-    是否在动画完成后销毁当前组件  默认值：`False`."""
+    是否在动画完成后销毁当前组件 默认值：`False`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

@@ -43,23 +43,23 @@ Keyword arguments:
     网格容器固定像素高度.
 
 - autoSize (boolean; default True):
-    当前网格容器是否受内部元素影响调整高度  默认值：`True`.
+    当前网格容器是否受内部元素影响调整高度 默认值：`True`.
 
 - compactType (a value equal to: 'vertical', 'horizontal'; default 'vertical'):
-    网格项自动调整约束方向，可选项有`'vertical'`、`'horizontal'`  默认值：`'vertical'`.
+    网格项自动调整约束方向，可选项有`'vertical'`、`'horizontal'` 默认值：`'vertical'`.
 
 - margin (list of numbers | dict with strings as keys and values of type list of numbers; default [10, 10]):
-    网格容器内子元素之间的像素间距，格式：`[水平间距, 竖直间距]`，也可以传入以断点为键的字典从而实现响应式  默认值：`[10,
+    网格容器内子元素之间的像素间距，格式：`[水平间距, 竖直间距]`，也可以传入以断点为键的字典从而实现响应式 默认值：`[10,
     10]`.
 
 - containerPadding (list of numbers | dict with strings as keys and values of type list of numbers; optional):
     用于设置当前网格容器内部像素padding，格式：[x, y]，支持响应式.
 
 - rowHeight (number; default 150):
-    网格中每行像素高度  默认值：`150`.
+    网格中每行像素高度 默认值：`150`.
 
 - closable (boolean; default False):
-    内部网格项是否可关闭  默认值：`False`.
+    内部网格项是否可关闭 默认值：`False`.
 
 - closeEvent (dict; optional):
     监听最近一次内部网格项关闭事件.
@@ -73,10 +73,10 @@ Keyword arguments:
         事件时间戳.
 
 - autoClose (boolean; default False):
-    是否在内部网格项关闭触发时进行自动关闭  默认值：`False`.
+    是否在内部网格项关闭触发时进行自动关闭 默认值：`False`.
 
 - isDraggable (boolean; default True):
-    内部网格项是否可拖拽  默认值：`True`.
+    内部网格项是否可拖拽 默认值：`True`.
 
 - draggerStyle (dict; optional):
     网格项拖拽控件额外css样式.
@@ -85,20 +85,20 @@ Keyword arguments:
     网格项拖拽控件额外css类名.
 
 - isResizable (boolean; default True):
-    内部网格项尺寸是否可调整  默认值：`True`.
+    内部网格项尺寸是否可调整 默认值：`True`.
 
 - isBounded (boolean; default False):
-    是否允许内部网格项拖拽出界  默认值：`False`.
+    是否允许内部网格项拖拽出界 默认值：`False`.
 
 - allowOverlap (boolean; default False):
-    是否允许内部网格项重叠  默认值：`False`.
+    是否允许内部网格项重叠 默认值：`False`.
 
 - breakpoints (dict with strings as keys and values of type number; default { lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }):
-    自定义断点键及对应断点像素宽度值  默认值：`{lg: 1200, md: 996, sm: 768, xs: 480, xxs:
+    自定义断点键及对应断点像素宽度值 默认值：`{lg: 1200, md: 996, sm: 768, xs: 480, xxs:
     0}`.
 
 - cols (dict with strings as keys and values of type number | number; default 12):
-    与`breakpoints`对应，设置不同断点下网格系统的列数  默认值：`12`.
+    与`breakpoints`对应，设置不同断点下网格系统的列数 默认值：`12`.
 
 - layouts (dict; optional):
     配置各网格项.
@@ -122,28 +122,28 @@ Keyword arguments:
         对应当前网格项的网格单位高度.
 
     - minW (number; optional):
-        对应当前网格项的最小网格单位宽度  默认值：`0`.
+        对应当前网格项的最小网格单位宽度 默认值：`0`.
 
     - maxW (number; optional):
         对应当前网格项的最大网格单位宽度，默认无限制.
 
     - minH (number; optional):
-        对应当前网格项的最小网格单位高度  默认值：`0`.
+        对应当前网格项的最小网格单位高度 默认值：`0`.
 
     - maxH (number; optional):
         对应当前网格项的最大网格单位高度，默认无限制.
 
     - static (boolean; optional):
-        设置当前网格项是否静态  默认值：`False`.
+        设置当前网格项是否静态 默认值：`False`.
 
     - isDraggable (boolean; optional):
-        设置当前网格项是否允许被拖拽  默认值：`True`.
+        设置当前网格项是否允许被拖拽 默认值：`True`.
 
     - isResizable (boolean; optional):
-        设置当前网格项是否允许被调整尺寸  默认值：`True`.
+        设置当前网格项是否允许被调整尺寸 默认值：`True`.
 
     - isBounded (boolean; optional):
-        设置是否为当前网格项施加边界约束  默认值：`False`. | list of dicts with keys:
+        设置是否为当前网格项施加边界约束 默认值：`False`. | list of dicts with keys:
 
     - i (string; optional):
         对应当前网格项的`key`值.
@@ -161,43 +161,43 @@ Keyword arguments:
         对应当前网格项的网格单位高度.
 
     - minW (number; optional):
-        对应当前网格项的最小网格单位宽度  默认值：`0`.
+        对应当前网格项的最小网格单位宽度 默认值：`0`.
 
     - maxW (number; optional):
         对应当前网格项的最大网格单位宽度，默认无限制.
 
     - minH (number; optional):
-        对应当前网格项的最小网格单位高度  默认值：`0`.
+        对应当前网格项的最小网格单位高度 默认值：`0`.
 
     - maxH (number; optional):
         对应当前网格项的最大网格单位高度，默认无限制.
 
     - static (boolean; optional):
-        设置当前网格项是否静态  默认值：`False`.
+        设置当前网格项是否静态 默认值：`False`.
 
     - isDraggable (boolean; optional):
-        设置当前网格项是否允许被拖拽  默认值：`True`.
+        设置当前网格项是否允许被拖拽 默认值：`True`.
 
     - isResizable (boolean; optional):
-        设置当前网格项是否允许被调整尺寸  默认值：`True`.
+        设置当前网格项是否允许被调整尺寸 默认值：`True`.
 
     - isBounded (boolean; optional):
-        设置是否为当前网格项施加边界约束  默认值：`False`. | boolean | number | string | dict | list
+        设置是否为当前网格项施加边界约束 默认值：`False`. | boolean | number | string | dict | list
 
 - placeholderBackground (string; default '#3b3a39'):
-    拖拽预览占位对应`css`的`background`属性  默认值：`'#3b3a39'`.
+    拖拽预览占位对应`css`的`background`属性 默认值：`'#3b3a39'`.
 
 - placeholderOpacity (number; default 0.2):
-    拖拽预览占位对应`css`的`opacity`属性  默认值：`0.2`.
+    拖拽预览占位对应`css`的`opacity`属性 默认值：`0.2`.
 
 - placeholderBorder (string; default 'none'):
-    拖拽预览占位对应`css`的`border`属性  默认值：`'none'`.
+    拖拽预览占位对应`css`的`border`属性 默认值：`'none'`.
 
 - placeholderBorderRadius (string; default '0px'):
-    拖拽预览占位对应`css`的`border-radius`属性  默认值：`'0px'`.
+    拖拽预览占位对应`css`的`border-radius`属性 默认值：`'0px'`.
 
 - debug (boolean; default False):
-    是否开启调试模式，开启后，每次布局参数更新，都会在浏览器开发者工具控制台打印相关参数  默认值：`False`."""
+    是否开启调试模式，开启后，每次布局参数更新，都会在浏览器开发者工具控制台打印相关参数 默认值：`False`."""
     _children_props: typing.List[str] = ['placeholder']
     _base_nodes = ['placeholder', 'children']
     _namespace = 'feffery_utils_components'

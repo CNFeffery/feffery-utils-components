@@ -59,10 +59,10 @@ Keyword arguments:
         设置高度.
 
 - minWidth (number | string; default 10):
-    设置尺寸调整组件的最小宽度  默认值：`10`.
+    设置尺寸调整组件的最小宽度 默认值：`10`.
 
 - minHeight (number | string; default 10):
-    设置尺寸调整组件的最小高度  默认值：`10`.
+    设置尺寸调整组件的最小高度 默认值：`10`.
 
 - maxWidth (number | string; optional):
     设置尺寸调整组件的最大宽度.
@@ -76,10 +76,10 @@ Keyword arguments:
     'bottomLeft', 'topLeft']`.
 
 - grid (list of numbers; default [1, 1]):
-    设置尺寸调整在水平和竖直方向上的最小调整像素步长  默认值：`[1, 1]`.
+    设置尺寸调整在水平和竖直方向上的最小调整像素步长 默认值：`[1, 1]`.
 
 - bounds (a value equal to: 'window', 'parent'; default 'window'):
-    设置尺寸调整组件的外边界类型，可选的有`'window'`、`'parent'`  默认值：`'window'`.
+    设置尺寸调整组件的外边界类型，可选的有`'window'`、`'parent'` 默认值：`'window'`.
 
 - boundsSelector (string; optional):
     用于指定边界元素的`css`选择器，优先级高于`bounds`.

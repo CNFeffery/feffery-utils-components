@@ -88,19 +88,19 @@ Keyword arguments:
     限制可调高度上限，数值型表示像素宽度，字符型与`css`相关属性值格式兼容，如'300px'、'50%'等.
 
 - resizeGrid (list of numbers; optional):
-    针对尺寸调整行为，设置水平和竖直方向上调整的像素步长，格式：`[水平像素步长, 竖直像素步长]`  默认值：`[1, 1]`.
+    针对尺寸调整行为，设置水平和竖直方向上调整的像素步长，格式：`[水平像素步长, 竖直像素步长]` 默认值：`[1, 1]`.
 
 - dragGrid (list of numbers; optional):
-    针对位置拖拽行为，设置水平和竖直方向上拖拽的像素步长，格式：`[水平像素步长, 竖直像素步长]`  默认值：`[1, 1]`.
+    针对位置拖拽行为，设置水平和竖直方向上拖拽的像素步长，格式：`[水平像素步长, 竖直像素步长]` 默认值：`[1, 1]`.
 
 - lockAspectRatio (boolean | number; optional):
-    配置高宽比锁定，传入`True`时，将锁定初始尺寸对应高宽比，传入数值型时，用于指定具体的高宽比  默认值：`False`.
+    配置高宽比锁定，传入`True`时，将锁定初始尺寸对应高宽比，传入数值型时，用于指定具体的高宽比 默认值：`False`.
 
 - lockAspectRatioExtraWidth (number; optional):
-    在`lockAspectRatio`基础上，设置额外像素宽度  默认值：`0`.
+    在`lockAspectRatio`基础上，设置额外像素宽度 默认值：`0`.
 
 - lockAspectRatioExtraHeight (number; optional):
-    在`lockAspectRatio`基础上，设置额外像素高度  默认值：`0`.
+    在`lockAspectRatio`基础上，设置额外像素高度 默认值：`0`.
 
 - direction (list of a value equal to: 'top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft's; default ['top', 'right', 'bottom', 'left', 'topRight', 'bottomRight', 'bottomLeft', 'topLeft']):
     允许进行尺寸调整的方向，可多选，可选项有`'top'`、`'right'`、`'bottom'`、`'left'`、`'topRight'`、`'bottomRight'`、`'bottomLeft'`、`'topLeft'`
@@ -114,10 +114,10 @@ Keyword arguments:
     允许进行拖拽的方向，可选项有`'x'`、`'y'`、`'both'`、`'none'`.
 
 - bounds (a value equal to: 'window', 'parent'; optional):
-    设置当前组件尺寸调整及拖拽的外边界类型，可选项有`'window'`、`'parent'`  默认值：`'window'`.
+    设置当前组件尺寸调整及拖拽的外边界类型，可选项有`'window'`、`'parent'` 默认值：`'window'`.
 
 - selected (boolean; default False):
-    设置或监听当前组件是否处于选择状态  默认值：`False`.
+    设置或监听当前组件是否处于选择状态 默认值：`False`.
 
 - selectedStyle (dict; optional):
     设置当前组件在选中状态下的`css`样式.

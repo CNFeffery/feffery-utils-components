@@ -34,10 +34,10 @@ Keyword arguments:
     设置要全屏化的目标元素id，缺省时会以整个页面作为全屏化目标.
 
 - isFullscreen (boolean; default False):
-    设置或监听目标元素的全屏化状态  默认值：`False`.
+    设置或监听目标元素的全屏化状态 默认值：`False`.
 
 - pageFullscreen (dict; default False):
-    配置是否启用页面全屏，可进一步设置页面全屏根元素对应的css类名及`z-index`值  默认值：`False`.
+    配置是否启用页面全屏，可进一步设置页面全屏根元素对应的css类名及`z-index`值 默认值：`False`.
 
     `pageFullscreen` is a boolean | dict with keys:
 

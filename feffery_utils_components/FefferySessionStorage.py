@@ -34,7 +34,7 @@ Keyword arguments:
     设置或监听当前`id`对应的`sessionStorage`数据.
 
 - initialSync (boolean; default False):
-    设置初始化时是否从`sessionStorage`中尝试读取`id`对应的值并更新到`data`中  默认值：`False`."""
+    设置初始化时是否从`sessionStorage`中尝试读取`id`对应的值并更新到`data`中 默认值：`False`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

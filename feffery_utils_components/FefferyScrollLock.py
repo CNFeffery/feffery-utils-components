@@ -34,7 +34,7 @@ Keyword arguments:
     设置滚动锁定目标元素`id`，默认将锁定整个页面.
 
 - locked (boolean; default False):
-    设置针对目标是否开启滚动锁定  默认值：`False`."""
+    设置针对目标是否开启滚动锁定 默认值：`False`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

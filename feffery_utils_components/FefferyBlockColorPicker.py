@@ -34,18 +34,18 @@ Keyword arguments:
     当前组件css类名.
 
 - width (string; default '170px'):
-    整体宽度  默认值：`'170px'`.
+    整体宽度 默认值：`'170px'`.
 
 - color (string; optional):
     监听或设置当前选中色彩对应16进制颜色值.
 
 - colors (list of strings; default ['#D9E3F0', '#F47373', '#697689', '#37D67A', '#2CCCE4', '#555555', '#dce775', '#ff8a65', '#ba68c8']):
-    设置可选色彩对应16进制颜色值数组  默认值：`['#D9E3F0', '#F47373', '#697689',
+    设置可选色彩对应16进制颜色值数组 默认值：`['#D9E3F0', '#F47373', '#697689',
     '#37D67A', '#2CCCE4', '#555555', '#dce775', '#ff8a65',
     '#ba68c8']`.
 
 - triangle (a value equal to: 'hide', 'top'; default 'top'):
-    顶部箭头方位，可选项有`'hide'`、`'top'`  默认值：`'top'`."""
+    顶部箭头方位，可选项有`'hide'`、`'top'` 默认值：`'top'`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

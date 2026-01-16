@@ -34,19 +34,19 @@ Keyword arguments:
     当前组件css类名，支持[动态css](/advanced-classname).
 
 - debounceWait (number; default 200):
-    用于配置`value`变化更新的防抖等待时长（单位：毫秒）  默认值：`200`.
+    用于配置`value`变化更新的防抖等待时长（单位：毫秒） 默认值：`200`.
 
 - undoDelay (number; optional):
     设置历史记录间隔.
 
 - height (string | number; optional):
-    设置编辑器总高度  默认值：`'auto'`.
+    设置编辑器总高度 默认值：`'auto'`.
 
 - minHeight (number; optional):
     设置编辑区域最小高度.
 
 - width (string | number; optional):
-    设置编辑器总宽度，支持`%`  默认值：`'auto'`.
+    设置编辑器总宽度，支持`%` 默认值：`'auto'`.
 
 - placeholder (string; optional):
     设置输入区域为空时的提示.
@@ -59,26 +59,25 @@ Keyword arguments:
     设置`tab`键操作字符串，支持`\t`及任意字符串.
 
 - typewriterMode (boolean; default False):
-    是否启用打字机模式  默认值：`False`.
+    是否启用打字机模式 默认值：`False`.
 
 - cdn (string | a value equal to: 'https://unpkg.com/vditor@3.10.9', 'https://registry.npmmirror.com/vditor/3.10.9/files'; optional):
     配置`CDN`地址，可选的内置推荐地址有`'https://unpkg.com/vditor@3.10.9'`、`'https://registry.npmmirror.com/vditor/3.10.9/files'`，也可使用其他自定义`CDN`地址.
 
 - mode (a value equal to: 'wysiwyg', 'ir', 'sv'; default 'ir'):
-    设置模式，可选的有：`'sv'`(分屏预览)、`'ir'`(即时渲染)、`'wysiwyg'`(所见即所得)
-    默认值：`'ir'`.
+    设置模式，可选的有：`'sv'`(分屏预览)、`'ir'`(即时渲染)、`'wysiwyg'`(所见即所得) 默认值：`'ir'`.
 
 - debuggerMode (boolean; default False):
-    是否显示日志  默认值：`False`.
+    是否显示日志 默认值：`False`.
 
 - value (string; optional):
     编辑器`md`内容.
 
 - theme (a value equal to: 'classic', 'dark'; default 'classic'):
-    设置编辑器主题，可选的有：`'classic'`、`'dark'`  默认值：`'classic'`.
+    设置编辑器主题，可选的有：`'classic'`、`'dark'` 默认值：`'classic'`.
 
 - icon (a value equal to: 'ant', 'material'; default 'ant'):
-    设置图标风格，可选的有：`'ant'`、`'material'`  默认值：`'ant'`.
+    设置图标风格，可选的有：`'ant'`、`'material'` 默认值：`'ant'`.
 
 - toolbar (optional):
     设置工具栏.
@@ -89,10 +88,10 @@ Keyword arguments:
     `toolbarConfig` is a dict with keys:
 
     - hide (boolean; optional):
-        是否隐藏工具栏  默认值：`False`.
+        是否隐藏工具栏 默认值：`False`.
 
     - pin (boolean; optional):
-        是否固定工具栏  默认值：`False`.
+        是否固定工具栏 默认值：`False`.
 
 - counter (dict; optional):
     计数器配置.
@@ -100,13 +99,13 @@ Keyword arguments:
     `counter` is a dict with keys:
 
     - enable (boolean; optional):
-        是否启用计数器  默认值：`False`.
+        是否启用计数器 默认值：`False`.
 
     - max (number; optional):
         设置允许输入的最大值.
 
     - type (a value equal to: 'markdown', 'text'; optional):
-        设置统计类型，可选的有：`'markdown'`、`'text'`  默认值：`'markdown'`.
+        设置统计类型，可选的有：`'markdown'`、`'text'` 默认值：`'markdown'`.
 
 - cache (dict; optional):
     缓存配置.
@@ -114,7 +113,7 @@ Keyword arguments:
     `cache` is a dict with keys:
 
     - enable (boolean; optional):
-        是否使用`localStorage`进行缓存  默认值：`True`.
+        是否使用`localStorage`进行缓存 默认值：`True`.
 
     - id (string; optional):
         缓存`key`.
@@ -131,7 +130,7 @@ Keyword arguments:
         配置预览区域最大宽度.
 
     - mode (a value equal to: 'both', 'editor'; optional):
-        配置显示模式，可选的有：`'both'`、`'editor'`  默认值：`'both'`.
+        配置显示模式，可选的有：`'both'`、`'editor'` 默认值：`'both'`.
 
     - url (string; optional):
         配置md解析请求.
@@ -145,13 +144,13 @@ Keyword arguments:
             未指定语言时默认使用该语言.
 
         - enable (boolean; optional):
-            是否启用代码高亮  默认值：`True`.
+            是否启用代码高亮 默认值：`True`.
 
         - style (a value equal to: 'abap', 'algol', 'algol_nu', 'api', 'arduino', 'autumn', 'average', 'base16-snazzy', 'borland', 'bw', 'catppuccin-frappe', 'catppuccin-latte', 'catppuccin-macchiato', 'catppuccin-mocha', 'colorful', 'compat', 'doom-one', 'doom-one2', 'dracula', 'emacs', 'friendly', 'fruity', 'github-dark', 'github', 'gruvbox-light', 'gruvbox', 'hr_high_contrast', 'hrdark', 'igor', 'lovelace', 'manni', 'modus-operandi', 'modus-vivendi', 'monokai', 'monokailight', 'murphy', 'native', 'nord', 'onedark', 'onesenterprise', 'paraiso-dark', 'paraiso-light', 'pastie', 'perldoc', 'pygments', 'rainbow_dash', 'rose-pine-dawn', 'rose-pine-moon', 'rose-pine', 'rrt', 'solarized-dark', 'solarized-dark256', 'solarized-light', 'swapoff', 'tango', 'tokyonight-day', 'tokyonight-moon', 'tokyonight-night', 'tokyonight-storm', 'trac', 'vim', 'vs', 'vulcan', 'witchhazel', 'xcode-dark', 'xcode'; optional):
-            配置菜单字号选项  默认值：`'github'`.
+            配置菜单字号选项 默认值：`'github'`.
 
         - lineNumber (boolean; optional):
-            是否启用行号  默认值：`False`.
+            是否启用行号 默认值：`False`.
 
         - langs (list of strings; optional):
             自定义指定语言.
@@ -162,34 +161,34 @@ Keyword arguments:
         `markdown` is a dict with keys:
 
         - autoSpace (boolean; optional):
-            是否开启自动空格  默认值：`False`.
+            是否开启自动空格 默认值：`False`.
 
         - gfmAutoLink (boolean; optional):
-            是否开启自动链接  默认值：`True`.
+            是否开启自动链接 默认值：`True`.
 
         - fixTermTypo (boolean; optional):
-            是否开启自动矫正术语  默认值：`False`.
+            是否开启自动矫正术语 默认值：`False`.
 
         - toc (boolean; optional):
-            是否开启插入目录  默认值：`False`.
+            是否开启插入目录 默认值：`False`.
 
         - footnotes (boolean; optional):
             是否开启脚注，默认为True.
 
         - codeBlockPreview (boolean; optional):
-            `'wysiwyg'`和`'ir'`模式下是否对代码块进行渲染  默认值：`True`.
+            `'wysiwyg'`和`'ir'`模式下是否对代码块进行渲染 默认值：`True`.
 
         - mathBlockPreview (boolean; optional):
-            `'wysiwyg'`和`'ir'`模式下是否对数学公式进行渲染  默认值：`True`.
+            `'wysiwyg'`和`'ir'`模式下是否对数学公式进行渲染 默认值：`True`.
 
         - paragraphBeginningSpace (boolean; optional):
-            段落开头是否空两格  默认值：`False`.
+            段落开头是否空两格 默认值：`False`.
 
         - sanitize (boolean; optional):
-            是否启用过滤`XSS`  默认值：`True`.
+            是否启用过滤`XSS` 默认值：`True`.
 
         - listStyle (boolean; optional):
-            是否为列表添加`data-style`属性  默认值：`False`.
+            是否为列表添加`data-style`属性 默认值：`False`.
 
         - linkBase (string; optional):
             链接相对路径前缀.
@@ -198,7 +197,7 @@ Keyword arguments:
             链接强制前缀.
 
         - mark (boolean; optional):
-            是否启用`mark`标记  默认值：`False`.
+            是否启用`mark`标记 默认值：`False`.
 
     - theme (dict; optional):
         主题配置.
@@ -206,10 +205,10 @@ Keyword arguments:
         `theme` is a dict with keys:
 
         - current (string; optional):
-            当前主题  默认值：`'light'`.
+            当前主题 默认值：`'light'`.
 
         - list (dict; optional):
-            可选主题列表  默认值：`{\"ant-design\": \"Ant Design\", dark:
+            可选主题列表 默认值：`{\"ant-design\": \"Ant Design\", dark:
             \"Dark\", light: \"Light\", wechat: \"WeChat\"}`.
 
         - path (string; optional):
@@ -222,13 +221,13 @@ Keyword arguments:
         `math` is a dict with keys:
 
         - inlineDigit (boolean; optional):
-            内联数学公式起始`$`后是否允许数字  默认值：`False`.
+            内联数学公式起始`$`后是否允许数字 默认值：`False`.
 
         - macros (dict; optional):
             使用`MathJax`渲染时传入的宏定义.
 
         - engine (a value equal to: 'KaTeX', 'MathJax'; optional):
-            配置数学公式渲染引擎，可选的值有`'KaTeX'`、`'MathJax'`  默认值：`'KaTeX'`.
+            配置数学公式渲染引擎，可选的值有`'KaTeX'`、`'MathJax'` 默认值：`'KaTeX'`.
 
         - mathJaxOptions (boolean
 
@@ -267,7 +266,7 @@ Keyword arguments:
             `media` is a dict with keys:
 
             - enable (boolean; optional):
-                是否启用多媒体渲染  默认值：`True`.
+                是否启用多媒体渲染 默认值：`True`.
 
 - image (dict; optional):
     图片配置.
@@ -275,7 +274,7 @@ Keyword arguments:
     `image` is a dict with keys:
 
     - isPreview (boolean; optional):
-        是否预览图片  默认值：`True`.
+        是否预览图片 默认值：`True`.
 
 - link (dict; optional):
     链接配置.
@@ -283,7 +282,7 @@ Keyword arguments:
     `link` is a dict with keys:
 
     - isOpen (boolean; optional):
-        是否打开链接地址  默认值：`True`.
+        是否打开链接地址 默认值：`True`.
 
 - hint (dict; optional):
     hint配置.
@@ -291,10 +290,10 @@ Keyword arguments:
     `hint` is a dict with keys:
 
     - parse (boolean; optional):
-        是否进行`md`解析  默认值：`True`.
+        是否进行`md`解析 默认值：`True`.
 
     - delay (number; optional):
-        提示`debounce`毫秒间隔  默认值：`200`.
+        提示`debounce`毫秒间隔 默认值：`200`.
 
     - emoji (dict; optional):
         默认表情，可从`https://github.com/88250/lute/blob/master/parse/emoji_map.go`中选取，也可自定义
@@ -317,7 +316,7 @@ Keyword arguments:
         上传`url`，为空则不会触发上传相关事件.
 
     - max (number; optional):
-        上传文件最大`Byte`  默认值：`10 * 1024 * 1024`.
+        上传文件最大`Byte` 默认值：`10 * 1024 * 1024`.
 
     - linkToImgUrl (string; optional):
         剪切板中包含图片地址时，使用此`url`重新上传.
@@ -326,7 +325,7 @@ Keyword arguments:
         `CORS`上传验证，头为`X-Upload-Token`.
 
     - withCredentials (boolean; optional):
-        跨站点访问控制  默认值：`False`.
+        跨站点访问控制 默认值：`False`.
 
     - headers (dict; optional):
         请求头设置.
@@ -338,10 +337,10 @@ Keyword arguments:
         额外请求参数.
 
     - multiple (boolean; optional):
-        是否允许多文件上传  默认值：`True`.
+        是否允许多文件上传 默认值：`True`.
 
     - fieldName (string; optional):
-        上传字段名称  默认值：`file[]`.
+        上传字段名称 默认值：`file[]`.
 
 - resize (dict; optional):
     拖拽配置.
@@ -349,10 +348,10 @@ Keyword arguments:
     `resize` is a dict with keys:
 
     - enable (boolean; optional):
-        是否支持大小拖拽  默认值：`False`.
+        是否支持大小拖拽 默认值：`False`.
 
     - position (a value equal to: 'top', 'bottom'; optional):
-        设置拖拽栏位置，可选的值有`'top'`、`'bottom'`  默认值：`'bottom'`.
+        设置拖拽栏位置，可选的值有`'top'`、`'bottom'` 默认值：`'bottom'`.
 
 - classes (dict; optional):
     类名配置.
@@ -368,7 +367,7 @@ Keyword arguments:
     `fullscreen` is a dict with keys:
 
     - index (number; optional):
-        全屏层级  默认值：`90`.
+        全屏层级 默认值：`90`.
 
 - outline (dict; optional):
     大纲配置.
@@ -376,10 +375,10 @@ Keyword arguments:
     `outline` is a dict with keys:
 
     - enable (boolean; optional):
-        初始化是否展现大纲  默认值：`False`.
+        初始化是否展现大纲 默认值：`False`.
 
     - position (a value equal to: 'left', 'right'; optional):
-        大纲位置，可选的值有`'left'`、`'right'`  默认值：`'left'`.
+        大纲位置，可选的值有`'left'`、`'right'` 默认值：`'left'`.
 
 - htmlValue (string; optional):
     编辑器`HTML`内容.

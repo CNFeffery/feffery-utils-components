@@ -37,49 +37,49 @@ Keyword arguments:
     必填，用于定义相册内部各图片相关信息数组.
 
 - infinite (boolean; default True):
-    是否启用无限轮播  默认值：`True`.
+    是否启用无限轮播 默认值：`True`.
 
 - lazyLoad (boolean; default False):
-    是否为图片启用懒加载功能  默认值：`False`.
+    是否为图片启用懒加载功能 默认值：`False`.
 
 - showNav (boolean; default True):
-    是否展示导航按钮  默认值：`True`.
+    是否展示导航按钮 默认值：`True`.
 
 - showThumbnails (boolean; default True):
-    是否展示缩略图列表  默认值：`True`.
+    是否展示缩略图列表 默认值：`True`.
 
 - thumbnailPosition (a value equal to: 'top', 'right', 'bottom', 'left'; default 'bottom'):
-    设置缩略图方位，可选项有`'top'`、`'right'`、`'bottom'`、`'left'`  默认值：`'bottom'`.
+    设置缩略图方位，可选项有`'top'`、`'right'`、`'bottom'`、`'left'` 默认值：`'bottom'`.
 
 - showFullscreenButton (boolean; default True):
-    是否展示全屏功能按钮  默认值：`True`.
+    是否展示全屏功能按钮 默认值：`True`.
 
 - useBrowserFullscreen (boolean; default True):
-    是否使用原生全屏化功能  默认值：`True`.
+    是否使用原生全屏化功能 默认值：`True`.
 
 - showPlayButton (boolean; default True):
-    是否展示播放功能按钮  默认值：`True`.
+    是否展示播放功能按钮 默认值：`True`.
 
 - showBullets (boolean; default False):
-    是否展示快捷跳转指示器  默认值：`False`.
+    是否展示快捷跳转指示器 默认值：`False`.
 
 - showIndex (boolean; default False):
-    是否展示图片序号信息  默认值：`False`.
+    是否展示图片序号信息 默认值：`False`.
 
 - autoPlay (boolean; default False):
-    是否启用自动播放  默认值：`False`.
+    是否启用自动播放 默认值：`False`.
 
 - slideDuration (number; default 450):
-    设置图片轮播动画的持续时长，单位：毫秒  默认值：`450`.
+    设置图片轮播动画的持续时长，单位：毫秒 默认值：`450`.
 
 - slideInterval (number; default 3000):
-    设置图片轮播动画的间隔时长，单位：毫秒  默认值：`3000`.
+    设置图片轮播动画的间隔时长，单位：毫秒 默认值：`3000`.
 
 - startIndex (number; default 0):
-    设置初始化图片下标，从0开始  默认值：`0`.
+    设置初始化图片下标，从0开始 默认值：`0`.
 
 - isFullscreen (boolean; default False):
-    监听当前相册是否处于全屏化状态  默认值：`False`."""
+    监听当前相册是否处于全屏化状态 默认值：`False`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

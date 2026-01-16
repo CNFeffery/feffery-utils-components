@@ -34,7 +34,7 @@ Keyword arguments:
     当前组件css类名，支持[动态css](/advanced-classname).
 
 - renderer (a value equal to: 'img', 'svg', 'canvas'; default 'canvas'):
-    渲染类型，可选的有`'img'`、`'svg'`、`'canvas'`  默认值：`'canvas'`.
+    渲染类型，可选的有`'img'`、`'svg'`、`'canvas'` 默认值：`'canvas'`.
 
 - value (string; optional):
     设置条形码所表达的信息值.
@@ -44,41 +44,40 @@ Keyword arguments:
     默认值：`'CODE128'`.
 
 - width (number; default 2):
-    设置条形码宽度  默认值：`2`.
+    设置条形码宽度 默认值：`2`.
 
 - height (number; default 100):
-    设置条形码高度  默认值：`100`.
+    设置条形码高度 默认值：`100`.
 
 - displayValue (boolean; default True):
-    设置是否显示条形码所表达的信息值  默认值：`True`.
+    设置是否显示条形码所表达的信息值 默认值：`True`.
 
 - text (string; optional):
     设置条形码显示的文本.
 
 - fontOptions (string; default ''):
-    设置条形码显示文本的字体样式  默认值：''.
+    设置条形码显示文本的字体样式 默认值：''.
 
 - font (string; default 'monospace'):
-    设置条形码显示文本的字体种类  默认值：'monospace'.
+    设置条形码显示文本的字体种类 默认值：'monospace'.
 
 - fontSize (number; default 20):
-    设置条形码显示文本的字体大小  默认值：`20`.
+    设置条形码显示文本的字体大小 默认值：`20`.
 
 - textAlign (a value equal to: 'left', 'center', 'right'; default 'center'):
-    设置条形码显示文本的水平对齐方式，可选的有`'left'`、`'center'`、`'right'`
-    默认值：`'center'`.
+    设置条形码显示文本的水平对齐方式，可选的有`'left'`、`'center'`、`'right'` 默认值：`'center'`.
 
 - textPosition (a value equal to: 'top', 'bottom'; default 'bottom'):
-    设置条形码显示文本的垂直位置，可选的有`'top'`、`'bottom'`  默认值：`'bottom'`.
+    设置条形码显示文本的垂直位置，可选的有`'top'`、`'bottom'` 默认值：`'bottom'`.
 
 - textMargin (number; default 2):
-    设置条形码和显示文本之间的间距  默认值：`2`.
+    设置条形码和显示文本之间的间距 默认值：`2`.
 
 - background (string; default '#ffffff'):
-    设置条形码的背景颜色  默认值：`'#ffffff'`.
+    设置条形码的背景颜色 默认值：`'#ffffff'`.
 
 - lineColor (string; default '#000000'):
-    设置条形码的线条和显示文本颜色  默认值：`'#000000'`.
+    设置条形码的线条和显示文本颜色 默认值：`'#000000'`.
 
 - margin (number; default 10):
     设置条形码周围的间距边距，如果未设置`marginTop`、`marginBottom`、`marginLeft`、`marginRight`，则这四个参数将继承`margins`的值
@@ -97,7 +96,7 @@ Keyword arguments:
     设置条形码周围的右间距边距.
 
 - flat (boolean; default False):
-    设置条形码是否保持平整，仅适用于`EAN8`和`EAN13`  默认值：`False`."""
+    设置条形码是否保持平整，仅适用于`EAN8`和`EAN13` 默认值：`False`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

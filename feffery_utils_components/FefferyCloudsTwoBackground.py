@@ -37,40 +37,40 @@ Keyword arguments:
     当前组件css类名，支持[动态css](/advanced-classname).
 
 - mouseControls (boolean; default True):
-    设置是否开启鼠标控制  默认为`True`.
+    设置是否开启鼠标控制 默认为`True`.
 
 - touchControls (boolean; default True):
-    设置是否开启触摸控制  默认为`True`.
+    设置是否开启触摸控制 默认为`True`.
 
 - gyroControls (boolean; default False):
-    设置是否开启陀螺仪控制  默认为`False`.
+    设置是否开启陀螺仪控制 默认为`False`.
 
 - minHeight (number; default 200.00):
-    设置最小高度  默认为`200.00`.
+    设置最小高度 默认为`200.00`.
 
 - minWidth (number; default 200.00):
-    设置最小宽度  默认为`200.00`.
+    设置最小宽度 默认为`200.00`.
 
 - scale (number; default 1.00):
-    设置比例  默认为`1.00`.
+    设置比例 默认为`1.00`.
 
 - texturePath (string; optional):
     设置纹理图片的`url`，支持`base64`编码的字符串.
 
 - backgroundColor (string; default '#000000'):
-    设置背景颜色  默认为`'#000000'`.
+    设置背景颜色 默认为`'#000000'`.
 
 - skyColor (string; default '#5ca6ca'):
-    设置天空颜色  默认为`'#5ca6ca'`.
+    设置天空颜色 默认为`'#5ca6ca'`.
 
 - cloudColor (string; default '#334d80'):
-    设置云颜色  默认为`'#334d80'`.
+    设置云颜色 默认为`'#334d80'`.
 
 - lightColor (string; default '#ffffff'):
-    设置光线颜色  默认为`'#ffffff'`.
+    设置光线颜色 默认为`'#ffffff'`.
 
 - speed (number; default 1):
-    设置动画速度，范围`0`到`5`  默认为`1`."""
+    设置动画速度，范围`0`到`5` 默认为`1`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

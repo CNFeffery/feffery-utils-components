@@ -52,10 +52,10 @@ Keyword arguments:
         自定义请求体发送数据.
 
     - timeout (number; optional):
-        请求超时时长，单位：毫秒，设置为`0`表示永不超时  默认值：`0`.
+        请求超时时长，单位：毫秒，设置为`0`表示永不超时 默认值：`0`.
 
     - withCredentials (boolean; optional):
-        跨域请求时是否需要使用凭证  默认值：`False`.
+        跨域请求时是否需要使用凭证 默认值：`False`.
 
     - responseType (a value equal to: 'json', 'text', 'document', 'stream', 'arraybuffer', 'blob'; optional):
         响应结果数据类型，可选项有`'json'`、`'text'`、`'document'`、`'stream'`、`'arraybuffer'`、`'blob'`

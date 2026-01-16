@@ -34,7 +34,7 @@ Keyword arguments:
     定义当前存储器对应存储在浏览器本地的数据.
 
 - initialSync (boolean; default False):
-    设置初始化时是否从浏览器本地存储中尝试读取`id`对应的值并更新到`data`中  默认值：`False`."""
+    设置初始化时是否从浏览器本地存储中尝试读取`id`对应的值并更新到`data`中 默认值：`False`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

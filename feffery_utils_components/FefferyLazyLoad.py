@@ -43,13 +43,13 @@ Keyword arguments:
     设置默认宽度.
 
 - offset (number; optional):
-    设置元素距离浏览器下边界若干像素距离时开始预加载  默认值：`0`.
+    设置元素距离浏览器下边界若干像素距离时开始预加载 默认值：`0`.
 
 - visible (boolean; default False):
     监听容器是否已出现在用户视图中.
 
 - throttle (number; optional):
-    设置节流所需的延时加载时长（单位：毫秒）  默认值：`250`."""
+    设置节流所需的延时加载时长（单位：毫秒） 默认值：`250`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

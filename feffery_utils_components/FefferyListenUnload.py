@@ -34,7 +34,7 @@ Keyword arguments:
     监听页面重载或关闭事件，每次页面关闭时会触发更新为`True`.
 
 - confirmBeforeUnload (boolean; default False):
-    是否在用户重载或关闭当前页面时，添加二次确认  默认值：`False`."""
+    是否在用户重载或关闭当前页面时，添加二次确认 默认值：`False`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

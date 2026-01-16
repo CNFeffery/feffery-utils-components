@@ -37,22 +37,22 @@ Keyword arguments:
     当前组件css类名.
 
 - nClicks (number; default 0):
-    按钮累计点击次数，用于监听按钮点击行为  默认值：`0`.
+    按钮累计点击次数，用于监听按钮点击行为 默认值：`0`.
 
 - debounceWait (number; default 0):
-    按钮点击事件监听防抖延时，单位：毫秒  默认值：`0`.
+    按钮点击事件监听防抖延时，单位：毫秒 默认值：`0`.
 
 - type (a value equal to: 'primary', 'secondary', 'danger'; optional):
-    按钮类型，可选项有`'primary'`、`'secondary'`、`'danger'`  默认值：`'primary'`.
+    按钮类型，可选项有`'primary'`、`'secondary'`、`'danger'` 默认值：`'primary'`.
 
 - disabled (boolean; optional):
-    是否禁用当前组件  默认值：`False`.
+    是否禁用当前组件 默认值：`False`.
 
 - href (string; optional):
     按钮点击跳转链接地址.
 
 - target (string; default '_blank'):
-    按钮点击跳转链接方式  默认值：`'_blank'`.
+    按钮点击跳转链接方式 默认值：`'_blank'`.
 
 - before (a list of or a singular dash component, string or number; optional):
     组件型，按钮前缀元素.
@@ -61,7 +61,7 @@ Keyword arguments:
     组件型，按钮后缀元素.
 
 - ripple (boolean; optional):
-    是否开启点击涟漪效果  默认值：`False`."""
+    是否开启点击涟漪效果 默认值：`False`."""
     _children_props: typing.List[str] = ['before', 'after']
     _base_nodes = ['before', 'after', 'children']
     _namespace = 'feffery_utils_components'

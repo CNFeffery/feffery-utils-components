@@ -42,22 +42,22 @@ Keyword arguments:
     设置或监听图标状态.
 
 - size (number; default 32):
-    图标像素尺寸  默认值：`32`.
+    图标像素尺寸 默认值：`32`.
 
 - direction (a value equal to: 'left', 'right'; default 'left'):
-    部分类型图标可用，控制动画方向，可选项有`'left'`、`'right'`  默认值：`'left'`.
+    部分类型图标可用，控制动画方向，可选项有`'left'`、`'right'` 默认值：`'left'`.
 
 - duration (number; default 0.3):
-    动画过程时长，单位：秒，设置为`0`时将关闭动画  默认值：`0.3`.
+    动画过程时长，单位：秒，设置为`0`时将关闭动画 默认值：`0.3`.
 
 - distance (a value equal to: 'sm', 'md', 'lg'; default 'md'):
-    图标水平线之间的间距大小规格，可选项有`'sm'`、`'md'`、`'lg'`  默认值：`'md'`.
+    图标水平线之间的间距大小规格，可选项有`'sm'`、`'md'`、`'lg'` 默认值：`'md'`.
 
 - color (string; optional):
     图标颜色.
 
 - rounded (boolean; default False):
-    是否渲染为圆角矩形  默认值：`False`."""
+    是否渲染为圆角矩形 默认值：`False`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

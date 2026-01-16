@@ -34,7 +34,7 @@ Keyword arguments:
     监听当前应用是否处于闲置状态.
 
 - waitDuration (number; default 3000):
-    设置经过多长时间没有操作后视作闲置状态，单位：毫秒  默认值：`3000`."""
+    设置经过多长时间没有操作后视作闲置状态，单位：毫秒 默认值：`3000`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

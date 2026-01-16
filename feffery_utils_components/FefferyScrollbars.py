@@ -37,7 +37,7 @@ Keyword arguments:
     当前组件css类名.
 
 - autoHide (boolean; default True):
-    是否在无操作时自动隐藏滚动条  默认值：`True`.
+    是否在无操作时自动隐藏滚动条 默认值：`True`.
 
 - classNames (dict; optional):
     各组成部分css类名.
@@ -57,13 +57,13 @@ Keyword arguments:
         滚动条滑块.
 
 - forceVisible (boolean | a value equal to: 'x', 'y'; default False):
-    滑块区域是否强制可见，可传入由`'x'`、`'y'`组成的列表进行水平、竖直方向的单独设置  默认值：`False`.
+    滑块区域是否强制可见，可传入由`'x'`、`'y'`组成的列表进行水平、竖直方向的单独设置 默认值：`False`.
 
 - timeout (number; default 1000):
-    滑块自动隐藏延时，单位：毫秒  默认值：`1000`.
+    滑块自动隐藏延时，单位：毫秒 默认值：`1000`.
 
 - scrollbarMinSize (number; default 25):
-    滚动条最小像素长度  默认值：`25`.
+    滚动条最小像素长度 默认值：`25`.
 
 - scrollbarMaxSize (number; optional):
     滚动条最大像素长度."""

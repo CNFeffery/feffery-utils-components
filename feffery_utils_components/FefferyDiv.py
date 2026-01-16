@@ -40,7 +40,7 @@ Keyword arguments:
     控制要开启的事件监听类型数组，可选项有`'click'`（单击事件）、`'dbclick'`（双击事件）、`'size'`（尺寸变化事件）、
     `'mouseenter'`（鼠标移入事件），`'mouseleave'`（鼠标移出事件）、`'contextmenu'`（鼠标右键点击事件）、
     `'hover'`（鼠标悬停事件）、`'touch'`（移动端触碰事件）、`'clickaway'`（元素外点击事件）、`'position'`（左上角坐标位置变化事件）、
-    `'focus'`（聚焦状态切换事件）、`'paste'`（文本粘贴事件）  默认值：`['click', 'dbclick']`.
+    `'focus'`（聚焦状态切换事件）、`'paste'`（文本粘贴事件） 默认值：`['click', 'dbclick']`.
 
 - _width (number; optional):
     监听容器当前像素宽度值.
@@ -49,16 +49,16 @@ Keyword arguments:
     监听容器当前像素高度值.
 
 - debounceWait (number; default 150):
-    尺寸变化事件监听属性的防抖等待时间，单位：毫秒  默认值：`150`.
+    尺寸变化事件监听属性的防抖等待时间，单位：毫秒 默认值：`150`.
 
 - mouseEnterCount (number; default 0):
-    监听鼠标移入事件累计次数  默认值：`0`.
+    监听鼠标移入事件累计次数 默认值：`0`.
 
 - mouseLeaveCount (number; default 0):
-    监听鼠标移出事件累计次数  默认值：`0`.
+    监听鼠标移出事件累计次数 默认值：`0`.
 
 - nClicks (number; default 0):
-    监听单击事件累计次数  默认值：`0`.
+    监听单击事件累计次数 默认值：`0`.
 
 - clickEvent (dict; optional):
     监听单击事件对应详细参数.
@@ -87,7 +87,7 @@ Keyword arguments:
         点击事件对应的时间戳.
 
 - nDoubleClicks (number; default 0):
-    监听双击事件累计次数  默认值：`0`.
+    监听双击事件累计次数 默认值：`0`.
 
 - doubleClickEvent (dict; optional):
     监听双击事件对应详细参数.
@@ -116,7 +116,7 @@ Keyword arguments:
         点击事件对应的时间戳.
 
 - enableListenContextMenu (boolean; default False):
-    是否针对当前组件监听右键点击事件，开启后会强制阻止当前组件内的默认右键菜单弹出行为  默认值：`False`.
+    是否针对当前组件监听右键点击事件，开启后会强制阻止当前组件内的默认右键菜单弹出行为 默认值：`False`.
 
 - contextMenuEvent (dict; optional):
     监听鼠标右键点击事件对应详细参数.
@@ -151,10 +151,10 @@ Keyword arguments:
     针对移动端场景，监听当前元素是否处于触摸状态.
 
 - enableClickAway (boolean; default False):
-    是否启用元素外点击事件监听  默认值：`False`.
+    是否启用元素外点击事件监听 默认值：`False`.
 
 - clickAwayCount (number; default 0):
-    监听当前元素外部点击事件累计次数  默认值：`0`.
+    监听当前元素外部点击事件累计次数 默认值：`0`.
 
 - position (dict; optional):
     监听当前元素左上角在视口中的坐标位置.
@@ -168,7 +168,7 @@ Keyword arguments:
         以页面整体左上角为原点，记录y坐标.
 
 - enableFocus (boolean; default False):
-    是否启用聚焦状态监听功能  默认值：`False`.
+    是否启用聚焦状态监听功能 默认值：`False`.
 
 - isFocused (boolean; optional):
     监听或设置当前元素是否聚焦中.

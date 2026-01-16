@@ -34,7 +34,7 @@ Keyword arguments:
     当前组件css类名，支持[动态css](/advanced-classname).
 
 - debounceWait (number; optional):
-    用于配置value变化更新的防抖等待时长（单位：毫秒）  默认值：`200`.
+    用于配置value变化更新的防抖等待时长（单位：毫秒） 默认值：`200`.
 
 - value (string; optional):
     编辑器内容.
@@ -132,22 +132,22 @@ Keyword arguments:
         默认为深色主题`'dark'`.
 
     - wrap (boolean; optional):
-        超出长度是否换行，`False`则显示滚动条  默认值：`True`.
+        超出长度是否换行，`False`则显示滚动条 默认值：`True`.
 
     - lineNumber (boolean; optional):
-        是否显示行号  默认值：`True`.
+        是否显示行号 默认值：`True`.
 
     - copyCode (boolean; optional):
-        是否显示复制按钮  默认值：`True`.
+        是否显示复制按钮 默认值：`True`.
 
     - editCode (boolean; optional):
-        是否显示编辑按钮  默认值：`True`.
+        是否显示编辑按钮 默认值：`True`.
 
     - changeLang (boolean; optional):
-        是否显示切换语言按钮  默认值：`True`.
+        是否显示切换语言按钮 默认值：`True`.
 
     - indentedCodeBlock (boolean; optional):
-        是否启用缩进代码块  默认值：`True`.
+        是否启用缩进代码块 默认值：`True`.
 
         - emoji (dict; optional):
             `emoji`配置.
@@ -155,7 +155,7 @@ Keyword arguments:
             `emoji` is a boolean | dict with keys:
 
     - useUnicode (boolean; optional):
-        是否使用`unicode`进行渲染  默认值：`True`.
+        是否使用`unicode`进行渲染 默认值：`True`.
 
         - fontEmphasis (dict; optional):
             `fontEmphasis`配置.
@@ -163,10 +163,10 @@ Keyword arguments:
             `fontEmphasis` is a boolean | dict with keys:
 
     - allowWhitespace (boolean; optional):
-        是否允许首尾空格，首尾、前后的定义：语法前**语法首+内容+语法尾**语法后<br/>  例：<br/>
-        &emsp;`True`:<br/>            &emsp;&emsp;__ hello __  ====>
-        <strong> hello </strong><br/>            &emsp;&emsp;__hello__
-        ====>   <strong>hello</strong><br/>     &emsp;`False`:<br/>
+        是否允许首尾空格，首尾、前后的定义：语法前**语法首+内容+语法尾**语法后<br/> 例：<br/>
+        &emsp;`True`:<br/>           &emsp;&emsp;__ hello __  ====>
+        <strong> hello </strong><br/>           &emsp;&emsp;__hello__
+        ====>   <strong>hello</strong><br/>    &emsp;`False`:<br/>
         &emsp;&emsp;__ hello __  ====>   <em>_ hello _</em><br/>
         &emsp;&emsp;__hello__    ====>   <strong>hello</strong><br/>
         默认值：`False`.
@@ -177,14 +177,14 @@ Keyword arguments:
             `strikethrough` is a boolean | dict with keys:
 
     - needWhitespace (boolean; optional):
-        是否必须有前后空格，首尾、前后的定义： 语法前**语法首+内容+语法尾**语法后<br/>  例：<br/>
-        &emsp;`True`:<br/>             &emsp;&emsp;hello wor~~l~~d
-        ====>   hello wor~~l~~d<br/>             &emsp;&emsp;hello wor
+        是否必须有前后空格，首尾、前后的定义： 语法前**语法首+内容+语法尾**语法后<br/> 例：<br/>
+        &emsp;`True`:<br/>            &emsp;&emsp;hello wor~~l~~d
+        ====>   hello wor~~l~~d<br/>            &emsp;&emsp;hello wor
         ~~l~~ d   ====>   hello wor <del>l</del> d<br/>
-        &emsp;`False`:<br/>             &emsp;&emsp;hello wor~~l~~d
+        &emsp;`False`:<br/>            &emsp;&emsp;hello wor~~l~~d
         ====>   hello wor<del>l</del>d<br/>
         &emsp;&emsp;hello wor ~~l~~ d     ====>   hello wor
-        <del>l</del> d<br/>  默认值：`False`.
+        <del>l</del> d<br/> 默认值：`False`.
 
         - mathBlock (dict; optional):
             `mathBlock`配置.
@@ -192,12 +192,12 @@ Keyword arguments:
             `mathBlock` is a boolean | dict with keys:
 
     - engine (a value equal to: 'katex', 'MathJax'; optional):
-        `'katex'`或`'MathJax'`  默认值：`'MathJax'`.
+        `'katex'`或`'MathJax'` 默认值：`'MathJax'`.
 
     - src (string; optional)
 
     - plugins (boolean; optional):
-        是否加载插件  默认值：`True`.
+        是否加载插件 默认值：`True`.
 
         - inlineMath (dict; optional):
             `inlineMath`配置.
@@ -205,7 +205,7 @@ Keyword arguments:
             `inlineMath` is a boolean | dict with keys:
 
     - engine (a value equal to: 'katex', 'MathJax'; optional):
-        `'katex'`或`'MathJax'`  默认值：`'MathJax'`.
+        `'katex'`或`'MathJax'` 默认值：`'MathJax'`.
 
     - src (string; optional)
 
@@ -215,7 +215,7 @@ Keyword arguments:
             `toc` is a boolean | dict with keys:
 
     - allowMultiToc (boolean; optional):
-        是否渲染多个目录，`False`表示只渲染一个目录  默认值：`False`.
+        是否渲染多个目录，`False`表示只渲染一个目录 默认值：`False`.
 
         - header (dict; optional):
             `header`配置.
@@ -238,14 +238,14 @@ Keyword arguments:
         `textarea`的`name`属性值.
 
     - autoSave2Textarea (boolean; optional):
-        是否自动将编辑区的内容回写到`textarea`里  默认值：`False`.
+        是否自动将编辑区的内容回写到`textarea`里 默认值：`False`.
 
     - theme (string; optional):
         depend on codemirror theme name:
-        `https://codemirror.net/demo/theme.htm`  默认值：'default'.
+        `https://codemirror.net/demo/theme.htm` 默认值：'default'.
 
     - height (string; optional):
-        编辑器的高度，如果挂载点存在内联设置的`height`则以内联样式为主  默认值：`100%`.
+        编辑器的高度，如果挂载点存在内联设置的`height`则以内联样式为主 默认值：`100%`.
 
     - defaultModel (a value equal to: 'edit&preview', 'editOnly', 'previewOnly'; optional):
         编辑器初始化后的默认模式，`'edit&preview'`: 双栏编辑预览模式，`'editOnly'`:
@@ -254,17 +254,17 @@ Keyword arguments:
         默认值：`'edit&preview'`.
 
     - convertWhenPaste (boolean; optional):
-        粘贴时是否自动将`html`转成`markdown`  默认值：`True`.
+        粘贴时是否自动将`html`转成`markdown` 默认值：`True`.
 
     - codemirror (dict; optional)
 
         `codemirror` is a dict with keys:
 
         - autofocus (boolean; optional):
-            是否自动`focus`  默认值：`True`.
+            是否自动`focus` 默认值：`True`.
 
     - writingStyle (a value equal to: 'normal', 'typewriter', 'focus'; optional):
-        书写风格，`'normal'`普通，`'typewriter'`打字机，`'focus'`专注  默认`'normal'`.
+        书写风格，`'normal'`普通，`'typewriter'`打字机，`'focus'`专注 默认`'normal'`.
 
     - keepDocumentScrollAfterInit (boolean; optional):
         在初始化后是否保持网页的滚动，`True`：保持滚动；`False`：网页自动滚动到编辑器初始化的位置
@@ -276,10 +276,10 @@ Keyword arguments:
     `toolbars` is a dict with keys:
 
     - theme (a value equal to: 'light', 'dark'; optional):
-        主题，可选的值为`'light'`、`'dark'`  默认值：`'light'`.
+        主题，可选的值为`'light'`、`'dark'` 默认值：`'light'`.
 
     - showToolbar (boolean; optional):
-        是否展示顶部工具栏  默认值：`True`.
+        是否展示顶部工具栏 默认值：`True`.
 
     - toolbar (list of dicts; optional):
         顶部工具栏配置.
@@ -328,7 +328,7 @@ Keyword arguments:
                 默认值：`True`.
 
             - templateConfig (boolean; optional):
-                `False`: 使用默认模板  默认值：`False`.
+                `False`: 使用默认模板 默认值：`False`.
 
 - drawioIframeUrl (string; optional):
     打开`draw.io`编辑页的`url`，如果为空则`drawio`按钮失效.
@@ -365,14 +365,14 @@ Keyword arguments:
         设置上传时附带的额外参数.
 
     - withCredentials (boolean; optional):
-        设置是否支持发送cookie凭证信息  默认值：`False`.
+        设置是否支持发送cookie凭证信息 默认值：`False`.
 
     - filename (string; optional):
         设置上传的文件字段名.
 
     - responseUrl (string; optional):
         设置上传接口响应中`url`的层级，如响应结果格式为`{data: {url:
-        'xxx'}}`，则配置为`'data.url'`  默认值：`'data.url'`.
+        'xxx'}}`，则配置为`'data.url'` 默认值：`'data.url'`.
 
 - fineControl (dict; optional):
     配置文件展示精细化控制，此功能只在配置了上传接口的情况下生效.
@@ -391,19 +391,19 @@ Keyword arguments:
             视频文件的名称.
 
         - isPoster (boolean; optional):
-            是否启用视频文件封面  默认值：`False`.
+            是否启用视频文件封面 默认值：`False`.
 
         - posterUrl (string; optional):
             自定义视频文件封面地址，如果不设置，则默认为视频文件地址.
 
         - isBorder (boolean; optional):
-            是否显示边框  默认值：`False`.
+            是否显示边框 默认值：`False`.
 
         - isShadow (boolean; optional):
-            是否显示阴影  默认`False`.
+            是否显示阴影 默认`False`.
 
         - isRadius (boolean; optional):
-            是否显示圆角  默认`False`.
+            是否显示圆角 默认`False`.
 
     - imageFineControlOptions (dict; optional):
         图片文件精细化控制选项.
@@ -414,19 +414,19 @@ Keyword arguments:
             图片文件的名称.
 
         - isBorder (boolean; optional):
-            是否显示边框  默认`False`.
+            是否显示边框 默认`False`.
 
         - isShadow (boolean; optional):
-            是否显示阴影  默认`False`.
+            是否显示阴影 默认`False`.
 
         - isRadius (boolean; optional):
-            是否显示圆角  默认`False`.
+            是否显示圆角 默认`False`.
 
         - width (string; optional):
-            图片的宽度，可配置百分比，也可配置像素值  默认`'100%'`.
+            图片的宽度，可配置百分比，也可配置像素值 默认`'100%'`.
 
         - height (string; optional):
-            图片的高度  默认`'auto'`.
+            图片的高度 默认`'auto'`.
 
 - previewer (dict; optional):
     预览区域配置.
@@ -438,11 +438,11 @@ Keyword arguments:
     - className (string; optional)
 
     - enablePreviewerBubble (boolean; optional):
-        是否启用预览区域编辑能力（目前支持编辑图片尺寸、编辑表格内容）  默认值：`True`.
+        是否启用预览区域编辑能力（目前支持编辑图片尺寸、编辑表格内容） 默认值：`True`.
 
     - lazyLoadImg (dict; optional):
         配置图片懒加载的逻辑：如果不希望图片懒加载，可配置成`lazyLoadImg = {noLoadImgNum:
-        -1}`<br/>  如果希望所有图片都无脑懒加载，可配置成`lazyLoadImg = {noLoadImgNum: 0,
+        -1}`<br/> 如果希望所有图片都无脑懒加载，可配置成`lazyLoadImg = {noLoadImgNum: 0,
         autoLoadImgNum: -1}`<br/>
         如果一共有15张图片，希望：1、前5张图片（1~5）直接加载；2、后5张图片（6~10）不论在不在视区内，都无脑懒加载；3、其他图片（11~15）在视区内时，进行懒加载；则配置应该为`lazyLoadImg
         = {noLoadImgNum: 5, autoLoadImgNum: 5}`.
@@ -475,19 +475,19 @@ Keyword arguments:
     - label (a value equal to: '默认', '暗黑', '明亮', '清新', '热情', '淡雅', '清幽'; optional)
 
 - isPreviewOnly (boolean; optional):
-    预览页面是否需要绑定事件  默认值：`False`.
+    预览页面是否需要绑定事件 默认值：`False`.
 
 - autoScrollByCursor (boolean; optional):
-    预览区域是否跟随编辑器光标自动滚动  默认值：`True`.
+    预览区域是否跟随编辑器光标自动滚动 默认值：`True`.
 
 - forceAppend (boolean; optional):
-    外层容器不存在时，是否强制输出到`body`上  默认值：`True`.
+    外层容器不存在时，是否强制输出到`body`上 默认值：`True`.
 
 - locale (a value equal to: 'zh_CN', 'en_US'; optional):
-    语言设置，可选的有`'zh_CN'`、`'en_US'`  默认值：`'zh_CN'`.
+    语言设置，可选的有`'zh_CN'`、`'en_US'` 默认值：`'zh_CN'`.
 
 - autoScrollByHashAfterInit (boolean; optional):
-    编辑器初始化后是否检查`location.hash`尝试滚动到对应位置  默认值：`False`.
+    编辑器初始化后是否检查`location.hash`尝试滚动到对应位置 默认值：`False`.
 
 - customSyntax (list of dicts; optional):
     自定义语法.
@@ -498,7 +498,7 @@ Keyword arguments:
         自定义语法名称.
 
     - force (boolean; optional):
-        是否用自定义的语法覆盖默认语法  默认值：`False`.
+        是否用自定义的语法覆盖默认语法 默认值：`False`.
 
     - before (string; optional):
         定义该自定义语法在什么语法之前执行.

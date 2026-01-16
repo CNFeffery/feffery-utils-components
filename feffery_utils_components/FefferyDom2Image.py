@@ -34,7 +34,7 @@ Keyword arguments:
     设置目标元素选择器，每次执行转换操作后都会重置为空值.
 
 - scale (number; default 1):
-    精度缩放比例  默认值：`1`.
+    精度缩放比例 默认值：`1`.
 
 - screenshotResult (dict; optional):
     监听最近一次元素转图片的结果数据.

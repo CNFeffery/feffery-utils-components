@@ -37,7 +37,7 @@ Keyword arguments:
     当前组件css类名.
 
 - draggable (boolean; default True):
-    是否开启可拖拽  默认值：`True`.
+    是否开启可拖拽 默认值：`True`.
 
 - initialX (number; required):
     必填，设置初始状态下当前可拖拽组件左上角距离页面顶端的像素距离.
@@ -46,12 +46,12 @@ Keyword arguments:
     必填，设置初始状态下当前可拖拽组件左上角距离页面左侧的像素距离.
 
 - showDragLine (boolean; default False):
-    设置是否在拖拽时显示相关辅助线  默认值：`False`.
+    设置是否在拖拽时显示相关辅助线 默认值：`False`.
 
 - dragLineColors (list of strings; default ['#d9d9d9', '#8c8c8c']):
-    设置拖拽辅助线颜色  默认值：`['#d9d9d9', '#8c8c8c']`.
+    设置拖拽辅助线颜色 默认值：`['#d9d9d9', '#8c8c8c']`.
 
-- focusWithinStyle (dict; default {    boxShadow: 'rgba(0, 0, 0, 0.08) 0px 6px 16px -8px, rgba(0, 0, 0, 0.05) 0px 9px 28px, rgba(0, 0, 0, 0.03) 0px 12px 48px 16px'}):
+- focusWithinStyle (dict; default {    boxShadow: 'rgba(0, 0, 0, 0.08) 0px 6px 16px -8px, rgba(0, 0, 0, 0.05) 0px 9px 28px, rgba(0, 0, 0, 0.03) 0px 12px 48px 16px'}):
     设置聚焦状态下的额外`css`样式.
 
 - boundsSelector (string; optional):

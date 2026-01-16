@@ -37,7 +37,7 @@ Keyword arguments:
     对应`sourceProp`的防抖控制状态.
 
 - debounceWait (number; default 200):
-    设置防抖延时时长，单位：毫秒  默认值：`200`."""
+    设置防抖延时时长，单位：毫秒 默认值：`200`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'

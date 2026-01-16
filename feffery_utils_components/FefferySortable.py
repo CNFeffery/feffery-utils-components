@@ -63,16 +63,16 @@ Keyword arguments:
         当前子元素处于拖拽中状态下的`css`类名.
 
 - direction (a value equal to: 'vertical', 'horizontal'; default 'vertical'):
-    排序列表方向，可选项有`'vertical'`、`'horizontal'`  默认值：`'vertical'`.
+    排序列表方向，可选项有`'vertical'`、`'horizontal'` 默认值：`'vertical'`.
 
 - itemDraggingScale (number; default 1):
-    设置子项处于拖拽中状态下的缩放比例  默认值：`1`.
+    设置子项处于拖拽中状态下的缩放比例 默认值：`1`.
 
 - handlePosition (a value equal to: 'start', 'end'; default 'end'):
-    设置拖拽手柄位置，可选项有`'start'`、`'end'`  默认值：`'end'`.
+    设置拖拽手柄位置，可选项有`'start'`、`'end'` 默认值：`'end'`.
 
 - handleType (a value equal to: 'holder', 'menu', 'drag'; default 'holder'):
-    设置内置的推拽手柄图标类型，可选项有`'holder'`、`'menu'`、`'drag'`  默认值：`'holder'`.
+    设置内置的推拽手柄图标类型，可选项有`'holder'`、`'menu'`、`'drag'` 默认值：`'holder'`.
 
 - maxTranslateX (number; optional):
     限制横向拖拽最大像素偏移距离.
@@ -87,10 +87,10 @@ Keyword arguments:
     设置或监听当前处于选中状态的子项`key`值.
 
 - multiple (boolean; default False):
-    是否允许多选  默认值：`False`.
+    是否允许多选 默认值：`False`.
 
 - allowNoValue (boolean; default True):
-    是否允许无选中项  默认值：`True`.
+    是否允许无选中项 默认值：`True`.
 
 - selectedStyle (dict; optional):
     针对已选中项设置额外的`css`样式."""

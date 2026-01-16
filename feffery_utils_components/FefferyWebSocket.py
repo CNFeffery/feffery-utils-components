@@ -34,10 +34,10 @@ Keyword arguments:
     设置要建立连接的WebSocket服务`url`.
 
 - reconnectLimit (number; optional):
-    设置连接重试次数  默认为`3`.
+    设置连接重试次数 默认为`3`.
 
 - reconnectInterval (number; optional):
-    设置连接重试间隔，单位：毫秒  默认为`3000`.
+    设置连接重试间隔，单位：毫秒 默认为`3000`.
 
 - operation (a value equal to: 'connect', 'disconnect', 'send'; optional):
     用于执行连接/断开连接/发送信息操作，可选项有`'connect'`、`'disconnect'`、`'send'`，每次新操作执行后，operation参数都会被重置为None.

@@ -37,37 +37,37 @@ Keyword arguments:
     当前组件css类名，支持[动态css](/advanced-classname).
 
 - mouseControls (boolean; default True):
-    设置是否开启鼠标控制  默认为`True`.
+    设置是否开启鼠标控制 默认为`True`.
 
 - touchControls (boolean; default True):
-    设置是否开启触摸控制  默认为`True`.
+    设置是否开启触摸控制 默认为`True`.
 
 - gyroControls (boolean; default False):
-    设置是否开启陀螺仪控制  默认为`False`.
+    设置是否开启陀螺仪控制 默认为`False`.
 
 - minHeight (number; default 200.00):
-    设置最小高度  默认为`200.00`.
+    设置最小高度 默认为`200.00`.
 
 - minWidth (number; default 200.00):
-    设置最小宽度  默认为`200.00`.
+    设置最小宽度 默认为`200.00`.
 
 - scale (number; default 1.00):
-    设置比例  默认为`1.00`.
+    设置比例 默认为`1.00`.
 
 - scaleMobile (number; default 1.00):
-    设置移动端比例  默认为`1.00`.
+    设置移动端比例 默认为`1.00`.
 
 - backgroundColor (string; default '#23153c'):
-    设置背景颜色  默认为`'#23153c'`.
+    设置背景颜色 默认为`'#23153c'`.
 
 - color (string; default '#ff3f81'):
-    设置globe颜色  默认为`'#ff3f81'`.
+    设置globe颜色 默认为`'#ff3f81'`.
 
 - color2 (string; default '#ffffff'):
-    设置globe颜色2  默认为`'#ffffff'`.
+    设置globe颜色2 默认为`'#ffffff'`.
 
 - size (number; default 1):
-    设置globe大小，范围`0.5`到`2`  默认为`1`."""
+    设置globe大小，范围`0.5`到`2` 默认为`1`."""
     _children_props: typing.List[str] = []
     _base_nodes = ['children']
     _namespace = 'feffery_utils_components'
