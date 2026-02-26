@@ -4,13 +4,10 @@ import typing  # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
 
+ComponentSingleType = typing.Union[str, int, float, Component, None]
 ComponentType = typing.Union[
-    str,
-    int,
-    float,
-    Component,
-    None,
-    typing.Sequence[typing.Union[str, int, float, Component, None]],
+    ComponentSingleType,
+    typing.Sequence[ComponentSingleType],
 ]
 
 NumberType = typing.Union[
@@ -83,6 +80,9 @@ Keyword arguments:
 - placement (a value equal to: 'top', 'bottom'; default 'top'):
     拼图图片显示方位，可选项有`'top'`、`'bottom'` 默认值：`'top'`.
 
+- block (boolean; default False):
+    开启后组件宽度将自适应父容器宽度，`imgWidth`参数将失效 默认值：`False`.
+
 - refresh (boolean; optional):
     手动刷新用，每次更新为`True`时会主动触发刷新，每次成功刷新后会重置为`False`.
 
@@ -137,13 +137,14 @@ Keyword arguments:
         autoRefreshOnError: typing.Optional[bool] = None,
         errorHoldDuration: typing.Optional[NumberType] = None,
         placement: typing.Optional[Literal["top", "bottom"]] = None,
+        block: typing.Optional[bool] = None,
         refresh: typing.Optional[bool] = None,
         verifyResult: typing.Optional["VerifyResult"] = None,
         **kwargs
     ):
-        self._prop_names = ['id', 'key', 'style', 'className', 'imgSrc', 'imgWidth', 'imgHeight', 'xOffset', 'mode', 'tipText', 'showRefreshIcon', 'autoRefreshOnError', 'errorHoldDuration', 'placement', 'refresh', 'verifyResult']
+        self._prop_names = ['id', 'key', 'style', 'className', 'imgSrc', 'imgWidth', 'imgHeight', 'xOffset', 'mode', 'tipText', 'showRefreshIcon', 'autoRefreshOnError', 'errorHoldDuration', 'placement', 'block', 'refresh', 'verifyResult']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'imgSrc', 'imgWidth', 'imgHeight', 'xOffset', 'mode', 'tipText', 'showRefreshIcon', 'autoRefreshOnError', 'errorHoldDuration', 'placement', 'refresh', 'verifyResult']
+        self.available_properties = ['id', 'key', 'style', 'className', 'imgSrc', 'imgWidth', 'imgHeight', 'xOffset', 'mode', 'tipText', 'showRefreshIcon', 'autoRefreshOnError', 'errorHoldDuration', 'placement', 'block', 'refresh', 'verifyResult']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -15,6 +15,7 @@ const FefferySliderCaptcha = ({
     autoRefreshOnError = true,
     errorHoldDuration = 500,
     placement = 'top',
+    block = false,
     ...others
 }) => {
     return (
@@ -29,6 +30,7 @@ const FefferySliderCaptcha = ({
                     autoRefreshOnError,
                     errorHoldDuration,
                     placement,
+                    block,
                     ...others
                 }
             } />
@@ -142,6 +144,12 @@ FefferySliderCaptcha.propTypes = {
      * 默认值：`'top'`
      */
     placement: PropTypes.oneOf(['top', 'bottom']),
+
+    /**
+     * 开启后组件宽度将自适应父容器宽度，`imgWidth`参数将失效
+     * 默认值：`false`
+     */
+    block: PropTypes.bool,
 
     /**
      * 手动刷新用，每次更新为`True`时会主动触发刷新，每次成功刷新后会重置为`False`
