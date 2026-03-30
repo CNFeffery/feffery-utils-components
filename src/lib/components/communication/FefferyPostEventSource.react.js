@@ -8,9 +8,11 @@ import { useFetchEventSource } from '@reactuses/core';
  * POST请求EventSource通信组件FefferyPostEventSource
  */
 const FefferyPostEventSource = ({
+    id,
     url,
     headers,
     body,
+    dataRedirectToWindow,
     withCredentials,
     immediate = true,
     autoReconnect = false,
@@ -39,6 +41,10 @@ const FefferyPostEventSource = ({
     }, [_status])
 
     useEffect(() => {
+        if (dataRedirectToWindow) {
+            (window[id] ||= []).push(_data);
+            return;
+        }
         setProps({ data: _data })
     }, [_data])
 
@@ -96,6 +102,11 @@ FefferyPostEventSource.propTypes = {
      * 设置请求体信息
      */
     body: PropTypes.string,
+
+    /**
+     * 是否把数据追加到windows.[id]的全局变量上
+     */
+    dataRedirectToWindow: PropTypes.bool,
 
     /**
      * 是否使用凭证
